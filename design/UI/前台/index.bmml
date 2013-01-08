@@ -36,10 +36,10 @@
     </control>
     <control controlID="13" controlTypeID="com.balsamiq.mockups::List" x="778" y="109" w="265" h="126" measuredW="100" measuredH="126" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
+        <rowHeight>16</rowHeight>
+        <selectedIndex>-1</selectedIndex>
         <text>*%20Stell%20is%20hot%0A*%20Stell%20is%20hot%0A*%20Stell%20is%20hot</text>
         <hasHeader>false</hasHeader>
-        <selectedIndex>-1</selectedIndex>
-        <rowHeight>16</rowHeight>
       </controlProperties>
     </control>
     <control controlID="14" controlTypeID="com.balsamiq.mockups::MenuBar" x="315" y="235" w="183" h="29" measuredW="132" measuredH="29" zOrder="8" locked="false" isInGroup="-1">

@@ -22,7 +22,7 @@
         <icon>LightBulbIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="7" controlTypeID="com.balsamiq.mockups::Webcam" x="321" y="90" w="-1" h="-1" measuredW="177" measuredH="145" zOrder="4" locked="false" isInGroup="-1"/>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Webcam" x="315" y="83" w="-1" h="-1" measuredW="177" measuredH="145" zOrder="4" locked="false" isInGroup="-1"/>
     <control controlID="10" controlTypeID="com.balsamiq.mockups::List" x="507" y="109" w="265" h="126" measuredW="100" measuredH="126" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <text>*%20Stell%20is%20hot%0A*%20Stell%20is%20hot%0A*%20Stell%20is%20hot</text>

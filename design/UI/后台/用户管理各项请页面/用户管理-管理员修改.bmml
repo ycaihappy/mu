@@ -1,6 +1,6 @@
-<mockup version="1.0" skin="sketch" fontFace="_sans" measuredW="1126" measuredH="461" mockupW="752" mockupH="420">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="894" measuredH="450" mockupW="516" mockupH="420">
   <controls>
-    <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="374" y="41" w="752" h="420" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="378" y="30" w="516" h="420" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="-1"/>
     <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="416" y="83" w="-1" h="-1" measuredW="58" measuredH="22" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u7528%u6237%u540D%uFF1A</text>

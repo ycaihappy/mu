@@ -1,0 +1,66 @@
+<mockup version="1.0" skin="sketch" measuredW="988" measuredH="373">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::LinkBar" x="860" y="6" w="-1" h="-1" measuredW="118" measuredH="22" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Login%2C%20Register</text>
+        <selectedIndex>0</selectedIndex>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::TextInput" x="714" y="116" w="116" h="-1" measuredW="79" measuredH="29" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="340" y="28" w="-1" h="-1" measuredW="158" measuredH="51" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Mu%20Logo</text>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::TextInput" x="714" y="160" w="116" h="-1" measuredW="79" measuredH="29" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Label" x="644" y="204" w="51" h="22" measuredW="44" measuredH="22" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u9A8C%u8BC1%u7801</text>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::TextInput" x="714" y="204" w="116" h="-1" measuredW="79" measuredH="29" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Button" x="695" y="268" w="-1" h="-1" measuredW="52" measuredH="28" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u767B%u5F55</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Webcam" x="340" y="94" w="298" h="213" measuredW="177" measuredH="145" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Label" x="644" y="119" w="-1" h="-1" measuredW="44" measuredH="22" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u7528%u6237%u540D</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::SearchBox" x="554" y="47" w="233" h="-1" measuredW="93" measuredH="25" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>search</text>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Label" x="644" y="163" w="51" h="22" measuredW="31" measuredH="22" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u5BC6%u7801</text>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Link" x="775" y="271" w="-1" h="-1" measuredW="70" measuredH="22" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u5FD8%u8BB0%u5BC6%u7801%uFF1F</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::Link" x="498" y="341" w="-1" h="-1" measuredW="174" measuredH="22" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%A9%201997-2013%20Ueelife%u7248%u6743%u6240%u6709</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

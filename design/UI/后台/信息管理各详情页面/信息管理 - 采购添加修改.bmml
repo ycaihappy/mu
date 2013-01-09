@@ -50,9 +50,9 @@
         <text>%u5173%u952E%u5B57%uFF1A</text>
       </controlProperties>
     </control>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::Tooltip" x="638" y="145" w="264" h="36" measuredW="201" measuredH="33" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Tooltip" x="626" y="236" w="264" h="36" measuredW="201" measuredH="33" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>%u4EE5%u82F1%u6587%u7684%u90FD%u597D%u5206%u5272%u7684%u5173%u952E%u5B57</text>
+        <text>%u4EE5%u82F1%u6587%u7684%u9017%u53F7%u5206%u5272%u7684%u5173%u952E%u5B57</text>
         <tooltipDirection>SW</tooltipDirection>
       </controlProperties>
     </control>

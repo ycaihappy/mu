@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" measuredW="836" measuredH="392">
+<mockup version="1.0" skin="sketch" measuredW="836" measuredH="401">
   <controls>
     <control controlID="32" controlTypeID="com.balsamiq.mockups::Label" x="443" y="111" w="44" h="22" measuredW="44" measuredH="22" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
@@ -87,7 +87,7 @@
         <text>%u6E56%u5317%u7701</text>
       </controlProperties>
     </control>
-    <control controlID="30" controlTypeID="com.balsamiq.mockups::Link" x="504" y="360" w="-1" h="-1" measuredW="174" measuredH="22" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::Link" x="504" y="369" w="-1" h="-1" measuredW="174" measuredH="22" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%A9%201997-2013%20Ueelife%u7248%u6743%u6240%u6709</text>
       </controlProperties>

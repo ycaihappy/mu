@@ -6,7 +6,7 @@
         <selectedIndex>0</selectedIndex>
       </controlProperties>
     </control>
-    <control controlID="1" controlTypeID="com.balsamiq.mockups::SearchBox" x="441" y="134" w="233" h="-1" measuredW="93" measuredH="25" zOrder="1" locked="false" isInGroup="-1">
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::SearchBox" x="454" y="131" w="233" h="-1" measuredW="93" measuredH="25" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
         <text>search</text>
       </controlProperties>
@@ -27,7 +27,7 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="45" controlTypeID="com.balsamiq.mockups::Canvas" x="315" y="69" w="428" h="50" measuredW="100" measuredH="70" zOrder="12" locked="false" isInGroup="-1"/>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Canvas" x="315" y="81" w="428" h="50" measuredW="100" measuredH="70" zOrder="12" locked="false" isInGroup="-1"/>
     <control controlID="14" controlTypeID="com.balsamiq.mockups::MenuBar" x="315" y="159" w="428" h="29" measuredW="132" measuredH="29" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u73B0%u8D27%u5217%u8868</text>

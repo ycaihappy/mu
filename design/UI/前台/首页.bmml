@@ -16,25 +16,31 @@
         <text>%u94BC%u5E02%u7F51</text>
       </controlProperties>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::MenuBar" x="507" y="97" w="265" h="29" measuredW="150" measuredH="29" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::MenuBar" x="507" y="111" w="265" h="29" measuredW="150" measuredH="29" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u65B0%u95FB%20</text>
         <icon>LightBulbIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="7" controlTypeID="com.balsamiq.mockups::Webcam" x="315" y="97" w="-1" h="-1" measuredW="177" measuredH="145" zOrder="4" locked="false" isInGroup="-1"/>
-    <control controlID="10" controlTypeID="com.balsamiq.mockups::List" x="507" y="123" w="265" h="126" measuredW="100" measuredH="126" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::StickyNote" x="1092" y="59" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u53C2%u7167163%u9996%u9875%u7684%u5E03%u5C40%0A%u4F46%u6839%u636E%u6211%u4EEC%u7684%u5185%u5BB9%u8FDB%u884C%u91CD%u65B0%u8BBE%u8BA1</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Webcam" x="315" y="111" w="-1" h="-1" measuredW="177" measuredH="145" zOrder="23" locked="false" isInGroup="-1"/>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::HRule" x="300" y="53" w="742" h="-1" measuredW="100" measuredH="5" zOrder="21" locked="false" isInGroup="-1"/>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::List" x="507" y="137" w="265" h="126" measuredW="100" measuredH="126" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <text>*%20Stell%20is%20hot%0A*%20Stell%20is%20hot%0A*%20Stell%20is%20hot</text>
       </controlProperties>
     </control>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::MenuBar" x="772" y="96" w="264" h="29" measuredW="160" measuredH="29" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::MenuBar" x="772" y="110" w="264" h="29" measuredW="160" measuredH="29" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u94BC%u670D%u52A1</text>
         <icon>CartIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="13" controlTypeID="com.balsamiq.mockups::List" x="772" y="123" w="265" h="126" measuredW="100" measuredH="126" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::List" x="772" y="137" w="265" h="126" measuredW="100" measuredH="126" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <selectedIndex>-1</selectedIndex>
         <rowHeight>16</rowHeight>
@@ -42,80 +48,74 @@
         <hasHeader>false</hasHeader>
       </controlProperties>
     </control>
-    <control controlID="14" controlTypeID="com.balsamiq.mockups::MenuBar" x="315" y="249" w="183" h="29" measuredW="132" measuredH="29" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::MenuBar" x="315" y="263" w="183" h="29" measuredW="132" measuredH="29" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u7279%u4EF7%u4FC3%u9500</text>
       </controlProperties>
     </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::MenuBar" x="507" y="248" w="264" h="29" measuredW="132" measuredH="29" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::MenuBar" x="507" y="262" w="264" h="29" measuredW="132" measuredH="29" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u73B0%u8D27%u4E2D%u5FC3</text>
       </controlProperties>
     </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::MenuBar" x="772" y="248" w="264" h="29" measuredW="132" measuredH="29" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::MenuBar" x="772" y="262" w="264" h="29" measuredW="132" measuredH="29" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u6210%u529F%u6848%u4F8B</text>
       </controlProperties>
     </control>
-    <control controlID="18" controlTypeID="com.balsamiq.mockups::List" x="507" y="270" w="265" h="97" measuredW="100" measuredH="126" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::List" x="507" y="284" w="265" h="97" measuredW="100" measuredH="126" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <text>*%20Stell%20is%20hot%0A*%20Stell%20is%20hot%0A*%20Stell%20is%20hot</text>
       </controlProperties>
     </control>
-    <control controlID="19" controlTypeID="com.balsamiq.mockups::List" x="772" y="270" w="265" h="96" measuredW="100" measuredH="126" zOrder="12" locked="false" isInGroup="-1">
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::List" x="772" y="284" w="265" h="96" measuredW="100" measuredH="126" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
         <text>*%20Stell%20is%20hot%0A*%20Stell%20is%20hot%0A*%20Stell%20is%20hot</text>
       </controlProperties>
     </control>
-    <control controlID="23" controlTypeID="com.balsamiq.mockups::List" x="315" y="278" w="183" h="89" measuredW="100" measuredH="126" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::List" x="315" y="292" w="183" h="89" measuredW="100" measuredH="126" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Item%20One%0AItem%20Two%0AItem%20Three</text>
       </controlProperties>
     </control>
-    <control controlID="24" controlTypeID="com.balsamiq.mockups::MenuBar" x="507" y="364" w="264" h="29" measuredW="132" measuredH="29" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::MenuBar" x="507" y="378" w="264" h="29" measuredW="132" measuredH="29" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u4EF7%u683C%u884C%u60C5</text>
       </controlProperties>
     </control>
-    <control controlID="25" controlTypeID="com.balsamiq.mockups::List" x="507" y="392" w="265" h="72" measuredW="100" measuredH="126" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::List" x="507" y="406" w="265" h="72" measuredW="100" measuredH="126" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <text>*%20Stell%20is%20hot%0A*%20Stell%20is%20hot%0A*%20Stell%20is%20hot</text>
       </controlProperties>
     </control>
-    <control controlID="26" controlTypeID="com.balsamiq.mockups::MenuBar" x="315" y="365" w="183" h="29" measuredW="132" measuredH="29" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::MenuBar" x="315" y="379" w="183" h="29" measuredW="132" measuredH="29" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u63A8%u8350%u4F01%u4E1A</text>
       </controlProperties>
     </control>
-    <control controlID="27" controlTypeID="com.balsamiq.mockups::List" x="315" y="390" w="183" h="77" measuredW="100" measuredH="126" zOrder="17" locked="false" isInGroup="-1">
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::List" x="315" y="404" w="183" h="77" measuredW="100" measuredH="126" zOrder="16" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Item%20One%0AItem%20Two%0AItem%20Three</text>
       </controlProperties>
     </control>
-    <control controlID="28" controlTypeID="com.balsamiq.mockups::MenuBar" x="772" y="367" w="264" h="29" measuredW="118" measuredH="29" zOrder="18" locked="false" isInGroup="-1">
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::MenuBar" x="772" y="381" w="264" h="29" measuredW="118" measuredH="29" zOrder="17" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u94BC%u77E5%u8BC6</text>
       </controlProperties>
     </control>
-    <control controlID="29" controlTypeID="com.balsamiq.mockups::List" x="772" y="393" w="265" h="72" measuredW="100" measuredH="126" zOrder="19" locked="false" isInGroup="-1">
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::List" x="772" y="407" w="265" h="72" measuredW="100" measuredH="126" zOrder="18" locked="false" isInGroup="-1">
       <controlProperties>
         <text>*%20Stell%20is%20hot%0A*%20Stell%20is%20hot%0A*%20Stell%20is%20hot</text>
       </controlProperties>
     </control>
-    <control controlID="30" controlTypeID="com.balsamiq.mockups::Link" x="530" y="491" w="-1" h="-1" measuredW="174" measuredH="22" zOrder="20" locked="false" isInGroup="-1">
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::Link" x="530" y="491" w="-1" h="-1" measuredW="174" measuredH="22" zOrder="19" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%A9%201997-2013%20Ueelife%u7248%u6743%u6240%u6709</text>
       </controlProperties>
     </control>
-    <control controlID="31" controlTypeID="com.balsamiq.mockups::TextInput" x="730" y="98" w="-1" h="-1" measuredW="42" measuredH="26" zOrder="21" locked="false" isInGroup="-1">
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::TextInput" x="730" y="112" w="-1" h="-1" measuredW="42" measuredH="26" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
         <text>more</text>
-      </controlProperties>
-    </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::HRule" x="300" y="53" w="742" h="-1" measuredW="100" measuredH="5" zOrder="22" locked="false" isInGroup="-1"/>
-    <control controlID="37" controlTypeID="com.balsamiq.mockups::StickyNote" x="1092" y="59" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="23" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>%u53C2%u7167163%u9996%u9875%u7684%u5E03%u5C40%0A%u4F46%u6839%u636E%u6211%u4EEC%u7684%u5185%u5BB9%u8FDB%u884C%u88C1%u526A</text>
       </controlProperties>
     </control>
   </controls>

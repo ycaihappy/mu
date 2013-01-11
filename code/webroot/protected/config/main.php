@@ -41,7 +41,7 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		'session'=>array(
-			'class'=>'CMongodbHttpSession',
+			//'class'=>'CMongodbHttpSession',
 		),
 		"solr" => array(
 	        "class" => "packages.solr.ASolrConnection",

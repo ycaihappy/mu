@@ -19,6 +19,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		//'packages.solr.*',
 	),
 
 	'modules'=>array(
@@ -38,18 +39,19 @@ return array(
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
+			'class'=>'WebUser',
 			'allowAutoLogin'=>true,
 		),
-		'session'=>array(
-			'class'=>'CMongodbHttpSession',
-		),
-		"solr" => array(
-	        "class" => "packages.solr.ASolrConnection",
-	        "clientOptions" => array(
-	            "hostname" => "localhost",
-	            "port" => 8983,
-	        ),
-     	),
+//		'session'=>array(
+//			'class'=>'CMongodbHttpSession',
+//		),
+//		"solr" => array(
+//	        "class" => "packages.solr.ASolrConnection",
+//	        "clientOptions" => array(
+//	            "hostname" => "localhost",
+//	            "port" => 8983,
+//	        ),
+//     	),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
@@ -68,7 +70,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=127.0.0.1;dbname=yii',
+			'connectionString' => 'mysql:host=127.0.0.1;dbname=mydb',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '123456',

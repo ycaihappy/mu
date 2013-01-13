@@ -1,3 +1,0 @@
-[31-Dec-2012 19:03:28] PHP Fatal error:  Call to undefined method ActiveMongo::regenerateID() in D:\yii\webroot\protected\vendors\MongodbSession.php on line 50
-[31-Dec-2012 19:11:59] PHP Fatal error:  Call to undefined method ActiveMongo::regenerateID() in D:\yii\webroot\protected\vendors\MongodbSession.php on line 51
-[31-Dec-2012 19:22:58] PHP Fatal error:  Call to undefined method ActiveMongo::regenerateID() in D:\yii\webroot\protected\vendors\MongodbSession.php on line 51

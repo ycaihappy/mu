@@ -276,6 +276,7 @@ class CWebApplication extends CApplication
 	{
 		if(($ca=$this->createController($route))!==null)
 		{
+			
 			list($controller,$actionID)=$ca;
 			$oldController=$this->_controller;
 			$this->_controller=$controller;

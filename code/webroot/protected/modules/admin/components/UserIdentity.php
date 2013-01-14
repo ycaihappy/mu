@@ -25,7 +25,6 @@ class UserIdentity extends CUserIdentity
 		$criteria->select='user_id,user_name';  // 只选择 'title' 列
 		$criteria->condition='user_name=:username';
 		$criteria->params=array(':username'=>$this->username);
-		        
         $user=User::model()->find($criteria);
 		 if ($user)
         {

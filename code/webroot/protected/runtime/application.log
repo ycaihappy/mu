@@ -484,3 +484,33 @@ Stack trace:
 REQUEST_URI=/index.php?r=admin/site/login
 HTTP_REFERER=http://127.0.0.1/index.php?r=admin/site/login
 ---
+2013/01/14 21:21:47 [error] [php] include(WebUser.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (D:\mu_project\code\framework\YiiBase.php:423)
+Stack trace:
+#0 D:\mu_project\code\framework\YiiBase.php(198): import()
+#1 D:\mu_project\code\framework\base\CModule.php(387): createComponent()
+#2 D:\mu_project\code\framework\base\CModule.php(104): CWebApplication->getComponent()
+#3 D:\mu_project\code\webroot\protected\views\layouts\main.php(35): CWebApplication->__get()
+#4 D:\mu_project\code\framework\web\CBaseController.php(127): require()
+#5 D:\mu_project\code\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 D:\mu_project\code\framework\web\widgets\CContentDecorator.php(77): SiteController->renderFile()
+#7 D:\mu_project\code\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate()
+#8 D:\mu_project\code\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput()
+#9 D:\mu_project\code\framework\web\CBaseController.php(207): CContentDecorator->run()
+#10 D:\mu_project\code\framework\web\CBaseController.php(301): SiteController->endWidget()
+#11 D:\mu_project\code\webroot\protected\views\layouts\column1.php(6): SiteController->endContent()
+#12 D:\mu_project\code\framework\web\CBaseController.php(127): require()
+#13 D:\mu_project\code\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#14 D:\mu_project\code\framework\web\CController.php(785): SiteController->renderFile()
+#15 D:\mu_project\code\webroot\protected\modules\admin\controllers\SiteController.php(98): SiteController->render()
+#16 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#17 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams()
+#18 D:\mu_project\code\framework\web\CController.php(287): SiteController->runAction()
+#19 D:\mu_project\code\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#20 D:\mu_project\code\framework\web\CWebApplication.php(284): SiteController->run()
+#21 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#22 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/site/login
+in D:\mu_project\code\webroot\protected\views\layouts\main.php (35)
+in D:\mu_project\code\webroot\protected\views\layouts\column1.php (6)
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\SiteController.php (98)

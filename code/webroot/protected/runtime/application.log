@@ -514,3 +514,22 @@ REQUEST_URI=/index.php?r=admin/site/login
 in D:\mu_project\code\webroot\protected\views\layouts\main.php (35)
 in D:\mu_project\code\webroot\protected\views\layouts\column1.php (6)
 in D:\mu_project\code\webroot\protected\modules\admin\controllers\SiteController.php (98)
+2013/01/14 21:31:07 [error] [exception.CException] exception 'CException' with message 'Property "UserIdentity.user_id" is not defined.' in D:\mu_project\code\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\mu_project\code\webroot\protected\modules\admin\components\UserIdentity.php(62): CComponent->__get('user_id')
+#1 D:\mu_project\code\framework\web\auth\CWebUser.php(224): UserIdentity->getId()
+#2 D:\mu_project\code\webroot\protected\modules\admin\components\AdminWebUser.php(19): CWebUser->login(Object(UserIdentity), 0)
+#3 D:\mu_project\code\webroot\protected\modules\admin\models\LoginForm.php(71): AdminWebUser->login(Object(UserIdentity), 0)
+#4 D:\mu_project\code\webroot\protected\modules\admin\controllers\SiteController.php(94): LoginForm->login()
+#5 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#6 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\mu_project\code\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('login')
+#10 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/logi...')
+#11 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/index.php?r=admin/site/login
+HTTP_REFERER=http://127.0.0.1/index.php?r=admin/site/login
+---

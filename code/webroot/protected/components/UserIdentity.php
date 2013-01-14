@@ -59,7 +59,7 @@ class UserIdentity extends CUserIdentity
 
     public function getId()
         {
-                return $this->user_id;
+                return $this->_id;
         }
 
     public function getUserName()

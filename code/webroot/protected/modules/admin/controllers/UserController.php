@@ -1,6 +1,6 @@
 <?php
 
-class UserController extends Controller
+class UserController extends SBaseController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -27,21 +27,6 @@ class UserController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
 		);
 	}
 
@@ -71,7 +56,7 @@ class UserController extends Controller
 		{
 			$model->attributes=$_POST['User'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -95,7 +80,7 @@ class UserController extends Controller
 		{
 			$model->attributes=$_POST['User'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(
@@ -114,7 +99,7 @@ class UserController extends Controller
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -136,7 +121,7 @@ class UserController extends Controller
 		$model=new User('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['User']))
-			$model->attributes=$_GET['User'];
+		$model->attributes=$_GET['User'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -152,7 +137,7 @@ class UserController extends Controller
 	{
 		$model=User::model()->findByPk($id);
 		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
+		throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
 
@@ -168,4 +153,217 @@ class UserController extends Controller
 			Yii::app()->end();
 		}
 	}
+	public function actionViewRoles()
+	{
+		$result=$this->_getRightItemByType(2);
+
+	}
+	private function _getRightItemByType($type=0)
+	{
+		if (!Yii::app()->request->isAjaxRequest) {
+			Yii::app()->user->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
+		}
+		$criteria = new CDbCriteria;
+		$criteria->condition = 'type=2';
+		$pages = new CPagination(AuthItem::model()->count($criteria));
+		$pages->route = "viewRoles";
+		$pages->pageSize = 20;
+		$pages->applyLimit($criteria);
+		$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
+		$sort = new CSort('AuthItem');
+		$sort->applyOrder($criteria);
+		$models = AuthItem::model()->findAll($criteria);
+		return array('modles'=>$models,'sort'=>$sort,'pages'=>$pages);
+	}
+	public function actionViewTasks()
+	{
+		$result=$this->_getRightItemByType(1);
+	}
+	public function actionViewOperas()
+	{
+		$result=$this->_getRightItemByType(0);
+	}
+	public function actionAuto()
+	{
+		$controllers=$this->_getControllers();
+		if($controllers && is_array($controllers))
+		{
+			$opers=array();
+			foreach ($controllers as $controller)
+			{
+				$controllerInfo=$this->_getControllerInfo($controller);
+				$opers[$controller]=$controllerInfo[0];
+			}
+		}
+	}
+	/**
+	 * Geting all the application's and  modules controllers
+	 * @return array The application's and modules controllers
+	 */
+	private function _getControllers() {
+		$contPath = Yii::app()->getControllerPath();
+		$controllers = $this->_scanDir($contPath);
+		//Scan modules
+		$modules = Yii::app()->getModules();
+		$modControllers = array();
+		foreach ($modules as $mod_id => $mod) {
+			$moduleControllersPath = Yii::app()->getModule($mod_id)->controllerPath;
+			$modControllers = $this->_scanDir($moduleControllersPath, $mod_id, "", $modControllers);
+		}
+		return array_merge($controllers, $modControllers);
+	}
+
+	private function _scanDir($contPath, $module="", $subdir="", $controllers = array()) {
+		$handle = opendir($contPath);
+		$del = Helper::findModule('srbac')->delimeter;
+		while (($file = readdir($handle)) !== false) {
+			$filePath = $contPath . DIRECTORY_SEPARATOR . $file;
+			if (is_file($filePath)) {
+				if (preg_match("/^(.+)Controller.php$/", basename($file))) {
+					if ($this->_extendsSBaseController($filePath)) {
+						$controllers[] = (($module) ? $module . $del : "") .
+						(($subdir) ? $subdir . "." : "") .
+						str_replace(".php", "", $file);
+					}
+				}
+			} else if (is_dir($filePath) && $file != "." && $file != "..") {
+				$controllers = $this->_scanDir($filePath, $module, $file, $controllers);
+			}
+		}
+		return $controllers;
+	}
+	private function _extendsSBaseController($controller) {
+		$c = basename(str_replace(".php", "", $controller));
+		if (!class_exists($c, false)) {
+			include_once $controller;
+		} else {
+
+		}
+		$cont = new $c($c);
+
+		if ($cont instanceof SBaseController) {
+			return true;
+		}
+		return false;
+	}
+  /**
+   * Scans applications controllers and find the actions for autocreating of
+   * authItems
+   */
+  public function actionScan() {
+  	
+    if (Yii::app()->request->getParam('module') != '') {
+      $controller = Yii::app()->request->getParam('module') .
+        Helper::findModule('admin')->delimeter
+        . Yii::app()->request->getParam('controller');
+    } else {
+      $controller = Yii::app()->request->getParam('controller');
+    }
+    
+    $controllerInfo = $this->_getControllerInfo($controller);
+  }
+/**
+   * Getting a controllers actions and also th actions that are always allowed
+   * return array
+   * */
+  private function _getControllerInfo($controller, $getAll = false) {
+    $del = Helper::findModule('srbac')->delimeter;
+    $actions = array();
+    $allowed = array();
+    $auth = Yii::app()->authManager;
+
+    //Check if it's a module controller
+    if (substr_count($controller,$del )) {
+      $c = explode($del, $controller);
+      $controller = $c[1];
+      $module = $c[0] .$del;
+      $contPath = Yii::app()->getModule($c[0])->getControllerPath();
+      $control = $contPath . DIRECTORY_SEPARATOR . str_replace(".", DIRECTORY_SEPARATOR, $controller) . ".php";
+    } else {
+      $module = "";
+      $contPath = Yii::app()->getControllerPath();
+      $control = $contPath . DIRECTORY_SEPARATOR . str_replace(".", DIRECTORY_SEPARATOR, $controller) . ".php";
+    }
+
+    $task = $module . str_replace("Controller", "", $controller);
+
+    $taskViewingExists = $auth->getAuthItem($task . "Viewing") !== null ? true : false;
+    $taskAdministratingExists = $auth->getAuthItem($task . "Administrating") !== null ? true : false;
+    $delete = Yii::app()->request->getParam('delete');
+
+    $h = file($control);
+    for ($i = 0; $i < count($h); $i++) {
+      $line = trim($h[$i]);
+      if (preg_match("/^(.+)function( +)action*/", $line)) {
+        $posAct = strpos(trim($line), "action");
+        $posPar = strpos(trim($line), "(");
+        $action = trim(substr(trim($line),$posAct, $posPar-$posAct));
+        $patterns[0] = '/\s*/m';
+        $patterns[1] = '#\((.*)\)#';
+        $patterns[2] = '/\{/m';
+        $replacements[2] = '';
+        $replacements[1] = '';
+        $replacements[0] = '';
+        $action = preg_replace($patterns, $replacements, trim($action));
+        $itemId = $module . str_replace("Controller", "", $controller) .
+        preg_replace("/action/", "", $action,1);
+        if ($action != "actions") {
+          if ($getAll) {
+            $actions[$module . $action] = $itemId;
+            if (in_array($itemId, $this->allowedAccess())) {
+              $allowed[] = $itemId;
+            }
+          } else {
+            if (in_array($itemId, $this->allowedAccess())) {
+              $allowed[] = $itemId;
+            } else {
+              if ($auth->getAuthItem($itemId) === null && !$delete) {
+                if (!in_array($itemId, $this->allowedAccess())) {
+                  $actions[$module . $action] = $itemId;
+                }
+              } else if ($auth->getAuthItem($itemId) !== null && $delete) {
+                if (!in_array($itemId, $this->allowedAccess())) {
+                  $actions[$module . $action] = $itemId;
+                }
+              }
+            }
+          }
+        } else {
+          //load controller
+          if (!class_exists($controller, false)) {
+            require($control);
+          }
+          $tmp = array();
+          $controller_obj = new $controller($controller, $module);
+          //Get actions
+          $controller_actions = $controller_obj->actions();
+          foreach ($controller_actions as $cAction => $value) {
+            $itemId = $module . str_replace("Controller", "", $controller) . ucfirst($cAction);
+            if ($getAll) {
+              $actions[$cAction] = $itemId;
+              if (in_array($itemId, $this->allowedAccess())) {
+
+                $allowed[] = $itemId;
+              }
+            } else {
+              if (in_array($itemId, $this->allowedAccess())) {
+                $allowed[] = $itemId;
+              } else {
+                if ($auth->getAuthItem($itemId) === null && !$delete) {
+                  if (!in_array($itemId, $this->allowedAccess())) {
+                    $actions[$cAction] = $itemId;
+                  }
+                } else if ($auth->getAuthItem($itemId) !== null && $delete) {
+                  if (!in_array($itemId, $this->allowedAccess())) {
+                    $actions[$cAction] = $itemId;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return array($actions, $allowed, $delete, $task, $taskViewingExists, $taskAdministratingExists);
+  }
 }

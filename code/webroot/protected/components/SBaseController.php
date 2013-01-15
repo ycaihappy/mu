@@ -19,7 +19,6 @@
  * @package srbac.controllers
  * @since 1.0.2
  */
-Yii::import("srbac.components.Helper");
 
 class SBaseController extends CController {
 

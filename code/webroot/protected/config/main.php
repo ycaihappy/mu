@@ -32,6 +32,28 @@ return array(
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
 		'admin',
+		'srbac' => array(
+		        'userclass'=>'User',
+		        'userid'=>'user_id',
+		        'username'=>'user_name',
+		        'debug'=>true,
+		        'pageSize'=>10,
+		        'superUser' =>'Authority',
+		        'css'=>'srbac.css',
+		        'layout'=>'application.views.layouts.main',
+		        'notAuthorizedView'=>'srbac.views.authitem.unauthorized',
+		        'alwaysAllowed'=>array('SiteLogin','SiteLogout','SiteIndex','SiteAdmin','SiteError', 'SiteContact'),
+		        'userActions'=>array('Show','View','List'),
+		        'listBoxNumberOfLines' => 15,
+		        'imagesPath' => 'srbac.images',
+		        'imagesPack'=>'noia',
+		        'iconText'=>true,
+		        'header'=>'srbac.views.authitem.header',
+		        'footer'=>'srbac.views.authitem.footer',
+		        'showHeader'=>true,
+		        'showFooter'=>true,
+		        'alwaysAllowedPath'=>'srbac.components',
+		    ),
 		
 	),
 
@@ -68,7 +90,13 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),*/
 		// uncomment the following to use a MySQL database
-		
+		 'authManager'=>array(
+		        'class'=>'CDbAuthManager',
+		        'connectionID'=>'db',
+		        'itemTable'=>'mu_right_item',
+		        'assignmentTable'=>'mu_right_assignment',
+		        'itemChildTable'=>'mu_right_itemchildren',
+		    ),
 		'db'=>array(
 			'connectionString' => 'mysql:host=127.0.0.1;dbname=mydb',
 			'emulatePrepare' => true,

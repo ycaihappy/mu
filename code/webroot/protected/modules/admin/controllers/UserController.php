@@ -161,7 +161,7 @@ class UserController extends SBaseController
 	private function _getRightItemByType($type=0)
 	{
 		if (!Yii::app()->request->isAjaxRequest) {
-			Yii::app()->user->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
+			Yii::app()->admin->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
 		}
 		$criteria = new CDbCriteria;
 		$criteria->condition = 'type=2';
@@ -183,7 +183,7 @@ class UserController extends SBaseController
 	{
 		$result=$this->_getRightItemByType(0);
 	}
-	public function actionAuto()
+	public function actionAutoAll()
 	{
 		$controllers=$this->_getControllers();
 		if($controllers && is_array($controllers))
@@ -195,6 +195,96 @@ class UserController extends SBaseController
 				$opers[$controller]=$controllerInfo[0];
 			}
 		}
+	}
+	public function actionAutoNew()
+	{
+		if(Yii::app()->request->isPostRequest)
+		{
+			$selectedAddActions=Yii::app()->request->getParam('addAction',false);
+			if($selectedAddActions)
+			{
+				foreach ($selectedAddActions as $addAction)
+				{
+					$model=new AuthItem();
+					$model->type=0;
+					$model->name=$addAction;
+					if($model->save())
+					{
+						
+					}
+					else {
+						
+					}
+				}
+			}
+		}
+		else {
+			$newRightActions=$this->_getNewRightActions();
+		}
+	}
+	public function actionAutoAddNew()
+	{
+		$controll2Action=$this->_getNewRightActions();
+		if($controll2Action && is_array($controll2Action))
+		{
+			$mergeActions=array();
+			foreach ($controll2Action as $actions)
+			{
+				$mergeActions+=$actions;
+			}
+			foreach ($mergeActions as $action)
+			{
+				$model=new AuthItem();
+				$model->type=0;
+				$model->name=$action;
+				if($model->save())
+				{
+					echo 'success|'.$action.'<br>';
+				}
+				else {
+					echo 'failed|'.$action.'<br>';
+				}
+			}
+		}
+	}
+	private function _getAllRightActions()
+	{
+		$opers=array();
+		$controllers=$this->_getControllers();
+		if($controllers && is_array($controllers))
+		{
+			foreach ($controllers as $controller)
+			{
+				$controllerInfo=$this->_getControllerInfo($controller);
+				$opers[$controller]=$controllerInfo[0];
+			}
+		}
+		return $opers;
+	}
+	private function _getNewRightActions()
+	{
+		$allOpers=$this->_getAllRightActions();
+		$criteria=new CDbCriteria;
+		$criteria->select='name';  // 只选择 'title' 列
+		$criteria->condition='type=:type';
+		$criteria->params=array(':type'=>0);
+		$addedOpers=AuthItem::model()->findAll($criteria);
+		if($addedOpers && is_array($addedOpers))
+		{
+			foreach ($addedOpers as $dbOper){
+				$tempAddedOpers[]=$dbOper['name'];
+			}
+			$addedOpers=$tempAddedOpers;
+			unset($tempAddedOpers);
+		}
+		if($allOpers && is_array($allOpers))
+		{
+			foreach ($allOpers as &$oper)
+			{
+				$oper=array_diff((array)$oper,(array)$addedOpers);
+			}
+		}
+		return $allOpers;
 	}
 	/**
 	 * Geting all the application's and  modules controllers
@@ -246,124 +336,121 @@ class UserController extends SBaseController
 		}
 		return false;
 	}
-  /**
-   * Scans applications controllers and find the actions for autocreating of
-   * authItems
-   */
-  public function actionScan() {
-  	
-    if (Yii::app()->request->getParam('module') != '') {
-      $controller = Yii::app()->request->getParam('module') .
-        Helper::findModule('admin')->delimeter
-        . Yii::app()->request->getParam('controller');
-    } else {
-      $controller = Yii::app()->request->getParam('controller');
-    }
-    
-    $controllerInfo = $this->_getControllerInfo($controller);
-  }
-/**
-   * Getting a controllers actions and also th actions that are always allowed
-   * return array
-   * */
-  private function _getControllerInfo($controller, $getAll = false) {
-    $del = Helper::findModule('srbac')->delimeter;
-    $actions = array();
-    $allowed = array();
-    $auth = Yii::app()->authManager;
+	/**
+	 * Scans applications controllers and find the actions for autocreating of
+	 * authItems
+	 */
+	public function actionScan() {
+		 
+		if (Yii::app()->request->getParam('module') != '') {
+			$controller = Yii::app()->request->getParam('module') .
+			Helper::findModule('admin')->delimeter
+			. Yii::app()->request->getParam('controller');
+		} else {
+			$controller = Yii::app()->request->getParam('controller');
+		}
 
-    //Check if it's a module controller
-    if (substr_count($controller,$del )) {
-      $c = explode($del, $controller);
-      $controller = $c[1];
-      $module = $c[0] .$del;
-      $contPath = Yii::app()->getModule($c[0])->getControllerPath();
-      $control = $contPath . DIRECTORY_SEPARATOR . str_replace(".", DIRECTORY_SEPARATOR, $controller) . ".php";
-    } else {
-      $module = "";
-      $contPath = Yii::app()->getControllerPath();
-      $control = $contPath . DIRECTORY_SEPARATOR . str_replace(".", DIRECTORY_SEPARATOR, $controller) . ".php";
-    }
+		$controllerInfo = $this->_getControllerInfo($controller);
+	}
+	/**
+	 * Getting a controllers actions and also th actions that are always allowed
+	 * return array
+	 * */
+	private function _getControllerInfo($controller, $getAll = false) {
+		$del = Helper::findModule('srbac')->delimeter;
+		$actions = array();
+		$allowed = array();
+		$auth = Yii::app()->authManager;
 
-    $task = $module . str_replace("Controller", "", $controller);
+		//Check if it's a module controller
+		if (substr_count($controller,$del )) {
+			$c = explode($del, $controller);
+			$controller = $c[1];
+			$module = $c[0] .$del;
+			$contPath = Yii::app()->getModule($c[0])->getControllerPath();
+			$control = $contPath . DIRECTORY_SEPARATOR . str_replace(".", DIRECTORY_SEPARATOR, $controller) . ".php";
+		} else {
+			$module = "";
+			$contPath = Yii::app()->getControllerPath();
+			$control = $contPath . DIRECTORY_SEPARATOR . str_replace(".", DIRECTORY_SEPARATOR, $controller) . ".php";
+		}
 
-    $taskViewingExists = $auth->getAuthItem($task . "Viewing") !== null ? true : false;
-    $taskAdministratingExists = $auth->getAuthItem($task . "Administrating") !== null ? true : false;
-    $delete = Yii::app()->request->getParam('delete');
+		$task = $module . str_replace("Controller", "", $controller);
+		$delete = Yii::app()->request->getParam('delete');
 
-    $h = file($control);
-    for ($i = 0; $i < count($h); $i++) {
-      $line = trim($h[$i]);
-      if (preg_match("/^(.+)function( +)action*/", $line)) {
-        $posAct = strpos(trim($line), "action");
-        $posPar = strpos(trim($line), "(");
-        $action = trim(substr(trim($line),$posAct, $posPar-$posAct));
-        $patterns[0] = '/\s*/m';
-        $patterns[1] = '#\((.*)\)#';
-        $patterns[2] = '/\{/m';
-        $replacements[2] = '';
-        $replacements[1] = '';
-        $replacements[0] = '';
-        $action = preg_replace($patterns, $replacements, trim($action));
-        $itemId = $module . str_replace("Controller", "", $controller) .
-        preg_replace("/action/", "", $action,1);
-        if ($action != "actions") {
-          if ($getAll) {
-            $actions[$module . $action] = $itemId;
-            if (in_array($itemId, $this->allowedAccess())) {
-              $allowed[] = $itemId;
-            }
-          } else {
-            if (in_array($itemId, $this->allowedAccess())) {
-              $allowed[] = $itemId;
-            } else {
-              if ($auth->getAuthItem($itemId) === null && !$delete) {
-                if (!in_array($itemId, $this->allowedAccess())) {
-                  $actions[$module . $action] = $itemId;
-                }
-              } else if ($auth->getAuthItem($itemId) !== null && $delete) {
-                if (!in_array($itemId, $this->allowedAccess())) {
-                  $actions[$module . $action] = $itemId;
-                }
-              }
-            }
-          }
-        } else {
-          //load controller
-          if (!class_exists($controller, false)) {
-            require($control);
-          }
-          $tmp = array();
-          $controller_obj = new $controller($controller, $module);
-          //Get actions
-          $controller_actions = $controller_obj->actions();
-          foreach ($controller_actions as $cAction => $value) {
-            $itemId = $module . str_replace("Controller", "", $controller) . ucfirst($cAction);
-            if ($getAll) {
-              $actions[$cAction] = $itemId;
-              if (in_array($itemId, $this->allowedAccess())) {
+		$h = file($control);
+		for ($i = 0; $i < count($h); $i++) {
+			$line = trim($h[$i]);
+			if (preg_match("/^(.+)function( +)action*/", $line)) {
+				$posAct = strpos(trim($line), "action");
+				$posPar = strpos(trim($line), "(");
+				$action = trim(substr(trim($line),$posAct, $posPar-$posAct));
+				$patterns[0] = '/\s*/m';
+				$patterns[1] = '#\((.*)\)#';
+				$patterns[2] = '/\{/m';
+				$replacements[2] = '';
+				$replacements[1] = '';
+				$replacements[0] = '';
+				$action = preg_replace($patterns, $replacements, trim($action));
+				$itemId = $module . str_replace("Controller", "", $controller) .
+				preg_replace("/action/", "", $action,1);
+				if ($action != "actions") {
+					if ($getAll) {
+						$actions[$module . $action] = $itemId;
+						if (in_array($itemId, $this->allowedAccess())) {
+							$allowed[] = $itemId;
+						}
+					} else {
+						if (in_array($itemId, $this->allowedAccess())) {
+							$allowed[] = $itemId;
+						} else {
+							if ($auth->getAuthItem($itemId) === null && !$delete) {
+								if (!in_array($itemId, $this->allowedAccess())) {
+									$actions[$module . $action] = $itemId;
+								}
+							} else if ($auth->getAuthItem($itemId) !== null && $delete) {
+								if (!in_array($itemId, $this->allowedAccess())) {
+									$actions[$module . $action] = $itemId;
+								}
+							}
+						}
+					}
+				} else {
+					//load controller
+					if (!class_exists($controller, false)) {
+						require($control);
+					}
+					$tmp = array();
+					$controller_obj = new $controller($controller, $module);
+					//Get actions
+					$controller_actions = $controller_obj->actions();
+					foreach ($controller_actions as $cAction => $value) {
+						$itemId = $module . str_replace("Controller", "", $controller) . ucfirst($cAction);
+						if ($getAll) {
+							$actions[$cAction] = $itemId;
+							if (in_array($itemId, $this->allowedAccess())) {
 
-                $allowed[] = $itemId;
-              }
-            } else {
-              if (in_array($itemId, $this->allowedAccess())) {
-                $allowed[] = $itemId;
-              } else {
-                if ($auth->getAuthItem($itemId) === null && !$delete) {
-                  if (!in_array($itemId, $this->allowedAccess())) {
-                    $actions[$cAction] = $itemId;
-                  }
-                } else if ($auth->getAuthItem($itemId) !== null && $delete) {
-                  if (!in_array($itemId, $this->allowedAccess())) {
-                    $actions[$cAction] = $itemId;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    return array($actions, $allowed, $delete, $task, $taskViewingExists, $taskAdministratingExists);
-  }
+								$allowed[] = $itemId;
+							}
+						} else {
+							if (in_array($itemId, $this->allowedAccess())) {
+								$allowed[] = $itemId;
+							} else {
+								if ($auth->getAuthItem($itemId) === null && !$delete) {
+									if (!in_array($itemId, $this->allowedAccess())) {
+										$actions[$cAction] = $itemId;
+									}
+								} else if ($auth->getAuthItem($itemId) !== null && $delete) {
+									if (!in_array($itemId, $this->allowedAccess())) {
+										$actions[$cAction] = $itemId;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return array($actions, $allowed, $delete, $task);
+	}
 }

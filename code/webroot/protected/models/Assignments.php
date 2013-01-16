@@ -49,9 +49,9 @@ class Assignments extends CActiveRecord {
   public function rules() {
     return array(
     array('itemname','length','max'=>64),
-    array('user_id','length','max'=>64),
-    array('itemname, user_id', 'required'),
-    array('user_id,itemname,bizrule,data','safe'),
+    array('userid','length','max'=>64),
+    array('itemname, userid', 'required'),
+    array('userid,itemname,bizrule,data','safe'),
     );
   }
 

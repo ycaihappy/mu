@@ -210,10 +210,10 @@ class UserController extends SBaseController
 					$model->name=$addAction;
 					if($model->save())
 					{
-						
+
 					}
 					else {
-						
+
 					}
 				}
 			}
@@ -247,6 +247,7 @@ class UserController extends SBaseController
 			}
 		}
 	}
+
 	private function _getAllRightActions()
 	{
 		$opers=array();
@@ -341,7 +342,7 @@ class UserController extends SBaseController
 	 * authItems
 	 */
 	public function actionScan() {
-		 
+			
 		if (Yii::app()->request->getParam('module') != '') {
 			$controller = Yii::app()->request->getParam('module') .
 			Helper::findModule('admin')->delimeter
@@ -453,4 +454,213 @@ class UserController extends SBaseController
 		}
 		return array($actions, $allowed, $delete, $task);
 	}
+	/**
+	 * Used by Ajax to get the tasks of a role when it is selected in the Assign
+	 * tasks to roles tab
+	 */
+	public function actionGetTasks() {
+		$this->_setMessage("");
+		$tasks=$this->_getTheTasks();
+	}
+
+	/**
+	 * Gets the assigned and not assigned tasks of the selected user
+	 */
+	private function _getTheTasks() {
+		$model = new AuthItem();
+		$name = isset($_POST["AuthItem"]["name"][0]) ? $_POST["AuthItem"]["name"][0] : "";
+		$data['roleAssignedTasks'] = Helper::getRoleAssignedTasks($name);
+		$data['roleNotAssignedTasks'] = Helper::getRoleNotAssignedTasks($name);
+		if ($data['roleAssignedTasks'] == array()) {
+			$data['revoke'] = array("name" => "revokeTask", "disabled" => true);
+		} else {
+			$data['revoke'] = array("name" => "revokeTask");
+		}
+		if ($data['roleNotAssignedTasks'] == array()) {
+			$data['assign'] = array("name" => "assignTasks", "disabled" => true);
+		} else {
+			$data['assign'] = array("name" => "assignTasks");
+		}
+		return $data;
+	}
+	public function actionGetOpers()
+	{
+		$opers=$this->_getTheOpers();
+	}
+	/**
+	 * Gets the assigned and not assigned operations of the selected user
+	 */
+	private function _getTheOpers() {
+		$model = new AuthItem();
+		$data['taskAssignedOpers'] = array();
+		$data['taskNotAssignedOpers'] = array();
+		$name = isset($_POST["Assignments"]["itemname"]) ?
+		$_POST["Assignments"]["itemname"] :
+		Yii::app()->getGlobalState("cleverName");
+		if (Yii::app()->getGlobalState("cleverAssigning") && $name) {
+			$data['taskAssignedOpers'] = Helper::getTaskAssignedOpers($name, true);
+			$data['taskNotAssignedOpers'] = Helper::getTaskNotAssignedOpers($name, true);
+		} else if ($name) {
+			$data['taskAssignedOpers'] = Helper::getTaskAssignedOpers($name, false);
+			$data['taskNotAssignedOpers'] = Helper::getTaskNotAssignedOpers($name, false);
+		}
+		if ($data['taskAssignedOpers'] == array()) {
+			$data['revoke'] = array("name" => "revokeOpers", "disabled" => true);
+		} else {
+			$data['revoke'] = array("name" => "revokeOpers");
+		}
+		if ($data['taskNotAssignedOpers'] == array()) {
+			$data['assign'] = array("name" => "assignOpers", "disabled" => true);
+		} else {
+			$data['assign'] = array("name" => "assignOpers");
+		}
+		return $data;
+	}
+	/**
+	 * Used by Ajax to get the roles of a user when he is selected in the Assign
+	 * roles to user tab
+	 */
+	public function actionGetRoles() {
+		$this->_setMessage("");
+		$roles=$this->_getTheRoles();
+	}
+
+	/**
+	 * Gets the assigned and not assigned roles of the selected user
+	 */
+	private function _getTheRoles() {
+		$model = new AuthItem();
+		$userid = $_POST[Helper::findModule('srbac')->userclass][$this->module->userid];
+		$data['userAssignedRoles'] = Helper::getUserAssignedRoles($userid);
+		$data['userNotAssignedRoles'] = Helper::getUserNotAssignedRoles($userid);
+		if ($data['userAssignedRoles'] == array()) {
+			$data['revoke'] = array("name" => "revokeUser", "disabled" => true);
+		} else {
+			$data['revoke'] = array("name" => "revokeUser");
+		}
+		if ($data['userNotAssignedRoles'] == array()) {
+			$data['assign'] = array("name" => "assignUser", "disabled" => true);
+		} else {
+			$data['assign'] = array("name" => "assignUser");
+		}
+		return $data;
+	}
+	/**
+	 * Creates a role .
+	 * If creation is successful, the browser will be redirected to the 'show' page.
+	 */
+	public function actionCreateRole() {
+		$this->_createAuthItem(2);
+	}
+	/**
+	 * Creates a task .
+	 * If creation is successful, the browser will be redirected to the 'show' page.
+	 */
+	public function actionCreateTask() {
+		$this->_createAuthItem(1);
+	}
+	/**
+	 * Creates a operation .
+	 * If creation is successful, the browser will be redirected to the 'show' page.
+	 */
+	public function actionCreateOper() {
+		$this->_createAuthItem(0);
+	}
+
+	private function _createAuthItem($type=0)
+	{
+		$model = new AuthItem;
+		$model->type=$type;
+		if (isset($_POST['AuthItem'])) {
+			$model->attributes = $_POST['AuthItem'];
+			try {
+				if ($model->save()) {
+					Yii::app()->admin->setFlash('updateSuccess',
+            "'" . $model->name . "' " .
+					Helper::translate('srbac', 'created successfully'));
+					$model->data = unserialize($model->data);
+					//redirect to success page
+				} else {
+					//redirect to create page
+				}
+			} catch (CDbException $exc) {
+				Yii::app()->admin->setFlash('updateError',
+				Helper::translate('srbac', 'Error while creating')
+				. ' ' . $model->name . "<br />" .
+				Helper::translate('srbac', 'Possible there\'s already an item with the same name'));
+				//redirect to create page
+			}
+		} else {
+			//redirect to create page
+		}
+	}
+	
+  /**
+   * Assigns child items to a parent item
+   * @param String $parent The parent item
+   * @param String $children The child items
+   */
+  private function _assignChild($parent, $children) {
+    if ($parent) {
+      $auth = Yii::app()->authManager;
+      /* @var $auth CDbAuthManager */
+      foreach ($children as $child) {
+        $auth->addItemChild($parent, $child);
+      }
+    }
+  }
+
+  /**
+   * Revokes child items from a parent item
+   * @param String $parent The parent item
+   * @param String $children The child items
+   */
+  private function _revokeChild($parent, $children) {
+    if ($parent) {
+      $auth = Yii::app()->authManager;
+      /* @var $auth CDbAuthManager */
+      foreach ($children as $child) {
+        $auth->removeItemChild($parent, $child);
+      }
+    }
+  }
+ /**
+   * Assigns roles to a user
+   *
+   * @param int $userid The user's id
+   * @param String $roles The roles to assign
+   * @param String $bizRules Not used yet
+   * @param String $data Not used yet
+   */
+  private function _assignUser($userid, $roles, $bizRules, $data) {
+    if ($userid) {
+      $auth = Yii::app()->authManager;
+      /* @var $auth CDbAuthManager */
+      foreach ($roles as $role) {
+        $auth->assign($role, $userid, $bizRules, $data);
+      }
+    }
+  }
+
+  /**
+   * Revokes roles from a user
+   * @param int $userid The user's id
+   * @param String $roles The roles to revoke
+   */
+  private function _revokeUser($userid, $roles) {
+    if ($userid) {
+      $auth = Yii::app()->authManager;
+      /* @var $auth CDbAuthManager */
+      foreach ($roles as $role) {
+        if ($role == $this->module->superUser) {
+          $count = Assignments::model()->count("itemname='" . $role . "'");
+          if ($count == 1) {
+            return false;
+          }
+        }
+        $auth->revoke($role, $userid);
+        return true;
+      }
+    }
+  }
 }

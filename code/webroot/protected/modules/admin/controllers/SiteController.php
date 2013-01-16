@@ -1,6 +1,6 @@
 <?php
 
-class SiteController extends Controller
+class SiteController extends SBaseController
 {
 	/**
 	 * Declares class-based actions.
@@ -105,5 +105,32 @@ class SiteController extends Controller
 	{
 		Yii::app()->user->logout(false);
 		$this->redirect(Yii::app()->homeUrl);
+	}
+	public function actionManage()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			
+		}
+		else {
+			if (!Yii::app()->request->isAjaxRequest) {
+		      	Yii::app()->user->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
+		    }
+			$criteriaCity=new CDbCriteria();
+			$criteriaCity->select='*';
+			$pages = new CPagination(City::model()->count($criteriaCity));
+		    $pages->route = "manage";
+		    $pages->pageSize = 20;
+		    $pages->applyLimit($criteria);
+    		$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
+    		$citys=City::model()->findAll($criteriaCity);
+    		if($citys)
+    		{
+    			foreach ($citys as $city) {
+    				;
+    			}
+    		}
+		    
+		}
 	}
 }

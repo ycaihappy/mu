@@ -1,6 +1,6 @@
 <?php
 
-class SiteController extends SBaseController
+class SiteController extends Controller
 {
 	/**
 	 * Declares class-based actions.
@@ -8,16 +8,16 @@ class SiteController extends SBaseController
 	public function actions()
 	{
 		return array(
-			// captcha action renders the CAPTCHA image displayed on the contact page
+		// captcha action renders the CAPTCHA image displayed on the contact page
 			'captcha'=>array(
 				'class'=>'CCaptchaAction',
 				'backColor'=>0xFFFFFF,
-			),
-			// page action renders "static" pages stored under 'protected/views/site/pages'
-			// They can be accessed via: index.php?r=site/page&view=FileName
+		),
+		// page action renders "static" pages stored under 'protected/views/site/pages'
+		// They can be accessed via: index.php?r=site/page&view=FileName
 			'page'=>array(
 				'class'=>'CViewAction',
-			),
+		),
 		);
 	}
 
@@ -40,9 +40,9 @@ class SiteController extends SBaseController
 		if($error=Yii::app()->errorHandler->error)
 		{
 			if(Yii::app()->request->isAjaxRequest)
-				echo $error['message'];
+			echo $error['message'];
 			else
-				$this->render('error', $error);
+			$this->render('error', $error);
 		}
 	}
 
@@ -92,7 +92,7 @@ class SiteController extends SBaseController
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->admin->returnUrl);
+			$this->redirect(Yii::app()->admin->returnUrl);
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));
@@ -106,31 +106,82 @@ class SiteController extends SBaseController
 		Yii::app()->user->logout(false);
 		$this->redirect(Yii::app()->homeUrl);
 	}
+	public function actionCreateCity()
+	{
+		$model=new City();
+		if($_POST['City'])
+		{
+			$model->attributes = $_POST['City'];
+			try {
+				if ($model->save()) {
+					Yii::app()->user->setFlash('updateSuccess', 'created successfully');
+					$this->renderPartial('manage/update', array('model' => $model));
+				}
+				else {
+					$this->renderPartial('manage/create', array('model' => $model));
+				}
+			}catch(CDbException $exc)
+			{
+				$this->renderPartial('manage/create', array('model' => $model));
+			}
+		}
+		else {
+			$this->renderPartial('manage/create', array('model' => $model));
+		}
+	}
+	public function actionUpdateCity() {
+		$message = "";
+		if (isset($_POST['AuthItem'])) {
+			$model->oldName = isset($_POST["oldName"]) ? $_POST["oldName"] : $_POST["name"];
+			$model->attributes = $_POST['AuthItem'];
+			try {
+				if ($model->save()) {
+					Yii::app()->user->setFlash('updateSuccess', 'updated successfully');
+				} else {
+					$this->renderPartial('manage/update', array('model' => $model));
+				}
+			}
+			catch(CDbException $exc)
+			{
+				$this->renderPartial('manage/update', array('model' => $model));
+			}
+		}
+		$this->renderPartial('manage/update', array('model' => $model));
+	}
 	public function actionManage()
 	{
 		if(Yii::app()->request->isAjaxRequest)
 		{
-			
+				
 		}
 		else {
 			if (!Yii::app()->request->isAjaxRequest) {
-		      	Yii::app()->user->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
-		    }
+				Yii::app()->user->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
+			}
 			$criteriaCity=new CDbCriteria();
 			$criteriaCity->select='*';
+			$criteriaCity->order='city_parent asc';
 			$pages = new CPagination(City::model()->count($criteriaCity));
-		    $pages->route = "manage";
-		    $pages->pageSize = 20;
-		    $pages->applyLimit($criteria);
-    		$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
-    		$citys=City::model()->findAll($criteriaCity);
-    		if($citys)
-    		{
-    			foreach ($citys as $city) {
-    				;
-    			}
-    		}
-		    
+			$pages->route = "manage";
+			$pages->pageSize = 20;
+			$pages->applyLimit($criteriaCity);
+			$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
+			$citys=City::model()->findAll($criteriaCity);
+			if($citys)
+			{
+				$cachedCity=CCacheHelper::getAllCity();
+				foreach ($citys as &$city) {
+					$parentCity=array();
+					$parent=$city->city_parent;
+					while($parent)
+					{
+						$parentCity[]=$cachedCity[$parent]->city_name;
+						$parent=$cachedCity[$parent]->city_parent;
+					}
+					$city->city_parent=implode('&laquo;',$parentCity);
+				}
+			}
+
 		}
 	}
 }

@@ -28,7 +28,8 @@ class SBaseController extends CController {
    * @return boolean true if access is granted else false
    */
   protected function beforeAction($action) {
-    $del = Helper::findModule('srbac')->delimeter;
+  	return true;
+    $del = Helper::findModule('admin')->delimeter;
     
     //srbac access
     $mod = $this->module !== null ? $this->module->id . $del : "";
@@ -49,8 +50,8 @@ class SBaseController extends CController {
     if (in_array($access, $this->allowedAccess())) {
       return true;
     }
-   
-    
+//   
+//    
     //Allow access if srbac is not installed yet
     if (!Yii::app()->getModule('srbac')->isInstalled()) {
       return true;
@@ -62,7 +63,7 @@ class SBaseController extends CController {
     }
     
      // Check for srbac access
-    if (!Yii::app()->user->checkAccess($access) || Yii::app()->user->isGuest) {
+    if (!Yii::app()->admin->checkAccess($access) || Yii::app()->admin->isGuest) {
       $this->onUnauthorizedAccess();
     } else {
       return true;
@@ -75,8 +76,7 @@ class SBaseController extends CController {
    * @return The always allowed auth items
    */
   protected function allowedAccess() {
-    Yii::import("srbac.components.Helper");
-    return Helper::findModule('srbac')->getAlwaysAllowed();
+    return Helper::findModule('admin')->getAlwaysAllowed();
   }
 
   protected function onUnauthorizedAccess() {
@@ -85,8 +85,8 @@ class SBaseController extends CController {
      *  If so, redirect the user to the login page and after login return the user to the page they tried to open.
      *  If not, show the unautorizedacces message.
      */
-    if (Yii::app()->user->isGuest) {
-      Yii::app()->user->loginRequired();
+    if (Yii::app()->admin->isGuest) {
+      Yii::app()->admin->loginRequired();
     } else {
       $mod = $this->module !== null ? $this->module->id : "";
       $access = $mod . ucfirst($this->id) . ucfirst($this->action->id);

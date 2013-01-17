@@ -107,6 +107,9 @@ return array(
 			'password' => '123456',
 			'charset' => 'utf8',
 		),
+		'cache'=>array(
+			'class'=>'CXCache',
+		),
 		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

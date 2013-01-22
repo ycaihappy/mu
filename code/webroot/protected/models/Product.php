@@ -45,7 +45,7 @@ class Product extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('product_id', 'required'),
-			array('product_user_id, product_quanity, product_type_id, product_status, product_special', 'numerical', 'integerOnly'=>true),
+			array('product_user_id, product_quanity, product_type_id, product_status,product_unit,product_city_id, product_special', 'numerical', 'integerOnly'=>true),
 			array('product_id', 'length', 'max'=>20),
 			array('product_name, product_unit', 'length', 'max'=>45),
 			array('product_price', 'length', 'max'=>10),
@@ -68,6 +68,8 @@ class Product extends CActiveRecord
 			'type'=>array(self::BELONGS_TO,'Term','product_type_id'),
 			'status'=>array(self::BELONGS_TO,'Term','product_status'),
 			'user'=>array(self::BELONGS_TO,'User','product_user_id'),
+			'city'=>array(self::BELONGS_TO,'City','product_city_id'),
+			'unit'=>array(self::BELONGS_TO,'Term','product_unit')
 		);
 	}
 

@@ -92,6 +92,11 @@ return array(
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),*/
+		'request'=>array(
+			'enableCsrfValidation'=>true,
+			'csrfTokenName'=>'MU_CSRF_TOKEN',
+			'enableCookieValidation'=>true,	
+		),
 		// uncomment the following to use a MySQL database
 		 'authManager'=>array(
 		        'class'=>'CDbAuthManager',

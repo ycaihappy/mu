@@ -573,3 +573,1250 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/
 ---
+2013/01/14 21:57:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mydb.items' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `items`.
+in D:\mu_project\code\webroot\protected\modules\srbac\models\AuthItem.php (40)
+in D:\mu_project\code\webroot\protected\modules\srbac\SrbacModule.php (248)
+in D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php (43)
+2013/01/14 21:57:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mydb.items' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `items`.
+in D:\mu_project\code\webroot\protected\modules\srbac\models\AuthItem.php (40)
+in D:\mu_project\code\webroot\protected\modules\srbac\SrbacModule.php (248)
+in D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php (43)
+2013/01/14 21:58:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mydb.items' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `items`.
+in D:\mu_project\code\webroot\protected\modules\srbac\models\AuthItem.php (40)
+in D:\mu_project\code\webroot\protected\modules\srbac\SrbacModule.php (248)
+in D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php (43)
+2013/01/14 21:58:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mydb.items' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `items`.
+in D:\mu_project\code\webroot\protected\modules\srbac\models\AuthItem.php (40)
+in D:\mu_project\code\webroot\protected\modules\srbac\SrbacModule.php (248)
+in D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php (43)
+2013/01/15 22:38:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRole".' in D:\mu_project\code\framework\web\CController.php:484
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('viewRole')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRole')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRole
+---
+2013/01/15 22:40:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRole".' in D:\mu_project\code\framework\web\CController.php:484
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('viewRole')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRole')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRole
+---
+2013/01/15 22:40:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRole".' in D:\mu_project\code\framework\web\CController.php:484
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('viewRole')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRole')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRole
+---
+2013/01/15 22:41:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRole".' in D:\mu_project\code\framework\web\CController.php:484
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('viewRole')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRole')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRole
+---
+2013/01/15 22:41:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRole".' in D:\mu_project\code\framework\web\CController.php:484
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('viewRole')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRole')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRole
+---
+2013/01/15 22:42:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRole".' in D:\mu_project\code\framework\web\CController.php:487
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(274): CController->missingAction('viewRole')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRole')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRole
+---
+2013/01/15 22:43:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRole".' in D:\mu_project\code\framework\web\CController.php:490
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('viewRole')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRole')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRole
+---
+2013/01/15 22:46:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRole".' in D:\mu_project\code\framework\web\CController.php:487
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('viewRole')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRole')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRole
+---
+2013/01/15 22:49:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRoles".' in D:\mu_project\code\framework\web\CController.php:486
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('viewRoles')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRoles')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRoles
+---
+2013/01/15 22:49:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRoles".' in D:\mu_project\code\framework\web\CController.php:486
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('viewRoles')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRoles')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRoles
+---
+2013/01/15 22:49:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRoles".' in D:\mu_project\code\framework\web\CController.php:488
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('viewRoles')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRoles')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRoles
+---
+2013/01/15 22:49:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "viewRoles".' in D:\mu_project\code\framework\web\CController.php:488
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('viewRoles')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRoles')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/view...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/site/viewRoles
+---
+2013/01/15 22:50:44 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `mu_right_item` `t` WHERE type=.
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php (163)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/15 22:50:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `mu_right_item` `t` WHERE type=' in D:\mu_project\code\framework\db\CDbCommand.php:528
+Stack trace:
+#0 D:\mu_project\code\framework\db\CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1538): CDbCommand->queryScalar()
+#2 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(163): CActiveRecord->count(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionViewRoles()
+#4 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\mu_project\code\framework\web\CController.php(1149): CFilter->filter(Object(CFilterChain))
+#8 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#11 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRoles')
+#13 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/view...')
+#14 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=admin/user/viewRoles
+HTTP_REFERER=http://127.0.0.1/index.php?r=admin/site/login
+---
+2013/01/15 22:51:19 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `mu_right_item` `t` WHERE type=.
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php (163)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/15 22:51:19 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `mu_right_item` `t` WHERE type=' in D:\mu_project\code\framework\db\CDbCommand.php:528
+Stack trace:
+#0 D:\mu_project\code\framework\db\CDbCommand.php(425): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1538): CDbCommand->queryScalar()
+#2 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(163): CActiveRecord->count(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionViewRoles()
+#4 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\mu_project\code\framework\web\CController.php(1149): CFilter->filter(Object(CFilterChain))
+#8 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#11 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('viewRoles')
+#13 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/view...')
+#14 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=admin/user/viewRoles
+HTTP_REFERER=http://127.0.0.1/index.php?r=admin/site/login
+---
+2013/01/15 23:24:38 [error] [exception.CException] exception 'CException' with message 'UserController and its behaviors do not have a method or closure named "_extendsSBaseController".' in D:\mu_project\code\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(218): CComponent->__call('_extendsSBaseCo...', Array)
+#1 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(218): UserController->_extendsSBaseController('D:\mu_project\c...')
+#2 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(199): UserController->_scanDir('D:\mu_project\c...')
+#3 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(188): UserController->_getControllers()
+#4 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionAuto()
+#5 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 D:\mu_project\code\framework\web\CController.php(1149): CFilter->filter(Object(CFilterChain))
+#9 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#12 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('auto')
+#14 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/auto')
+#15 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php?r=admin/user/auto
+---
+2013/01/15 23:52:59 [error] [exception.CException] exception 'CException' with message 'Property "AdminModule._alwaysAllowed" is not defined.' in D:\mu_project\code\framework\base\CComponent.php:174
+Stack trace:
+#0 D:\mu_project\code\webroot\protected\modules\admin\AdminModule.php(61): CComponent->__set('_alwaysAllowed', Array)
+#1 D:\mu_project\code\framework\base\CComponent.php(153): AdminModule->setAlwaysAllowed(Array)
+#2 D:\mu_project\code\framework\base\CModule.php(483): CComponent->__set('alwaysAllowed', Array)
+#3 D:\mu_project\code\framework\base\CModule.php(87): CModule->configure(Array)
+#4 D:\mu_project\code\framework\YiiBase.php(208): CModule->__construct('admin', NULL, Array)
+#5 D:\mu_project\code\framework\base\CModule.php(283): YiiBase::createComponent('admin.AdminModu...', 'admin', NULL, Array)
+#6 D:\mu_project\code\framework\web\CWebApplication.php(339): CModule->getModule('admin')
+#7 D:\mu_project\code\framework\web\CWebApplication.php(277): CWebApplication->createController('admin/user/auto')
+#8 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/auto')
+#9 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=admin/user/auto
+---
+2013/01/16 00:36:14 [error] [exception.CException] exception 'CException' with message 'UserController and its behaviors do not have a method or closure named "getAllRightActions".' in D:\mu_project\code\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(220): CComponent->__call('getAllRightActi...', Array)
+#1 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(220): UserController->getAllRightActions()
+#2 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(201): UserController->_getNewRightActions()
+#3 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionAutoNew()
+#4 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#11 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('autoNew')
+#13 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/auto...')
+#14 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=admin/user/autoNew
+---
+2013/01/16 00:53:17 [error] [php] Undefined offset: 4 (D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php:684)
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(287): AuthitemController->runAction()
+#1 D:\mu_project\code\framework\web\CController.php(266): AuthitemController->runActionWithFilters()
+#2 D:\mu_project\code\framework\web\CWebApplication.php(284): AuthitemController->run()
+#3 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=srbac/authitem/scan&module=srbac&controller=AuthitemController
+in D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php (684)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/16 00:55:53 [error] [php] Undefined variable: task (D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php:712)
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\mu_project\code\framework\web\CController.php(287): AuthitemController->runAction()
+#2 D:\mu_project\code\framework\web\CController.php(266): AuthitemController->runActionWithFilters()
+#3 D:\mu_project\code\framework\web\CWebApplication.php(284): AuthitemController->run()
+#4 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#5 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=srbac/authitem/scan&module=srbac&controller=AuthitemController
+in D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php (712)
+in D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php (678)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/16 01:07:54 [error] [php] Undefined variable: selectedAddActions (D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php:235)
+Stack trace:
+#0 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#1 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 D:\mu_project\code\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#4 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#6 D:\mu_project\code\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 D:\mu_project\code\framework\web\CWebApplication.php(284): UserController->run()
+#8 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/user/autoAddNew
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php (235)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/16 01:08:21 [error] [exception.CDbException] exception 'CDbException' with message 'No columns are being updated for table "mu_right_assignment".' in D:\mu_project\code\framework\db\schema\CDbCommandBuilder.php:269
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1700): CDbCommandBuilder->createUpdateCommand(Object(CMysqlTableSchema), Array, Object(CDbCriteria))
+#1 D:\mu_project\code\webroot\protected\modules\srbac\models\AuthItem.php(118): CActiveRecord->updateAll(Array, Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1035): AuthItem->afterSave()
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(792): CActiveRecord->insert(NULL)
+#4 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(240): CActiveRecord->save()
+#5 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionAutoAddNew()
+#6 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#8 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#10 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#13 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('autoAddNew')
+#15 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/auto...')
+#16 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=admin/user/autoAddNew
+---
+2013/01/16 20:38:29 [error] [exception.CDbException] exception 'CDbException' with message 'No columns are being updated for table "mu_right_assignment".' in D:\mu_project\code\framework\db\schema\CDbCommandBuilder.php:269
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1700): CDbCommandBuilder->createUpdateCommand(Object(CMysqlTableSchema), Array, Object(CDbCriteria))
+#1 D:\mu_project\code\webroot\protected\modules\srbac\models\AuthItem.php(118): CActiveRecord->updateAll(Array, Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1035): AuthItem->afterSave()
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(792): CActiveRecord->insert(NULL)
+#4 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(240): CActiveRecord->save()
+#5 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionAutoAddNew()
+#6 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#8 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#10 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#13 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('autoAddNew')
+#15 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/auto...')
+#16 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=admin/user/autoAddNew
+HTTP_REFERER=http://127.0.0.1/index.php?r=admin/site/login
+---
+2013/01/16 20:43:53 [error] [exception.CDbException] exception 'CDbException' with message 'No columns are being updated for table "mu_right_assignment".' in D:\mu_project\code\framework\db\schema\CDbCommandBuilder.php:269
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1700): CDbCommandBuilder->createUpdateCommand(Object(CMysqlTableSchema), Array, Object(CDbCriteria))
+#1 D:\mu_project\code\webroot\protected\modules\srbac\models\AuthItem.php(118): CActiveRecord->updateAll(Array, Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1035): AuthItem->afterSave()
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(792): CActiveRecord->insert(NULL)
+#4 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(240): CActiveRecord->save()
+#5 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionAutoAddNew()
+#6 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#8 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#10 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#13 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('autoAddNew')
+#15 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/auto...')
+#16 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=admin/user/autoAddNew
+---
+2013/01/16 20:49:02 [error] [exception.CDbException] exception 'CDbException' with message 'No columns are being updated for table "mu_right_assignment".' in D:\mu_project\code\framework\db\schema\CDbCommandBuilder.php:269
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1700): CDbCommandBuilder->createUpdateCommand(Object(CMysqlTableSchema), Array, Object(CDbCriteria))
+#1 D:\mu_project\code\webroot\protected\modules\srbac\models\AuthItem.php(118): CActiveRecord->updateAll(Array, Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1035): AuthItem->afterSave()
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(792): CActiveRecord->insert(NULL)
+#4 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(240): CActiveRecord->save()
+#5 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionAutoAddNew()
+#6 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#8 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#10 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#13 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('autoAddNew')
+#15 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/auto...')
+#16 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=admin/user/autoAddNew
+---
+2013/01/16 20:53:41 [error] [exception.CException] exception 'CException' with message 'Property "Assignments.itemname" is not defined.' in D:\mu_project\code\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveRecord.php(144): CComponent->__get('itemname')
+#1 D:\mu_project\code\framework\web\helpers\CHtml.php(2158): CActiveRecord->__get('itemname')
+#2 D:\mu_project\code\framework\web\helpers\CHtml.php(1515): CHtml::resolveValue(Object(Assignments), 'itemname')
+#3 D:\mu_project\code\webroot\protected\modules\srbac\views\authitem\tabViews\operationToTask.php(54): CHtml::activeDropDownList(Object(Assignments), 'itemname', Array, Array)
+#4 D:\mu_project\code\framework\web\CBaseController.php(127): require('D:\mu_project\c...')
+#5 D:\mu_project\code\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\mu_project\c...', Array, true)
+#6 D:\mu_project\code\framework\web\CController.php(870): CBaseController->renderFile('D:\mu_project\c...', Array, true)
+#7 D:\mu_project\code\framework\web\widgets\CTabView.php(215): CController->renderPartial('tabViews/operat...', Array)
+#8 D:\mu_project\code\framework\web\widgets\CTabView.php(147): CTabView->renderBody()
+#9 D:\mu_project\code\framework\web\CBaseController.php(174): CTabView->run()
+#10 D:\mu_project\code\webroot\protected\modules\srbac\views\authitem\assign.php(57): CBaseController->widget('system.web.widg...', Array)
+#11 D:\mu_project\code\framework\web\CBaseController.php(127): require('D:\mu_project\c...')
+#12 D:\mu_project\code\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\mu_project\c...', Array, true)
+#13 D:\mu_project\code\framework\web\CController.php(870): CBaseController->renderFile('D:\mu_project\c...', Array, true)
+#14 D:\mu_project\code\framework\web\CController.php(783): CController->renderPartial('assign', Array, true)
+#15 D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php(221): CController->render('assign', Array)
+#16 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): AuthitemController->actionAssign()
+#17 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#18 D:\mu_project\code\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#19 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('assign')
+#21 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('srbac/authitem/...')
+#22 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/index.php?r=srbac/authitem/assign
+HTTP_REFERER=http://127.0.0.1/index.php?r=srbac/authitem/manage
+---
+2013/01/16 20:56:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userid' in 'where clause'. The SQL statement executed was: SELECT `t`.`name`, `t`.`type`, `t`.`description`, `t`.`bizrule`, `t`.`data` FROM `mu_right_item` `t` LEFT JOIN mu_right_assignment a ON name = a.itemname WHERE type = 2 AND userid= '1' ORDER BY name ASC.
+in D:\mu_project\code\webroot\protected\modules\srbac\components\Helper.php (35)
+in D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php (249)
+in D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php (240)
+2013/01/16 20:56:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userid' in 'where clause'. The SQL statement executed was: SELECT `t`.`name`, `t`.`type`, `t`.`description`, `t`.`bizrule`, `t`.`data` FROM `mu_right_item` `t` LEFT JOIN mu_right_assignment a ON name = a.itemname WHERE type = 2 AND userid= '1' ORDER BY name ASC' in D:\mu_project\code\framework\db\CDbCommand.php:528
+Stack trace:
+#0 D:\mu_project\code\framework\db\CDbCommand.php(390): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1289): CDbCommand->queryAll()
+#2 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#3 D:\mu_project\code\webroot\protected\modules\srbac\components\Helper.php(35): CActiveRecord->findAll(Object(CDbCriteria))
+#4 D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php(249): Helper::getUserAssignedRoles('1')
+#5 D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php(240): AuthitemController->_getTheRoles()
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): AuthitemController->actionGetRoles()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('getRoles')
+#11 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('srbac/authitem/...')
+#12 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php?r=srbac/authitem/getRoles
+HTTP_REFERER=http://127.0.0.1/index.php?r=srbac/authitem/assign
+---
+2013/01/16 20:57:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userid' in 'where clause'. The SQL statement executed was: SELECT `t`.`name`, `t`.`type`, `t`.`description`, `t`.`bizrule`, `t`.`data` FROM `mu_right_item` `t` LEFT JOIN mu_right_assignment a ON name = a.itemname WHERE type = 2 AND userid= '1' ORDER BY name ASC.
+in D:\mu_project\code\webroot\protected\modules\srbac\components\Helper.php (35)
+in D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php (249)
+in D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php (240)
+2013/01/16 20:57:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userid' in 'where clause'. The SQL statement executed was: SELECT `t`.`name`, `t`.`type`, `t`.`description`, `t`.`bizrule`, `t`.`data` FROM `mu_right_item` `t` LEFT JOIN mu_right_assignment a ON name = a.itemname WHERE type = 2 AND userid= '1' ORDER BY name ASC' in D:\mu_project\code\framework\db\CDbCommand.php:528
+Stack trace:
+#0 D:\mu_project\code\framework\db\CDbCommand.php(390): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1289): CDbCommand->queryAll()
+#2 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#3 D:\mu_project\code\webroot\protected\modules\srbac\components\Helper.php(35): CActiveRecord->findAll(Object(CDbCriteria))
+#4 D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php(249): Helper::getUserAssignedRoles('1')
+#5 D:\mu_project\code\webroot\protected\modules\srbac\controllers\AuthitemController.php(240): AuthitemController->_getTheRoles()
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): AuthitemController->actionGetRoles()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('getRoles')
+#11 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('srbac/authitem/...')
+#12 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php?r=srbac/authitem/getRoles
+HTTP_REFERER=http://127.0.0.1/index.php?r=srbac/authitem/assign
+---
+2013/01/17 23:02:34 [error] [php] Trying to get property of non-object (D:\mu_project\code\webroot\protected\components\SBaseController.php:31)
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): SiteController->run()
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/site/login
+in D:\mu_project\code\webroot\protected\components\SBaseController.php (31)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/17 23:09:06 [error] [exception.CException] exception 'CException' with message 'Property "SiteController.breadcrumbs" is not defined.' in D:\mu_project\code\framework\base\CComponent.php:174
+Stack trace:
+#0 D:\mu_project\code\webroot\protected\modules\admin\views\site\login.php(7): CComponent->__set('breadcrumbs', Array)
+#1 D:\mu_project\code\framework\web\CBaseController.php(127): require('D:\mu_project\c...')
+#2 D:\mu_project\code\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\mu_project\c...', Array, true)
+#3 D:\mu_project\code\framework\web\CController.php(870): CBaseController->renderFile('D:\mu_project\c...', Array, true)
+#4 D:\mu_project\code\framework\web\CController.php(783): CController->renderPartial('login', Array, true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\SiteController.php(98): CController->render('login', Array)
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('login')
+#11 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/logi...')
+#12 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php?r=admin/site/login
+---
+2013/01/17 23:12:04 [error] [php] Undefined variable: criteria (D:\mu_project\code\webroot\protected\modules\admin\controllers\SiteController.php:125)
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(287): SiteController->runAction()
+#1 D:\mu_project\code\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 D:\mu_project\code\framework\web\CWebApplication.php(284): SiteController->run()
+#3 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/site/manage
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\SiteController.php (125)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/17 23:13:28 [error] [php] Use of undefined constant FIVE_MINITS_EXPIRE - assumed 'FIVE_MINITS_EXPIRE' (D:\mu_project\code\webroot\protected\components\CCacheHelper.php:13)
+Stack trace:
+#0 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): SiteController->actionManage()
+#1 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\mu_project\code\framework\web\CController.php(287): SiteController->runAction()
+#3 D:\mu_project\code\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#4 D:\mu_project\code\framework\web\CWebApplication.php(284): SiteController->run()
+#5 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#6 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/site/manage
+in D:\mu_project\code\webroot\protected\components\CCacheHelper.php (13)
+in D:\mu_project\code\webroot\protected\components\CCacheHelper.php (39)
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\SiteController.php (130)
+2013/01/17 23:14:14 [error] [php] Undefined variable: parentCity (D:\mu_project\code\webroot\protected\modules\admin\controllers\SiteController.php:137)
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(287): SiteController->runAction()
+#1 D:\mu_project\code\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 D:\mu_project\code\framework\web\CWebApplication.php(284): SiteController->run()
+#3 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/site/manage
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\SiteController.php (137)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/17 23:14:54 [error] [exception.CException] exception 'CException' with message 'Property "City.displayParent" is not defined.' in D:\mu_project\code\framework\base\CComponent.php:174
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveRecord.php(160): CComponent->__set('displayParent', '')
+#1 D:\mu_project\code\webroot\protected\modules\admin\controllers\SiteController.php(138): CActiveRecord->__set('displayParent', '')
+#2 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): SiteController->actionManage()
+#3 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\mu_project\code\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('manage')
+#7 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/site/mana...')
+#8 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=admin/site/manage
+---
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_article`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_city`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_favorite`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_find_passwd`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_friend_link`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_func`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_point_rule`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_product`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_recommend`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_right_assignment`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_right_item`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_right_itemchildren`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_role_func`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_sms_code`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_success_case`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_supply`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_term`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_term_group`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user_certificate`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user_enterprise`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/19 01:06:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_774_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user_role`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/20 09:59:56 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "status" is not defined in active record class "User".' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:215
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(278): CActiveFinder->buildJoinTree(Object(CJoinElement), 'status')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#2 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1293): CActiveFinder->__construct(Object(User), Array)
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(678): CActiveRecord->findAll(Object(CDbCriteria))
+#5 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#6 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#8 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#10 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#13 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#15 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#16 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+HTTP_REFERER=http://127.0.0.1/index.php?r=admin/site/login
+---
+2013/01/20 10:13:18 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "status" is not defined in active record class "User".' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:215
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(278): CActiveFinder->buildJoinTree(Object(CJoinElement), 'status')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#2 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1293): CActiveFinder->__construct(Object(User), Array)
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(678): CActiveRecord->findAll(Object(CDbCriteria))
+#5 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#6 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#8 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#10 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#13 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#15 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#16 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 10:18:08 [error] [exception.CException] exception 'CException' with message 'Property "User.relations" is not defined.' in D:\mu_project\code\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveRecord.php(144): CComponent->__get('relations')
+#1 D:\mu_project\code\framework\db\ar\CActiveRecord.php(383): CActiveRecord->__get('relations')
+#2 D:\mu_project\code\webroot\protected\modules\admin\models\User.php(34): CActiveRecord::model('User')
+#3 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(673): User::model()
+#4 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#5 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#9 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#10 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#12 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#14 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#15 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 10:21:21 [error] [exception.CDbException] exception 'CDbException' with message 'The relation "status" in active record class "User" is specified with an invalid foreign key "user_status". There is no such column in the table "mu_term".' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:1071
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1042): CJoinElement->joinOneMany(Object(CJoinElement), Array, Object(CJoinElement), Object(CJoinElement))
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1271): CJoinElement->getJoinCondition()
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(773): CJoinQuery->join(Object(CJoinElement))
+#3 D:\mu_project\code\framework\db\ar\CActiveFinder.php(418): CJoinElement->buildQuery(Object(CJoinQuery))
+#4 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#5 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#6 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#7 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(678): CActiveRecord->findAll(Object(CDbCriteria))
+#8 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#9 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#16 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#18 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#19 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 10:29:49 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "status.term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:942
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1237): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(416): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 10:30:30 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:942
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1237): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(416): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 10:36:40 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "term.term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:942
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1237): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(416): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 16:27:59 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "term.term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:942
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1237): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(416): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+HTTP_REFERER=http://127.0.0.1/index.php?r=admin/site/login
+---
+2013/01/20 16:28:14 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "term.term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:942
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1237): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(416): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 16:28:16 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "term.term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:942
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1237): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(416): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 16:30:36 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "term.term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:942
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1237): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(416): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 16:32:06 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "term.term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:943
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1238): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(416): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 16:32:25 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "term.term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:943
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1238): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(416): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 16:32:35 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "term.term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:943
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1238): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(416): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 16:33:50 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "term.term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:946
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1241): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(417): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 16:36:17 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "term.term_name". Note, the column must exist in the table or be an expression with alias.' in D:\mu_project\code\framework\db\ar\CActiveFinder.php:944
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveFinder.php(1239): CJoinElement->getColumnSelect('t.user_id,t.use...')
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(417): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#3 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#5 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(679): CActiveRecord->findAll(Object(CDbCriteria))
+#6 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#7 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#16 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#17 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 17:50:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_634_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_right_item`.
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php (680)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/20 17:50:22 [error] [exception.CDbException] exception 'CDbException' with message 'The table "mu_right_item" for active record class "AuthItem" cannot be found in the database.' in D:\mu_project\code\framework\db\ar\CActiveRecord.php:2266
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveRecord.php(383): CActiveRecordMetaData->__construct(Object(AuthItem))
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('AuthItem')
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(278): CActiveFinder->buildJoinTree(Object(CJoinElement), 'role')
+#3 D:\mu_project\code\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1293): CActiveFinder->__construct(Object(User), Array)
+#5 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#6 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(680): CActiveRecord->findAll(Object(CDbCriteria))
+#7 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#8 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#9 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#15 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#17 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#18 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#19 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 17:54:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_634_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_term`.
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php (680)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/20 17:54:05 [error] [exception.CDbException] exception 'CDbException' with message 'The table "mu_term" for active record class "Term" cannot be found in the database.' in D:\mu_project\code\framework\db\ar\CActiveRecord.php:2266
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveRecord.php(383): CActiveRecordMetaData->__construct(Object(Term))
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('Term')
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(278): CActiveFinder->buildJoinTree(Object(CJoinElement), 'status')
+#3 D:\mu_project\code\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1293): CActiveFinder->__construct(Object(User), Array)
+#5 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#6 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(680): CActiveRecord->findAll(Object(CDbCriteria))
+#7 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#8 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#9 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#15 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#17 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#18 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#19 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 17:58:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_634_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_right_item`.
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php (680)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/20 17:58:50 [error] [exception.CDbException] exception 'CDbException' with message 'The table "mu_right_item" for active record class "AuthItem" cannot be found in the database.' in D:\mu_project\code\framework\db\ar\CActiveRecord.php:2266
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveRecord.php(383): CActiveRecordMetaData->__construct(Object(AuthItem))
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('AuthItem')
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(278): CActiveFinder->buildJoinTree(Object(CJoinElement), 'role')
+#3 D:\mu_project\code\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1293): CActiveFinder->__construct(Object(User), Array)
+#5 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#6 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(680): CActiveRecord->findAll(Object(CDbCriteria))
+#7 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#8 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#9 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#12 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#15 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#17 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#18 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#19 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 18:04:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'authItem.name' in 'on clause'. The SQL statement executed was: SELECT `t`.`user_id` AS `t0_c0`, `role`.`name` AS `t2_c0`, `role`.`type` AS `t2_c1`, `role`.`description` AS `t2_c2`, `role`.`bizrule` AS `t2_c3`, `role`.`data` AS `t2_c4` FROM `mu_user` `t` LEFT OUTER JOIN `mu_right_assignment` `role_role` ON (`t`.`user_id`=`role_role`.`itemname`) LEFT OUTER JOIN `mu_right_item` `role` ON (`role`.`name`=`role_role`.`userid`) AND (itemname=authItem.name AND userid=t.user_id)  WHERE (`t`.`user_id`=1).
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php (680)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/20 18:04:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'authItem.name' in 'on clause'. The SQL statement executed was: SELECT `t`.`user_id` AS `t0_c0`, `role`.`name` AS `t2_c0`, `role`.`type` AS `t2_c1`, `role`.`description` AS `t2_c2`, `role`.`bizrule` AS `t2_c3`, `role`.`data` AS `t2_c4` FROM `mu_user` `t` LEFT OUTER JOIN `mu_right_assignment` `role_role` ON (`t`.`user_id`=`role_role`.`itemname`) LEFT OUTER JOIN `mu_right_item` `role` ON (`role`.`name`=`role_role`.`userid`) AND (itemname=authItem.name AND userid=t.user_id)  WHERE (`t`.`user_id`=1)' in D:\mu_project\code\framework\db\CDbCommand.php:528
+Stack trace:
+#0 D:\mu_project\code\framework\db\CDbCommand.php(390): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(788): CDbCommand->queryAll()
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(430): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\mu_project\code\framework\db\ar\CActiveFinder.php(434): CJoinElement->find()
+#4 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#5 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#6 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#7 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(680): CActiveRecord->findAll(Object(CDbCriteria))
+#8 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#9 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#16 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#18 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#19 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/20 18:07:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'authItem.name' in 'on clause'. The SQL statement executed was: SELECT `t`.`user_id` AS `t0_c0`, `role`.`name` AS `t2_c0`, `role`.`type` AS `t2_c1`, `role`.`description` AS `t2_c2`, `role`.`bizrule` AS `t2_c3`, `role`.`data` AS `t2_c4` FROM `mu_user` `t` LEFT OUTER JOIN `mu_right_assignment` `role_role` ON (`t`.`user_id`=`role_role`.`userid`) LEFT OUTER JOIN `mu_right_item` `role` ON (`role`.`name`=`role_role`.`itemname`) AND (itemname=authItem.name AND userid=t.user_id)  WHERE (`t`.`user_id`=1).
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php (680)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/20 18:07:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'authItem.name' in 'on clause'. The SQL statement executed was: SELECT `t`.`user_id` AS `t0_c0`, `role`.`name` AS `t2_c0`, `role`.`type` AS `t2_c1`, `role`.`description` AS `t2_c2`, `role`.`bizrule` AS `t2_c3`, `role`.`data` AS `t2_c4` FROM `mu_user` `t` LEFT OUTER JOIN `mu_right_assignment` `role_role` ON (`t`.`user_id`=`role_role`.`userid`) LEFT OUTER JOIN `mu_right_item` `role` ON (`role`.`name`=`role_role`.`itemname`) AND (itemname=authItem.name AND userid=t.user_id)  WHERE (`t`.`user_id`=1)' in D:\mu_project\code\framework\db\CDbCommand.php:528
+Stack trace:
+#0 D:\mu_project\code\framework\db\CDbCommand.php(390): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(788): CDbCommand->queryAll()
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(430): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\mu_project\code\framework\db\ar\CActiveFinder.php(434): CJoinElement->find()
+#4 D:\mu_project\code\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#5 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1294): CActiveFinder->query(Object(CDbCriteria), true)
+#6 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1408): CActiveRecord->query(Object(CDbCriteria), true)
+#7 D:\mu_project\code\webroot\protected\modules\admin\controllers\UserController.php(680): CActiveRecord->findAll(Object(CDbCriteria))
+#8 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): UserController->actionMangeUser()
+#9 D:\mu_project\code\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 D:\mu_project\code\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 D:\mu_project\code\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 D:\mu_project\code\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 D:\mu_project\code\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 D:\mu_project\code\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 D:\mu_project\code\framework\web\CController.php(292): CFilterChain->run()
+#16 D:\mu_project\code\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('mangeUser')
+#18 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mang...')
+#19 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php?r=admin/user/mangeUser
+---
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_article`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_city`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_favorite`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_find_passwd`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_friend_link`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_func`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_point_rule`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_product`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_recommend`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_right_assignment`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_right_item`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_right_itemchildren`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_role_func`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_sms_code`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_success_case`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_supply`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_term`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_term_group`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user_certificate`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user_enterprise`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 20:52:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user_role`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 22:10:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "manageProduct".' in D:\mu_project\code\framework\web\CController.php:484
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('manageProduct')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('manageProduct')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mana...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/user/manageProduct
+---
+2013/01/21 22:11:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "manageProduct".' in D:\mu_project\code\framework\web\CController.php:484
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(271): CController->missingAction('manageProduct')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('manageProduct')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mana...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/user/manageProduct
+---
+2013/01/21 22:13:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "manageProduct".' in D:\mu_project\code\framework\web\CController.php:487
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(274): CController->missingAction('manageProduct')
+#1 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('manageProduct')
+#2 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/user/mana...')
+#3 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=admin/user/manageProduct
+---
+2013/01/21 22:14:13 [error] [php] Undefined index: Product (D:\mu_project\code\webroot\protected\modules\admin\controllers\ProductController.php:10)
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(288): ProductController->runAction()
+#1 D:\mu_project\code\framework\web\CController.php(267): ProductController->runActionWithFilters()
+#2 D:\mu_project\code\framework\web\CWebApplication.php(284): ProductController->run()
+#3 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/product/manageProduct
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\ProductController.php (10)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 22:16:36 [error] [php] Trying to get property of non-object (D:\mu_project\code\webroot\protected\modules\admin\controllers\ProductController.php:35)
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(288): ProductController->runAction()
+#1 D:\mu_project\code\framework\web\CController.php(267): ProductController->runActionWithFilters()
+#2 D:\mu_project\code\framework\web\CWebApplication.php(284): ProductController->run()
+#3 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/product/manageProduct
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\ProductController.php (35)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 22:17:04 [error] [php] Trying to get property of non-object (D:\mu_project\code\webroot\protected\modules\admin\controllers\ProductController.php:35)
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(288): ProductController->runAction()
+#1 D:\mu_project\code\framework\web\CController.php(267): ProductController->runActionWithFilters()
+#2 D:\mu_project\code\framework\web\CWebApplication.php(284): ProductController->run()
+#3 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/product/manageProduct
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\ProductController.php (35)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/21 22:17:34 [error] [php] Trying to get property of non-object (D:\mu_project\code\webroot\protected\modules\admin\controllers\ProductController.php:37)
+Stack trace:
+#0 D:\mu_project\code\framework\web\CController.php(288): ProductController->runAction()
+#1 D:\mu_project\code\framework\web\CController.php(267): ProductController->runActionWithFilters()
+#2 D:\mu_project\code\framework\web\CWebApplication.php(284): ProductController->run()
+#3 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\mu_project\code\webroot\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=admin/product/manageProduct
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\ProductController.php (37)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 01:02:58 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_824_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_term`.
+in D:\mu_project\code\webroot\protected\modules\admin\controllers\ProductController.php (53)
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 01:02:58 [error] [exception.CDbException] exception 'CDbException' with message 'The table "mu_term" for active record class "Term" cannot be found in the database.' in D:\mu_project\code\framework\db\ar\CActiveRecord.php:2266
+Stack trace:
+#0 D:\mu_project\code\framework\db\ar\CActiveRecord.php(383): CActiveRecordMetaData->__construct(Object(Term))
+#1 D:\mu_project\code\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('Term')
+#2 D:\mu_project\code\framework\db\ar\CActiveFinder.php(280): CActiveFinder->buildJoinTree(Object(CJoinElement), 'status', Array)
+#3 D:\mu_project\code\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#4 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1293): CActiveFinder->__construct(Object(Product), Array)
+#5 D:\mu_project\code\framework\db\ar\CActiveRecord.php(1424): CActiveRecord->query(Object(CDbCriteria))
+#6 D:\mu_project\code\webroot\protected\modules\admin\controllers\ProductController.php(53): CActiveRecord->findByPk('1')
+#7 D:\mu_project\code\framework\web\actions\CInlineAction.php(50): ProductController->actionCreateProduct()
+#8 D:\mu_project\code\framework\web\CController.php(310): CInlineAction->runWithParams(Array)
+#9 D:\mu_project\code\framework\web\CController.php(288): CController->runAction(Object(CInlineAction))
+#10 D:\mu_project\code\framework\web\CController.php(267): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\mu_project\code\framework\web\CWebApplication.php(284): CController->run('createProduct')
+#12 D:\mu_project\code\framework\web\CWebApplication.php(142): CWebApplication->runController('admin/product/c...')
+#13 D:\mu_project\code\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 D:\mu_project\code\webroot\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=admin/product/createProduct/product_id/1
+---

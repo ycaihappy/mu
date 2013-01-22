@@ -32,6 +32,7 @@
     <control controlID="117" controlTypeID="com.balsamiq.mockups::TextArea" x="495" y="118" w="533" h="36" measuredW="200" measuredH="140" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <align>right</align>
+        <bold>true</bold>
         <size>14</size>
         <text>%u5C0A%u8FDB%u7684%20XXX%20%20%u5148%u751F%uFF0C%20%u60A8%u597D%uFF0C%u60A8%u6700%u8FD1%u4E00%u6B21%u7684%u767B%u5F55%u65F6%u95F4%u4E3A%uFF1A2012-2-2%2012%3A09%3A23</text>
       </controlProperties>

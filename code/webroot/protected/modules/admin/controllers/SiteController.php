@@ -240,7 +240,7 @@ class SiteController extends Controller
 			$criteriaTerm=new CDbCriteria();
 			$criteriaTerm->select='*';
 			$criteriaTerm->order='term_group_id asc';
-			$criteriaTerm->with=array('termGroup');
+			$criteriaTerm->with=array('termGroup'=>array('select'=>'group_name'));
 			$pages = new CPagination(City::model()->count($criteriaTerm));
 			$pages->route = "manageTerm";
 			$pages->pageSize = 20;

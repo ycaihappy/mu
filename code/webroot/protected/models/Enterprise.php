@@ -69,6 +69,11 @@ class Enterprise extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'user'=>array(self::BELONGS_TO,'User','ent_user_id'),
+			'status'=>array(self::BELONGS_TO,'Term','ent_status'),
+			'city'=>array(self::BELONGS_TO,'Term','ent_city'),
+			'type'=>array(self::BELONGS_TO,'Term','ent_type'),
+			'business'=>array(self::BELONGS_TO,'Term','ent_business_model'),
+			'chiefPosition'=>array(self::BELONGS_TO,'Term','ent_chief_position'),
 		);
 	}
 

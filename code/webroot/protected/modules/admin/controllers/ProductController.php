@@ -32,7 +32,7 @@ class ProductController extends SBaseController {
 		}
 		if($productName)
 		{
-			$productCriteria->addCondition('product_name',$productName,true);
+			$productCriteria->compare('product_name',$productName,false);
 		}
 		$productCriteria->with=array(
 		'user.enterprise'=>array('select'=>'ent_name'),
@@ -79,7 +79,7 @@ class ProductController extends SBaseController {
 	}
 	private function _manageSupply($type=0)
 	{
-	if (!Yii::app()->request->isAjaxRequest) {
+		if (!Yii::app()->request->isAjaxRequest) {
 			Yii::app()->admin->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
 		}
 		$supplyTypeId=@$_REQUEST['Supply']['supply_category_id'];
@@ -104,7 +104,7 @@ class ProductController extends SBaseController {
 		}
 		if($supplyName)
 		{
-			$supplyCriteria->addCondition('product_name',$supplyName,true);
+			$supplyCriteria->compare('product_name',$supplyName,true);
 		}
 		$productCriteria->with=array(
 		'user.enterprise'=>array('select'=>'ent_name'),
@@ -148,6 +148,17 @@ class ProductController extends SBaseController {
 	}
 	public function actionManageEnterprise()
 	{
+		if (!Yii::app()->request->isAjaxRequest) {
+			Yii::app()->admin->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
+		}
+		$entCriteria=new CDbCriteria();
+		$entType=$_POST['enterprise']['ent_type'];
+		$entCity=$_POST['enterprise']['ent_city'];
+		$entName=$_POST['enterprise']['ent_name'];
+		if($entType)
+		{
+			$entCriteria->addCondition('ent_type=:ent_type');
+		}
 		
 	}
 }

@@ -1820,3 +1820,47 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/index.php?r=admin/product/createProduct/product_id/1
 ---
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_article`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_city`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_favorite`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_find_passwd`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_friend_link`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_func`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_point_rule`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_product`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_recommend`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_right_assignment`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_right_item`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_right_itemchildren`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_role_func`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_sms_code`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_success_case`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_supply`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_term`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_term_group`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user_certificate`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user_enterprise`.
+in D:\mu_project\code\webroot\index.php (13)
+2013/01/22 22:27:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_828_0.MYI' (Errcode: 13). The SQL statement executed was: SHOW COLUMNS FROM `mu_user_role`.
+in D:\mu_project\code\webroot\index.php (13)

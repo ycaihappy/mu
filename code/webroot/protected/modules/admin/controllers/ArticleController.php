@@ -28,7 +28,6 @@ class ArticleController extends CController {
 	}
 	public function actionSaveArticle()
 	{
-		CCaptcha
 		$model=new Article();
 		if($_POST['Article'])
 		{

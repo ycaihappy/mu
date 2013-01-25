@@ -72,6 +72,9 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'status'=>array(self::HAS_ONE,'Term','term_id'),
+			'role'=>array(self::MANY_MANY,'AuthItem','mu_right_assignment(userid,itemname)'),
+			'enterprise'=>array(self::HAS_ONE,'Enterprise','ent_user_id'),
 		);
 	}
 

@@ -115,44 +115,43 @@ class SiteController extends Controller
 			try {
 				if ($model->save()) {
 					Yii::app()->user->setFlash('updateSuccess', 'created successfully');
-					$this->renderPartial('manage/update', array('model' => $model));
+					$this->renderPartial('manageCity/update', array('model' => $model));
 				}
 				else {
-					$this->renderPartial('manage/create', array('model' => $model));
+					$this->renderPartial('manageCity/create', array('model' => $model));
 				}
 			}catch(CDbException $exc)
 			{
-				$this->renderPartial('manage/create', array('model' => $model));
+				$this->renderPartial('manageCity/create', array('model' => $model));
 			}
 		}
 		else {
-			$this->renderPartial('manage/create', array('model' => $model));
+			$this->renderPartial('manageCity/create', array('model' => $model));
 		}
 	}
 	public function actionUpdateCity() {
 		$message = "";
-		if (isset($_POST['AuthItem'])) {
-			$model->oldName = isset($_POST["oldName"]) ? $_POST["oldName"] : $_POST["name"];
-			$model->attributes = $_POST['AuthItem'];
+		if (isset($_POST['City'])) {
+			$model->attributes = $_POST['City'];
 			try {
 				if ($model->save()) {
 					Yii::app()->user->setFlash('updateSuccess', 'updated successfully');
 				} else {
-					$this->renderPartial('manage/update', array('model' => $model));
+					$this->renderPartial('manageCity/update', array('model' => $model));
 				}
 			}
 			catch(CDbException $exc)
 			{
-				$this->renderPartial('manage/update', array('model' => $model));
+				$this->renderPartial('manageCity/update', array('model' => $model));
 			}
 		}
-		$this->renderPartial('manage/update', array('model' => $model));
+		$this->renderPartial('manageCity/update', array('model' => $model));
 	}
-	public function actionManage()
+	public function actionManageCity()
 	{
 		if(Yii::app()->request->isAjaxRequest)
 		{
-				
+
 		}
 		else {
 			if (!Yii::app()->request->isAjaxRequest) {
@@ -162,7 +161,7 @@ class SiteController extends Controller
 			$criteriaCity->select='*';
 			$criteriaCity->order='city_parent asc';
 			$pages = new CPagination(City::model()->count($criteriaCity));
-			$pages->route = "manage";
+			$pages->route = "manageCity";
 			$pages->pageSize = 20;
 			$pages->applyLimit($criteriaCity);
 			$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
@@ -182,6 +181,88 @@ class SiteController extends Controller
 				}
 			}
 
+		}
+	}
+	public function actionCreateTerm()
+	{
+		$model=new City();
+		if($_POST['Term'])
+		{
+			$model->attributes = $_POST['Term'];
+			try {
+				if ($model->save()) {
+					Yii::app()->user->setFlash('updateSuccess', 'created successfully');
+					$this->renderPartial('manageTerm/update', array('model' => $model));
+				}
+				else {
+					$this->renderPartial('manageTerm/create', array('model' => $model));
+				}
+			}catch(CDbException $exc)
+			{
+				$this->renderPartial('manageTerm/create', array('model' => $model));
+			}
+		}
+		else {
+			$termGroup=TermGroup::model()->findAll();
+			$this->renderPartial('manageTerm/create', array('model' => $model));
+		}
+	}
+	public function actionUpdateTerm() {
+		$message = "";
+		if (isset($_POST['Term'])) {
+			$model->attributes = $_POST['Term'];
+			try {
+				if ($model->save()) {
+					Yii::app()->user->setFlash('updateSuccess', 'updated successfully');
+				} else {
+					$this->renderPartial('manageTerm/update', array('model' => $model));
+				}
+			}
+			catch(CDbException $exc)
+			{
+				$this->renderPartial('manageTerm/update', array('model' => $model));
+			}
+		}
+		$termGroup=TermGroup::model()->findAll();
+		$this->renderPartial('manageTerm/update', array('model' => $model));
+	}
+	public function actionManageTerm()
+	{
+		if(Yii::app()->request->getIsPostRequest())
+		{//update or add Term Data
+				
+		}
+		else//list term data
+		{
+			if (!Yii::app()->request->isAjaxRequest) {
+				Yii::app()->user->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
+			}
+			$criteriaTerm=new CDbCriteria();
+			$criteriaTerm->select='*';
+			$criteriaTerm->order='term_group_id asc';
+			$criteriaTerm->with=array('termGroup'=>array('select'=>'group_name'));
+			$pages = new CPagination(City::model()->count($criteriaTerm));
+			$pages->route = "manageTerm";
+			$pages->pageSize = 20;
+			$pages->applyLimit($criteriaTerm);
+			$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
+			$terms=Term::model()->findAll($criteriaTerm);
+			if($terms)
+			{
+				$cachedTerm=CCacheHelper::getAllTerm();
+				foreach ($cachedTerm as $term)
+				{
+					$parentTerm=array();
+					$parent=$term->term_parent_id;
+					while($parent)
+					{
+						$parentTerm[]=$cachedTerm[$parent]->term_name;
+						$parent=$cachedTerm[$parent]->term_parent_id;
+					}
+					$city->term_parent=implode('&laquo;',$parentTerm);
+				}
+
+			}
 		}
 	}
 }

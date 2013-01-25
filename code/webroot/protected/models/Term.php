@@ -1,0 +1,105 @@
+<?php
+
+/**
+ * This is the model class for table "mu_term".
+ *
+ * The followings are the available columns in table 'mu_term':
+ * @property integer $term_id
+ * @property integer $term_parent_id
+ * @property string $term_name
+ * @property string $term_slug
+ * @property integer $term_group_id
+ * @property integer $term_order
+ * @property string $term_create_time
+ */
+class Term extends CActiveRecord
+{
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return Term the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+	
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return 'mu_term';
+	}
+
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
+		return array(
+			array('term_id', 'required'),
+			array('term_id, term_parent_id, term_group_id, term_order', 'numerical', 'integerOnly'=>true),
+			array('term_name', 'length', 'max'=>128),
+			array('term_slug', 'length', 'max'=>200),
+			array('term_create_time', 'safe'),
+			// The following rule is used by search().
+			// Please remove those attributes that should not be searched.
+			array('term_id, term_parent_id, term_name, term_slug, term_group_id, term_order, term_create_time', 'safe', 'on'=>'search'),
+		);
+	}
+
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
+		return array(
+			'termGroup'=>array(self::BELONGS_TO,'TermGroup','term_group_id'),
+		);
+	}
+
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'term_id' => 'Term',
+			'term_parent_id' => 'Term Parent',
+			'term_name' => 'Term Name',
+			'term_slug' => 'Term Slug',
+			'term_group_id' => 'Term Group',
+			'term_order' => 'Term Order',
+			'term_create_time' => 'Term Create Time',
+		);
+	}
+
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 */
+	public function search()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('term_id',$this->term_id);
+		$criteria->compare('term_parent_id',$this->term_parent_id);
+		$criteria->compare('term_name',$this->term_name,true);
+		$criteria->compare('term_slug',$this->term_slug,true);
+		$criteria->compare('term_group_id',$this->term_group_id);
+		$criteria->compare('term_order',$this->term_order);
+		$criteria->compare('term_create_time',$this->term_create_time,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+}

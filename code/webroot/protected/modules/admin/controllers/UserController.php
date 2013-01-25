@@ -652,15 +652,118 @@ class UserController extends SBaseController
       $auth = Yii::app()->authManager;
       /* @var $auth CDbAuthManager */
       foreach ($roles as $role) {
-        if ($role == $this->module->superUser) {
-          $count = Assignments::model()->count("itemname='" . $role . "'");
-          if ($count == 1) {
-            return false;
-          }
-        }
         $auth->revoke($role, $userid);
         return true;
       }
     }
   }
+  public function actionMangeUser()
+  {
+	  if (!Yii::app()->request->isAjaxRequest) {
+	      Yii::app()->admin->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
+	    }
+	    $userCriteria=new CDbCriteria();
+	    $userCriteria->with=array('status','role');
+	    $userCriteria->select='user_id,user_name,user_nickname,user_email,user_join_date,user_last_login_date';
+	    $pages = new CPagination(User::model()->count());
+	    $pages->pageSize=20;
+	    $pages->applyLimit($userCriteria);
+	    $pages->route = "manageUser";
+	    $pages->setCurrentPage(Yii::app()->user->getState("currentPage"));
+	    $users=User::model()->findAll($userCriteria);
+	    foreach($users as $user)
+	    {
+	    	
+	    }
+	    
+  }
+  /**
+   * The assignment action
+   * First checks if the user is authorized to perform this action
+   * Then initializes the needed variables for the assign view.
+   * If there's a post back it performs the assign action
+   */
+  public function actionAssign() {
+    //CVarDumper::dump($_POST, 5, true);
+   
+    $this->_setMessage("");
+    /* @var $auth CDbAuthManager */
+    $authItemAssignName = isset($_POST['AuthItem']['name']['assign']) ?
+      $_POST['AuthItem']['name']['assign'] : "";
+
+
+    $assBizRule = isset($_POST['Assignments']['bizrule']) ?
+      $_POST['Assignments']['bizrule'] : "";
+    $assData = isset($_POST['Assignments']['data']) ?
+      $_POST['Assignments']['data'] : "";
+
+
+    $authItemRevokeName = isset($_POST['AuthItem']['name']['revoke']) ?
+      $_POST['AuthItem']['name']['revoke'] : "";
+
+    if (isset($_POST['AuthItem']['name'])) {
+      if (isset($_POST['AuthItem']['name'][0])) {
+        $authItemName = $_POST['AuthItem']['name'][0];
+      } else {
+        $authItemName = $_POST['AuthItem']['name'];
+      }
+    }
+
+    $assItemName = isset($_POST['Assignments']['itemname']) ? $_POST['Assignments']['itemname'] : "";
+
+    $assignRoles = Yii::app()->request->getParam('assignRoles', 0);
+    $revokeRoles = Yii::app()->request->getParam('revokeRoles', 0);
+    $assignTasks = isset($_GET['assignTasks']) ? $_GET['assignTasks'] : 0;
+    $revokeTasks = isset($_GET['revokeTasks']) ? $_GET['revokeTasks'] : 0;
+    $assignOpers = isset($_GET['assignOpers']) ? $_GET['assignOpers'] : 0;
+    $revokeOpers = isset($_GET['revokeOpers']) ? $_GET['revokeOpers'] : 0;
+
+
+    if ($assignRoles && is_array($authItemAssignName)) {
+
+      $this->_assignUser($userid, $authItemAssignName, $assBizRule, $assData);
+      $this->_setMessage('Role(s) Assigned');
+    } else if ($revokeRoles && is_array($authItemRevokeName)) {
+      $revoke = $this->_revokeUser($userid, $authItemRevokeName);
+      if ($revoke) {
+        $this->_setMessage('Role(s) Revoked');
+      } else {
+        $this->_setMessage('Can\'t revoke this role');
+      }
+    } else if ($assignTasks && is_array($authItemAssignName)) {
+      $this->_assignChild($authItemName, $authItemAssignName);
+      $this->_setMessage('Task(s) Assigned');
+    } else if ($revokeTasks && is_array($authItemRevokeName)) {
+      $this->_revokeChild($authItemName, $authItemRevokeName);
+      $this->_setMessage('Task(s) Revoked');
+    } else if ($assignOpers && is_array($authItemAssignName)) {
+      $this->_assignChild($assItemName, $authItemAssignName);
+      $this->_setMessage('Operation(s) Assigned');
+    } else if ($revokeOpers && is_array($authItemRevokeName)) {
+      $this->_revokeChild($assItemName, $authItemRevokeName);
+      $this->_setMessage('Operation(s) Revoked');
+    }
+    //If not ajax show the assign page
+    if (!Yii::app()->request->isAjaxRequest) {
+      $this->render('assign', array(
+          'model' => $model,
+          'message' => $this->_getMessage(),
+          'userid' => $userid,
+          'data' => $data
+      ));
+    } else {
+      // assign to user show the user tab
+      if ($userid != "") {
+        $this->_getTheRoles();
+      } else if ($assignTasks != 0 || $revokeTasks != 0) {
+        $this->_getTheTasks();
+      } else if ($assignOpers != 0 || $revokeOpers != 0) {
+        $this->_getTheOpers();
+      }
+    }
+  }
+  private function _setMessage($mess) {
+    Yii::app()->admin->setState("message", $mess);
+  }
+  
 }

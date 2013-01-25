@@ -49,6 +49,14 @@ class CCacheHelper  {
         return $allCity;
 
 	}
+	public static function getAllTerm()
+	{
+		$termCriteria=new CDbCriteria();
+		$termCriteria->select='term_id,term_name,term_group_id';
+		$termCriteria->order='term_group_id asc';
+		$allTerm=CacheStrategy::getInstance(CacheStrategy::FIVE_MINITS_EXPIRE)->getCacheDataForDb('allTerm',$termCriteria,'Term','term_id');
+		return $allTerm;
+	}
 }
 
 

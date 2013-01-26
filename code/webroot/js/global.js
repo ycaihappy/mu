@@ -21,17 +21,6 @@ MU.mods={
 			if ($(this).val() == "") {
 				$(this).parent().removeClass('search-status-focus');
 			}
-		});
-		
-		self.find('input[name=type]').val(self.find('.switchable-nav li.selected').data('type'));
-		
-		self.find('.switchable-nav li').click(function () {
-			$(this).addClass('selected').siblings().removeClass('selected');
-			self.find('input[name=type]').val($(this).data('type'));
-		});
-	},
-	JIndexAd : function (){
-		var self = $(this);
-		var adroll = new MU.Tool.AdRoll({el:self,interval:4500});
+		})
 	}
 };

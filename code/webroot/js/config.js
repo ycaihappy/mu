@@ -339,99 +339,6 @@ MU.Tool.Hiking.prototype = {
 }
 
 
-//adroll
-$.extend(MU.Tool, {
-	AdRoll : function (options) {
-		this.el = options.el;
-		this.interval = options.interval || 3000;
-		this.currentIndex = options.currentIndex || -1;
-		this.total = options.total || 4;
-		this.intervalID = null;
-		this.init = function () {
-			var arr = [];
-			var that = this.el,
-			_this = this;
-			that.find('.btns').find('a').remove();
-			that.find('.pic a').each(function (i) {				
-				that.find('.btns').append('<a href="javascript:;">' + i + 1 + '</a>');
-			});
-			that.find('.btns').css('left', (that.width() - that.find('.btns').width()) * 0.5);
-			that.find('.btns').delegate('a', 'mouseover', function () {
-				var self = $(this);
-				_this.playIndex(that.find('.btns a').index(self));
-				_this.pause();
-			});
-			that.find('.btns,.pic').delegate('a', 'mouseout', function () {
-				_this.start();
-			});
-			that.find('.pic').delegate('a', 'mouseover', function () {
-				_this.pause();
-			});
-			that.find('.pic').css('position', 'relative').find('a').css({
-				top : '0px',
-				left : '0px',
-				'position' : 'absolute'
-			}).hide();
-			this.total = that.find('.pic').children().length;
-			this.playIndex(0);
-			this.start();
-			
-		};
-		this.playIndex = function (_index) {
-			
-			if (this.currentIndex == _index) {
-				return;
-			}
-			var imgs = this.el.find('.pic a'),
-			btns = this.el.find('.btns a');
-			btns.removeClass('on');
-			$(btns.get(_index)).addClass('on');
-			$(imgs.get(_index)).stop(false, true).fadeIn();
-			if (this.total > 1) {
-				if (!$(imgs.get(this.currentIndex)).is(':animated')) {
-					$(imgs.get(this.currentIndex)).fadeOut('slow');
-				} else {
-					$(imgs.get(this.currentIndex)).hide();
-				}
-			}
-			this.currentIndex = _index;
-		};
-		
-		this.prev = function () {
-			this.pause();
-			this.start();
-			if (this.currentIndex > 0) {
-				this.playIndex(this.currentIndex - 1);
-			} else {
-				this.playIndex(this.total - 1);
-			}
-		};
-		this.next = function () {
-			this.pause();
-			this.start();
-			if (this.currentIndex < this.total - 1) {
-				this.playIndex(this.currentIndex + 1);
-			} else {
-				this.playIndex(0);
-			}
-		};
-		this.start = function () {
-			var _this = this;
-			_this.intervalID = setInterval(function () {
-					_this.next.call(_this);
-				}, _this.interval);
-		};
-		this.pause = function () {
-			var _this = this;
-			clearInterval(_this.intervalID);
-		};
-		
-		this.init();
-		
-	}
-});
-
-
 ;(function(project,$){
 	project.getMethod=function(id){
 		var arr=id.split("_");
@@ -444,7 +351,7 @@ $.extend(MU.Tool, {
 		return modName;
 	};
 	project.modsBind=function(obj){
-		var mods=obj?obj.find("div[id^='J_'][isInit!='true']"):$("div[id^='J_'][isInit!='true']");
+		var mods=obj?obj.find("*[id^='J_'][isInit!='true']"):$("*[id^='J_'][isInit!='true']");
 		if(!obj && project.mods["body"]){
 			project.mods["body"].call(document);
 		}

@@ -38,19 +38,19 @@
 	<div class="m-logo">
 		<a target="_self" href="" class="logo"><img title="xxx.com - xxxx" alt="zzz" src="images/logo.jpg"></a>
 	</div>
-	<div class="m-search" id="J_SearchForm">
+
+	<div class="m-search">
 		<div class="search-triggers">
 			<ul class="switchable-nav">
-			  <li class="selected" data-type="1"><a href="javascript:void(0);">现货</a></li>
-			  <li data-type="2"><a href="javascript:void(0);">新闻</a></li>
-			  <li data-type="3"><a href="javascript:void(0);">行情</a></li>
-			  <li data-type="4"><a href="javascript:void(0);">行情</a></li>
-			  <li data-type="5"><a href="javascript:void(0);">求购</a></li>
+			  <li class="selected"><a href="">现货</a></li>
+			  <li><a href="">新闻</a></li>
+			  <li><a href="">行情</a></li>
+			  <li><a href="">行情</a></li>
+			  <li><a href="">求购</a></li>
 			</ul>
 		 </div>
 		 <div class="search-box">
-			<form name="search" action="" target="_top">
-			  <input type="hidden" name="type" value=""/>
+			<form id="J_SearchForm" name="search" action="" target="_top">
 			  <div class="search-panel-fields">       
 				<input autocomplete="off" autofocus="true" accesskey="s" name="q" id="q">
 				<s></s>
@@ -91,16 +91,7 @@
 <div class="layout main">
 
 	<div class="layout-area">
-		<div class="m-index-ad" id="J_IndexAd">
-			<div class="pic">
-				<a href=""><img src="images/ad.jpg" /></a>
-				<a href=""><img src="images/ad.jpg" /></a>
-				<a href=""><img src="images/ad.jpg" /></a>
-				<a href=""><img src="images/ad.jpg" /></a>
-				
-			</div>
-			<div class="btns"><a href="javascript:void(0)"></a><a href="javascript:void(0)"></a><a href="javascript:void(0)"></a><a href="javascript:void(0)" class="on"></a></div>
-		</div>
+        <?php $this->widget("BannerWidget");?>
 		<div class="m-tab-list middle">
 			
 			<div class="hd">
@@ -253,30 +244,6 @@
 								<p>主营：铝</p>
 							</div>
 						</li>
-						<li>
-							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
-							<div class="info">
-								<a>昆明汗信经贸有限公司</a>
-								<p>1分钟前更新 <span class="red">112条</span></p>
-								<p>主营：铝</p>
-							</div>
-						</li>
-						<li>
-							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
-							<div class="info">
-								<a>昆明汗信经贸有限公司</a>
-								<p>1分钟前更新 <span class="red">112条</span></p>
-								<p>主营：铝</p>
-							</div>
-						</li>
-						<li>
-							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
-							<div class="info">
-								<a>昆明汗信经贸有限公司</a>
-								<p>1分钟前更新 <span class="red">112条</span></p>
-								<p>主营：铝</p>
-							</div>
-						</li>
 						<li class="last">
 							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
 							<div class="info">
@@ -328,8 +295,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="m-mid-ad"><a href=""><img src="images/ad6.jpg" /></a></div>
-			<div class="m-case middle">
+			<div class="m-case">
 				<div class="hd">
 				<span class="on"><a href="">成功案例</a></span>			
 				<a href="" class="more">更多</a>
@@ -338,30 +304,6 @@
 					<ul>
 						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
 						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
-						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
-						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
-						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
-						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
-						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					
-					</ul>
-				</div>
-			</div>
-			<div class="m-nous right">
-				<div class="hd">
-				<span class="on"><a href="">钼常识</a></span>			
-				<a href="" class="more">更多</a>
-				</div>
-				<div class="bd">
-					<ul>
-						<li><a>钼常识钼常识钼常识钼常识钼常识</a></li>
-						<li><a>钼常识钼常识钼常识钼常识钼常识</a></li>
-						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
-						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
-						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
-						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
-						<li><a>沈阳地震主播淡定沈阳地震主播淡定</a></li>
-						
 					</ul>
 				</div>
 			</div>
@@ -378,7 +320,11 @@
 			<a><img src="images/img2.jpg" /></a>
 			<a><img src="images/img2.jpg" /></a>
 			<a><img src="images/img2.jpg" /></a>
-
+			<a><img src="images/img2.jpg" /></a>
+			<a><img src="images/img2.jpg" /></a>
+			<a><img src="images/img2.jpg" /></a>
+			<a><img src="images/img2.jpg" /></a>
+		</div>
 	</div>
 	
 	<div class="layout-area">

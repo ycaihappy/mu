@@ -27,7 +27,7 @@ MU.mods={
 		
 		self.find('.switchable-nav li').click(function () {
 			$(this).addClass('selected').siblings().removeClass('selected');
-			self.find('input[name=type]').val($(this).attr('data-type'));
+			self.find('input[name=type]').val($(this).data('type'));
 		});
 	},
 	JIndexAd : function (){

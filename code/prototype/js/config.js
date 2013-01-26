@@ -444,7 +444,7 @@ $.extend(MU.Tool, {
 		return modName;
 	};
 	project.modsBind=function(obj){
-		var mods=obj?obj.find("*[id^='J_'][isInit!='true']"):$("*[id^='J_'][isInit!='true']");
+		var mods=obj?obj.find("div[id^='J_'][isInit!='true']"):$("div[id^='J_'][isInit!='true']");
 		if(!obj && project.mods["body"]){
 			project.mods["body"].call(document);
 		}

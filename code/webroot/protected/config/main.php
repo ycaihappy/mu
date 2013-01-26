@@ -114,6 +114,7 @@ return array(
 			'password' => '123456',
 			'charset' => 'utf8',
 		    'schemaCachingDuration' => 0,//one day :86400
+            'tablePrefix'=> 'mu'
 		),
 		'cache'=>array(
 			'class'=>'CXCache',

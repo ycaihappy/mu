@@ -23,7 +23,7 @@ MU.mods={
 			}
 		});
 		
-		self.find('input[name=type]').val(self.find('.switchable-nav li.selected').attr('data-type'));
+		self.find('input[name=type]').val(self.find('.switchable-nav li.selected').data('type'));
 		
 		self.find('.switchable-nav li').click(function () {
 			$(this).addClass('selected').siblings().removeClass('selected');

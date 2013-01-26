@@ -134,16 +134,20 @@ a:hover{color:#F27B04}
 .m-nav .nav-con{width:174px;overflow:hidden;float:left;}
 
 .m-index-ad{width:358px;float:left;margin-right:20px;}
+.m-index-ad .pic{position:relative;height: 275px;overflow: hidden;width: 358px;}
 .btns{text-align:center;margin-top:10px;}
-.btns a{background:url(imgs/cbtn.jpg) no-repeat;display:inline-block;width:10px;height:10px;margin-right:10px;}
-.btns a.selected{background:url(imgs/cbtn_hover.jpg) no-repeat;}
+.btns a{background:url(imgs/cbtn.jpg) no-repeat;display:inline-block;width:10px;height:10px;margin-right:10px;text-indent: -9999px;}
+.btns a.on{background:url(imgs/cbtn_hover.jpg) no-repeat;}
 .middle{width:313px;}
 .left{width:358px;}
 .right{width:251px}
 .more{font-size: 14px; float:right;   line-height: 30px;    margin-right: 5px;}
 .m-tab-list,.m-quot,.m-case{float:left;border-top: 2px solid #206F96;}
 
+/*
+filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr=iWidth,endColorStr=iWidth) 
 
+*/
 .m-tab-list .hd,.m-quot .hd,.m-case .hd{margin-bottom:20px;overflow:hidden;border-left: 1px solid #CFCFCF;background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(254, 254, 254)), to(rgb(237, 237, 237)));background-image: -webkit-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -moz-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -o-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -ms-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background:#f7f7f7\9}
 
 .m-tab-list .hd span,.m-case .hd span,.m-quot .hd span{width:103px;height:30px;line-height:30px;border-right: 1px solid #CFCFCF; cursor: pointer;float: left;font-size: 14px;text-align: center;background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(254, 254, 254)), to(rgb(237, 237, 237)));background-image: -webkit-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -moz-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -o-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -ms-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));}

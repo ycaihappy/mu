@@ -22,5 +22,9 @@ MU.mods={
 				$(this).parent().removeClass('search-status-focus');
 			}
 		})
+	},
+	JIndexAd : function (){
+		var self = $(this);
+		var adroll = new MU.Tool.AdRoll({el:self,interval:4500});
 	}
 };

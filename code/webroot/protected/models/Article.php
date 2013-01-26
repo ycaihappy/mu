@@ -55,6 +55,16 @@ class Article extends CActiveRecord
 			array('art_id, art_title, art_source, art_category_id, art_content, art_status, art_tags, art_user_id, art_check_by, art_post_date, art_modified_date, art_recommend', 'safe', 'on'=>'search'),
 		);
 	}
+	public function scopes()
+	{
+		return array(
+				'recentlyprice'=>array(
+					'condition'=>'art_category_id=16 and art_status=1',
+					'order'=>'art_post_date desc',
+					'limit'=>8
+				),
+		);
+	}
 
 	/**
 	 * @return array relational rules.

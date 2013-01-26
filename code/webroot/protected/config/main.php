@@ -111,8 +111,9 @@ return array(
 			'connectionString' => 'mysql:host=127.0.0.1;dbname=mu',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => '123456',
 			'charset' => 'utf8',
+		    'schemaCachingDuration' => 0,//one day :86400
 		),
 		'cache'=>array(
 			'class'=>'CXCache',

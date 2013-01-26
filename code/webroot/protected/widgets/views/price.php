@@ -22,15 +22,14 @@
 					</div>
 					<div class="col-r">
 						<ul class="current">
-							<li class="b"><a href="">毛新宇谈毛泽东激动:国共抗日本质不同</a></li>
-							<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-								
+						<?php for($index=0;$index<count($data);$index++):
+							if($index==0):
+						?>
+							<li class="b"><a href=""><?php echo $data[$index]['art_title'] ?></a></li>
+							<?php else :?>
+							<li><a href="" target="_blank"><?php echo $data[$index]['art_title'] ?></a></li>
+							<?php endif;?>
+					<?php endfor;?>			
 				</ul>
 					</div>
 				</div>

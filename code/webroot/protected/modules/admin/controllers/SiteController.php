@@ -12,6 +12,9 @@ class SiteController extends Controller
 			'captcha'=>array(
 				'class'=>'CCaptchaAction',
 				'backColor'=>0xFFFFFF,
+				'minLength'=>4, //最短为4位
+			    'maxLength'=>4, //是长为4位
+			    'transparent'=>true, //显示为透明，当关闭该选项，才显示背景颜色
 		),
 		// page action renders "static" pages stored under 'protected/views/site/pages'
 		// They can be accessed via: index.php?r=site/page&view=FileName

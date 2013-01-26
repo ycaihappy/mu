@@ -7,6 +7,6 @@ class BannerWidget extends CWidget
 
     public function run()
     {
-        $this->render('banner',array());
+        $this->render('banner',array('name'=>'lizhli'));
     }
 }

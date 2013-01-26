@@ -53,6 +53,26 @@ class AdvertisementRecommendController extends CController {
 		if($_POST['Advertisement'])
 		{
 			$model->attributes=$_POST['Advertisement'];
+			$model->ad_media_src=CUploadedFile::getInstance($model,'ad_media_src');
+			if($model->isNewRecord&&$model->ad_media_src)
+			{
+				$newimg = 'advertisement_'.$model->ad_user_id.'_'.time().'_'.rand(1, 9999).'.'.$model->imgpath->extensionName;
+		        //根据时间戳重命名文件名,extensionName是获取文件的扩展名
+		        $model->ad_media_src->saveAs('images/advertisement/'.$newimg);
+		        $model->ad_media_src = 'images/advertisement/'.$newimg;
+			}
+			else {
+				if($model->ad_media_src)
+				{
+					$newimg = 'advertisement_'.$model->ad_user_id.'_'.time().'_'.rand(1, 9999).'.'.$model->imgpath->extensionName;
+			        //根据时间戳重命名文件名,extensionName是获取文件的扩展名
+			        $model->ad_media_src->saveAs('images/advertisement/'.$newimg);
+			        $model->ad_media_src = 'images/advertisement/'.$newimg;
+				}
+				else {
+					$model->ad_media_src=$model->ad_media_src_hidden;
+				}
+			}
 			if($model->save())
 			{
 				

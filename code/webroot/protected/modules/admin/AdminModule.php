@@ -39,6 +39,7 @@ class AdminModule extends CWebModule
 			throw new CHttpException(403,"You are not allowed to access this page.");
 			$publicPages=array(
                         'site/login',
+						'site/captcha',
                         'default/error',
 			);
 			if(Yii::app()->admin->isGuest && !in_array($route,$publicPages))

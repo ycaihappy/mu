@@ -20,6 +20,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.widgets.*',
 		//'packages.solr.*',
 	),
 
@@ -107,10 +108,10 @@ return array(
 		        'itemChildTable'=>'mu_right_itemchildren',
 		    ),
 		'db'=>array(
-			'connectionString' => 'mysql:host=127.0.0.1;dbname=mydb',
+			'connectionString' => 'mysql:host=127.0.0.1;dbname=mu',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '123456',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		'cache'=>array(

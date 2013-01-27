@@ -14,6 +14,7 @@ class TabListWidget extends CWidget
         case 'special':
             break;
         case 'supply':
+            $this->newlist = Supply::model()->topsupply()->findAll();
             break;
         case 'product':
             break;

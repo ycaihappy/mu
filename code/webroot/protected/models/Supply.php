@@ -77,6 +77,13 @@ class Supply extends CActiveRecord
 			'city'=>array(self::BELONGS_TO,'Term','supply_category_id'),
 		);
 	}
+	public function scopes()
+	{
+		return array(
+			'recentlyUncheckSupply'=>array('condition'=>'supply_status=20 and supply_type=18','order'=>'supply_join_date desc','limit'=>8),
+			'recentlyUncheckBuy'=>array('condition'=>'supply_status=20 and supply_type=19','order'=>'supply_join_date desc','limit'=>8),
+		);
+	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)

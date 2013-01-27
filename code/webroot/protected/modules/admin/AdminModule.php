@@ -14,6 +14,7 @@ class AdminModule extends CWebModule
 		$this->setImport(array(
 		'admin.models.*',
 		'admin.components.*',
+		'admin.widgets.*'
 		));
 		//这里重写父类里的组件
 		//如有需要还可以参考API添加相应组件

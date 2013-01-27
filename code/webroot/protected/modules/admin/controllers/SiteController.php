@@ -268,4 +268,48 @@ class SiteController extends Controller
 			}
 		}
 	}
+	public function actionManageBasicSiteInfo()
+	{
+		$basicSiteInfoModel=new BasicSiteInfo();
+		if($_POST['BasicSiteInfo'])
+		{
+			$basicSiteInfoModel->attributes=$_POST['BasicSiteInfo'];
+			if($basicSiteInfoModel->validate())
+			{
+				$basicSiteInfoModel->save();
+				$this->render('basicSiteInfo',array('model'=>$basicSiteInfoModel));
+			}
+			else {
+				Yii::app()->admin->setFlash('erroInfo','输入的字段不合法，保存失败');
+				$this->render('basicSiteInfo',array('model'=>$basicSiteInfoModel));
+			}
+		}
+		else
+		{
+			$basicSiteInfoModel=$basicSiteInfoModel->LoadData();
+			$this->render('basicSiteInfo',array('model'=>$basicSiteInfoModel));
+		}
+	}
+	public function actionManageSiteEmailSetting()
+	{
+		$siteEmailSettingModel=new SiteEmailSetting();
+		if($_POST['SiteEmailSetting'])
+		{
+			$siteEmailSettingModel->attributes=$_POST['SiteEmailSetting'];
+			if($siteEmailSettingModel->validate())
+			{
+				$siteEmailSettingModel->save();
+				$this->render('siteEmailSetting',array('model'=>$basicSiteInfoModel));
+			}
+			else {
+				Yii::app()->admin->setFlash('erroInfo','输入的字段不合法，保存失败');
+				$this->render('siteEmailSetting',array('model'=>$basicSiteInfoModel));
+			}
+		}
+		else
+		{
+			$siteEmailSettingModel=$siteEmailSettingModel->LoadData();
+			$this->render('siteEmailSetting',array('model'=>$siteEmailSettingModel));
+		}
+	}
 }

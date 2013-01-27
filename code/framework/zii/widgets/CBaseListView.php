@@ -72,7 +72,7 @@ abstract class CBaseListView extends CWidget
 	 *   <li>{pages}: the total number of pages, available since version 1.1.3</li>
 	 * </ul>
 	 */
-	public $summaryText;
+	public $summaryText='总共 {count} 条的 第 {start}-{end} 条记录.';
 	/**
 	 * @var string the message to be displayed when {@link dataProvider} does not have any data.
 	 */

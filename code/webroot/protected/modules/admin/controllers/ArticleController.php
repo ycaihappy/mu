@@ -1,6 +1,6 @@
 <?php
 
-class ArticleController extends CController {
+class ArticleController extends AdminController {
 
 	public function actionManageActicle()
 	{

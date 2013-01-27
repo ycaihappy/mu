@@ -57,6 +57,50 @@ class TermGroup extends CActiveRecord
 			'terms'=>array(self::HAS_MANY,'Term','term_group_id'),
 		);
 	}
+	public function scopes()
+	{
+		return array('allGroupNameIndexById'=>array('select'=>'group_id,group_name'));
+	}
+	public function getGroupTermsByArray($groupId)
+	{
+		if(!$groupId && !$this->group_id)
+		{
+			return array();
+		}
+		$termGroup=$this;
+		if(!$this->group_id)
+		{
+			$termGroup=TermGroup::model()->findByPk($groupId);
+		}
+		$terms=$termGroup->terms;
+		if($terms)
+		{
+			$termArray=array();
+			$termArray[0]='顶级';
+			foreach ($terms as $term)
+			{
+				$termArray[$term->term_id]=$term->term_name;
+			}
+			return $termArray;
+		}
+	}
+	public function getAllGroupIdToNameArray()
+	{
+		$groupArray=$this->allGroupNameIndexById()->findAll();
+		if($groupArray)
+		{
+			$groupNameArray=array();
+			foreach($groupArray as $group)
+			{
+				$groupNameArray[$group->group_id]=$group->group_name;
+			}
+			return $groupNameArray;
+		}
+		else
+		{
+			return false;
+		}
+	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)

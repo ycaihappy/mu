@@ -60,6 +60,7 @@ class Term extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'termGroup'=>array(self::BELONGS_TO,'TermGroup','term_group_id'),
+			'parent'=>array(self::BELONGS_TO,'Term','term_parent_id'),
 		);
 	}
 

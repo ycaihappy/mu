@@ -1,5 +1,5 @@
 <?php
-class AdvertisementRecommendController extends CController {
+class AdvertisementRecommendController extends AdminController {
 
 	public function actionManageAdvertisement()
 	{

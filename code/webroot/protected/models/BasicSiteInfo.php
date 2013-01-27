@@ -1,5 +1,5 @@
 <?php
-class BasicSiteInfo extends CFormModel {
+class BasicSiteInfo extends CJsonModel {
 
 	public $siteName;
 	public $siteTitle;
@@ -16,7 +16,7 @@ class BasicSiteInfo extends CFormModel {
 	public $csEmail;
 	public $siteDescription;
 	public $updateTime;
-	private $dataPath='data/siteInfo.json';
+	protected $dataPath='data/siteInfo.json';
 
 	public function rules()
 	{

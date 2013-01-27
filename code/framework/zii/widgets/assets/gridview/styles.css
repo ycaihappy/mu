@@ -18,7 +18,7 @@
 
 .grid-view table.items th, .grid-view table.items td
 {
-	font-size: 0.9em;
+	font-size: 1em;
 	border: 1px white solid;
 	padding: 0.3em;
 }
@@ -28,6 +28,7 @@
 	color: white;
 	background: url("bg.gif") repeat-x scroll left top white;
 	text-align: center;
+	font-weight: bold;
 }
 
 .grid-view table.items th a

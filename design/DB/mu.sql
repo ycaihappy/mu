@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-01-26 21:05:04
+# Date/time:                    2013-01-27 15:02:03
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -11,13 +11,13 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-# Dumping database structure for mydb
-DROP DATABASE IF EXISTS `mydb`;
-CREATE DATABASE IF NOT EXISTS `mydb` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `mydb`;
+# Dumping database structure for mu
+DROP DATABASE IF EXISTS `mu`;
+CREATE DATABASE IF NOT EXISTS `mu` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `mu`;
 
 
-# Dumping structure for table mydb.mu_advertisement
+# Dumping structure for table mu.mu_advertisement
 DROP TABLE IF EXISTS `mu_advertisement`;
 CREATE TABLE IF NOT EXISTS `mu_advertisement` (
   `ad_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -36,37 +36,41 @@ CREATE TABLE IF NOT EXISTS `mu_advertisement` (
   PRIMARY KEY (`ad_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_advertisement: 1 rows
+# Dumping data for table mu.mu_advertisement: 1 rows
 /*!40000 ALTER TABLE `mu_advertisement` DISABLE KEYS */;
 INSERT INTO `mu_advertisement` (`ad_id`, `ad_user_id`, `ad_title`, `ad_type`, `ad_no`, `ad_link`, `ad_status`, `ad_click_num`, `ad_start_date`, `ad_end_date`, `ad_price`, `ad_media_src`, `ad_create_time`) VALUES
 	(1, 1, '钼铁推广', 9, 11, 'www.baidu.com', 1, 200, '2013-01-24 23:44:05', '2013-12-24 23:44:07', 20000, NULL, '2013-01-24 23:44:24');
 /*!40000 ALTER TABLE `mu_advertisement` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_article
+# Dumping structure for table mu.mu_article
 DROP TABLE IF EXISTS `mu_article`;
 CREATE TABLE IF NOT EXISTS `mu_article` (
-  `art_id` int(11) NOT NULL,
+  `art_id` int(11) NOT NULL AUTO_INCREMENT,
   `art_title` varchar(128) NOT NULL,
   `art_source` char(128) DEFAULT NULL COMMENT '''文章出处''',
-  `art_category_id` int(11) DEFAULT NULL COMMENT '文章分类 行情 新闻 ',
+  `art_category_id` int(11) NOT NULL COMMENT '文章分类 行情 新闻 ',
   `art_content` text COMMENT '''文章内容''',
   `art_status` int(11) DEFAULT NULL COMMENT '起草 审核中 发布',
   `art_tags` varchar(45) DEFAULT NULL COMMENT '''文章tags''',
-  `art_user_id` tinyint(4) DEFAULT NULL COMMENT '文章发表人',
+  `art_user_id` tinyint(4) NOT NULL COMMENT '文章发表人',
   `art_check_by` varchar(45) DEFAULT NULL COMMENT '''审核人''',
   `art_post_date` datetime DEFAULT NULL COMMENT '''发布时间''',
   `art_modified_date` datetime DEFAULT NULL COMMENT '''修改时间''',
   `art_recommend` tinyint(4) DEFAULT NULL COMMENT '文章推荐',
   PRIMARY KEY (`art_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_article: 0 rows
+# Dumping data for table mu.mu_article: 3 rows
 /*!40000 ALTER TABLE `mu_article` DISABLE KEYS */;
+INSERT INTO `mu_article` (`art_id`, `art_title`, `art_source`, `art_category_id`, `art_content`, `art_status`, `art_tags`, `art_user_id`, `art_check_by`, `art_post_date`, `art_modified_date`, `art_recommend`) VALUES
+	(1, '1月25日中国钼丝市场价格', '百川资讯', 16, '1月25日中国钼丝市场价格', 1, '1月25日中国钼丝市场价格', 0, '得到', '2013-01-26 23:53:30', '2013-01-26 23:53:32', NULL),
+	(2, '1月25日中国钼杆市场价格', '百川资讯', 16, '1月25日中国钼杆市场价格', 1, '1月25日中国钼杆市场价格', 0, '得到', '2013-01-26 23:53:30', '2013-01-26 23:53:32', NULL),
+	(3, '1月25日中国钼条市场价格', '百川资讯', 16, '1月25日中国钼条市场价格', 1, '1月25日中国钼条市场价格', 0, '得到', '2013-01-26 23:53:30', '2013-01-26 23:53:32', NULL);
 /*!40000 ALTER TABLE `mu_article` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_city
+# Dumping structure for table mu.mu_city
 DROP TABLE IF EXISTS `mu_city`;
 CREATE TABLE IF NOT EXISTS `mu_city` (
   `city_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -78,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `mu_city` (
   PRIMARY KEY (`city_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='省市联动表';
 
-# Dumping data for table mydb.mu_city: 4 rows
+# Dumping data for table mu.mu_city: 4 rows
 /*!40000 ALTER TABLE `mu_city` DISABLE KEYS */;
 INSERT INTO `mu_city` (`city_id`, `city_name`, `city_parent`, `city_level`, `city_order`, `city_open`) VALUES
 	(1, '西南', 0, 1, 1, NULL),
@@ -88,7 +92,7 @@ INSERT INTO `mu_city` (`city_id`, `city_name`, `city_parent`, `city_level`, `cit
 /*!40000 ALTER TABLE `mu_city` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_favorite
+# Dumping structure for table mu.mu_favorite
 DROP TABLE IF EXISTS `mu_favorite`;
 CREATE TABLE IF NOT EXISTS `mu_favorite` (
   `favorite_id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -99,12 +103,12 @@ CREATE TABLE IF NOT EXISTS `mu_favorite` (
   PRIMARY KEY (`favorite_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_favorite: 0 rows
+# Dumping data for table mu.mu_favorite: 0 rows
 /*!40000 ALTER TABLE `mu_favorite` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mu_favorite` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_find_passwd
+# Dumping structure for table mu.mu_find_passwd
 DROP TABLE IF EXISTS `mu_find_passwd`;
 CREATE TABLE IF NOT EXISTS `mu_find_passwd` (
   `find_id` bigint(20) NOT NULL,
@@ -116,12 +120,12 @@ CREATE TABLE IF NOT EXISTS `mu_find_passwd` (
   PRIMARY KEY (`find_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='找回密码功能';
 
-# Dumping data for table mydb.mu_find_passwd: 0 rows
+# Dumping data for table mu.mu_find_passwd: 0 rows
 /*!40000 ALTER TABLE `mu_find_passwd` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mu_find_passwd` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_friend_link
+# Dumping structure for table mu.mu_friend_link
 DROP TABLE IF EXISTS `mu_friend_link`;
 CREATE TABLE IF NOT EXISTS `mu_friend_link` (
   `flink_id` int(11) NOT NULL,
@@ -132,12 +136,12 @@ CREATE TABLE IF NOT EXISTS `mu_friend_link` (
   PRIMARY KEY (`flink_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='友情链接';
 
-# Dumping data for table mydb.mu_friend_link: 0 rows
+# Dumping data for table mu.mu_friend_link: 0 rows
 /*!40000 ALTER TABLE `mu_friend_link` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mu_friend_link` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_func
+# Dumping structure for table mu.mu_func
 DROP TABLE IF EXISTS `mu_func`;
 CREATE TABLE IF NOT EXISTS `mu_func` (
   `func_id` int(11) NOT NULL,
@@ -146,12 +150,12 @@ CREATE TABLE IF NOT EXISTS `mu_func` (
   PRIMARY KEY (`func_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_func: 0 rows
+# Dumping data for table mu.mu_func: 0 rows
 /*!40000 ALTER TABLE `mu_func` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mu_func` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_point_rule
+# Dumping structure for table mu.mu_point_rule
 DROP TABLE IF EXISTS `mu_point_rule`;
 CREATE TABLE IF NOT EXISTS `mu_point_rule` (
   `rule_id` int(11) NOT NULL,
@@ -160,12 +164,12 @@ CREATE TABLE IF NOT EXISTS `mu_point_rule` (
   PRIMARY KEY (`rule_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_point_rule: 0 rows
+# Dumping data for table mu.mu_point_rule: 0 rows
 /*!40000 ALTER TABLE `mu_point_rule` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mu_point_rule` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_product
+# Dumping structure for table mu.mu_product
 DROP TABLE IF EXISTS `mu_product`;
 CREATE TABLE IF NOT EXISTS `mu_product` (
   `product_id` bigint(20) NOT NULL,
@@ -186,14 +190,14 @@ CREATE TABLE IF NOT EXISTS `mu_product` (
   KEY `product_user_id` (`product_user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='现货';
 
-# Dumping data for table mydb.mu_product: 1 rows
+# Dumping data for table mu.mu_product: 1 rows
 /*!40000 ALTER TABLE `mu_product` DISABLE KEYS */;
 INSERT INTO `mu_product` (`product_id`, `product_user_id`, `product_keyword`, `product_name`, `product_quanity`, `product_unit`, `product_type_id`, `product_price`, `product_status`, `product_city_id`, `product_location`, `product_special`, `product_join_date`, `product_image_src`) VALUES
 	(1, 1, NULL, '特价钼铁', 2000, 9, 1, 23435, 1, NULL, '1', 0, '2013-01-21 22:05:09', NULL);
 /*!40000 ALTER TABLE `mu_product` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_recommend
+# Dumping structure for table mu.mu_recommend
 DROP TABLE IF EXISTS `mu_recommend`;
 CREATE TABLE IF NOT EXISTS `mu_recommend` (
   `recommend_id` int(11) NOT NULL,
@@ -205,12 +209,12 @@ CREATE TABLE IF NOT EXISTS `mu_recommend` (
   PRIMARY KEY (`recommend_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_recommend: 0 rows
+# Dumping data for table mu.mu_recommend: 0 rows
 /*!40000 ALTER TABLE `mu_recommend` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mu_recommend` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_right_assignment
+# Dumping structure for table mu.mu_right_assignment
 DROP TABLE IF EXISTS `mu_right_assignment`;
 CREATE TABLE IF NOT EXISTS `mu_right_assignment` (
   `itemname` varchar(64) NOT NULL,
@@ -220,12 +224,12 @@ CREATE TABLE IF NOT EXISTS `mu_right_assignment` (
   PRIMARY KEY (`userid`,`itemname`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_right_assignment: 0 rows
+# Dumping data for table mu.mu_right_assignment: 0 rows
 /*!40000 ALTER TABLE `mu_right_assignment` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mu_right_assignment` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_right_item
+# Dumping structure for table mu.mu_right_item
 DROP TABLE IF EXISTS `mu_right_item`;
 CREATE TABLE IF NOT EXISTS `mu_right_item` (
   `name` varchar(64) NOT NULL,
@@ -236,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_item` (
   PRIMARY KEY (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_right_item: 48 rows
+# Dumping data for table mu.mu_right_item: 48 rows
 /*!40000 ALTER TABLE `mu_right_item` DISABLE KEYS */;
 INSERT INTO `mu_right_item` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 	('admin-UserAdmin', 0, NULL, NULL, 'N;'),
@@ -290,7 +294,7 @@ INSERT INTO `mu_right_item` (`name`, `type`, `description`, `bizrule`, `data`) V
 /*!40000 ALTER TABLE `mu_right_item` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_right_itemchildren
+# Dumping structure for table mu.mu_right_itemchildren
 DROP TABLE IF EXISTS `mu_right_itemchildren`;
 CREATE TABLE IF NOT EXISTS `mu_right_itemchildren` (
   `parent` varchar(64) NOT NULL,
@@ -298,7 +302,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_itemchildren` (
   PRIMARY KEY (`parent`,`child`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_right_itemchildren: 4 rows
+# Dumping data for table mu.mu_right_itemchildren: 4 rows
 /*!40000 ALTER TABLE `mu_right_itemchildren` DISABLE KEYS */;
 INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('srbac-AuthitemAdministrating', 'admin-UserAdmin'),
@@ -308,7 +312,7 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 /*!40000 ALTER TABLE `mu_right_itemchildren` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_sms_code
+# Dumping structure for table mu.mu_sms_code
 DROP TABLE IF EXISTS `mu_sms_code`;
 CREATE TABLE IF NOT EXISTS `mu_sms_code` (
   `sms_id` bigint(20) NOT NULL,
@@ -319,12 +323,12 @@ CREATE TABLE IF NOT EXISTS `mu_sms_code` (
   PRIMARY KEY (`sms_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='手机验证码';
 
-# Dumping data for table mydb.mu_sms_code: 0 rows
+# Dumping data for table mu.mu_sms_code: 0 rows
 /*!40000 ALTER TABLE `mu_sms_code` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mu_sms_code` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_success_case
+# Dumping structure for table mu.mu_success_case
 DROP TABLE IF EXISTS `mu_success_case`;
 CREATE TABLE IF NOT EXISTS `mu_success_case` (
   `case_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -337,12 +341,12 @@ CREATE TABLE IF NOT EXISTS `mu_success_case` (
   PRIMARY KEY (`case_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_success_case: ~0 rows (approximately)
+# Dumping data for table mu.mu_success_case: ~0 rows (approximately)
 /*!40000 ALTER TABLE `mu_success_case` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mu_success_case` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_supply
+# Dumping structure for table mu.mu_supply
 DROP TABLE IF EXISTS `mu_supply`;
 CREATE TABLE IF NOT EXISTS `mu_supply` (
   `supply_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -366,12 +370,12 @@ CREATE TABLE IF NOT EXISTS `mu_supply` (
   KEY `supply_user_id` (`supply_user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_supply: 0 rows
+# Dumping data for table mu.mu_supply: 0 rows
 /*!40000 ALTER TABLE `mu_supply` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mu_supply` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_term
+# Dumping structure for table mu.mu_term
 DROP TABLE IF EXISTS `mu_term`;
 CREATE TABLE IF NOT EXISTS `mu_term` (
   `term_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -382,9 +386,9 @@ CREATE TABLE IF NOT EXISTS `mu_term` (
   `term_order` tinyint(4) DEFAULT '0',
   `term_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`term_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_term: 15 rows
+# Dumping data for table mu.mu_term: 19 rows
 /*!40000 ALTER TABLE `mu_term` DISABLE KEYS */;
 INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES
 	(1, 0, '有效', NULL, 1, 0, '2013-01-20 10:27:00'),
@@ -398,23 +402,27 @@ INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `t
 	(9, 0, '图片', NULL, 6, 0, '2013-01-24 22:29:45'),
 	(10, 0, 'flash', NULL, 6, 0, '2013-01-24 22:30:00'),
 	(11, 0, '首页底部', NULL, 7, 0, '2013-01-24 22:30:22'),
-	(12, 0, '首页幻灯片下方', NULL, 7, 0, NULL),
+	(12, 0, '首页幻灯片下方', NULL, 7, 0, '2013-01-26 23:42:01'),
 	(13, 0, '供应信息', NULL, 8, 0, '2013-01-24 22:46:11'),
 	(14, 0, '采购信息', NULL, 8, 0, '2013-01-24 22:46:22'),
-	(15, 0, '首页特价信息', NULL, 9, 0, NULL);
+	(15, 0, '首页特价信息', NULL, 9, 0, '2013-01-26 23:42:04'),
+	(16, 0, '行情', NULL, 10, 0, '2013-01-26 23:41:46'),
+	(17, 0, '新闻', NULL, 10, 0, '2013-01-26 23:41:59'),
+	(18, 0, '供应', NULL, 11, 0, '2013-01-27 14:37:56'),
+	(19, 0, '求购', NULL, 11, 0, '2013-01-27 14:37:54');
 /*!40000 ALTER TABLE `mu_term` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_term_group
+# Dumping structure for table mu.mu_term_group
 DROP TABLE IF EXISTS `mu_term_group`;
 CREATE TABLE IF NOT EXISTS `mu_term_group` (
   `group_id` int(11) NOT NULL AUTO_INCREMENT,
   `group_name` varchar(100) DEFAULT NULL,
   `group_desc` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_term_group: 9 rows
+# Dumping data for table mu.mu_term_group: 11 rows
 /*!40000 ALTER TABLE `mu_term_group` DISABLE KEYS */;
 INSERT INTO `mu_term_group` (`group_id`, `group_name`, `group_desc`) VALUES
 	(1, '状态', NULL),
@@ -425,11 +433,13 @@ INSERT INTO `mu_term_group` (`group_id`, `group_name`, `group_desc`) VALUES
 	(6, '广告媒体类型', NULL),
 	(7, '广告位置', NULL),
 	(8, '推荐信息类型', NULL),
-	(9, '推荐位置', NULL);
+	(9, '推荐位置', NULL),
+	(10, '文章类型', NULL),
+	(11, '供求类型', NULL);
 /*!40000 ALTER TABLE `mu_term_group` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_user
+# Dumping structure for table mu.mu_user
 DROP TABLE IF EXISTS `mu_user`;
 CREATE TABLE IF NOT EXISTS `mu_user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -454,14 +464,14 @@ CREATE TABLE IF NOT EXISTS `mu_user` (
   KEY `user_status` (`user_status`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_user: 1 rows
+# Dumping data for table mu.mu_user: 1 rows
 /*!40000 ALTER TABLE `mu_user` DISABLE KEYS */;
 INSERT INTO `mu_user` (`user_id`, `user_name`, `user_pwd`, `user_email`, `user_nickname`, `user_type`, `user_mobile_no`, `user_first_name`, `user_last_name`, `user_status`, `user_province_id`, `user_city_id`, `user_subscribe`, `user_point`, `user_join_date`, `user_confirm_date`, `user_last_login_date`) VALUES
 	(1, 'xiaofuqian', 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `mu_user` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_user_certificate
+# Dumping structure for table mu.mu_user_certificate
 DROP TABLE IF EXISTS `mu_user_certificate`;
 CREATE TABLE IF NOT EXISTS `mu_user_certificate` (
   `cert_id` int(11) NOT NULL,
@@ -471,12 +481,12 @@ CREATE TABLE IF NOT EXISTS `mu_user_certificate` (
   PRIMARY KEY (`cert_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_user_certificate: 0 rows
+# Dumping data for table mu.mu_user_certificate: 0 rows
 /*!40000 ALTER TABLE `mu_user_certificate` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mu_user_certificate` ENABLE KEYS */;
 
 
-# Dumping structure for table mydb.mu_user_enterprise
+# Dumping structure for table mu.mu_user_enterprise
 DROP TABLE IF EXISTS `mu_user_enterprise`;
 CREATE TABLE IF NOT EXISTS `mu_user_enterprise` (
   `ent_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -502,7 +512,7 @@ CREATE TABLE IF NOT EXISTS `mu_user_enterprise` (
   KEY `ent_user_id` (`ent_user_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mydb.mu_user_enterprise: 1 rows
+# Dumping data for table mu.mu_user_enterprise: 1 rows
 /*!40000 ALTER TABLE `mu_user_enterprise` DISABLE KEYS */;
 INSERT INTO `mu_user_enterprise` (`ent_id`, `ent_user_id`, `ent_name`, `ent_type`, `ent_website`, `ent_business_model`, `ent_zipcode`, `ent_introduce`, `ent_location`, `ent_city`, `ent_status`, `ent_chief`, `ent_create_time`, `ent_chief_postion`, `ent_business_scope`, `ent_registered_capital`, `ent_recommend`, `ent_logo`, `ent_update_time`) VALUES
 	(2, 1, '平顶山钼铁集团', 4, NULL, 6, NULL, NULL, NULL, 4, NULL, '肖富乾', '0000-00-00 00:00:00', 8, NULL, 2000, NULL, NULL, NULL);

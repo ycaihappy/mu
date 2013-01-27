@@ -2,11 +2,14 @@
 class TabListWidget extends CWidget
 {
     public $type;
+    public $newlist;
     public function init()
     {
+
         switch ($this->type)
         {
         case 'news':
+            $this->newlist = Article::model()->NewsList()->findAll();
             break;
         case 'special':
             break;
@@ -19,6 +22,6 @@ class TabListWidget extends CWidget
 
     public function run()
     {
-        $this->render('tab_list',array('type'=>$this->type));
+        $this->render('tab_list',array('type'=>$this->type, 'data'=>$this->newlist));
     }
 }

@@ -1,14 +1,14 @@
 <?php
 class KnowledgeWidget extends CWidget
 {
-	private $recenltyCase=array();
+	private $KnowledgeList=array();
     public function init()
     {
-    	$this->recenltyCase=SuccessCase::model()->recenltyCase()->findAll();
+    	$this->KnowledgeList = Article::model()->knowledgeList()->findAll();
     }
 
     public function run()
     {
-        $this->render('knowledge',array('data'=>$this->recenltyCase));
+        $this->render('knowledge',array('data'=>$this->KnowledgeList));
     }
 }

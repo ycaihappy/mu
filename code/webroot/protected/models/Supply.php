@@ -63,6 +63,16 @@ class Supply extends CActiveRecord
 		);
 	}
 
+	public function scopes()
+	{
+		return array(
+				'topsupply'=>array(
+					'condition'=>'supply_status=1',
+					'order'=>'supply_join_date desc',
+					'limit'=>8
+				),
+		);
+	}
 	/**
 	 * @return array relational rules.
 	 */

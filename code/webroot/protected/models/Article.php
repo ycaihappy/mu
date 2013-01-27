@@ -63,6 +63,16 @@ class Article extends CActiveRecord
 					'order'=>'art_post_date desc',
 					'limit'=>8
 				),
+                'knowledgeList'=>array(
+					'condition'=>'art_category_id=20 and art_status=1',
+					'order'=>'art_post_date desc',
+					'limit'=>8
+                ),
+                'NewsList'=>array(
+					'condition'=>'art_category_id=17 and art_status=1',
+					'order'=>'art_post_date desc',
+					'limit'=>8
+                ),
 		);
 	}
 

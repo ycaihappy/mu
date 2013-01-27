@@ -60,6 +60,17 @@ class Enterprise extends CActiveRecord
 		);
 	}
 
+	public function scopes()
+	{
+		return array(
+			'recommedEnt'=>array(
+					'condition'=>'ent_recommend=1',
+					'order'=>'ent_create_time desc',
+					'limit'=>6,	
+				),
+		);
+	}
+
 	/**
 	 * @return array relational rules.
 	 */

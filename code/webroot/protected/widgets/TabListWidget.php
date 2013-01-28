@@ -12,11 +12,13 @@ class TabListWidget extends CWidget
             $this->newlist = Article::model()->NewsList()->findAll();
             break;
         case 'special':
+            $this->newlist = Product::model()->topSpecial()->findAll();
             break;
         case 'supply':
             $this->newlist = Supply::model()->topsupply()->findAll();
             break;
         case 'product':
+            $this->newlist = Product::model()->topProduct()->findAll();
             break;
         }
     }

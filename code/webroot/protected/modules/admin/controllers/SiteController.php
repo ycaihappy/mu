@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class SiteController extends AdminController
 {

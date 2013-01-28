@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php $this->widget("CommonHeaderWidget");?>
-
-<body>
-
-<div id="p_index" class="pg-layout">
-<?php $this->widget('TopWidget');?>
-
-<div class="layout head">
-    <?php $this->widget('SearchWidget');?>
-    <?php $this->widget('NavigationWidget');?>
-</div>
-
-<div class="layout main">
 
 	<div class="layout-area">
         <?php $this->widget("BannerWidget");?>
@@ -43,28 +28,7 @@
 		</div>
 		<div class="clearfix"></div>
 	</div>
-	<div class="layout-area">
+
+    <div class="layout-area">
         <?php $this->widget("BottomBannerWidget");?>
-	</div>
-	
-	<div class="layout-area">
-        <?php $this->widget("FriendLinkWidget");?>
-	</div>
-	
-	<div class="layout-area">
-    <?php $this->widget("FooterWidget");?>
-	</div>
-	
-
-</div>
-
-
-
-
-</div>
-
-
-<?php $this->widget("CommonFooterWidget");?>
-
-</body>
-</html>
+    </div>

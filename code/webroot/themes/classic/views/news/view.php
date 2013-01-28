@@ -1,0 +1,21 @@
+
+<div id="p_article_detail" class="pg-layout">
+
+<div class="layout main">
+	
+    <?php $this->widget("BreadCrumbWidget");?>
+
+	<div class="layout-area">
+	
+	<div class="layout-left">
+        <?php $this->widget("NewsDetailWidget");?>
+	</div>
+	<div class="layout-right">
+	        <?php $this->widget("NewsRecommendWidget");?>
+	</div>
+
+    </div>
+	
+</div>
+
+</div>

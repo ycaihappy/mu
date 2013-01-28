@@ -259,7 +259,6 @@ class CCaptchaAction extends CAction
 		}
 
 		imagecolordeallocate($image,$foreColor);
-
 		header('Pragma: public');
 		header('Expires: 0');
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');

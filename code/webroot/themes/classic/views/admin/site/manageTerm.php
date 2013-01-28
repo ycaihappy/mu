@@ -1,6 +1,11 @@
-<div><?php echo CHtml::link('添加信息',Yii::app()->controller->createUrl("updateTerm"))?></div>
+<?php
+$this->breadcrumbs=array(
+	'全站设置'=>array('manageTerm'),
+	'基本类别管理',
+);
+?>
+<?php echo CHtml::button('添加类别',array('class'=>'btn-blue','onclick'=>'window.location.href="'.Yii::app()->controller->createUrl("updateTerm").'"'))?>
 <?php 
-
 	$this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$dataProvider,
 	'summaryText'=>'显示  {count} 条的第  {start}-{end} 条',
@@ -24,6 +29,11 @@
         array(
         	'name'=>'父级',
         	'value'=>'$data->term_parent_id',
+        ),
+        array(
+        	'name'=>'排序',
+        	'value'=>'$data->term_order',
+        	'htmlOptions'=>array('align'=>'center'),
         ),
         array(            // display 'create_time' using an expression
             'name'=>'创建时间',

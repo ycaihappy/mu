@@ -15,12 +15,14 @@ return array(
 	"aliases" => array(
 	    "packages" => dirname(__DIR__)."/packages/",
 	),
+	'language'=>'en',
 
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
 		'application.widgets.*',
+		//'application.extensions.*',
 		//'packages.solr.*',
 	),
 

@@ -50,6 +50,24 @@ class Term extends CActiveRecord
 			array('term_id, term_parent_id, term_name, term_slug, term_group_id, term_order, term_create_time', 'safe', 'on'=>'search'),
 		);
 	}
+	public static function getTermsByGroupId($groupId)
+	{
+		if($groupId)
+		{
+			$terms=self::model()->findAll('term_group_id=:groupId',array(':groupId'=>$groupId));
+			if($terms)
+			{
+				$returnTerms=array();
+				$returnTerms[0]='不限';
+				foreach ($terms as $term)
+				{
+					$returnTerms[$term->term_id]=$term->term_name;
+				}
+				return $returnTerms;
+			}
+		}
+		return array();
+	}
 
 	/**
 	 * @return array relational rules.

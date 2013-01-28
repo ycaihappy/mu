@@ -1,4 +1,10 @@
-<div><?php echo CHtml::link('添加地区',Yii::app()->controller->createUrl("updateCity"))?></div>
+<?php
+$this->breadcrumbs=array(
+	'全站设置'=>array('manageTerm'),
+	'地区管理',
+);
+?>
+<div><?php echo CHtml::button('添加地区',array('class'=>'btn-blue','onclick'=>'window.location.href="'.Yii::app()->controller->createUrl("updateCity").'"'))?></div>
 <?php 
 
 	$this->widget('zii.widgets.grid.CGridView', array(

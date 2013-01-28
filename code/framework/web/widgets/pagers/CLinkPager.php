@@ -115,7 +115,7 @@ class CLinkPager extends CBasePager
 		if($this->lastPageLabel===null)
 			$this->lastPageLabel=Yii::t('yii','尾页 &gt;&gt;');
 		if($this->header===null)
-			$this->header=Yii::t('yii','分页: ');
+			$this->header=Yii::t('yii','');
 
 		if(!isset($this->htmlOptions['id']))
 			$this->htmlOptions['id']=$this->getId();

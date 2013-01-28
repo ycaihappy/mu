@@ -9,13 +9,13 @@ class SiteController extends AdminController
 	{
 		return array(
 		// captcha action renders the CAPTCHA image displayed on the contact page
-			'captcha'=>array(
-				'class'=>'CCaptchaAction',
-				'backColor'=>0xFFFFFF,
-				'minLength'=>4, //最短为4位
-			    'maxLength'=>4, //是长为4位
-			    'transparent'=>true, //显示为透明，当关闭该选项，才显示背景颜色
-		),
+//			'captcha'=>array(
+//				'class'=>'CCaptchaAction',
+//				'backColor'=>0xFFFFFF,
+//				'minLength'=>4, //最短为4位
+//			    'maxLength'=>4, //是长为4位
+//			    'transparent'=>true, //显示为透明，当关闭该选项，才显示背景颜色
+//		),
 		// page action renders "static" pages stored under 'protected/views/site/pages'
 		// They can be accessed via: index.php?r=site/page&view=FileName
 			'page'=>array(
@@ -32,6 +32,7 @@ class SiteController extends AdminController
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
+		$this->layout='//layouts/admin_iframe_main';
 		$this->_actionManageBasicSiteInfo();
 	}
 
@@ -80,8 +81,11 @@ class SiteController extends AdminController
 	 */
 	public function actionLogin()
 	{
+		$this->layout='//layouts/ajax_main';
 		$model=new LoginForm;
 
+		if(!Yii::app()->admin->isGuest)
+			$this->redirect(array('index'));
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{
@@ -95,7 +99,7 @@ class SiteController extends AdminController
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-			$this->redirect(Yii::app()->admin->returnUrl);
+			  $this->redirect(array('index'));
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));
@@ -106,8 +110,8 @@ class SiteController extends AdminController
 	 */
 	public function actionLogout()
 	{
-		Yii::app()->user->logout(false);
-		$this->redirect(Yii::app()->homeUrl);
+		Yii::app()->admin->logout(false);
+		$this->redirect(array('login'));
 	}
 	
 	public function actionUpdateCity() {

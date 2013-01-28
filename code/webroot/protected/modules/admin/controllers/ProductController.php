@@ -7,14 +7,17 @@ class ProductController extends AdminController {
 	}
 	private function _manageProduct($isSpecial=0)
 	{
-		if (!Yii::app()->request->isAjaxRequest) {
-			Yii::app()->admin->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
-		}
+		$model=new Product();
 		$productTypeId=@$_REQUEST['Product']['product_type_id'];
+		$model->product_type_id=$productTypeId;
 		$productStatus=@$_REQUEST['Product']['product_status'];
-		$productEnterpriseName=@$_REQUEST['ent_name'];
+		$model->product_status=$productStatus;
+		$productEnterpriseName=@$_REQUEST['Product']['product_user_id'];
+		$model->product_user_id=$productEnterpriseName;
 		$productName=@$_REQUEST['Product']['product_name'];
+		$model->product_name=$productName;
 		$productCriteria=new CDbCriteria();
+		$productCriteria->select='product_id,product_name,product_quanity,product_city_id';
 		$productCriteria->addCondition('product_special='.$isSpecial);
 		if($productTypeId)
 		{
@@ -32,23 +35,47 @@ class ProductController extends AdminController {
 		}
 		if($productName)
 		{
-			$productCriteria->compare('product_name',$productName,false);
+			$productCriteria->compare('product_name',$productName,true);
 		}
 		$productCriteria->with=array(
 		'user.enterprise'=>array('select'=>'ent_name'),
 		'status'=>array('select'=>'term_name'),
-		'type'=>array('select'=>'term_name'));
-		$pages = new CPagination(City::model()->count($productCriteria));
-		$pages->route = "manageTerm";
-		$pages->pageSize = 20;
-		$pages->applyLimit($productCriteria);
-		$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
-		$products=Product::model()->findAll($productCriteria);
-		foreach ($products as $product)
+		'type'=>array('select'=>'term_name'),
+		'unit'=>array('select'=>'term_name'),
+		'city'=>array('select'=>'city_name'));
+		$dataProvider=new CActiveDataProvider('Product',array(
+			'criteria'=>$productCriteria,
+			'pagination'=>array(
+		        'pageSize'=>10,
+				'pageVar'=>'page',
+		),
+		));
+		$products=$dataProvider->data;
+		$cachedCity=CCacheHelper::getAllCity();
+		foreach ($products as &$product)
 		{
-			var_dump($product->user->enterprise);
+			$parentCity=array();
+			$parent=$cachedCity[$product->product_city_id]['city_parent'];
+			while($parent)
+			{
+				$parentCity[]=$cachedCity[$parent]->city_name;
+				$parent=$cachedCity[$parent]->city_parent;
+			}
+			$parentCity=array_reverse($parentCity);
+			$parentCity[]=$product->city->city_name;
+			if($parentCity)
+				$product->product_city_id=implode('>>',$parentCity);
+			else 
+				$product->product_city_id='未指明';
 		}
-		return array('models'=>$products,'pages'=>$pages);
+		$productType=Term::getTermsByGroupId(12);
+		$productStatus=Term::getTermsByGroupId(1);
+		$this->render('manageProduct',array('dataProvider'=>$dataProvider,
+		'isSpecial'=>$isSpecial,
+		'model'=>$model,
+		'productType'=>$productType,
+		'productStatus'=>$productStatus
+		));
 	}
 	function _actionChangeSupplyStatus($redirectAction)
 	{
@@ -83,22 +110,34 @@ class ProductController extends AdminController {
 	{
 		$this->_actionChangeSupplyStatus('manageBug');
 	}
-	public function actionCreateProduct()
+	public function actionUpdateProduct()
 	{
+		$model=new Product();
 		if (isset($_POST['Product'])) {//add or update to database
-			$model=new Product();
 			$model->attributes=$_POST['Product'];
+			if($model->product_id)$model->setIsNewRecord(false);
 			if($model->save())
 			{
 				//redirect to manage page
+				$this->redirect(array('manageProduct'));
 			}
 			else {
 				//redirect to create/update page when error(es) occured
+				$this->render('updateProduct',array('model'=>$model));
 			}
 		}
-		else {
+		else if(isset($_REQUEST['product_id'])){
 			$productId=@$_REQUEST['product_id'];
-			$productModel=Product::model()->findByPk($productId);
+			$productModel=Product::model()->with(array('user.enterprise'=>array('select'=>'ent_name'),'user'=>array('select'=>'user_name')))->findByPk($productId);
+			$unit=Term::getTermsByGroupId(2);
+			$allCity=City::getAllCity();
+			$productType=Term::getTermsByGroupId(12);
+			$productStatus=Term::getTermsByGroupId(1);
+			$this->render('updateProduct',array('model'=>$productModel,
+			'unit'=>$unit,
+			'allCity'=>$allCity,
+			'productType'=>$productType,
+			'productStatus'=>$productStatus));
 		}
 		
 	}

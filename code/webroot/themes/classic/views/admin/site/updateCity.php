@@ -1,5 +1,11 @@
-
-<div class="form">
+<?php 
+$this->breadcrumbs=array(
+	'全站设置'=>array('manageCity'),
+	'地区管理'=>array('manageCity'),
+	'添加/修改',
+);
+?>
+<div class="m-form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'city-form',
 	'enableClientValidation'=>true,
@@ -7,35 +13,34 @@
 		'validateOnSubmit'=>true,
 	),
 )); ?>
+<table border="0" cellpadding="0" cellspacing="0" class="table-field">
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-	<div class="row">
-		名称：
-		<?php echo $form->textField($model,'city_name'); ?>
+<tr>
+<td class="label">名称：</td>
+		<td><?php echo $form->textField($model,'city_name',array('class'=>'cmp-input')); ?>
 		<?php if($model->city_id): echo $form->hiddenField($model,'city_id');endif;?>
-		<?php echo $form->error($model,'city_name'); ?>
-	</div>
+		<?php echo $form->error($model,'city_name'); ?></td>
+</tr>
 
-	<div class="row">
-		父级：
-		<?php echo $form->dropDownList($model,'city_parent',$allCity); ?>
+<tr>
+<td class="label">父级：</td>
+		<td><?php echo $form->dropDownList($model,'city_parent',$allCity); ?>
 		<?php echo $form->error($model,'city_parent'); ?>
-	</div>
-	<div class="row">
-		是否显示：
-		<?php echo $form->checkBox($model,'city_open',array('value'=>1)); ?>
-		<?php echo $form->error($model,'city_open'); ?>
-	</div>
-	<div class="row">
-		排序：
-		<?php echo $form->textField($model,'city_order'); ?>
-		<?php echo $form->error($model,'city_order'); ?>
-	</div>
+</tr>
+<tr>
+<td class="label">是否显示：</td>
+		<td><?php echo $form->checkBox($model,'city_open',array('value'=>1)); ?>
+		<?php echo $form->error($model,'city_open'); ?></td>
+</tr>
+<tr>
+<td class="label">排序：</td>
+		<td><?php echo $form->textField($model,'city_order'); ?>
+		<?php echo $form->error($model,'city_order'); ?></td>
+</tr>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('保存'); ?>
-	</div>
-
+<tr>
+<td align='right' colspan=2><?php echo CHtml::submitButton('保存'); ?></td>
+</tr>
+</table>
 <?php $this->endWidget(); ?>
 </div><!-- form -->

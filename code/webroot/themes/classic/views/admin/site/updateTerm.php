@@ -13,6 +13,7 @@
 	<div class="row">
 		名称：
 		<?php echo $form->textField($model,'term_name'); ?>
+		<?php if($model->term_id): echo $form->hiddenField($model,'term_id');endif;?>
 		<?php echo $form->error($model,'term_name'); ?>
 	</div>
 

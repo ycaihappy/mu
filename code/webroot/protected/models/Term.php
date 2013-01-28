@@ -40,7 +40,7 @@ class Term extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('term_id', 'required'),
+//			array('term_id', 'required'),
 			array('term_id, term_parent_id, term_group_id, term_order', 'numerical', 'integerOnly'=>true),
 			array('term_name', 'length', 'max'=>128),
 			array('term_slug', 'length', 'max'=>200),

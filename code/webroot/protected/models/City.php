@@ -22,7 +22,7 @@ class City extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-	
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -39,16 +39,40 @@ class City extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('city_id, city_name, city_parent', 'required'),
-			array('city_id, city_parent, city_level, city_order', 'numerical', 'integerOnly'=>true),
-			array('city_name', 'length', 'max'=>128),
-			array('city_open', 'length', 'max'=>45),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('city_id, city_name, city_parent, city_level, city_order, city_open', 'safe', 'on'=>'search'),
+		array('city_name, city_parent', 'required'),
+		array('city_id, city_parent, city_level, city_order', 'numerical', 'integerOnly'=>true),
+		array('city_name', 'length', 'max'=>128),
+		array('city_open', 'length', 'max'=>45),
+		// The following rule is used by search().
+		// Please remove those attributes that should not be searched.
+		array('city_id, city_name, city_parent, city_level, city_order, city_open', 'safe', 'on'=>'search'),
 		);
 	}
-
+	public static function getAllCity($cityId=0)
+	{
+		if(!$cityId)
+		{
+			$citys=CCacheHelper::getAllCity();
+			$returnCity=array();
+			$returnCity[0]='地区';
+			foreach ($citys as &$city) {
+				$parentCity=array();
+				$parent=$city->city_parent;
+				while($parent)
+				{
+					$parentCity[]=$citys[$parent]->city_name;
+					$parent=$citys[$parent]->city_parent;
+				}
+				$parentCity[]=$city->city_name;
+				$returnCity[$city->city_id]=implode('>>',$parentCity);
+			}
+			return $returnCity;
+		}
+		else
+		{
+			return array();
+		}
+	}
 	/**
 	 * @return array relational rules.
 	 */

@@ -28,3 +28,7 @@
 		</div>
 		<div class="clearfix"></div>
 	</div>
+
+    <div class="layout-area">
+        <?php $this->widget("BottomBannerWidget");?>
+    </div>

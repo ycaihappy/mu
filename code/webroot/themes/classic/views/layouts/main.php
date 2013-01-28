@@ -17,10 +17,6 @@
         <?php echo $content;?>
     
     	<div class="layout-area">
-            <?php $this->widget("BottomBannerWidget");?>
-    	</div>
-    	
-    	<div class="layout-area">
             <?php $this->widget("FriendLinkWidget");?>
     	</div>
     	

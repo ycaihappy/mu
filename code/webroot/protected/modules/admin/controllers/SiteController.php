@@ -157,18 +157,26 @@ class SiteController extends AdminController
 
 		}
 		else {
-			if (!Yii::app()->request->isAjaxRequest) {
-				Yii::app()->user->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
-			}
+
+
+
 			$criteriaCity=new CDbCriteria();
 			$criteriaCity->select='*';
 			$criteriaCity->order='city_parent asc';
-			$pages = new CPagination(City::model()->count($criteriaCity));
-			$pages->route = "manageCity";
-			$pages->pageSize = 20;
-			$pages->applyLimit($criteriaCity);
-			$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
-			$citys=City::model()->findAll($criteriaCity);
+			#$pages = new CPagination(City::model()->count($criteriaCity));
+			#$pages->route = "manageCity";
+			#$pages->pageSize = 20;
+			#$pages->applyLimit($criteriaCity);
+			#$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
+			#$citys=City::model()->findAll($criteriaCity);
+			$dataProvider=new CActiveDataProvider('City',array(
+                                'criteria'=>$criteriaCity,
+                                'pagination'=>array(
+                                'pageSize'=>10,
+                                        'pageVar'=>'page',
+                        ),
+                        ));
+			$citys=$dataProvider->data;
 			if($citys)
 			{
 				$cachedCity=CCacheHelper::getAllCity();
@@ -183,33 +191,33 @@ class SiteController extends AdminController
 					$city->city_parent=implode('&laquo;',$parentCity);
 				}
 			}
+			$this->render('manageCity',array('dataProvider'=>$dataProvider));
 
 		}
 	}
-	public function actionCreateTerm()
-	{
-		$model=new City();
-		if($_POST['Term'])
-		{
-			$model->attributes = $_POST['Term'];
-			try {
-				if ($model->save()) {
-					Yii::app()->user->setFlash('updateSuccess', 'created successfully');
-					$this->renderPartial('manageTerm/update', array('model' => $model));
-				}
-				else {
-					$this->renderPartial('manageTerm/create', array('model' => $model));
-				}
-			}catch(CDbException $exc)
-			{
-				$this->renderPartial('manageTerm/create', array('model' => $model));
-			}
-		}
-		else {
-			$termGroup=TermGroup::model()->findAll();
-			$this->renderPartial('manageTerm/create', array('model' => $model));
-		}
-	}
+	#public function actionCreateTerm()
+	#	$model=new City();
+	#	if($_POST['Term'])
+	#	{
+	#		$model->attributes = $_POST['Term'];
+	#		try {
+	#			if ($model->save()) {
+	#				Yii::app()->user->setFlash('updateSuccess', 'created successfully');
+	#				$this->renderPartial('manageTerm/update', array('model' => $model));
+	#			}
+	#			else {
+	#				$this->renderPartial('manageTerm/create', array('model' => $model));
+	#			}
+	#		}catch(CDbException $exc)
+	#		{
+	#			$this->renderPartial('manageTerm/create', array('model' => $model));
+	#		}
+	#	}
+	#	else {
+	#		$termGroup=TermGroup::model()->findAll();
+	#		$this->renderPartial('manageTerm/create', array('model' => $model));
+	#	}
+	#}
 	public function actionUpdateTerm() {
 		if(Yii::app()->request->isAjaxRequest&&@$_GET['type']=='getTermByGroupId')
 		{

@@ -5,7 +5,6 @@ class PriceWidget extends CWidget
     public function init()
     {
     	$this->recentlyPriceList=Article::model()->recentlyprice()->findAll();
-    	
     }
 
     public function run()

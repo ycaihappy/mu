@@ -7,54 +7,17 @@
 				<div class="bd">
 					<div class="scroll">
 					<ul>
+			<?php for($index=0;$index<count($data);$index++):
+						?>
 						<li>
 							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
 							<div class="info">
-								<a>昆明汗信经贸有限公司</a>
+                            <a><?php echo $data[$index]['ent_name'];?></a>
 								<p>1分钟前更新 <span class="red">112条</span></p>
-								<p>主营：铝</p>
+                                <p><?php echo $data[$index]['ent_business_scope'];?></p>
 							</div>
 						</li>
-						<li>
-							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
-							<div class="info">
-								<a>昆明汗信经贸有限公司</a>
-								<p>1分钟前更新 <span class="red">112条</span></p>
-								<p>主营：铝</p>
-							</div>
-						</li>
-						<li>
-							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
-							<div class="info">
-								<a>昆明汗信经贸有限公司</a>
-								<p>1分钟前更新 <span class="red">112条</span></p>
-								<p>主营：铝</p>
-							</div>
-						</li>
-						<li>
-							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
-							<div class="info">
-								<a>昆明汗信经贸有限公司</a>
-								<p>1分钟前更新 <span class="red">112条</span></p>
-								<p>主营：铝</p>
-							</div>
-						</li>
-						<li>
-							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
-							<div class="info">
-								<a>昆明汗信经贸有限公司</a>
-								<p>1分钟前更新 <span class="red">112条</span></p>
-								<p>主营：铝</p>
-							</div>
-						</li>
-						<li class="last">
-							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
-							<div class="info">
-								<a>昆明汗信经贸有限公司</a>
-								<p>1分钟前更新 <span class="red">112条</span></p>
-								<p>主营：铝</p>
-							</div>
-						</li>
+					<?php endfor;?>			
 					</ul>
 					</div>
 				</div>

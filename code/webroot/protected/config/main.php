@@ -111,7 +111,7 @@ return array(
 			'connectionString' => 'mysql:host=127.0.0.1;dbname=mu',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '123456',
+			'password' => '',
 			'charset' => 'utf8',
 		    'schemaCachingDuration' => 0,//one day :86400
             'tablePrefix'=> 'mu'

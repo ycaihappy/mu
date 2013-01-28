@@ -1,4 +1,4 @@
-			<div class="m-quot">
+            <div class="m-quot">
 				<div class="hd">
 				<span class="on"><a href="">价格行情</a></span>			
 				<a href="" class="more">更多</a>

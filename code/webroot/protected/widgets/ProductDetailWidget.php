@@ -8,6 +8,7 @@ class ProductDetailWidget extends CWidget
 
     public function run()
     {
-        $this->render('product_detail',array('name'=>'lizhli'));
+        $product_detail = Product::model()->findByPk($_GET['product_id']);
+        $this->render('product_detail',array('product_detail'=>$product_detail));
     }
 }

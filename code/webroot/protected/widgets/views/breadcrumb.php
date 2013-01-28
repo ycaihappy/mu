@@ -6,5 +6,4 @@
 
 		<a title="金属型材" href="http://www.bmlink.com/tjbhgg/supply/c_96.html">金属型材</a> &gt; 
 
-		<a title="方钢" href="http://www.bmlink.com/tjbhgg/supply/c_223.html">方钢</a> &gt; 	/￥%&mdash;【16mn方钢&mdash;&mdash;【百华】&mdash;&mdash;65mn方钢-20#方钢
 	</div>

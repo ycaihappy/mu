@@ -34,9 +34,9 @@ $title = '现货';
 			<?php for($index=0;$index<count($data);$index++):
 							if($index==0):
 						?>
-							<li class="b"><a href=""><?php echo $data[$index][$key] ?></a></li>
+                            <li class="b"><a href="<?php echo "index.php?r=supply/view&supply_id=".$data[$index]['supply_id']; ?>"><?php echo $data[$index][$key] ?></a></li>
 							<?php else :?>
-							<li><a href="" target="_blank"><?php echo $data[$index][$key] ?></a></li>
+                            <li><a href="<?php echo "index.php?r=supply/view&supply_id=".$data[$index]['supply_id']; ?>" target="_blank"><?php echo $data[$index][$key] ?></a></li>
 							<?php endif;?>
 					<?php endfor;?>			
 				</ul>

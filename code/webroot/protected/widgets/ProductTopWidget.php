@@ -1,5 +1,5 @@
 <?php
-class TabListWidget extends CWidget
+class ProductTopWidget extends CWidget
 {
     public $type;
     public $newlist;
@@ -8,14 +8,8 @@ class TabListWidget extends CWidget
 
         switch ($this->type)
         {
-        case 'news':
-            $this->newlist = Article::model()->NewsList()->findAll();
-            break;
         case 'special':
             $this->newlist = Product::model()->topSpecial()->findAll();
-            break;
-        case 'supply':
-            $this->newlist = Supply::model()->topsupply()->findAll();
             break;
         case 'product':
             $this->newlist = Product::model()->topProduct()->findAll();
@@ -25,6 +19,6 @@ class TabListWidget extends CWidget
 
     public function run()
     {
-        $this->render('tab_list',array('type'=>$this->type, 'data'=>$this->newlist));
+        $this->render('product_top',array('type'=>$this->type, 'data'=>$this->newlist));
     }
 }

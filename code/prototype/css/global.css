@@ -255,7 +255,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-detail .sellinfo p{line-height:30px;display:block}
 .m-detail .title {margin:20px 0px;}
 .m-detail .orange{color: #FF6600; font: bold 16px/30px Arial,Helvetica,sans-serif;}
-.m-detail .title strong, .m-detail .title h2 {float: left;    font-size: 14px;font-weight: bold;    padding-left: 10px;    width: auto;}
+.m-detail .title strong, .m-detail .title h2 {float: left;    font-size: 14px;font-weight: bold;}
 .m-detail .btn_phone {background: none repeat scroll 0 0 #1B81DC !important;border-color: #0060B1 !important;border-radius: 3px;color: #fff !important;}
 .m-detail .info{padding: 10px 0;line-height: 26px;}
 .m-detail .proInfo {background-color: #F6F6F6;display: block;line-height: 2;overflow: hidden;    padding: 10px 0;    width: 100%;}

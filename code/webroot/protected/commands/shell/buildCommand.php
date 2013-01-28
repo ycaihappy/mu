@@ -84,8 +84,41 @@ class buildCommand extends CConsoleCommand{
             }
             break;
         case 'user':
+            for($i=2;$i<100;$i++)
+            {
+                $user = new User();
+                $user->user_id = $i+1;
+                $user->user_name = 'ueelife';
+                $user->user_pwd  ='e10adc3949ba59abbe56e057f20f883e';
+                $user->user_status =1;
+                $user->save();
+            }
             break;
         case 'enterprise':
+            for($i=2;$i<100;$i++)
+            {
+                $enterprise = new Enterprise();
+                $enterprise->ent_id= $i+1;
+                $enterprise->ent_user_id= rand(1,10);
+                $enterprise->ent_name='深圳优意生活网络公司';
+                $enterprise->ent_type =rand(1,5);
+                $enterprise->ent_website = 'www.mushw.com';
+                $enterprise->ent_business_model = rand(1,10);
+                $enterprise->ent_zipcode ='51800';
+                $enterprise->ent_introduce ='企业是从事生产、流通、服务等经济活动，以生产或服务满足社会需要，实行自主经营、独立核算、依法设立的一种盈利性的经济组织。企业主要指独立的盈利性组织。在中国计划经济时期，“企业”是与“事业单位”平行使用的常用词语。《辞海》1979年版中，“企业”的解释为：“从事生产、流通或服务活动的独立核算经济单位”；“事业单位”的解释为：“受国家机关领导，不实行经济核算的单位”。在20世纪后期中国大陆改革开放与现代化建设及信息技术领域新概念大量涌入的背景下，“企业”一词的用法有所变化，并不限于商业性或盈利组织';
+                $enterprise->ent_location ='深圳';
+                $enterprise->ent_city=1;
+                $enterprise->ent_status =1;
+                $enterprise->ent_chief = '李总';
+                $enterprise->ent_create_time = time();
+                $enterprise->ent_chief_postion = rand(1,5);
+                $enterprise->ent_business_scope = '网络，安全，建站';
+                $enterprise->ent_registered_capital = 500;
+                $enterprise->ent_recommend = 1;
+                $enterprise->ent_logo= 1;
+                $enterprise->ent_update_time = time();
+                $enterprise->save();
+            }
             break;
         }
     }  

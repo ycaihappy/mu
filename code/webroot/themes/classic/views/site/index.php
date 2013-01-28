@@ -7,9 +7,9 @@
 		<div class="clearfix"></div>
 	</div>
 	<div class="layout-area">
-        <?php $this->widget("TabListWidget", array('type'=>'special'));?>
+        <?php $this->widget("ProductTopWidget", array('type'=>'special'));?>
         <?php $this->widget("TabListWidget", array('type'=>'supply'));?>
-        <?php $this->widget("TabListWidget", array('type'=>'product'));?>
+        <?php $this->widget("ProductTopWidget", array('type'=>'product'));?>
 
 		<div class="clearfix"></div>
 	</div>

@@ -22,17 +22,15 @@ $key = 'art_title';
 					<?php endfor;?>			
 				</ul>
 				<ul>
-					<li class="b"><a href="">xxxxxxxxxxxxxxxxxxxx</a></li>
-					<li><a href="" target="_blank">女子裸身泡温泉被偷窥女子裸身泡温泉被偷窥</a></li>
-					<li><a href="" target="_blank">女子裸身泡温泉被偷窥女子裸身泡温泉被偷窥</a></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-			
+				<?php for($index=0;$index<count($mu_news);$index++):
+							if($index==0):
+						?>
+							<li class="b"><a href=""><?php echo $mu_news[$index][$key] ?></a></li>
+							<?php else :?>
+							<li><a href="" target="_blank"><?php echo $mu_news[$index][$key] ?></a></li>
+							<?php endif;?>
+					<?php endfor;?>					
+
 				</ul>
 			</div>
 		

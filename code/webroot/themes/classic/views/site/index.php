@@ -1,7 +1,7 @@
 
 	<div class="layout-area">
         <?php $this->widget("BannerWidget");?>
-        <?php $this->widget("TabListWidget", array('type'=>'news'));?>
+        <?php $this->widget("NewsTopWidget");?>
         <?php $this->widget("FunctionBlockWidget"); ?>
 
 		<div class="clearfix"></div>

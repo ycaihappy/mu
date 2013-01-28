@@ -1,6 +1,6 @@
 <?php
 
-class SiteController extends Controller
+class SiteController extends AdminController
 {
 	/**
 	 * Declares class-based actions.
@@ -32,7 +32,7 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$this->_actionManageBasicSiteInfo();
 	}
 
 	/**
@@ -211,49 +211,64 @@ class SiteController extends Controller
 		}
 	}
 	public function actionUpdateTerm() {
-		$message = "";
-		if (isset($_POST['Term'])) {
-			$model->attributes = $_POST['Term'];
-			try {
-				if ($model->save()) {
-					Yii::app()->user->setFlash('updateSuccess', 'updated successfully');
-				} else {
-					$this->renderPartial('manageTerm/update', array('model' => $model));
-				}
-			}
-			catch(CDbException $exc)
-			{
-				$this->renderPartial('manageTerm/update', array('model' => $model));
+		if(Yii::app()->request->isAjaxRequest&&@$_GET['type']=='getTermByGroupId')
+		{
+			
+			$terms=TermGroup::model()->getGroupTermsByArray($_GET['group_id']);
+			echo CHtml::tag('option', array('value'=>0), '顶级', true);
+			foreach($terms as $value=>$name) {
+				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
 			}
 		}
-		$termGroup=TermGroup::model()->findAll();
-		$this->renderPartial('manageTerm/update', array('model' => $model));
+		else {
+			$this->layout='//layouts/ajax_main';
+			$message = "";
+			$termGroup=TermGroup::model()->getAllGroupIdToNameArray();
+			if (isset($_POST['Term'])) {
+				$model->attributes = $_POST['Term'];
+				try {
+					if ($model->save()) {
+						Yii::app()->user->setFlash('updateSuccess', 'updated successfully');
+					} else {
+						$this->render('updateTerm', array('model' => $model));
+					}
+				}
+				catch(CDbException $exc)
+				{
+					$this->render('updateTerm', array('model' => $model));
+				}
+			}
+			else if(isset($_GET['term_id'])){
+				$term=Term::model()->findByPk($_GET['term_id']);
+				$terms=TermGroup::model()->getGroupTermsByArray($term->term_group_id);
+				$this->render('updateTerm', array('model' => $term,'termGroup'=>$termGroup,'terms'=>$terms));
+			}
+		}
 	}
 	public function actionManageTerm()
 	{
 		if(Yii::app()->request->getIsPostRequest())
 		{//update or add Term Data
-				
+
 		}
 		else//list term data
 		{
-			if (!Yii::app()->request->isAjaxRequest) {
-				Yii::app()->user->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
-			}
 			$criteriaTerm=new CDbCriteria();
 			$criteriaTerm->select='*';
 			$criteriaTerm->order='term_group_id asc';
 			$criteriaTerm->with=array('termGroup'=>array('select'=>'group_name'));
-			$pages = new CPagination(City::model()->count($criteriaTerm));
-			$pages->route = "manageTerm";
-			$pages->pageSize = 20;
-			$pages->applyLimit($criteriaTerm);
-			$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
-			$terms=Term::model()->findAll($criteriaTerm);
-			if($terms)
+
+			$dataProvider=new CActiveDataProvider('Term',array(
+				'criteria'=>$criteriaTerm,
+				'pagination'=>array(
+			        'pageSize'=>10,
+					'pageVar'=>'page',
+			),
+			));
+			if($dataProvider->data)
 			{
 				$cachedTerm=CCacheHelper::getAllTerm();
-				foreach ($cachedTerm as $term)
+				foreach ($dataProvider->data as $term)
 				{
 					$parentTerm=array();
 					$parent=$term->term_parent_id;
@@ -262,10 +277,59 @@ class SiteController extends Controller
 						$parentTerm[]=$cachedTerm[$parent]->term_name;
 						$parent=$cachedTerm[$parent]->term_parent_id;
 					}
-					$city->term_parent=implode('&laquo;',$parentTerm);
+					if(!$parentTerm)
+					{
+						$term->term_parent_id='顶级';
+					}
+					else {
+						$term->term_parent_id=implode('&laquo;',$parentTerm);}
 				}
-
 			}
+			$this->render('manageTerm',array('dataProvider'=>$dataProvider));
+		}
+	}
+	private function _actionManageBasicSiteInfo()
+	{
+		$basicSiteInfoModel=new BasicSiteInfo();
+		if(isset($_POST['BasicSiteInfo']))
+		{
+			$basicSiteInfoModel->attributes=$_POST['BasicSiteInfo'];
+			if($basicSiteInfoModel->validate())
+			{
+				$basicSiteInfoModel->save();
+				$this->render('basicSiteInfo',array('model'=>$basicSiteInfoModel));
+			}
+			else {
+				Yii::app()->admin->setFlash('erroInfo','输入的字段不合法，保存失败');
+				$this->render('basicSiteInfo',array('model'=>$basicSiteInfoModel));
+			}
+		}
+		else
+		{
+			$basicSiteInfoModel=$basicSiteInfoModel->LoadData();
+			$this->render('basicSiteInfo',array('model'=>$basicSiteInfoModel));
+		}
+	}
+	public function actionManageSiteEmailSetting()
+	{
+		$siteEmailSettingModel=new SiteEmailSetting();
+		if(isset($_POST['SiteEmailSetting']))
+		{
+			$siteEmailSettingModel->attributes=$_POST['SiteEmailSetting'];
+			if($siteEmailSettingModel->validate())
+			{
+				$siteEmailSettingModel->save();
+				$this->render('siteEmailSetting',array('model'=>$basicSiteInfoModel));
+			}
+			else {
+				Yii::app()->admin->setFlash('erroInfo','输入的字段不合法，保存失败');
+				$this->render('siteEmailSetting',array('model'=>$basicSiteInfoModel));
+			}
+		}
+		else
+		{
+			$siteEmailSettingModel=$siteEmailSettingModel->LoadData();
+			$this->render('siteEmailSetting',array('model'=>$siteEmailSettingModel));
 		}
 	}
 }

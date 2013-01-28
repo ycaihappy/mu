@@ -58,6 +58,9 @@ class SuccessCase extends CActiveRecord
 					'order'=>'create_time desc',
 					'limit'=>7,	
 				),
+				'recentlyUncheckCase'=>array('condition'=>'case_status=20',
+					'order'=>'create_time desc',
+					'limit'=>8,),
 		);
 	}
 	/**

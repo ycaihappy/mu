@@ -107,15 +107,15 @@ class CLinkPager extends CBasePager
 	public function init()
 	{
 		if($this->nextPageLabel===null)
-			$this->nextPageLabel=Yii::t('yii','Next &gt;');
+			$this->nextPageLabel=Yii::t('yii','下一页 &gt;');
 		if($this->prevPageLabel===null)
-			$this->prevPageLabel=Yii::t('yii','&lt; Previous');
+			$this->prevPageLabel=Yii::t('yii','&lt; 上一页');
 		if($this->firstPageLabel===null)
-			$this->firstPageLabel=Yii::t('yii','&lt;&lt; First');
+			$this->firstPageLabel=Yii::t('yii','&lt;&lt; 首页');
 		if($this->lastPageLabel===null)
-			$this->lastPageLabel=Yii::t('yii','Last &gt;&gt;');
+			$this->lastPageLabel=Yii::t('yii','尾页 &gt;&gt;');
 		if($this->header===null)
-			$this->header=Yii::t('yii','Go to page: ');
+			$this->header=Yii::t('yii','分页: ');
 
 		if(!isset($this->htmlOptions['id']))
 			$this->htmlOptions['id']=$this->getId();

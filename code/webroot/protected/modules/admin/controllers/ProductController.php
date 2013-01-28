@@ -1,5 +1,5 @@
 <?php
-class ProductController extends SBaseController {
+class ProductController extends AdminController {
 
 	public function actionManageProduct()
 	{

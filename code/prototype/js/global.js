@@ -2,12 +2,11 @@ MU.mods={
     body : function(){
 		var self = $(this);			
 			//MU.mods.lazyloadImage.call(self);
-		$('div.m-tab-list').find('.hd span').mouseover(function(){
+		$('div.m-tab-list,div.m-quot,div.m-case,div.m-nous').find('.hd span').mouseover(function(){
 			$(this).addClass('on').siblings().removeClass('on');
 			var index = $(this).parent().find('span').index($(this));
-			$(this).closest('.m-tab-list').find('ul').eq(index).show().siblings().hide();
+			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings().hide();
 		});
-			
 	},
 	lazyloadImage : function(){
 		$(this).find('img').lazyload({ effect: "fadeIn", threshold: 200, failurelimit: 20 });

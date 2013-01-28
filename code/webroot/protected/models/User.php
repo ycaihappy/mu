@@ -63,6 +63,12 @@ class User extends CActiveRecord
 			array('user_id, user_name, user_pwd, user_email, user_nickname, user_type, user_mobile_no, user_first_name, user_last_name, user_status, user_province_id, user_city_id, user_subscribe, user_point, user_join_date, user_confirm_date, user_last_login_date', 'safe', 'on'=>'search'),
 		);
 	}
+	public function scopes()
+	{
+		return array(
+			'recenltyUncheckUser'=>array('select'=>'user_id,user_name,user_join_date','condition'=>'user_status=0','order'=>'user_join_date desc','limit'=>8),
+		);
+	}
 
 	/**
 	 * @return array relational rules.

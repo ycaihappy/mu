@@ -8,7 +8,7 @@
 			<?php for($index=0;$index<count($data);$index++):
 							if($index==0):
 						?>
-							<li class="b"><a href=""><?php echo $data[$index]['art_title'] ?></a></li>
+                            <li class="b"><a href="<?php echo "index.php?r=news/view&art_id=".$data[$index]['art_id']; ?>"><?php echo $data[$index]['art_title'] ?></a></li>
 							<?php else :?>
 							<li><a href="" target="_blank"><?php echo $data[$index]['art_title'] ?></a></li>
 							<?php endif;?>

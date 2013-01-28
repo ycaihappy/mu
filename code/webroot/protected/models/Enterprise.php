@@ -66,7 +66,7 @@ class Enterprise extends CActiveRecord
 			'recommedEnt'=>array(
 					'condition'=>'ent_recommend=1',
 					'order'=>'ent_create_time desc',
-					'limit'=>6,	
+					'limit'=>8,	
 				),
 		);
 	}

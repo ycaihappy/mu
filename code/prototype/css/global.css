@@ -172,9 +172,11 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 .m-rcm{float:left;margin-right:20px;}
 .m-rcm .hd{background:#e7e7e7;}
-.m-rcm li{padding:10px 0 10px 3px;border-bottom:1px dashed #DCDDDD;overflow:hidden;}
+.m-rcm li{padding:10px 0 10px 3px;border-bottom:1px dashed #DCDDDD;overflow:hidden;height:40px;}
+.m-rcm li.on{height:70px;background:#FFF8E5;border:1px solid #F3C857}
 .m-rcm .last{border:0}
-.m-rcm .img{width:93px;float:left;margin-right:20px;}
+.m-rcm .img{width:93px;float:left;margin-right:20px;display:none;}
+.m-rcm .on .img{display:block}
 .m-rcm .info{float:left;width:238px;}
 .m-rcm .info{font-size:14px;}
 .m-rcm .info a{font-weight:bold;color:#1f6e95}

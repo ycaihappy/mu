@@ -32,5 +32,11 @@ MU.mods={
 	JIndexAd : function (){
 		var self = $(this);
 		var adroll = new MU.Tool.AdRoll({el:self,interval:4500});
+	},
+	JRcm : function () {
+		var self = $(this);
+		self.find('.scroll li').mouseenter(function(){
+			$(this).addClass('on').siblings().removeClass('on');
+		});
 	}
 };

@@ -162,16 +162,21 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .layout-area{margin-top:30px;width:1000px;overflow:hidden;}
 .layout-area .m-tab-list{margin-right:20px}
 .layout-area .col-right{float:right}
-.layout-area .layout-right{float:left;width:740px;margin-left:15px;}
-.layout-area .layout-left{float:left;width:220px}
+.layout-area .layout-right{float:left;width:740px;}
+.layout-area .layout-left{float:left;width:220px;margin-right:10px;}
+
+#p_article_detail .layout-left{width:700px;}
+#p_article_detail .layout-right{width:250px;}
 
 .m-banner{margin-bottom:30px;}
 
 .m-rcm{float:left;margin-right:20px;}
 .m-rcm .hd{background:#e7e7e7;}
-.m-rcm li{padding:10px 0 10px 3px;border-bottom:1px dashed #DCDDDD;overflow:hidden;}
+.m-rcm li{padding:10px 0 10px 3px;border-bottom:1px dashed #DCDDDD;overflow:hidden;height:40px;}
+.m-rcm li.on{height:70px;background:#FFF8E5;border:1px solid #F3C857}
 .m-rcm .last{border:0}
-.m-rcm .img{width:93px;float:left;margin-right:20px;}
+.m-rcm .img{width:93px;float:left;margin-right:20px;display:none;}
+.m-rcm .on .img{display:block}
 .m-rcm .info{float:left;width:238px;}
 .m-rcm .info{font-size:14px;}
 .m-rcm .info a{font-weight:bold;color:#1f6e95}
@@ -246,7 +251,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 /*m-detail */
 .m-detail .sellinfo .fr p.btn a.btn_lx {background: none repeat scroll 0 0 #eee;border: 1px solid #E1E1E1;}
-.m-detail .sellinfo .fr p.btn a, .m-detail a.btn_free, .m-detail .vipinfo .btn a {border: 1px solid #C3C3C3;    color: #333333;    font: bold 14px/31px "΢���ź�";    text-align: center;}
+.m-detail .sellinfo .fr p.btn a, .m-detail a.btn_free, .m-detail .vipinfo .btn a {border: 1px solid #C3C3C3;    color: #333333;    font: bold 14px/31px "微软雅黑";    text-align: center;}
 .m-detail .sellinfo .fr p.btn a, .m-detail a.btn_free, .m-detail .vipinfo .btn a {    display: inline-block;    height: 31px;    margin-right: 10px;    width: 100px;}
 .m-detail a.btn_lx {    background: none repeat scroll 0 0 #E24800 !important;    border-color: #B70F0F !important;    border-radius: 3px 3px 3px 3px;    color: #FFFFFF !important;}
 .m-detail .sellinfo .fr p.btn, .vipinfo {float: left;padding-top: 30px;}
@@ -273,3 +278,22 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-refinfo .input{border: 1px solid #ddd;color: #333;padding:3px;}
 .m-refinfo .btn{background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(254, 254, 254)), to(rgb(237, 237, 237)));background-image: -webkit-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -moz-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -o-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -ms-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background:#f7f7f7\9   border: 1px solid #003366;border:1px solid #ccc;padding:3px 5px;}
 /*m-refinfo*/
+
+/*m-rcm-list*/
+.m-rcm-list dt{background:#f3f3f3;line-height:30px;font-size:14px;}
+.m-rcm-list dl{border:1px solid #ccc;border-bottom:0;}
+.m-rcm-list dl.last{border:1px solid #ccc}
+.m-rcm-list dd{padding:10px;line-height:20px;}
+.m-rcm-list  li{line-height:22px;}
+.m-rcm-list  li a{color:#26709A}
+.m-rcm-list dt strong{font-weight:bold;padding-left:10px;}
+/*m-article-rcm*/
+
+.m-article-detail h1{padding-bottom: 16px;font-family: '微软雅黑';font-size: 26px;}
+.m-article-detail .color-a-0 a {color: #2D96E9;}
+.m-article-detail .tit-bar span {z-index: 2;}
+.m-article-detail .tit-bar span {float: left;}
+.m-article-detail .color-a-0 {padding-right: 7px;}
+.m-article-detail div.tit-bar.clearfix.tit-bar {color: #666666;}
+.m-article-detail .line{border-bottom: 1px dotted #dbdbdb;margin:10px 0px;}
+.m-article-detail .content p{padding-bottom: 29px;font-size: 16px;line-height: 28px;}

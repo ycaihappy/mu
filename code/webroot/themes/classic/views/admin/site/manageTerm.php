@@ -1,36 +1,5 @@
 <?php 
-$this->beginWidget('zii.widgets.jui.CJuiDialog', array(  
-    'id'=>'mydialog',//弹窗ID  
-    // additional javascript options for the dialog plugin  
-    'options'=>array(//传递给JUI插件的参数  
-        'title'=>'弹窗标题',  
-        'autoOpen'=>false,//是否自动打开  
-        'width'=>'auto',//宽度  
-        'height'=>'auto',//高度  
-        'buttons'=>array(  
-            '关闭'=>'js:function(){ $(this).dialog("close");}',//关闭按钮  
-        ),  
-  
-    ),  
-));  
-  
-    echo 'dialog content here';  
-  
-$this->endWidget('zii.widgets.jui.CJuiDialog');
-$updateClick=<<<UPDATEAJAX
-function()
-{
-	jQuery.ajax({
-	url:$(this).attr('href'),
-	type:'get',
-	success:function(data){
-		$("#mydialog").html(data);
-	},
-	});
-	$("#mydialog").dialog("open"); 
-	return false;
-}
-UPDATEAJAX;
+
 	$this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$dataProvider,
 	'selectableRows'=>2,
@@ -63,11 +32,6 @@ UPDATEAJAX;
         	'class'=>'CButtonColumn',
         	'template'=>'{update}',
         	'updateButtonUrl'=>'Yii::app()->controller->createUrl("updateTerm",array("term_id"=>$data->primaryKey))',
-			'buttons'=>array(
-        			'update'=>array(
-        				'click'=>$updateClick,
-        			),
-        		),
         	'updateButtonLabel'=>'修改',
         	),
     ),

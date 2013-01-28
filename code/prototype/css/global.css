@@ -266,7 +266,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-refinfo dt{background:#f3f3f3;line-height:30px;font-size:14px;}
 .m-refinfo dl{border:1px solid #ccc;border-bottom:0;}
 .m-refinfo dl.last{border:1px solid #ccc}
-.m-refinfo dd{padding:10px;}
+.m-refinfo dd{padding:10px;line-height:20px;}
 .m-refinfo  li{line-height:22px;}
 .m-refinfo  li a{color:#26709A}
 .m-refinfo dt strong{font-weight:bold;padding-left:10px;}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Login</title>
+<link rel="stylesheet" type="text/css" href="css/login.css" />
+</head>
+
+
+<body>
+
+	<div class="header-bar">
+		<img class="logo" src="images/logo1.png" />
+	</div>
+
+	<form class="loginContainer" id="loginForm">
+		<input type="hidden" value="<?php echo $_SERVER['HTTP_HOST']; ?>" id="host" />
+	
+		<h2 class="loginTitle" title="网站后台登陆">网站后台登陆</h2>
+		<div class="user-id"> 
+			<label>
+				<strong class="userId-label" title="账号">账号</strong>
+			</label>
+			<input type="text" name="userId" id="userId" value=""/>
+		</div>
+		
+		<div class="user-pwd"> 
+			<label>
+				<strong class="userId-label" title="密码">密码</strong>
+			</label>
+			<input type="password" name="userPwd" id="userPwd" value=""/>
+		</div>
+		
+		<input type="button" class="g-button-submit" name="signIn" id="signIn" value="登录" />
+		
+			<!--<p class="showError" title="显示错误信息">用户名不能为空</p>
+			<p class="showError" title="显示错误信息">密码不能为空</p>-->
+
+	</form>
+</body>
+<script src="../js/jquery.1.8.min.js"></script>
+<script src="js/login.js" type="text/javascript"></script>
+</html>

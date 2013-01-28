@@ -1,0 +1,56 @@
+html, body, div, h1, h2, h3, h4, h5, h6, p, img, dl,
+dt, dd, ol, ul, li, table, tr, td, form, object, embed,
+article, aside, canvas, command, details, fieldset,
+figcaption, figure, footer, group, header, hgroup, legend,
+mark, menu, meter, nav, output, progress, section, summary,
+time, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+}
+article, aside, details, figcaption, figure, footer,
+header, hgroup, menu, nav, section {
+display: block;
+}
+html {
+font: 81.25% arial, helvetica, sans-serif;
+background: #fff;
+color: #333;
+line-height: 1;
+direction: ltr;
+}
+a {
+color: #15c;
+text-decoration: none;
+}
+a:active {
+color: #d14836;
+}
+a:hover {
+text-decoration: underline;
+}
+
+.header-bar{
+height: 71px;
+width:100%;
+padding-bottom:10px;
+border-bottom: 1px solid #E5E5E5;
+overflow: hidden;
+
+}
+
+
+/*login start*/
+
+.header-bar .logo{float:left; margin:15px 0px 0px 40px;}
+.loginTitle{font-weight:normal;}
+.loginContainer {width:335px; height:auto; margin:auto; border:1px solid #E5E5E5; background:#F1F1F1; margin-top:100px; padding:20px;}
+.loginTitle{font-size:16px; }
+.userId-label{font-weight: bold; width:100%; line-height:30px; display:block; padding-top:10px;}
+#userId, #userPwd{width: 100%;height: 32px;font-size: 15px;direction: ltr;-webkit-appearance: textfield;padding: 1px;background-color: white;
+border: 1px #FFFFFF solid;
+}
+.g-button-submit{ width:50px; cursor:pointer;height:30px; background:#478AF8; border:none; color:#fff; font-weight: bold; margin-top:15px; margin-bottom:10px;}
+.g-button-submit:hover{color:#ccc;}
+.showError{color:red; line-height:20px;}
+/*login end*/

@@ -8,15 +8,15 @@
 
         </div>
         <div class="fr">
-            <a title="/￥%&mdash;【16mn方钢&mdash;&mdash;【百华】&mdash;&mdash;65mn方钢-20#方钢" href="/tjbhgg/supply-3983588.html"><h1>/￥%&mdash;【16mn方钢&mdash;&mdash;【百华】&mdash;&mdash;65mn方钢-20#方钢</h1></a>
+        <a title="" href="/tjbhgg/supply-3983588.html"><h1><?php echo $product_detail['product_name'];?></h1></a>
             
-	      <p>产品价格：<span class="orange">电议</span></p>
-          <p>最小起订：<span>10</span>吨</p>
-	      <p>供货总量：<span></span>吨</p>
+        <p>产品价格：<span class="orange"><?php echo $product_detail['product_price'];?></span></p>
+        <p>最小起订：<span><?php echo $product_detail['product_quanity'];?></span>吨</p>
+          <p>供货总量：<span></span><?php echo $product_detail['product_unit'];?></p>
 	      <p>发&nbsp;货&nbsp;期：3天</p>
           
             <p>
-                所&nbsp;在&nbsp;地：天津 天津</p>
+            所&nbsp;在&nbsp;地：<?php echo $product_detail['product_location'];?></p>
             <p>
                 有效期至：<span>2012-06-04</span></p>
  
@@ -40,12 +40,12 @@
     </div>
 
     <div class="title clearfix">
-        <h2>方钢-20#方钢详细描述</h2>
+        <h2>详细描述</h2>
     </div>
 
 	<div class="proInfo"><ul><li>产品规格:20# </li><li>形状:方钢 </li><li>仓库:天津 </li><li>制作工艺:冷轧 </li><li>产地/厂家:唐钢 </li><li>材质:Q235B </li></ul></div>
     <div class="info">
 		
-		<p>内容内容内容内容内容</p>
+    <p><?php echo $product_detail['product_keyword'];?></p>
 		
 	</div>

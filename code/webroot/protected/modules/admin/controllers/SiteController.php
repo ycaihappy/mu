@@ -168,10 +168,14 @@ class SiteController extends AdminController
 						$parentCity[]=$cachedCity[$parent]->city_name;
 						$parent=$cachedCity[$parent]->city_parent;
 					}
-					if($parentCity)
+					if($parentCity){
+					$parentCity=array_reverse($parentCity);
 					$city->city_parent=implode('>>',$parentCity);
+					}
 					else 
+					{
 					$city->city_parent='顶级';
+					}
 				}
 			}
 			$this->render('manageCity',array('dataProvider'=>$dataProvider));

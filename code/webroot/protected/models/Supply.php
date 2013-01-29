@@ -50,12 +50,12 @@ class Supply extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('supply_id, supply_user_id', 'required'),
-			array('supply_id, supply_user_id, supply_type, supply_category_id, supply_status, supply_check_by, supply_recommend', 'numerical', 'integerOnly'=>true),
-			array('supply_keyword, supply_content', 'length', 'max'=>128),
+			array('supply_id, supply_user_id, supply_type, supply_category_id, supply_status, supply_recommend', 'numerical', 'integerOnly'=>true),
+			array('supply_keyword, supply_content,supply_check_by', 'length', 'max'=>128),
 			array('supply_contractor, supply_phone', 'length', 'max'=>32),
 			array('supply_address', 'length', 'max'=>100),
 			array('supply_price', 'length', 'max'=>8),
-			array('supply_image_src', 'length', 'max'=>218),
+			array('supply_image_src,supply_name', 'length', 'max'=>218),
 			array('supply_valid_date, supply_join_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -72,9 +72,10 @@ class Supply extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'category'=>array(self::BELONGS_TO,'Term','supply_category_id'),
-			'status'=>array(self::BELONGS_TO,'Term','supply_category_id'),
+			'status'=>array(self::BELONGS_TO,'Term','supply_status'),
 			'user'=>array(self::BELONGS_TO,'User','supply_user_id'),
-			'city'=>array(self::BELONGS_TO,'Term','supply_category_id'),
+			'city'=>array(self::BELONGS_TO,'City','supply_city_id'),
+			'unit'=>array(self::BELONGS_TO,'Term','supply_unit'),
 		);
 	}
 	public function scopes()

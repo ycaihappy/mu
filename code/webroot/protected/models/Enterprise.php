@@ -50,6 +50,7 @@ class Enterprise extends CActiveRecord
 			array('ent_name', 'length', 'max'=>256),
 			array('ent_website, ent_business_scope', 'length', 'max'=>512),
 			array('ent_zipcode', 'length', 'max'=>32),
+			array('ent_website', 'url'),
 			array('ent_location', 'length', 'max'=>218),
 			array('ent_chief', 'length', 'max'=>128),
 			array('ent_registered_capital', 'length', 'max'=>10),
@@ -81,7 +82,7 @@ class Enterprise extends CActiveRecord
 		return array(
 			'user'=>array(self::BELONGS_TO,'User','ent_user_id'),
 			'status'=>array(self::BELONGS_TO,'Term','ent_status'),
-			'city'=>array(self::BELONGS_TO,'Term','ent_city'),
+			'city'=>array(self::BELONGS_TO,'City','ent_city'),
 			'type'=>array(self::BELONGS_TO,'Term','ent_type'),
 			'business'=>array(self::BELONGS_TO,'Term','ent_business_model'),
 			'chiefPosition'=>array(self::BELONGS_TO,'Term','ent_chief_position'),

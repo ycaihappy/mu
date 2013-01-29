@@ -32,7 +32,7 @@ a:hover{color:#F27B04}
 .ui-page-num a:hover{border:1px solid #999\9;box-shadow:0px 0px 3px #ccc}
 
 
-.pg-layout{width:98%}
+.pg-layout{min-width:960px}
 .layout {margin: 0 auto;width: 960px; position:relative;}
 
 #mainFrame {height: 100%;width: 100%;z-index: 5;	position:absolute;}

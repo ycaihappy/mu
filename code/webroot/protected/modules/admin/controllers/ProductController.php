@@ -1,6 +1,12 @@
 <?php
 class ProductController extends AdminController {
 
+	private $cityCache;
+	public function __construct($id,$module)
+	{
+		parent::__construct($id,$module);
+		$this->cityCache=CCacheHelper::getAllCity();
+	}
 	public function actionManageProduct()
 	{
 		$productResult=$this->_manageProduct(0);
@@ -54,19 +60,7 @@ class ProductController extends AdminController {
 		$cachedCity=CCacheHelper::getAllCity();
 		foreach ($products as &$product)
 		{
-			$parentCity=array();
-			$parent=$cachedCity[$product->product_city_id]['city_parent'];
-			while($parent)
-			{
-				$parentCity[]=$cachedCity[$parent]->city_name;
-				$parent=$cachedCity[$parent]->city_parent;
-			}
-			$parentCity=array_reverse($parentCity);
-			$parentCity[]=$product->city->city_name;
-			if($parentCity)
-				$product->product_city_id=implode('>>',$parentCity);
-			else 
-				$product->product_city_id='未指明';
+			$product->product_city_id=$this->_getCityLayer($product->product_city_id);
 		}
 		$productType=Term::getTermsByGroupId(12);
 		$productStatus=Term::getTermsByGroupId(1);
@@ -189,25 +183,27 @@ class ProductController extends AdminController {
 	}
 	public function actionManageSupply()
 	{
-		$supplyResult=$this->_manageSupply(1);
+		$this->_manageSupply(18);
 	}
-	private function _manageSupply($type=0)
+	private function _manageSupply($type=18)
 	{
-		if (!Yii::app()->request->isAjaxRequest) {
-			Yii::app()->admin->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
-		}
-		$supplyTypeId=@$_REQUEST['Supply']['supply_category_id'];
+		$model=new Supply();
+		$supplyCategoryId=@$_REQUEST['Supply']['supply_category_id'];
+		$model->supply_category_id=$supplyCategoryId;
 		$supplyStatus=@$_REQUEST['Supply']['supply_status'];
-		$supplyEnterpriseName=@$_REQUEST['ent_name'];
+		$model->supply_status=$supplyStatus;
+		$supplyEnterpriseName=@$_REQUEST['Supply']['supply_user_id'];
+		$model->supply_user_id=$supplyEnterpriseName;
 		$supplyName=@$_REQUEST['Supply']['supply_name'];
+		$model->supply_name=$supplyName;
 		$supplyCriteria=new CDbCriteria();
-		$supplyCriteria->addCondition('supply_type_id='.$type);
-		if($supplyTypeId)
+		$supplyCriteria->addCondition('supply_type='.$type);
+		if($supplyCategoryId)
 		{
 			$supplyCriteria->addCondition('supply_category_id=:supply_category_id');
-			$supplyCriteria->params[':supply_category_id']=$supplyTypeId;  
+			$supplyCriteria->params[':supply_category_id']=$supplyCategoryId;  
 		}
-		if($productStatus)
+		if($supplyStatus)
 		{
 			$supplyCriteria->addCondition('supply_status=:supply_status');
 			$supplyCriteria->params[':supply_status']=$supplyStatus;  
@@ -218,103 +214,194 @@ class ProductController extends AdminController {
 		}
 		if($supplyName)
 		{
-			$supplyCriteria->compare('product_name',$supplyName,true);
+			$supplyCriteria->compare('supply_name',$supplyName,true);
 		}
-		$productCriteria->with=array(
+		$supplyCriteria->with=array(
 		'user.enterprise'=>array('select'=>'ent_name'),
 		'status'=>array('select'=>'term_name'),
-		'type'=>array('select'=>'term_name'));
-		$pages = new CPagination(City::model()->count($productCriteria));
-		$pages->route = "manageTerm";
-		$pages->pageSize = 20;
-		$pages->applyLimit($productCriteria);
-		$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
-		$products=Product::model()->findAll($productCriteria);
-		foreach ($products as $product)
+		'category'=>array('select'=>'term_name'),
+		'unit'=>array('select'=>'term_name'));
+		$dataProvider=new CActiveDataProvider('Supply',array(
+			'criteria'=>$supplyCriteria,
+			'pagination'=>array(
+		        'pageSize'=>10,
+				'pageVar'=>'page',
+		),
+		));
+		$supplys=$dataProvider->data;
+		foreach ($supplys as &$supply)
 		{
-			var_dump($product->user->enterprise);
+			$supply->supply_city_id=$this->_getCityLayer($supply->supply_city_id);
 		}
-		return array('models'=>$products,'pages'=>$pages);
+		$supplyCategory=Term::getTermsByGroupId(12);
+		$supplyStatus=Term::getTermsByGroupId(1);
+		$this->render('manageSupply',array(
+		'dataProvider'=>$dataProvider,
+		'supplyStatus'=>$supplyStatus,
+		'supplyCategory'=>$supplyCategory,
+		'isSupply'=>$type==18?true:false,
+		'model'=>$model));
+	}
+	private function _getCityLayer($cityId)
+	{
+		$parent=$this->cityCache[$cityId]['city_parent'];
+		while($parent)
+		{
+			$parentCity[]=$this->cityCache[$parent]->city_name;
+			$parent=$this->cityCache[$parent]->city_parent;
+		}
+		$parentCity=array_reverse($parentCity);
+		$parentCity[]=$this->cityCache[$cityId]->city_name;
+		if($parentCity)
+			$cityLayer=implode('>>',$parentCity);
+		else 
+			$cityLayer='未指明';
+		return $cityLayer;
 	}
 	public function actionManageBuy()
 	{
-		$buyResult=$this->_manageSupply(2);
+		$buyResult=$this->_manageSupply(19);
 	}
 	public function actionUpdateSupply()
 	{
-		if (isset($_POST['Supply'])) {//update to database
-			$model=new Supply();
+		$model=new Supply();
+		if (isset($_POST['Supply'])) {//add or update to database
 			$model->attributes=$_POST['Supply'];
+			if($model->supply_id)$model->setIsNewRecord(false);
 			if($model->save())
 			{
 				//redirect to manage page
+				$action=$model->supply_type==18?'manageSupply':'manageBuy';
+				$this->redirect(array($action));
 			}
 			else {
 				//redirect to create/update page when error(es) occured
+				$unit=Term::getTermsByGroupId(2);
+				$allCity=City::getAllCity();
+				$supplyCategory=Term::getTermsByGroupId(12);
+				$supplyStatus=Term::getTermsByGroupId(1);
+				$this->render('updateSupply',array('model'=>$productModel,
+				'unit'=>$unit,
+				'allCity'=>$allCity,
+				'supplyCategory'=>$supplyCategory,
+				'supplyStatus'=>$supplyStatus,
+				));
 			}
 		}
-		else {
+		else if(isset($_REQUEST['supply_id'])){
 			$supplyId=@$_REQUEST['supply_id'];
-			$supplyModel=Supply::model()->findByPk($supplyId);
-			//redirect to update page 
+			$supplyModel=Supply::model()->with(array('user.enterprise'=>array('select'=>'ent_name'),'user'=>array('select'=>'user_name')))->findByPk($supplyId);
+			
+			$unit=Term::getTermsByGroupId(2);
+			$allCity=City::getAllCity();
+			$supplyCategory=Term::getTermsByGroupId(12);
+			$supplyStatus=Term::getTermsByGroupId(1);
+			$this->render('updateSupply',array('model'=>$supplyModel,
+			'unit'=>$unit,
+			'allCity'=>$allCity,
+			'supplyCategory'=>$supplyCategory,
+			'supplyStatus'=>$supplyStatus,
+			));
 		}
 		
 	}
 	public function actionManageEnterprise()
 	{
-		if (!Yii::app()->request->isAjaxRequest) {
-			Yii::app()->admin->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
-		}
+		$model=new Enterprise();
 		$entCriteria=new CDbCriteria();
-		$entType=@$_POST['enterprise']['ent_type'];
-		$entCity=@$_POST['enterprise']['ent_city'];
-		$entName=@$_POST['enterprise']['ent_name'];
+		$entType=@$_POST['Enterprise']['ent_type'];
+		$model->ent_type=$entType;
+		$entBusiness=@$_POST['Enterprise']['ent_business_model'];
+		$model->ent_business_model=$entBusiness;
+		$entStatus=@$_POST['Enterprise']['ent_status'];
+		$model->ent_status=$entStatus;
+		$entName=@$_POST['Enterprise']['ent_name'];
+		$model->ent_name=$entName;
 		if($entType)
 		{
 			$entCriteria->addCondition('ent_type=:type');
 			$entCriteria->params[':type']=$entType;//compare('ent_type',$entType);
 		}
-		if($entCity)
+		if($entBusiness)
 		{
-			$entCriteria->addCondition('ent_city=:city');
-			$entCriteria->params[':city']=$entCity;//$entCriteria->compare('ent_city',$entCity);
+			$entCriteria->addCondition('ent_business_model=:business_model');
+			$entCriteria->params[':business_model']=$entBusiness;//$entCriteria->compare('ent_city',$entCity);
 		}
 		if($entName)
 		{
 			$entCriteria->addSearchCondition('ent_name', $entName,true,'AND',true);
 		}
-		$entCriteria->select='ent_name,ent_create_time';
+		$entCriteria->select='ent_name,ent_create_time,ent_city';
 		$entCriteria->order='ent_create_time desc';
 		$entCriteria->with=array(
 		'user'=>array('select'=>'user_id,user_name'),
 		'business'=>array('select'=>'term_name'),
-		'status'=>array('select'=>'term_name'),);
-		$pages = new CPagination(Enterprise::model()->count($entCriteria));
-		$pages->route = "manageEnterprise";
-		$pages->pageSize = 20;
-		$pages->applyLimit($entCriteria);
-		$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
-		$enterprises=Enterprise::model()->findAll($entCriteria);
-		var_dump($enterprises);
-		
+		'status'=>array('select'=>'term_name'),
+		'type'=>array('select'=>'term_name'),
+		'city'=>array('select'=>'city_name')
+		);
+		$dataProvider=new CActiveDataProvider('Enterprise',array(
+			'criteria'=>$entCriteria,
+			'pagination'=>array(
+		        'pageSize'=>10,
+				'pageVar'=>'page',
+		),
+		));
+		$enterprises=$dataProvider->data;
+		foreach ($enterprises as &$enterprise)
+		{
+			$enterprise->ent_city=$this->_getCityLayer($enterprise->ent_city);
+		}
+		$businessModel=Term::getTermsByGroupId(5);
+		$type=Term::getTermsByGroupId(4);
+		$entStatus=Term::getTermsByGroupId(1);
+		$this->render('manageEnterprise',array('dataProvider'=>$dataProvider,
+		'type'=>$type,
+		'entStatus'=>$entStatus,
+		'businessModel'=>$businessModel,
+		'model'=>$model));
 	}
 	public function actionUpdateEnterPrise()
 	{
 		if (isset($_POST['EnterPrise'])) {//update to database
 			$model=new EnterPrise();
 			$model->attributes=$_POST['EnterPrise'];
+			if($model->ent_id)$model->setIsNewRecord(false);
 			if($model->save())
 			{
 				//redirect to manage page
+				$this->redirect(array('manageEnterprise'));
 			}
 			else {
 				//redirect to create/update page when error(es) occured
+				$enterprise=EnterPrise::model()->findByPk($model->ent_id);
+				$businessModel=Term::getTermsByGroupId(5);
+				$type=Term::getTermsByGroupId(4);
+				$entStatus=Term::getTermsByGroupId(1);
+				$allCity=City::getAllCity();
+				$this->render('updateEnterprise',array('model'=>$enterprise,
+				'businessModel'=>$businessModel,
+				'type'=>$type,
+				'entStatus'=>$entStatus,
+				'allCity'=>$allCity,
+				));
 			}
 		}
 		else {
 			$entId=@$_REQUEST['ent_id'];
-			$enterprise=EnterPrise::model()->findByPk($entId);
-			//redirect to update page 
+			$enterprise=EnterPrise::model()->with(array('user'=>array('select'=>'user_name')))->findByPk($entId);
+			$businessModel=Term::getTermsByGroupId(5);
+			$type=Term::getTermsByGroupId(4);
+			$entStatus=Term::getTermsByGroupId(1);
+			$pos=Term::getTermsByGroupId(3);
+			$allCity=City::getAllCity();
+			$this->render('updateEnterprise',array('model'=>$enterprise,
+			'businessModel'=>$businessModel,
+			'type'=>$type,
+			'entStatus'=>$entStatus,
+			'allCity'=>$allCity,
+			'pos'=>$pos,
+			));
 		}
 		
 	}

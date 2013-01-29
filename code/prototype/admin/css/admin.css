@@ -76,4 +76,4 @@ a:hover{color:#F27B04}
 .btn-a,.btn-a:hover{background:url(imgs/blue.png) no-repeat;color:#fff}
 .btn-b,.btn-b:hover{background:url(imgs/gery.png) no-repeat;color:#000}
 
-.m-form .hd{border-bottom: 1px solid #ccc;    padding-bottom: 10px;margin-left:20px}
+.m-form .hd{border-bottom: 1px solid #ccc;    padding-bottom: 10px;margin-left:20px;margin-bottom:20px;}

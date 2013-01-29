@@ -119,11 +119,21 @@ class ProductController extends AdminController {
 			if($model->save())
 			{
 				//redirect to manage page
-				$this->redirect(array('manageProduct'));
+				$action=$model->product_special?'manageSpecial':'manageProduct';
+				$this->redirect(array($action));
 			}
 			else {
 				//redirect to create/update page when error(es) occured
-				$this->render('updateProduct',array('model'=>$model));
+				$unit=Term::getTermsByGroupId(2);
+				$allCity=City::getAllCity();
+				$productType=Term::getTermsByGroupId(12);
+				$productStatus=Term::getTermsByGroupId(1);
+				$this->render('updateProduct',array('model'=>$model,
+				'unit'=>$unit,
+				'allCity'=>$allCity,
+				'productType'=>$productType,
+				'productStatus'=>$productStatus,
+				));
 			}
 		}
 		else if(isset($_REQUEST['product_id'])){
@@ -137,7 +147,8 @@ class ProductController extends AdminController {
 			'unit'=>$unit,
 			'allCity'=>$allCity,
 			'productType'=>$productType,
-			'productStatus'=>$productStatus));
+			'productStatus'=>$productStatus,
+			));
 		}
 		
 	}

@@ -1,7 +1,7 @@
 <?php 
 $this->breadcrumbs=array(
 	'信息管理'=>array('manageProduct'),
-	'现货管理'=>array('manageProduct'),
+	$model->product_special?'特价管理':'现货管理'=>array('manageProduct'),
 	'添加/修改',
 );
 ?>
@@ -20,6 +20,7 @@ $this->breadcrumbs=array(
 		<td>
 			<input type=text disabled="disabled" class='cmp-input' value="<?php echo $model->user->user_name;?>"/>		
         <?php echo $form->hiddenField($model,'product_user_id');?>
+        <?php echo $form->hiddenField($model,'product_special');?>
 		<?php if($model->product_id): echo $form->hiddenField($model,'product_id');endif;?>
 		</td>
 </tr>

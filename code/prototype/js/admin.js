@@ -1,7 +1,5 @@
-MU.mods={
-    body : function(){
-			
-	},
+$.extend(MU.mods,{
+   
 	JLeftPanel : function (){
 		var self = $(this);
 		self.find('li').click(function(){
@@ -9,4 +7,4 @@ MU.mods={
 		});
 		
 	}
-};
+});

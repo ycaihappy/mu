@@ -1,4 +1,4 @@
-MU.mods={
+$.extend(MU.mods,{
     body : function(){
 		var self = $(this);			
 			//MU.mods.lazyloadImage.call(self);
@@ -39,4 +39,4 @@ MU.mods={
 			$(this).addClass('on').siblings().removeClass('on');
 		});
 	}
-};
+});

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>index</title>
     <link rel="stylesheet" href="css/global.css">
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
 
 

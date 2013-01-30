@@ -161,14 +161,12 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 .layout-area{margin-top:30px;width:1000px;overflow:hidden;}
 .layout-area .m-tab-list{margin-right:20px}
-.layout-area .col-right{float:right}
+.layout-area .col-right{float:left}
 .layout-area .layout-right{float:left;width:740px;}
 .layout-area .layout-left{float:left;width:220px;margin-right:10px;}
 
 #p_article_detail .layout-left{width:700px;}
 #p_article_detail .layout-right{width:250px;}
-#p_supplier_detail .layout-left{width:700px;}
-#p_supplier_detail .layout-right{width:250px;}
 
 .m-banner{margin-bottom:30px;}
 
@@ -298,26 +296,3 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-article-detail div.tit-bar.clearfix.tit-bar {color: #666666;}
 .m-article-detail .line{border-bottom: 1px dotted #dbdbdb;margin:10px 0px;}
 .m-article-detail .content p{padding-bottom: 29px;font-size: 16px;line-height: 28px;}
-
-
-
-/*m-supplier-detail*/
-.m-supplier-detail{ border: 1px solid #C5C5C5;    position: relative;}
-.m-supplier-detail .msg_time {
-    background: url("imgs/msg_time.png") repeat scroll 0 0 transparent;
-    color: #908F8F;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 20px;
-}
-.m-supplier-detail ul{overflow:auto}
-.m-supplier-detail .cmp_info li {    border-bottom: 1px solid #ECECED;float: left;height: 29px;line-height: 29px;    margin-bottom: 20px; width: 480px;}
-.m-supplier-detail .cmp_info span {background: none repeat scroll 0 0 #ECECED;color: #8E8E8E;display: inline-block;height: 29px;margin-right: 15px;text-align: center;width: 66px;}
-.m-supplier-detail .cmp_info em {font-size: 14px;font-style: normal;margin-right: 5px;}
-.m-supplier-detail .cmp_info .ci_li01 {width: 636px;}
-.m-supplier-detail .cmp_info .ci_li {margin-right: 20px;width: 308px;}
-.m-supplier-detail .cmp_info {margin: 20px;}
-.m-supplier-detail .am_note {font-size: 14px;line-height: 28px;padding: 0 20px 20px;    word-break: break-all;}
-.m-supplier-detail .art_note {color: #FF0000;margin: 0 20px 10px;}
-
-/*m-supplier-detail*/

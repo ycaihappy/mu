@@ -57,7 +57,9 @@ a:hover{color:#F27B04}
 
 .m-left-panel li a{font-size:14px;color:#707070;display:block;background:url(imgs/menu-ico-n.png) no-repeat 20px center;padding-left:30px;}
 .m-left-panel li{line-height:30px;height:30px;position:relative;}
-.m-left-panel li:hover,.m-left-panel li.on{background:#0078ff;}
+
+.m-left-panel li:hover{background:rgb(84, 164, 255);}
+.m-left-panel li.on{background:#0078ff;}
 .m-left-panel li.on a,.m-left-panel li:hover a{color:#fff;background:url(imgs/menu-ico-h.png) no-repeat 90% center;}
 
 .m-form td{padding:5px;}

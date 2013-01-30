@@ -39,6 +39,10 @@ return array(
 				'alwaysAllowedPath'=>'application.components',
 				'alwaysAllowed'=>array(),
 		),
+		'uehome'=>array(
+				'alwaysAllowedPath'=>'application.components',
+				'alwaysAllowed'=>array(),
+		),
 		'srbac' => array(
 		        'userclass'=>'User',
 		        'userid'=>'user_id',

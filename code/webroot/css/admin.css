@@ -35,7 +35,7 @@ a:hover{color:#F27B04}
 .pg-layout{min-width:960px}
 .layout {margin: 0 auto;width: 960px; position:relative;}
 
-#mainFrame {height: 100%;width: 100%;z-index: 5;	position:absolute;}
+#mainFrame {height: 100%;width: 97%;z-index: 5;	position:absolute;}
 .logo {float: left;height: 60px;width: 173px;}
 
 

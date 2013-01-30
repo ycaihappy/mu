@@ -202,7 +202,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 .m-brand a{display:inline-block;margin-right:5px;margin-bottom:5px;}
 
-.m-link{border:1px solid #ccc;overflow:hidden;padding:1px;padding-bottom:10px;width:960px;}
+.m-link{border:1px solid #ccc;overflow:hidden;padding:1px;padding-bottom:10px;width:954px;}
 .m-link .hd{background:url(imgs/link_bg.jpg) repeat-x;height:23px;line-height:23px;}
 .m-link .hd span{background:#fff;margin-left: 5px;    padding: 2px 5px;font-weight:bold;}
 .m-link .hd p{display:inline;margin-left:20px}

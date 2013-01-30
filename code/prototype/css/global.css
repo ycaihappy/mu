@@ -161,7 +161,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 .layout-area{margin-top:30px;width:1000px;overflow:hidden;}
 .layout-area .m-tab-list{margin-right:20px}
-.layout-area .col-right{float:right}
+.layout-area .col-right{float:left}
 .layout-area .layout-right{float:left;width:740px;}
 .layout-area .layout-left{float:left;width:220px;margin-right:10px;}
 

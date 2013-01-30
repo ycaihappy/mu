@@ -1,6 +1,6 @@
-			<div class="m-rcm left">
+			<div class="m-rcm left" id="J_Rcm">
 				<div class="hd">
-					<span><a href="">推荐企业</a></span>
+					<span class="on"><a href="">推荐企业</a></span>
 					<a class="more">更多</a>
 					<div class="clearfix"></div>
 				</div>

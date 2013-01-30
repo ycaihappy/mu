@@ -20,7 +20,6 @@ $this->breadcrumbs=array(
 		<td>
 			<input type=text disabled="disabled" class='cmp-input' value="<?php echo $model->user->user_name;?>"/>		
 
-        <?php echo $form->hiddenField($model,'ent_id');?>
 		<?php if($model->ent_id): echo $form->hiddenField($model,'ent_id');endif;?>
 		</td>
 </tr>

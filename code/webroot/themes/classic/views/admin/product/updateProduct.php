@@ -1,7 +1,7 @@
 <?php 
 $this->breadcrumbs=array(
 	'信息管理'=>array('manageProduct'),
-	$model->product_special?'特价管理':'现货管理'=>array('manageProduct'),
+	$model->product_special?'特价管理':'现货管理'=>array($model->product_special?'managespecial':'manageProduct'),
 	'添加/修改',
 );
 ?>

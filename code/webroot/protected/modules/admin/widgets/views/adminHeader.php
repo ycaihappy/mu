@@ -14,7 +14,7 @@
 	<div class="m-nav">
 		<a class="<?php echo $this->type==1?'on':'' ?>" href="<?php echo Yii::app()->controller->createUrl("index")?>">首页</a><i>|</i>
 		<a class="<?php echo $this->type==2?'on':'' ?>" href="<?php echo Yii::app()->controller->createUrl("index",array('type'=>2))?>">用户管理</a><i>|</i>
-		<a class="<?php echo $this->type==3?'on':'' ?>" href="<?php echo Yii::app()->controller->createUrl("index",array('type'=>3))?>">全部设置</a><i>|</i>
+		<a class="<?php echo $this->type==3?'on':'' ?>" href="<?php echo Yii::app()->controller->createUrl("index",array('type'=>3))?>">网站设置</a><i>|</i>
 		<a class="<?php echo $this->type==4?'on':'' ?>" href="<?php echo Yii::app()->controller->createUrl("index",array('type'=>4))?>">信息管理 </a><i>|</i>
 		<a class="<?php echo $this->type==5?'on':'' ?>" href="<?php echo Yii::app()->controller->createUrl("index",array('type'=>5))?>">新闻行情管理</a><i>|</i>
 		<a class="<?php echo $this->type==6?'on':'' ?>" href="<?php echo Yii::app()->controller->createUrl("index",array('type'=>6))?>">广告及推荐管理</a><i>|</i>

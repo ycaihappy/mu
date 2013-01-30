@@ -30,10 +30,10 @@ switch (Yii::app()->request->getParam('type',1))
 		$indexAction='product/manageProduct';
 		break;
 	case 5:
-		$indexAction='advertisementRecommendController/manageAdvertisement';
+		$indexAction='article/manageNews';
 		break;
 	case 6:
-		$indexAction='system/manageSystem';
+		$indexAction='advertisementRecommendController/manageAdvertisment';
 		break;
 	default:
 

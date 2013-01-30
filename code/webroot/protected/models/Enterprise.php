@@ -46,7 +46,7 @@ class Enterprise extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('ent_id, ent_name', 'required'),
-			array('ent_id, ent_user_id, ent_chief_postion, ent_recommend', 'numerical', 'integerOnly'=>true),
+			array('ent_id,ent_status, ent_user_id, ent_chief_postion, ent_recommend', 'numerical', 'integerOnly'=>true),
 			array('ent_name', 'length', 'max'=>256),
 			array('ent_website, ent_business_scope', 'length', 'max'=>512),
 			array('ent_zipcode', 'length', 'max'=>32),

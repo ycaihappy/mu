@@ -50,7 +50,7 @@ class Article extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('art_id, art_title', 'required'),
+            array('art_title', 'required'),
             array('art_id, art_category_id, art_status, art_user_id, art_recommend', 'numerical', 'integerOnly'=>true),
             array('art_title, art_source', 'length', 'max'=>128),
             array('art_tags, art_check_by', 'length', 'max'=>45),

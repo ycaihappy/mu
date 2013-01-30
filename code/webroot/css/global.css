@@ -171,16 +171,18 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-banner{margin-bottom:30px;}
 
 .m-rcm{float:left;margin-right:20px;}
-.m-rcm li{padding:10px 0 10px 3px;border-bottom:1px dashed #DCDDDD;overflow:hidden;height:40px;}
+.m-rcm li{padding:10px 0 10px 3px;border-bottom:1px dashed #DCDDDD;overflow:hidden;height:20px;}
 .m-rcm li.on{height:70px;background:#FFF8E5;border:1px solid #F3C857}
 .m-rcm .last{border:0}
 .m-rcm .img{width:93px;float:left;margin-right:20px;display:none;}
 .m-rcm .on .img{display:block}
-.m-rcm .info{float:left;width:238px;}
+.m-rcm .info{float:left;}
+.m-rcm .on .info{width:238px;}
 .m-rcm .info{font-size:14px;}
 .m-rcm .info a{font-weight:bold;color:#1f6e95}
-.m-rcm .info p{margin-top:10px;}
+.m-rcm .info p{margin-top:5px;display:none;}
 .m-rcm .info .red{color:red;}
+.m-rcm .on .info p{display:block;}
 .m-rcm .hd span{padding:0 20px;text-align:center;float:left;height:30px;line-height:30px;}
 
 
@@ -200,7 +202,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 .m-brand a{display:inline-block;margin-right:5px;margin-bottom:5px;}
 
-.m-link{border:1px solid #ccc;overflow:hidden;padding:1px;padding-bottom:10px}
+.m-link{border:1px solid #ccc;overflow:hidden;padding:1px;padding-bottom:10px;width:954px;}
 .m-link .hd{background:url(imgs/link_bg.jpg) repeat-x;height:23px;line-height:23px;}
 .m-link .hd span{background:#fff;margin-left: 5px;    padding: 2px 5px;font-weight:bold;}
 .m-link .hd p{display:inline;margin-left:20px}
@@ -208,7 +210,9 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-link .link-list a{margin:5px 10px 0;float:left}
 .m-link .link-list a:hover{#f00;}
 
-.m-footer .fa {    margin-top: 10px;    overflow: auto;	text-align:center;}
+
+.m-footer{width:960px}
+.m-footer .fa {    margin-top: 10px;    overflow: auto;	text-align:center}
 
 .m-footer .fa a {    background: url("imgs/authentication.gif") no-repeat scroll 0 0 transparent;    display: inline-block;    height: 48px;    margin-right: 5px;overflow: hidden;width: 119px;}
 

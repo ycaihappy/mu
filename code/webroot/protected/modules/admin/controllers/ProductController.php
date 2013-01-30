@@ -245,6 +245,7 @@ class ProductController extends AdminController {
 	private function _getCityLayer($cityId)
 	{
 		$parent=$this->cityCache[$cityId]['city_parent'];
+		$parentCity=array();
 		while($parent)
 		{
 			$parentCity[]=$this->cityCache[$parent]->city_name;

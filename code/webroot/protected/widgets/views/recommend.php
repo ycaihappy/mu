@@ -9,7 +9,7 @@
 					<ul>
 			<?php for($index=0;$index<count($data);$index++):
 						?>
-						<li>
+						<li <?php echo $index==0 ? ' class="on"' : '';?>>
 							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
 							<div class="info">
                             <a><?php echo $data[$index]['ent_name'];?></a>

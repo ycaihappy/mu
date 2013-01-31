@@ -71,7 +71,7 @@ class AdvertisementRecommendController extends AdminController {
 	public function actionUpdateAdvertisement()
 	{
 		$model=new Advertisement();
-		if($_POST['Advertisement'])
+		if(isset($_POST['Advertisement']))
 		{
 			$model->attributes=$_POST['Advertisement'];
 			$model->ad_media_src=CUploadedFile::getInstance($model,'ad_media_src');
@@ -103,21 +103,63 @@ class AdvertisementRecommendController extends AdminController {
 		{
 			if($adId=$_GET['ad_id'])
 				$model=$model->findByPk($adId);
-			$this->render('show');
+			$adPosition=Term::getTermsByGroupId(7);
+			$adStatus=Term::getTermsByGroupId(1);
+			$adType=Term::getTermsByGroupId(6);
+			$this->render('updateAdvertisement',array(
+			'adPosition'=>$adPosition,
+			'adStatus'=>$adStatus,
+			'adType'=>$adType,
+			'model'=>$model,
+			));
 		}
 	}
 	
 	public function actionManageRecommend()
 	{
-		if(!Yii::app()->request->isAjaxRequest)
-		{
-			Yii::app()->admin->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
-		}
+		$model=new Recommend();
 		$recommendCriteria=new CDbCriteria();
-		$recommendInfoType=@$_POST['Recommend']['recommend_type'];
-		$recommendPosition=@$_POST['Recommend']['recommend_position'];
-		$recommendTitle=@$_POST['Recommend']['recommend_title'];
-		//进行视图查询
+		$model->recommend_type=@$_POST['Recommend']['recommend_type'];
+		$model->recommend_position=@$_POST['Recommend']['recommend_position'];
+		$model->recommend_id=@$_POST['Recommend']['recommend_title'];
+		$model->recommend_status=@$_POST['Recommend']['recommend_status'];
+		if($model->recommend_type)
+		{
+			$recommendCriteria->compare('recommend_type', '='.$model->recommend_type);
+			
+		}
+		if($model->recommend_position)
+		{
+			$recommendCriteria->compare('recommend_position', '='.$model->recommend_position);
+			
+		}
+		if($model->recommend_status)
+		{
+			$recommendCriteria->compare('recommend_status', '='.$model->recommend_status);
+			
+		}
+		if($model->recommend_id)
+		{
+			$recommendCriteria->addSearchCondition('name', $model->recommend_id,true);
+		}
+		$recommendCriteria->select='recommend_id,name,recommend_object_id,recommend_time';
+		$recommendCriteria->with=array('infoType'=>array('select'=>'term_name'),'status'=>array('select'=>'term_name'),'module'=>array('select'=>'term_name'));
+		$dataProvider=new CActiveDataProvider('RecommendView',
+		array('criteria'=>$recommendCriteria,
+			'pagination'=>array(
+		        'pageSize'=>20,
+				'pageVar'=>'page',
+		),)
+		);
+		$reStatus=Term::getTermsByGroupId(1);
+		$rePosition=Term::getTermsByGroupId(13);
+		$reType=Term::getTermsByGroupId(12);
+		$this->render('manageRecommend',array('model'=>$model,
+		'dataProvider'=>$dataProvider,
+		'reStatus'=>$reStatus,
+		'rePosition'=>$rePosition,
+		'reType'=>$reType
+		));
 	}
 	public function actionChangePosition()
 	{

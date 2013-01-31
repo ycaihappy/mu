@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2013-01-31 10:22:58
+Date: 2013-01-31 10:35:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -325,11 +325,18 @@ CREATE TABLE `mu_city` (
   `city_order` tinyint(4) DEFAULT '0',
   `city_open` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`city_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='省市联动表';
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='省市联动表';
 
 -- ----------------------------
 -- Records of mu_city
 -- ----------------------------
+INSERT INTO mu_city VALUES ('1', '西南', '0', '1', '1', null);
+INSERT INTO mu_city VALUES ('2', '重庆', '1', '2', '1', null);
+INSERT INTO mu_city VALUES ('3', '大>足', '2', '3', '1', null);
+INSERT INTO mu_city VALUES ('4', '渝中区', '2', '3', '2', null);
+INSERT INTO mu_city VALUES ('5', '华北', '0', null, null, null);
+INSERT INTO mu_city VALUES ('6', '河南', '5', null, null, null);
+INSERT INTO mu_city VALUES ('7', '平顶山', '6', null, null, null);
 
 -- ----------------------------
 -- Table structure for `mu_favorite`
@@ -436,11 +443,210 @@ CREATE TABLE `mu_product` (
   `product_check_by` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   KEY `product_user_id` (`product_user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='现货';
+) ENGINE=MyISAM AUTO_INCREMENT=200 DEFAULT CHARSET=utf8 COMMENT='现货';
 
 -- ----------------------------
 -- Records of mu_product
 -- ----------------------------
+INSERT INTO mu_product VALUES ('1', '1', '钼铁，钼矿', '钼粉/纳米钼粉', '646', '11', '10', '484', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('2', '1', '钼铁，钼矿', '废钼回收', '116', '11', '6', '329', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('3', '1', '钼铁，钼矿', '钨粉，钨条，钨铁，钨钼合金粉，钨锭', '869', '11', '1', '505', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('4', '1', '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', '836', '11', '1', '752', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('5', '1', '钼铁，钼矿', '钼粉/纳米钼粉', '945', '11', '1', '694', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('6', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '968', '11', '1', '728', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('7', '1', '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', '754', '11', '2', '297', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('8', '1', '钼铁，钼矿', '工业炉用钼制品', '611', '11', '8', '431', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('9', '1', '钼铁，钼矿', '钼丝', '288', '11', '2', '835', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('10', '1', '钼铁，钼矿', '废钼回收', '542', '11', '7', '953', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('11', '1', '钼铁，钼矿', '钼坩埚', '315', '11', '10', '973', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('12', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '190', '11', '9', '202', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('13', '1', '钼铁，钼矿', '钼网', '978', '11', '2', '719', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('14', '1', '钼铁，钼矿', '钼杆/钼棒', '678', '11', '2', '241', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('15', '1', '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', '343', '11', '7', '229', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('16', '1', '钼铁，钼矿', '钼丝网', '681', '11', '6', '933', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('17', '1', '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', '693', '11', '1', '95', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('18', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '207', '11', '9', '719', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('19', '1', '钼铁，钼矿', 'TZM', '887', '11', '8', '485', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('20', '1', '钼铁，钼矿', '钛丝网除沫器', '998', '11', '9', '201', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('21', '1', '钼铁，钼矿', '钼板', '319', '11', '7', '908', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('22', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '980', '11', '3', '906', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('23', '1', '钼铁，钼矿', 'TZM', '202', '11', '3', '582', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('24', '1', '钼铁，钼矿', '钼片', '715', '11', '9', '372', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('25', '1', '钼铁，钼矿', '钼靶材', '831', '11', '10', '71', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('26', '1', '钼铁，钼矿', 'C-276万能的抗腐蚀镍-铬-钼合金', '608', '11', '5', '993', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('27', '1', '钼铁，钼矿', '钼网', '283', '11', '5', '493', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('28', '1', '钼铁，钼矿', '钨粉，钨条，钨铁，钨钼合金粉，钨锭', '406', '11', '9', '169', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('29', '1', '钼铁，钼矿', '钼网', '977', '11', '5', '504', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('30', '1', '钼铁，钼矿', 'TZM', '194', '11', '4', '336', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('31', '1', '钼铁，钼矿', '钨粉，钨条，钨铁，钨钼合金粉，钨锭', '938', '11', '4', '401', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('32', '1', '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', '225', '11', '8', '490', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('33', '1', '钼铁，钼矿', '废钼回收', '154', '11', '9', '952', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('34', '1', '钼铁，钼矿', 'TZM', '923', '11', '9', '646', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('35', '1', '钼铁，钼矿', '钼网', '197', '11', '9', '298', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('36', '1', '钼铁，钼矿', '钛丝网除沫器', '593', '11', '5', '233', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('37', '1', '钼铁，钼矿', '钼盒', '202', '11', '2', '943', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('38', '1', '钼铁，钼矿', '钼网', '680', '11', '9', '921', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('39', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '777', '11', '2', '778', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('40', '1', '钼铁，钼矿', '钼板', '501', '11', '7', '761', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('41', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '238', '11', '8', '378', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('42', '1', '钼铁，钼矿', '钼网', '737', '11', '4', '200', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('43', '1', '钼铁，钼矿', '工业炉用钼制品', '326', '11', '1', '843', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('44', '1', '钼铁，钼矿', '钼盒', '304', '11', '3', '934', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('45', '1', '钼铁，钼矿', '钼杆/钼棒', '474', '11', '8', '286', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('46', '1', '钼铁，钼矿', '钼坩埚', '260', '11', '10', '283', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('47', '1', '钼铁，钼矿', '废钼回收', '205', '11', '7', '171', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('48', '1', '钼铁，钼矿', '钼板', '299', '11', '7', '308', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('49', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '968', '11', '7', '457', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('50', '1', '钼铁，钼矿', '钼片', '699', '11', '10', '478', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('51', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '677', '11', '4', '447', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('52', '1', '钼铁，钼矿', '钼粉/纳米钼粉', '530', '11', '3', '987', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('53', '1', '钼铁，钼矿', '钼坩埚', '174', '11', '3', '554', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('54', '1', '钼铁，钼矿', '钼靶材', '112', '11', '3', '946', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('55', '1', '钼铁，钼矿', '钼粉/纳米钼粉', '293', '11', '6', '816', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('56', '1', '钼铁，钼矿', '钼片', '606', '11', '2', '915', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('57', '1', '钼铁，钼矿', '钛丝网除沫器', '771', '11', '4', '662', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('58', '1', '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', '976', '11', '1', '280', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('59', '1', '钼铁，钼矿', '钛丝网除沫器', '945', '11', '10', '541', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('60', '1', '钼铁，钼矿', '钼靶材', '222', '11', '1', '860', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('61', '1', '钼铁，钼矿', '钼板', '100', '11', '3', '952', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('62', '1', '钼铁，钼矿', '工业炉用钼制品', '101', '11', '2', '230', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('63', '1', '钼铁，钼矿', 'TZM', '161', '11', '9', '898', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('64', '1', '钼铁，钼矿', '废钼回收', '314', '11', '3', '848', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('65', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '802', '11', '3', '904', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('66', '1', '钼铁，钼矿', '钼靶材', '571', '11', '8', '349', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('67', '1', '钼铁，钼矿', '工业炉用钼制品', '671', '11', '6', '388', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('68', '1', '钼铁，钼矿', '供应三氧化钼', '437', '11', '9', '959', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('69', '1', '钼铁，钼矿', '钼粉/纳米钼粉', '776', '11', '9', '920', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('70', '1', '钼铁，钼矿', '钼片', '239', '11', '8', '154', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('71', '1', '钼铁，钼矿', '工业炉用钼制品', '110', '11', '9', '270', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('72', '1', '钼铁，钼矿', 'C-276万能的抗腐蚀镍-铬-钼合金', '151', '11', '8', '665', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('73', '1', '钼铁，钼矿', '钼坩埚', '806', '11', '4', '612', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('74', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '741', '11', '10', '175', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('75', '1', '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', '129', '11', '3', '429', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('76', '1', '钼铁，钼矿', '钼板', '694', '11', '5', '733', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('77', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '854', '11', '7', '234', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('78', '1', '钼铁，钼矿', '钼板', '197', '11', '1', '523', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('79', '1', '钼铁，钼矿', '钼板', '465', '11', '5', '936', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('80', '1', '钼铁，钼矿', '钼盒', '975', '11', '3', '532', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('81', '1', '钼铁，钼矿', '钼丝网', '202', '11', '1', '169', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('82', '1', '钼铁，钼矿', '钼板', '510', '11', '10', '287', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('83', '1', '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', '417', '11', '3', '935', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('84', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '550', '11', '10', '790', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('85', '1', '钼铁，钼矿', '钼丝网', '368', '11', '2', '896', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('86', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '572', '11', '1', '742', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('87', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '508', '11', '3', '787', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('88', '1', '钼铁，钼矿', '钼杆/钼棒', '706', '11', '6', '371', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('89', '1', '钼铁，钼矿', 'TZM', '602', '11', '7', '29', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('90', '1', '钼铁，钼矿', '钼丝网', '722', '11', '8', '756', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('91', '1', '钼铁，钼矿', '钼盒', '650', '11', '3', '150', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('92', '1', '钼铁，钼矿', '钼网', '318', '11', '3', '65', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('93', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '973', '11', '2', '345', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('94', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '163', '11', '10', '302', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('95', '1', '钼铁，钼矿', '钼板', '434', '11', '5', '230', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('96', '1', '钼铁，钼矿', '钨粉，钨条，钨铁，钨钼合金粉，钨锭', '811', '11', '5', '272', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('97', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '376', '11', '10', '882', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('98', '1', '钼铁，钼矿', '钼丝网', '764', '11', '9', '613', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('99', '1', '钼铁，钼矿', '废钼回收', '136', '11', '10', '517', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('100', '1', '钼铁，钼矿', '钼片', '142', '11', '4', '70', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('101', '1', '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', '835', '11', '7', '192', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('102', '1', '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', '288', '11', '2', '330', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('103', '1', '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', '387', '11', '10', '879', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('104', '1', '钼铁，钼矿', '钼丝', '383', '11', '4', '343', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('105', '1', '钼铁，钼矿', '工业炉用钼制品', '826', '11', '10', '258', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('106', '1', '钼铁，钼矿', '钼网', '452', '11', '6', '913', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('107', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '882', '11', '9', '660', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('108', '1', '钼铁，钼矿', '钼片', '415', '11', '8', '573', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('109', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '976', '11', '9', '925', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('110', '1', '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', '394', '11', '8', '177', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('111', '1', '钼铁，钼矿', '废钼回收', '947', '11', '3', '49', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('112', '1', '钼铁，钼矿', '钼网', '823', '11', '10', '293', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('113', '1', '钼铁，钼矿', '钼杆/钼棒', '545', '11', '4', '651', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('114', '1', '钼铁，钼矿', '钼丝', '237', '11', '9', '783', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('115', '1', '钼铁，钼矿', 'C-276万能的抗腐蚀镍-铬-钼合金', '815', '11', '8', '506', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('116', '1', '钼铁，钼矿', '钼丝网', '117', '11', '4', '722', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('117', '1', '钼铁，钼矿', '钼板', '313', '11', '8', '220', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('118', '1', '钼铁，钼矿', '钼板', '927', '11', '5', '803', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('119', '1', '钼铁，钼矿', '钼板', '253', '11', '4', '444', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('120', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '960', '11', '6', '964', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('121', '1', '钼铁，钼矿', '钼粉/纳米钼粉', '849', '11', '1', '707', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('122', '1', '钼铁，钼矿', '工业炉用钼制品', '200', '11', '4', '325', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('123', '1', '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', '565', '11', '5', '637', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('124', '1', '钼铁，钼矿', '钛丝网除沫器', '468', '11', '4', '396', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('125', '1', '钼铁，钼矿', 'C-276万能的抗腐蚀镍-铬-钼合金', '105', '11', '10', '338', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('126', '1', '钼铁，钼矿', '钼盒', '985', '11', '7', '138', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('127', '1', '钼铁，钼矿', '钼网', '378', '11', '5', '393', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('128', '1', '钼铁，钼矿', '钼粉/纳米钼粉', '173', '11', '9', '684', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('129', '1', '钼铁，钼矿', '钼网', '585', '11', '2', '934', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('130', '1', '钼铁，钼矿', '钼丝网', '757', '11', '4', '484', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('131', '1', '钼铁，钼矿', '钨粉，钨条，钨铁，钨钼合金粉，钨锭', '266', '11', '9', '87', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('132', '1', '钼铁，钼矿', '钼靶材', '488', '11', '7', '96', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('133', '1', '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', '919', '11', '3', '518', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('134', '1', '钼铁，钼矿', '钼板', '422', '11', '9', '546', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('135', '1', '钼铁，钼矿', '钼丝网', '598', '11', '7', '1000', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('136', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '805', '11', '10', '94', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('137', '1', '钼铁，钼矿', '钛丝网除沫器', '142', '11', '1', '342', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('138', '1', '钼铁，钼矿', 'TZM', '910', '11', '7', '318', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('139', '1', '钼铁，钼矿', '钼粉/纳米钼粉', '439', '11', '1', '101', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('140', '1', '钼铁，钼矿', '钼片', '461', '11', '10', '350', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('141', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '474', '11', '3', '293', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('142', '1', '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', '453', '11', '9', '640', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('143', '1', '钼铁，钼矿', '钼杆/钼棒', '426', '11', '4', '216', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('144', '1', '钼铁，钼矿', '工业炉用钼制品', '224', '11', '6', '614', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('145', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '535', '11', '10', '611', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('146', '1', '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', '746', '11', '10', '51', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('147', '1', '钼铁，钼矿', '钨粉，钨条，钨铁，钨钼合金粉，钨锭', '692', '11', '3', '43', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('148', '1', '钼铁，钼矿', '钼板', '574', '11', '8', '253', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('149', '1', '钼铁，钼矿', '工业炉用钼制品', '216', '11', '2', '368', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('150', '1', '钼铁，钼矿', 'C-276万能的抗腐蚀镍-铬-钼合金', '551', '11', '5', '734', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('151', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '916', '11', '5', '551', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('152', '1', '钼铁，钼矿', '钼坩埚', '967', '11', '7', '752', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('153', '1', '钼铁，钼矿', '钨粉，钨条，钨铁，钨钼合金粉，钨锭', '604', '11', '2', '329', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('154', '1', '钼铁，钼矿', '钛丝网除沫器', '428', '11', '8', '178', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('155', '1', '钼铁，钼矿', '钼板', '528', '11', '9', '444', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('156', '1', '钼铁，钼矿', '钼丝网', '474', '11', '3', '818', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('157', '1', '钼铁，钼矿', '钼丝', '884', '11', '9', '918', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('158', '1', '钼铁，钼矿', '钛丝网除沫器', '876', '11', '2', '129', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('159', '1', '钼铁，钼矿', '钼靶材', '548', '11', '2', '325', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('160', '1', '钼铁，钼矿', '钼丝网', '418', '11', '5', '560', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('161', '1', '钼铁，钼矿', '废钼回收', '668', '11', '9', '921', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('162', '1', '钼铁，钼矿', '钼丝网', '321', '11', '5', '453', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('163', '1', '钼铁，钼矿', '钼板', '261', '11', '9', '405', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('164', '1', '钼铁，钼矿', '钼网', '449', '11', '6', '75', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('165', '1', '钼铁，钼矿', '钼板', '800', '11', '7', '154', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('166', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '775', '11', '3', '744', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('167', '1', '钼铁，钼矿', '废钼回收', '641', '11', '1', '110', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('168', '1', '钼铁，钼矿', '钼杆/钼棒', '523', '11', '4', '935', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('169', '1', '钼铁，钼矿', '钼杆/钼棒', '814', '11', '6', '105', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('170', '1', '钼铁，钼矿', '钼网', '124', '11', '8', '268', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('171', '1', '钼铁，钼矿', '钼靶材', '919', '11', '7', '732', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('172', '1', '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', '753', '11', '9', '895', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('173', '1', '钼铁，钼矿', '钼坩埚', '719', '11', '1', '395', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('174', '1', '钼铁，钼矿', '钼片', '129', '11', '9', '713', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('175', '1', '钼铁，钼矿', '钼网', '711', '11', '10', '915', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('176', '1', '钼铁，钼矿', '钼杆/钼棒', '483', '11', '10', '406', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('177', '1', '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', '535', '11', '7', '962', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('178', '1', '钼铁，钼矿', '钼网', '828', '11', '8', '506', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('179', '1', '钼铁，钼矿', '废钼回收', '195', '11', '1', '729', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('180', '1', '钼铁，钼矿', '钼杆/钼棒', '223', '11', '1', '221', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('181', '1', '钼铁，钼矿', '钼盒', '238', '11', '3', '352', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('182', '1', '钼铁，钼矿', '钨粉，钨条，钨铁，钨钼合金粉，钨锭', '619', '11', '9', '477', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('183', '1', '钼铁，钼矿', '钼板', '181', '11', '8', '385', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('184', '1', '钼铁，钼矿', '钼丝网', '821', '11', '6', '469', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('185', '1', '钼铁，钼矿', '钼丝网', '712', '11', '8', '871', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('186', '1', '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', '698', '11', '4', '420', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('187', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '735', '11', '1', '320', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('188', '1', '钼铁，钼矿', '钼板', '209', '11', '6', '83', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('189', '1', '钼铁，钼矿', '钼板', '334', '11', '4', '613', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('190', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '232', '11', '2', '860', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('191', '1', '钼铁，钼矿', '钼坩埚', '548', '11', '5', '555', '1', '3', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('192', '1', '钼铁，钼矿', '钛丝网除沫器', '892', '11', '5', '83', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('193', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '313', '11', '6', '719', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('194', '1', '钼铁，钼矿', '钼丝网', '329', '11', '3', '230', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('195', '1', '钼铁，钼矿', '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉', '123', '11', '10', '59', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('196', '1', '钼铁，钼矿', '钼板', '592', '11', '7', '722', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('197', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '479', '11', '5', '492', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('198', '1', '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', '380', '11', '6', '700', '1', '4', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
+INSERT INTO mu_product VALUES ('199', '1', '钼铁，钼矿', '钛丝网除沫器', '396', '11', '8', '511', '1', '6', null, '深圳龙华大浪石光工业区', '1', '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', null);
 
 -- ----------------------------
 -- Table structure for `mu_recommend`

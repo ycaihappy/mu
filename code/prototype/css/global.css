@@ -345,6 +345,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-form .label{width:140px;text-align:right;font-size:14px;}
 .m-form input{border:1px solid #ccc;padding:4px;}
 .cmp-input{border:1px solid #ccc;width:155px}
+.cmp-text{border:1px solid #ccc;width:405px;}
 .w245{width:245px}
 .m-form .btn-blue{text-align:center;background:url(imgs/btn-blue.png) no-repeat;width:60px;height:21px;display:inline-block;border:0px;color:#395678;cursor:pointer;}
 .m-form .msg{color:#afafb1;padding-left:10px;}
@@ -387,3 +388,6 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-breadcrumb .crumb{background:url(imgs/ico-crumb-1.png) no-repeat;width:8px;height:9px;display:inline-block;margin-right:10px;}
 .m-breadcrumb i{background:url(imgs/ico-crumb-arr.png) no-repeat;width:11px;height:10px;display:inline-block;margin:0px 10px;}
 .m-breadcrumb p{padding-bottom:10px;border-bottom:1px solid #ccc;}
+
+.table-field{width:100%}
+.create-supply .thumb{width:120px;height:120px;margin-right:20px;}

@@ -38,5 +38,11 @@ $.extend(MU.mods,{
 		self.find('.scroll li').mouseenter(function(){
 			$(this).addClass('on').siblings().removeClass('on');
 		});
+	},
+	JLogin : function (){
+		var self = $(this);
+		self.find('.hd span').mouseover(function () {
+			$(this).addClass('on').siblings().removeClass('on');
+		});
 	}
 });

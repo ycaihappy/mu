@@ -989,6 +989,11 @@ INSERT INTO mu_term VALUES ('17', '0', '新闻', null, '10', '0', '2013-01-26 23
 INSERT INTO mu_term VALUES ('18', '0', '供应', null, '11', '0', '2013-01-27 14:37:56');
 INSERT INTO mu_term VALUES ('19', '0', '求购', null, '11', '0', '2013-01-27 14:37:54');
 INSERT INTO mu_term VALUES ('20', '0', '钼知识', null, '10', '0', '2013-01-28 00:49:38');
+INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES (21, 0, '钼铁', NULL, 12, 0, '2013-01-31 10:45:47');
+INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES (22, 0, '氧化钼', NULL, 12, 0, '2013-01-31 10:45:48');
+INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES (23, 0, '钼精矿', NULL, 12, 0, '2013-01-31 10:46:27');
+
+
 
 -- ----------------------------
 -- Table structure for `mu_term_group`
@@ -1015,6 +1020,7 @@ INSERT INTO mu_term_group VALUES ('8', '推荐信息类型', null);
 INSERT INTO mu_term_group VALUES ('9', '推荐位置', null);
 INSERT INTO mu_term_group VALUES ('10', '文章类型', null);
 INSERT INTO mu_term_group VALUES ('11', '供求类型', null);
+INSERT INTO `mu_term_group` (`group_id`, `group_name`, `group_desc`) VALUES (12, '钼分类', NULL);
 
 -- ----------------------------
 -- Table structure for `mu_user`

@@ -1,6 +1,6 @@
-			<div class="m-rcm left">
+			<div class="m-rcm left" id="J_Rcm">
 				<div class="hd">
-					<span><a href="">推荐企业</a></span>
+					<span class="on"><a href="">推荐企业</a></span>
 					<a class="more">更多</a>
 					<div class="clearfix"></div>
 				</div>
@@ -9,7 +9,7 @@
 					<ul>
 			<?php for($index=0;$index<count($data);$index++):
 						?>
-						<li>
+						<li <?php echo $index==0 ? ' class="on"' : '';?>>
 							<div class="img"><img src="images/img1.jpg" width="93" height="68" /></div>							
 							<div class="info">
                             <a><?php echo $data[$index]['ent_name'];?></a>

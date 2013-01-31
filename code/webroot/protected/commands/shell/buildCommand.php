@@ -265,7 +265,7 @@ class buildCommand extends CConsoleCommand{
              '深圳优意生活科技有限公司',
             );
             $city = array(3,4,6);
-            for($i=1; $i<30; $i++)
+            for($i=1; $i<100; $i++)
             {
                 $key = array_rand($title);
 

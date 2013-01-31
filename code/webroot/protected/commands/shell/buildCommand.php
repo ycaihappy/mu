@@ -114,6 +114,7 @@ class buildCommand extends CConsoleCommand{
 
                 $article->art_source="lizhili";
                 $article->art_category_id = 21;
+                #$article->art_category_id = 17;
                 $article->art_recommend = rand(0,1);
                 $article->art_user_id = 1;
                 $article->art_check_by = "lizhili";
@@ -139,6 +140,7 @@ class buildCommand extends CConsoleCommand{
              '供应钼铁',
              '长期钼铁出售',
             );
+            $city = array(3,4,6);
             for($i=30;$i<200;$i++)
             {
                 $supply = new Supply();
@@ -151,32 +153,60 @@ class buildCommand extends CConsoleCommand{
                 $supply->supply_content= trim($title[array_rand($title)]);
                 $supply->supply_name= trim($title[array_rand($title)]);
                 $supply->supply_address= "深圳龙华大浪石光工业区";
-                $supply->supply_city_id = rand(2,20);
+                $supply->supply_city_id = $city[array_rand($city)];
                 $supply->supply_status = 1;
                 $supply->supply_phone= '18666666';
                 $supply->supply_price = rand(10,1000);
                 $supply->supply_valid_date = time();
                 $supply->supply_check_by = 1;
                 $supply->supply_recommend = 1;
+                $supply->supply_unit = '吨';
                 $supply->save();
             }
             break;
         case 'product':
-            for($i=2;$i<200;$i++)
+            $title = array(
+               '钼片',
+               '钼靶材',
+               'TZM',
+               '工业炉用钼制品',
+               '钼杆/钼棒',
+               '钼丝',
+               '钼板',
+               '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶',
+               '供应三氧化钼',
+               'C-276万能的抗腐蚀镍-铬-钼合金',
+               '钛,钛合金钨钼等稀有金属',
+               '钛,钛合金钨钼等稀有金属',
+               '钼丝网',
+               '钼粉/纳米钼粉',
+               '钨粉，钨条，钨铁，钨钼合金粉，钨锭',
+               '废钼回收',
+               '钼网',
+               '钼丝网',
+               '钛丝网除沫器',
+               '钼网',
+               '钼粉,电解钼粉,金属钼粉,纳米钼粉,纳米碳化钼粉',
+               '钼盒',
+               '钼板',
+               '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金',
+               '钼坩埚',
+            );
+            $city = array(3,4,6);
+            for($i=1;$i<200;$i++)
             {
                 $product = new product();
                 $product->product_id = $i;
                 $product->product_user_id = 1;
                 $product->product_keyword="钼铁，钼矿";
                 $product->product_type_id= rand(1,10);
-                $product->product_name = '钼精矿'.$i;
+                $product->product_name = $title[array_rand($title)];
                 $product->product_unit = 11;
                 $product->product_quanity = rand(100,1000);
                 $product->product_location= "深圳龙华大浪石光工业区";
-                $product->product_city_id = rand(2,20);
+                $product->product_city_id = $city[array_rand($city)];
                 $product->product_status = 1;
                 $product->product_price = rand(10,1000);
-                $product->product_city_id = rand(2,20);
                 $product->product_special= 1;
                 $product->product_join_date = time();
                 $product->product_image_src = 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg';
@@ -198,12 +228,12 @@ class buildCommand extends CConsoleCommand{
             }
             break;
         case 'user':
-            for($i=2;$i<100;$i++)
+            for($i=1;$i<100;$i++)
             {
                 $user = new User();
-                $user->user_id = $i+1;
+                $user->user_id = $i;
                 $user->user_name = 'ueelife';
-                $user->user_pwd  ='e10adc3949ba59abbe56e057f20f883e';
+                $user->user_pwd  = md5('123456');
                 $user->user_status =1;
                 $user->save();
             }
@@ -227,6 +257,7 @@ class buildCommand extends CConsoleCommand{
              '厦门虹鹭钨钼工业有限公司(钼生产型/贸易型企业)',
              '深圳优意生活科技有限公司',
             );
+            $city = array(3,4,6);
             for($i=1; $i<30; $i++)
             {
                 $key = array_rand($title);
@@ -235,17 +266,17 @@ class buildCommand extends CConsoleCommand{
                 $enterprise->ent_id= $i;
                 $enterprise->ent_user_id= rand(1,100);
                 $enterprise->ent_name = trim($title[$key]);
-                $enterprise->ent_type =rand(1,5);
+                $enterprise->ent_type =rand(4,5);
                 $enterprise->ent_website = 'http://www.mushw.com';
-                $enterprise->ent_business_model = rand(1,10);
+                $enterprise->ent_business_model = rand(6,7);
                 $enterprise->ent_zipcode ='51800';
                 $enterprise->ent_introduce ='企业是从事生产、流通、服务等经济活动，以生产或服务满足社会需要，实行自主经营、独立核算、依法设立的一种盈利性的经济组织。企业主要指独立的盈利性组织。在中国计划经济时期，“企业”是与“事业单位”平行使用的常用词语。《辞海》1979年版中，“企业”的解释为：“从事生产、流通或服务活动的独立核算经济单位”；“事业单位”的解释为：“受国家机关领导，不实行经济核算的单位”。在20世纪后期中国大陆改革开放与现代化建设及信息技术领域新概念大量涌入的背景下，“企业”一词的用法有所变化，并不限于商业性或盈利组织';
                 $enterprise->ent_location ='深圳';
-                $enterprise->ent_city=1;
-                $enterprise->ent_status =1;
+                $enterprise->ent_city=$city[array_rand($city)];
+                $enterprise->ent_status =rand(1,2);
                 $enterprise->ent_chief = '李总';
                 $enterprise->ent_create_time = date("Y-m-d");
-                $enterprise->ent_chief_postion = rand(1,5);
+                $enterprise->ent_chief_postion = 8;
                 $enterprise->ent_business_scope = '网络，安全，建站';
                 $enterprise->ent_registered_capital = 500;
                 $enterprise->ent_recommend = 1;
@@ -254,6 +285,15 @@ class buildCommand extends CConsoleCommand{
                 $enterprise->ent_check_by = 'lizhili';
                 $enterprise->save();
             }
+            break;
+        case 'test':
+            $connection = Yii::app()->db;
+            $user = $connection->createCommand()
+                ->select('ent_name,ent_id')
+                ->from('ent_user_enterprise')
+                ->where('ent_id=:ent_id', array('ent_id'=>1))
+                ->queryRow();
+var_export($user);
             break;
         }
     }  

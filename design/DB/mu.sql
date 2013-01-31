@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2013-01-31 10:53:03
+Date: 2013-01-31 12:38:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -737,17 +737,116 @@ DROP TABLE IF EXISTS `mu_success_case`;
 CREATE TABLE `mu_success_case` (
   `case_id` int(11) NOT NULL AUTO_INCREMENT,
   `supply_id` int(11) NOT NULL,
-  `supply_user_id` int(11) NOT NULL,
   `purchase_user_id` int(11) NOT NULL,
   `purchase_amount` varchar(32) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `case_status` int(11) DEFAULT NULL,
+  `case_recommend` tinyint(4) NOT NULL,
   PRIMARY KEY (`case_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mu_success_case
 -- ----------------------------
+INSERT INTO mu_success_case VALUES ('1', '35', '48', '89', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('2', '89', '46', '73', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('3', '80', '29', '106', '2013-01-31 00:00:00', '1', '0');
+INSERT INTO mu_success_case VALUES ('4', '40', '93', '148', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('5', '85', '74', '215', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('6', '48', '88', '516', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('7', '86', '16', '434', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('8', '43', '33', '343', '2013-01-31 00:00:00', '1', '0');
+INSERT INTO mu_success_case VALUES ('9', '69', '50', '409', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('10', '36', '65', '465', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('11', '53', '97', '287', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('12', '65', '6', '688', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('13', '41', '90', '316', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('14', '51', '44', '977', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('15', '54', '94', '1396', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('16', '46', '92', '1269', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('17', '75', '25', '623', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('18', '65', '44', '113', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('19', '56', '47', '136', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('20', '84', '19', '1296', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('21', '87', '28', '1605', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('22', '82', '90', '1161', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('23', '48', '61', '1417', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('24', '54', '98', '1301', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('25', '36', '76', '796', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('26', '78', '76', '514', '2013-01-31 00:00:00', '1', '0');
+INSERT INTO mu_success_case VALUES ('27', '73', '66', '1353', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('28', '61', '89', '385', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('29', '50', '4', '2053', '2013-01-31 00:00:00', '1', '0');
+INSERT INTO mu_success_case VALUES ('30', '54', '26', '546', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('31', '52', '32', '1644', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('32', '83', '46', '1913', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('33', '53', '30', '1366', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('34', '49', '15', '2973', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('35', '55', '37', '2559', '2013-01-31 00:00:00', '1', '0');
+INSERT INTO mu_success_case VALUES ('36', '82', '69', '810', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('37', '94', '10', '2221', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('38', '85', '4', '621', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('39', '76', '52', '2318', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('40', '65', '45', '2651', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('41', '34', '36', '124', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('42', '88', '84', '3478', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('43', '61', '54', '245', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('44', '31', '10', '142', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('45', '31', '33', '4272', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('46', '76', '37', '2385', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('47', '47', '11', '3164', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('48', '96', '50', '4257', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('49', '53', '2', '1314', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('50', '88', '48', '3742', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('51', '65', '86', '904', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('52', '36', '56', '2134', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('53', '59', '27', '3889', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('54', '77', '34', '527', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('55', '97', '30', '5324', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('56', '95', '22', '2517', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('57', '42', '95', '4280', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('58', '46', '87', '1550', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('59', '50', '98', '1080', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('60', '87', '82', '3836', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('61', '89', '81', '2522', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('62', '98', '21', '5084', '2013-01-31 00:00:00', '1', '0');
+INSERT INTO mu_success_case VALUES ('63', '85', '31', '3127', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('64', '50', '38', '3711', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('65', '35', '85', '447', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('66', '66', '12', '1919', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('67', '77', '63', '5623', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('68', '73', '10', '5524', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('69', '41', '85', '5590', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('70', '97', '68', '3244', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('71', '75', '47', '1227', '2013-01-31 00:00:00', '1', '0');
+INSERT INTO mu_success_case VALUES ('72', '34', '18', '6064', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('73', '31', '78', '589', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('74', '49', '22', '6703', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('75', '57', '78', '4572', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('76', '71', '71', '291', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('77', '92', '28', '6241', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('78', '71', '97', '5278', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('79', '72', '43', '3869', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('80', '75', '67', '633', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('81', '33', '57', '2048', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('82', '32', '42', '703', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('83', '93', '97', '7033', '2013-01-31 00:00:00', '1', '0');
+INSERT INTO mu_success_case VALUES ('84', '81', '77', '1382', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('85', '63', '14', '253', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('86', '39', '58', '6877', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('87', '35', '1', '8197', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('88', '35', '46', '591', '2013-01-31 00:00:00', '1', '0');
+INSERT INTO mu_success_case VALUES ('89', '35', '42', '1351', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('90', '42', '38', '1509', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('91', '99', '93', '8798', '2013-01-31 00:00:00', '2', '1');
+INSERT INTO mu_success_case VALUES ('92', '43', '46', '3626', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('93', '35', '17', '5787', '2013-01-31 00:00:00', '2', '0');
+INSERT INTO mu_success_case VALUES ('94', '73', '61', '3486', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('95', '92', '1', '1633', '2013-01-31 00:00:00', '20', '0');
+INSERT INTO mu_success_case VALUES ('96', '60', '46', '1167', '2013-01-31 00:00:00', '1', '0');
+INSERT INTO mu_success_case VALUES ('97', '68', '37', '7702', '2013-01-31 00:00:00', '1', '1');
+INSERT INTO mu_success_case VALUES ('98', '79', '52', '6467', '2013-01-31 00:00:00', '20', '1');
+INSERT INTO mu_success_case VALUES ('99', '33', '48', '7973', '2013-01-31 00:00:00', '1', '0');
 
 -- ----------------------------
 -- Table structure for `mu_supply`
@@ -989,11 +1088,6 @@ INSERT INTO mu_term VALUES ('17', '0', '新闻', null, '10', '0', '2013-01-26 23
 INSERT INTO mu_term VALUES ('18', '0', '供应', null, '11', '0', '2013-01-27 14:37:56');
 INSERT INTO mu_term VALUES ('19', '0', '求购', null, '11', '0', '2013-01-27 14:37:54');
 INSERT INTO mu_term VALUES ('20', '0', '钼知识', null, '10', '0', '2013-01-28 00:49:38');
-INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES (21, 0, '钼铁', NULL, 12, 0, '2013-01-31 10:45:47');
-INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES (22, 0, '氧化钼', NULL, 12, 0, '2013-01-31 10:45:48');
-INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES (23, 0, '钼精矿', NULL, 12, 0, '2013-01-31 10:46:27');
-
-
 
 -- ----------------------------
 -- Table structure for `mu_term_group`
@@ -1020,7 +1114,6 @@ INSERT INTO mu_term_group VALUES ('8', '推荐信息类型', null);
 INSERT INTO mu_term_group VALUES ('9', '推荐位置', null);
 INSERT INTO mu_term_group VALUES ('10', '文章类型', null);
 INSERT INTO mu_term_group VALUES ('11', '供求类型', null);
-INSERT INTO `mu_term_group` (`group_id`, `group_name`, `group_desc`) VALUES (12, '钼分类', NULL);
 
 -- ----------------------------
 -- Table structure for `mu_user`
@@ -1047,110 +1140,111 @@ CREATE TABLE `mu_user` (
   PRIMARY KEY (`user_id`),
   KEY `user_type` (`user_type`),
   KEY `user_status` (`user_status`)
-) ENGINE=MyISAM AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mu_user
 -- ----------------------------
 INSERT INTO mu_user VALUES ('1', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('2', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('3', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('4', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('5', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('6', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('7', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('8', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('9', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('10', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('11', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('12', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('13', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('14', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('15', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('16', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('17', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('18', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('19', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('20', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('21', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('22', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('23', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('24', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('25', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('26', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('27', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('28', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('29', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('30', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('31', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('32', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('33', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('34', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('35', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('36', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('37', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('38', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('39', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('40', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('41', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('42', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('43', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('44', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('45', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('46', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('47', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('48', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('49', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('50', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('51', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('52', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('53', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('54', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('55', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('56', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('57', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('58', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('59', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('60', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('61', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('62', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('63', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('64', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('65', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('66', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('67', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('68', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('69', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('70', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('71', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('72', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('73', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('74', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('75', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('76', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('77', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('78', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('79', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('80', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('81', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('82', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('83', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('84', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('85', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('86', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('87', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('88', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('89', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('90', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('91', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('92', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('93', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('94', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('95', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('96', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('97', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('98', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
-INSERT INTO mu_user VALUES ('99', 'ueelife', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('2', 'ueelife1', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('3', 'ueelife2', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('4', 'ueelife3', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('5', 'ueelife4', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('6', 'ueelife5', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('7', 'ueelife6', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('8', 'ueelife7', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('9', 'ueelife8', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('10', 'ueelife9', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('11', 'ueelife10', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('12', 'ueelife11', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('13', 'ueelife12', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('14', 'ueelife13', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('15', 'ueelife14', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('16', 'ueelife15', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('17', 'ueelife16', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('18', 'ueelife17', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('19', 'ueelife18', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('20', 'ueelife19', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('21', 'ueelife20', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('22', 'ueelife21', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('23', 'ueelife22', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('24', 'ueelife23', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('25', 'ueelife24', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('26', 'ueelife25', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('27', 'ueelife26', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('28', 'ueelife27', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('29', 'ueelife28', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('30', 'ueelife29', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('31', 'ueelife30', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('32', 'ueelife31', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('33', 'ueelife32', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('34', 'ueelife33', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('35', 'ueelife34', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('36', 'ueelife35', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('37', 'ueelife36', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('38', 'ueelife37', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('39', 'ueelife38', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('40', 'ueelife39', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('41', 'ueelife40', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('42', 'ueelife41', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('43', 'ueelife42', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('44', 'ueelife43', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('45', 'ueelife44', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('46', 'ueelife45', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('47', 'ueelife46', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('48', 'ueelife47', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('49', 'ueelife48', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('50', 'ueelife49', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('51', 'ueelife50', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('52', 'ueelife51', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('53', 'ueelife52', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('54', 'ueelife53', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('55', 'ueelife54', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('56', 'ueelife55', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('57', 'ueelife56', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('58', 'ueelife57', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('59', 'ueelife58', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('60', 'ueelife59', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('61', 'ueelife60', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('62', 'ueelife61', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('63', 'ueelife62', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('64', 'ueelife63', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('65', 'ueelife64', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('66', 'ueelife65', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('67', 'ueelife66', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('68', 'ueelife67', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('69', 'ueelife68', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('70', 'ueelife69', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('71', 'ueelife70', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('72', 'ueelife71', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('73', 'ueelife72', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('74', 'ueelife73', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('75', 'ueelife74', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('76', 'ueelife75', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('77', 'ueelife76', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('78', 'ueelife77', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('79', 'ueelife78', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('80', 'ueelife79', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('81', 'ueelife80', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('82', 'ueelife81', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('83', 'ueelife82', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('84', 'ueelife83', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('85', 'ueelife84', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('86', 'ueelife85', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('87', 'ueelife86', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('88', 'ueelife87', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('89', 'ueelife88', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('90', 'ueelife89', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('91', 'ueelife90', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('92', 'ueelife91', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('93', 'ueelife92', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('94', 'ueelife93', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('95', 'ueelife94', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('96', 'ueelife95', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('97', 'ueelife96', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('98', 'ueelife97', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('99', 'ueelife98', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
+INSERT INTO mu_user VALUES ('100', 'ueelife99', 'e10adc3949ba59abbe56e057f20f883e', null, null, null, null, null, null, '1', null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `mu_user_certificate`

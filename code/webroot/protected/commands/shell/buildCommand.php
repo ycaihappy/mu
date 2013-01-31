@@ -146,9 +146,9 @@ class buildCommand extends CConsoleCommand{
                 $supply = new Supply();
                 $supply->supply_id = $i+1;
                 $supply->supply_user_id = 1;
-                $supply->supply_type=rand(0,1);
+                $supply->supply_type=rand(18,19);
                 $supply->supply_keyword="钼铁，钼矿";
-                $supply->supply_category_id = rand(1,21);
+                $supply->supply_category_id = rand(21,22);
                 $supply->supply_contractor = '李先生';
                 $supply->supply_content= trim($title[array_rand($title)]);
                 $supply->supply_name= trim($title[array_rand($title)]);
@@ -199,7 +199,7 @@ class buildCommand extends CConsoleCommand{
                 $product->product_id = $i;
                 $product->product_user_id = 1;
                 $product->product_keyword="钼铁，钼矿";
-                $product->product_type_id= rand(1,10);
+                $product->product_type_id= rand(21,22);
                 $product->product_name = $title[array_rand($title)];
                 $product->product_unit = 11;
                 $product->product_quanity = rand(100,1000);
@@ -207,7 +207,7 @@ class buildCommand extends CConsoleCommand{
                 $product->product_city_id = $city[array_rand($city)];
                 $product->product_status = 1;
                 $product->product_price = rand(10,1000);
-                $product->product_special= 1;
+                $product->product_special= rand(0,1);
                 $product->product_join_date = time();
                 $product->product_image_src = 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg';
                 $product->save();

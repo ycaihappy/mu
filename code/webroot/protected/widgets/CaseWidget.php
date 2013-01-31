@@ -6,7 +6,7 @@ class CaseWidget extends CWidget
     {
         $sql = 'select ent_name,ent_id,purchase_amount,supply_unit from mu_success_case sc,mu_user_enterprise ent,mu_supply sup
             where sc.supply_id=sup.supply_id and sc.purchase_user_id=ent.ent_user_id';
-        $this->recenltyCase = $connection->createCommand($sql)->queryAll();
+        $this->recenltyCase = YII::app()->db->createCommand($sql)->queryAll();
     }
 
     public function run()

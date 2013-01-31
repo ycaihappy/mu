@@ -47,6 +47,7 @@ case 5:
 				
 				),
 		)); 
+		break;
 case 6:
  $this->widget('zii.widgets.CMenu',array(
 			'activeCssClass'=>'on',

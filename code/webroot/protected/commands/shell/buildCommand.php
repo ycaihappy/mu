@@ -214,25 +214,32 @@ class buildCommand extends CConsoleCommand{
             }
             break;
         case 'case':
-            for($i=0;$i<100;$i++)
+            $status = array(1,2,20);
+            for($i=1;$i<100;$i++)
             {
                 $succCase = new SuccessCase();
-                $succCase->case_id = $i+1;
-                $succCase->supply_id = rand(1,100);
-                $succCase->supply_user_id=1;
-                $succCase->purchase_user_id=1;
-                $succCase->purchase_amount= $i*100;
-                $succCase->create_time = time();
-                $succCase->case_status =1;
+                $succCase->case_id = $i;
+                $succCase->supply_id = rand(31,100);
+                $succCase->purchase_user_id=rand(1,99);
+                $succCase->purchase_amount= rand(10,$i*100);
+                $succCase->create_time = date("Y-m-d");
+                $succCase->case_status =$status[array_rand($status)];
+                $succCase->case_recommend =rand(0,1);
                 $succCase->save();
             }
             break;
         case 'user':
+            $user = new User();
+            $user->user_id = 1;
+            $user->user_name = 'ueelife';
+            $user->user_pwd  = md5('123456');
+            $user->user_status =1;
+            $user->save();
             for($i=1;$i<100;$i++)
             {
                 $user = new User();
-                $user->user_id = $i;
-                $user->user_name = 'ueelife';
+                $user->user_id = $i+1;
+                $user->user_name = 'ueelife'.$i;
                 $user->user_pwd  = md5('123456');
                 $user->user_status =1;
                 $user->save();
@@ -288,10 +295,12 @@ class buildCommand extends CConsoleCommand{
             break;
         case 'test':
             $connection = Yii::app()->db;
+            $sql = 'select ent_name,ent_id,purchase_amount,supply_unit from mu_success_case sc,mu_user_enterprise ent,mu_supply sup
+                where sc.supply_id=sup.supply_id and sc.purchase_user_id=ent.ent_user_id';
             $user = $connection->createCommand()
-                ->select('ent_name,ent_id')
-                ->from('ent_user_enterprise')
-                ->where('ent_id=:ent_id', array('ent_id'=>1))
+                ->select('ent_name,ent_id,purchase_amount,supply_unit')
+                ->from('mu_success_case sc,mu_user_enterprise ent,mu_supply sup')
+                ->where('sc.supply_id=sup.supply_id and sc.purchase_user_id=ent.ent_user_id')
                 ->queryRow();
 var_export($user);
             break;

@@ -330,16 +330,17 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 /*m-login*/
 
 .m-login .img{float:left;margin-right:70px;}
-.m-login .login-box{width:377px;border:1px solid #cacaca;float:left;}
-.m-login .hd span{height:35px;line-height:35px;text-align:center;background:url(imgs/loginbox_h.gif) repeat-x;display:inline-block;font-weight:bold;font-size:14px;float:left;width:187px;border:1px solid #cacaca;border-top:0;border-right:0}
-.m-login .hd span.on{background:#fff;border:0;width:189px;}
+.m-login  .hd{margin-bottom: -2px;}
+.m-login .login-box{width:377px;float:left;}
+.m-login .hd span{height:35px;line-height:35px;text-align:center;background:url(imgs/loginbox_h.gif) repeat-x;display:inline-block;font-weight:bold;font-size:14px;float:left;width:187px;border:1px solid #cacaca;margin-right:-1px;}
+.m-login .hd span.on{background:#fff;width:187px;border-bottom:0}
 .m-login label{width:111px;display: inline-block;text-align: center;}
 .m-login td{padding:10px 3px;}
 .m-login .field{}
 .m-login .field input{height: 18px;line-height: 18px;margin-right: 3px;padding: 3px;vertical-align: middle;width: 177px;color: #9B9B9B; border:1px solid #CBCBCB}
 .m-login .field .small{width:95px}
 .m-login .cha{vertical-align:middle}
-.m-login .bd{padding:20px 0px;}
+.m-login .bd{padding:20px 0px;border:1px solid #cacaca;}
 .m-login .btn-login,.m-login .btn-reg{width:87px;height:29px;text-align:center;display:inline-block;cursor:pointer;border:0;line-height:29px;font-weight:bold;}
 .m-login .btn-login{background:url(imgs/login_btn_blue.gif) no-repeat;color:#fff;margin-right:15px;}
 .m-login .btn-reg{background:url(imgs/login_btn_g.gif) no-repeat;}

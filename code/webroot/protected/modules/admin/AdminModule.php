@@ -21,7 +21,7 @@ class AdminModule extends CWebModule
 		Yii::app()->setComponents(array(
                    'errorHandler'=>array(
                            'class'=>'CErrorHandler',
-                           'errorAction'=>'admin/default/error',
+                           'errorAction'=>'admin/site/error',
 		),
                    'admin'=>array(
                            'class'=>'AdminWebUser',//鍚庡彴鐧诲綍绫诲疄渚�                           'stateKeyPrefix'=>'admin',//鍚庡彴session鍓嶇紑
@@ -40,7 +40,7 @@ class AdminModule extends CWebModule
 			$publicPages=array(
                         'site/login',
 						'site/captcha',
-                        'default/error',
+                        'site/error',
 			);
 			if(Yii::app()->admin->isGuest && !in_array($route,$publicPages))
 			Yii::app()->admin->loginRequired();

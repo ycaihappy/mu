@@ -44,5 +44,14 @@ $.extend(MU.mods,{
 		self.find('.hd span').mouseover(function () {
 			$(this).addClass('on').siblings().removeClass('on');
 		});
+	},
+	JLeftPanel : function(){
+		var self = $(this);
+		self.find('h3').click(function(){
+			var h3 = $(this);
+			$(this).next().slideToggle('fast',function(){
+				h3.toggleClass('on');
+			});
+		});
 	}
 });

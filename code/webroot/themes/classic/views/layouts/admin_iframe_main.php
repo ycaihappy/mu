@@ -33,7 +33,7 @@ switch (Yii::app()->request->getParam('type',1))
 		$indexAction='article/manageNews';
 		break;
 	case 6:
-		$indexAction='advertisementRecommend/manageAdvertisment';
+		$indexAction='advertisementRecommend/manageAdvertisement';
 		break;
 	default:
 

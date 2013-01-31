@@ -12,7 +12,7 @@
 						?>
 							<li class="b"><a href=""><?php echo  $ent->ent_name." 购买了 ".$data[$index]['purchase_amount']; ?></a></li>
 							<?php else :?>
-							<li><a href="" target="_blank"><?php echo " 购买了 ".$data[$index]['purchase_amount']; ?></a></li>
+							<li><a href="" target="_blank"><?php echo $ent->ent_name." 购买了 ".$data[$index]['purchase_amount']; ?></a></li>
 							<?php endif;?>
 					<?php endfor;?>			
 					

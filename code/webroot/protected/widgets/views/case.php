@@ -6,13 +6,12 @@
 				<div class="bd">
 					<ul>
 						<?php for($index=0;$index<count($data);$index++):
-                         $ent = Enterprise::model()->findByPk($data[$index]['purchase_user_id']);
 
 							if($index==0):
 						?>
-							<li class="b"><a href=""><?php echo  $ent->ent_name." 购买了 ".$data[$index]['purchase_amount']; ?></a></li>
+							<li class="b"><a href=""><?php echo  $data[$index]['ent_name']." 购买了 ".$data[$index]['purchase_amount'].$data[$index]['supply_unit']; ?></a></li>
 							<?php else :?>
-							<li><a href="" target="_blank"><?php echo $ent->ent_name." 购买了 ".$data[$index]['purchase_amount']; ?></a></li>
+							<li><a href="" target="_blank"><?php echo $data[$index]['ent_name']." 购买了 ".$data[$index]['purchase_amount'].$data[$index]['supply_unit']; ?></a></li>
 							<?php endif;?>
 					<?php endfor;?>			
 					

@@ -13,7 +13,7 @@
 <body>
 
 
-<div id="p_create_supply" class="pg-layout">
+<div id="p_create_goods" class="pg-layout">
 
 
 <div class="layout head">
@@ -94,7 +94,7 @@
 	<div class="col-r">
 		
 		<div class="m-breadcrumb">
-	<p><b class="crumb"></b>会员中心<i></i>发布供求信息</p>
+	<p><b class="crumb"></b>会员中心<i></i>发布现货信息</p>
 </div>
 
 	<div class="m-form">
@@ -102,34 +102,29 @@
 	<form>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
 		<tr>
-			<td class="label">类型：</td><td><select name="supply_category"><option value="0">供应/供求</option></select></td>
-		</tr>
-		<tr>
-			<td class="label">名称：</td><td><input type="text" name="supply_name" value="" class="cmp-input" /><span class="msg">不能包含“.,、/”等特殊字符</span></td>
+			<td class="label">现货名称：</td><td><input type="text" name="goods_name" value="" class="cmp-input" /><span class="msg">不能包含“.,、/”等特殊字符</span></td>
 		</tr>
 		<tr>
 			<td class="label">关键字：</td><td><input type="text" name="keywords" value="" class="cmp-input" /></td>
 		</tr>
+			
 		<tr>
-			<td class="label">品类：</td><td><select name="category"><option value="0">铝铁</option></select></td>
+			<td class="label">现货品类：</td><td><select name="category"><option value="0">铝铁</option></select></td>
 		</tr>
 		<tr>
 			<td class="label">地点：</td><td><select name="district"><option value="0">地区</option></select><select name="province"><option value="0">省份</option></select><select name="city"><option value="0">市</option></select></td>
 		</tr>
 		<tr>
-			<td class="label">地址：</td><td><input type="text" name="address" value="" class="cmp-input" /></td>
-		</tr>
-		<tr>
-			<td class="label">电话：</td><td><input type="text" name="tel" value="" class="cmp-input" /></td>
-		</tr>
+			<td class="label">数量：</td><td><select name="qty"><option value="0">吨</option></select></td>
+		</tr>		
 		<tr>
 			<td class="label">价格：</td><td><input type="text" name="price" value="" class="cmp-input" /></td>
 		</tr>
 		<tr>
-			<td class="label">信息描述：</td><td><textarea name="description" rows="10" class="cmp-text"  ></textarea></td>
+			<td class="label">现货描述：</td><td><textarea name="description" rows="10" class="cmp-text"  ></textarea></td>
 		</tr>
 		<tr>
-			<td class="label">信息附图：</td><td><img src="images/thumb.gif" class="thumb"><input type="file" name="photo" value="浏览" /></td>
+			<td class="label">现货附图：</td><td><img src="images/thumb.gif" class="thumb"><input type="file" name="photo" value="浏览" /></td>
 		</tr>
 		<tr>
 			<td class="label">有效时间至：</td><td><input type="text" name="effective_time" value="" class="cmp-input" /></td>

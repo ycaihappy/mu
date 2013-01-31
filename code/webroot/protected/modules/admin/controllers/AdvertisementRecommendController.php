@@ -3,16 +3,20 @@ class AdvertisementRecommendController extends AdminController {
 
 	public function actionManageAdvertisement()
 	{
-		if(!Yii::app()->request->isAjaxRequest)
-		{
-			Yii::app()->admin->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
-		}
+		$model=new Advertisement();
 		$advertisementCriteria=new CDbCriteria();
 		$adPos=@$_POST['Advertisement']['ad_no'];
-		$adStartTime=@$_POST['Advertisement']['ad_start_date'];
-		$adEndTime=@$_POST['Advertisement']['ad_end_date'];
+		$model->ad_no=$adPos;
+		$adType=@$_POST['Advertisement']['ad_type'];
+		//$adStartTime=@$_POST['Advertisement']['ad_start_date'];
+		$model->ad_type=$adType;
+		//$adEndTime=@$_POST['Advertisement']['ad_end_date'];
+		$adEnterprise=@$_POST['Advertisement']['ad_user_id'];
+		$model->ad_user_id=$adEnterprise;
 		$adTitle=@$_POST['Advertisement']['ad_title'];
+		$model->ad_title=$adTitle;
 		$adStatus=@$_POST['Advertisement']['ad_status'];
+		$model->ad_status=$adStatus;
 		if($adStatus)
 		{
 			$advertisementCriteria->addCondition('ad_status=:ad_status');
@@ -24,17 +28,26 @@ class AdvertisementRecommendController extends AdminController {
 		}
 		if($adPos)
 		{
-			$advertisementCriteria->compare('ad_no','=:'.$adPos,true);
+			$advertisementCriteria->compare('ad_no','='.$adPos,true);
 		}
-		if($adStartTime)
+//		if($adStartTime)
+//		{
+//			$advertisementCriteria->compare('ad_start_time','>=:'.$adStartTime,true);
+//
+//		}
+//		if($adEndTime)
+//		{
+//			$advertisementCriteria->compare('ad_no','<=:'.$adEndTime,true);
+//		}
+		if($adType)
 		{
-			$advertisementCriteria->compare('ad_start_time','>=:'.$adStartTime,true);
-
+			$advertisementCriteria->compare('ad_type','='.$adType,true);
 		}
-		if($adEndTime)
+		if($adEnterprise)
 		{
-			$advertisementCriteria->compare('ad_no','<=:'.$adEndTime,true);
+			$advertisementCriteria->addSearchCondition('enterprise.ent_name',$adEnterprise,true);
 		}
+		
 		$advertisementCriteria->with=array('user.enterprise'=>array('select'=>'ent_name'),
 											'type'=>array('select'=>'term_name'),
 											'position'=>array('select'=>'term_name'),
@@ -44,10 +57,18 @@ class AdvertisementRecommendController extends AdminController {
 			'pagination'=>array('pageSize'=>20,'currentPage'=>Yii::app()->admin->getState("currentPage")),
 			'sort'=>array('defaultOrder'=> array('ad_create_time'=>CSort::SORT_DESC), ),
 		));
-
-		var_dump($adDataProvider->data);
+		$adStatus=Term::getTermsByGroupId(1);
+		$adPosition=Term::getTermsByGroupId(7);
+		$adType=Term::getTermsByGroupId(6);
+		$this->render('manageAdvertisement',array('dataProvider'=>$adDataProvider,
+		'model'=>$model,
+		'adType'=>$adType,
+		'adStatus'=>$adStatus,
+		'adPosition'=>$adPosition,
+		));
+		
 	}
-	public function actionSaveAdvertisement()
+	public function actionUpdateAdvertisement()
 	{
 		$model=new Advertisement();
 		if($_POST['Advertisement'])

@@ -51,7 +51,7 @@ class Advertisement extends CActiveRecord
 			array('ad_title', 'length', 'max'=>128),
 			array('ad_price', 'length', 'max'=>12),
 			array('ad_media_src', 'length', 'max'=>128),
-			array('ad_media_src', 'file', 'max'=>128),
+			array('ad_media_src', 'length', 'max'=>128),
 			array('ad_start_date, ad_end_date, ad_create_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

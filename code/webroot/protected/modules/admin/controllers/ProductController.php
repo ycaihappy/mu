@@ -364,9 +364,11 @@ class ProductController extends AdminController {
 	}
 	public function actionUpdateEnterPrise()
 	{
-		if (isset($_POST['EnterPrise'])) {//update to database
+		if (isset($_POST['Enterprise'])) {//update to database
 			$model=new EnterPrise();
-			$model->attributes=$_POST['EnterPrise'];
+			$model->attributes=$_POST['Enterprise'];
+//			var_dump($_POST['Enterprise']);
+//			exit;
 			if($model->ent_id)$model->setIsNewRecord(false);
 			if($model->save())
 			{

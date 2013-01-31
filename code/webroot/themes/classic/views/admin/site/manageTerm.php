@@ -5,6 +5,24 @@ $this->breadcrumbs=array(
 );
 ?>
 <?php echo CHtml::button('添加类别',array('class'=>'btn-blue','onclick'=>'window.location.href="'.Yii::app()->controller->createUrl("updateTerm").'"'))?>
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'search-form',
+	'enableClientValidation'=>true,
+	'clientOptions'=>array(
+		'validateOnSubmit'=>true,
+	),
+)); ?>
+<div style="float:right;">
+<div>
+<label>所属分组：</label>
+<?php echo $form->dropDownList($model,'term_group_id',$allGroups);?>
+<label>标题：</label>
+<?php echo $form->textField($model,'term_name',array('class'=>'cmp-input'));?>
+<?php echo CHtml::submitButton('搜索'); ?>
+</div>
+</div>
+<br style='float:clear;'/>
+<?php $this->endWidget(); ?>
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$dataProvider,

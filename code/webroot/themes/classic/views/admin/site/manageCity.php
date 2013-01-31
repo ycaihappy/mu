@@ -5,6 +5,24 @@ $this->breadcrumbs=array(
 );
 ?>
 <div><?php echo CHtml::button('添加地区',array('class'=>'btn-blue','onclick'=>'window.location.href="'.Yii::app()->controller->createUrl("updateCity").'"'))?></div>
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'search-form',
+	'enableClientValidation'=>true,
+	'clientOptions'=>array(
+		'validateOnSubmit'=>true,
+	),
+)); ?>
+<div style="float:right;">
+<div>
+<label>父级地区：</label>
+<?php echo $form->dropDownList($model,'city_parent',$allCity);?>
+<label>地区名称：</label>
+<?php echo $form->textField($model,'city_name',array('class'=>'cmp-input'));?>
+<?php echo CHtml::submitButton('搜索'); ?>
+</div>
+</div>
+<br style='float:clear;'/>
+<?php $this->endWidget(); ?>
 <?php 
 
 	$this->widget('zii.widgets.grid.CGridView', array(

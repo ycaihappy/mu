@@ -90,6 +90,7 @@ class TermGroup extends CActiveRecord
 		if($groupArray)
 		{
 			$groupNameArray=array();
+			$groupNameArray[0]='不限分组';
 			foreach($groupArray as $group)
 			{
 				$groupNameArray[$group->group_id]=$group->group_name;

@@ -341,19 +341,33 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-left-panel li{line-height:30px;height:30px;position:relative;}
 .m-left-panel li.on a,.m-left-panel li:hover a{color:#fe5900;}
 
+.cmp-btn{background:url(imgs/btn_bg_1.gif) repeat-x bottom #fff;text-align:center;color:#000;height:20px;line-height:20px;display:inline-block;padding:0 10px;cursor:pointer;border:0;border-right:1px solid #676767;border-bottom:1px solid #676767}
+
 .m-form td{padding:5px;}
 .m-form .label{width:140px;text-align:right;font-size:14px;}
 .m-form input{border:1px solid #ccc;padding:4px;}
-.cmp-input{border:1px solid #ccc;width:155px}
+.cmp-input{border:1px solid #ccc;width:155px;padding:4px;}
 .cmp-text{border:1px solid #ccc;width:405px;}
 .w245{width:245px}
 .m-form .btn-blue{text-align:center;background:url(imgs/btn-blue.png) no-repeat;width:60px;height:21px;display:inline-block;border:0px;color:#395678;cursor:pointer;}
 .m-form .msg{color:#afafb1;padding-left:10px;}
 .btn-save{width:110px;height:35px;line-height:35px;font-weight:bold;font-size:14px;text-align:center;color:#fff;border:0;display:inline-block;background:url(imgs/btn_save.png) no-repeat;cursor:pointer}
 
+.m-table-list .search,.m-table-list .btn-a{border:1px solid #cfcfcf;text-align:center;padding:4px 0;margin-bottom:10px;}
+.repeatbg{background:url(imgs/repeatbg.gif) repeat-x bottom #fff;}
+
+.table-list{border-left:1px solid #cfcfcf;border-top:1px solid #cfcfcf;}
+.table-list th,.table-list td{padding:6px;border-right:1px solid #cfcfcf;border-bottom:1px solid #cfcfcf;text-align:center;}
+.table-list .even{background:#f5fafe}
+.m-table-list .btn-group{text-align:left;padding:5px;}
+.m-table-list .btn-group a{margin-right:5px;}
+.m-table-list .pager{padding:12px 0px;text-align:center;background:#fafcef;border:1px solid #cfcfcf;margin-top:10px;}
+.m-table-list .pager a{margin-right:5px;}
 .hide{display:none}
 
-
+.ico-edit,.ico-del{display:inline-block;width:13px;height:13px;text-indent:-9990px}
+.ico-edit{background:url(imgs/ico_2.gif) no-repeat;margin-right:10px;}
+.ico-del{background:url(imgs/ico_3.gif) no-repeat;}
 .btn-modify{background:url(imgs/btn_1.gif) no-repeat;display:inline-block;width:74px;height:28px;text-align:center;line-height:28px;color:#fff;border:0;cursor:pointer}
 
 

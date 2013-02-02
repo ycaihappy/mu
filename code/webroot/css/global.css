@@ -109,7 +109,7 @@ a:hover{color:#f27B04;text-decoration:underline;}
     width: 960px;
 }
 
-.head{margin-top:30px;}
+.head{margin-top:30px;position:relative;}
 
 
 .m-top{height:35px;background:url(imgs/top_bg.jpg) repeat-x;text-align:right;line-height:35px;}
@@ -327,19 +327,81 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 
 
+/*user center*/
+.layout{position:relative;}
+.col-r{float:left;width:800px}
+
+#mainFrame {height: 100%;width: 100%;z-index: 5;	position:absolute;}
+
+.m-main-frame{ bottom: 0;left:140px;float:left;overflow: hidden;right: 0;top: 83px;z-index: 4;padding:20px;}
+.m-left-panel{left:0;top: 83px;width: 138px;float:left;height:auto;bottom:0;border:1px solid #d5e5f5;margin-right:20px;background:url(imgs/menu_top_bg.png) repeat-x left top;}
+.m-left-panel h3{font-size:14px;background:url(imgs/ico-1.png) no-repeat 10px center;padding-left:30px;margin:10px 0px;font-weight:bold;}
+.m-left-panel h3.on{background-image:url(imgs/ico-2.png);}
+.m-left-panel li a{font-size:12px;color:#2f7cb0;display:block;background:url(imgs/menu-ico-n.png) no-repeat 20px center;padding-left:30px;}
+.m-left-panel li{line-height:30px;height:30px;position:relative;}
+.m-left-panel li.on a,.m-left-panel li:hover a{color:#fe5900;}
+
+.cmp-btn{background:url(imgs/btn_bg_1.gif) repeat-x bottom #fff;text-align:center;color:#000;height:20px;line-height:20px;display:inline-block;padding:0 10px;cursor:pointer;border:0;border-right:1px solid #676767;border-bottom:1px solid #676767}
+
+.m-form td{padding:5px;}
+.m-form .label{width:140px;text-align:right;font-size:14px;}
+.m-form input{border:1px solid #ccc;padding:4px;}
+.cmp-input{border:1px solid #ccc;width:155px;padding:4px;}
+.cmp-text{border:1px solid #ccc;width:405px;}
+.w245{width:245px}
+.m-form .btn-blue{text-align:center;background:url(imgs/btn-blue.png) no-repeat;width:60px;height:21px;display:inline-block;border:0px;color:#395678;cursor:pointer;}
+.m-form .msg{color:#afafb1;padding-left:10px;}
+.btn-save{width:110px;height:35px;line-height:35px;font-weight:bold;font-size:14px;text-align:center;color:#fff;border:0;display:inline-block;background:url(imgs/btn_save.png) no-repeat;cursor:pointer}
+
+.m-table-list .search,.m-table-list .btn-a{border:1px solid #cfcfcf;text-align:center;padding:4px 0;margin-bottom:10px;}
+.repeatbg{background:url(imgs/repeatbg.gif) repeat-x bottom #fff;}
+
+.table-list{border-left:1px solid #cfcfcf;border-top:1px solid #cfcfcf;}
+.table-list th,.table-list td{padding:6px;border-right:1px solid #cfcfcf;border-bottom:1px solid #cfcfcf;text-align:center;}
+.table-list .even{background:#f5fafe}
+.m-table-list .btn-group{text-align:left;padding:5px;}
+.m-table-list .btn-group a{margin-right:5px;}
+.m-table-list .pager{padding:12px 0px;text-align:center;background:#fafcef;border:1px solid #cfcfcf;margin-top:10px;}
+.m-table-list .pager a{margin-right:5px;}
+.hide{display:none}
+
+.ico-edit,.ico-del{display:inline-block;width:13px;height:13px;text-indent:-9990px}
+.ico-edit{background:url(imgs/ico_2.gif) no-repeat;margin-right:10px;}
+.ico-del{background:url(imgs/ico_3.gif) no-repeat;}
+.btn-modify{background:url(imgs/btn_1.gif) no-repeat;display:inline-block;width:74px;height:28px;text-align:center;line-height:28px;color:#fff;border:0;cursor:pointer}
+
+
 /*m-login*/
 
 .m-login .img{float:left;margin-right:70px;}
-.m-login .login-box{width:377px;border:1px solid #cacaca;float:left;}
-.m-login .hd span{height:35px;line-height:35px;text-align:center;background:url(imgs/loginbox_h.gif) repeat-x;display:inline-block;font-weight:bold;font-size:14px;float:left;width:187px;border:1px solid #cacaca;border-top:0;border-right:0}
-.m-login .hd span.on{background:#fff;border:0;width:189px;}
+.m-login  .hd{margin-bottom: -2px;}
+.m-login .login-box{width:377px;float:left;}
+.m-login .hd span{height:35px;line-height:35px;text-align:center;background:url(imgs/loginbox_h.gif) repeat-x;display:inline-block;font-weight:bold;font-size:14px;float:left;width:187px;border:1px solid #cacaca;margin-right:-1px;}
+.m-login .hd span.on{background:#fff;border-bottom:0}
 .m-login label{width:111px;display: inline-block;text-align: center;}
 .m-login td{padding:10px 3px;}
 .m-login .field{}
 .m-login .field input{height: 18px;line-height: 18px;margin-right: 3px;padding: 3px;vertical-align: middle;width: 177px;color: #9B9B9B; border:1px solid #CBCBCB}
 .m-login .field .small{width:95px}
 .m-login .cha{vertical-align:middle}
-.m-login .bd{padding:20px 0px;}
+.m-login .bd{padding:20px 0px;border:1px solid #cacaca;}
 .m-login .btn-login,.m-login .btn-reg{width:87px;height:29px;text-align:center;display:inline-block;cursor:pointer;border:0;line-height:29px;font-weight:bold;}
 .m-login .btn-login{background:url(imgs/login_btn_blue.gif) no-repeat;color:#fff;margin-right:15px;}
 .m-login .btn-reg{background:url(imgs/login_btn_g.gif) no-repeat;}
+
+
+.m-menubar{margin:30px 0px 15px 0px;border-bottom:2px solid #3f88cd;}
+.m-menubar span{display:inline-block;width:100px;text-align:center;background:url(imgs/tab_bg.png) repeat-x;height:27px;line-height:27px;color:#000;font-weight:bold;font-size:14px;border:1px solid #b7cfe9;border-bottom:0}
+.m-menubar span.on{background:url(imgs/tab_on_bg.png);}
+.m-menubar span.on a{color:#fff}
+
+.m-user-top{position:absolute;right:0;top:10px;font-size:14px;}
+
+
+.m-breadcrumb{margin-bottom:20px;}
+.m-breadcrumb .crumb{background:url(imgs/ico-crumb-1.png) no-repeat;width:8px;height:9px;display:inline-block;margin-right:10px;}
+.m-breadcrumb i{background:url(imgs/ico-crumb-arr.png) no-repeat;width:11px;height:10px;display:inline-block;margin:0px 10px;}
+.m-breadcrumb p{padding-bottom:10px;border-bottom:1px solid #ccc;}
+
+.table-field{width:100%}
+.thumb{width:120px;height:120px;margin-right:20px;}

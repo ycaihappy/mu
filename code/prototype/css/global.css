@@ -329,7 +329,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 /*user center*/
 .layout{position:relative;}
-.col-r{float:left;width:794px}
+.col-r{float:left;width:800px}
 
 #mainFrame {height: 100%;width: 100%;z-index: 5;	position:absolute;}
 

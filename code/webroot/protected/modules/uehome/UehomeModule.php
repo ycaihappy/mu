@@ -11,8 +11,9 @@ class UehomeModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			#'uehome.models.*',
+			'uehome.models.*',
 			#'uehome.components.*',
+			'uehome.widgets.*',
 		));
 	}
 

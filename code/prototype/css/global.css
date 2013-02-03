@@ -413,3 +413,70 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 .table-field{width:100%}
 .thumb{width:120px;height:120px;margin-right:20px;}
+
+
+
+/*m-company-detail*/
+.m-company-detail .pLine p {
+    line-height: 25px;
+    margin: 0 0 6px;
+}
+
+
+.m-company-detail .cxLab-1 {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.m-company-detail .xxLab-1 {
+    display: inline-block;
+    text-align: left;
+    width: 100px;
+}
+
+.m-company-detail .pLine {
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+.m-company-detail .lineDiv {
+    border-bottom: 1px solid #D5D5D5;
+    padding: 15px 15px 25px 60px;
+}
+.m-company-detail .cxLab-2 {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 5px;
+    text-align: right;
+    width: 100px;
+}
+.m-company-detail .pad10 {
+    padding-top: 15px;
+}
+.m-company-detail .tupic .s-pic {
+    display: block;
+    padding: 2px;
+	border:1px solid #ccc;
+}
+
+.m-company-detail .tupic {
+    float: left;
+    margin-right: 10px;
+    width: 136px;
+}
+.m-company-detail .tupic .s-pic img {
+    height: 125px;
+    width: 125px;
+	display: block;
+}
+.m-company-detail .tupic {
+    float: left;
+    margin-right: 40px;
+    width: 136px;
+}
+.m-company-detail .tupic .s-txt {
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+}

@@ -343,6 +343,8 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 .cmp-btn{background:url(imgs/btn_bg_1.gif) repeat-x bottom #fff;text-align:center;color:#000;height:20px;line-height:20px;display:inline-block;padding:0 10px;cursor:pointer;border:0;border-right:1px solid #676767;border-bottom:1px solid #676767}
 
+.cmp-btn-a{background:#e8e8e8;text-align:center;color:#000;height:25px;line-height:25px;display:inline-block;padding:3px 10px;cursor:pointer;border:0;border-right:1px solid #676767;border-bottom:1px solid #676767}
+
 .m-form td{padding:5px;}
 .m-form .label{width:140px;text-align:right;font-size:14px;}
 .m-form input{border:1px solid #ccc;padding:4px;}
@@ -363,6 +365,12 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-table-list .btn-group a{margin-right:5px;}
 .m-table-list .pager{padding:12px 0px;text-align:center;background:#fafcef;border:1px solid #cfcfcf;margin-top:10px;}
 .m-table-list .pager a{margin-right:5px;}
+
+.m-table-list .photo-hd{overflow:hidden;margin:10px 0;}
+.m-table-list .photo-hd p{float:left;}
+.m-table-list .photo-hd .cmp-btn-a{float:right;}
+
+
 .hide{display:none}
 
 .ico-edit,.ico-del{display:inline-block;width:13px;height:13px;text-indent:-9990px}

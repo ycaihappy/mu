@@ -67,11 +67,12 @@ return array(
 
 	// application components
 	'components'=>array(
-		'user'=>array(
+//		'user'=>array(
 			// enable cookie-based authentication
-			'class'=>'WebUser',
-			'allowAutoLogin'=>true,
-		),
+//			'class'=>'WebUser',
+//			'loginUrl'=>'uehome/user/login',
+//			'allowAutoLogin'=>true,
+//		),
 //		'session'=>array(
 //			'class'=>'CMongodbHttpSession',
 //		),

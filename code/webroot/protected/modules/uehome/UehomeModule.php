@@ -15,6 +15,13 @@ class UehomeModule extends CWebModule
 			#'uehome.components.*',
 			'uehome.widgets.*',
 		));
+		Yii::app()->setComponents(array(
+                   'user'=>array(
+                           'class'=>'WebUser',
+							'stateKeyPrefix'=>'uehome',
+                           'loginUrl'=>Yii::app()->createUrl('uehome/user/login'),
+		),
+		), false);
 	}
 
 	public function beforeControllerAction($controller, $action)
@@ -23,6 +30,14 @@ class UehomeModule extends CWebModule
 		{
 			// this method is called before any module controller action is performed
 			// you may place customized code here
+			$route=$controller->id.'/'.$action->id;
+			$publicPages=array(
+                        'user/login',
+						'user/captcha',
+			);
+			if(Yii::app()->user->isGuest && !in_array($route,$publicPages))
+				Yii::app()->user->loginRequired();
+			else
 			return true;
 		}
 		else

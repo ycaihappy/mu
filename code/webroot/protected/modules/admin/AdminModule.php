@@ -9,26 +9,25 @@ class AdminModule extends CWebModule
 	{
 	 // this method is called when the module is being created
 	 // you may place code here to customize the module or the application
-		parent::init();//杩欐鏄皟鐢╩ain.php閲岀殑閰嶇疆鏂囦欢
+		parent::init();
 		// import the module-level models and componen
 		$this->setImport(array(
 		'admin.models.*',
 		'admin.components.*',
 		'admin.widgets.*'
 		));
-		//杩欓噷閲嶅啓鐖剁被閲岀殑缁勪欢
-		//濡傛湁闇�杩樺彲浠ュ弬鑰傾PI娣诲姞鐩稿簲缁勪欢
 		Yii::app()->setComponents(array(
                    'errorHandler'=>array(
                            'class'=>'CErrorHandler',
                            'errorAction'=>'admin/site/error',
 		),
                    'admin'=>array(
-                           'class'=>'AdminWebUser',//鍚庡彴鐧诲綍绫诲疄渚�                           'stateKeyPrefix'=>'admin',//鍚庡彴session鍓嶇紑
+                           'class'=>'AdminWebUser',
+							'stateKeyPrefix'=>'admin',
                            'loginUrl'=>Yii::app()->createUrl('admin/site/login'),
 		),
 		), false);
-		//涓嬮潰杩欎袱琛屾垜涓�洿娌℃悶瀹氬暐鎰忔�锛岃矊浼糃WebModule閲屼篃娌eneratorPaths灞炴�鍜宖indGenerators()鏂规硶
+		
 		//$this->generatorPaths[]='admin.generators';
 		//$this->controllerMap=$this->findGenerators();
 	}

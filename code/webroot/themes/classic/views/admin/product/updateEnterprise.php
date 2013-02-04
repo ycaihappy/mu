@@ -58,7 +58,25 @@ $this->breadcrumbs=array(
 <td class="label">公司介绍：</td>
 		<td>
 		<?php echo $form->textArea($model,'ent_introduce',array('cols'=>50,'rows'=>8));?>
-		<?php echo $form->error($model,'ent_introduce'); ?></td>
+		<?php echo $form->error($model,'ent_introduce'); ?>
+		<?php 
+		$this->widget('application.extensions.ckeditor.CKEditor',array( 
+				    
+		"model"=>$model,
+
+		"attribute"=>'ent_introduce',
+
+		"height"=>'400px',
+				    
+		"width"=>'600px',       
+				    
+		'editorTemplate'=>'advanced',
+		
+		) 
+);
+
+?>
+		</td>
 </tr>
 <tr>
 <td class="label">法人代表：</td>

@@ -15,7 +15,7 @@ $this->widget("AdminHeader");
 $this->widget("AdminLeftMenu");
 ?> <?php $indexAction='site/manageTerm';
 
-switch (Yii::app()->request->getParam('type',1))
+switch (Yii::app()->request->getParam('type',0))
 {
 	case 1:
 		$indexAction='site/manageTerm';
@@ -24,7 +24,7 @@ switch (Yii::app()->request->getParam('type',1))
 		$indexAction='user/manageUser';
 		break;
 	case 3:
-		$indexAction='site/manageTerm';
+		$indexAction='site/manageBasicSiteInfo';
 		break;
 	case 4:
 		$indexAction='product/manageProduct';
@@ -36,7 +36,7 @@ switch (Yii::app()->request->getParam('type',1))
 		$indexAction='advertisementRecommend/manageAdvertisement';
 		break;
 	default:
-
+		$indexAction='site/manageBasicSiteInfo';
 }
 ?>
 <div class="m-main-frame" id="J_MainFrame"><iframe scrolling="auto"

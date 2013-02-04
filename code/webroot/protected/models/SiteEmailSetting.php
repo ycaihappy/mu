@@ -16,9 +16,9 @@ class SiteEmailSetting extends CJsonModel {
 	public function rules(){
 		
 		return array(
-			array('sendMethod,smtpServer,smtpPort,sendorEmail,sendorName,smtpUsername,smtpPassword','required'),
-			array('sendorEmail','email'),
-			array('$smtpPort','number'),
+			array('smtpServer,smtpPort,sendorEmail,sendorName','required'),
+			array('sendorEmail','email','message'=>'发送邮箱格式不正确'),
+			array('smtpPort','numerical','message'=>'端口必须是数字'),
 		);
 		
 	}

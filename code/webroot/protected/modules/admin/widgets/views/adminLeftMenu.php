@@ -6,10 +6,10 @@ case 1:
 	  $this->widget('zii.widgets.CMenu',array(
 			'activeCssClass'=>'on',
 			'items'=>array(
-				array('label'=>'网站基本信息设置', 'url'=>array('site/manageTerm'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
+				array('label'=>'网站基本信息设置', 'url'=>array('site/manageBasicSiteInfo'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
 				array('label'=>'地区管理', 'url'=>array('site/manageCity'),'linkOptions'=>array('target'=>'mainFrame')),
 				array('label'=>'基本类别管理', 'url'=>array('site/manageTerm'),'linkOptions'=>array('target'=>'mainFrame')),
-				
+				array('label'=>'邮件设置', 'url'=>array('site/manageSiteEmailSetting'),'linkOptions'=>array('target'=>'mainFrame',)),
 				),
 		));
 break;

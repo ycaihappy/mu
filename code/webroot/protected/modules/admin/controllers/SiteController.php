@@ -26,7 +26,8 @@ class SiteController extends AdminController {
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->layout = '//layouts/admin_iframe_main';
-		$this->_actionManageBasicSiteInfo ();
+		$this->render('index');
+		//$this->_actionManageBasicSiteInfo ();
 	}
 	
 	/**
@@ -231,10 +232,11 @@ class SiteController extends AdminController {
 		$this->render ( 'manageTerm', array ('dataProvider' => $dataProvider, 'model' => $model, 'allGroups' => $allGroups ) );
 	
 	}
-	private function _actionManageBasicSiteInfo() {
+	public function actionManageBasicSiteInfo() {
 		$basicSiteInfoModel = new BasicSiteInfo ();
 		if (isset ( $_POST ['BasicSiteInfo'] )) {
 			$basicSiteInfoModel->attributes = $_POST ['BasicSiteInfo'];
+		
 			if ($basicSiteInfoModel->validate ()) {
 				$basicSiteInfoModel->save ();
 				$this->render ( 'basicSiteInfo', array ('model' => $basicSiteInfoModel ) );
@@ -253,10 +255,10 @@ class SiteController extends AdminController {
 			$siteEmailSettingModel->attributes = $_POST ['SiteEmailSetting'];
 			if ($siteEmailSettingModel->validate ()) {
 				$siteEmailSettingModel->save ();
-				$this->render ( 'siteEmailSetting', array ('model' => $basicSiteInfoModel ) );
+				$this->render ( 'siteEmailSetting', array ('model' => $siteEmailSettingModel ) );
 			} else {
 				Yii::app ()->admin->setFlash ( 'erroInfo', '输入的字段不合法，保存失败' );
-				$this->render ( 'siteEmailSetting', array ('model' => $basicSiteInfoModel ) );
+				$this->render ( 'siteEmailSetting', array ('model' => $siteEmailSettingModel ) );
 			}
 		} else {
 			$siteEmailSettingModel = $siteEmailSettingModel->LoadData ();

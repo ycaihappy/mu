@@ -21,6 +21,9 @@ class CJsonModel extends CFormModel {
 		$this->attributes=$attributes;
 		return $this;
 	}
+	public function setAttributes($values,$safeOnly=false){
+		parent::setAttributes($values,$safeOnly);
+	}
 }
 
 

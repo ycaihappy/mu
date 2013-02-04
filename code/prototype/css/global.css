@@ -739,3 +739,107 @@ color: #fff;
   line-height: 29px;
   margin: 8px 15px;
 }
+
+/*m-news-rank */
+
+.m-news-rank {width:250px;float:left;margin-left:10px}
+.m-news-rank .right{float:right}
+.blank12 {
+  clear: both;
+  display: block;
+  height: 12px;
+  overflow: hidden;
+}
+.wgt-tab-1 .title-bar {
+  background: url("http://img6.cache.netease.com/cnews/news2012/img/grayborder1.png") repeat-x scroll 0 30px #FFFFFF;
+  margin-bottom: 3px;
+}
+.wgt-tab .ui-til2 {
+  padding-top: 0;
+}
+
+.ui-til2 {
+  padding-bottom: 9px;
+  padding-top: 12px;
+}
+
+.title-bar {
+  height: 25px;
+  line-height: 25px;
+  overflow: hidden;
+}
+
+.wgt-tab-1 .title-bar h2 {
+  float: left;
+  line-height: 25px;
+}
+
+.ui-til2 h2, .ui-til4 h2 {
+  float: left;
+  font-family: "Microsoft YaHei","微软雅黑";
+  font-size: 16px;
+  height: 29px;
+  line-height: 29px;
+  overflow: hidden;
+}
+
+.title-bar h2 {
+  float: left;
+  font-weight: bold;
+  line-height: 29px;
+}
+
+.wgt-tab .bd {
+  overflow: hidden;
+}
+
+.display-control .current {
+  display: block;
+}
+
+.rankList li {
+  border-bottom: 1px solid #D3D3D3;
+  display: inline-block;
+  float: left;
+  height: 35px;
+  line-height: 35px;
+  overflow: hidden;
+  width: 320px;
+}
+
+
+.rankList li span.ranknum {
+  background-color: #CACACA;
+  border-radius: 10px 10px 10px 10px;
+  color: #FFFFFF;
+  float: left;
+  font-family: "Arial";
+  font-weight: bold;
+  height: 20px;
+  line-height: 20px;
+  margin-top: 7px;
+  text-align: center;
+  width: 20px;
+}
+
+.rankList li span.front {
+  background-color: #930000;
+}
+
+.rankList li a {
+  color: #333333;
+  float: left;
+  padding-left: 10px;
+}
+
+.newsList li .more {
+  color: #930000;
+  font-family: "Arial";
+  font-style: italic;
+  padding-right: 3px;
+}
+
+.rankList li.last {
+  border: medium none;
+}
+

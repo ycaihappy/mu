@@ -382,6 +382,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-login td{padding:10px 3px;}
 .m-login .field{}
 .m-login .field input{height: 18px;line-height: 18px;margin-right: 3px;padding: 3px;vertical-align: middle;width: 177px;color: #9B9B9B; border:1px solid #CBCBCB}
+.m-login .field input#UserLoginForm_verifyCode{float:left;width:120px;}
 .m-login .field .small{width:95px}
 .m-login .cha{vertical-align:middle}
 .m-login .bd{padding:20px 0px;border:1px solid #cacaca;}

@@ -468,7 +468,7 @@ padding: 0 20px;
 .widget-slide .left{float:left;width:auto}
 .widget-slide .right{float:right}
 .widget-slide-ctrl-nav {display: inline-block;z-index:1;position: absolute;text-align: center;bottom: 20px;left: 400px;width: 160px;}
-.widget-slide-ctrl-nav a{text-indent:-999px;cursor:pointer}
+.widget-slide-ctrl-nav a{text-indent:-9999px;cursor:pointer}
 .widget-slide-ctrl-nav .on {background: url(imgs/cbtn_hover.jpg) no-repeat scroll;}
 .widget-slide-ctrl-nav a {background: url(imgs/cbtn.jpg) no-repeat scroll;cursor: pointer;display: inline-block;height: 10px;padding: 0 3px;width: 10px;}
 

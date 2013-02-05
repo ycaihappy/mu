@@ -37,7 +37,16 @@ class UserController extends Controller {
 		$this->render ( 'news' );
 	}
 	public function actionSupply() {
-		$this->render ( 'supply' );
+        $model = new SupplyForm();
+        if (isset($_POST['SupplyForm']))
+        {
+            $model->attributes = $_POST['SupplyForm'];
+            if ( $model->validate() )
+            {
+                $model->draft();
+            }
+        }
+		$this->render ( 'supply' ,array('model'=>$model));
 	}
 	public function actionGoods() {
 		$this->render ( 'goods' );

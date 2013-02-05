@@ -660,7 +660,7 @@ color: #fff;
 }
 
 
-.news2 {
+.m-news-two {
     border: 1px solid #E8E8E8;
     float: left;
     margin: 0 0 10px 0px;
@@ -668,8 +668,8 @@ color: #fff;
     width: 300px;
 }
 
-.news2 h2 {
-    background: url(imgs/news2_h2.png) repeat scroll 0 0 transparent;
+.m-news-two h2 {
+    background: url(imgs/m-news-two_h2.png) repeat scroll 0 0 transparent;
     color: #1F4995;
     font-size: 14px;
     font-weight: bold;
@@ -678,22 +678,22 @@ color: #fff;
     padding-left: 15px;
 }
 
-.news2 h2 {
+.m-news-two h2 {
     color: #1F4995;
     font-size: 14px;
     font-weight: bold;
     line-height: 31px;
 }
-.news2 h2 span {
+.m-news-two h2 span {
     float: right;
     margin-right: -2px;
 }
-.news2 h2 a {
+.m-news-two h2 a {
     color: #1F4995;
     font-weight: bold;
 }
 
-.news2 h2 span a {
+.m-news-two h2 span a {
 
   color: #2D2D2D;
   font-size: 12px;
@@ -751,7 +751,7 @@ color: #fff;
   overflow: hidden;
 }
 .wgt-tab-1 .title-bar {
-  background: url("http://img6.cache.netease.com/cnews/news2012/img/grayborder1.png") repeat-x scroll 0 30px #FFFFFF;
+  background: url("http://img6.cache.netease.com/cnews/m-news-two012/img/grayborder1.png") repeat-x scroll 0 30px #FFFFFF;
   margin-bottom: 3px;
 }
 .wgt-tab .ui-til2 {

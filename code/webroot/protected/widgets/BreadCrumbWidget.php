@@ -1,14 +1,21 @@
 <?php
 class BreadCrumbWidget extends CWidget
 {
-	private $_crumb;
+	public $crumbs = array();
+
     public function init()
     {
-    	$this->_crumb='';
+        if ( empty($this->crumbs) )
+        {
+            $this->crumbs=array(
+                array('name'=>'Home','url'=>'#'),
+                array('name'=>'User','url'=>'#'),
+            );
+        }
     }
 
     public function run()
     {
-        $this->render('breadcrumb',array('data'=>$this->_crumb));
+        $this->render('breadcrumb',array('data'=>$this->crumbs));
     }
 }

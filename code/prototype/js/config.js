@@ -158,7 +158,7 @@ MU.Tool.Swimming.prototype = {
 		var s = _this.currentPage;
 		var n = (m.eq(0).width() + _this.padding) * _this.count;
 		if (p == 1 || l.is(":animated")) {
-			return false
+			//return false
 		}
 		_this.clickSpeed -=0.01;
 		if(_this.timer) clearTimeout(_this.timer);
@@ -173,9 +173,9 @@ MU.Tool.Swimming.prototype = {
 			})
 		}
 		s--;
-		l.stop().animate({
+		l.stop(false,true).animate({
 			left: -s * n
-		}, _this.duration * _this.clickSpeed, function() {
+		}, _this.duration * _this.clickSpeed,'easeOutExpo', function() {
 			if (s == -1) {
 				s = p - 1;
 				_this.currentPage = s;
@@ -203,7 +203,7 @@ MU.Tool.Swimming.prototype = {
 		var n = (m.eq(0).width() + _this.padding) * _this.count;
 		
 		if (p == 1 || l.is(":animated")) {
-			return false
+			//return false
 		}
 	
 		_this.clickSpeed -=0.05;
@@ -218,9 +218,9 @@ MU.Tool.Swimming.prototype = {
 			})
 		}
 		s++;
-		l.stop().animate({
+		l.stop(false,true).animate({
 			left: -s * n
-		}, _this.duration * _this.clickSpeed, function() {
+		}, _this.duration * _this.clickSpeed, 'easeOutExpo',function() {
 			if (s == p) {
 				s = 0;
 				_this.currentPage = s;

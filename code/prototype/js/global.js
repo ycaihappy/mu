@@ -53,5 +53,26 @@ $.extend(MU.mods,{
 				h3.toggleClass('on');
 			});
 		});
+	},
+	JNewsSlider : function (){
+		var self = $(this),btns = self.find('.widget-slide-ctrl-nav'),btnhtml = [],el = self.find('.widget-slide-body'),padding = 0,pagesize = 1;
+		
+		var swim = new MU.Tool.Swimming({'el':el,'padding':padding,'count':pagesize});
+		for(var i=1;i<=swim.pages;i++){
+			btnhtml.push('<a href="javascript:;" class="'+(i==1 ? 'on' : '')+'">'+i+'</a>');
+		}
+		swim.onChange = function(i){
+			btns.find('a').removeClass('on').eq(i).addClass('on');
+		}
+	
+		btns.children().remove();
+		btns.append(btnhtml.join(''));
+		btns.delegate('a','mouseenter',function(e){
+			e.preventDefault();
+			var target = $(e.target);
+			$(this).siblings().removeClass('on');
+			target.addClass('on');
+			swim.playPageIndex(btns.find('a').index(target));			
+		});
 	}
 });

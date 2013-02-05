@@ -652,25 +652,97 @@ class UserController extends AdminController
       }
     }
   }
-  public function actionMangeUser()
+  public function actionManageUser()
   {
-	  if (!Yii::app()->request->isAjaxRequest) {
-	      Yii::app()->admin->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
-	    }
+  		$model=new User();
+  		$model->user_status=@$_REQUEST['User']['user_status'];
+  		$model->user_name=@$_REQUEST['User']['user_name'];
 	    $userCriteria=new CDbCriteria();
-	    $userCriteria->with=array('status','role');
 	    $userCriteria->select='user_id,user_name,user_nickname,user_email,user_join_date,user_last_login_date';
-	    $pages = new CPagination(User::model()->count());
-	    $pages->pageSize=20;
-	    $pages->applyLimit($userCriteria);
-	    $pages->route = "manageUser";
-	    $pages->setCurrentPage(Yii::app()->user->getState("currentPage"));
-	    $users=User::model()->findAll($userCriteria);
-	    foreach($users as $user)
+		$userCriteria->with=array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name'));
+	    $userCriteria->order='user_join_date desc';
+	    if($model->user_status)
 	    {
-	    	
+	    	$userCriteria->compare('user_status', '='.$model->user_status);
 	    }
-	    
+	    if($model->user_name)
+	    {
+	    	$userCriteria->addSearchCondition('user_name', $model->user_name,true);
+	    }
+		$dataProvider=new CActiveDataProvider('User',array(
+			'criteria'=>$userCriteria,
+			'pagination'=>array(
+		        'pageSize'=>20,
+				'pageVar'=>'page',
+			),
+		));
+		$users=$dataProvider->data;
+		if($users)
+		{
+			foreach ($users as &$user)
+			{
+				if($user->role)
+				{
+					foreach ($user->role as $role)
+					{
+						$roles[]=$role->name;
+					}
+					$user->user_type=implode('， ', $roles);
+				}
+				else
+				{
+					$user->user_type='未分配';
+				}
+			}
+		}
+		$userStatus=Term::getTermsByGroupId(1);
+		$this->render('manageUser',array('dataProvider'=>$dataProvider,'model'=>$model,'userStatus'=>$userStatus));
+  }
+  public function actionUpdateUser()
+  {
+  	$model=new User();
+  	if(isset($_POST['User']))
+  	{
+  		$model->attributes=$_POST['User'];
+  		$model->setIsNewRecord(false);
+  		if($model->save())
+  		{
+  			$this->redirect(array('manageUser'));
+  		}
+  		else {
+  			$this->_loadCurrentUser($model->user_id);
+  		}
+  	}
+  	elseif($userId=$_GET['user_id'])
+  	{
+  		$this->_loadCurrentUser($userId);
+  	}
+  	else {
+  		$this->redirect(array('manageUser'));
+  	}
+  	
+  }
+  private function _loadCurrentUser($userId)
+  {
+  		$model=User::model()->with(array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name')))->findByPK($userId);
+  		if($model)
+  		{
+  			$allCity=City::getAllCity();
+  			$userStatus=Term::getTermsByGroupId(1);
+  			if($model->role)
+  			{
+  				foreach ($model->role as $role)
+  				{
+  					$roles[]=$role->name;
+  				}
+  				$model->user_type=implode('， ', $roles);
+  			}
+  			else
+			{
+				$model->user_type='未分配';
+			}
+  			$this->render('updateUser',array('model'=>$model,'userStatus'=>$userStatus,'allCity'=>$allCity));
+  		}
   }
   /**
    * The assignment action

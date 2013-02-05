@@ -18,7 +18,7 @@
 
 <div class="layout head">
 	<div class="m-logo clearfix">
-		<a target="_self" href="" class="logo"><img title="xxx.com - xxxx" alt="zzz" src="images/login_logo.png"></a>
+		<a target="_self" href="" class="logo"><img title="mushw.com - 钼市网会员登陆" alt="zzz" src="images/login_logo.png"></a>
 	</div>
 
 </div>

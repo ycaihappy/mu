@@ -17,10 +17,10 @@ case 2:
   $this->widget('zii.widgets.CMenu',array(
 			'activeCssClass'=>'on',
 			'items'=>array(
-				array('label'=>'会员管理', 'url'=>array('user/manageProduct'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
-				array('label'=>'管理员管理', 'url'=>array('user/manageSpecial'),'linkOptions'=>array('target'=>'mainFrame')),
-				array('label'=>'角色管理', 'url'=>array('user/manageSupply'),'linkOptions'=>array('target'=>'mainFrame')),
-				array('label'=>'角色管理', 'url'=>array('user/manageSupply'),'linkOptions'=>array('target'=>'mainFrame')),
+				array('label'=>'会员管理', 'url'=>array('user/manageUser'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
+				array('label'=>'管理员管理', 'url'=>array('user/manageAdmin'),'linkOptions'=>array('target'=>'mainFrame')),
+				array('label'=>'角色管理', 'url'=>array('user/manageRole'),'linkOptions'=>array('target'=>'mainFrame')),
+				array('label'=>'功能管理', 'url'=>array('user/manageOpers'),'linkOptions'=>array('target'=>'mainFrame')),
 				),
 		)); 
 		

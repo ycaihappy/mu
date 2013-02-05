@@ -60,7 +60,7 @@ class User extends CActiveRecord
 			array('user_join_date, user_confirm_date, user_last_login_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('user_id, user_name, user_pwd, user_email, user_nickname, user_type, user_mobile_no, user_first_name, user_last_name, user_status, user_province_id, user_city_id, user_subscribe, user_point, user_join_date, user_confirm_date, user_last_login_date', 'safe', 'on'=>'search'),
+			array('user_id, user_name, user_pwd, user_email, user_nickname, user_type, user_mobile_no, user_first_name, user_last_name, user_status, user_province_id, user_city_id, user_subscribe, user_point, user_join_date, user_confirm_date, user_last_login_date', 'safe', ),
 		);
 	}
 	public function scopes()
@@ -81,6 +81,7 @@ class User extends CActiveRecord
 			'status'=>array(self::HAS_ONE,'Term','term_id'),
 			'role'=>array(self::MANY_MANY,'AuthItem','mu_right_assignment(userid,itemname)'),
 			'enterprise'=>array(self::HAS_ONE,'Enterprise','ent_user_id'),
+			'city'=>array(self::BELONGS_TO,'City','user_city_id'),
 		);
 	}
 

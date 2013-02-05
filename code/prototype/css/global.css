@@ -467,10 +467,10 @@ padding: 0 20px;
 .widget-slide-content-text p {clear: both;color: #888888;line-height: 21px;padding-top: 12px;}
 .widget-slide .left{float:left;width:auto}
 .widget-slide .right{float:right}
-.widget-slide-1-ctrl .widget-slide-ctrl-nav {bottom: 20px;left: 400px;width: 160px;}
-.widget-slide-ctrl .widget-slide-ctrl-nav {display: inline-block;position: absolute;text-align: center;}
-.widget-slide-ctrl-nav .current {background: url(imgs/cbtn_hover.jpg) no-repeat scroll;}
-.widget-slide-ctrl-nav li {background: url(imgs/cbtn.jpg) no-repeat scroll;cursor: pointer;display: inline-block;height: 10px;padding: 0 3px;width: 10px;}
+.widget-slide-ctrl-nav {display: inline-block;z-index:1;position: absolute;text-align: center;bottom: 20px;left: 400px;width: 160px;}
+.widget-slide-ctrl-nav a{text-indent:-999px;cursor:pointer}
+.widget-slide-ctrl-nav .on {background: url(imgs/cbtn_hover.jpg) no-repeat scroll;}
+.widget-slide-ctrl-nav a {background: url(imgs/cbtn.jpg) no-repeat scroll;cursor: pointer;display: inline-block;height: 10px;padding: 0 3px;width: 10px;}
 
 
 /*m-news-two*/

@@ -62,12 +62,14 @@ a:hover{color:#F27B04}
 .m-left-panel li.on{background:#0078ff;}
 .m-left-panel li.on a,.m-left-panel li:hover a{color:#fff;background:url(imgs/menu-ico-h.png) no-repeat 90% center;}
 
+
+
 .m-form td{padding:5px;}
 .m-form .label{width:140px;text-align:right;font-size:14px;}
 .m-form input{border:1px solid #ccc;padding:4px;}
 .cmp-input{border:1px solid #ccc;width:155px}
 .w245{width:245px}
-.m-form .btn-blue{text-align:center;background:url(imgs/btn-blue.png) no-repeat;width:60px;height:21px;display:inline-block;border:0px;color:#395678;cursor:pointer;}
+.btn-blue{text-align:center;background:url(imgs/btn-blue.png) no-repeat;width:60px;height:21px;display:inline-block;border:0px;color:#395678;cursor:pointer;}
 .m-form .msg{color:#afafb1;padding-left:10px;}
 .m-breadcrumb{margin-bottom:20px;}
 .m-breadcrumb .crumb{background:url(imgs/ico-crumb-1.png) no-repeat;width:8px;height:9px;display:inline-block;margin-right:10px;}
@@ -79,3 +81,23 @@ a:hover{color:#F27B04}
 .btn-b,.btn-b:hover{background:url(imgs/gery.png) no-repeat;color:#000}
 
 .m-form .hd{border-bottom: 1px solid #ccc;    padding-bottom: 10px;margin-left:20px;margin-bottom:20px;}
+
+.ico-edit,.ico-del,.ico-set{display:inline-block;width:13px;height:13px;text-indent:-9990px}
+.ico-edit{background:url(imgs/ico_2.gif) no-repeat;margin-right:10px;}
+.ico-del{background:url(imgs/ico_3.gif) no-repeat;margin-right:10px;}
+.ico-set{background:url(imgs/ico_1.gif) no-repeat;}
+
+.m-table-list .search,.m-table-list .btn-area{border:1px solid #cfcfcf;text-align:center;padding:4px 0;margin-bottom:10px;}
+.repeatbg{background:url(imgs/repeatbg.gif) repeat-x bottom #fff;}
+
+.table-list{border-left:1px solid #cfcfcf;border-top:1px solid #cfcfcf;}
+.table-list th,.table-list td{padding:6px;border-right:1px solid #cfcfcf;border-bottom:1px solid #cfcfcf;text-align:center;}
+.table-list .even{background:#f5fafe}
+.m-table-list .btn-group{text-align:left;padding:5px;}
+.m-table-list .btn-group a{margin-right:5px;}
+.m-table-list .pager{padding:12px 0px;text-align:center;background:#fafcef;border:1px solid #cfcfcf;margin-top:10px;}
+.m-table-list .pager a{margin-right:5px;}
+
+.m-role-op td{padding:5px;}
+.m-role-op .btn-b{display:block;margin-bottom:10px}
+

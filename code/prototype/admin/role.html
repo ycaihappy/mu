@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Role</title>
+    <link rel="stylesheet" href="css/admin.css">
+	<link rel="stylesheet" href="css/jquery-ui-1.10.0.custom.min.css">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
+
+
+</head>
+
+<body>
+
+
+<div id="p_member" class="pg-layout">
+
+<div class="m-breadcrumb">
+	<p><b class="crumb"></b>您当前位置：用户管理<i></i>权限管理</p>
+</div>
+
+	<!--m-table-list-->
+	<div class="m-table-list" id="J_RoleList" data-get-role-api="api/getRoleList.php">
+	
+	<div class="hd">		
+		<div class="repeatbg btn-area">
+			<a class="btn-a">管理</a>
+			<a class="btn-a">添加</a>
+		</div>
+	</div>
+	<div class="repeatbg search">
+			<form>				
+				<label>角色名称：</label>
+				<input type="text" name="keyword" class="cmp-input" />				
+				<input type="submit" class="btn-blue" value="搜索"/>
+			</form>
+		</div>
+	
+	<table border="0" cellpadding="0" cellspacing="0" class="table-list" width="100%">
+		<tr class="repeatbg">
+			<th width="58">ID</th><th width="50"><input type="checkbox" class="checkall" /></th><th width="120">角色</th><th width="107">状态</th><th width="107">创建时间</th><th width="106">修改时间</th><th>操作</th>
+		</tr>
+		<tr>
+			<td>001</td>
+			<td><input type="checkbox" name="chks[]" value="1" /></td>
+			<td>超级管理员</td>
+			<td>状态</td>
+			<td>2013-1-1</td>
+			<td>2013-1-1</td>
+			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a><a href="" class="ico-set" data-id="1">设置</a></td>
+		</tr>
+		<tr class="even">
+			<td>001</td>
+			<td><input type="checkbox" name="chks[]" value="1" /></td>
+			<td>超级管理员</td>
+			<td>状态</td>
+			<td>2013-1-1</td>
+			<td>2013-1-1</td>
+			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a><a href="" class="ico-set" data-id="2">设置</a></td>
+		</tr>
+		<tr>
+			<td>001</td>
+			<td><input type="checkbox" name="chks[]" value="1" /></td>
+			<td>超级管理员</td>
+			<td>状态</td>
+			<td>2013-1-1</td>
+			<td>2013-1-1</td>
+			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a><a href="" class="ico-set" data-id="3">设置</a></td>
+		</tr>
+		<tr>
+			<td colspan="7">
+				<p class="btn-group">
+					<a class="btn-a del">删除</a>
+					<a class="btn-a boot">启用</a>
+					<a class="btn-a deny">禁用</a>
+					<a class="btn-a add">添加功能</a>
+				</p>
+			</td>
+		
+		</tr>
+		
+		
+	</table>
+	
+	<div class="pager">共 600 页/20000条记录 <a>首页</a><a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>下页</a><a>末页</a></div>
+	
+	</div>
+	<!--m-table-list-->
+	<div class="m-role-op" id="J_RoleOperate">
+	<table border="0" cellpadding="0" cellspacing="0" >
+	<tr>
+	<td>
+	<ul class="list-from"></ul>
+	</td>
+	<td>
+	<button class="btn-b addone">&gt;</button>
+	<button class="btn-b addall">&gt;&gt;</button>
+	<button class="btn-b delall">&lt;&lt;</button>
+	<button class="btn-b delone">&lt;</button>
+	</td>
+	<td>
+	<ul class="list-to"></ul>
+	</td>
+	</tr>
+	<tr><td colspan="3" align="right"><button class="btn-a save">保存</button></td></tr>
+	</table>
+	</div>
+
+
+<script src="../js/jquery.1.8.min.js"></script>
+<script src="js/jquery-ui-1.10.0.custom.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/init.js"></script>
+</body>
+</html>

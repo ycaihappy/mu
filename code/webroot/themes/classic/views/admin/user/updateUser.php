@@ -56,6 +56,12 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'user_email'); ?></td>
 </tr>
 <tr>
+<td class="label">目前积分：</td>
+		<td>
+		<?php echo $form->textField($model,'user_point',array('disabled'=>'disabled'));?>
+		</td>
+</tr>
+<tr>
 <td class="label">手机号码：</td>
 		<td>
 		<?php echo $form->textField($model,'user_mobile_no');?>

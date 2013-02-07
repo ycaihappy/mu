@@ -10,12 +10,11 @@
 		<li><a href="index.php?r=uehome/user/company" >基本信息</a></li>
 		<li><a href="index.php?r=uehome/user/cert" >企业资质</a></li>
 		<li><a href="index.php?r=uehome/user/news" >新闻中心</a></li>
-		<li><a href="index.php?r=uehome/user/ad" >广告中心</a></li>
-		<li><a href="index.php?r=uehome/user/job" >人才招聘</a></li>
+		<!-- <li><a href="index.php?r=uehome/user/ad" >广告中心</a></li> -->
+		<!-- <li><a href="index.php?r=uehome/user/job" >人才招聘</a></li> -->
 	</ul>
 	<h3><a>供求管理</a></h3>
 	<ul>
-		<li><a href="index.php?r=uehome/user/supply" >供求管理</a></li>
 		<li><a href="index.php?r=uehome/user/supply" >发布供求</a></li>
 		<li><a href="index.php?r=uehome/user/case" >成功案例</a></li>
 	</ul>

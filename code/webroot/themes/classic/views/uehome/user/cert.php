@@ -1,12 +1,12 @@
-    		<div class="m-breadcrumb">
-	<p><b class="crumb"></b>会员中心<i></i>企业资质</p>
+<div class="m-breadcrumb">
+    <p><b class="crumb"></b>会员中心<i></i>企业资质</p>
 </div>
     <div class="m-table-list">
 	
 	<div class="hd">
 		<div class="photo-hd">
 		<p>您可以添加贵公司的营业执照和资质证书</p>
-		<a class="cmp-btn-a">添加企业相册图片</a>
+		<a class="cmp-btn-a" href="index.php?r=uehome/user/addcert">添加企业相册图片</a>
 		</div>
 	</div>
 	

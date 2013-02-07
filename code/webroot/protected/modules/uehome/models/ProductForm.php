@@ -14,7 +14,6 @@ class ProductForm extends CFormModel
     public $product_content;
     public $product_join_date;
 
-
 	/**
 	 * Declares the validation rules.
 	 */
@@ -22,10 +21,11 @@ class ProductForm extends CFormModel
     {
         return array(
             array('product_name', 'required'),		
-            array('proudct_keyword', 'required'),		
+            array('product_keyword', 'required'),		
+            array('district,province', 'safe'),		
             array('product_type_id', 'required'),		
             array('product_city_id', 'required'),		
-            array('product_unit,product_quanity,product_price,product_content, product_join_date', 'required'),		
+            array('product_unit,product_quanity,product_price,product_content, product_join_date', 'safe'),		
 		);
 	}
 
@@ -41,21 +41,22 @@ class ProductForm extends CFormModel
 	public function draft()
 	{
         $addsql = "insert into mu_product(product_name, product_user_id,product_type_id,product_keyword,
-            product_content,product_status,product_unit,product_price,product_valid_date)
+            product_content,product_status,product_unit,product_price,product_join_date,product_city_id)
             values(:product_name,:product_user_id,:product_type_id,:product_keyword,
-            :product_content,:product_status,:product_unit,:product_price,:product_valid_date)";
+            :product_content,:product_status,:product_unit,:product_price,:product_join_date,:product_city_id)";
 
         $commd = Yii::app()->db->createCommand($addsql);
 
         $commd->bindValue(":product_name", $this->product_name, PDO::PARAM_STR);
         $commd->bindValue(":product_user_id", yii::app()->user->getID(), PDO::PARAM_STR);
         $commd->bindValue(":product_type_id", $this->product_type_id);
+        $commd->bindValue(":product_city_id", $this->product_city_id);
         $commd->bindValue(":product_keyword", $this->product_keyword);
         $commd->bindValue(":product_content", $this->product_content);
         $commd->bindValue(":product_price", $this->product_price);
         $commd->bindValue(":product_status", 0);
         $commd->bindValue(":product_unit", $this->product_unit);
-        $commd->bindValue(":product_valid_date", $this->product_valid_date);
+        $commd->bindValue(":product_join_date", $this->product_join_date);
         $commd->execute();
 	}
 }

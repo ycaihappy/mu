@@ -4,33 +4,7 @@
     <div class="m-company-detail">
 	
 	<div class="subCont">
-                        <div class="lineDiv pLine">
-                            <p>
-                                <label class="cxLab-1">
-                                    登录帐号</label>
-                                <label class="xxLab-1" id="UserId">paulwang</label>
-                                <label class="cxLab-2"></label>
-                                <label id="CardID"></label>
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    手&nbsp;&nbsp;机&nbsp;&nbsp;号</label>
-                                <label class="xxLab-1" id="Mobile">13590222391</label>
-                                <label class="cxLab-2">
-                                    E-mail</label>
-                                <label class="xxLab-1" id="Email">paulwang@vip.qq.com</label>   
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    联系方式</label>
-                                <label class="xxLab-1" id="Tel">0755-888888</label>           
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    在线客服QQ</label>
-                                <label class="xxLab-1" id="QQ"></label>
-                            </p>
-                        </div>
+                       
                         <div class="lineDiv pLine">
                             <p>
                                 <label class="cxLab-1">

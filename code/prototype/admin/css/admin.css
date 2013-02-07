@@ -4,6 +4,7 @@ body{font-size:12px;-webkit-text-size-adjust: none;color:#666666}
 a:link, a:hover, input:focus{outline:0 none}
 a{text-decoration:none;color:#000}
 a:hover{color:#F27B04}
+a:active{text-decoration:underline;}
 
 .clearfix {clear:both}
 .clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden; zoom:1}

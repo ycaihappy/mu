@@ -14,7 +14,6 @@ $.extend(MU.mods,{
 		});
 		
 		self.find('.ico-set').click(function(e){
-			
 			e.preventDefault();
 			var obj = $(this),id = obj.data('id'); 
 			rolebox.data('id',id);

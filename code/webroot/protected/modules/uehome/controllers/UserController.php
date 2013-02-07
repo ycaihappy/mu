@@ -77,6 +77,24 @@ class UserController extends Controller {
 	public function actionCert() {
 		$this->render ( 'cert' );
 	}
+	public function actionAddcert() {
+        $model=new FileForm;
+        if(isset($_POST['FileForm']))
+        {
+            $model->attributes=$_POST['FileForm'];
+            $model->image=CUploadedFile::getInstance($model,'image');
+            if (is_object($model) && get_class($model) === 'CUploadedFile')
+            {
+                $uploaddir=Yii::app()->basePath . '/uploads/';
+                echo $uploaddir;exit;
+                $filename = md5(uniqid());
+                $uploadfile= $uploaddir . $filename . '.' . $model->image->extensionName;
+                $model->image->saveAs($uploadfile);
+                $model->picture = 'uploads/' . $filename . '.' . $ext;
+            }
+        }
+        $this->render ( 'cert_add', array('model'=>$model) );
+	}
 	public function actionLogin() {
 		$this->layout = '//layouts/ajax_main';
 		$model = new UserLoginForm ();

@@ -1,4 +1,7 @@
-	<div class="m-company-detail">
+    		<div class="m-breadcrumb">
+	<p><b class="crumb"></b>会员中心<i></i>查看企业信息</p>
+</div>
+    <div class="m-company-detail">
 	
 	<div class="subCont">
                         <div class="lineDiv pLine">

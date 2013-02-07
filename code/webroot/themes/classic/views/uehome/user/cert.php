@@ -1,4 +1,7 @@
-	<div class="m-table-list">
+    		<div class="m-breadcrumb">
+	<p><b class="crumb"></b>会员中心<i></i>企业资质</p>
+</div>
+    <div class="m-table-list">
 	
 	<div class="hd">
 		<div class="photo-hd">

@@ -1,4 +1,7 @@
-	<div class="m-form">
+    <div class="m-breadcrumb">
+        <p><b class="crumb"></b>会员中心<i></i>发布现货信息</p>
+    </div>
+    <div class="m-form">
 	
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'product-form',

@@ -1,10 +1,18 @@
-		<div class="m-breadcrumb">
-	<p><b class="crumb"></b>会员中心<i></i>添加图片</p>
-</div>
+	<div class="m-breadcrumb">
+	    <p><b class="crumb"></b>会员中心<i></i>添加图片</p>
+    </div>
 
 	<div class="m-form">
-	
-	<form>
+<?php	
+    $form = $this->beginWidget(
+        'CActiveForm',
+        array(
+            'id' => 'upload-form',
+            'enableAjaxValidation' => false,
+            'htmlOptions' => array('enctype' => 'multipart/form-data'),
+        )
+    );
+?>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
 		
 		<tr>
@@ -18,7 +26,7 @@
 			<td class="label">图片描述：</td><td><textarea name="description" rows="10" class="cmp-text"  ></textarea></td>
 		</tr>
 		<tr>
-			<td class="label">图片上传：</td><td><input type="file" name="photo" value="浏览" />
+        <td class="label">图片上传：</td><td><?php echo CHtml::activeFileField($model, 'image'); ?>
 			<p>(图片大小不要超过200K，格式GIF,JPG,PNG图片宽度最大为220像素效果最佳！)</p>
 			
 			<br /><img src="images/thumb.gif" class="thumb"></td>
@@ -29,5 +37,5 @@
 		</tr>
 		
 	</table>
-	</form>
+<?php $this->endWidget();?>
 </div>

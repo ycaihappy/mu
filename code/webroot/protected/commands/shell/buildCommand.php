@@ -297,11 +297,11 @@ class buildCommand extends CConsoleCommand{
             $connection = Yii::app()->db;
             $sql = 'select ent_name,ent_id,purchase_amount,supply_unit from mu_success_case sc,mu_user_enterprise ent,mu_supply sup
                 where sc.supply_id=sup.supply_id and sc.purchase_user_id=ent.ent_user_id';
-            $user = $connection->createCommand()
-                ->select('ent_name,ent_id,purchase_amount,supply_unit')
-                ->from('mu_success_case sc,mu_user_enterprise ent,mu_supply sup')
-                ->where('sc.supply_id=sup.supply_id and sc.purchase_user_id=ent.ent_user_id')
-                ->queryRow();
+            $user = $connection->createCommand($sql)->queryAll();
+#                ->select('ent_name,ent_id,purchase_amount,supply_unit')
+#                ->from('mu_success_case sc,mu_user_enterprise ent,mu_supply sup')
+#                ->where('sc.supply_id=sup.supply_id and sc.purchase_user_id=ent.ent_user_id')
+#                ->queryRow();
 var_export($user);
             break;
         }

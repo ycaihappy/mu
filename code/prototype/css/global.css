@@ -379,6 +379,11 @@ padding: 0 20px;
 .btn-modify{background:url(imgs/btn_1.gif) no-repeat;display:inline-block;width:74px;height:28px;text-align:center;line-height:28px;color:#fff;border:0;cursor:pointer}
 
 
+
+.field input{height: 18px;line-height: 18px;margin-right: 3px;padding: 3px;vertical-align: middle;width: 177px;color: #9B9B9B; border:1px solid #CBCBCB}
+.field .small{width:95px}
+
+
 /*m-login*/
 
 .m-login .img{float:left;margin-right:70px;}
@@ -388,9 +393,8 @@ padding: 0 20px;
 .m-login .hd span.on{background:#fff;border-bottom:0}
 .m-login label{width:111px;display: inline-block;text-align: center;}
 .m-login td{padding:10px 3px;}
-.m-login .field{}
-.m-login .field input{height: 18px;line-height: 18px;margin-right: 3px;padding: 3px;vertical-align: middle;width: 177px;color: #9B9B9B; border:1px solid #CBCBCB}
-.m-login .field .small{width:95px}
+
+
 .m-login .cha{vertical-align:middle}
 .m-login .bd{padding:20px 0px;border:1px solid #cacaca;}
 .m-login .btn-login,.m-login .btn-reg{width:87px;height:29px;text-align:center;display:inline-block;cursor:pointer;border:0;line-height:29px;font-weight:bold;}
@@ -511,3 +515,21 @@ padding: 0 20px;
 .m-news-rank .newsList li .more {  color: #930000;  font-family: "Arial";  font-style: italic;  padding-right: 3px;}
 .m-news-rank .rankList li.last {  border: medium none;}
 /*m-news-rank */
+
+.m-register .hd{background:#f6fafb;height:95px;position:relative;}
+.m-register .bt{height:7px;background:url(imgs/reg_hd_bg.png) repeat-x;position:absolute;bottom:0px;left:0;width:100%}
+.m-register .btn-reg{background:url(imgs/btn_reg.gif) no-repeat;width:165px;height:45px;display:inline-block;color:#fff;text-align:center;line-height:45px;font-weight:bold;padding:0px;border:0;cursor:pointer;}
+.m-register td{padding:10px 3px;}
+.m-register .bd{padding:20px;}
+.m-register p{margin-top:10px;}
+.m-register a{color:#206f96;}
+.m-register a:hover{text-decoration:none;color:orange;}
+.m-register  .flow{background:url(imgs/reg_flow.gif) no-repeat;width:600px;height:49px;position:absolute;top:35px;left:210px;}
+.m-register  .flow .on{color:#206f96}
+.m-register  .flow  li{position:absolute;top:-20px;font-size:14px;}
+.m-register  .flow .step-1{left:-15px}
+.m-register  .flow .step-2{left:265px}
+.m-register  .flow .step-3{left:520px}
+.m-register  .flow .reg-ok{background:url(imgs/reg_ok.png) no-repeat;width:24px;height:24px;display:block;position:absolute;top:33px;left:28px;}
+.m-register  .flow .step-2 .reg-ok{left:29px;}
+.m-register  .flow .step-3 .reg-ok{left:12px;}

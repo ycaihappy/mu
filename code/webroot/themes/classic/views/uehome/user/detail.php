@@ -1,4 +1,7 @@
-	<div class="m-form">
+    		<div class="m-breadcrumb">
+	<p><b class="crumb"></b>会员中心<i></i>个人资料</p>
+</div>
+    <div class="m-form">
 	
 	<form>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">

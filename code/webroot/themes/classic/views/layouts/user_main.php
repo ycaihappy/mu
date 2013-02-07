@@ -30,16 +30,11 @@
     
 
     <div class="layout main">
-    	<div class="m-menubar">
-		<p class="bar"><span class="on"><a href="">会员中心</a></span><span><a href="">业务管理</a></span></p>
-	    </div>
+        <?php $this->widget("UserTabWidget"); ?>
 	
     	<div class="layout-area">
             <?php $this->widget("UserMenuWidget"); ?>
             <div class="col-r">
-               <div class="m-breadcrumb">
-               <p><b class="crumb"></b>会员中心<i></i>会员管理</p>
-               </div>
                <?php echo $content;?>
             </div>
         </div>
@@ -52,11 +47,7 @@
     
 </div>
 
-
-<script src="js/jquery.1.8.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/global.js"></script>
-<script src="js/init.js"></script>
+<?php $this->widget("CommonFooterWidget"); ?>
 
 </body>
 </html>

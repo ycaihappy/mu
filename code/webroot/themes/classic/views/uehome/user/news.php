@@ -1,17 +1,26 @@
-	<div class="m-form">
+    		<div class="m-breadcrumb">
+	<p><b class="crumb"></b>会员中心<i></i>企业动态</p>
+</div>
+    <div class="m-form">
 	
-	<form>
+<?php $form = $this->beginWidget('CActiveForm', array(
+    'id'=>'news-form',
+    'enableClientValidation'=>true,
+    'clientOptions'=>array(
+        'validateOnSubmit'=>true,
+    ),
+));?>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
 		<tr>
-			<td class="label">标题：</td><td><input type="text" name="title" value="" class="cmp-input" /></td>
+			<td class="label">标题：</td><td><?php echo $form->textField($model, 'art_title', array('class'=>'cmp-input','value'=>''));?></td>
 		</tr>
 		<tr>
-<?php
+			<td class="label">详细内容：</td><td><?php
 $this->widget('application.extensions.ckeditor.CKEditor',array(
 
     "model"=>$model,
 
-    "attribute"=>'siteDescription',
+    "attribute"=>'art_content',
 
     "height"=>'400px',
 
@@ -19,15 +28,13 @@ $this->widget('application.extensions.ckeditor.CKEditor',array(
 
     'editorTemplate'=>'advanced',
 
-)
-                                                                );
-?>
-			<td class="label">详细内容：</td><td><textarea name="description" rows="10" class="cmp-text"  ></textarea></td>
+
+));?></td>
 		</tr>
 		<tr>
 			<td></td><td><button type="submit" class="btn-save">发布/保存</button></td>
 		</tr>
 		
 	</table>
-	</form>
+<?php $this->endWidget();?>
 </div>

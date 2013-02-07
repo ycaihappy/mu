@@ -33,8 +33,21 @@ class UserController extends Controller {
 	public function actionPassword() {
 		$this->render ( 'password' );
 	}
+    public function actionCase()
+    {
+        $this->render ( 'case' );
+    }
 	public function actionNews() {
-		$this->render ( 'news' );
+        $model = new NewsForm();
+        if (isset($_POST['NewsForm']))
+        {
+            $model->attributes = $_POST['NewsForm'];
+            if ( $model->validate() )
+            {
+                $model->draft();
+            }
+        }
+		$this->render ( 'news', array('model'=>$model) );
 	}
 	public function actionSupply() {
         $model = new SupplyForm();
@@ -49,10 +62,38 @@ class UserController extends Controller {
 		$this->render ( 'supply' ,array('model'=>$model));
 	}
 	public function actionGoods() {
-		$this->render ( 'goods' );
+        $model = new ProductForm();
+        if ( isset($_POST['ProductForm']) )
+        {
+            $model->attributes = $_POST['ProductForm'];
+
+            if ( $model->validate() )
+            {
+                $model->draft();
+            }
+        }
+		$this->render ( 'goods' , array('model'=>$model));
 	}
 	public function actionCert() {
 		$this->render ( 'cert' );
+	}
+	public function actionAddcert() {
+        $model=new FileForm;
+        if(isset($_POST['FileForm']))
+        {
+            $model->attributes=$_POST['FileForm'];
+            $model->image=CUploadedFile::getInstance($model,'image');
+            if (is_object($model) && get_class($model) === 'CUploadedFile')
+            {
+                $uploaddir=Yii::app()->basePath . '/uploads/';
+                echo $uploaddir;exit;
+                $filename = md5(uniqid());
+                $uploadfile= $uploaddir . $filename . '.' . $model->image->extensionName;
+                $model->image->saveAs($uploadfile);
+                $model->picture = 'uploads/' . $filename . '.' . $ext;
+            }
+        }
+        $this->render ( 'cert_add', array('model'=>$model) );
 	}
 	public function actionLogin() {
 		$this->layout = '//layouts/ajax_main';

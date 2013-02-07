@@ -33,7 +33,7 @@ class ArticleController extends AdminController {
 		$articleCriteria->with=array('createUser'=>array('select'=>'user_name'),'status'=>array('select'=>'term_name'));
 		$articleDataProvider=new CActiveDataProvider('Article',array(
 			'criteria'=>$articleCriteria,
-			'pagination'=>array('pageSize'=>20,'pageVar'=>'page',),
+			'pagination'=>array('pageSize'=>10,'pageVar'=>'page',),
 			'sort'=>array('defaultOrder'=> array('art_create_time'=>CSort::SORT_DESC), ),
 		));
 		$artStatus=Term::getTermsByGroupId(1);
@@ -77,6 +77,37 @@ class ArticleController extends AdminController {
 			'artStatus'=>$artStatus,
 			'isNews'=>$model->art_category_id==17?true:false));
 		}
+	}
+	public function actionChangeNewsStatus()
+	{
+		$this->_actionChangeArticleStatus('manageNews');
+	}
+	public function actionChangePriceStatus()
+	{
+		$this->_actionChangeArticleStatus('managePrice');
+	}
+	private function _actionChangeArticleStatus($redirectAction)
+	{
+		$toStatus=@$_REQUEST['toStatus'];
+		$artId=@$_REQUEST['art_id'];
+		if(!$artId && in_array($toStatus,array(1,2)))
+		{
+			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的文章信息，以及改变的状态');
+			$this->redirect(array($redirectPage));
+				
+		}
+		$updateStatusCriteria=new CDbCriteria();
+		$updateStatusCriteria->addInCondition('art_id', $artId);
+		$checkedBy=Yii::app()->admin->getName();
+		$updateRows=Article::model()->updateAll(array('art_status'=>$toStatus,'art_check_by'=>$checkedBy),$updateStatusCriteria);
+		if($updateRows>0)
+		{
+			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
+		}
+		else {
+			Yii::app()->admin->setFlash('changeStatusError','更新异常');
+		}
+		$this->redirect(array($redirectAction,'page'=>Yii::app()->request->getParam('page',1)));
 	}
 }
 

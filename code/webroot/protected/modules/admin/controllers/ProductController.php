@@ -28,12 +28,12 @@ class ProductController extends AdminController {
 		if($productTypeId)
 		{
 			$productCriteria->addCondition('product_type_id=:product_type_id');
-			$productCriteria->params[':product_type_id']=$productTypeId;  
+			$productCriteria->params[':product_type_id']=$productTypeId;
 		}
 		if($productStatus)
 		{
 			$productCriteria->addCondition('product_status=:product_status');
-			$productCriteria->params[':product_status']=$productStatus;  
+			$productCriteria->params[':product_status']=$productStatus;
 		}
 		if($productEnterpriseName)
 		{
@@ -75,34 +75,36 @@ class ProductController extends AdminController {
 	{
 		$toStatus=@$_REQUEST['toStatus'];
 		$supplyIds=@$_REQUEST['supply_id'];
-		if(!$modelObjectIds)
+		if(!$supplyIds && in_array($toStatus,array(1,2)))
 		{
-			
-			Yii::app()->admin->setFlash('changeStatusError','');
+				
+			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的供求信息，以及改变的状态');
 			$this->redirect($redirectAction);
-			
+				
 		}
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('supply_id', $supplyIds);
-		$updateRows=Supply::model()->updateAll(array('supply_status'=>$toStatus),$updateStatusCriteria);
+		$checkedBy=Yii::app()->admin->getName();
+		$updateRows=Supply::model()->updateAll(array('supply_status'=>$toStatus,'supply_check_by'=>$checkedBy),$updateStatusCriteria);
 		if($updateRows>0)
 		{
-			
+			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
 		}
 		else {
-			
+			Yii::app()->admin->setFlash('changeStatusError','更新异常');
 		}
-		
+		$this->redirect(array($redirectAction,'page'=>Yii::app()->request->getParam('page',1)));
+
 	}
 	function actionChangeSupplyStatus()
 	{
-		
+
 		$this->_actionChangeSupplyStatus('manageSupply');
-		
+
 	}
 	function actionChangeBuyStatus()
 	{
-		$this->_actionChangeSupplyStatus('manageBug');
+		$this->_actionChangeSupplyStatus('manageBuy');
 	}
 	public function actionUpdateProduct()
 	{
@@ -144,30 +146,32 @@ class ProductController extends AdminController {
 			'productStatus'=>$productStatus,
 			));
 		}
-		
+
 	}
 	function _actionChangeProductStatus($redirectPage)
 	{
 		$toStatus=@$_REQUEST['toStatus'];
 		$productIds=@$_REQUEST['product_id'];
-		if(!$productIds)
+		if(!$productIds && in_array($toStatus,array(1,2)))
 		{
-			
-			Yii::app()->admin->setFlash('changeStatusError','');
-			$this->redirect($redirectPage);
-			
+				
+			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的现货或特价信息，以及改变的状态');
+			$this->redirect(array($redirectPage));
+				
 		}
 		$updateStatusCriteria=new CDbCriteria();
-		$updateStatusCriteria->addInCondition('supply_id', $supplyIds);
-		$updateRows=Supply::model()->updateAll(array('supply_status'=>$toStatus),$updateStatusCriteria);
+		$updateStatusCriteria->addInCondition('product_id', $productIds);
+		$checkedBy=Yii::app()->admin->getName();
+		$updateRows=Product::model()->updateAll(array('product_status'=>$toStatus,'product_check_by'=>$checkedBy),$updateStatusCriteria);
 		if($updateRows>0)
 		{
-			
+			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
 		}
 		else {
-			
+			Yii::app()->admin->setFlash('changeStatusError','更新异常');
 		}
-		
+		$this->redirect(array($redirectPage,'page'=>Yii::app()->request->getParam('page',1)));
+
 	}
 	public function actionChangeProductStatus()
 	{
@@ -201,12 +205,12 @@ class ProductController extends AdminController {
 		if($supplyCategoryId)
 		{
 			$supplyCriteria->addCondition('supply_category_id=:supply_category_id');
-			$supplyCriteria->params[':supply_category_id']=$supplyCategoryId;  
+			$supplyCriteria->params[':supply_category_id']=$supplyCategoryId;
 		}
 		if($supplyStatus)
 		{
 			$supplyCriteria->addCondition('supply_status=:supply_status');
-			$supplyCriteria->params[':supply_status']=$supplyStatus;  
+			$supplyCriteria->params[':supply_status']=$supplyStatus;
 		}
 		if($supplyEnterpriseName)
 		{
@@ -254,9 +258,9 @@ class ProductController extends AdminController {
 		$parentCity=array_reverse($parentCity);
 		$parentCity[]=$this->cityCache[$cityId]->city_name;
 		if($parentCity)
-			$cityLayer=implode('>>',$parentCity);
-		else 
-			$cityLayer='未指明';
+		$cityLayer=implode('>>',$parentCity);
+		else
+		$cityLayer='未指明';
 		return $cityLayer;
 	}
 	public function actionManageBuy()
@@ -292,7 +296,7 @@ class ProductController extends AdminController {
 		else if(isset($_REQUEST['supply_id'])){
 			$supplyId=@$_REQUEST['supply_id'];
 			$supplyModel=Supply::model()->with(array('user.enterprise'=>array('select'=>'ent_name'),'user'=>array('select'=>'user_name')))->findByPk($supplyId);
-			
+				
 			$unit=Term::getTermsByGroupId(2);
 			$allCity=City::getAllCity();
 			$supplyCategory=Term::getTermsByGroupId(12);
@@ -304,7 +308,7 @@ class ProductController extends AdminController {
 			'supplyStatus'=>$supplyStatus,
 			));
 		}
-		
+
 	}
 	public function actionManageEnterprise()
 	{
@@ -362,13 +366,35 @@ class ProductController extends AdminController {
 		'businessModel'=>$businessModel,
 		'model'=>$model));
 	}
-	public function actionUpdateEnterPrise()
+	public function actionChangeEnterpriseStatus()
+	{
+		$toStatus=@$_REQUEST['toStatus'];
+		$entIds=@$_REQUEST['ent_id'];
+		if(!$entIds && in_array($toStatus,array(1,2)))
+		{
+				
+			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的企业信息，以及改变的状态');
+			$this->redirect(array($redirectPage));
+				
+		}
+		$updateStatusCriteria=new CDbCriteria();
+		$updateStatusCriteria->addInCondition('ent_id', $entIds);
+		$checkedBy=Yii::app()->admin->getName();
+		$updateRows=Enterprise::model()->updateAll(array('ent_status'=>$toStatus,'ent_check_by'=>$checkedBy),$updateStatusCriteria);
+		if($updateRows>0)
+		{
+			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
+		}
+		else {
+			Yii::app()->admin->setFlash('changeStatusError','更新异常');
+		}
+		$this->redirect(array('manageEnterprise','page'=>Yii::app()->request->getParam('page',1)));
+	}
+	public function actionUpdateEnterprise()
 	{
 		if (isset($_POST['Enterprise'])) {//update to database
 			$model=new EnterPrise();
 			$model->attributes=$_POST['Enterprise'];
-//			var_dump($_POST['Enterprise']);
-//			exit;
 			if($model->ent_id)$model->setIsNewRecord(false);
 			if($model->save())
 			{
@@ -378,35 +404,31 @@ class ProductController extends AdminController {
 			else {
 				//redirect to create/update page when error(es) occured
 				$enterprise=EnterPrise::model()->findByPk($model->ent_id);
-				$businessModel=Term::getTermsByGroupId(5);
-				$type=Term::getTermsByGroupId(4);
-				$entStatus=Term::getTermsByGroupId(1);
-				$allCity=City::getAllCity();
-				$this->render('updateEnterprise',array('model'=>$enterprise,
-				'businessModel'=>$businessModel,
-				'type'=>$type,
-				'entStatus'=>$entStatus,
-				'allCity'=>$allCity,
-				));
+				$this->_loadEnterprise($model->ent_id);
 			}
 		}
 		else {
 			$entId=@$_REQUEST['ent_id'];
-			$enterprise=EnterPrise::model()->with(array('user'=>array('select'=>'user_name')))->findByPk($entId);
-			$businessModel=Term::getTermsByGroupId(5);
-			$type=Term::getTermsByGroupId(4);
-			$entStatus=Term::getTermsByGroupId(1);
-			$pos=Term::getTermsByGroupId(3);
-			$allCity=City::getAllCity();
-			$this->render('updateEnterprise',array('model'=>$enterprise,
+			$this->_loadEnterprise($entId);
+		}
+
+	}
+	private function _loadEnterprise($entId)
+	{
+		$entId=$entId;
+		$enterprise=EnterPrise::model()->with(array('user'=>array('select'=>'user_name')))->findByPk($entId);
+		$businessModel=Term::getTermsByGroupId(5);
+		$type=Term::getTermsByGroupId(4);
+		$entStatus=Term::getTermsByGroupId(1);
+		$pos=Term::getTermsByGroupId(3);
+		$allCity=City::getAllCity();
+		$this->render('updateEnterprise',array('model'=>$enterprise,
 			'businessModel'=>$businessModel,
 			'type'=>$type,
 			'entStatus'=>$entStatus,
 			'allCity'=>$allCity,
 			'pos'=>$pos,
-			));
-		}
-		
+		));
 	}
 }
 ?>

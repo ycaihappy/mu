@@ -99,7 +99,7 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),*/
 		'request'=>array(
-			'enableCsrfValidation'=>true,
+			//'enableCsrfValidation'=>true,
 			'csrfTokenName'=>'MU_CSRF_TOKEN',
 			'enableCookieValidation'=>true,	
 		),
@@ -122,6 +122,10 @@ return array(
 		),
 		'cache'=>array(
 			'class'=>'CXCache',
+		),
+		'clientScript'=>array(
+			'coreScriptPosition'=>2,
+			'defaultScriptFilePosition'=>2,
 		),
 		
 		'errorHandler'=>array(

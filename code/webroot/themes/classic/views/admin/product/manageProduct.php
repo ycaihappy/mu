@@ -3,7 +3,11 @@ $this->breadcrumbs=array(
 	'信息管理'=>array('manageProduct'),
 	$isSpecial?'特价管理':'现货管理',
 );
+$productChangeStatusAction=$isSpecial?'changeSpecialStatus':'changeProductStatus';
 ?>
+<div class='changeSuccess'><?php echo Yii::app()->admin->getFlash('changeStatus');?></div>
+<div class='changeError'><?php echo Yii::app()->admin->getFlash('changeStatusError');?></div>
+
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',
 	'enableClientValidation'=>true,
@@ -11,11 +15,7 @@ $this->breadcrumbs=array(
 		'validateOnSubmit'=>true,
 	),
 )); 
-
 ?>
-<div class='changeSuccess'><?php echo Yii::app()->admin->getFlash('changeStatus');?></div>
-<div class='changeError'><?php echo Yii::app()->admin->getFlash('changeStatusError');?></div>
-
 <div style="float:right;">
 <div>
 <label>类型：</label>
@@ -31,7 +31,7 @@ $this->breadcrumbs=array(
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
-<form action='<?php echo  Yii::app()->controller->createUrl('changeProductStatus') ?>' method='post'>
+<form action='<?php echo  Yii::app()->controller->createUrl($productChangeStatusAction) ?>' method='post'>
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$dataProvider,
@@ -90,6 +90,7 @@ $this->breadcrumbs=array(
 <DIV>
 <input type="hidden" name="page" value="<?php echo Yii::app()->request->getParam('page',1);?>"/>
 <?php 
+$alertTitle=$isSpecial?'特价':'现货';
 $this->widget('zii.widgets.jui.CJuiButton',
 	array(
 		'name'=>'button',
@@ -99,7 +100,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			var selectedProducts=$("#yw0 .select-on-check:checked");
 			if(selectedProducts.size()<1)
 			{
-				alert("请选择要生效的现货信息！");
+				alert("请选择要生效的'.$alertTitle.'信息！");
 			}
 			else
 			{
@@ -119,7 +120,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 		var selectedProducts=$("#yw0 .select-on-check:checked");
 			if(selectedProducts.size()<1)
 			{
-				alert("请选择要设为无效的现货信息！");
+				alert("请选择要设为无效的'.$alertTitle.'信息！");
 			}
 			else
 			{
@@ -139,11 +140,11 @@ $this->widget('zii.widgets.jui.CJuiButton',
 		var selectedProducts=$("#yw0 .select-on-check:checked");
 			if(selectedProducts.size()<1)
 			{
-				alert("请选择要删除的现货信息！");
+				alert("请选择要删除的'.$alertTitle.'信息！");
 			}
 			else
 			{
-				if(confirm("确定删除选中的产品"))
+				if(confirm("确定删除选中的'.$alertTitle.'信息"))
 				{
 					this.form.action+="&toStatus=29";
 					this.form.submit();

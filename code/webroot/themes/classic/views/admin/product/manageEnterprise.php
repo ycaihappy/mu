@@ -4,6 +4,9 @@ $this->breadcrumbs=array(
 	'企业库管理',
 );
 ?>
+<div class='changeSuccess'><?php echo Yii::app()->admin->getFlash('changeStatus');?></div>
+<div class='changeError'><?php echo Yii::app()->admin->getFlash('changeStatusError');?></div>
+
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',
 	'enableClientValidation'=>true,
@@ -26,6 +29,7 @@ $this->breadcrumbs=array(
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
+<form action='<?php echo  Yii::app()->controller->createUrl('changeEnterpriseStatus') ?>' method='post'>
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$dataProvider,
@@ -81,3 +85,73 @@ $this->breadcrumbs=array(
     ),
 ));
 ?>
+<DIV>
+<input type="hidden" name="page" value="<?php echo Yii::app()->request->getParam('page',1);?>"/>
+<?php 
+$alertTitle='企业';
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'button',
+			'caption'=>'审核为有效',
+		'value'=>'asd',
+		'onclick'=>'js:function(){
+			var selectedProducts=$("#yw0 .select-on-check:checked");
+			if(selectedProducts.size()<1)
+			{
+				alert("请选择要生效的'.$alertTitle.'信息！");
+			}
+			else
+			{
+				this.form.action+="&toStatus=1";
+				this.form.submit();
+			}
+			return false;
+		}',
+		)
+);
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'button2',
+			'caption'=>'审核为无效',
+		'value'=>'asd',
+		'onclick'=>'js:function(){
+		var selectedProducts=$("#yw0 .select-on-check:checked");
+			if(selectedProducts.size()<1)
+			{
+				alert("请选择要设为无效的'.$alertTitle.'信息！");
+			}
+			else
+			{
+				this.form.action+="&toStatus=2";
+				this.form.submit();
+			}
+			return false;
+		}',
+		)
+);
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'button3',
+			'caption'=>'删除',
+		'value'=>'asd',
+		'onclick'=>'js:function(){
+		var selectedProducts=$("#yw0 .select-on-check:checked");
+			if(selectedProducts.size()<1)
+			{
+				alert("请选择要删除的'.$alertTitle.'信息！");
+			}
+			else
+			{
+				if(confirm("确定删除选中的'.$alertTitle.'信息"))
+				{
+					this.form.action+="&toStatus=29";
+					this.form.submit();
+				}
+			}
+			return false;
+		}',
+		)
+);
+?>
+</DIV>
+</form>

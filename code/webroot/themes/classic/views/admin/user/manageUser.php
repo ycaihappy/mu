@@ -1,9 +1,9 @@
 <?php
-$artTypeName=$isNews?'新闻':'行情';
 $this->breadcrumbs=array(
 	'用户管理'=>array('manageNews'),
 	'会员管理',
 );
+
 ?>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',
@@ -25,6 +25,7 @@ $this->breadcrumbs=array(
 <?php $this->endWidget(); ?>
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'J_RoleList',
     'dataProvider'=>$dataProvider,
 	'summaryText'=>'显示  {count} 条的第  {start}-{end} 条',
 	'selectableRows'=>2,
@@ -66,11 +67,42 @@ $this->breadcrumbs=array(
         ),
         array(            // display a column with "view", "update" and "delete" buttons
             'header'=>'操作',
-        	'class'=>'CButtonColumn',
-        	'template'=>'{update}',
+        	'class'=>'CMUButtonColumn',
+        	'template'=>'{update}{assignRole}',
+        	'buttons'=>array(
+        		'assignRole'=>array(
+        			'options'=>array('class'=>'ico-set','data-id'=>'$data->user_id'),
+        		),
+       		 ),
         	'updateButtonUrl'=>'Yii::app()->controller->createUrl("updateUser",array("user_id"=>$data->user_id))',
         	'updateButtonLabel'=>'修改',
         	),
     ),
 ));
+?>
+<!--m-table-list-->
+	<div class="m-role-op hide" id="J_RoleOperate" data-post-api="api/postRole.php">
+	<table border="0" cellpadding="0" cellspacing="0" >
+	<tr><td>未分配功能</td><td></td><td>已有功能</td></tr>
+	<tr>
+	<td>
+	<ul class="list-from"></ul>
+	</td>
+	<td>
+	<button class="btn-b addone">&gt;</button>
+	<button class="btn-b addall">&gt;&gt;</button>
+	<button class="btn-b delall">&lt;&lt;</button>
+	<button class="btn-b delone">&lt;</button>
+	</td>
+	<td>
+	<ul class="list-to"></ul>
+	</td>
+	</tr>
+	<tr><td colspan="3" align="right"><button class="btn-a save">保存</button></td></tr>
+	</table>
+	</div>
+	
+<?php 
+$cs=Yii::app()->getClientScript();
+$cs->registerCoreScript('jquery.ui');
 ?>

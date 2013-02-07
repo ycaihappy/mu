@@ -1,5 +1,7 @@
-
-<script src="js/jquery.1.8.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/admin.js"></script>
-<script src="js/init.js"></script>
+<?php 
+$cs=Yii::app()->getClientScript();
+$cs->registerCoreScript('jquery');
+$cs->registerScriptFile('js/config.js');
+$cs->registerScriptFile('js/admin.js');
+$cs->registerScriptFile('js/init.js');
+?>

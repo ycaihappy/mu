@@ -1,109 +1,70 @@
     		<div class="m-breadcrumb">
 	<p><b class="crumb"></b>会员中心<i></i>查看企业信息</p>
 </div>
-    <div class="m-company-detail">
+    <div class="m-form">
 	
-	<div class="subCont">
-                        <div class="lineDiv pLine">
-                            <p>
-                                <label class="cxLab-1">
-                                    登录帐号</label>
-                                <label class="xxLab-1" id="UserId">paulwang</label>
-                                <label class="cxLab-2"></label>
-                                <label id="CardID"></label>
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    手&nbsp;&nbsp;机&nbsp;&nbsp;号</label>
-                                <label class="xxLab-1" id="Mobile">13590222391</label>
-                                <label class="cxLab-2">
-                                    E-mail</label>
-                                <label class="xxLab-1" id="Email">paulwang@vip.qq.com</label>   
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    联系方式</label>
-                                <label class="xxLab-1" id="Tel">0755-888888</label>           
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    在线客服QQ</label>
-                                <label class="xxLab-1" id="QQ"></label>
-                            </p>
-                        </div>
-                        <div class="lineDiv pLine">
-                            <p>
-                                <label class="cxLab-1">
-                                    公司名称</label>
-                                <label id="CompanyName">深圳市信达有限公司</label>
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    联&nbsp;&nbsp;系&nbsp;&nbsp;人</label>
-                                <label class="xxLab-1" id="LinkMan">汪经理/经理</label>
-                                <label class="cxLab-2">
-                                    公司类型</label>
-                                <label class="xxLab-1" id="CompanyType">钢材经销商</label>
-                                <label class="cxLab-2" id="lblMainType">主营业务</label>
-                                <label id="MainType">板材</label>
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    税&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
-                                <label class="xxLab-1" id="TaxNo"></label>
-                                <label class="cxLab-2">
-                                    注册资金</label>
-                                <label class="xxLab-1" id="RegisteredCapital"></label>
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    存&nbsp;&nbsp;货&nbsp;&nbsp;地</label>
-                                <label id="pro">
-                                </label>
-                                <label id="city">
-                                </label>
-                                <label id="Delivery"></label>
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</label>
-                                <label id="Address">有</label>
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    传&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;真</label>
-                                <label class="xxLab-1" id="Fax"></label>
-                                <label class="cxLab-2">
-                                    邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编</label>
-                                <label class="xxLab-1" id="ZipCode"></label>
-                            </p>
-                            <p>
-                                <label class="cxLab-1">
-                                    网&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</label>
-                                <label id="Url"></label>
-                            </p>
-                            <p style="height:100%">
-                                <label class="cxLab-1 vTop">
-                                    公司简介</label>
-                                    <literal class="cxlab-jj" id="AboutInfo"></literal>
-                                
-                            </p>
-                            <p>
-                            </p>
-                        </div>
-                        <div class="lineDiv pad10">
-                            <div class="tupic">
-                                <span class="s-txt">营业执照</span> <span class="s-pic" id="BusinessLicense"><img width="125" height="125" src="images/noimage.gif"></span>
-                            </div>
-                            <div class="tupic">
-                                <span class="s-txt">税务登记证</span> <span class="s-pic" id="TaxFile"><img width="125" height="125" src="images/noimage.gif"></span>
-                            </div>
-                            <div class="tupic">
-                                <span class="s-txt">组织机构代码证</span> <span class="s-pic" id="OrganizationFile"><img width="125" height="125" src="images/noimage.gif"></span>
-                            </div>
-                            <div class="clearfix">
-                            </div>
-                        </div>
-                    </div>
-	
-</div>
+	<form>
+	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
+		<tr>
+			<td colspan="2"><h3 class="b-title">企业资料</h3></td>
+		</tr>
+		<tr>
+			<td class="label">企业名称：</td><td><input type="text" name="company_name" value="" class="cmp-input" />
+		</td>
+		</tr>
+		<tr>
+			<td class="label">工商注册号：</td><td><input type="text" name="company_no" value="" class="cmp-input" /></td>
+		</tr>
+		<tr>
+			<td class="label">企业类型：</td><td><select name="company_category"><option value="0">国有企业</option></select></td>
+		</tr>
+		<tr>
+			<td class="label">经营模式：</td><td><select name="company_type"><option value="0">生产厂家</option></select></td>
+		</tr>
+		<tr>
+			<td class="label">主营产品：</td><td><input type="text" name="company_product" value="" class="cmp-input" /></td>
+		</tr>
+		<tr>
+			<td class="label">经营地点：</td><td><select name="district"><option value="0">地区</option></select><select name="province"><option value="0">省份</option></select><select name="city"><option value="0">市</option></select></td>
+		</tr>
+		<tr>
+			<td class="label">详细地址：</td><td><input type="text" name="address" value="" class="cmp-input" /></td>
+		</tr>
+		<tr>
+			<td class="label">公司网址：</td><td><input type="text" name="website" value="" class="cmp-input" /></td>
+		</tr>
+		<tr>
+			<td class="label">邮编：</td><td><input type="text" name="postcode" value="" class="cmp-input" /></td>
+		</tr>		
+		
+		<tr>
+			<td class="label">公司介绍：</td><td><textarea name="description" rows="10" class="cmp-text"  ></textarea></td>
+		</tr>
+		<tr>
+			<td class="label">公司形象图：</td><td><img src="images/thumb.gif" class="thumb"><input type="file" name="photo" value="浏览" /></td>
+		</tr>
+		<tr>
+			<td colspan="2"><h3 class="b-title">其他信息</h3></td>
+		</tr>
+		<tr>
+			<td class="label">年营业额：</td><td><input type="text" name="turnover" value="" class="cmp-input" /></td>
+		</tr>
+		<tr>
+			<td class="label">品牌名称：</td><td><input type="text" name="brand" value="" class="cmp-input" /></td>
+		</tr>
+		<tr>
+			<td class="label">注册资本：</td><td><input type="text" name="capital" value="" class="cmp-input" /><span class="msg">(万元)</span></td>
+		</tr>
+		<tr>
+			<td class="label">公司成立年份：</td><td><select name="company_date"><option value="0">2013</option></select></td>
+		</tr>
+		<tr>
+			<td class="label">法人代表：</td><td><input type="text" name="brand" value="" class="cmp-input" /></td>
+		</tr>
+		<tr>
+			<td></td><td><button type="submit" class="btn-save">保存</button></td>
+		</tr>
+		
+	</table>
+	</form>
+	</div>

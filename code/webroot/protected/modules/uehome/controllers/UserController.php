@@ -25,7 +25,16 @@ class UserController extends Controller {
 		$this->render ( 'index' );
 	}
 	public function actionDetail() {
-		$this->render ( 'detail' );
+        $model = new UserForm();
+        if (isset($_POST['UserForm']))
+        {
+            $model->attributes = $_POST['UserForm'];
+            if ( $model->validate() )
+            {
+                $model->draft();
+            }
+        }
+		$this->render ( 'detail', array('model'=>$model) );
 	}
 	public function actionCompany() {
 		$this->render ( 'company' );
@@ -75,25 +84,33 @@ class UserController extends Controller {
 		$this->render ( 'goods' , array('model'=>$model));
 	}
 	public function actionCert() {
-		$this->render ( 'cert' );
+        $model = new FileForm;
+        $cert_list = $model->glist();
+		$this->render ( 'cert' ,array('data'=>$cert_list));
 	}
 	public function actionAddcert() {
         $model=new FileForm;
+
         if(isset($_POST['FileForm']))
         {
             $model->attributes=$_POST['FileForm'];
+
             $model->image=CUploadedFile::getInstance($model,'image');
-            if (is_object($model) && get_class($model) === 'CUploadedFile')
+            if (is_object($model->image) && get_class($model->image) === 'CUploadedFile')
             {
-                $uploaddir=Yii::app()->basePath . '/uploads/';
-                echo $uploaddir;exit;
                 $filename = md5(uniqid());
-                $uploadfile= $uploaddir . $filename . '.' . $model->image->extensionName;
+                $uploadfile= 'uploads/'. $filename . '.' . $model->image->extensionName;
                 $model->image->saveAs($uploadfile);
-                $model->picture = 'uploads/' . $filename . '.' . $ext;
+                $model->file_url= 'uploads/' . $filename . '.' . $model->image->extensionName;
             }
+            $model->save();
+            $this->redirect( array('user/cert') );
         }
-        $this->render ( 'cert_add', array('model'=>$model) );
+        else
+        {
+            $this->render ('cert_add', array('model'=>$model));
+        }
+
 	}
 	public function actionLogin() {
 		$this->layout = '//layouts/ajax_main';

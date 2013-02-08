@@ -36,7 +36,7 @@ a:active{text-decoration:underline;}
 .pg-layout{min-width:960px}
 .layout {margin: 0 auto;width: 960px; position:relative;}
 
-#mainFrame {height: 100%;width: 100%;z-index: 5;	position:absolute;}
+#mainFrame {height: 100%;width: 98%;z-index: 5;	position:absolute;}
 .logo {float: left;height: 60px;width: 173px;}
 
 

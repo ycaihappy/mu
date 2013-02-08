@@ -116,8 +116,7 @@ class AuthItem extends CActiveRecord {
       ItemChildren::model()->updateAll(array('parent'=>$this->name), $criteria);
       $criteria->condition = "child='".$this->oldName."'";
       ItemChildren::model()->updateAll(array('child'=>$this->name),$criteria);
-      Yii::app()->admin->setFlash('updateName',
-          Helper::translate('srbac','Updating list'));
+      Yii::app()->admin->setFlash('updateName','Updating list');
     }
   }
 

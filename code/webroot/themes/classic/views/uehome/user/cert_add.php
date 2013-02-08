@@ -16,14 +16,14 @@
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
 		
 		<tr>
-			<td class="label">标题：</td><td><input type="text" name="title" value="" class="cmp-input" /></td>
+			<td class="label">标题：</td><td><?php echo $form->textField($model, 'file_title', array('class'=>'cmp-input','value'=>''));?></td>
 		</tr>
 			
 		<tr>
-			<td class="label">图片品类：</td><td><select name="category"><option value="0">1111</option></select></td>
+			<td class="label">文件类型：</td><td><?php echo $form->dropDownList($model, 'file_type_id', array('1'=>'图片','2'=>'文档'));?></td>
 		</tr>	
 		<tr>
-			<td class="label">图片描述：</td><td><textarea name="description" rows="10" class="cmp-text"  ></textarea></td>
+			<td class="label">文件描述：</td><td><?php echo $form->textArea($model,'file_content',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
 		</tr>
 		<tr>
         <td class="label">图片上传：</td><td><?php echo CHtml::activeFileField($model, 'image'); ?>

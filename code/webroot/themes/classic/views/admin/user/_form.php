@@ -70,8 +70,7 @@
   <div class="simple">
     <label>拦截代码：</label>
     <?php echo SHtml::activeTextArea($model,'bizrule',
-    $model->name == Helper::findModule('srbac')->superUser ?
-    array('rows'=>3, 'cols'=>20, 'disabled'=>'disabled'):array('rows'=>3, 'cols'=>20)); ?>
+    array('rows'=>3, 'cols'=>20)); ?>
   </div>
   <div class="simple">
    <label> 数据：</label>
@@ -89,7 +88,7 @@
     'type'=>'POST',
     'update'=>'#preview',
     'complete'=>'function(){
-       $("#authItems .pager a").trigger("click.yiiGridView");
+       $("#J_RoleList .pager a").trigger("click.yiiGridView");
        $(document).trigger("click.yiiGridView");
     }',
     ), array('name'=>'saveButton2'));

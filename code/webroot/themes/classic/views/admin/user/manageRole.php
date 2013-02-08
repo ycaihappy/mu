@@ -33,13 +33,36 @@ $this->widget('zii.widgets.jui.CJuiButton',
 ?>
 </div>
 <div id="list"><?php $this->renderPartial('authItemList',array(
-	'dataProvider'=>$dataProvider,
+	'dataProvider'=>$dataProvider
 ))?>
 </div>
 </div>
 <div id="preview" style="width:40%;float:left;padding:15px;">
 
 </div>
+	<div class="m-role-op hide" id="J_RoleOperate" data-post-api="<?php echo Yii::app()->controller->createUrl("assign");?>">
+	<table border="0" cellpadding="0" cellspacing="0" >
+	<tr><td>未分配功能</td><td></td><td>已有功能</td></tr>
+	<tr>
+	<td>
+	<ul class="list-from"></ul>
+	</td>
+	<td>
+	<button class="btn-b addone">&gt;</button>
+	<button class="btn-b addall">&gt;&gt;</button>
+	<button class="btn-b delall">&lt;&lt;</button>
+	<button class="btn-b delone">&lt;</button>
+	</td>
+	<td>
+	<ul class="list-to"></ul>
+	</td>
+	</tr>
+	<tr><td colspan="3" align="right"><button class="btn-a save">保存</button></td></tr>
+	</table>
+	</div>
+	
 <?php 
+$cs=Yii::app()->getClientScript();
+$cs->registerCoreScript('jquery.ui');
 Yii::app()->getClientScript()->registerCssFile('css/srbac.css');
 ?>

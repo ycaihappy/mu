@@ -907,7 +907,7 @@ class UserController extends AdminController
 			$this->renderPartial('authItemList',array('dataProvider'=>$dataProvider));
 		}
 		else{
-			$this->render('manageRole',array('dataProvider'=>$dataProvider,));
+			$this->render('manageRole',array('dataProvider'=>$dataProvider));
 		}
 	}
 

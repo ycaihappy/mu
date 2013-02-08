@@ -2,9 +2,9 @@
 
 class UserForm extends CFormModel
 {
-	public $art_title;
-	public $art_content;
-	public $art_user_id;
+	public $district;
+    public $province;
+    public $city;
 
 
 	/**
@@ -13,9 +13,7 @@ class UserForm extends CFormModel
 	public function rules()
     {
         return array(
-            array('art_title', 'required'),		
-            array('art_content', 'required'),		
-            array('art_user_id', 'safe'),		
+            array('district,province,city', 'required'),		
 		);
 	}
 
@@ -30,14 +28,14 @@ class UserForm extends CFormModel
 
 	public function draft()
 	{
-        $addsql = "insert into mu_user(art_title, art_content, art_user_id)
-            values(:art_title,:art_content,:art_user_id)";
+        $addsql = "insert into mu_user(user_name,user_mobile_no,user_email)
+            values(:user_name,:user_mobile_no,:user_email)";
 
         $commd = Yii::app()->db->createCommand($addsql);
 
-        $commd->bindValue(":art_title", $this->art_title, PDO::PARAM_STR);
-        $commd->bindValue(":art_content", $this->art_content, PDO::PARAM_STR);
-        $commd->bindValue(":art_user_id", yii::app()->user->getID(), PDO::PARAM_STR);
+        $commd->bindValue(":user_name", $this->art_title, PDO::PARAM_STR);
+        $commd->bindValue(":user_mobile_no", $this->art_content, PDO::PARAM_STR);
+        $commd->bindValue(":user_email", yii::app()->user->getID(), PDO::PARAM_STR);
 
         $commd->execute();
 	}

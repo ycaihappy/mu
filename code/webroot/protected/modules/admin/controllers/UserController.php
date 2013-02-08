@@ -42,21 +42,26 @@ class UserController extends AdminController
 	 */
 	public function actionCreate()
 	{
-		$model=new User;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['User']))
-		{
-			$model->attributes=$_POST['User'];
-			if($model->save())
-			$this->redirect(array('view','id'=>$model->id));
+		$model = new AuthItem;
+		if (isset($_POST['AuthItem'])) {
+			$model->attributes = $_POST['AuthItem'];
+			try {
+				if ($model->save()) {
+					Yii::app()->admin->setFlash('updateSuccess',
+            "'" . $model->name . "' " .'created successfully');
+					$model->data = unserialize($model->data);
+					$this->renderPartial('update', array('model' => $model));
+				} else {
+					$this->renderPartial('create', array('model' => $model));
+				}
+			} catch (CDbException $exc) {
+				Yii::app()->admin->setFlash('updateError', 'Error while creating'
+				. ' ' . $model->name . "<br />" .'Possible there\'s already an item with the same name');
+				$this->renderPartial('create', array('model' => $model));
+			}
+		} else {
+			$this->renderPartial('create', array('model' => $model));
 		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
 	}
 
 	/**
@@ -64,23 +69,22 @@ class UserController extends AdminController
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	public function actionUpdate()
 	{
-		$model=$this->loadModel($id);
+		$id=@$_REQUEST['name'];
+		$model = AuthItem::model()->findbyPk($id);
+		if (isset($_POST['AuthItem'])) {
+			$model->oldName = isset($_POST["oldName"]) ? $_POST["oldName"] : $_POST["name"];
+			$model->attributes = $_POST['AuthItem'];
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+			if ($model->save()) {
+				Yii::app()->user->setFlash('updateSuccess',
+	          "'" . $model->name . "' " .'修改成功！');
+			} else {
 
-		if(isset($_POST['User']))
-		{
-			$model->attributes=$_POST['User'];
-			if($model->save())
-			$this->redirect(array('view','id'=>$model->id));
+			}
 		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
+		$this->renderPartial('update', array('model' => $model));
 	}
 
 	/**
@@ -525,20 +529,34 @@ class UserController extends AdminController
 	 */
 	private function _getTheRoles() {
 		$model = new AuthItem();
-		$userid = $_POST[Helper::findModule('srbac')->userclass][$this->module->userid];
-		$data['userAssignedRoles'] = Helper::getUserAssignedRoles($userid);
-		$data['userNotAssignedRoles'] = Helper::getUserNotAssignedRoles($userid);
-		if ($data['userAssignedRoles'] == array()) {
+		$userid = $_REQUEST['id'];
+		$act = $_REQUEST['act'];
+		if($act=='assigned')
+		{
+			$data = Helper::getUserAssignedRoles($userid);
+		}
+		else {
+			$data = Helper::getUserNotAssignedRoles($userid);
+		}
+		$returnData=array();
+		if($data)
+		{
+			foreach($data as $row)
+			{
+				$returnData[]=array('text'=>$row->name,'value'=>$row->name);
+			}
+		}
+		/*if ($data['userAssignedRoles'] == array()) {
 			$data['revoke'] = array("name" => "revokeUser", "disabled" => true);
-		} else {
+			} else {
 			$data['revoke'] = array("name" => "revokeUser");
-		}
-		if ($data['userNotAssignedRoles'] == array()) {
+			}
+			if ($data['userNotAssignedRoles'] == array()) {
 			$data['assign'] = array("name" => "assignUser", "disabled" => true);
-		} else {
+			} else {
 			$data['assign'] = array("name" => "assignUser");
-		}
-		return $data;
+			}*/
+		echo json_encode($returnData);
 	}
 	/**
 	 * Creates a role .
@@ -589,92 +607,112 @@ class UserController extends AdminController
 			//redirect to create page
 		}
 	}
-	
-  /**
-   * Assigns child items to a parent item
-   * @param String $parent The parent item
-   * @param String $children The child items
-   */
-  private function _assignChild($parent, $children) {
-    if ($parent) {
-      $auth = Yii::app()->authManager;
-      /* @var $auth CDbAuthManager */
-      foreach ($children as $child) {
-        $auth->addItemChild($parent, $child);
-      }
-    }
-  }
 
-  /**
-   * Revokes child items from a parent item
-   * @param String $parent The parent item
-   * @param String $children The child items
-   */
-  private function _revokeChild($parent, $children) {
-    if ($parent) {
-      $auth = Yii::app()->authManager;
-      /* @var $auth CDbAuthManager */
-      foreach ($children as $child) {
-        $auth->removeItemChild($parent, $child);
-      }
-    }
-  }
- /**
-   * Assigns roles to a user
-   *
-   * @param int $userid The user's id
-   * @param String $roles The roles to assign
-   * @param String $bizRules Not used yet
-   * @param String $data Not used yet
-   */
-  private function _assignUser($userid, $roles, $bizRules, $data) {
-    if ($userid) {
-      $auth = Yii::app()->authManager;
-      /* @var $auth CDbAuthManager */
-      foreach ($roles as $role) {
-        $auth->assign($role, $userid, $bizRules, $data);
-      }
-    }
-  }
+	/**
+	 * Assigns child items to a parent item
+	 * @param String $parent The parent item
+	 * @param String $children The child items
+	 */
+	private function _assignChild($parent, $children) {
+		if ($parent) {
+			$auth = Yii::app()->authManager;
+			/* @var $auth CDbAuthManager */
+			foreach ($children as $child) {
+				$auth->addItemChild($parent, $child);
+			}
+		}
+	}
 
-  /**
-   * Revokes roles from a user
-   * @param int $userid The user's id
-   * @param String $roles The roles to revoke
-   */
-  private function _revokeUser($userid, $roles) {
-    if ($userid) {
-      $auth = Yii::app()->authManager;
-      /* @var $auth CDbAuthManager */
-      foreach ($roles as $role) {
-        $auth->revoke($role, $userid);
-        return true;
-      }
-    }
-  }
-  public function actionManageUser()
-  {
-  		$model=new User();
-  		$model->user_status=@$_REQUEST['User']['user_status'];
-  		$model->user_name=@$_REQUEST['User']['user_name'];
-	    $userCriteria=new CDbCriteria();
-	    $userCriteria->select='user_id,user_name,user_nickname,user_email,user_join_date,user_last_login_date';
+	/**
+	 * Revokes child items from a parent item
+	 * @param String $parent The parent item
+	 * @param String $children The child items
+	 */
+	private function _revokeChild($parent, $children) {
+		if ($parent) {
+			$auth = Yii::app()->authManager;
+			/* @var $auth CDbAuthManager */
+			foreach ($children as $child) {
+				$auth->removeItemChild($parent, $child);
+			}
+		}
+	}
+	/**
+	 * Assigns roles to a user
+	 *
+	 * @param int $userid The user's id
+	 * @param String $roles The roles to assign
+	 * @param String $bizRules Not used yet
+	 * @param String $data Not used yet
+	 */
+	private function _assignUser($userid, $roles, $bizRules='', $data='') {
+		if ($userid) {
+			$auth = Yii::app()->authManager;
+			if($this->_revokeAllRoles($userid))
+			{
+				/* @var $auth CDbAuthManager */
+				foreach ($roles as $role) {
+					$auth->assign($role, $userid, $bizRules, $data);
+				}
+			}
+		}
+	}
+	private function _revokeAllRoles($userid)
+	{
+		return Yii::app()->db->createCommand()
+		->delete(Yii::app()->authManager->assignmentTable, 'userid=:userid', array(
+				':userid'=>$userid
+		)) > 0;
+	}
+
+	/**
+	 * Revokes roles from a user
+	 * @param int $userid The user's id
+	 * @param String $roles The roles to revoke
+	 */
+	private function _revokeUser($userid, $roles) {
+		if ($userid) {
+			$auth = Yii::app()->authManager;
+			/* @var $auth CDbAuthManager */
+			foreach ($roles as $role) {
+				$auth->revoke($role, $userid);
+				return true;
+			}
+		}
+	}
+	public function actionManageAdminUser()
+	{
+		$this->_actionManageUser(0);
+	}
+	public function actionManageUser()
+	{
+		$this->_actionManageUser(1);
+	}
+	private function _actionManageUser($userType)
+	{
+		$model=new User();
+		$model->user_status=@$_REQUEST['User']['user_status'];
+		$model->user_name=@$_REQUEST['User']['user_name'];
+		$userCriteria=new CDbCriteria();
+		$userCriteria->select='user_id,user_name,user_nickname,user_email,user_join_date,user_last_login_date';
 		$userCriteria->with=array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name'));
-	    $userCriteria->order='user_join_date desc';
-	    if($model->user_status)
-	    {
-	    	$userCriteria->compare('user_status', '='.$model->user_status);
-	    }
-	    if($model->user_name)
-	    {
-	    	$userCriteria->addSearchCondition('user_name', $model->user_name,true);
-	    }
+		$userCriteria->order='user_join_date desc';
+		$userCriteria->addCondition('user_type=:user_type');
+		$userCriteria->params[':user_type']=$userType;
+		if($model->user_status)
+		{
+			$userCriteria->compare('user_status', '='.$model->user_status);
+		}
+		if($model->user_name)
+		{
+			$userCriteria->addSearchCondition('user_name', $model->user_name,true);
+		}
 		$dataProvider=new CActiveDataProvider('User',array(
 			'criteria'=>$userCriteria,
 			'pagination'=>array(
 		        'pageSize'=>20,
 				'pageVar'=>'page',
-			),
+		),
 		));
 		$users=$dataProvider->data;
 		if($users)
@@ -683,6 +721,7 @@ class UserController extends AdminController
 			{
 				if($user->role)
 				{
+					$roles=array();
 					foreach ($user->role as $role)
 					{
 						$roles[]=$role->name;
@@ -697,140 +736,179 @@ class UserController extends AdminController
 		}
 		$userStatus=Term::getTermsByGroupId(1);
 		$this->render('manageUser',array('dataProvider'=>$dataProvider,'model'=>$model,'userStatus'=>$userStatus));
-  }
-  public function actionUpdateUser()
-  {
-  	$model=new User();
-  	if(isset($_POST['User']))
-  	{
-  		$model->attributes=$_POST['User'];
-  		$model->setIsNewRecord(false);
-  		if($model->save())
-  		{
-  			$this->redirect(array('manageUser'));
-  		}
-  		else {
-  			$this->_loadCurrentUser($model->user_id);
-  		}
-  	}
-  	elseif($userId=$_GET['user_id'])
-  	{
-  		$this->_loadCurrentUser($userId);
-  	}
-  	else {
-  		$this->redirect(array('manageUser'));
-  	}
-  	
-  }
-  private function _loadCurrentUser($userId)
-  {
-  		$model=User::model()->with(array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name')))->findByPK($userId);
-  		if($model)
-  		{
-  			$allCity=City::getAllCity();
-  			$userStatus=Term::getTermsByGroupId(1);
-  			if($model->role)
-  			{
-  				foreach ($model->role as $role)
-  				{
-  					$roles[]=$role->name;
-  				}
-  				$model->user_type=implode('， ', $roles);
-  			}
-  			else
+	}
+	public function actionUpdateUser()
+	{
+		$model=new User();
+		if(isset($_POST['User']))
+		{
+			$model->attributes=$_POST['User'];
+			$model->setIsNewRecord(false);
+			if($model->save())
+			{
+				$this->redirect(array('manageUser'));
+			}
+			else {
+				$this->_loadCurrentUser($model->user_id);
+			}
+		}
+		elseif($userId=$_GET['user_id'])
+		{
+			$this->_loadCurrentUser($userId);
+		}
+		else {
+			$this->redirect(array('manageUser'));
+		}
+			
+	}
+	private function _loadCurrentUser($userId)
+	{
+		$model=User::model()->with(array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name')))->findByPK($userId);
+		if($model)
+		{
+			$allCity=City::getAllCity();
+			$userStatus=Term::getTermsByGroupId(1);
+			if($model->role)
+			{
+				foreach ($model->role as $role)
+				{
+					$roles[]=$role->name;
+				}
+				$model->user_type=implode('， ', $roles);
+			}
+			else
 			{
 				$model->user_type='未分配';
 			}
-  			$this->render('updateUser',array('model'=>$model,'userStatus'=>$userStatus,'allCity'=>$allCity));
-  		}
-  }
-  /**
-   * The assignment action
-   * First checks if the user is authorized to perform this action
-   * Then initializes the needed variables for the assign view.
-   * If there's a post back it performs the assign action
-   */
-  public function actionAssign() {
-    //CVarDumper::dump($_POST, 5, true);
-   
-    $this->_setMessage("");
-    /* @var $auth CDbAuthManager */
-    $authItemAssignName = isset($_POST['AuthItem']['name']['assign']) ?
-      $_POST['AuthItem']['name']['assign'] : "";
+			$this->render('updateUser',array('model'=>$model,'userStatus'=>$userStatus,'allCity'=>$allCity));
+		}
+	}
+	/**
+	 * The assignment action
+	 * First checks if the user is authorized to perform this action
+	 * Then initializes the needed variables for the assign view.
+	 * If there's a post back it performs the assign action
+	 */
+	public function actionAssign() {
+		//CVarDumper::dump($_POST, 5, true);
+			
+		$this->_setMessage("");
+		/* @var $auth CDbAuthManager */
+		/*$authItemAssignName = isset($_POST['AuthItem']['name']['assign']) ?
+		 $_POST['AuthItem']['name']['assign'] : "";
 
 
-    $assBizRule = isset($_POST['Assignments']['bizrule']) ?
-      $_POST['Assignments']['bizrule'] : "";
-    $assData = isset($_POST['Assignments']['data']) ?
-      $_POST['Assignments']['data'] : "";
+		 $assBizRule = isset($_POST['Assignments']['bizrule']) ?
+		 $_POST['Assignments']['bizrule'] : "";
+		 $assData = isset($_POST['Assignments']['data']) ?
+		 $_POST['Assignments']['data'] : "";
 
 
-    $authItemRevokeName = isset($_POST['AuthItem']['name']['revoke']) ?
-      $_POST['AuthItem']['name']['revoke'] : "";
+		 $authItemRevokeName = isset($_POST['AuthItem']['name']['revoke']) ?
+		 $_POST['AuthItem']['name']['revoke'] : "";
 
-    if (isset($_POST['AuthItem']['name'])) {
-      if (isset($_POST['AuthItem']['name'][0])) {
-        $authItemName = $_POST['AuthItem']['name'][0];
-      } else {
-        $authItemName = $_POST['AuthItem']['name'];
-      }
-    }
+		 if (isset($_POST['AuthItem']['name'])) {
+		 if (isset($_POST['AuthItem']['name'][0])) {
+		 $authItemName = $_POST['AuthItem']['name'][0];
+		 } else {
+		 $authItemName = $_POST['AuthItem']['name'];
+		 }
+		 }
 
-    $assItemName = isset($_POST['Assignments']['itemname']) ? $_POST['Assignments']['itemname'] : "";
+		 $assItemName = isset($_POST['Assignments']['itemname']) ? $_POST['Assignments']['itemname'] : "";
 
-    $assignRoles = Yii::app()->request->getParam('assignRoles', 0);
-    $revokeRoles = Yii::app()->request->getParam('revokeRoles', 0);
-    $assignTasks = isset($_GET['assignTasks']) ? $_GET['assignTasks'] : 0;
-    $revokeTasks = isset($_GET['revokeTasks']) ? $_GET['revokeTasks'] : 0;
-    $assignOpers = isset($_GET['assignOpers']) ? $_GET['assignOpers'] : 0;
-    $revokeOpers = isset($_GET['revokeOpers']) ? $_GET['revokeOpers'] : 0;
+		 $assignRoles = Yii::app()->request->getParam('assignRoles', 0);
+		 $revokeRoles = Yii::app()->request->getParam('revokeRoles', 0);
+		 $assignTasks = isset($_GET['assignTasks']) ? $_GET['assignTasks'] : 0;
+		 $revokeTasks = isset($_GET['revokeTasks']) ? $_GET['revokeTasks'] : 0;
+		 $assignOpers = isset($_GET['assignOpers']) ? $_GET['assignOpers'] : 0;
+		 $revokeOpers = isset($_GET['revokeOpers']) ? $_GET['revokeOpers'] : 0;
+		 */
+		$actType=@$_REQUEST['actType'];
+		$owner=@$_REQUEST['ownerid'];
+		$assignItems=@$_REQUEST['ids'];
+		switch ($actType)
+		{
+			case 'assignRoles':
+				$this->_assignUser($owner, $assignItems);
+				break;
+			case 'assignTasks':
+				$this->_assignChild($owner, $assignItems);
+				break;
+			case 'assignOpers':
+				$this->_assignChild($owner, $assignItems);
+				break;
+		}
 
 
-    if ($assignRoles && is_array($authItemAssignName)) {
+		/*if ($assignRoles && is_array($authItemAssignName)) {
 
-      $this->_assignUser($userid, $authItemAssignName, $assBizRule, $assData);
-      $this->_setMessage('Role(s) Assigned');
-    } else if ($revokeRoles && is_array($authItemRevokeName)) {
-      $revoke = $this->_revokeUser($userid, $authItemRevokeName);
-      if ($revoke) {
-        $this->_setMessage('Role(s) Revoked');
-      } else {
-        $this->_setMessage('Can\'t revoke this role');
-      }
-    } else if ($assignTasks && is_array($authItemAssignName)) {
-      $this->_assignChild($authItemName, $authItemAssignName);
-      $this->_setMessage('Task(s) Assigned');
-    } else if ($revokeTasks && is_array($authItemRevokeName)) {
-      $this->_revokeChild($authItemName, $authItemRevokeName);
-      $this->_setMessage('Task(s) Revoked');
-    } else if ($assignOpers && is_array($authItemAssignName)) {
-      $this->_assignChild($assItemName, $authItemAssignName);
-      $this->_setMessage('Operation(s) Assigned');
-    } else if ($revokeOpers && is_array($authItemRevokeName)) {
-      $this->_revokeChild($assItemName, $authItemRevokeName);
-      $this->_setMessage('Operation(s) Revoked');
-    }
-    //If not ajax show the assign page
-    if (!Yii::app()->request->isAjaxRequest) {
-      $this->render('assign', array(
-          'model' => $model,
-          'message' => $this->_getMessage(),
-          'userid' => $userid,
-          'data' => $data
-      ));
-    } else {
-      // assign to user show the user tab
-      if ($userid != "") {
-        $this->_getTheRoles();
-      } else if ($assignTasks != 0 || $revokeTasks != 0) {
-        $this->_getTheTasks();
-      } else if ($assignOpers != 0 || $revokeOpers != 0) {
-        $this->_getTheOpers();
-      }
-    }
-  }
-  private function _setMessage($mess) {
-    Yii::app()->admin->setState("message", $mess);
-  }
-  
+		$this->_assignUser($userid, $authItemAssignName, $assBizRule, $assData);
+		$this->_setMessage('Role(s) Assigned');
+		} else if ($revokeRoles && is_array($authItemRevokeName)) {
+		$revoke = $this->_revokeUser($userid, $authItemRevokeName);
+		if ($revoke) {
+		$this->_setMessage('Role(s) Revoked');
+		} else {
+		$this->_setMessage('Can\'t revoke this role');
+		}
+		} else if ($assignTasks && is_array($authItemAssignName)) {
+		$this->_assignChild($authItemName, $authItemAssignName);
+		$this->_setMessage('Task(s) Assigned');
+		} else if ($revokeTasks && is_array($authItemRevokeName)) {
+		$this->_revokeChild($authItemName, $authItemRevokeName);
+		$this->_setMessage('Task(s) Revoked');
+		} else if ($assignOpers && is_array($authItemAssignName)) {
+		$this->_assignChild($assItemName, $authItemAssignName);
+		$this->_setMessage('Operation(s) Assigned');
+		} else if ($revokeOpers && is_array($authItemRevokeName)) {
+		$this->_revokeChild($assItemName, $authItemRevokeName);
+		$this->_setMessage('Operation(s) Revoked');
+		}
+		//If not ajax show the assign page
+		if (!Yii::app()->request->isAjaxRequest) {
+		$this->render('assign', array(
+		'model' => $model,
+		'message' => $this->_getMessage(),
+		'userid' => $userid,
+		'data' => $data
+		));
+		} else {
+		// assign to user show the user tab
+		if ($userid != "") {
+		$this->_getTheRoles();
+		} else if ($assignTasks != 0 || $revokeTasks != 0) {
+		$this->_getTheTasks();
+		} else if ($assignOpers != 0 || $revokeOpers != 0) {
+		$this->_getTheOpers();
+		}
+		}*/
+	}
+	private function _setMessage($mess) {
+		Yii::app()->admin->setState("message", $mess);
+	}
+	public function actionManageAuthItem()
+	{
+		$selectedType = Yii::app()->request->getParam('selectedType', 2);
+		$criteria = new CDbCriteria;
+		$criteria->order='type desc';
+		if ($selectedType != "") {
+			$criteria->condition = "type = " . $selectedType;
+		}
+		$dataProvider=new CActiveDataProvider('AuthItem',array(
+			'criteria'=>$criteria,
+			'pagination'=>array(
+		        'pageSize'=>10,
+				'pageVar'=>'page',
+		),
+		));
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			$this->renderPartial('authItemList',array('dataProvider'=>$dataProvider));
+		}
+		else{
+			$this->render('manageRole',array('dataProvider'=>$dataProvider,));
+		}
+	}
+
 }

@@ -25,6 +25,7 @@ class Helper {
    */
   public static function getUserAssignedRoles($userid) {
     $assigned = new CDbCriteria();
+    $assigned->select='name';
     $assigned->join = 'LEFT JOIN ' . Assignments::model()->tableName() . ' a ON name = a.itemname';
     if ($userid) {
       $assigned->condition = "type = ". CAuthItem::TYPE_ROLE ." AND userid= '" . $userid . "'";
@@ -44,6 +45,7 @@ class Helper {
    */
   public static function getUserNotAssignedRoles($userid) {
     $roles = new CDbCriteria();
+    $roles->select='name';
     $roles->condition = "type=". CAuthItem::TYPE_ROLE;
     $roles->order = "name ASC";
     $final = array();

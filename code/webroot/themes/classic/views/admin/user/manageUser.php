@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'用户管理'=>array('manageNews'),
+	'用户管理'=>array('manageUser'),
 	'会员管理',
 );
 
@@ -25,6 +25,7 @@ $this->breadcrumbs=array(
 <?php $this->endWidget(); ?>
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
+	'htmlOptions'=>array('data-get-role-api'=>Yii::app()->controller->createUrl('getRoles')),
 	'id'=>'J_RoleList',
     'dataProvider'=>$dataProvider,
 	'summaryText'=>'显示  {count} 条的第  {start}-{end} 条',
@@ -71,7 +72,7 @@ $this->breadcrumbs=array(
         	'template'=>'{update}{assignRole}',
         	'buttons'=>array(
         		'assignRole'=>array(
-        			'options'=>array('class'=>'ico-set','data-id'=>'$data->user_id'),
+        			'options'=>array('class'=>'ico-set','data-id'=>'$data->user_id','data-actType'=>'assignRoles'),
         		),
        		 ),
         	'updateButtonUrl'=>'Yii::app()->controller->createUrl("updateUser",array("user_id"=>$data->user_id))',
@@ -81,7 +82,7 @@ $this->breadcrumbs=array(
 ));
 ?>
 <!--m-table-list-->
-	<div class="m-role-op hide" id="J_RoleOperate" data-post-api="api/postRole.php">
+	<div class="m-role-op hide" id="J_RoleOperate" data-post-api="<?php echo Yii::app()->controller->createUrl("assign");?>">
 	<table border="0" cellpadding="0" cellspacing="0" >
 	<tr><td>未分配功能</td><td></td><td>已有功能</td></tr>
 	<tr>
@@ -105,4 +106,5 @@ $this->breadcrumbs=array(
 <?php 
 $cs=Yii::app()->getClientScript();
 $cs->registerCoreScript('jquery.ui');
+
 ?>

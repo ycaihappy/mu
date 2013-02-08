@@ -101,4 +101,14 @@ a:active{text-decoration:underline;}
 
 .m-role-op td{padding:5px;}
 .m-role-op .btn-b{display:block;margin-bottom:10px}
+/* LOADING INDICATORS */
+div.srbacLoading {
+  background-position:  center center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  background-image: url('process-working.gif');
+}
+div.srbacLoading * {
+  opacity: .2;
+}
 

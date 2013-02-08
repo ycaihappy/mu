@@ -76,4 +76,9 @@ return array(
 		'js'=>array('jquery.history.js'),
 		'depends'=>array('jquery'),
 	),
+	'colorbox'=>array(
+		'js'=>array('jquery.colorbox.min.js'),
+		'css'=>array('colorbox/colorbox.css'),
+		'depends'=>array('jquery'),
+	),
 );

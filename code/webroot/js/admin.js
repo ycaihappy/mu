@@ -14,19 +14,19 @@ $.extend(MU.mods,{
 		});
 		
 		self.find('.ico-set').click(function(e){
-			
 			e.preventDefault();
-			var obj = $(this),id = obj.data('id'); 
+			var obj = $(this),id = obj.data('id'),acttype=obj.data('acttype'); 
 			rolebox.data('id',id);
+			rolebox.data('acttype',acttype);
 			$('.list-from').listbox().reload({ data: self.data('get-role-api'), ajaxsettings: {
-                    data: { id : id, act : 'from' }
+                    data: { id : id, act : 'assigned' }
                 }
             });
 			$('.list-to').listbox().reload({ data: self.data('get-role-api'), ajaxsettings: {
-                    data: { id : id, act : 'to' }
+                    data: { id : id, act : 'nonassigned' }
                 }
             });
-			rolebox.dialog({width:'auto',height:'auto',title:'角色管理'});
+			rolebox.dialog({width:'auto',height:'auto',title:'角色分配'});
 			
 			
 		});
@@ -70,14 +70,14 @@ $.extend(MU.mods,{
 			}
 		});
 		self.find('.save').click(function(e){
-			var toDatas = listTo.listbox().getDatas(),id = self.data('id'),ids = [];
+			var toDatas = listFrom.listbox().getDatas(),id = self.data('id'),actType=self.data('acttype'),ids = [];
 			for ( var i = 0,len = toDatas.length;i < len; i++ ) {
 					ids.push(toDatas[i].value);
 			}
-			$.post(self.data('post-api'),{roleid:id,ids : ids},function(re){
+			$.post(self.data('post-api'),{actType:actType,ownerid:id,ids : ids},function(re){
 				if(re) {
-					alert(re.msg);
-					location.reload();
+					//alert(re.msg);
+					//location.reload();
 				}
 			},'json');
 			

@@ -44,6 +44,7 @@ class FileModel extends CActiveRecord
 			array('file_title', 'length', 'max'=>45),
 			array('file_content, file_url', 'length', 'max'=>255),
 			array('file_create_time', 'safe'),
+			array('file_user_id', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('file_id, file_title, file_type_id, file_content, file_url, file_create_time', 'safe', 'on'=>'search'),
@@ -70,6 +71,7 @@ class FileModel extends CActiveRecord
 			'file_id' => 'File',
 			'file_title' => 'File Title',
 			'file_type_id' => 'File Type',
+			'file_user_id' => 'File User',
 			'file_content' => 'File Content',
 			'file_url' => 'File Url',
 			'file_create_time' => 'File Create Time',
@@ -90,6 +92,7 @@ class FileModel extends CActiveRecord
 		$criteria->compare('file_id',$this->file_id);
 		$criteria->compare('file_title',$this->file_title,true);
 		$criteria->compare('file_type_id',$this->file_type_id);
+		$criteria->compare('file_user_id',$this->file_user_id);
 		$criteria->compare('file_content',$this->file_content,true);
 		$criteria->compare('file_url',$this->file_url,true);
 		$criteria->compare('file_create_time',$this->file_create_time,true);

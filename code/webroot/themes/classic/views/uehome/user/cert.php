@@ -15,32 +15,25 @@
 		<tr class="repeatbg">
 			<th width="123">图片</th><th width="123">分类</th><th width="421">详细说明</th><th>操作</th>
 		</tr>
-		<tr>
-			<td><img src="images/thumb.gif" /></td>		
-			<td>资质证书</td>
+<?php
+for ($i=0;$i<count($data);$i++)
+{
+    if ( $i%2 == 0)
+    {
+        $class = ($i%2 == 0) ? '' : 'class="even"';
+    }
+?>
+    <tr <?php echo $class;?>>
+    <td><img src="<?php echo $data[$i]['file_url'];?>" /></td>		
+    <td><?php echo $data[$i]['file_title'];?></td>
 			<td>
-				内容
+<?php echo $data[$i]['file_content'];?>
 			</td>		
 			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
 		</tr>
-		<tr class="even">
-			<td><img src="images/thumb.gif" /></td>		
-			<td>资质证书</td>
-			<td>
-				内容
-			</td>		
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr>
-			<td><img src="images/thumb.gif" /></td>		
-			<td>资质证书</td>
-			<td>
-				内容
-			</td>		
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		
-		
+<?php
+}
+?>
 	</table>
 	
 	<div class="pager">共 600 页/20000条记录 <a>首页</a><a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>下页</a><a>末页</a></div>

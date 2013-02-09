@@ -74,5 +74,27 @@ $.extend(MU.mods,{
 			target.addClass('on');
 			swim.playPageIndex(btns.find('a').index(target));			
 		});
+	},
+	JRegister : function () {
+		var self = $(this);
+		self.find('form').attr('autocomplete','off');
+		self.find('.user-type').click(function () {
+			if ( $(this).val() == 1) {
+				self.find('.for-company').show();
+				self.find('.c-name').text('称呼');
+			}else{
+				self.find('.for-company').hide();
+				self.find('.c-name').text('昵称');
+			}
+		});
+		self.find('.btn-reg').click(function(e){
+			e.preventDefault();
+			var cur = self.data('step');
+			cur = $(this).hasClass('prev') ? 1 : cur + 1;
+			self.data('step',cur);
+			self.find('.flow li').removeClass('on').filter(':lt('+cur+')').addClass('on');
+			
+			self.find('.step-' + cur).fadeIn().siblings('.steps').hide();
+		});
 	}
 });

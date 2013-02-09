@@ -76,15 +76,15 @@ $.extend(MU.mods,{
 		});
 	},
 	JRegister : function () {
-		var self = $(this);
+		var self = $(this),cname = self.find('.c-name');
 		self.find('form').attr('autocomplete','off');
 		self.find('.user-type').click(function () {
 			if ( $(this).val() == 1) {
 				self.find('.for-company').show();
-				self.find('.c-name').text('称呼');
+				cname.text(cname.data('c-text'));
 			}else{
 				self.find('.for-company').hide();
-				self.find('.c-name').text('昵称');
+				cname.text(cname.data('text'));
 			}
 		});
 		self.find('.btn-reg').click(function(e){

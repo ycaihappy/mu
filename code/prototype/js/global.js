@@ -96,5 +96,9 @@ $.extend(MU.mods,{
 			
 			self.find('.step-' + cur).fadeIn().siblings('.steps').hide();
 		});
+		self.find('input[name=pwd]').keyup(function(){
+			var strength = MU.Tool.wordStrength($(this).val()),pw = self.find('.pw-strength'),arr = ['weak','weak','medium','strong'];
+			pw[0].className = pw[0].className.split(' ')[0] + ' pw-' + arr[strength];
+		});
 	}
 });

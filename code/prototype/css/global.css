@@ -542,6 +542,49 @@ padding: 0 20px;
 .m-register .bd .step-3 .msg{color:green; font-family: "Microsoft YaHei","微软雅黑";  font-size: 22px;margin-bottom:30px;}
 .m-register .btn-modify{color:#fff;}
 .m-register .bd .step-3 a{margin-right:10px;}
+
+.pw-bar {
+    background-color: #5a7387;
+    height: 14px;
+    overflow: hidden;
+    transition: all 0.4s linear 0s;
+    width: 0;
+}
+.pw-weak .pw-bar {
+    width: 60px;
+}
+.pw-strong .pw-bar {
+    width: 182px;
+}
+.pw-medium .pw-bar {
+    width: 121px;
+}
+.pw-strength {
+    background-color: #cfc6bd;
+    height: 14px;
+    margin-top: 3px;
+    overflow: hidden;
+    position: relative;
+    width: 183px;
+}
+.pw-letter {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.pw-strength span {
+    border-right: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    display: inline;
+    float: left;
+    font-size: 12px;
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    width: 60px;
+}
+
+
 /*m-news-focus*/
 .m-news-focus .title-bar {  height: 25px;  line-height: 25px;  overflow: hidden;}
 .m-news-focus .ui-til1 {  height: 43px;  line-height: 43px;}

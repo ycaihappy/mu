@@ -83,17 +83,17 @@
     echo SHtml::ajaxSubmitButton(
     $update ? '修改' :
     '创建',
-    $update ? array('update','id'=>$model->name) : array('create') ,
+    $update ? array('update','name'=>$model->name) : array('create') ,
     array(
     'type'=>'POST',
     'update'=>'#preview',
     'complete'=>'function(){
-       $("#J_RoleList .pager a").trigger("click.yiiGridView");
-       $(document).trigger("click.yiiGridView");
+    	window.updateYiiGridView();
     }',
-    ), array('name'=>'saveButton2'));
+    ), array('name'=>'saveButton'));
     ?>
   </div>
   <?php echo SHtml::endForm(); ?>
 
 </div><!-- srbacForm -->
+

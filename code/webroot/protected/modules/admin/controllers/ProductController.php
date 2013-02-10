@@ -54,6 +54,11 @@ class ProductController extends AdminController {
 			'pagination'=>array(
 		        'pageSize'=>10,
 				'pageVar'=>'page',
+				'params'=>array('Product[product_type_id]'=>$model->product_type_id,
+								'Product[product_status]'=>$model->product_status,
+								'Product[product_user_id]'=>$model->product_user_id,
+								'Product[product_name]'=>$model->product_name,
+							),
 		),
 		));
 		$products=$dataProvider->data;

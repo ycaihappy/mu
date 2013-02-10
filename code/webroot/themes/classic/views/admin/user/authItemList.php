@@ -1,10 +1,18 @@
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'J_RoleList',
-	'htmlOptions'=>array('data-get-role-api'=>Yii::app()->controller->createUrl('getRoles')),
+	'htmlOptions'=>array('data-get-role-api'=>Yii::app()->controller->createUrl('getAuthItem')),
     'dataProvider'=>$dataProvider,
 	'summaryText'=>'',
+	'selectableRows'=>2,
     'columns'=>array(
+		array(
+        	'header'=>'选择',
+        	'class'=>'CCheckBoxColumn',
+        	'id'=>'name',
+        	'checkBoxHtmlOptions'=>array('name'=>'name[]',),
+        	'value'=>'$data->name',
+        ),
         array(
         	'name'=>'名称',
         	'value'=>'$data->name',
@@ -17,11 +25,15 @@
         array(            // display a column with "view", "update" and "delete" buttons
             'header'=>'操作',
         	'class'=>'CMUButtonColumn',
-        	'template'=>'{update}{assign}',
+        	'template'=>'{update}{assign}{delete}',
         	'updateButtonUrl'=>'Yii::app()->controller->createUrl("update",array("name"=>$data->name))',
+        	'deleteConfirmation'=>'是否确认删除该权限项！',
         	'buttons'=>array(
         		'assign'=>array(
-        			'options'=>array('class'=>'ico-set','data-id'=>'$data->name'),
+        			'options'=>array('class'=>'ico-set','data-id'=>'$data->name','data-acttype'=>'$data->type-1'),
+        		),
+        		'delete'=>array(
+        			'url'=>'Yii::app()->controller->createUrl("delete",array("name"=>$data->name))',
         		),
         		'update'=>array(
         			'click'=>'js:function(){

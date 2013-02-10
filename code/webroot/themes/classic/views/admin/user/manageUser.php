@@ -25,7 +25,7 @@ $this->breadcrumbs=array(
 <?php $this->endWidget(); ?>
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
-	'htmlOptions'=>array('data-get-role-api'=>Yii::app()->controller->createUrl('getRoles')),
+	'htmlOptions'=>array('data-get-role-api'=>Yii::app()->controller->createUrl('getAuthItem')),
 	'id'=>'J_RoleList',
     'dataProvider'=>$dataProvider,
 	'summaryText'=>'显示  {count} 条的第  {start}-{end} 条',
@@ -72,7 +72,7 @@ $this->breadcrumbs=array(
         	'template'=>'{update}{assignRole}',
         	'buttons'=>array(
         		'assignRole'=>array(
-        			'options'=>array('class'=>'ico-set','data-id'=>'$data->user_id','data-actType'=>'assignRoles'),
+        			'options'=>array('class'=>'ico-set','data-id'=>'$data->user_id','data-acttype'=>'2'),
         		),
        		 ),
         	'updateButtonUrl'=>'Yii::app()->controller->createUrl("updateUser",array("user_id"=>$data->user_id))',
@@ -84,7 +84,7 @@ $this->breadcrumbs=array(
 <!--m-table-list-->
 	<div class="m-role-op hide" id="J_RoleOperate" data-post-api="<?php echo Yii::app()->controller->createUrl("assign");?>">
 	<table border="0" cellpadding="0" cellspacing="0" >
-	<tr><td>未分配功能</td><td></td><td>已有功能</td></tr>
+	<tr><td>已分配角色</td><td></td><td>未分配角色</td></tr>
 	<tr>
 	<td>
 	<ul class="list-from"></ul>

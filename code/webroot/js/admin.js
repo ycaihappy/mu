@@ -16,18 +16,20 @@ $.extend(MU.mods,{
 		self.find('.ico-set').click(function(e){
 			e.preventDefault();
 			var obj = $(this),id = obj.data('id'),acttype=obj.data('acttype'); 
-			rolebox.data('id',id);
-			rolebox.data('acttype',acttype);
-			$('.list-from').listbox().reload({ data: self.data('get-role-api'), ajaxsettings: {
-                    data: { id : id, act : 'assigned' }
-                }
-            });
-			$('.list-to').listbox().reload({ data: self.data('get-role-api'), ajaxsettings: {
-                    data: { id : id, act : 'nonassigned' }
-                }
-            });
-			rolebox.dialog({width:'auto',height:'auto',title:'角色分配'});
-			
+			if(acttype>=0)
+			{
+				rolebox.data('id',id);
+				rolebox.data('acttype',acttype);
+				$('.list-from').listbox().reload({ data: self.data('get-role-api'), ajaxsettings: {
+	                    data: { id : id, act : 'assigned' ,actType:acttype}
+	                }
+	            });
+				$('.list-to').listbox().reload({ data: self.data('get-role-api'), ajaxsettings: {
+	                    data: { id : id, act : 'nonassigned' ,actType:acttype}
+	                }
+	            });
+				rolebox.dialog({width:'auto',height:'auto',title:'角色分配'});
+			}
 			
 		});
 	},
@@ -75,10 +77,12 @@ $.extend(MU.mods,{
 					ids.push(toDatas[i].value);
 			}
 			$.post(self.data('post-api'),{actType:actType,ownerid:id,ids : ids},function(re){
-				if(re) {
-					//alert(re.msg);
+				//if(re) {
+					rolebox = $('#J_RoleOperate');
+					$.fn.yiiGridView.update('J_RoleList');
+					rolebox.close();
 					//location.reload();
-				}
+				//}
 			},'json');
 			
 		});

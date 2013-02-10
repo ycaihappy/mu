@@ -76,6 +76,7 @@ class Helper {
    */
   public static function getRoleAssignedTasks($name) {
     $tasks = new CDbCriteria();
+    $tasks->select='name';
     if ($name) {
       $tasks->condition = "type=". CAuthItem::TYPE_TASK." AND parent ='" . $name . "'";
       $tasks->join = 'left join ' . Yii::app()->authManager->itemChildTable . ' on name = child';
@@ -96,6 +97,7 @@ class Helper {
    */
   public static function getRoleNotAssignedTasks($name) {
     $tasks = new CDbCriteria();
+    $tasks->select='name';
     $tasks->condition = "type=". CAuthItem::TYPE_TASK;
     $tasks->order = "name ASC";
     $final = array();
@@ -128,6 +130,7 @@ class Helper {
    */
   public static function getTaskAssignedOpers($name, $clever = false) {
     $tasks = new CDbCriteria();
+    $tasks->select='name';
     if ($name) {
       $tasks->condition = "type=". CAuthItem::TYPE_OPERATION." AND parent ='" . $name . "'";
       $tasks->join = 'left join ' . Yii::app()->authManager->itemChildTable . ' on name = child';
@@ -160,6 +163,7 @@ class Helper {
    */
   public static function getTaskNotAssignedOpers($name, $clever = false) {
     $tasks = new CDbCriteria();
+    $tasks->select='name';
     $tasks->condition = "type=". CAuthItem::TYPE_OPERATION;
     if ($clever) {
 //      $p[0] = "/Viewing/";

@@ -48,15 +48,15 @@ class UserController extends AdminController
 			try {
 				if ($model->save()) {
 					Yii::app()->admin->setFlash('updateSuccess',
-            "'" . $model->name . "' " .'created successfully');
+            "'" . $model->name . "' " .'创建成功！');
 					$model->data = unserialize($model->data);
 					$this->renderPartial('update', array('model' => $model));
 				} else {
 					$this->renderPartial('create', array('model' => $model));
 				}
 			} catch (CDbException $exc) {
-				Yii::app()->admin->setFlash('updateError', 'Error while creating'
-				. ' ' . $model->name . "<br />" .'Possible there\'s already an item with the same name');
+				Yii::app()->admin->setFlash('updateError', '创建错误：'
+				. ' ' . $model->name . "<br />" .'该权限项同名！');
 				$this->renderPartial('create', array('model' => $model));
 			}
 		} else {
@@ -78,7 +78,7 @@ class UserController extends AdminController
 			$model->attributes = $_POST['AuthItem'];
 
 			if ($model->save()) {
-				Yii::app()->user->setFlash('updateSuccess',
+				Yii::app()->admin->setFlash('updateSuccess',
 	          "'" . $model->name . "' " .'修改成功！');
 			} else {
 
@@ -92,13 +92,28 @@ class UserController extends AdminController
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete($id)
+	public function actionDelete()
 	{
-		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-		$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		if (Yii::app()->request->isAjaxRequest) {
+			$this->loadAuthItem()->delete();
+		} else {
+			throw new CHttpException(400, '无效的请求，请不要重试，立即与开发人员取得联系.');
+		}
+	}
+	public function loadAuthItem($id=null) {
+		$r_id = urldecode(Yii::app()->getRequest()->getParam("name", ""));
+		$model=new AuthItem();
+		if ($id !== null || $r_id != "")
+		{
+			$model = AuthItem::model()->findbyPk($id !== null ? $id : $r_id);
+			if($model)
+			{
+				$model->setIsNewRecord(false);
+			}
+		}
+		if ($model === null)
+		throw new CHttpException(404, '请求错误，该请求不存在！');
+		return $model;
 	}
 
 	/**
@@ -182,70 +197,95 @@ class UserController extends AdminController
 	{
 		$result=$this->_getRightItemByType(0);
 	}
-	public function actionAutoAll()
-	{
+	/*public function actionAutoAll()
+	 {
 		$controllers=$this->_getControllers();
 		if($controllers && is_array($controllers))
 		{
-			$opers=array();
-			foreach ($controllers as $controller)
-			{
-				$controllerInfo=$this->_getControllerInfo($controller);
-				$opers[$controller]=$controllerInfo[0];
-			}
+		$opers=array();
+		foreach ($controllers as $controller)
+		{
+		$controllerInfo=$this->_getControllerInfo($controller);
+		$opers[$controller]=$controllerInfo[0];
 		}
-	}
-	public function actionAutoNew()
+		}
+		}*/
+	public function actionGenerateNewRightOpers()
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
-			$selectedAddActions=Yii::app()->request->getParam('addAction',false);
-			if($selectedAddActions)
+			//$selectedAddActions=Yii::app()->request->getParam('addAction',false);
+			$selectedAddActions=@$_REQUEST['name'];
+			if(is_array($selectedAddActions) && $selectedAddActions)
 			{
+
 				foreach ($selectedAddActions as $addAction)
 				{
 					$model=new AuthItem();
 					$model->type=0;
 					$model->name=$addAction;
-					if($model->save())
-					{
-
-					}
-					else {
-
-					}
+					$model->save();
 				}
+				
+			}
+			else {
+				echo json_encode(array('message'=>'请选择要保存的功能！'));
 			}
 		}
 		else {
 			$newRightActions=$this->_getNewRightActions();
+			if($newRightActions)
+			{
+				$opers=array();
+				foreach ($newRightActions as $controllerKey=>$actions)
+				{
+					$moduleAndController=explode($this->getModule()->delimeter,$controllerKey);
+					foreach ($actions as $action)
+					{
+						$opers[]=array('module'=>$moduleAndController[0],'controller'=>$moduleAndController[1],'name'=>$action);
+					}
+				}
+			}
+			$dataProvider=new CArrayDataProvider($opers,array(
+				'keyField'=>false,
+				'pagination'=>array(
+		        'pageSize'=>10,
+			),
+			));
+			$this->render('autoGenerateOpers',array('dataProvider'=>$dataProvider));
 		}
 	}
-	public function actionAutoAddNew()
+	public function actionGenerateAllRightOpers()
 	{
+		$allRightActions=$this->_getAllRightActions();
+		echo '<pre>';
+		var_dump($allRightActions);
+	}
+	/*public function actionAutoAddNew()
+	 {
 		$controll2Action=$this->_getNewRightActions();
 		if($controll2Action && is_array($controll2Action))
 		{
-			$mergeActions=array();
-			foreach ($controll2Action as $actions)
-			{
-				$mergeActions+=$actions;
-			}
-			foreach ($mergeActions as $action)
-			{
-				$model=new AuthItem();
-				$model->type=0;
-				$model->name=$action;
-				if($model->save())
-				{
-					echo 'success|'.$action.'<br>';
-				}
-				else {
-					echo 'failed|'.$action.'<br>';
-				}
-			}
+		$mergeActions=array();
+		foreach ($controll2Action as $actions)
+		{
+		$mergeActions+=$actions;
 		}
-	}
+		foreach ($mergeActions as $action)
+		{
+		$model=new AuthItem();
+		$model->type=0;
+		$model->name=$action;
+		if($model->save())
+		{
+		echo 'success|'.$action.'<br>';
+		}
+		else {
+		echo 'failed|'.$action.'<br>';
+		}
+		}
+		}
+		}*/
 
 	private function _getAllRightActions()
 	{
@@ -357,7 +397,7 @@ class UserController extends AdminController
 	 * return array
 	 * */
 	private function _getControllerInfo($controller, $getAll = false) {
-		$del = Helper::findModule('srbac')->delimeter;
+		$del = $this->getModule()->delimeter;
 		$actions = array();
 		$allowed = array();
 		$auth = Yii::app()->authManager;
@@ -467,20 +507,38 @@ class UserController extends AdminController
 	 */
 	private function _getTheTasks() {
 		$model = new AuthItem();
-		$name = isset($_POST["AuthItem"]["name"][0]) ? $_POST["AuthItem"]["name"][0] : "";
-		$data['roleAssignedTasks'] = Helper::getRoleAssignedTasks($name);
-		$data['roleNotAssignedTasks'] = Helper::getRoleNotAssignedTasks($name);
-		if ($data['roleAssignedTasks'] == array()) {
+		$rolename = $_REQUEST['id'];
+		$act = $_REQUEST['act'];
+		if($act=='assigned')
+		{
+			$data = Helper::getRoleAssignedTasks($rolename);
+		}
+		else {
+			$data = Helper::getRoleNotAssignedTasks($rolename);
+		}
+		$returnData=array();
+		if($data)
+		{
+			foreach($data as $row)
+			{
+				$returnData[]=array('text'=>$row->name,'value'=>$row->name);
+			}
+		}
+		echo json_encode($returnData);
+		/*$name = isset($_POST["AuthItem"]["name"][0]) ? $_POST["AuthItem"]["name"][0] : "";
+		 $data['roleAssignedTasks'] = Helper::getRoleAssignedTasks($name);
+		 $data['roleNotAssignedTasks'] = Helper::getRoleNotAssignedTasks($name);
+		 if ($data['roleAssignedTasks'] == array()) {
 			$data['revoke'] = array("name" => "revokeTask", "disabled" => true);
-		} else {
+			} else {
 			$data['revoke'] = array("name" => "revokeTask");
-		}
-		if ($data['roleNotAssignedTasks'] == array()) {
+			}
+			if ($data['roleNotAssignedTasks'] == array()) {
 			$data['assign'] = array("name" => "assignTasks", "disabled" => true);
-		} else {
+			} else {
 			$data['assign'] = array("name" => "assignTasks");
-		}
-		return $data;
+			}
+			return $data;*/
 	}
 	public function actionGetOpers()
 	{
@@ -491,29 +549,49 @@ class UserController extends AdminController
 	 */
 	private function _getTheOpers() {
 		$model = new AuthItem();
-		$data['taskAssignedOpers'] = array();
-		$data['taskNotAssignedOpers'] = array();
-		$name = isset($_POST["Assignments"]["itemname"]) ?
-		$_POST["Assignments"]["itemname"] :
-		Yii::app()->getGlobalState("cleverName");
-		if (Yii::app()->getGlobalState("cleverAssigning") && $name) {
+		$taskname = $_REQUEST['id'];
+		$act = $_REQUEST['act'];
+		if($act=='assigned')
+		{
+			$data = Helper::getTaskAssignedOpers($taskname);
+		}
+		else {
+			$data = Helper::getTaskNotAssignedOpers($taskname);
+		}
+		$returnData=array();
+		if($data)
+		{
+			foreach($data as $row)
+			{
+				$returnData[]=array('text'=>$row->name,'value'=>$row->name);
+			}
+		}
+		echo json_encode($returnData);
+
+
+		/*$data['taskAssignedOpers'] = array();
+		 $data['taskNotAssignedOpers'] = array();
+		 $name = isset($_POST["Assignments"]["itemname"]) ?
+		 $_POST["Assignments"]["itemname"] :
+		 Yii::app()->getGlobalState("cleverName");
+		 if (Yii::app()->getGlobalState("cleverAssigning") && $name) {
 			$data['taskAssignedOpers'] = Helper::getTaskAssignedOpers($name, true);
 			$data['taskNotAssignedOpers'] = Helper::getTaskNotAssignedOpers($name, true);
-		} else if ($name) {
+			} else if ($name) {
 			$data['taskAssignedOpers'] = Helper::getTaskAssignedOpers($name, false);
 			$data['taskNotAssignedOpers'] = Helper::getTaskNotAssignedOpers($name, false);
-		}
-		if ($data['taskAssignedOpers'] == array()) {
+			}
+			if ($data['taskAssignedOpers'] == array()) {
 			$data['revoke'] = array("name" => "revokeOpers", "disabled" => true);
-		} else {
+			} else {
 			$data['revoke'] = array("name" => "revokeOpers");
-		}
-		if ($data['taskNotAssignedOpers'] == array()) {
+			}
+			if ($data['taskNotAssignedOpers'] == array()) {
 			$data['assign'] = array("name" => "assignOpers", "disabled" => true);
-		} else {
+			} else {
 			$data['assign'] = array("name" => "assignOpers");
-		}
-		return $data;
+			}
+			return $data;*/
 	}
 	/**
 	 * Used by Ajax to get the roles of a user when he is selected in the Assign
@@ -829,13 +907,13 @@ class UserController extends AdminController
 		$assignItems=@$_REQUEST['ids'];
 		switch ($actType)
 		{
-			case 'assignRoles':
+			case 2:
 				$this->_assignUser($owner, $assignItems);
 				break;
-			case 'assignTasks':
+			case 1:
 				$this->_assignChild($owner, $assignItems);
 				break;
-			case 'assignOpers':
+			case 0:
 				$this->_assignChild($owner, $assignItems);
 				break;
 		}
@@ -889,17 +967,23 @@ class UserController extends AdminController
 	}
 	public function actionManageAuthItem()
 	{
-		$selectedType = Yii::app()->request->getParam('selectedType', 2);
+		$model=new AuthItem();
+		$model->type=@$_REQUEST['AuthItem']['type'];
+		$model->name=@$_REQUEST['AuthItem']['name'];
 		$criteria = new CDbCriteria;
 		$criteria->order='type desc';
-		if ($selectedType != "") {
-			$criteria->condition = "type = " . $selectedType;
+		if ($model->type!==false) {
+			$criteria->compare('type', '='.$model->type);
+		}
+		if ($model->name) {
+			$criteria->addSearchCondition('name', $model->name,true);
 		}
 		$dataProvider=new CActiveDataProvider('AuthItem',array(
 			'criteria'=>$criteria,
 			'pagination'=>array(
 		        'pageSize'=>10,
 				'pageVar'=>'page',
+				'params'=>array('AuthItem[type]'=>$model->type,'AuthItem[name]'=>$model->name),
 		),
 		));
 		if(Yii::app()->request->isAjaxRequest)
@@ -907,7 +991,52 @@ class UserController extends AdminController
 			$this->renderPartial('authItemList',array('dataProvider'=>$dataProvider));
 		}
 		else{
-			$this->render('manageRole',array('dataProvider'=>$dataProvider));
+			$type=AuthItem::$TYPES;
+			$this->render('manageRole',array('dataProvider'=>$dataProvider,'model'=>$model,'type'=>$type));
+		}
+	}
+	public function actionGetAuthItem()
+	{
+		$actType=@$_REQUEST['actType'];
+		switch($actType)
+		{
+			case 2:
+				$this->_getTheRoles();
+				break;
+			case 1:
+				$this->_getTheTasks();
+				break;
+			case 0:
+				$this->_getTheOpers();
+				break;
+		}
+	}
+	/**
+	 * The auth items that access is always  allowed. Configured in srbac module's
+	 * configuration
+	 * @return The always allowed auth items
+	 */
+	protected function allowedAccess() {
+		return $this->getModule()->getAlwaysAllowed();
+	}
+	public function actionDeleteAuthItem()
+	{
+		$deleteAuthItem=@$_REQUEST['name'];
+		if($deleteAuthItem && is_array($deleteAuthItem))
+		{
+			$criteria=new CDbCriteria();
+			$criteria->addInCondition('name', $deleteAuthItem);
+			$deleteAuthItem=AuthItem::model()->findAll($criteria);
+			if($deleteAuthItem)
+			{
+				foreach ($deleteAuthItem as $authItem)
+				{
+					$authItem->delete();
+				}
+			}
+		}
+		else {
+			echo json_encode(array('message'=>'请选择你要删除的权限项目！'));
 		}
 	}
 

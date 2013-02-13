@@ -25,16 +25,6 @@ class UserController extends AdminController
 		);
 	}
 
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
 
 	/**
 	 * Creates a new model.
@@ -116,31 +106,7 @@ class UserController extends AdminController
 		return $model;
 	}
 
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('User');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
 
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new User('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['User']))
-		$model->attributes=$_GET['User'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
@@ -155,61 +121,7 @@ class UserController extends AdminController
 		return $model;
 	}
 
-	/**
-	 * Performs the AJAX validation.
-	 * @param CModel the model to be validated
-	 */
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
-	public function actionViewRoles()
-	{
-		$result=$this->_getRightItemByType(2);
 
-	}
-	private function _getRightItemByType($type=0)
-	{
-		if (!Yii::app()->request->isAjaxRequest) {
-			Yii::app()->admin->setState("currentPage", Yii::app()->request->getParam('page', 0) - 1);
-		}
-		$criteria = new CDbCriteria;
-		$criteria->condition = 'type=2';
-		$pages = new CPagination(AuthItem::model()->count($criteria));
-		$pages->route = "viewRoles";
-		$pages->pageSize = 20;
-		$pages->applyLimit($criteria);
-		$pages->setCurrentPage(Yii::app()->admin->getState('currentPage'));
-		$sort = new CSort('AuthItem');
-		$sort->applyOrder($criteria);
-		$models = AuthItem::model()->findAll($criteria);
-		return array('modles'=>$models,'sort'=>$sort,'pages'=>$pages);
-	}
-	public function actionViewTasks()
-	{
-		$result=$this->_getRightItemByType(1);
-	}
-	public function actionViewOperas()
-	{
-		$result=$this->_getRightItemByType(0);
-	}
-	/*public function actionAutoAll()
-	 {
-		$controllers=$this->_getControllers();
-		if($controllers && is_array($controllers))
-		{
-		$opers=array();
-		foreach ($controllers as $controller)
-		{
-		$controllerInfo=$this->_getControllerInfo($controller);
-		$opers[$controller]=$controllerInfo[0];
-		}
-		}
-		}*/
 	public function actionGenerateNewRightOpers()
 	{
 		if(Yii::app()->request->isPostRequest)
@@ -226,7 +138,7 @@ class UserController extends AdminController
 					$model->name=$addAction;
 					$model->save();
 				}
-				
+
 			}
 			else {
 				echo json_encode(array('message'=>'请选择要保存的功能！'));
@@ -246,6 +158,7 @@ class UserController extends AdminController
 					}
 				}
 			}
+				
 			$dataProvider=new CArrayDataProvider($opers,array(
 				'keyField'=>false,
 				'pagination'=>array(
@@ -258,34 +171,28 @@ class UserController extends AdminController
 	public function actionGenerateAllRightOpers()
 	{
 		$allRightActions=$this->_getAllRightActions();
-		echo '<pre>';
-		var_dump($allRightActions);
+		if($newRightActions)
+		{
+			$opers=array();
+			foreach ($newRightActions as $controllerKey=>$actions)
+			{
+				$moduleAndController=explode($this->getModule()->delimeter,$controllerKey);
+				foreach ($actions as $action)
+				{
+					$opers[]=array('module'=>$moduleAndController[0],'controller'=>$moduleAndController[1],'name'=>$action);
+				}
+			}
+		}
+			
+		$dataProvider=new CArrayDataProvider($opers,array(
+				'keyField'=>false,
+				'pagination'=>array(
+		        'pageSize'=>10,
+		),
+		));
+		$this->render('autoGenerateOpers',array('dataProvider'=>$dataProvider));
 	}
-	/*public function actionAutoAddNew()
-	 {
-		$controll2Action=$this->_getNewRightActions();
-		if($controll2Action && is_array($controll2Action))
-		{
-		$mergeActions=array();
-		foreach ($controll2Action as $actions)
-		{
-		$mergeActions+=$actions;
-		}
-		foreach ($mergeActions as $action)
-		{
-		$model=new AuthItem();
-		$model->type=0;
-		$model->name=$action;
-		if($model->save())
-		{
-		echo 'success|'.$action.'<br>';
-		}
-		else {
-		echo 'failed|'.$action.'<br>';
-		}
-		}
-		}
-		}*/
+	
 
 	private function _getAllRightActions()
 	{
@@ -331,8 +238,8 @@ class UserController extends AdminController
 	 * @return array The application's and modules controllers
 	 */
 	private function _getControllers() {
-		$contPath = Yii::app()->getControllerPath();
-		$controllers = $this->_scanDir($contPath);
+		//$contPath = Yii::app()->getControllerPath();
+		$controllers = array();//$this->_scanDir($contPath);
 		//Scan modules
 		$modules = Yii::app()->getModules();
 		$modControllers = array();
@@ -345,7 +252,7 @@ class UserController extends AdminController
 
 	private function _scanDir($contPath, $module="", $subdir="", $controllers = array()) {
 		$handle = opendir($contPath);
-		$del = Helper::findModule('srbac')->delimeter;
+		$del = Helper::findModule('admin')->delimeter;
 		while (($file = readdir($handle)) !== false) {
 			$filePath = $contPath . DIRECTORY_SEPARATOR . $file;
 			if (is_file($filePath)) {
@@ -363,6 +270,7 @@ class UserController extends AdminController
 		return $controllers;
 	}
 	private function _extendsSBaseController($controller) {
+
 		$c = basename(str_replace(".php", "", $controller));
 		if (!class_exists($c, false)) {
 			include_once $controller;
@@ -370,28 +278,12 @@ class UserController extends AdminController
 
 		}
 		$cont = new $c($c);
-
-		if ($cont instanceof SBaseController) {
+		if (is_a($cont,'SBaseController')) {
 			return true;
 		}
 		return false;
 	}
-	/**
-	 * Scans applications controllers and find the actions for autocreating of
-	 * authItems
-	 */
-	public function actionScan() {
-			
-		if (Yii::app()->request->getParam('module') != '') {
-			$controller = Yii::app()->request->getParam('module') .
-			Helper::findModule('admin')->delimeter
-			. Yii::app()->request->getParam('controller');
-		} else {
-			$controller = Yii::app()->request->getParam('controller');
-		}
-
-		$controllerInfo = $this->_getControllerInfo($controller);
-	}
+	
 	/**
 	 * Getting a controllers actions and also th actions that are always allowed
 	 * return array
@@ -493,14 +385,7 @@ class UserController extends AdminController
 		}
 		return array($actions, $allowed, $delete, $task);
 	}
-	/**
-	 * Used by Ajax to get the tasks of a role when it is selected in the Assign
-	 * tasks to roles tab
-	 */
-	public function actionGetTasks() {
-		$this->_setMessage("");
-		$tasks=$this->_getTheTasks();
-	}
+
 
 	/**
 	 * Gets the assigned and not assigned tasks of the selected user
@@ -521,29 +406,13 @@ class UserController extends AdminController
 		{
 			foreach($data as $row)
 			{
-				$returnData[]=array('text'=>$row->name,'value'=>$row->name);
+				$returnData[]=array('text'=>$row->zh_name,'value'=>$row->name);
 			}
 		}
 		echo json_encode($returnData);
-		/*$name = isset($_POST["AuthItem"]["name"][0]) ? $_POST["AuthItem"]["name"][0] : "";
-		 $data['roleAssignedTasks'] = Helper::getRoleAssignedTasks($name);
-		 $data['roleNotAssignedTasks'] = Helper::getRoleNotAssignedTasks($name);
-		 if ($data['roleAssignedTasks'] == array()) {
-			$data['revoke'] = array("name" => "revokeTask", "disabled" => true);
-			} else {
-			$data['revoke'] = array("name" => "revokeTask");
-			}
-			if ($data['roleNotAssignedTasks'] == array()) {
-			$data['assign'] = array("name" => "assignTasks", "disabled" => true);
-			} else {
-			$data['assign'] = array("name" => "assignTasks");
-			}
-			return $data;*/
+
 	}
-	public function actionGetOpers()
-	{
-		$opers=$this->_getTheOpers();
-	}
+
 	/**
 	 * Gets the assigned and not assigned operations of the selected user
 	 */
@@ -567,39 +436,6 @@ class UserController extends AdminController
 			}
 		}
 		echo json_encode($returnData);
-
-
-		/*$data['taskAssignedOpers'] = array();
-		 $data['taskNotAssignedOpers'] = array();
-		 $name = isset($_POST["Assignments"]["itemname"]) ?
-		 $_POST["Assignments"]["itemname"] :
-		 Yii::app()->getGlobalState("cleverName");
-		 if (Yii::app()->getGlobalState("cleverAssigning") && $name) {
-			$data['taskAssignedOpers'] = Helper::getTaskAssignedOpers($name, true);
-			$data['taskNotAssignedOpers'] = Helper::getTaskNotAssignedOpers($name, true);
-			} else if ($name) {
-			$data['taskAssignedOpers'] = Helper::getTaskAssignedOpers($name, false);
-			$data['taskNotAssignedOpers'] = Helper::getTaskNotAssignedOpers($name, false);
-			}
-			if ($data['taskAssignedOpers'] == array()) {
-			$data['revoke'] = array("name" => "revokeOpers", "disabled" => true);
-			} else {
-			$data['revoke'] = array("name" => "revokeOpers");
-			}
-			if ($data['taskNotAssignedOpers'] == array()) {
-			$data['assign'] = array("name" => "assignOpers", "disabled" => true);
-			} else {
-			$data['assign'] = array("name" => "assignOpers");
-			}
-			return $data;*/
-	}
-	/**
-	 * Used by Ajax to get the roles of a user when he is selected in the Assign
-	 * roles to user tab
-	 */
-	public function actionGetRoles() {
-		$this->_setMessage("");
-		$roles=$this->_getTheRoles();
 	}
 
 	/**
@@ -621,82 +457,31 @@ class UserController extends AdminController
 		{
 			foreach($data as $row)
 			{
-				$returnData[]=array('text'=>$row->name,'value'=>$row->name);
+				$returnData[]=array('text'=>$row->zh_name,'value'=>$row->name);
 			}
 		}
-		/*if ($data['userAssignedRoles'] == array()) {
-			$data['revoke'] = array("name" => "revokeUser", "disabled" => true);
-			} else {
-			$data['revoke'] = array("name" => "revokeUser");
-			}
-			if ($data['userNotAssignedRoles'] == array()) {
-			$data['assign'] = array("name" => "assignUser", "disabled" => true);
-			} else {
-			$data['assign'] = array("name" => "assignUser");
-			}*/
 		echo json_encode($returnData);
 	}
-	/**
-	 * Creates a role .
-	 * If creation is successful, the browser will be redirected to the 'show' page.
-	 */
-	public function actionCreateRole() {
-		$this->_createAuthItem(2);
-	}
-	/**
-	 * Creates a task .
-	 * If creation is successful, the browser will be redirected to the 'show' page.
-	 */
-	public function actionCreateTask() {
-		$this->_createAuthItem(1);
-	}
-	/**
-	 * Creates a operation .
-	 * If creation is successful, the browser will be redirected to the 'show' page.
-	 */
-	public function actionCreateOper() {
-		$this->_createAuthItem(0);
-	}
-
-	private function _createAuthItem($type=0)
-	{
-		$model = new AuthItem;
-		$model->type=$type;
-		if (isset($_POST['AuthItem'])) {
-			$model->attributes = $_POST['AuthItem'];
-			try {
-				if ($model->save()) {
-					Yii::app()->admin->setFlash('updateSuccess',
-            "'" . $model->name . "' " .
-					Helper::translate('srbac', 'created successfully'));
-					$model->data = unserialize($model->data);
-					//redirect to success page
-				} else {
-					//redirect to create page
-				}
-			} catch (CDbException $exc) {
-				Yii::app()->admin->setFlash('updateError',
-				Helper::translate('srbac', 'Error while creating')
-				. ' ' . $model->name . "<br />" .
-				Helper::translate('srbac', 'Possible there\'s already an item with the same name'));
-				//redirect to create page
-			}
-		} else {
-			//redirect to create page
-		}
-	}
+	
 
 	/**
 	 * Assigns child items to a parent item
 	 * @param String $parent The parent item
 	 * @param String $children The child items
 	 */
-	private function _assignChild($parent, $children) {
+	private function _assignChild($parent, $children,$deleteold=true) {
 		if ($parent) {
 			$auth = Yii::app()->authManager;
-			/* @var $auth CDbAuthManager */
-			foreach ($children as $child) {
-				$auth->addItemChild($parent, $child);
+			if($deleteold)
+			{
+				$this->_revokeAllChild($parent);
+			}
+			if($children)
+			{
+				/* @var $auth CDbAuthManager */
+				foreach ($children as $child) {
+					$auth->addItemChild($parent, $child);
+				}
 			}
 		}
 	}
@@ -715,6 +500,18 @@ class UserController extends AdminController
 			}
 		}
 	}
+	private function _revokeAllChild($parent)
+	{
+		if($parent)
+		{
+			$auth = Yii::app()->authManager;
+			return Yii::app()->db->createCommand()
+			->delete(Yii::app()->authManager->itemChildTable, 'parent=:parent', array(
+				':parent'=>$parent,
+			)) >= 0;
+		}
+		return false;
+	}
 	/**
 	 * Assigns roles to a user
 	 *
@@ -723,14 +520,18 @@ class UserController extends AdminController
 	 * @param String $bizRules Not used yet
 	 * @param String $data Not used yet
 	 */
-	private function _assignUser($userid, $roles, $bizRules='', $data='') {
+	private function _assignUser($userid, $roles,$deleteold=true) {
 		if ($userid) {
 			$auth = Yii::app()->authManager;
-			if($this->_revokeAllRoles($userid))
+			if($deleteold)
 			{
 				/* @var $auth CDbAuthManager */
+				$this->_revokeAllRoles($userid);
+			}
+			if($roles)
+			{
 				foreach ($roles as $role) {
-					$auth->assign($role, $userid, $bizRules, $data);
+					$auth->assign($role, $userid);
 				}
 			}
 		}
@@ -813,7 +614,7 @@ class UserController extends AdminController
 			}
 		}
 		$userStatus=Term::getTermsByGroupId(1);
-		$this->render('manageUser',array('dataProvider'=>$dataProvider,'model'=>$model,'userStatus'=>$userStatus));
+		$this->render('manageUser',array('dataProvider'=>$dataProvider,'model'=>$model,'userStatus'=>$userStatus,'adminUser'=>!$userType));
 	}
 	public function actionUpdateUser()
 	{
@@ -838,6 +639,28 @@ class UserController extends AdminController
 			$this->redirect(array('manageUser'));
 		}
 			
+	}
+	public function actionUpdateAdminUser()
+	{
+		$model=new User();
+		$model->user_type=0;
+		if(isset($_POST['User']))
+		{
+			$model->attributes=$_POST['User'];
+			if($model->save())
+			{
+				$this->redirect(array('manageAdminUser'));
+			}
+		}
+		else {
+			if($userId=@$_GET['user_id'])
+			{
+				$model=$model->findByPk($userId);
+			}
+		}
+		$allCity=City::getAllCity();
+		$userStatus=Term::getTermsByGroupId(1);
+		$this->render('updateAdminUser',array('model'=>$model,'userStatus'=>$userStatus,'allCity'=>$allCity));
 	}
 	private function _loadCurrentUser($userId)
 	{

@@ -24,6 +24,8 @@
  */
 class User extends CActiveRecord
 {
+	
+	public $comfirmPwd;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -57,11 +59,18 @@ class User extends CActiveRecord
 			array('user_email', 'length', 'max'=>100),
 			array('user_nickname, user_point', 'length', 'max'=>20),
 			array('user_mobile_no', 'length', 'max'=>30),
+			array('comfirmPwd','compare','compareAttribute'=>'user_pwd'),
 			array('user_join_date, user_confirm_date,user_status, user_last_login_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('user_id, user_name, user_pwd, user_email, user_nickname, user_type, user_mobile_no, user_first_name, user_last_name, user_status, user_province_id, user_city_id, user_subscribe, user_point, user_join_date, user_confirm_date, user_last_login_date', 'safe', ),
 		);
+	}
+	public function beforeSave()
+	{
+		$valid=parent::beforeSave();
+		$valid=$valid&&$this->getIsNewRecord()&&$this->user_pwd==md5($this->comfirmPwd);
+		return $valid;
 	}
 	public function scopes()
 	{

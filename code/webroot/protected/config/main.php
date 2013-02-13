@@ -38,9 +38,11 @@ return array(
 		'admin'=>array(
 				'alwaysAllowedPath'=>'application.components',
 				'alwaysAllowed'=>array(),
+				'debug'=>false,
+				'notAuthorizedView'=>'unauthorized',
 		),
 		'uehome',
-		'srbac' => array(
+		/*'srbac' => array(
 		        'userclass'=>'User',
 		        'userid'=>'user_id',
 		        'username'=>'user_name',
@@ -61,7 +63,7 @@ return array(
 		        'showHeader'=>true,
 		        'showFooter'=>true,
 		        'alwaysAllowedPath'=>'srbac.components',
-		    ),
+		    ),*/
 		
 	),
 

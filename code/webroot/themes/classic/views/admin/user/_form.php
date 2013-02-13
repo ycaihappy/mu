@@ -28,11 +28,16 @@
     <label>名称<span class="required">**</span>：</label>
     <?php echo SHtml::activeTextField($model,'name',array('size'=>20)); ?>
   </div>
+  
   <div class="simple">
     <label>类别<span class="required">**</span>：</label>
     <?php echo SHtml::activeDropDownList($model,'type',AuthItem::$TYPES,
    $update
     ? array('disabled'=>"disabled"): array()); ?>
+  </div>
+  <div class="simple">
+    <label>中文名称<span class="required">**</span>：</label>
+    <?php echo SHtml::activeTextField($model,'zh_name',array('size'=>20)); ?>
   </div>
   <div class="simple">
     <label>描述：</label>
@@ -96,4 +101,3 @@
   <?php echo SHtml::endForm(); ?>
 
 </div><!-- srbacForm -->
-

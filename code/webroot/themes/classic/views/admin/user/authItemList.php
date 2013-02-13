@@ -18,6 +18,10 @@
         	'value'=>'$data->name',
         ),  // display the 'name' attribute of the 'category' relation
         array(
+        	'name'=>'中文名称',
+        	'value'=>'$data->zh_name',
+        ),  // display the 'name' attribute of the 'category' relation
+        array(
         	'name'=>'类别',
         	'value'=>'AuthItem::$TYPES[$data->type]',
         	

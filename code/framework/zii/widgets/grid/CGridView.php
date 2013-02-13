@@ -86,6 +86,7 @@ class CGridView extends CBaseListView
 	const FILTER_POS_HEADER='header';
 	const FILTER_POS_FOOTER='footer';
 	const FILTER_POS_BODY='body';
+	public $emptyText='没有任何记录';
 
 	private $_formatter;
 	/**

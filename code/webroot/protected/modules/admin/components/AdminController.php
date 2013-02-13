@@ -1,5 +1,5 @@
 <?php
-class AdminController extends CController {
+class AdminController extends SBaseController {
 
 	/**
 	 * @var string the default layout for the controller view. Defaults to '//layouts/column1',

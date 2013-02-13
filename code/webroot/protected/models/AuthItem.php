@@ -59,6 +59,7 @@ class AuthItem extends CActiveRecord {
     return array(
     array('name','length','max'=>64),
     array('name, type', 'required'),
+    array('zh_name','length','max'=>128),
     array('type', 'numerical', 'integerOnly'=>true),
     array('name,type,description,bizrule,data','safe'),
     );

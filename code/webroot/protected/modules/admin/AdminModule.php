@@ -4,7 +4,9 @@ class AdminModule extends CWebModule
 {
 	private $_alwaysAllowed = array();
 	public $delimeter = "-";
+	public $debug=false;
 	public $alwaysAllowedPath = "application.components";
+	public $notAuthorizedView='';
 	public function init()
 	{
 	 // this method is called when the module is being created

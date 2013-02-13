@@ -53,4 +53,8 @@ border: 1px #FFFFFF solid;
 .g-button-submit{ width:50px; cursor:pointer;height:30px; background:#478AF8; border:none; color:#fff; font-weight: bold; margin-top:15px; margin-bottom:10px;}
 .g-button-submit:hover{color:#ccc;}
 .showError{color:red; line-height:20px;}
+div.errorMessage{
+	font-style:italic;
+	color:red;
+}
 /*login end*/

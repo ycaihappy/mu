@@ -28,7 +28,6 @@ class SBaseController extends CController {
    * @return boolean true if access is granted else false
    */
   protected function beforeAction($action) {
-  	return true;
     $del = Helper::findModule('admin')->delimeter;
     
     //srbac access
@@ -44,21 +43,12 @@ class SBaseController extends CController {
       $controller = ucfirst($controller);
     }
     $access = $mod . $controller . ucfirst($this->action->id);
-   
-
     //Always allow access if $access is in the allowedAccess array
     if (in_array($access, $this->allowedAccess())) {
       return true;
     }
-//   
-//    
-    //Allow access if srbac is not installed yet
-    if (!Yii::app()->getModule('srbac')->isInstalled()) {
-      return true;
-    }
-   
-    //Allow access when srbac is in debug mode
-    if (Yii::app()->getModule('srbac')->debug) {
+
+    if (Yii::app()->getModule('admin')->debug) {
       return true;
     }
     
@@ -91,13 +81,13 @@ class SBaseController extends CController {
       $mod = $this->module !== null ? $this->module->id : "";
       $access = $mod . ucfirst($this->id) . ucfirst($this->action->id);
       $error["code"] = "403";
-      $error["title"] = Helper::translate('srbac', 'You are not authorized for this action');
-      $error["message"] = Helper::translate('srbac', 'Error while trying to access') . ' ' . $mod . "/" . $this->id . "/" . $this->action->id . ".";
+      $error["title"] = '该请求没有通过认证';
+      $error["message"] = '访问请求：' . ' ' . $mod . "/" . $this->id . "/" . $this->action->id . " 时报错.";
       //You may change the view for unauthorized access
       if (Yii::app()->request->isAjaxRequest) {
-        $this->renderPartial(Yii::app()->getModule('srbac')->notAuthorizedView, array("error" => $error));
+        $this->renderPartial(Yii::app()->getModule('admin')->notAuthorizedView, array("error" => $error));
       } else {
-        $this->render(Yii::app()->getModule('srbac')->notAuthorizedView, array("error" => $error));
+        $this->render(Yii::app()->getModule('admin')->notAuthorizedView, array("error" => $error));
       }
       return false;
     }

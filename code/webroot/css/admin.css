@@ -111,4 +111,7 @@ div.srbacLoading {
 div.srbacLoading * {
   opacity: .2;
 }
-
+div.errorMessage{
+	font-style:italic;
+	color:red;
+}

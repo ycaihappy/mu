@@ -25,7 +25,7 @@ class Helper {
    */
   public static function getUserAssignedRoles($userid) {
     $assigned = new CDbCriteria();
-    $assigned->select='name';
+    $assigned->select='name,zh_name';
     $assigned->join = 'LEFT JOIN ' . Assignments::model()->tableName() . ' a ON name = a.itemname';
     if ($userid) {
       $assigned->condition = "type = ". CAuthItem::TYPE_ROLE ." AND userid= '" . $userid . "'";
@@ -45,7 +45,7 @@ class Helper {
    */
   public static function getUserNotAssignedRoles($userid) {
     $roles = new CDbCriteria();
-    $roles->select='name';
+    $roles->select='name,zh_name';
     $roles->condition = "type=". CAuthItem::TYPE_ROLE;
     $roles->order = "name ASC";
     $final = array();
@@ -76,7 +76,7 @@ class Helper {
    */
   public static function getRoleAssignedTasks($name) {
     $tasks = new CDbCriteria();
-    $tasks->select='name';
+    $tasks->select='name,zh_name';
     if ($name) {
       $tasks->condition = "type=". CAuthItem::TYPE_TASK." AND parent ='" . $name . "'";
       $tasks->join = 'left join ' . Yii::app()->authManager->itemChildTable . ' on name = child';
@@ -97,7 +97,7 @@ class Helper {
    */
   public static function getRoleNotAssignedTasks($name) {
     $tasks = new CDbCriteria();
-    $tasks->select='name';
+    $tasks->select='name,zh_name';
     $tasks->condition = "type=". CAuthItem::TYPE_TASK;
     $tasks->order = "name ASC";
     $final = array();

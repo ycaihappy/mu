@@ -23,7 +23,7 @@ class UserIdentity extends CUserIdentity
         $this->errorCode=self::ERROR_PASSWORD_INVALID;
         $criteria=new CDbCriteria;
 		$criteria->select='user_id,user_pwd,user_name';  // 只选择 'title' 列
-		$criteria->condition='user_name=:username';
+		$criteria->condition='user_name=:username and user_type=0';
 		$criteria->params=array(':username'=>$this->username);
         $user=User::model()->find($criteria);
 		if ($user)

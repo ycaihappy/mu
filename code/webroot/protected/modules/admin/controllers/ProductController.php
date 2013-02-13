@@ -2,7 +2,8 @@
 class ProductController extends AdminController {
 
 	private $cityCache;
-	public function __construct($id,$module)
+	
+	public function __construct($id,$module=null)
 	{
 		parent::__construct($id,$module);
 		$this->cityCache=CCacheHelper::getAllCity();

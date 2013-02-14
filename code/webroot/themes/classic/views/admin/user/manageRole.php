@@ -83,7 +83,7 @@ echo SHtml::ajaxSubmitButton(
 
 	<div class="m-role-op hide" id="J_RoleOperate" data-post-api="<?php echo Yii::app()->controller->createUrl("assign");?>">
 	<table border="0" cellpadding="0" cellspacing="0" >
-	<tr><td>未分配<span class="title">功能</span></td><td></td><td>已有<span class="title">功能</span></td></tr>
+	<tr><td>已分配<span class="title">功能</span></td><td></td><td>未分配<span class="title">功能</span></td></tr>
 	<tr>
 	<td>
 	<ul class="list-from"></ul>

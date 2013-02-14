@@ -22,7 +22,8 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.widgets.*',
-		'application.extensions.*',
+		'application.extensions.ckeditor.*',
+	    'application.extensions.yii-mail.*', 
 		//'packages.solr.*',
 	),
 
@@ -37,9 +38,9 @@ return array(
 		),
 		'admin'=>array(
 				'alwaysAllowedPath'=>'application.components',
-				'alwaysAllowed'=>array(),
+				'alwaysAllowed'=>array('admin-SiteLogin','admin-SiteIndex'),
 				'debug'=>false,
-				'notAuthorizedView'=>'unauthorized',
+				'notAuthorizedView'=>'/site/unauthorized',
 		),
 		'uehome',
 		/*'srbac' => array(
@@ -100,6 +101,12 @@ return array(
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),*/
+		'mail'=>array(
+			'class'=>'application.extensions.yii-mail.YiiMail',
+			'transportType'=>'smtp',
+			'viewPath'=>'application.views.mail',
+			'dryRun'=>false,
+		),
 		'request'=>array(
 			//'enableCsrfValidation'=>true,
 			'csrfTokenName'=>'MU_CSRF_TOKEN',

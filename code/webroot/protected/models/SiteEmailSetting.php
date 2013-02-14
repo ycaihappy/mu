@@ -17,7 +17,7 @@ class SiteEmailSetting extends CJsonModel {
 		
 		return array(
 			array('smtpServer,smtpPort,sendorEmail,sendorName','required'),
-			array('sendorEmail','email','message'=>'发送邮箱格式不正确'),
+			array('sendorEmail,testEmail','email','message'=>'发送邮箱格式不正确'),
 			array('smtpPort','numerical','message'=>'端口必须是数字'),
 		);
 		

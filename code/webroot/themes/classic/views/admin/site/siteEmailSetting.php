@@ -22,7 +22,7 @@ $this->breadcrumbs=array(
 
 <tr>
 <td class="label">SMTP服务器端口：</td>
-		<td><?php echo $form->textField($model,'smtpPort',array('class'=>'cmp-input')); ?>
+		<td><?php echo $form->numberField($model,'smtpPort',array('class'=>'cmp-input')); ?>
 		<?php echo $form->error($model,'smtpPort'); ?>
 </tr>
 <tr>
@@ -32,7 +32,7 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">发信人邮箱地址：</td>
-		<td><?php echo $form->textField($model,'sendorEmail'); ?>
+		<td><?php echo $form->emailField($model,'sendorEmail'); ?>
 		<?php echo $form->error($model,'sendorEmail'); ?></td>
 </tr>
 <tr>
@@ -52,13 +52,41 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">SMTP身份验证  密码：</td>
-		<td><?php echo $form->textField($model,'smtpPassword'); ?>
+		<td><?php echo $form->passwordField($model,'smtpPassword'); ?>
 		<?php echo $form->error($model,'smtpPassword'); ?></td>
 </tr>
 <tr>
 <td class="label">测试电子邮箱：</td>
-		<td><?php echo $form->textField($model,'testEmail'); ?>
-		<?php echo $form->error($model,'testEmail'); ?></td>
+		<td><?php echo $form->emailField($model,'testEmail').'&nbsp;'; 
+		$this->widget('zii.widgets.jui.CJuiButton',
+			array(
+				'name'=>'sendButton',
+				'caption'=>'发送测试邮件',
+				'value'=>'asd',
+				'cssFile'=>'jquery.ui.css',
+				'onclick'=>'js:function(){
+				    var toEmail=$("#SiteEmailSetting_testEmail").val();
+				    if($("#SiteEmailSetting_testEmail_em_").css("display")!="none")
+				    {
+				    	alert($("#SiteEmailSetting_testEmail_em_").text());
+				    }
+				    $.ajax({
+				    				url:"'.Yii::app()->controller->createUrl("sendTestEmail").'",
+		        					type:"POST",
+		        					dataType:"json",
+		        					data:{toEmail:toEmail},
+		        					success:function(html){
+		        						alert(html.message);
+		        					},
+		        					
+		        				});
+					return false;
+				}',
+				)
+		);
+		?>
+		<?php echo $form->error($model,'testEmail'); ?>
+		</td>
 </tr>
 <tr>
 <td align='right' colspan=2><?php echo CHtml::submitButton('保存'); ?></td>

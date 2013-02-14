@@ -4,7 +4,30 @@ $this->breadcrumbs=array(
 	'基本类别管理',
 );
 ?>
-<?php echo CHtml::button('添加类别',array('class'=>'btn-blue','onclick'=>'window.location.href="'.Yii::app()->controller->createUrl("updateTerm").'"'))?>
+<?php 
+$this->widget('zii.widgets.jui.CJuiButton',
+		array(
+			'name'=>'addTerm',
+				'caption'=>'添加字典数据',
+			'value'=>'asd',
+			'cssFile'=>'jquery.ui.css',
+			'onclick'=>'js:function(){
+			    location.href="'.Yii::app()->controller->createUrl("updateTerm").'";
+			}',
+			)
+	);
+$this->widget('zii.widgets.jui.CJuiButton',
+		array(
+			'name'=>'manageTermGroup',
+				'caption'=>'管理字典分类',
+			'value'=>'asd',
+			'cssFile'=>'jquery.ui.css',
+			'onclick'=>'js:function(){
+			    location.href="'.Yii::app()->controller->createUrl("manageTermGroup").'";
+			}',
+			)
+	);	
+?>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',
 	'enableClientValidation'=>true,

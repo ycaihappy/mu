@@ -103,6 +103,16 @@ class YiiMail extends CApplicationComponent
 	* Calls the {@link registerScripts()} method.
 	*/
 	public function init() {
+		$emailSetting=new SiteEmailSetting();
+		$emailSetting->LoadData();
+		$this->transportOptions['host']=$emailSetting->smtpServer;
+		if($emailSetting->smtpRequireAuth==1)
+		{
+			$this->transportOptions['username']=$emailSetting->smtpUsername;
+			$this->transportOptions['password']=$emailSetting->smtpPassword;
+			$this->transportOptions['port']=$emailSetting->smtpPort;
+			$this->transportOptions['encryption']=$emailSetting->smtpAuthMethod;
+		}
 		$this->registerScripts();
 		parent::init();	
 	}

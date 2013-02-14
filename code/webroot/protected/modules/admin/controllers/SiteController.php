@@ -235,6 +235,43 @@ class SiteController extends AdminController {
 			$this->render ( 'basicSiteInfo', array ('model' => $basicSiteInfoModel ) );
 		}
 	}
+	public function actionSendTestEmail()
+	{
+		$result=array();
+		if($toEmail=@$_REQUEST['toEmail'])
+		{
+			$emailValidator=new CEmailValidator();
+			if($emailValidator->validateValue($toEmail))
+			{
+				$emailSetting=new SiteEmailSetting();
+				$emailSetting->LoadData();
+				$message = new YiiMailMessage;
+			    $message->From = $emailSetting->sendorEmail;    // 送信人  
+			    $message->addTo($toEmail);               // 收信人  
+			    $message->setSubject("testTitle");  
+			    $message->view = 'testTemplate';      // 邮件模板的文件名(不带后缀PHP)  
+			    $message->setBody(  
+			        array('email'=>$toEmail, 'password' => '123456'),  // 传递到模板文件中的参数  
+			        'text/html',                 // 邮件格式  
+			        'utf-8'                      // 邮件编码  
+			        );  
+			      
+			    if(Yii::app()->mail->send($message)){  
+			        $result['message']='测试邮件发送成功！';
+			    } 
+			    else {
+			    	$result['message']='测试邮件发送失败！请检查邮件配置是否正确';
+			    }
+			}
+			else {
+				$result['message']='输入测试邮箱地址格式不正确';
+			}
+		}
+		else {
+			$result['message']='请输入测试邮箱地址';
+		}
+		echo json_encode($result);
+	}
 	public function actionManageSiteEmailSetting() {
 		$siteEmailSettingModel = new SiteEmailSetting ();
 		if (isset ( $_POST ['SiteEmailSetting'] )) {

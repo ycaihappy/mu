@@ -33,7 +33,12 @@ class ArticleController extends AdminController {
 		$articleCriteria->with=array('createUser'=>array('select'=>'user_name'),'status'=>array('select'=>'term_name'));
 		$articleDataProvider=new CActiveDataProvider('Article',array(
 			'criteria'=>$articleCriteria,
-			'pagination'=>array('pageSize'=>10,'pageVar'=>'page',),
+			'pagination'=>array('pageSize'=>10,'pageVar'=>'page','params'=>array('Article[art_title]'=>$model->art_title,
+					'Article[art_status]'=>$model->art_status,
+					'Article[art_category_id]'=>$type,
+					
+				),),
+			
 			'sort'=>array('defaultOrder'=> array('art_create_time'=>CSort::SORT_DESC), ),
 		));
 		$artStatus=Term::getTermsByGroupId(1);

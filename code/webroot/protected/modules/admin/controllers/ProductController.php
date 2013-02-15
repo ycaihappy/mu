@@ -102,13 +102,13 @@ class ProductController extends AdminController {
 		$this->redirect(array($redirectAction,'page'=>Yii::app()->request->getParam('page',1)));
 
 	}
-	function actionChangeSupplyStatus()
+	public function actionChangeSupplyStatus()
 	{
 
 		$this->_actionChangeSupplyStatus('manageSupply');
 
 	}
-	function actionChangeBuyStatus()
+	public function actionChangeBuyStatus()
 	{
 		$this->_actionChangeSupplyStatus('manageBuy');
 	}
@@ -236,6 +236,11 @@ class ProductController extends AdminController {
 			'pagination'=>array(
 		        'pageSize'=>10,
 				'pageVar'=>'page',
+				'params'=>array('Supply[supply_category_id]'=>$model->supply_category_id,
+								'Supply[supply_status]'=>$model->supply_status,
+								'Supply[supply_user_id]'=>$model->supply_user_id,
+								'Supply[supply_name]'=>$model->supply_name,
+							),
 		),
 		));
 		$supplys=$dataProvider->data;
@@ -356,6 +361,11 @@ class ProductController extends AdminController {
 			'pagination'=>array(
 		        'pageSize'=>10,
 				'pageVar'=>'page',
+				'params'=>array('Enterprise[ent_type]'=>$model->ent_type,
+						'Enterprise[ent_status]'=>$model->ent_status,
+						'Enterprise[ent_business_model]'=>$model->ent_business_model,
+						'Enterprise[ent_name]'=>$model->ent_name,
+					),
 		),
 		));
 		$enterprises=$dataProvider->data;

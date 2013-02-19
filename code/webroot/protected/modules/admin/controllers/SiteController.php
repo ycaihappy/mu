@@ -272,6 +272,40 @@ class SiteController extends AdminController {
 		}
 		echo json_encode($result);
 	}
+	public function actionSaveTermGroup()
+	{
+		$model=new TermGroup();
+		if(isset($_REQUEST['TermGroup']))
+		{
+			$model->attributes=$_REQUEST['TermGroup'];
+			$isNew=$model->group_id?false:true;
+			$model->setIsNewRecord($isNew);
+			if($model->save())
+			{
+				Yii::app()->admin->setFlash('updateSuccess',($isNew?'创建 ':'修改 ').$model->group_name.' 成功！');
+				$this->renderPartial('update',array('model'=>$model));
+			}
+			else {
+				Yii::app()->admin->setFlash('updateError',($isNew?'创建 ':'修改 ').$model->group_name.' 失败！');
+				$this->renderPartial($isNew?'create':'update',array('model'=>$model));
+			}
+		}
+		else {
+			if($termGroupId=$_GET['group_id'])
+			{
+				$model=$model->findByPk($termGroupId);
+				$this->renderPartial('update',array('model'=>$model));
+			}
+			else {
+				$this->renderPartial('create',array('model'=>$model));
+			}
+		}
+	}
+	public function actionManageTermGroup()
+	{
+		$dataProvider = new CActiveDataProvider ( 'TermGroup', array ( 'pagination' => array ('pageSize' => 10, 'pageVar' => 'page' ) ) );
+		$this->render('manageTermGroup',array('dataProvider'=>$dataProvider));
+	}
 	public function actionManageSiteEmailSetting() {
 		$siteEmailSettingModel = new SiteEmailSetting ();
 		if (isset ( $_POST ['SiteEmailSetting'] )) {

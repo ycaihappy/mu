@@ -322,4 +322,24 @@ class SiteController extends AdminController {
 			$this->render ( 'siteEmailSetting', array ('model' => $siteEmailSettingModel ) );
 		}
 	}
+	public function actionManageSMSSetting() {
+		$smsSettingModel = new SMSSetting ();
+		if (isset ( $_POST ['SMSSetting'] )) {
+			$smsSettingModel->attributes = $_POST ['SMSSetting'];
+			if ($smsSettingModel->validate ()) {
+				$smsSettingModel->save ();
+				$this->render ( 'smsSetting', array ('model' => $smsSettingModel ) );
+			} else {
+				Yii::app ()->admin->setFlash ( 'erroInfo', '输入的字段不合法，保存失败' );
+				$this->render ( 'smsSetting', array ('model' => $smsSettingModel ) );
+			}
+		} else {
+			$smsSettingModel = $smsSettingModel->LoadData ();
+			if(empty($smsSettingModel->system))
+			{
+				$smsSettingModel->system=PHP_OS;
+			}
+			$this->render ( 'smsSetting', array ('model' => $smsSettingModel ) );
+		}
+	}
 }

@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-02-20 08:31:34
+# Date/time:                    2013-02-21 01:10:03
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -412,6 +412,25 @@ DELETE FROM `mu_func`;
 /*!40000 ALTER TABLE `mu_func` ENABLE KEYS */;
 
 
+# Dumping structure for table mu.mu_image_library
+DROP TABLE IF EXISTS `mu_image_library`;
+CREATE TABLE IF NOT EXISTS `mu_image_library` (
+  `image_id` int(10) NOT NULL AUTO_INCREMENT,
+  `image_title` varchar(128) NOT NULL DEFAULT '0',
+  `image_src` varchar(256) NOT NULL DEFAULT '0',
+  `image_status` int(11) NOT NULL DEFAULT '0' COMMENT '是否启用',
+  `image_used_type` int(11) NOT NULL DEFAULT '0' COMMENT '图片被使用的分类',
+  `image_added_by` int(11) NOT NULL DEFAULT '0' COMMENT '图片添加人',
+  `image_added_time` datetime NOT NULL COMMENT '图片添加时间',
+  PRIMARY KEY (`image_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='图片库';
+
+# Dumping data for table mu.mu_image_library: ~0 rows (approximately)
+DELETE FROM `mu_image_library`;
+/*!40000 ALTER TABLE `mu_image_library` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mu_image_library` ENABLE KEYS */;
+
+
 # Dumping structure for table mu.mu_point_rule
 DROP TABLE IF EXISTS `mu_point_rule`;
 CREATE TABLE IF NOT EXISTS `mu_point_rule` (
@@ -730,7 +749,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_item` (
   PRIMARY KEY (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_right_item: 73 rows
+# Dumping data for table mu.mu_right_item: 75 rows
 DELETE FROM `mu_right_item`;
 /*!40000 ALTER TABLE `mu_right_item` DISABLE KEYS */;
 INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`, `data`) VALUES
@@ -806,7 +825,9 @@ INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`
 	('admin-SiteSaveTermGroup', 0, NULL, NULL, NULL, 'N;'),
 	('admin-SiteManageTermGroup', 0, NULL, NULL, NULL, 'N;'),
 	('admin-SiteManageSMSSetting', 0, NULL, NULL, NULL, 'N;'),
-	('smsSetting', 1, '短信设置', '', '', 's:0:"";');
+	('smsSetting', 1, '短信设置', '', '', 's:0:"";'),
+	('admin-ArticleManageImageLibary', 0, NULL, NULL, NULL, 'N;'),
+	('admin-ArticleUpdateImageLibary', 0, NULL, NULL, NULL, 'N;');
 /*!40000 ALTER TABLE `mu_right_item` ENABLE KEYS */;
 
 
@@ -818,7 +839,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_itemchildren` (
   PRIMARY KEY (`parent`,`child`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_right_itemchildren: 83 rows
+# Dumping data for table mu.mu_right_itemchildren: 85 rows
 DELETE FROM `mu_right_itemchildren`;
 /*!40000 ALTER TABLE `mu_right_itemchildren` DISABLE KEYS */;
 INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
@@ -840,8 +861,10 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('enterpriseManage', 'admin-ProductManageEnterprise'),
 	('enterpriseManage', 'admin-ProductUpdateEnterprise'),
 	('newsManage', 'admin-ArticleChangeNewsStatus'),
+	('newsManage', 'admin-ArticleManageImageLibary'),
 	('newsManage', 'admin-ArticleManageNews'),
 	('newsManage', 'admin-ArticleUpdateArticle'),
+	('newsManage', 'admin-ArticleUpdateImageLibary'),
 	('operatorsManage', 'admin-UserGenerateAllRightOpers'),
 	('operatorsManage', 'admin-UserGenerateNewRightOpers'),
 	('priceManage', 'admin-ArticleChangePriceStatus'),
@@ -1258,9 +1281,9 @@ CREATE TABLE IF NOT EXISTS `mu_term` (
   `term_order` int(4) DEFAULT '0',
   `term_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`term_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_term: 27 rows
+# Dumping data for table mu.mu_term: 32 rows
 DELETE FROM `mu_term`;
 /*!40000 ALTER TABLE `mu_term` DISABLE KEYS */;
 INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES
@@ -1290,7 +1313,12 @@ INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `t
 	(24, 0, '企业信息', NULL, 12, 0, NULL),
 	(25, 0, '首页flash左1', NULL, 13, 0, '2013-01-31 23:55:27'),
 	(26, 0, '首页flash下1', NULL, 13, 0, '2013-01-31 23:56:02'),
-	(27, 0, '首页中2', NULL, 13, 0, '2013-02-01 00:00:27');
+	(27, 0, '首页中2', NULL, 13, 0, '2013-02-01 00:00:27'),
+	(28, 0, '钼初级', '', 14, 0, NULL),
+	(29, 0, '钼化工', '', 14, 0, NULL),
+	(30, 0, '钼制品', '', 14, 0, NULL),
+	(31, 28, '钼精矿', '', 14, 0, NULL),
+	(32, 29, '钼酸钡', '', 14, 0, NULL);
 /*!40000 ALTER TABLE `mu_term` ENABLE KEYS */;
 
 
@@ -1301,9 +1329,9 @@ CREATE TABLE IF NOT EXISTS `mu_term_group` (
   `group_name` varchar(100) DEFAULT NULL,
   `group_desc` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_term_group: 13 rows
+# Dumping data for table mu.mu_term_group: 14 rows
 DELETE FROM `mu_term_group`;
 /*!40000 ALTER TABLE `mu_term_group` DISABLE KEYS */;
 INSERT INTO `mu_term_group` (`group_id`, `group_name`, `group_desc`) VALUES
@@ -1319,7 +1347,8 @@ INSERT INTO `mu_term_group` (`group_id`, `group_name`, `group_desc`) VALUES
 	(10, '文章类型', NULL),
 	(11, '供求类型', NULL),
 	(12, '推荐信息类型', NULL),
-	(13, '推荐模块', NULL);
+	(13, '推荐模块', NULL),
+	(14, '钼分类', '');
 /*!40000 ALTER TABLE `mu_term_group` ENABLE KEYS */;
 
 

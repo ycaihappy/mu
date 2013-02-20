@@ -291,7 +291,7 @@ class SiteController extends AdminController {
 			}
 		}
 		else {
-			if($termGroupId=$_GET['group_id'])
+			if($termGroupId=@$_GET['group_id'])
 			{
 				$model=$model->findByPk($termGroupId);
 				$this->renderPartial('update',array('model'=>$model));
@@ -337,7 +337,7 @@ class SiteController extends AdminController {
 			$smsSettingModel = $smsSettingModel->LoadData ();
 			if(empty($smsSettingModel->system))
 			{
-				$smsSettingModel->system=PHP_OS;
+				$smsSettingModel->system=PHP_OS=='WINNT'?'windows':PHP_OS;
 			}
 			$this->render ( 'smsSetting', array ('model' => $smsSettingModel ) );
 		}

@@ -57,6 +57,14 @@ class CCacheHelper  {
 		$allTerm=CacheStrategy::getInstance(CacheStrategy::FIVE_MINITS_EXPIRE)->getCacheDataForDb('allTerm',$termCriteria,'Term','term_id');
 		return $allTerm;
 	}
+	public static function getMuCategory()
+	{
+		$categoryCriteria=new CDbCriteria();
+	    $categoryCriteria->select='term_id,term_name,term_group_id,term_parent_id';
+	    $categoryCriteria->order='term_order asc';
+	    $muCategory=CacheStrategy::getInstance(CacheStrategy::FIVE_MINITS_EXPIRE)->getCacheDataForDb('muCategory',$categoryCriteria,'Term','term_id');
+		return $muCategory;
+	}
 }
 
 

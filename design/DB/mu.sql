@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-02-19 21:51:56
+# Date/time:                    2013-02-20 08:31:34
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -730,7 +730,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_item` (
   PRIMARY KEY (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_right_item: 68 rows
+# Dumping data for table mu.mu_right_item: 73 rows
 DELETE FROM `mu_right_item`;
 /*!40000 ALTER TABLE `mu_right_item` DISABLE KEYS */;
 INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`, `data`) VALUES
@@ -801,7 +801,12 @@ INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`
 	('siteIndex', 1, '管理后台首页', '', '', 's:0:"";'),
 	('productAdmin', 2, '信息管理员', '', '', 's:0:"";'),
 	('admin-ProductChangeSupplyStatus', 0, NULL, NULL, NULL, 'N;'),
-	('admin-ProductChangeBuyStatus', 0, NULL, NULL, NULL, 'N;');
+	('admin-ProductChangeBuyStatus', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SiteSendTestEmail', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SiteSaveTermGroup', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SiteManageTermGroup', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SiteManageSMSSetting', 0, NULL, NULL, NULL, 'N;'),
+	('smsSetting', 1, '短信设置', '', '', 's:0:"";');
 /*!40000 ALTER TABLE `mu_right_item` ENABLE KEYS */;
 
 
@@ -813,7 +818,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_itemchildren` (
   PRIMARY KEY (`parent`,`child`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_right_itemchildren: 78 rows
+# Dumping data for table mu.mu_right_itemchildren: 83 rows
 DELETE FROM `mu_right_itemchildren`;
 /*!40000 ALTER TABLE `mu_right_itemchildren` DISABLE KEYS */;
 INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
@@ -823,6 +828,8 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('advertisementManage', 'admin-AdvertisementRecommendManageAdvertisement'),
 	('advertisementManage', 'admin-AdvertisementRecommendUpdateAdvertisement'),
 	('basicTypeManage', 'admin-SiteManageTerm'),
+	('basicTypeManage', 'admin-SiteManageTermGroup'),
+	('basicTypeManage', 'admin-SiteSaveTermGroup'),
 	('basicTypeManage', 'admin-SiteUpdateTerm'),
 	('buyManage', 'admin-ProductChangeBuyStatus'),
 	('buyManage', 'admin-ProductManageBuy'),
@@ -867,7 +874,9 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('siteIndex', 'admin-SiteLogout'),
 	('siteIndex', 'admin-SitePage'),
 	('siteSetting', 'admin-SiteManageBasicSiteInfo'),
+	('smsSetting', 'admin-SiteManageSMSSetting'),
 	('smtpSetting', 'admin-SiteManageSiteEmailSetting'),
+	('smtpSetting', 'admin-SiteSendTestEmail'),
 	('specialManage', 'admin-ProductChangeSpecialStatus'),
 	('specialManage', 'admin-ProductManageSpecial'),
 	('specialManage', 'admin-ProductUpdateProduct'),
@@ -885,6 +894,7 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('superAdmin', 'rolesManage'),
 	('superAdmin', 'siteIndex'),
 	('superAdmin', 'siteSetting'),
+	('superAdmin', 'smsSetting'),
 	('superAdmin', 'smtpSetting'),
 	('superAdmin', 'specialManage'),
 	('superAdmin', 'supplyManage'),

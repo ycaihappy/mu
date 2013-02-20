@@ -10,6 +10,7 @@ case 1:
 				array('label'=>'地区管理', 'url'=>array('site/manageCity'),'linkOptions'=>array('target'=>'mainFrame')),
 				array('label'=>'基本类别管理', 'url'=>array('site/manageTerm'),'linkOptions'=>array('target'=>'mainFrame')),
 				array('label'=>'邮件设置', 'url'=>array('site/manageSiteEmailSetting'),'linkOptions'=>array('target'=>'mainFrame',)),
+				array('label'=>'短信设置', 'url'=>array('site/manageSMSSetting'),'linkOptions'=>array('target'=>'mainFrame',)),
 				),
 		));
 break;

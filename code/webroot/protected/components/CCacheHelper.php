@@ -5,6 +5,7 @@ class CacheStrategy{
 	const HALF_HOUR_EXPIRE=1800;
 	const THREE_HOURS_EXPIRE=10800;
 	const ONE_DAY_EXPIRE=86400;
+	private $openCache=false;
 	private $expireType=self::FIVE_MINITS_EXPIRE;
 	public static function getInstance($expireType=5)
 	{
@@ -19,9 +20,25 @@ class CacheStrategy{
 	}
 	public function getCacheDataForDb($key,CDbCriteria $criteria=null,$modelClass=null,$indexKey='')
 	{
-		$content=Yii::app()->cache->get($key);
-		if(!$content && $modelClass)
+		if($this->openCache)
 		{
+			$content=Yii::app()->cache->get($key);
+			if(!$content && $modelClass)
+			{
+				$content=$modelClass::model()->findAll($criteria);
+				if($indexKey)
+				{
+					foreach ($content as $a)
+					{
+						$contentTemp[$a[$indexKey]]=$a;
+					}
+					$content=$contentTemp;
+					unset($contentTemp);
+				}
+				Yii::app()->cache->set($key, $content,$this->expireType);
+			}
+		}
+		else {
 			$content=$modelClass::model()->findAll($criteria);
 			if($indexKey)
 			{
@@ -32,7 +49,6 @@ class CacheStrategy{
 				$content=$contentTemp;
 				unset($contentTemp);
 			}
-			Yii::app()->cache->set($key, $content,$this->expireType);
 		}
 		return $content;
 	}
@@ -46,7 +62,7 @@ class CCacheHelper  {
 		$sort=new CSort('City');
 		$sort->defaultOrder='city_parent asc';
 		$allCity=CacheStrategy::getInstance(CacheStrategy::FIVE_MINITS_EXPIRE)->getCacheDataForDb('allCity',$cityCriteria,'City','city_id');
-        return $allCity;
+		return $allCity;
 
 	}
 	public static function getAllTerm()
@@ -60,10 +76,10 @@ class CCacheHelper  {
 	public static function getMuCategory()
 	{
 		$categoryCriteria=new CDbCriteria();
-	    $categoryCriteria->select='term_id,term_name,term_parent_id';
-	    $categoryCriteria->order='term_order asc';
-	    $categoryCriteria->condition='term_group_id=14';
-	    $muCategory=CacheStrategy::getInstance(CacheStrategy::FIVE_MINITS_EXPIRE)->getCacheDataForDb('muCategory',$categoryCriteria,'Term','term_id');
+		$categoryCriteria->select='term_id,term_name,term_parent_id';
+		$categoryCriteria->order='term_order asc';
+		$categoryCriteria->condition='term_group_id=14';
+		$muCategory=CacheStrategy::getInstance(CacheStrategy::FIVE_MINITS_EXPIRE)->getCacheDataForDb('muCategory',$categoryCriteria,'Term','term_id');
 		return $muCategory;
 	}
 }

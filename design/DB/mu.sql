@@ -1,9 +1,9 @@
 # --------------------------------------------------------
 # Host:                         127.0.0.1
-# Server version:               5.5.8
+# Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-02-21 18:43:01
+# Date/time:                    2013-02-22 00:25:17
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -442,14 +442,17 @@ CREATE TABLE IF NOT EXISTS `mu_image_library` (
   `image_added_by` int(11) NOT NULL DEFAULT '0' COMMENT '图片添加人',
   `image_added_time` datetime NOT NULL COMMENT '图片添加时间',
   PRIMARY KEY (`image_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='图片库';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='图片库';
 
 # Dumping data for table mu.mu_image_library: ~2 rows (approximately)
 DELETE FROM `mu_image_library`;
 /*!40000 ALTER TABLE `mu_image_library` DISABLE KEYS */;
 INSERT INTO `mu_image_library` (`image_id`, `image_title`, `image_src`, `image_status`, `image_used_type`, `image_added_by`, `image_added_time`) VALUES
 	(3, '侧事故', '28_1361441380_228.jpg', 33, 28, 1, '2013-02-21 18:09:40'),
-	(4, '测试图片4', '28_1361441470_8759.jpg', 33, 28, 1, '2013-02-21 18:11:10');
+	(4, '测试图片4', '28_1361456537_8483.jpg', 33, 28, 1, '2013-02-21 18:11:10'),
+	(5, '出', '31_1361450015_1209.jpg', 33, 31, 1, '2013-02-21 20:33:35'),
+	(6, '出', '31_1361450015_1209.jpg', 33, 31, 1, '2013-02-21 21:49:07'),
+	(7, '出', '31_1361454751_5647.jpg', 33, 31, 1, '2013-02-21 21:50:25');
 /*!40000 ALTER TABLE `mu_image_library` ENABLE KEYS */;
 
 
@@ -771,7 +774,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_item` (
   PRIMARY KEY (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_right_item: 75 rows
+# Dumping data for table mu.mu_right_item: 77 rows
 DELETE FROM `mu_right_item`;
 /*!40000 ALTER TABLE `mu_right_item` DISABLE KEYS */;
 INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`, `data`) VALUES
@@ -851,7 +854,8 @@ INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`
 	('admin-ArticleManageImageLibary', 0, NULL, NULL, NULL, 'N;'),
 	('admin-ArticleUpdateImageLibary', 0, NULL, NULL, NULL, 'N;'),
 	('admin-ArticleBatchUpdateImageTitle', 0, NULL, NULL, NULL, 'N;'),
-	('admin-ArticleBatchUploadImage', 0, NULL, NULL, NULL, 'N;');
+	('admin-ArticleBatchUploadImage', 0, NULL, NULL, NULL, 'N;'),
+	('admin-ArticleManagePriceSummary', 0, NULL, NULL, NULL, 'N;');
 /*!40000 ALTER TABLE `mu_right_item` ENABLE KEYS */;
 
 
@@ -863,7 +867,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_itemchildren` (
   PRIMARY KEY (`parent`,`child`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_right_itemchildren: 85 rows
+# Dumping data for table mu.mu_right_itemchildren: 87 rows
 DELETE FROM `mu_right_itemchildren`;
 /*!40000 ALTER TABLE `mu_right_itemchildren` DISABLE KEYS */;
 INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
@@ -895,6 +899,7 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('operatorsManage', 'admin-UserGenerateNewRightOpers'),
 	('priceManage', 'admin-ArticleChangePriceStatus'),
 	('priceManage', 'admin-ArticleManagePrice'),
+	('priceManage', 'admin-ArticleManagePriceSummary'),
 	('priceManage', 'admin-ArticleUpdateArticle'),
 	('productAdmin', 'buyManage'),
 	('productAdmin', 'enterpriseManage'),
@@ -1474,8 +1479,8 @@ CREATE TABLE `mu_view_recommend` (
 	`recommend_id` INT(11) NOT NULL DEFAULT '0',
 	`name` VARCHAR(256) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`recommend_object_id` BIGINT(20) NOT NULL DEFAULT '0',
-	`recommend_type` TINYINT(11) NOT NULL DEFAULT '0',
-	`recommend_position` TINYINT(11) NOT NULL DEFAULT '0',
+	`recommend_type` TINYINT(4) NOT NULL DEFAULT '0',
+	`recommend_position` TINYINT(4) NOT NULL DEFAULT '0',
 	`recommend_status` TINYINT(4) NULL DEFAULT NULL,
 	`recommend_time` DATETIME NULL DEFAULT NULL
 ) ENGINE=MyISAM;

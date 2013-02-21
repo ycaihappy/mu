@@ -54,6 +54,7 @@ $this->breadcrumbs=array(
 <td class="label">创建时间：</td>
 		<td>
 		<input name="image_added_time" disabled type=text class='cmp-input' value="<?php echo $model->image_added_time?$model->image_added_time:date('Y-m-d H:i:s');?>"/>	
+		<?php if($model->image_id): echo $form->hiddenField($model,'image_added_time');endif;?>
 		</td>
 </tr>
 

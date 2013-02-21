@@ -81,9 +81,11 @@ class CUploadedFile extends CComponent
 	 */
 	public static function getInstanceByName($name)
 	{
+		echo '++';
+		
 		if(null===self::$_files)
 			self::prefetchFiles();
-
+		var_dump($_files[$name]);
 		return isset(self::$_files[$name]) && self::$_files[$name]->getError()!=UPLOAD_ERR_NO_FILE ? self::$_files[$name] : null;
 	}
 

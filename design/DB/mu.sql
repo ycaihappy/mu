@@ -1,9 +1,9 @@
 # --------------------------------------------------------
 # Host:                         127.0.0.1
-# Server version:               5.1.28-rc-community
+# Server version:               5.5.8
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-02-21 01:10:03
+# Date/time:                    2013-02-21 18:43:01
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -362,6 +362,25 @@ DELETE FROM `mu_favorite`;
 /*!40000 ALTER TABLE `mu_favorite` ENABLE KEYS */;
 
 
+# Dumping structure for table mu.mu_file
+DROP TABLE IF EXISTS `mu_file`;
+CREATE TABLE IF NOT EXISTS `mu_file` (
+  `file_id` int(11) NOT NULL AUTO_INCREMENT,
+  `file_title` varchar(45) DEFAULT NULL,
+  `file_type_id` tinyint(4) DEFAULT NULL COMMENT '1图片 2文件',
+  `file_content` varchar(255) DEFAULT NULL,
+  `file_url` varchar(255) DEFAULT NULL,
+  `file_user_id` int(11) NOT NULL,
+  `file_create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`file_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+# Dumping data for table mu.mu_file: ~0 rows (approximately)
+DELETE FROM `mu_file`;
+/*!40000 ALTER TABLE `mu_file` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mu_file` ENABLE KEYS */;
+
+
 # Dumping structure for table mu.mu_find_passwd
 DROP TABLE IF EXISTS `mu_find_passwd`;
 CREATE TABLE IF NOT EXISTS `mu_find_passwd` (
@@ -416,18 +435,21 @@ DELETE FROM `mu_func`;
 DROP TABLE IF EXISTS `mu_image_library`;
 CREATE TABLE IF NOT EXISTS `mu_image_library` (
   `image_id` int(10) NOT NULL AUTO_INCREMENT,
-  `image_title` varchar(128) NOT NULL DEFAULT '0',
+  `image_title` varchar(128) NOT NULL,
   `image_src` varchar(256) NOT NULL DEFAULT '0',
   `image_status` int(11) NOT NULL DEFAULT '0' COMMENT '是否启用',
   `image_used_type` int(11) NOT NULL DEFAULT '0' COMMENT '图片被使用的分类',
   `image_added_by` int(11) NOT NULL DEFAULT '0' COMMENT '图片添加人',
   `image_added_time` datetime NOT NULL COMMENT '图片添加时间',
   PRIMARY KEY (`image_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='图片库';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='图片库';
 
-# Dumping data for table mu.mu_image_library: ~0 rows (approximately)
+# Dumping data for table mu.mu_image_library: ~2 rows (approximately)
 DELETE FROM `mu_image_library`;
 /*!40000 ALTER TABLE `mu_image_library` DISABLE KEYS */;
+INSERT INTO `mu_image_library` (`image_id`, `image_title`, `image_src`, `image_status`, `image_used_type`, `image_added_by`, `image_added_time`) VALUES
+	(3, '侧事故', '28_1361441380_228.jpg', 33, 28, 1, '2013-02-21 18:09:40'),
+	(4, '测试图片4', '28_1361441470_8759.jpg', 33, 28, 1, '2013-02-21 18:11:10');
 /*!40000 ALTER TABLE `mu_image_library` ENABLE KEYS */;
 
 
@@ -827,7 +849,9 @@ INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`
 	('admin-SiteManageSMSSetting', 0, NULL, NULL, NULL, 'N;'),
 	('smsSetting', 1, '短信设置', '', '', 's:0:"";'),
 	('admin-ArticleManageImageLibary', 0, NULL, NULL, NULL, 'N;'),
-	('admin-ArticleUpdateImageLibary', 0, NULL, NULL, NULL, 'N;');
+	('admin-ArticleUpdateImageLibary', 0, NULL, NULL, NULL, 'N;'),
+	('admin-ArticleBatchUpdateImageTitle', 0, NULL, NULL, NULL, 'N;'),
+	('admin-ArticleBatchUploadImage', 0, NULL, NULL, NULL, 'N;');
 /*!40000 ALTER TABLE `mu_right_item` ENABLE KEYS */;
 
 
@@ -860,6 +884,8 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('enterpriseManage', 'admin-ProductChangeEnterpriseStatus'),
 	('enterpriseManage', 'admin-ProductManageEnterprise'),
 	('enterpriseManage', 'admin-ProductUpdateEnterprise'),
+	('newsManage', 'admin-ArticleBatchUpdateImageTitle'),
+	('newsManage', 'admin-ArticleBatchUploadImage'),
 	('newsManage', 'admin-ArticleChangeNewsStatus'),
 	('newsManage', 'admin-ArticleManageImageLibary'),
 	('newsManage', 'admin-ArticleManageNews'),
@@ -1281,9 +1307,9 @@ CREATE TABLE IF NOT EXISTS `mu_term` (
   `term_order` int(4) DEFAULT '0',
   `term_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`term_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_term: 32 rows
+# Dumping data for table mu.mu_term: 33 rows
 DELETE FROM `mu_term`;
 /*!40000 ALTER TABLE `mu_term` DISABLE KEYS */;
 INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES
@@ -1318,7 +1344,8 @@ INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `t
 	(29, 0, '钼化工', '', 14, 0, NULL),
 	(30, 0, '钼制品', '', 14, 0, NULL),
 	(31, 28, '钼精矿', '', 14, 0, NULL),
-	(32, 29, '钼酸钡', '', 14, 0, NULL);
+	(32, 29, '钼酸钡', '', 14, 0, NULL),
+	(33, 0, '待审', NULL, 1, 0, '2013-02-21 10:37:05');
 /*!40000 ALTER TABLE `mu_term` ENABLE KEYS */;
 
 
@@ -1447,8 +1474,8 @@ CREATE TABLE `mu_view_recommend` (
 	`recommend_id` INT(11) NOT NULL DEFAULT '0',
 	`name` VARCHAR(256) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`recommend_object_id` BIGINT(20) NOT NULL DEFAULT '0',
-	`recommend_type` TINYINT(4) NOT NULL DEFAULT '0',
-	`recommend_position` TINYINT(4) NOT NULL DEFAULT '0',
+	`recommend_type` TINYINT(11) NOT NULL DEFAULT '0',
+	`recommend_position` TINYINT(11) NOT NULL DEFAULT '0',
 	`recommend_status` TINYINT(4) NULL DEFAULT NULL,
 	`recommend_time` DATETIME NULL DEFAULT NULL
 ) ENGINE=MyISAM;

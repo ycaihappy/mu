@@ -8,6 +8,7 @@ $this->breadcrumbs=array(
 <div class="m-form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'product-form',
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
@@ -19,7 +20,7 @@ $this->breadcrumbs=array(
 <tr>
 <td class="label">图片标题：</td>
 		<td><?php echo $form->textField($model,'image_title',array('class'=>'cmp-input')); ?>
-		<?php echo $form->error($model,'art_title'); ?></td>
+		<?php echo $form->error($model,'image_title'); ?></td>
 </tr>
 <tr>
 <td class="label">所属分类：</td>
@@ -46,14 +47,14 @@ $this->breadcrumbs=array(
 <tr>
 <td class="label">上传人：</td>
 		<td>
-		<input name="ImageLibrary[image_added_by]" readOnly="readOnly" type=text class='cmp-input' value="<?php echo $model->image_added_by?$model->image_added_by:Yii::app()->admin->getName();?>"/>		
+		<input name="image_added_by" readOnly="readOnly" type=text class='cmp-input' value="<?php echo $model->image_added_by?$model->image_added_by:Yii::app()->admin->getName();?>"/>		
         <?php echo $form->error($model,'image_added_by'); ?></td>
 </tr>
 <tr>
 <td class="label">创建时间：</td>
 		<td>
-		<input name="Article[image_added_time]" disabled type=text class='cmp-input' value="<?php echo $model->image_added_time?$model->image_added_time:date('Y-m-d H:i:s');?>"/>		
-        <?php echo $form->error($model,'image_added_time'); ?></td>
+		<input name="image_added_time" disabled type=text class='cmp-input' value="<?php echo $model->image_added_time?$model->image_added_time:date('Y-m-d H:i:s');?>"/>		
+        </td>
 </tr>
 
 <tr>
@@ -65,7 +66,7 @@ $this->breadcrumbs=array(
 <?php 
 Yii::app()->getClientScript()->registerScriptFile('js/jquery.uploadPreview.js');
 $previewScript=<<<PREVIEW
-$("input").uploadPreview({ width: 200, height: 200, imgDiv: "#imgDiv", imgType: ["bmp", "gif", "png", "jpg"] });
+$("#ImageLibrary_image_src").uploadPreview({ width: 200, height: 200, imgDiv: "#imgDiv", imgType: ["bmp", "gif", "png", "jpg"] });
 PREVIEW;
 Yii::app()->getClientScript()->registerScript('ImageLibary#uploadPreview',$previewScript);
 ?>

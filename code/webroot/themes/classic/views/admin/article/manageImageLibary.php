@@ -6,8 +6,30 @@ $this->breadcrumbs=array(
 ?>
 
 <div>
-<?php echo CHtml::button('添加单张图片',array('class'=>'btn-blue','onclick'=>'window.location.href="'.Yii::app()->controller->createUrl("updateImageLibary").'"'))?>
-<?php echo CHtml::button('批量添加图片',array('class'=>'btn-blue','onclick'=>'window.location.href="'.Yii::app()->controller->createUrl("addImage").'"'))?>
+<?php 
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'addSingle',
+			'caption'=>'添加单张图片',
+		'value'=>'asd',
+		'cssFile'=>'jquery.ui.css',
+		'onclick'=>'js:function(){
+		    window.location.href="'.Yii::app()->controller->createUrl("updateImageLibary").'";
+		}',
+		)
+);
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'addBatch',
+			'caption'=>'批量添加图片',
+		'value'=>'asd',
+		'cssFile'=>'jquery.ui.css',
+		'onclick'=>'js:function(){
+		    window.location.href="'.Yii::app()->controller->createUrl("batchUploadImage").'";
+		}',
+		)
+);
+?>
 </div>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',
@@ -45,7 +67,7 @@ $this->breadcrumbs=array(
         ),
         array(
         	'name'=>'名称',
-        	'value'=>'CHTML::image("images/commonProductsImages/".$data->image_src,$data->image_title,array("width"=>20,"height"=>30))',
+        	'value'=>'"<img src=\"images/commonProductsImages/".$data->image_src."\" width=100 height=150 alt=\"".$data->image_title."\">"',
         ),  // display the 'name' attribute of the 'category' relation
         array(
         	'name'=>'所属分类',
@@ -64,7 +86,7 @@ $this->breadcrumbs=array(
             'header'=>'操作',
         	'class'=>'CButtonColumn',
         	'template'=>'{update}',
-        	'updateButtonUrl'=>'Yii::app()->controller->createUrl("updateUsedType",array("art_id"=>$data->art_id))',
+        	'updateButtonUrl'=>'Yii::app()->controller->createUrl("updateUsedType",array("image_id"=>$data->image_id))',
         	'updateButtonLabel'=>'修改',
         	),
     ),

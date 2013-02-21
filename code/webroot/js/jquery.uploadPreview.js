@@ -82,9 +82,11 @@
                         var img = $("<img />");
                         imgDiv.replaceWith(img);
                         imgDiv = img;
-                        imgDiv.attr('src', this.files.item(0).getAsDataURL());
+                        var reader = new FileReader(); 
+                        reader.readAsDataURL(this.files[0]);
+                        imgDiv.attr('src', reader.result);
                         imgDiv.css({ "vertical-align": "middle" });
-                        setTimeout("autoScaling()", 100);
+                        setTimeout("autoScaling()", 1000);
                     }
                 }
             });

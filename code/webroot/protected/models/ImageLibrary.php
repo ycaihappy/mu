@@ -39,7 +39,6 @@ class ImageLibrary extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('image_added_time', 'required'),
 			array('image_status,image_used_type, image_added_by', 'numerical', 'integerOnly'=>true),
 			array('image_title', 'length', 'max'=>128),
 			array('image_src', 'length', 'max'=>256),
@@ -61,6 +60,15 @@ class ImageLibrary extends CActiveRecord
 			'usedType'=>array(self::BELONGS_TO,'Term','image_used_type'),
 			'status'=>array(self::BELONGS_TO,'Term','image_status'),
 		);
+	}
+	public function beforeSave()
+	{
+		if($this->isNewRecord)
+		{
+			$this->image_added_time=date('Y-m-d H:i:s');
+			$this->image_added_by=Yii::app()->admin->getId();
+		}
+		return parent::beforeSave();
 	}
 
 	/**

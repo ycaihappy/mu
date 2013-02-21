@@ -136,7 +136,7 @@ class ArticleController extends AdminController {
 		{
 			$imageLibaryCriteria->addSearchCondition('image_title', $model->image_title);
 		}
-		$imageLibaryCriteria->select='image_id,image_title,image_used_type,image_added_time';
+		$imageLibaryCriteria->select='image_id,image_title,image_used_type,image_added_time,image_src';
 		$imageLibaryCriteria->with=array('createUser'=>array('user_name'),
 										 'usedType'=>array('term_name'),
 										 'status'=>array('term_name'));
@@ -192,35 +192,43 @@ class ArticleController extends AdminController {
 	}
 	public function actionBatchUploadImage()
 	{
-		$targetFolder='images/commonProductsImages';
-		$verifyToken = md5('unique_salt' . $_POST['timestamp']);
-		if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
+		if(Yii::app()->request->isPostRequest)
+		{
+			$targetFolder='images/commonProductsImages';
+			$verifyToken = md5('unique_salt' . $_POST['timestamp']);
+			if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
+				$model=new ImageLibrary();
+				$model->attributes=$_POST['ImageLibrary'];
+				$model->image_src=CUploadedFile::getInstance($model,'image_src');
+				$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
+				if(!in_array($model->image_src->extensionName,$fileTypes))
+				{
+					echo '上传非图片类型.';
+					exit;
+				}
+				if($model->image_src)
+				{
+					$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->extensionName;
+					//根据时间戳重命名文件名,extensionName是获取文件的扩展名
+					$model->image_src->saveAs($targetFolder.'/'.$newimg);
+					$model->image_src = $newimg;
+					$model->image_added_by = Yii::app()->admin->getId();
+					$model->image_status=33;//图片处于待审状态 ，回跳转到标题修改页面
+					if($model->save())
+					{
+						echo '1';
+					}
+					else
+					{
+						echo '该图片保存失败！';
+					}
+				}
+			}
+		}
+		else {
 			$model=new ImageLibrary();
-			$model->attributes=$_POST['ImageLibrary'];
-			$model->image_src=CUploadedFile::getInstance($model,'image_src');
-			$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
-			if(!in_array($model->image_src->extensionName,$fileTypes))
-			{
-				echo '上传非图片类型.';
-				exit;
-			}
-			if($model->image_src)
-			{
-				$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->extensionName;
-				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
-				$model->image_src->saveAs($targetFolder.'/'.$newimg);
-				$model->image_src = $targetFolder.'/'.$newimg;
-				$model->image_added_by = Yii::app()->admin->getId();
-				$model->image_status=33;//图片处于待审状态 ，回跳转到标题修改页面
-				if($model->save())
-				{
-					echo '1';
-				}
-				else
-				{
-					echo '该图片保存失败！';
-				}
-			}
+			$imageUsedType=Term::getMuCategory();
+			$this->render('batchUploadImageLibary',array('model'=>$model,'imageUsedType'=>$imageUsedType));
 		}
 	}
 	public function actionUpdateImageLibary()
@@ -235,7 +243,7 @@ class ArticleController extends AdminController {
 				$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->extensionName;
 				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
 				$model->image_src->saveAs('images/commonProductsImages/'.$newimg);
-				$model->image_src = 'images/commonProductsImages/'.$newimg;
+				$model->image_src = $newimg;
 				//将image属性重新命名
 			}
 			else {
@@ -246,6 +254,14 @@ class ArticleController extends AdminController {
 			{
 				$this->redirect(array('manageImageLibary'));
 			}
+			else {
+				var_dump($model->getErrors());
+				exit;
+			}
+		}
+		if($imageId=@$_GET['image_id'])
+		{
+			$model=$model->findByPk($imageId);
 		}
 		$imageStatus=Term::getTermsByGroupId(1);
 		$imageUsedType=Term::getMuCategory();

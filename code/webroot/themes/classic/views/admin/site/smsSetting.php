@@ -20,7 +20,7 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">短信平台登录密码：</td>
-		<td><?php echo $form->numberField($model,'pwd',array('class'=>'cmp-input')); ?>
+		<td><?php echo $form->passwordField($model,'pwd',array('class'=>'cmp-input')); ?>
 		<?php echo $form->error($model,'pwd'); ?>
 </tr>
 <tr>

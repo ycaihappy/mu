@@ -410,7 +410,7 @@ class CHtml
 	{
 		$htmlOptions['src']=$src;
 		$htmlOptions['alt']=$alt;
-		return self::tag('img',$htmlOptions);
+		return self::tag('img',$htmlOptions,false,false);
 	}
 
 	/**

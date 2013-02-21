@@ -26,6 +26,7 @@ $this->breadcrumbs=array(
 <td>
 		<div id="queue"></div>
 		<input id="file_upload" name="file_upload" type="file" multiple="true"/>
+		<div id="uploadImageQueue"></div>
 		</td>
 </tr>
 <tr>
@@ -36,7 +37,7 @@ $this->breadcrumbs=array(
 </div><!-- form -->
 <?php 
 $cs=Yii::app()->getClientScript();
-$cs->registerScriptFile('jquery.uploadify.min.js');
+$cs->registerScriptFile('js/jquery.uploadify.min.js');
 $cs->registerCssFile('css/uploadify.css');
 $timestamp=time();
 $token=md5('unique_salt' . $timestamp);
@@ -47,9 +48,14 @@ $('#file_upload').uploadify({
 					'timestamp' : '{$timestamp}',
 					'token'     : '{$token}'
 				},
-				'swf'      : 'uploadify.swf',
-				'uploader' : '{$uploader}'
+				'height':30,
+				'width':120,
+				'queueID' :'uploadImageQueue',
+				'swf'      : 'css/uploadify.swf',
+				'uploadScript' : '{$uploader}',
+				'buttonText':'选择图片',
+				'fileTypeExts':'*.bmp;*.gif;*.jpg;*.png',
 			});
 UPLOAD;
-$cs->registerScript('Auth#saveOrUpdate',$saveScript);
+$cs->registerScript('batchUpload#saveOrUpdate',$uploadScript);
 ?>

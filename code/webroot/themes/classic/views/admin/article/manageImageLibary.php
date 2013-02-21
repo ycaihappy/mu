@@ -67,7 +67,8 @@ $this->widget('zii.widgets.jui.CJuiButton',
         ),
         array(
         	'name'=>'名称',
-        	'value'=>'"<img src=\"images/commonProductsImages/".$data->image_src."\" width=100 height=150 alt=\"".$data->image_title."\">"',
+        	'type'=>'html',
+        	'value'=>'"<img src=\"images/commonProductsImages/".$data->image_src."\" height=\"150\" alt=\"".$data->image_title."\" >"',
         ),  // display the 'name' attribute of the 'category' relation
         array(
         	'name'=>'所属分类',
@@ -86,7 +87,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
             'header'=>'操作',
         	'class'=>'CButtonColumn',
         	'template'=>'{update}',
-        	'updateButtonUrl'=>'Yii::app()->controller->createUrl("updateUsedType",array("image_id"=>$data->image_id))',
+        	'updateButtonUrl'=>'Yii::app()->controller->createUrl("updateImageLibary",array("image_id"=>$data->image_id))',
         	'updateButtonLabel'=>'修改',
         	),
     ),

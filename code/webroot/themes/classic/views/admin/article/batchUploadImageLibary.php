@@ -23,14 +23,43 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">上传图片：</td>
-<td>
+<td width="250px">
 		<div id="queue"></div>
 		<input id="file_upload" name="file_upload" type="file" multiple="true"/>
 		<div id="uploadImageQueue"></div>
 		</td>
 </tr>
 <tr>
-<td align='right' colspan=2><?php echo CHtml::submitButton('保存'); ?></td>
+<td align='right' colspan=2>
+<?php 
+
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'addSingle',
+			'caption'=>'开始上传',
+		'value'=>'asd',
+		'cssFile'=>'jquery.ui.css',
+		'onclick'=>'js:function(){
+		    $("#file_upload").uploadify("upload","*");
+		    return false;
+		}',
+		)
+);
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'addBatch',
+			'caption'=>'取消上传',
+		'value'=>'asd',
+		'cssFile'=>'jquery.ui.css',
+		'onclick'=>'js:function(){
+		    $("#file_upload").uploadify("cancel", "*");
+		    return false;
+		}',
+		)
+);
+
+?>
+</td>
 </tr>
 </table>
 <?php $this->endWidget(); ?>
@@ -50,10 +79,10 @@ $('#file_upload').uploadify({
 				},
 				'height':30,
 				'width':120,
+				'auto':false,
 				'queueID' :'uploadImageQueue',
 				'swf'      : 'css/uploadify.swf',
-				
-				'uploadScript' : '{$uploader}',
+				'uploader' : '{$uploader}',
 				'buttonText':'选择图片',
 				'fileTypeExts':'*.bmp;*.gif;*.jpg;*.png',
 			});

@@ -32,7 +32,7 @@ $this->breadcrumbs=array(
 		<td>
 		<?php echo CHtml::activeFileField($model,'image_src'); ?>
 		<div id="imgDiv">
-			<?php if($model->image_src) echo CHtml::image('images/commonProductsImages/'.$model->image_src)?>
+			<?php if($model->image_src) echo CHtml::image('images/commonProductsImages/'.$model->image_src,'',array('height'=>150))?>
         </div>
         <?php if(!$model->isNewRecord):?>
         <?php echo CHtml::hiddenField('image_src_2',$model->image_src)?>
@@ -47,14 +47,14 @@ $this->breadcrumbs=array(
 <tr>
 <td class="label">上传人：</td>
 		<td>
-		<input name="image_added_by" readOnly="readOnly" type=text class='cmp-input' value="<?php echo $model->image_added_by?$model->image_added_by:Yii::app()->admin->getName();?>"/>		
-        <?php echo $form->error($model,'image_added_by'); ?></td>
+		<input name="image_added_by" readOnly="readOnly" type=text class='cmp-input' value="<?php echo $model->image_added_by?$model->createUser->user_name:Yii::app()->admin->getName();?>"/>		
+        <?php if($model->image_id): echo $form->hiddenField($model,'image_added_by');endif;?></td>
 </tr>
 <tr>
 <td class="label">创建时间：</td>
 		<td>
-		<input name="image_added_time" disabled type=text class='cmp-input' value="<?php echo $model->image_added_time?$model->image_added_time:date('Y-m-d H:i:s');?>"/>		
-        </td>
+		<input name="image_added_time" disabled type=text class='cmp-input' value="<?php echo $model->image_added_time?$model->image_added_time:date('Y-m-d H:i:s');?>"/>	
+		</td>
 </tr>
 
 <tr>

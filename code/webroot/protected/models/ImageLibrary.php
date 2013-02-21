@@ -39,7 +39,7 @@ class ImageLibrary extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('image_status,image_used_type, image_added_by', 'numerical', 'integerOnly'=>true),
+			array('image_id,image_status,image_used_type, image_added_by', 'numerical', 'integerOnly'=>true),
 			array('image_title', 'length', 'max'=>128),
 			array('image_src', 'length', 'max'=>256),
 			// The following rule is used by search().

@@ -149,13 +149,14 @@ class ArticleController extends AdminController {
 		),),
 			'sort'=>array('defaultOrder'=> array('image_added_time'=>CSort::SORT_DESC), ),
 		));
-		if($imageDataProvider->data)
+		$imageLibary=$imageDataProvider->data;
+		if($imageLibary)
 		{
 			$muCategories=CCacheHelper::getMuCategory();
-			foreach ($imageDataProvider->data as &$image)
+			foreach ($imageLibary as &$image)
 			{
 				$usedType=array();
-				$parent=$muCategories['term_parent_id'];
+				$parent=$muCategories[$image['image_used_type']]['term_parent_id'];
 				while($parent)
 				{
 					$usedType[]=$muCategories[$parent]['term_name'];
@@ -254,14 +255,10 @@ class ArticleController extends AdminController {
 			{
 				$this->redirect(array('manageImageLibary'));
 			}
-			else {
-				var_dump($model->getErrors());
-				exit;
-			}
 		}
 		if($imageId=@$_GET['image_id'])
 		{
-			$model=$model->findByPk($imageId);
+			$model=$model->with(array('createUser'=>array('select'=>'user_name')))->findByPk($imageId);
 		}
 		$imageStatus=Term::getTermsByGroupId(1);
 		$imageUsedType=Term::getMuCategory();

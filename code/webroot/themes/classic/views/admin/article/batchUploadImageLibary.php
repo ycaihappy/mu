@@ -52,6 +52,7 @@ $('#file_upload').uploadify({
 				'width':120,
 				'queueID' :'uploadImageQueue',
 				'swf'      : 'css/uploadify.swf',
+				
 				'uploadScript' : '{$uploader}',
 				'buttonText':'选择图片',
 				'fileTypeExts':'*.bmp;*.gif;*.jpg;*.png',

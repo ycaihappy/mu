@@ -76,7 +76,7 @@ $uploadScript=<<<UPLOAD
 $('#file_upload').uploadify({
 				'formData'     : {
 					'timestamp' : '{$timestamp}',
-					'token'     : '{$token}'
+					'token'     : '{$token}',
 					'image_used_type':$("#ImageLibrary_image_used_type").val(),
 				},
 				'height':30,

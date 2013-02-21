@@ -55,14 +55,14 @@ class AdvertisementRecommendController extends AdminController {
 		$adDataProvider=new CActiveDataProvider('Advertisement',array(
 			'criteria'=>$advertisementCriteria,
 			'pagination'=>array('pageSize'=>20,
-				'currentPage'=>Yii::app()->admin->getState("currentPage")
-				),
-			'params'=>array('Advertisement[ad_no]'=>$model->ad_no,
+				'pageVar'=>'page',
+				'params'=>array('Advertisement[ad_no]'=>$model->ad_no,
 							'Advertisement[ad_user_id]'=>$model->ad_user_id,
 							'Advertisement[ad_type]'=>$model->ad_type,
 							'Advertisement[ad_title]'=>$model->ad_title,
 							'Advertisement[ad_status]'=>$model->ad_status,
 						),
+				),
 			'sort'=>array('defaultOrder'=> array('ad_create_time'=>CSort::SORT_DESC), ),
 		));
 		$adStatus=Term::getTermsByGroupId(1);
@@ -158,13 +158,12 @@ class AdvertisementRecommendController extends AdminController {
 		'pagination'=>array(
 		        'pageSize'=>20,
 				'pageVar'=>'page',
+				'params'=>array('Recommend[recommend_type]'=>$model->recommend_type,
+						'Recommend[recommend_position]'=>$model->recommend_position,
+						'Recommend[recommend_title]'=>$model->recommend_id,
+						'Recommend[recommend_status]'=>$model->recommend_status,
+					),
 		),
-		'params'=>array('Recommend[recommend_type]'=>$model->recommend_type,
-				'Recommend[recommend_position]'=>$model->recommend_position,
-				'Recommend[recommend_title]'=>$model->recommend_title,
-				'Recommend[recommend_status]'=>$model->recommend_status,
-			),
-		
 		)
 		);
 		$reStatus=Term::getTermsByGroupId(1);

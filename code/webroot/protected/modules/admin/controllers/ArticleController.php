@@ -114,6 +114,97 @@ class ArticleController extends AdminController {
 		}
 		$this->redirect(array($redirectAction,'page'=>Yii::app()->request->getParam('page',1)));
 	}
+	public function actionManageImageLibary()
+	{
+		$model=new ImageLibrary();
+		$imageTitle=@$_REQUEST['ImageLibrary']['image_title'];
+		$model->image_title=$imageTitle;
+		$imageleUsedType=@$_REQUEST['ImageLibrary']['image_used_type'];
+		$model->image_used_type=$imageleUsedType;
+		$imageleStatus=@$_REQUEST['ImageLibrary']['image_status'];
+		$model->image_status=$imageleStatus;
+		$imageLibaryCriteria=new CDbCriteria();
+		if($model->image_used_type)
+		{
+			$articleCriteria->compare('image_used_type', '='.$model->image_used_type);
+		}
+		if($model->image_status)
+		{
+			$imageLibaryCriteria->compare('image_status', '='.$model->image_status);
+		}
+		if($model->image_title)
+		{
+			$imageLibaryCriteria->addSearchCondition('image_title', $model->image_title);
+		}
+		$imageLibaryCriteria->select='image_id,image_title,image_used_type,image_added_time';
+		$imageLibaryCriteria->with=array('createUser'=>array('user_name'),
+										 'usedType'=>array('term_name'),
+										 'status'=>array('term_name'));
+		$imageDataProvider=new CActiveDataProvider('ImageLibrary',array(
+			'criteria'=>$imageLibaryCriteria,
+			'pagination'=>array('pageSize'=>10,'pageVar'=>'page',
+					'params'=>array('ImageLibrary[image_title]'=>$model->image_title,
+									'ImageLibrary[image_status]'=>$model->image_status,
+									'ImageLibrary[image_used_type]'=>$model->image_used_type,
+				),),
+			'sort'=>array('defaultOrder'=> array('image_added_time'=>CSort::SORT_DESC), ),
+		));
+		if($imageDataProvider->data)
+		{
+			$muCategories=CCacheHelper::getMuCategory();
+			foreach ($imageDataProvider->data as &$image)
+			{
+				$usedType=array();
+				$parent=$muCategories['term_parent_id'];
+				while($parent)
+				{
+					$usedType[]=$muCategories[$parent]['term_name'];
+					$parent=$muCategories[$parent]['term_parent_id'];
+				}
+				if($usedType)
+					array_reverse($usedType);
+				$usedType[]=$muCategories[$image['image_used_type']]['term_name'];
+				$image->image_used_type=implode('>>',$usedType);
+			}
+		}
+		$imageStatus=Term::getTermsByGroupId(1);
+		$imageUsedType=Term::getMuCategory();
+		$this->render('manageImageLibary',array(
+		'dataProvider'=>$imageDataProvider,
+		'imageUsedType'=>$imageUsedType,
+		'imageStatus'=>$imageStatus,
+		'model'=>$model,
+		));
+	}
+	public function actionUpdateImageLibary()
+	{
+		$model=new ImageLibrary();
+	    if(isset($_POST['ImageLibrary']))
+	    {
+	      $model->attributes=$_POST['ImageLibrary'];
+	      $model->image_src=CUploadedFile::getInstance($model,'image_src');
+	      if($model->image_src)
+	      {
+	        $newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->extensionName;
+	        //根据时间戳重命名文件名,extensionName是获取文件的扩展名
+	        $model->image_src->saveAs('images/commonProductsImages/'.$newimg);
+	        $model->image_src = 'images/commonProductsImages/'.$newimg;
+	        //将image属性重新命名
+	      }
+	      else {
+	      	$model->image_src=@$_REQUEST['image_src_2'];
+	      }
+	      if($model->image_id)$model->setIsNewRecord(false);
+	      if($model->save)
+	      {
+	      	$this->redirect(array('manageImageLibary'));
+	      }
+	    }
+	    $imageStatus=Term::getTermsByGroupId(1);
+		$imageUsedType=Term::getMuCategory();
+		$this->render('updateImageLibary',array('model'=>$model,'imageStatus'=>$imageStatus,'imageUsedType'=>$imageUsedType));
+	    
+	}
 }
 
 

@@ -13,13 +13,11 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 <table border="0" cellpadding="0" cellspacing="0" class="table-field">
-
 <tr>
 <td class="label">短信平台登录ID：</td>
 		<td><?php echo $form->textField($model,'uid',array('class'=>'cmp-input')); ?>
 		<?php echo $form->error($model,'uid'); ?></td>
 </tr>
-
 <tr>
 <td class="label">短信平台登录密码：</td>
 		<td><?php echo $form->numberField($model,'pwd',array('class'=>'cmp-input')); ?>

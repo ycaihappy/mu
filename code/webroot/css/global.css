@@ -456,7 +456,7 @@ padding: 0 20px;
 
 /*m-topnews*/
 .m-topnews {float: left;width: 384px;	margin-right:15px;}
-.m-topnews .topnews {background: url(imgs/topnews.png) repeat scroll 0 0 transparent;border: 1px solid #DAE2E9;height: 110px;padding: 0 12px;}
+.m-topnews .topnews {border: 1px solid #DAE2E9;height: 110px;padding: 0 12px;}
 .m-topnews .topnews h4 {height: 38px;line-height: 38px;overflow: hidden;text-align: center;}
 .m-topnews .topnews h4 a {color: #CC040D;font-family: '微软雅黑';font-size: 20px;	font-weight:bold;}
 .m-topnews .topnews p {height: 66px;line-height: 22px;overflow: hidden;}

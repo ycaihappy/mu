@@ -68,6 +68,30 @@ class Term extends CActiveRecord
 		}
 		return array();
 	}
+	public static function getMuCategory()
+	{
+		$muCategories=CCacheHelper::getMuCategory();
+		$muCategories1=$muCategories;
+		$returnCategories=array();
+		if($muCategories)
+		{
+			foreach ($muCategories as $category)
+			{
+				$categoryLayer=array();
+				$parent=$category['term_parent_id'];
+				while($parent)
+				{
+					$categoryLayer[]=$muCategories1[$parent]['term_name'];
+					$parent=$muCategories1[$parent]['term_parent_id'];
+				}
+				if($categoryLayer)
+					array_reverse($categoryLayer);
+				$categoryLayer[]=$muCategories1[$category['term_id']]['term_name'];
+				$returnCategories[$category->term_id]=implode('>>',$categoryLayer);
+			}
+		}
+		return $returnCategories;
+	}
 
 	/**
 	 * @return array relational rules.

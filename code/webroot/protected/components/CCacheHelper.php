@@ -60,8 +60,9 @@ class CCacheHelper  {
 	public static function getMuCategory()
 	{
 		$categoryCriteria=new CDbCriteria();
-	    $categoryCriteria->select='term_id,term_name,term_group_id,term_parent_id';
+	    $categoryCriteria->select='term_id,term_name,term_parent_id';
 	    $categoryCriteria->order='term_order asc';
+	    $categoryCriteria->condition='term_group_id=14';
 	    $muCategory=CacheStrategy::getInstance(CacheStrategy::FIVE_MINITS_EXPIRE)->getCacheDataForDb('muCategory',$categoryCriteria,'Term','term_id');
 		return $muCategory;
 	}

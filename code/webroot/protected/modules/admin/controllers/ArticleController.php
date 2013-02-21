@@ -28,7 +28,7 @@ class ArticleController extends AdminController {
 		{
 			$articleCriteria->addSearchCondition('art_title', $articleTitle,true);
 		}
-		
+
 		$articleCriteria->select='art_id,art_title,art_post_date,art_check_by';
 		$articleCriteria->with=array('createUser'=>array('select'=>'user_name'),'status'=>array('select'=>'term_name'));
 		$articleDataProvider=new CActiveDataProvider('Article',array(
@@ -36,8 +36,8 @@ class ArticleController extends AdminController {
 			'pagination'=>array('pageSize'=>10,'pageVar'=>'page','params'=>array('Article[art_title]'=>$model->art_title,
 					'Article[art_status]'=>$model->art_status,
 					'Article[art_category_id]'=>$type,
-					
-				),),
+			
+		),),
 			
 			'sort'=>array('defaultOrder'=> array('art_create_time'=>CSort::SORT_DESC), ),
 		));
@@ -52,7 +52,7 @@ class ArticleController extends AdminController {
 	public function actionUpdateArticle()
 	{
 		$model=new Article();
-		
+
 		if(isset($_POST['Article']))
 		{
 			$model->attributes=$_POST['Article'];
@@ -99,7 +99,7 @@ class ArticleController extends AdminController {
 		{
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的文章信息，以及改变的状态');
 			$this->redirect(array($redirectPage));
-				
+
 		}
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('art_id', $artId);
@@ -146,7 +146,7 @@ class ArticleController extends AdminController {
 					'params'=>array('ImageLibrary[image_title]'=>$model->image_title,
 									'ImageLibrary[image_status]'=>$model->image_status,
 									'ImageLibrary[image_used_type]'=>$model->image_used_type,
-				),),
+		),),
 			'sort'=>array('defaultOrder'=> array('image_added_time'=>CSort::SORT_DESC), ),
 		));
 		if($imageDataProvider->data)
@@ -162,7 +162,7 @@ class ArticleController extends AdminController {
 					$parent=$muCategories[$parent]['term_parent_id'];
 				}
 				if($usedType)
-					array_reverse($usedType);
+				array_reverse($usedType);
 				$usedType[]=$muCategories[$image['image_used_type']]['term_name'];
 				$image->image_used_type=implode('>>',$usedType);
 			}
@@ -176,34 +176,81 @@ class ArticleController extends AdminController {
 		'model'=>$model,
 		));
 	}
+	public function actionBatchUpdateImageTitle()
+	{
+		if(!Yii::app()->request->isPostRequest)
+		{//保存标题
+			
+		}
+		else {//展示需要修改标题的图片
+			$imageNeedUpdatesCriteria=new CDbCriteria();
+			$imageNeedUpdatesCriteria->select='image_id,image_src';
+			$imageNeedUpdatesCriteria->condition='image_added_by='.Yii::app()->admin->getId().' and image_status=33';
+			$imageNeedUpdates=ImageLibary::model()->findAll($imageNeedUpdatesCriteria);
+			$this->render('batchUpdateImageTitle',array('models'=>$imageNeedUpdates));
+		}
+	}
+	public function actionBatchUploadImage()
+	{
+		$targetFolder='images/commonProductsImages';
+		$verifyToken = md5('unique_salt' . $_POST['timestamp']);
+		if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
+			$model=new ImageLibrary();
+			$model->attributes=$_POST['ImageLibrary'];
+			$model->image_src=CUploadedFile::getInstance($model,'image_src');
+			$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
+			if(!in_array($model->image_src->extensionName,$fileTypes))
+			{
+				echo '上传非图片类型.';
+				exit;
+			}
+			if($model->image_src)
+			{
+				$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->extensionName;
+				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
+				$model->image_src->saveAs($targetFolder.'/'.$newimg);
+				$model->image_src = $targetFolder.'/'.$newimg;
+				$model->image_added_by = Yii::app()->admin->getId();
+				$model->image_status=33;//图片处于待审状态 ，回跳转到标题修改页面
+				if($model->save())
+				{
+					echo '1';
+				}
+				else
+				{
+					echo '该图片保存失败！';
+				}
+			}
+		}
+	}
 	public function actionUpdateImageLibary()
 	{
 		$model=new ImageLibrary();
-	    if(isset($_POST['ImageLibrary']))
-	    {
-	      $model->attributes=$_POST['ImageLibrary'];
-	      $model->image_src=CUploadedFile::getInstance($model,'image_src');
-	      if($model->image_src)
-	      {
-	        $newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->extensionName;
-	        //根据时间戳重命名文件名,extensionName是获取文件的扩展名
-	        $model->image_src->saveAs('images/commonProductsImages/'.$newimg);
-	        $model->image_src = 'images/commonProductsImages/'.$newimg;
-	        //将image属性重新命名
-	      }
-	      else {
-	      	$model->image_src=@$_REQUEST['image_src_2'];
-	      }
-	      if($model->image_id)$model->setIsNewRecord(false);
-	      if($model->save)
-	      {
-	      	$this->redirect(array('manageImageLibary'));
-	      }
-	    }
-	    $imageStatus=Term::getTermsByGroupId(1);
+		if(isset($_POST['ImageLibrary']))
+		{
+			$model->attributes=$_POST['ImageLibrary'];
+			$model->image_src=CUploadedFile::getInstance($model,'image_src');
+			if($model->image_src)
+			{
+				$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->extensionName;
+				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
+				$model->image_src->saveAs('images/commonProductsImages/'.$newimg);
+				$model->image_src = 'images/commonProductsImages/'.$newimg;
+				//将image属性重新命名
+			}
+			else {
+				$model->image_src=@$_REQUEST['image_src_2'];
+			}
+			if($model->image_id)$model->setIsNewRecord(false);
+			if($model->save())
+			{
+				$this->redirect(array('manageImageLibary'));
+			}
+		}
+		$imageStatus=Term::getTermsByGroupId(1);
 		$imageUsedType=Term::getMuCategory();
 		$this->render('updateImageLibary',array('model'=>$model,'imageStatus'=>$imageStatus,'imageUsedType'=>$imageUsedType));
-	    
+	  
 	}
 }
 

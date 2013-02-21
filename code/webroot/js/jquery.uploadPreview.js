@@ -84,9 +84,13 @@
                         imgDiv = img;
                         var reader = new FileReader(); 
                         reader.readAsDataURL(this.files[0]);
-                        imgDiv.attr('src', reader.result);
-                        imgDiv.css({ "vertical-align": "middle" });
-                        setTimeout("autoScaling()", 1000);
+						reader.onload = function (){
+							imgDiv.attr('src', reader.result);
+							imgDiv.css({ "vertical-align": "middle" });
+							setTimeout("autoScaling()", 1000);
+						}
+                        
+                        
                     }
                 }
             });

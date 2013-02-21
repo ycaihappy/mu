@@ -77,6 +77,7 @@ $('#file_upload').uploadify({
 				'formData'     : {
 					'timestamp' : '{$timestamp}',
 					'token'     : '{$token}'
+					'image_used_type':$("#ImageLibrary_image_used_type").val(),
 				},
 				'height':30,
 				'width':120,

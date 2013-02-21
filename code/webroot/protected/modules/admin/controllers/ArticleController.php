@@ -210,8 +210,8 @@ class ArticleController extends AdminController {
 			$verifyToken = md5('unique_salt' . $_POST['timestamp']);
 			if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
 				$model=new ImageLibrary();
-				$model->attributes=$_POST['ImageLibrary'];
-				$model->image_src=CUploadedFile::getInstance($model,'image_src');
+				$model->image_used_type=(int)$_POST['image_used_type'];
+				$model->image_src=CUploadedFile::getInstanceByName('file_upload');
 				$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
 				if(!in_array($model->image_src->extensionName,$fileTypes))
 				{

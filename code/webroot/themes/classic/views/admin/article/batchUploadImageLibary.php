@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'product-form',
 	'enableClientValidation'=>true,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),

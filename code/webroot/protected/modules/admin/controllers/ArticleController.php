@@ -2,6 +2,16 @@
 
 class ArticleController extends AdminController {
 
+	
+	private $cityCache;
+	private $muCategoryCache;
+	
+	public function __construct($id,$module=null)
+	{
+		parent::__construct($id,$module);
+		$this->cityCache=CCacheHelper::getAllCity();
+		$this->muCategoryCache=CCacheHelper::getMuCategory();
+	}
 	public function actionManageNews()
 	{
 		$this->_actionManageArticle(17);
@@ -193,6 +203,7 @@ class ArticleController extends AdminController {
 	}
 	public function actionBatchUploadImage()
 	{
+		
 		if(Yii::app()->request->isPostRequest)
 		{
 			$targetFolder='images/commonProductsImages';
@@ -260,10 +271,102 @@ class ArticleController extends AdminController {
 		{
 			$model=$model->with(array('createUser'=>array('select'=>'user_name')))->findByPk($imageId);
 		}
+		if($model->isNewRecord)
+		{
+			$model->image_status=33;
+		}
 		$imageStatus=Term::getTermsByGroupId(1);
 		$imageUsedType=Term::getMuCategory();
 		$this->render('updateImageLibary',array('model'=>$model,'imageStatus'=>$imageStatus,'imageUsedType'=>$imageUsedType));
 	  
+	}
+	public function actionManagePriceSummary()
+	{
+		$model=new PriceSummary();
+		$model->sum_year=@$_REQUEST['PriceSummary']['sum_year'];
+		$model->sum_month=@$_REQUEST['PriceSummary']['sum_month'];
+		$model->sum_day=@$_REQUEST['PriceSummary']['sum_day'];
+		$model->sum_product_type=@$_REQUEST['PriceSummary']['sum_product_type'];
+		$model->sum_product_zone=@$_REQUEST['PriceSummary']['sum_product_zone'];
+		
+		$sumCriteria=new CDbCriteria();
+		if($model->sum_year)
+		{
+			$sumCriteria->compare('sum_year', '='.$model->sum_year);
+			if($model->sum_month)
+			{
+				$sumCriteria->compare('sum_month', '='.$model->sum_month);
+				if($model->sum_day)
+				{
+					$sumCriteria->compare('sum_day', '='.$model->sum_day);
+				}
+			}
+		}
+		if($model->sum_product_type)
+		{
+			$sumCriteria->compare('sum_product_type', '='.$model->sum_product_type);
+		}
+		if($model->sum_product_type)
+		{
+			$sumCriteria->compare('sum_product_type', '='.$model->sum_product_type);
+		}
+		$sumCriteria->with=array('unit'=>array('select'=>'term_name'));
+		$dataProvider=new CActiveDataProvider('PriceSummary',array(
+			'criteria'=>$sumCriteria,
+			'pagination'=>array('pageSize'=>10,'pageVar'=>'page',
+					'params'=>array('PriceSummary[sum_year]'=>$model->sum_year,
+									'PriceSummary[sum_month]'=>$model->sum_month,
+									'PriceSummary[sum_day]'=>$model->sum_day,
+									'PriceSummary[sum_product_type]'=>$model->sum_product_type,
+									'PriceSummary[sum_product_zone]'=>$model->sum_product_zone,
+		),),
+		));
+		$priceSummary=$dataProvider->data;
+		if($priceSummary)
+		{
+			foreach ($priceSummary as &$price)
+			{
+				$price->sum_product_zone=$this->_getCityLayer($price->sum_product_zone);
+				$price->sum_product_type=$this->_getMuCategoryLayer($price->sum_product_type);
+			}
+		}
+		$allCity=City::getAllCity();
+		$allCategory=Term::getMuCategory();
+		$this->render('managePriceSummary',array('model'=>$model,'dataProvider'=>$dataProvider,'allCity'=>$allCity,'allCategory'=>$allCategory));
+		
+		
+		
+	}
+	private function _getMuCategoryLayer($muCategoryId)
+	{
+		$parent=$this->muCategoryCache[$muCategoryId]['term_parent_id'];
+		while($parent)
+		{
+			$muCategoryLayer[]=$this->muCategoryCache[$parent]['term_name'];
+			$parent=$this->muCategoryCache[$parent]['term_parent_id'];
+		}
+		if($muCategoryLayer)
+		array_reverse($muCategoryLayer);
+		$muCategoryLayer[]=$this->muCategoryCache[$muCategoryId]['term_name'];
+		
+		return implode('>>',$muCategoryLayer);
+	}
+	private function _getCityLayer($cityId)
+	{
+		$parent=$this->cityCache[$cityId]['city_parent'];
+		$parentCity=array();
+		while($parent)
+		{
+			$parentCity[]=$this->cityCache[$parent]->city_name;
+			$parent=$this->cityCache[$parent]->city_parent;
+		}
+		$parentCity=array_reverse($parentCity);
+		$parentCity[]=$this->cityCache[$cityId]->city_name;
+		if($parentCity)
+		$cityLayer=implode('>>',$parentCity);
+		else
+		$cityLayer='未指明';
+		return $cityLayer;
 	}
 }
 

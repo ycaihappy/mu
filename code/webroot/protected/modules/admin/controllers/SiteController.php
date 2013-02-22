@@ -150,7 +150,7 @@ class SiteController extends AdminController {
 	public function actionUpdateTerm() {
 		if (Yii::app ()->request->isAjaxRequest && @$_GET ['type'] == 'getTermByGroupId') {
 			
-			$terms = TermGroup::model ()->getGroupTermsByArray ( $_GET ['group_id'] );
+			$terms = Term::getTermsByGroupId ( $_GET ['group_id'] );
 			foreach ( $terms as $value => $name ) {
 				echo CHtml::tag ( 'option', array ('value' => $value ), CHtml::encode ( $name ), true );
 			}
@@ -167,12 +167,12 @@ class SiteController extends AdminController {
 					Yii::app ()->user->setFlash ( 'updateSuccess', 'updated successfully' );
 					$this->redirect ( array ('manageTerm' ) );
 				} else {
-					$terms = TermGroup::model ()->getGroupTermsByArray ( $term->term_group_id );
+					$terms = Term::getTermsByGroupId  ( $term->term_group_id );
 					$this->render ( 'updateTerm', array ('model' => $model, 'termGroup' => $termGroup, 'terms' => array () ) );
 				}
 			} else if (isset ( $_GET ['term_id'] )) {
 				$term = Term::model ()->findByPk ( $_GET ['term_id'] );
-				$terms = TermGroup::model ()->getGroupTermsByArray ( $term->term_group_id );
+				$terms =Term::getTermsByGroupId ( $term->term_group_id );
 				$this->render ( 'updateTerm', array ('model' => $term, 'termGroup' => $termGroup, 'terms' => $terms ) );
 			} else {
 				$this->render ( 'updateTerm', array ('model' => $model, 'termGroup' => $termGroup, 'terms' => array () ) );

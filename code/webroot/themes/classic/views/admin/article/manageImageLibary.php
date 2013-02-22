@@ -68,7 +68,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
         array(
         	'name'=>'名称',
         	'type'=>'html',
-        	'value'=>'"<img src=\"images/commonProductsImages/".$data->image_src."\" height=\"150\" alt=\"".$data->image_title."\" >"',
+        	'value'=>'"<img src=\"images/commonProductsImages/thumb/".$data->image_thumb_src."\" height=\"150\" alt=\"".$data->image_title."\" >"',
         ),  // display the 'name' attribute of the 'category' relation
         array(
         	'name'=>'所属分类',

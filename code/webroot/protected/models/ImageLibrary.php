@@ -41,7 +41,7 @@ class ImageLibrary extends CActiveRecord
 		return array(
 			array('image_id,image_status,image_used_type, image_added_by', 'numerical', 'integerOnly'=>true),
 			array('image_title', 'length', 'max'=>128),
-			array('image_src', 'length', 'max'=>256),
+			array('image_src,image_thumb_src', 'length', 'max'=>256),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('image_id, image_title, image_src, image_used_type, image_added_by, image_added_time', 'safe', 'on'=>'search'),

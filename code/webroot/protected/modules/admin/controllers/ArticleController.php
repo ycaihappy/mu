@@ -14,21 +14,30 @@ class ArticleController extends AdminController {
 	}
 	public function actionManageNews()
 	{
-		$this->_actionManageArticle(17);
+		$this->_actionManageArticle();
 	}
 	public function actionManagePrice()
 	{
 		$this->_actionManageArticle(16);
 	}
-	private function _actionManageArticle($type=17)
+	private function _actionManageArticle()
 	{
+		if(Yii::app ()->request->isAjaxRequest && @$_GET ['type'] == 'getSubCategory')
+		{
+			$terms = Term::getTermsByGroupId ( $_REQUEST ['categoryId'] );
+			foreach ( $terms as $value => $name ) {
+				echo CHtml::tag ( 'option', array ('value' => $value ), CHtml::encode ( $name ), true );
+			}
+			exit;
+		}
 		$model=new Article();
 		$articleTitle=@$_REQUEST['Article']['art_title'];
 		$model->art_title=$articleTitle;
 		$articleStatus=@$_REQUEST['Article']['art_status'];
 		$model->art_status=$articleStatus;
+		$model->art_category_id=@$_REQUEST['Article']['art_category_id'];
+		$model->art_subcategory_id=@$_REQUEST['Article']['art_subcategory_id'];
 		$articleCriteria=new CDbCriteria();
-		$articleCriteria->addCondition('art_category_id='.$type);
 		if($articleStatus)
 		{
 			$articleCriteria->addCondition('art_status=:status');
@@ -38,23 +47,33 @@ class ArticleController extends AdminController {
 		{
 			$articleCriteria->addSearchCondition('art_title', $articleTitle,true);
 		}
+		if($model->art_category_id)
+		{
+			$articleCriteria->compare('art_category_id','='.$model->art_category_id);
+		}
+		if($model->art_subcategory_id)
+		{
+			$articleCriteria->compare('art_subcategory_id','='.$model->art_subcategory_id);
+		}
 
 		$articleCriteria->select='art_id,art_title,art_post_date,art_check_by';
-		$articleCriteria->with=array('createUser'=>array('select'=>'user_name'),'status'=>array('select'=>'term_name'));
+		$articleCriteria->with=array('category'=>array('select'=>'term_name'),'subcategory'=>array('select'=>'term_name'),'createUser'=>array('select'=>'user_name'),'status'=>array('select'=>'term_name'));
 		$articleDataProvider=new CActiveDataProvider('Article',array(
 			'criteria'=>$articleCriteria,
 			'pagination'=>array('pageSize'=>10,'pageVar'=>'page','params'=>array('Article[art_title]'=>$model->art_title,
 					'Article[art_status]'=>$model->art_status,
-					'Article[art_category_id]'=>$type,
+					'Article[art_category_id]'=>$model->art_category_id,
+					'Article[art_subcategory_id]'=>$model->art_subcategory_id,
 			
 		),),
 			
 			'sort'=>array('defaultOrder'=> array('art_create_time'=>CSort::SORT_DESC), ),
 		));
 		$artStatus=Term::getTermsByGroupId(1);
+		$artCategory=Term::getTermsByGroupId(10,true);
 		$this->render('manageArticle',array(
 		'dataProvider'=>$articleDataProvider,
-		'isNews'=>$type==17?true:false,
+		'artCategory'=>$artCategory,
 		'artStatus'=>$artStatus,
 		'model'=>$model,
 		));
@@ -69,12 +88,7 @@ class ArticleController extends AdminController {
 			if($model->art_id)$model->setIsNewRecord(false);
 			if($model->save())
 			{
-				$redirectAction=$model->art_category_id==17?'manageNews':'managePrice';
-				$this->redirect(array($redirectAction));
-			}
-			else {
-				$artStatus=Term::getTermsByGroupId(1);
-				$this->render('updateArticle',array('model'=>$model,'artStatus'=>$artStatus,'isNews'=>$model->art_category_id==17?true:false));
+				$this->redirect(array('manageNews','page'=>Yii::app()->admin->getStat('page')));
 			}
 		}
 		else
@@ -83,14 +97,20 @@ class ArticleController extends AdminController {
 			{
 				$model=Article::model()->with(array('createUser'=>array('select'=>'user_name')))->findByPk($artId);
 			}
-			else {
-				$artCategoryId=in_array((int)$_GET['type'],array(17,16))?(int)$_GET['type']:17;
-				$model->art_category_id=$artCategoryId;
-			}
+			//else {
+			//	$artCategoryId=in_array((int)$_GET['type'],array(17,16))?(int)$_GET['type']:17;
+			//	$model->art_category_id=$artCategoryId;
+			//}
+		}
+		$parentId=$_REQUEST['parentId']?$_REQUEST['parentId']:$model->art_category_id;
+		if($parentId)
+		{
+			$model->art_category_id=$parentId;
 			$artStatus=Term::getTermsByGroupId(1);
+			$artSubCategory=Term::getTermsByGroupId(10,true,$parentId);
 			$this->render('updateArticle',array('model'=>$model,
 			'artStatus'=>$artStatus,
-			'isNews'=>$model->art_category_id==17?true:false));
+			'artSubCategory'=>$artSubCategory,));
 		}
 	}
 	public function actionChangeNewsStatus()
@@ -146,7 +166,7 @@ class ArticleController extends AdminController {
 		{
 			$imageLibaryCriteria->addSearchCondition('image_title', $model->image_title);
 		}
-		$imageLibaryCriteria->select='image_id,image_title,image_used_type,image_added_time,image_src';
+		$imageLibaryCriteria->select='image_id,image_title,image_used_type,image_added_time,image_src,image_thumb_src';
 		$imageLibaryCriteria->with=array('createUser'=>array('user_name'),
 										 'usedType'=>array('term_name'),
 										 'status'=>array('term_name'));
@@ -203,29 +223,44 @@ class ArticleController extends AdminController {
 	}
 	public function actionBatchUploadImage()
 	{
-		
 		if(Yii::app()->request->isPostRequest)
 		{
+
 			$targetFolder='images/commonProductsImages';
 			$verifyToken = md5('unique_salt' . $_POST['timestamp']);
 			if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
 				$model=new ImageLibrary();
 				$model->image_used_type=(int)$_POST['image_used_type'];
-				$model->image_src=CUploadedFile::getInstanceByName('file_upload');
+				$model->image_src=CUploadedFile::getInstanceByName('Filedata');
 				$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
-				if(!in_array($model->image_src->extensionName,$fileTypes))
+				if(!in_array($model->image_src->getExtensionName(),$fileTypes))
 				{
 					echo '上传非图片类型.';
 					exit;
 				}
 				if($model->image_src)
 				{
-					$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->extensionName;
+					$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->getExtensionName();
 					//根据时间戳重命名文件名,extensionName是获取文件的扩展名
-					$model->image_src->saveAs($targetFolder.'/'.$newimg);
-					$model->image_src = $newimg;
+					$uploadedImg=$targetFolder.'/'.$newimg;
+					$model->image_src->saveAs($uploadedImg);
+					$model->image_title = '未指定';
 					$model->image_added_by = Yii::app()->admin->getId();
 					$model->image_status=33;//图片处于待审状态 ，回跳转到标题修改页面
+					$im = null;
+					$imagetype = strtolower($model->image_src->getExtensionName());
+					if($imagetype == 'gif')
+						$im = imagecreatefromgif($uploadedImg);
+					else if ($imagetype == 'jpg')
+						$im = imagecreatefromjpeg($uploadedImg);
+					else if ($imagetype == 'png')
+						$im = imagecreatefrompng($uploadedImg);
+					$thumbImg='thumb_'.$newimg;
+					CThumb::resizeImage ( 
+					$im,100, 100,
+					'images/commonProductsImages/thumb/'.$thumbImg, $model->image_src->getExtensionName());
+					$model->image_src = $newimg;
+					$model->image_thumb_src = $thumbImg;
 					if($model->save())
 					{
 						echo '1';
@@ -254,12 +289,26 @@ class ArticleController extends AdminController {
 			{
 				$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->extensionName;
 				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
-				$model->image_src->saveAs('images/commonProductsImages/'.$newimg);
+				$uploadedImg='images/commonProductsImages/'.$newimg;
+				$model->image_src->saveAs($uploadedImg);
+				$im = null;
+				$imagetype = strtolower($model->image_src->getExtensionName());
+				if($imagetype == 'gif')
+					$im = imagecreatefromgif($uploadedImg);
+				else if ($imagetype == 'jpg')
+					$im = imagecreatefromjpeg($uploadedImg);
+				else if ($imagetype == 'png')
+					$im = imagecreatefrompng($uploadedImg);
+				$thumbImg='thumb_'.$newimg;
+				CThumb::resizeImage ( 
+				$im,100, 100,
+				'images/commonProductsImages/thumb/'.$thumbImg, $model->image_src->getExtensionName() );
 				$model->image_src = $newimg;
-				//将image属性重新命名
+				$model->image_thumb_src = $thumbImg;
 			}
 			else {
 				$model->image_src=@$_REQUEST['image_src_2'];
+				$model->image_thumb_src=@$_REQUEST['image_thumb_src_2'];
 			}
 			if($model->image_id)$model->setIsNewRecord(false);
 			if($model->save())
@@ -333,9 +382,30 @@ class ArticleController extends AdminController {
 		$allCity=City::getAllCity();
 		$allCategory=Term::getMuCategory();
 		$this->render('managePriceSummary',array('model'=>$model,'dataProvider'=>$dataProvider,'allCity'=>$allCity,'allCategory'=>$allCategory));
-		
-		
-		
+	}
+	public function actionUpdatePriceSummary()
+	{
+		$model=new PriceSummary();
+		if(isset($_REQUEST['PriceSummary']))
+		{
+			$model->attributes=$_REQUEST['PriceSummary'];
+			if($model->sum_id)$model->setIsNewRecord(false);
+			if($model->save())
+			{
+				$this->redirect(array('managePriceSummary','page'=>Yii::app()->admin->getStat('page')));
+			}
+		}
+		else
+		{
+			if($sumId=(int)@$_GET['sum_id'])
+			{
+				$model=$model->findByPk($sumId);
+			}
+		}
+		$allCity=City::getAllCity();
+		$allCategory=Term::getMuCategory();
+		$unit=Term::getTermsByGroupId(2);
+		$this->render('updatePriceSummary',array('model'=>$model,'allCity'=>$allCity,'allCategory'=>$allCategory,'unit'=>$unit));
 	}
 	private function _getMuCategoryLayer($muCategoryId)
 	{

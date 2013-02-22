@@ -266,7 +266,8 @@ class ProductController extends AdminController {
 			$parentCity[]=$this->cityCache[$parent]->city_name;
 			$parent=$this->cityCache[$parent]->city_parent;
 		}
-		$parentCity=array_reverse($parentCity);
+		if($parentCity)
+			$parentCity=array_reverse($parentCity);
 		$parentCity[]=$this->cityCache[$cityId]->city_name;
 		if($parentCity)
 		$cityLayer=implode('>>',$parentCity);

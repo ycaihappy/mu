@@ -51,7 +51,7 @@ class Article extends CActiveRecord
         // will receive user inputs.
         return array(
             array('art_title', 'required'),
-            array('art_id, art_category_id, art_status, art_user_id, art_recommend', 'numerical', 'integerOnly'=>true),
+            array('art_id, art_category_id,art_subcategory_id, art_status, art_user_id, art_recommend', 'numerical', 'integerOnly'=>true),
             array('art_title, art_source', 'length', 'max'=>128),
             array('art_tags, art_check_by', 'length', 'max'=>45),
             array('art_content, art_post_date, art_modified_date', 'safe'),
@@ -97,6 +97,7 @@ class Article extends CActiveRecord
             'status'=>array(self::BELONGS_TO,'Term','art_status'),
             'createUser'=>array(self::BELONGS_TO,'User','art_user_id'),
             'category'=>array(self::BELONGS_TO,'Term','art_category_id'),
+			'subcategory'=>array(self::BELONGS_TO,'Term','art_subcategory_id'),
         );
     }
 

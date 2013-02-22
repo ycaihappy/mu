@@ -36,6 +36,7 @@ $this->breadcrumbs=array(
         </div>
         <?php if(!$model->isNewRecord):?>
         <?php echo CHtml::hiddenField('image_src_2',$model->image_src)?>
+		<?php echo CHtml::hiddenField('image_thumb_src_2',$model->image_thumb_src)?>
         <?php endif;?>
 		</td>
 </tr>

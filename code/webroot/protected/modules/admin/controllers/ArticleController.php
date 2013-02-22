@@ -146,7 +146,7 @@ class ArticleController extends AdminController {
 		{
 			$imageLibaryCriteria->addSearchCondition('image_title', $model->image_title);
 		}
-		$imageLibaryCriteria->select='image_id,image_title,image_used_type,image_added_time,image_src';
+		$imageLibaryCriteria->select='image_id,image_title,image_used_type,image_added_time,image_src,image_thumb_src';
 		$imageLibaryCriteria->with=array('createUser'=>array('user_name'),
 										 'usedType'=>array('term_name'),
 										 'status'=>array('term_name'));
@@ -222,11 +222,25 @@ class ArticleController extends AdminController {
 				{
 					$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->getExtensionName();
 					//根据时间戳重命名文件名,extensionName是获取文件的扩展名
-					$model->image_src->saveAs($targetFolder.'/'.$newimg);
-					$model->image_src = $newimg;
+					$uploadedImg=$targetFolder.'/'.$newimg;
+					$model->image_src->saveAs($uploadedImg);
 					$model->image_title = '未指定';
 					$model->image_added_by = Yii::app()->admin->getId();
 					$model->image_status=33;//图片处于待审状态 ，回跳转到标题修改页面
+					$im = null;
+					$imagetype = strtolower($model->image_src->getExtensionName());
+					if($imagetype == 'gif')
+						$im = imagecreatefromgif($uploadedImg);
+					else if ($imagetype == 'jpg')
+						$im = imagecreatefromjpeg($uploadedImg);
+					else if ($imagetype == 'png')
+						$im = imagecreatefrompng($uploadedImg);
+					$thumbImg='thumb_'.$newimg;
+					CThumb::resizeImage ( 
+					$im,100, 100,
+					'images/commonProductsImages/thumb/'.$thumbImg, $model->image_src->getExtensionName());
+					$model->image_src = $newimg;
+					$model->image_thumb_src = $thumbImg;
 					if($model->save())
 					{
 						echo '1';
@@ -255,12 +269,26 @@ class ArticleController extends AdminController {
 			{
 				$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->extensionName;
 				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
-				$model->image_src->saveAs('images/commonProductsImages/'.$newimg);
+				$uploadedImg='images/commonProductsImages/'.$newimg;
+				$model->image_src->saveAs($uploadedImg);
+				$im = null;
+				$imagetype = strtolower($model->image_src->getExtensionName());
+				if($imagetype == 'gif')
+					$im = imagecreatefromgif($uploadedImg);
+				else if ($imagetype == 'jpg')
+					$im = imagecreatefromjpeg($uploadedImg);
+				else if ($imagetype == 'png')
+					$im = imagecreatefrompng($uploadedImg);
+				$thumbImg='thumb_'.$newimg;
+				CThumb::resizeImage ( 
+				$im,100, 100,
+				'images/commonProductsImages/thumb/'.$thumbImg, $model->image_src->getExtensionName() );
 				$model->image_src = $newimg;
-				//将image属性重新命名
+				$model->image_thumb_src = $thumbImg;
 			}
 			else {
 				$model->image_src=@$_REQUEST['image_src_2'];
+				$model->image_thumb_src=@$_REQUEST['image_thumb_src_2'];
 			}
 			if($model->image_id)$model->setIsNewRecord(false);
 			if($model->save())
@@ -344,7 +372,7 @@ class ArticleController extends AdminController {
 			if($model->sum_id)$model->setIsNewRecord(false);
 			if($model->save())
 			{
-				$this->redirect(array('managePriceSummary','page'=>Yii:app()->admin->getState('page')));
+				$this->redirect(array('managePriceSummary','page'=>Yii::app()->admin->getStat('page')));
 			}
 		}
 		else

@@ -1,7 +1,7 @@
 <?php 
 $this->breadcrumbs=array(
 	'新闻行情管理'=>array('manageNews'),
-	$isNews?'新闻管理':'行情管理'=>array($isNews?'manageNews':'managePrice'),
+	'文章管理'=>array('manageNews'),
 	'添加/修改',
 );
 ?>
@@ -14,10 +14,18 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 <?php echo $form->hiddenField($model,'art_category_id');?>
-<?php if($model->art_id): echo $form->hiddenField($model,'art_id');endif;?>
+<?php if($model->art_id): 
+echo $form->hiddenField($model,'art_id');
+endif;?>
 
 
 <table border="0" cellpadding="0" cellspacing="0" class="table-field">
+<tr>
+<td class="label">文章分类：</td>
+		<td><?php echo $form->dropDownList($model,'art_subcategory_id',$artSubCategory); ?>
+		<?php echo $form->error($model,'art_subcategory_id'); ?></td>
+</tr>
+
 <tr>
 <td class="label">标题：</td>
 		<td><?php echo $form->textField($model,'art_title',array('class'=>'cmp-input')); ?>
@@ -30,16 +38,31 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'art_tags'); ?></td>
 </tr>
 <tr>
-<tr>
 <td class="label">状态：</td>
 		<td><?php echo $form->dropDownList($model,'art_status',$artStatus); ?>
 		<?php echo $form->error($model,'art_status'); ?></td>
 </tr>
 <tr>
-<tr>
 <td class="label">内容：</td>
 		<td>
-		<?php echo $form->textArea($model,'art_content',array('cols'=>50,'rows'=>8));?>
+		
+		<?php 
+		$this->widget('application.extensions.ckeditor.CKEditor',array( 
+				    
+		"model"=>$model,
+
+		"attribute"=>'art_content',
+
+		"height"=>'400px',
+				    
+		"width"=>'400px',       
+				    
+		'editorTemplate'=>'advanced',
+		
+		) 
+);
+
+?>
 		<?php echo $form->error($model,'art_content'); ?></td>
 </tr>
 <tr>

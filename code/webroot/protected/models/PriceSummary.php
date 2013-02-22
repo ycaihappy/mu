@@ -43,7 +43,7 @@ class PriceSummary extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('sum_unit, sum_product_type, sum_product_zone', 'numerical', 'integerOnly'=>true),
-			array('sum_price', 'length', 'max'=>5),
+			array('sum_price', 'length', 'max'=>15),
 			array('sum_year, sum_month, sum_day', 'length', 'max'=>45),
 			array('sum_add_date', 'safe'),
 			// The following rule is used by search().

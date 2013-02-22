@@ -43,8 +43,8 @@ case 5:
  $this->widget('zii.widgets.CMenu',array(
 			'activeCssClass'=>'on',
 			'items'=>array(
-				array('label'=>'新闻管理', 'url'=>array('article/manageNews'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
-				array('label'=>'行情管理', 'url'=>array('article/managePrice'),'linkOptions'=>array('target'=>'mainFrame')),
+				array('label'=>'文章管理', 'url'=>array('article/manageNews'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
+				//array('label'=>'行情管理', 'url'=>array('article/managePrice'),'linkOptions'=>array('target'=>'mainFrame')),
 				array('label'=>'图库管理', 'url'=>array('article/manageImageLibary'),'linkOptions'=>array('target'=>'mainFrame')),
 				array('label'=>'行情走势数据', 'url'=>array('article/managePriceSummary'),'linkOptions'=>array('target'=>'mainFrame')),
 				),

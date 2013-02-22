@@ -70,9 +70,12 @@ class CKEditor extends CInputWidget{
 						array('Undo','Redo'),
 						array('Bold','Italic','Underline','Strike','-','Subscript','Superscript'),
 						array('NumberedList','BulletedList','-','Outdent','Indent','Blockquote'),
+						
 						array('JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'),
+						'/',
 						array('Link','Unlink','Anchor'),
 						array('Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'),
+						
 						array('Styles','Format','Font','FontSize'),
 						array('TextColor','BGColor'),
 						array('Maximize'),

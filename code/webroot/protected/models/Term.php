@@ -80,7 +80,7 @@ class Term extends CActiveRecord
 				{
 					$returnLayer=array();
 					$parent=$term->term_parent_id;
-					while($parent)
+					while($parent&&isset($returnTermsTermp[$parent]))
 					{
 						$returnLayer[]=$returnTermsTermp[$parent]->term_name;
 						$parent=$returnTermsTermp[$parent]->term_parent_id;

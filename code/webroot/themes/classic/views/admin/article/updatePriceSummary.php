@@ -44,8 +44,8 @@ $this->breadcrumbs=array(
 <tr>
 <td class="label">创建时间：</td>
 		<td>
-		<input name="PriceSummary[sum_added_time]" readOnly type=text class='cmp-input' value="<?php echo $model->sum_added_time?$model->sum_added_time:date('Y-m-d H:i:s');?>"/>		
-        <?php echo $form->error($model,'sum_added_time'); ?></td>
+		<input name="PriceSummary[sum_add_date]" readOnly type=text class='cmp-input' value="<?php echo $model->sum_add_date?$model->sum_add_date:date('Y-m-d H:i:s');?>"/>		
+        <?php echo $form->error($model,'sum_add_date'); ?></td>
 </tr>
 <tr>
 <td align='right' colspan=2><?php echo CHtml::submitButton('保存'); ?></td>

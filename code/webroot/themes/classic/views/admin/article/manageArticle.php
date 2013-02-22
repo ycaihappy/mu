@@ -7,7 +7,23 @@ $this->breadcrumbs=array(
 <div class='changeSuccess'><?php echo Yii::app()->admin->getFlash('changeStatus');?></div>
 <div class='changeError'><?php echo Yii::app()->admin->getFlash('changeStatusError');?></div>
 
-
+<div>
+<?php 
+foreach ($artCategory as $categoryId=>$category) {
+	$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'addArticle'.$categoryId,
+			'caption'=>'添加'.$category,
+		'value'=>'asd',
+		'cssFile'=>'jquery.ui.css',
+		'onclick'=>'js:function(){
+		    window.location.href="'.Yii::app()->controller->createUrl("updateArticle",array('parentId'=>$categoryId)).'";
+		}',
+		)
+);
+}
+?>
+</div>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',
 	'enableClientValidation'=>true,
@@ -59,13 +75,17 @@ $this->breadcrumbs=array(
         array(
         	'name'=>'发布人',
         	'value'=>'$data->createUser->user_name',
+        ), 
+        array(
+        	'name'=>'大分类',
+        	'value'=>'$data->category->term_name',
+       		'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
         array(
-        	'name'=>'审核人',
-        	'value'=>'$data->art_check_by',
-        	'htmlOptions'=>array('align'=>'center'),
+        	'name'=>'小分类',
+        	'value'=>'$data->subcategory->term_name',
+       		'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
-       
        array(
         	'name'=>'状态',
         	'value'=>'$data->status->term_name',

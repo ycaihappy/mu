@@ -3,6 +3,22 @@ $this->breadcrumbs=array(
 	'新闻行情管理'=>array('manageNews'),
 	'行情走势数据',
 );
+
+?>
+<div class='changeSuccess'><?php echo Yii::app()->admin->getFlash('changeStatus');?></div>
+<div class='changeError'><?php echo Yii::app()->admin->getFlash('changeStatusError');?></div>
+<?php 
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'addPriceSummary',
+			'caption'=>'录入行情数据',
+		'value'=>'asd',
+		'cssFile'=>'jquery.ui.css',
+		'onclick'=>'js:function(){
+		    window.location.href="'.Yii::app()->controller->createUrl("updatePriceSummary").'";
+		}',
+		)
+);
 ?>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',
@@ -20,7 +36,7 @@ $this->breadcrumbs=array(
 <label>日：</label>
 <?php echo $form->numberField($model,'sum_day',array('class'=>'cmp-input'));?>
 <label>品类：</label>
-<?php echo $form->dropDownList($model,'sum_product_type',$allCategory,array('class'=>'cmp-input'));?>
+<?php echo $form->dropDownList($model,'sum_product_type',$allCategory,array('class'=>'cmp-input','empty'=>'不限品类'));?>
 <label>地区：</label>
 <?php echo $form->dropDownList($model,'sum_product_zone',$allCity,array('class'=>'cmp-input'));?>
 <?php echo CHtml::submitButton('搜索'); ?>
@@ -28,7 +44,7 @@ $this->breadcrumbs=array(
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
-<form action='' method='post'>
+<form action='<?php echo Yii::app()->controller->createUrl("deletePriceSummary") ?>' method='post'>
 
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
@@ -53,7 +69,7 @@ $this->breadcrumbs=array(
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'单价',
-        	'value'=>'$data->sum_price." ".$data->unit->term_name ',
+        	'value'=>'$data->sum_price."/".$data->unit->term_name ',
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'地区',
@@ -69,7 +85,7 @@ $this->breadcrumbs=array(
             'header'=>'操作',
         	'class'=>'CButtonColumn',
         	'template'=>'{update}',
-        	'updateButtonUrl'=>'Yii::app()->controller->createUrl("updatePriceSummary",array("art_id"=>$data->sum_id))',
+        	'updateButtonUrl'=>'Yii::app()->controller->createUrl("updatePriceSummary",array("sum_id"=>$data->sum_id))',
         	'updateButtonLabel'=>'修改',
         	),
     ),

@@ -4,6 +4,8 @@ $this->breadcrumbs=array(
 	'图库管理',
 );
 ?>
+<div class='changeSuccess'><?php echo Yii::app()->admin->getFlash('changeStatus');?></div>
+<div class='changeError'><?php echo Yii::app()->admin->getFlash('changeStatusError');?></div>
 
 <div>
 <?php 
@@ -51,6 +53,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
+<form action='<?php echo  Yii::app()->controller->createUrl('changeImageLibaryStatus') ?>' method='post'>
 
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
@@ -70,9 +73,15 @@ $this->widget('zii.widgets.jui.CJuiButton',
         	'type'=>'html',
         	'value'=>'"<img src=\"images/commonProductsImages/thumb/".$data->image_thumb_src."\" height=\"150\" alt=\"".$data->image_title."\" >"',
         ),  // display the 'name' attribute of the 'category' relation
+       
         array(
         	'name'=>'所属分类',
         	'value'=>'$data->image_used_type',
+        	'htmlOptions'=>array('align'=>'center'),
+        ),   // display the 'content' attribute as purified HTML
+         array(
+        	'name'=>'状态',
+        	'value'=>'$data->status->term_name',
         	'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
         array(
@@ -93,3 +102,73 @@ $this->widget('zii.widgets.jui.CJuiButton',
     ),
 ));
 ?>
+<DIV>
+<input type="hidden" name="page" value="<?php echo Yii::app()->request->getParam('page',1);?>"/>
+<?php 
+$alertTitle='图片';
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'button',
+			'caption'=>'启用',
+		'value'=>'asd',
+		'onclick'=>'js:function(){
+			var selectedProducts=$("#yw0 .select-on-check:checked");
+			if(selectedProducts.size()<1)
+			{
+				alert("请选择要启用的'.$alertTitle.'信息！");
+			}
+			else
+			{
+				this.form.action+="&toStatus=1";
+				this.form.submit();
+			}
+			return false;
+		}',
+		)
+);
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'button2',
+			'caption'=>'禁用',
+		'value'=>'asd',
+		'onclick'=>'js:function(){
+		var selectedProducts=$("#yw0 .select-on-check:checked");
+			if(selectedProducts.size()<1)
+			{
+				alert("请选择要设为无效的'.$alertTitle.'信息！");
+			}
+			else
+			{
+				this.form.action+="&toStatus=2";
+				this.form.submit();
+			}
+			return false;
+		}',
+		)
+);
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'button3',
+			'caption'=>'删除',
+		'value'=>'asd',
+		'onclick'=>'js:function(){
+		var selectedProducts=$("#yw0 .select-on-check:checked");
+			if(selectedProducts.size()<1)
+			{
+				alert("请选择要删除的'.$alertTitle.'信息！");
+			}
+			else
+			{
+				if(confirm("确定删除选中的'.$alertTitle.'信息"))
+				{
+					this.form.action+="&toStatus=29";
+					this.form.submit();
+				}
+			}
+			return false;
+		}',
+		)
+);
+?>
+</DIV>
+</form>

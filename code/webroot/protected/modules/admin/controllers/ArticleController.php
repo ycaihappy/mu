@@ -24,7 +24,7 @@ class ArticleController extends AdminController {
 	{
 		if(Yii::app ()->request->isAjaxRequest && @$_GET ['type'] == 'getSubCategory')
 		{
-			$terms = Term::getTermsByGroupId ( $_REQUEST ['categoryId'] );
+			$terms = Term::getTermsByGroupId ( 10,false,$_REQUEST ['categoryId'] );
 			foreach ( $terms as $value => $name ) {
 				echo CHtml::tag ( 'option', array ('value' => $value ), CHtml::encode ( $name ), true );
 			}
@@ -88,7 +88,7 @@ class ArticleController extends AdminController {
 			if($model->art_id)$model->setIsNewRecord(false);
 			if($model->save())
 			{
-				$this->redirect(array('manageNews','page'=>Yii::app()->admin->getStat('page')));
+				$this->redirect(array('manageNews','page'=>Yii::app()->admin->getState('page')));
 			}
 		}
 		else
@@ -102,12 +102,12 @@ class ArticleController extends AdminController {
 			//	$model->art_category_id=$artCategoryId;
 			//}
 		}
-		$parentId=$_REQUEST['parentId']?$_REQUEST['parentId']:$model->art_category_id;
+		$parentId=@$_REQUEST['parentId']?@$_REQUEST['parentId']:$model->art_category_id;
 		if($parentId)
 		{
 			$model->art_category_id=$parentId;
 			$artStatus=Term::getTermsByGroupId(1);
-			$artSubCategory=Term::getTermsByGroupId(10,true,$parentId);
+			$artSubCategory=Term::getTermsByGroupId(10,false,$parentId);
 			$this->render('updateArticle',array('model'=>$model,
 			'artStatus'=>$artStatus,
 			'artSubCategory'=>$artSubCategory,));
@@ -329,6 +329,28 @@ class ArticleController extends AdminController {
 		$this->render('updateImageLibary',array('model'=>$model,'imageStatus'=>$imageStatus,'imageUsedType'=>$imageUsedType));
 	  
 	}
+	public function actionChangeImageLibaryStatus()
+	{
+		$toStatus=@$_REQUEST['toStatus'];
+		$imageId=@$_REQUEST['image_id'];
+		if(!$imageId && in_array($toStatus,array(1,2,33)))
+		{
+			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的图片信息，以及改变的状态');
+			$this->redirect(array('manageImageLibary','page'=>Yii::app()->request->getParam('page',1)));
+
+		}
+		$updateStatusCriteria=new CDbCriteria();
+		$updateStatusCriteria->addInCondition('image_id', $imageId);
+		$updateRows=ImageLibrary::model()->updateAll(array('image_status'=>$toStatus),$updateStatusCriteria);
+		if($updateRows>0)
+		{
+			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
+		}
+		else {
+			Yii::app()->admin->setFlash('changeStatusError','更新异常');
+		}
+		$this->redirect(array('manageImageLibary','page'=>Yii::app()->request->getParam('page',1)));
+	}
 	public function actionManagePriceSummary()
 	{
 		$model=new PriceSummary();
@@ -355,9 +377,9 @@ class ArticleController extends AdminController {
 		{
 			$sumCriteria->compare('sum_product_type', '='.$model->sum_product_type);
 		}
-		if($model->sum_product_type)
+		if($model->sum_product_zone)
 		{
-			$sumCriteria->compare('sum_product_type', '='.$model->sum_product_type);
+			$sumCriteria->compare('sum_product_zone', '='.$model->sum_product_zone);
 		}
 		$sumCriteria->with=array('unit'=>array('select'=>'term_name'));
 		$dataProvider=new CActiveDataProvider('PriceSummary',array(
@@ -379,6 +401,12 @@ class ArticleController extends AdminController {
 				$price->sum_product_type=$this->_getMuCategoryLayer($price->sum_product_type);
 			}
 		}
+		if(!$model->sum_year)
+		{
+			$model->sum_year=date('Y');
+			$model->sum_month=date('m');
+			$model->sum_day=date('d');
+		}
 		$allCity=City::getAllCity();
 		$allCategory=Term::getMuCategory();
 		$this->render('managePriceSummary',array('model'=>$model,'dataProvider'=>$dataProvider,'allCity'=>$allCity,'allCategory'=>$allCategory));
@@ -392,7 +420,7 @@ class ArticleController extends AdminController {
 			if($model->sum_id)$model->setIsNewRecord(false);
 			if($model->save())
 			{
-				$this->redirect(array('managePriceSummary','page'=>Yii::app()->admin->getStat('page')));
+				$this->redirect(array('managePriceSummary','page'=>Yii::app()->request->getParam('page',1)));
 			}
 		}
 		else
@@ -400,12 +428,36 @@ class ArticleController extends AdminController {
 			if($sumId=(int)@$_GET['sum_id'])
 			{
 				$model=$model->findByPk($sumId);
+				
 			}
+		}
+		if($model->isNewRecord)
+		{
+			$model->sum_year=date('Y');
+			$model->sum_month=date('m');
+			$model->sum_day=date('d');
 		}
 		$allCity=City::getAllCity();
 		$allCategory=Term::getMuCategory();
 		$unit=Term::getTermsByGroupId(2);
 		$this->render('updatePriceSummary',array('model'=>$model,'allCity'=>$allCity,'allCategory'=>$allCategory,'unit'=>$unit));
+	}
+	public function actionDeletePriceSummary()
+	{
+		if($sumId=@$_REQUEST['sum_id'])
+		{
+			$deleteCondition=new CDbCriteria();
+			$deleteCondition->addInCondition('sum_id', $sumId);
+			$deleteRows=PriceSummary::model()->deleteAll($deleteCondition);
+			if($deleteRows>0)
+			{
+				Yii::app()->admin->setFlash('changeStatus','删除成功！');
+			}
+			else {
+				Yii::app()->admin->setFlash('changeStatusError','删除异常');
+			}
+			$this->redirect(array('managePriceSummary','page'=>Yii::app()->request->getParam('page',1)));
+		}
 	}
 	private function _getMuCategoryLayer($muCategoryId)
 	{

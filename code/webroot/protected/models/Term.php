@@ -50,11 +50,23 @@ class Term extends CActiveRecord
 			array('term_id, term_parent_id, term_name, term_slug, term_group_id, term_order, term_create_time', 'safe', 'on'=>'search'),
 		);
 	}
-	public static function getTermsByGroupId($groupId)
+	public static function getTermsByGroupId($groupId,$top=false,$parent=null)
 	{
 		if($groupId)
 		{
-			$terms=self::model()->findAll('term_group_id=:groupId',array(':groupId'=>$groupId));
+			$termCritria=new CDbCriteria();
+			if($top)
+			{
+				$termCritria->compare('term_parent_id','=0');
+			}
+			if($parent)
+			{
+				$termCritria->addCondition('term_parent_id=:parent_id');
+				$termCritria->params[':parent_id']=$parent;
+			}
+			$termCritria->addCondition('term_group_id=:groupId');
+			$termCritria->params[':groupId']=$groupId;
+			$terms=self::model()->findAll($termCritria);
 			if($terms)
 			{
 				$returnTerms=array();

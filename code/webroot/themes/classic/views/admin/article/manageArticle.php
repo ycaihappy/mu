@@ -1,15 +1,13 @@
 <?php
-$artTypeName=$isNews?'新闻':'行情';
-$artChangeStatusAction=$isNews?'changeNewsStatus':'changePriceStatus';
 $this->breadcrumbs=array(
 	'新闻行情管理'=>array('manageNews'),
-	$artTypeName.'管理',
+	'文章管理',
 );
 ?>
 <div class='changeSuccess'><?php echo Yii::app()->admin->getFlash('changeStatus');?></div>
 <div class='changeError'><?php echo Yii::app()->admin->getFlash('changeStatusError');?></div>
 
-<div><?php echo CHtml::button('添加'.$artTypeName,array('class'=>'btn-blue','onclick'=>'window.location.href="'.Yii::app()->controller->createUrl("updateArticle",array('type'=>$isNews?17:16,)).'"'))?></div>
+
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',
 	'enableClientValidation'=>true,
@@ -21,6 +19,17 @@ $this->breadcrumbs=array(
 <div>
 <label>状态：</label>
 <?php echo $form->dropDownList($model,'art_status',$artStatus);?>
+<label>大分类：</label>
+<?php echo $form->dropDownList($model,'art_category_id',$artCategory,array(
+        'empty'=>'不限分类',
+        'ajax'=>array(
+                    'type'=>'GET',
+                    'url'=>CController::createUrl('article/manageNews'),
+                    'update'=>'#Article_art_subcategory_id',
+                    'data'=>array('categoryId'=>"js:this.value",'type'=>'getSubCategory')
+                )));?>
+<label>小分类：</label>
+<?php echo $form->dropDownList($model,'art_subcategory_id',array());?>
 <label>标题：</label>
 <?php echo $form->textField($model,'art_title',array('class'=>'cmp-input'));?>
 <?php echo CHtml::submitButton('搜索'); ?>
@@ -28,7 +37,7 @@ $this->breadcrumbs=array(
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
-<form action='<?php echo  Yii::app()->controller->createUrl($artChangeStatusAction) ?>' method='post'>
+<form action='<?php echo  Yii::app()->controller->createUrl('changeNewsStatus') ?>' method='post'>
 
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
@@ -80,7 +89,7 @@ $this->breadcrumbs=array(
 <DIV>
 <input type="hidden" name="page" value="<?php echo Yii::app()->request->getParam('page',1);?>"/>
 <?php 
-$alertTitle=$artTypeName;
+$alertTitle='文章';
 $this->widget('zii.widgets.jui.CJuiButton',
 	array(
 		'name'=>'button',

@@ -14,21 +14,30 @@ class ArticleController extends AdminController {
 	}
 	public function actionManageNews()
 	{
-		$this->_actionManageArticle(17);
+		$this->_actionManageArticle();
 	}
 	public function actionManagePrice()
 	{
 		$this->_actionManageArticle(16);
 	}
-	private function _actionManageArticle($type=17)
+	private function _actionManageArticle()
 	{
+		if(Yii::app ()->request->isAjaxRequest && @$_GET ['type'] == 'getSubCategory')
+		{
+			$terms = Term::getTermsByGroupId ( $_REQUEST ['categoryId'] );
+			foreach ( $terms as $value => $name ) {
+				echo CHtml::tag ( 'option', array ('value' => $value ), CHtml::encode ( $name ), true );
+			}
+			exit;
+		}
 		$model=new Article();
 		$articleTitle=@$_REQUEST['Article']['art_title'];
 		$model->art_title=$articleTitle;
 		$articleStatus=@$_REQUEST['Article']['art_status'];
 		$model->art_status=$articleStatus;
+		$model->art_category_id=@$_REQUEST['Article']['art_category_id'];
+		$model->art_subcategory_id=@$_REQUEST['Article']['art_subcategory_id'];
 		$articleCriteria=new CDbCriteria();
-		$articleCriteria->addCondition('art_category_id='.$type);
 		if($articleStatus)
 		{
 			$articleCriteria->addCondition('art_status=:status');
@@ -38,23 +47,33 @@ class ArticleController extends AdminController {
 		{
 			$articleCriteria->addSearchCondition('art_title', $articleTitle,true);
 		}
+		if($model->art_category_id)
+		{
+			$articleCriteria->compare('art_category_id','='.$model->art_category_id);
+		}
+		if($model->art_subcategory_id)
+		{
+			$articleCriteria->compare('art_subcategory_id','='.$model->art_subcategory_id);
+		}
 
 		$articleCriteria->select='art_id,art_title,art_post_date,art_check_by';
-		$articleCriteria->with=array('createUser'=>array('select'=>'user_name'),'status'=>array('select'=>'term_name'));
+		$articleCriteria->with=array('category'=>array('select'=>'term_name'),'subcategory'=>array('select'=>'term_name'),'createUser'=>array('select'=>'user_name'),'status'=>array('select'=>'term_name'));
 		$articleDataProvider=new CActiveDataProvider('Article',array(
 			'criteria'=>$articleCriteria,
 			'pagination'=>array('pageSize'=>10,'pageVar'=>'page','params'=>array('Article[art_title]'=>$model->art_title,
 					'Article[art_status]'=>$model->art_status,
-					'Article[art_category_id]'=>$type,
+					'Article[art_category_id]'=>$model->art_category_id,
+					'Article[art_subcategory_id]'=>$model->art_subcategory_id,
 			
 		),),
 			
 			'sort'=>array('defaultOrder'=> array('art_create_time'=>CSort::SORT_DESC), ),
 		));
 		$artStatus=Term::getTermsByGroupId(1);
+		$artCategory=Term::getTermsByGroupId(10,true);
 		$this->render('manageArticle',array(
 		'dataProvider'=>$articleDataProvider,
-		'isNews'=>$type==17?true:false,
+		'artCategory'=>$artCategory,
 		'artStatus'=>$artStatus,
 		'model'=>$model,
 		));
@@ -69,12 +88,7 @@ class ArticleController extends AdminController {
 			if($model->art_id)$model->setIsNewRecord(false);
 			if($model->save())
 			{
-				$redirectAction=$model->art_category_id==17?'manageNews':'managePrice';
-				$this->redirect(array($redirectAction));
-			}
-			else {
-				$artStatus=Term::getTermsByGroupId(1);
-				$this->render('updateArticle',array('model'=>$model,'artStatus'=>$artStatus,'isNews'=>$model->art_category_id==17?true:false));
+				$this->redirect(array('manageNews','page'=>Yii::app()->admin->getStat('page')));
 			}
 		}
 		else
@@ -83,14 +97,20 @@ class ArticleController extends AdminController {
 			{
 				$model=Article::model()->with(array('createUser'=>array('select'=>'user_name')))->findByPk($artId);
 			}
-			else {
-				$artCategoryId=in_array((int)$_GET['type'],array(17,16))?(int)$_GET['type']:17;
-				$model->art_category_id=$artCategoryId;
-			}
+			//else {
+			//	$artCategoryId=in_array((int)$_GET['type'],array(17,16))?(int)$_GET['type']:17;
+			//	$model->art_category_id=$artCategoryId;
+			//}
+		}
+		$parentId=$_REQUEST['parentId']?$_REQUEST['parentId']:$model->art_category_id;
+		if($parentId)
+		{
+			$model->art_category_id=$parentId;
 			$artStatus=Term::getTermsByGroupId(1);
+			$artSubCategory=Term::getTermsByGroupId(10,true,$parentId);
 			$this->render('updateArticle',array('model'=>$model,
 			'artStatus'=>$artStatus,
-			'isNews'=>$model->art_category_id==17?true:false));
+			'artSubCategory'=>$artSubCategory,));
 		}
 	}
 	public function actionChangeNewsStatus()

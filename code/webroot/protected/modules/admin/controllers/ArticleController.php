@@ -215,7 +215,6 @@ class ArticleController extends AdminController {
 				$model->image_used_type=(int)$_POST['image_used_type'];
 				$model->image_src=CUploadedFile::getInstanceByName('Filedata');
 				$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
-				//file_put_contents('logs/xxx.txt',$model->image_src->getExtensionName());
 				if(!in_array($model->image_src->getExtensionName(),$fileTypes))
 				{
 					echo '上传非图片类型.';
@@ -227,6 +226,7 @@ class ArticleController extends AdminController {
 					//根据时间戳重命名文件名,extensionName是获取文件的扩展名
 					$model->image_src->saveAs($targetFolder.'/'.$newimg);
 					$model->image_src = $newimg;
+					$model->image_title = '未指定';
 					$model->image_added_by = Yii::app()->admin->getId();
 					$model->image_status=33;//图片处于待审状态 ，回跳转到标题修改页面
 					if($model->save())

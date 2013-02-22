@@ -151,7 +151,6 @@ class SiteController extends AdminController {
 		if (Yii::app ()->request->isAjaxRequest && @$_GET ['type'] == 'getTermByGroupId') {
 			
 			$terms = TermGroup::model ()->getGroupTermsByArray ( $_GET ['group_id'] );
-			echo CHtml::tag ( 'option', array ('value' => 0 ), '顶级', true );
 			foreach ( $terms as $value => $name ) {
 				echo CHtml::tag ( 'option', array ('value' => $value ), CHtml::encode ( $name ), true );
 			}

@@ -61,7 +61,7 @@ class Term extends CActiveRecord
 				$returnTerms[0]='不限';
 				foreach ($terms as $term)
 				{
-					$returnTerms[$term->term_id]=$term->term_name;
+					$returnTerms[$term->term_id]=$term;
 				}
 				return $returnTerms;
 			}

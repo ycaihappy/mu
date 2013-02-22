@@ -203,8 +203,6 @@ class ArticleController extends AdminController {
 	}
 	public function actionBatchUploadImage()
 	{
-	
-		
 		if(Yii::app()->request->isPostRequest)
 		{
 
@@ -336,9 +334,30 @@ class ArticleController extends AdminController {
 		$allCity=City::getAllCity();
 		$allCategory=Term::getMuCategory();
 		$this->render('managePriceSummary',array('model'=>$model,'dataProvider'=>$dataProvider,'allCity'=>$allCity,'allCategory'=>$allCategory));
-		
-		
-		
+	}
+	public function actionUpdatePriceSummary()
+	{
+		$model=new PriceSummary();
+		if(isset($_REQUEST['PriceSummary']))
+		{
+			$model->attributes=$_REQUEST['PriceSummary'];
+			if($model->sum_id)$model->setIsNewRecord(false);
+			if($model->save())
+			{
+				$this->redirect(array('managePriceSummary','page'=>Yii:app()->admin->getState('page')));
+			}
+		}
+		else
+		{
+			if($sumId=(int)@$_GET['sum_id'])
+			{
+				$model=$model->findByPk($sumId);
+			}
+		}
+		$allCity=City::getAllCity();
+		$allCategory=Term::getMuCategory();
+		$unit=Term::getTermsByGroupId(2);
+		$this->render('updatePriceSummary',array('model'=>$model,'allCity'=>$allCity,'allCategory'=>$allCategory,'unit'=>$unit));
 	}
 	private function _getMuCategoryLayer($muCategoryId)
 	{

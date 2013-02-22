@@ -203,24 +203,27 @@ class ArticleController extends AdminController {
 	}
 	public function actionBatchUploadImage()
 	{
+	
 		
 		if(Yii::app()->request->isPostRequest)
 		{
+
 			$targetFolder='images/commonProductsImages';
 			$verifyToken = md5('unique_salt' . $_POST['timestamp']);
 			if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
 				$model=new ImageLibrary();
 				$model->image_used_type=(int)$_POST['image_used_type'];
-				$model->image_src=CUploadedFile::getInstanceByName('file_upload');
+				$model->image_src=CUploadedFile::getInstanceByName('Filedata');
 				$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
-				if(!in_array($model->image_src->extensionName,$fileTypes))
+				//file_put_contents('logs/xxx.txt',$model->image_src->getExtensionName());
+				if(!in_array($model->image_src->getExtensionName(),$fileTypes))
 				{
 					echo '上传非图片类型.';
 					exit;
 				}
 				if($model->image_src)
 				{
-					$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->extensionName;
+					$newimg = $model->image_used_type.'_'.time().'_'.rand(1, 9999).'.'.$model->image_src->getExtensionName();
 					//根据时间戳重命名文件名,extensionName是获取文件的扩展名
 					$model->image_src->saveAs($targetFolder.'/'.$newimg);
 					$model->image_src = $newimg;

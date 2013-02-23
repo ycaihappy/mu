@@ -43,6 +43,7 @@ return array(
 				'notAuthorizedView'=>'/site/unauthorized',
 		),
 		'uehome',
+		'storeFront',
 		/*'srbac' => array(
 		        'userclass'=>'User',
 		        'userid'=>'user_id',

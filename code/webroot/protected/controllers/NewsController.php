@@ -2,6 +2,7 @@
 
 class NewsController extends Controller
 {
+    public $layout = '//layouts/news_main';
 	/**
 	 * Declares class-based actions.
 	 */

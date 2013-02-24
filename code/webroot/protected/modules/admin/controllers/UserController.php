@@ -573,7 +573,7 @@ class UserController extends AdminController
 		$model->user_status=@$_REQUEST['User']['user_status'];
 		$model->user_name=@$_REQUEST['User']['user_name'];
 		$userCriteria=new CDbCriteria();
-		$userCriteria->select='user_id,user_name,user_nickname,user_email,user_join_date,user_last_login_date';
+		$userCriteria->select='user_id,user_name,user_first_name,user_nickname,user_email,user_join_date,user_last_login_date';
 		$userCriteria->with=array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name'));
 		$userCriteria->order='user_join_date desc';
 		$userCriteria->addCondition('user_type=:user_type');
@@ -622,22 +622,15 @@ class UserController extends AdminController
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
-			$model->setIsNewRecord(false);
+			if($model->user_id)$model->setIsNewRecord(false);
+			
 			if($model->save())
 			{
 				$this->redirect(array('manageUser'));
 			}
-			else {
-				$this->_loadCurrentUser($model->user_id);
-			}
 		}
-		elseif($userId=$_GET['user_id'])
-		{
-			$this->_loadCurrentUser($userId);
-		}
-		else {
-			$this->redirect(array('manageUser'));
-		}
+		$userId=@$_GET['user_id'];
+		$this->_loadCurrentUser($model, $userId);
 			
 	}
 	public function actionUpdateAdminUser()
@@ -647,41 +640,36 @@ class UserController extends AdminController
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
+			if($model->user_id)$model->setIsNewRecord(false);
+			if($pwd=@$_REQUEST['user_pwd_1'])$model->user_pwd=md5($pwd);
 			if($model->save())
 			{
 				$this->redirect(array('manageAdminUser'));
 			}
 		}
-		else {
-			if($userId=@$_GET['user_id'])
-			{
-				$model=$model->findByPk($userId);
-			}
+		if($userId=@$_GET['user_id'])
+		{
+			$model=$model->findByPk($userId);
 		}
 		$allCity=City::getAllCity();
 		$userStatus=Term::getTermsByGroupId(1);
 		$this->render('updateAdminUser',array('model'=>$model,'userStatus'=>$userStatus,'allCity'=>$allCity));
 	}
-	private function _loadCurrentUser($userId)
+	private function _loadCurrentUser($model,$userId)
 	{
-		$model=User::model()->with(array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name')))->findByPK($userId);
+		if($userId)
+			$model=$model->with(array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name')))->findByPK($userId);
 		if($model)
 		{
 			$allCity=City::getAllCity();
 			$userStatus=Term::getTermsByGroupId(1);
-			if($model->role)
-			{
-				foreach ($model->role as $role)
-				{
-					$roles[]=$role->name;
-				}
-				$model->user_type=implode('， ', $roles);
-			}
-			else
-			{
-				$model->user_type='未分配';
-			}
-			$this->render('updateUser',array('model'=>$model,'userStatus'=>$userStatus,'allCity'=>$allCity));
+			$userTemplate=UserTemplate::getAllTemplate();
+			$this->render('updateUser',
+			array('model'=>$model,
+			'userStatus'=>$userStatus,
+			'allCity'=>$allCity,
+			'userTemplate'=>$userTemplate,
+			));
 		}
 	}
 	/**
@@ -861,6 +849,98 @@ class UserController extends AdminController
 		else {
 			echo json_encode(array('message'=>'请选择你要删除的权限项目！'));
 		}
+	}
+	public function actionManageUserTemplate()
+	{
+		$model=new UserTemplate();
+		$model->temp_status=@$_REQUEST['UserTemplate']['temp_status'];
+		$model->temp_name=@$_REQUEST['UserTemplate']['temp_name'];
+		$templdateCriteria=new CDbCriteria();
+		if($model->temp_status)
+		{
+			$templdateCriteria->addCondition('temp_status=:status');
+			$templdateCriteria->params[':status']=$model->temp_status;
+		}
+		if($model->temp_name)
+		{
+			$templdateCriteria->addSearchCondition('temp_name',$model->temp_name,true);
+		}
+		$templdateCriteria->with=array('status'=>array('select'=>'term_name'));
+		$dataProvider=new CActiveDataProvider('UserTemplate',array(
+			'criteria'=>$templdateCriteria,
+			'pagination'=>array(
+		        'pageSize'=>10,
+				'pageVar'=>'page',
+				'params'=>array('UserTemplate[temp_status]'=>$model->temp_status,
+								'UserTemplate[temp_name]'=>$model->temp_name),
+		),
+		));
+		$templateStatus=Term::getTermsByGroupId(1);
+		$this->render('manageUserTemplate',array('dataProvider'=>$dataProvider,'model'=>$model,'templateStatus'=>$templateStatus));
+	}
+	public function actionChangeUserTemplateStatus()
+	{
+		$toStatus=@$_REQUEST['toStatus'];
+		$templateId=@$_REQUEST['temp_id'];
+		if(!$templateId && in_array($toStatus,array(1,2)))
+		{
+				
+			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的模板信息，以及改变的状态');
+			$this->redirect(array($redirectPage));
+				
+		}
+		$updateStatusCriteria=new CDbCriteria();
+		$updateStatusCriteria->addInCondition('temp_id', $templateId);
+		$updateRows=UserTemplate::model()->updateAll(array('temp_status'=>$toStatus),$updateStatusCriteria);
+		if($updateRows>0)
+		{
+			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
+		}
+		else {
+			Yii::app()->admin->setFlash('changeStatusError','更新异常');
+		}
+		$this->redirect(array('manageUserTemplate','page'=>Yii::app()->request->getParam('page',1)));
+
+	}
+	public function actionDeleteUserTemplate()
+	{
+		$result=array();
+		if(Yii::app()->request->isAjaxRequest && $templateId=@$_GET['temp_id'])
+		{
+			$deleteRow=UserTemplate::model()->deleteByPk($templateId);
+			if($deleteRow)
+			{
+				$result['status']=1;
+				$result['message']='模板删除成功！';
+			}
+			else {
+				$result['status']=0;
+				$result['message']='模板删除失败！';
+			}
+		}
+		else {
+			$result['status']=0;
+			$result['message']='非法请求！';
+		}
+		echo json_encode($result);
+	}
+	public function actionUpdateUserTemplate()
+	{
+		$model=new UserTemplate();
+		if(isset($_POST['UserTemplate']))
+		{
+			$model->attributes=$_POST['UserTemplate'];
+			if($model->temp_id)$model->setIsNewRecord(false);
+			if($model->save())
+			{
+				$this->redirect(array('manageUserTemplate','page'=>Yii::app()->request->getParam('page',1)));
+			}
+		}
+		if($tempId=@$_GET['temp_id']){
+			$model=$model->findByPk($tempId);
+		}
+		$templateStatus=Term::getTermsByGroupId(1);
+		$this->render('updateUserTemplate',array('model'=>$model,'templateStatus'=>$templateStatus));
 	}
 
 }

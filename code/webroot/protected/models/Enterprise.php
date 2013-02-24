@@ -50,9 +50,10 @@ class Enterprise extends CActiveRecord
 			array('ent_name', 'length', 'max'=>256),
 			array('ent_website, ent_business_scope', 'length', 'max'=>512),
 			array('ent_zipcode', 'length', 'max'=>32),
+			array('ent_tax', 'length', 'max'=>30),
 			array('ent_website', 'url'),
 			array('ent_location', 'length', 'max'=>218),
-			array('ent_chief', 'length', 'max'=>128),
+			array('ent_chief,ent_logo,ent_image', 'length', 'max'=>128),
 			array('ent_registered_capital', 'length', 'max'=>10),
 			array('ent_introduce', 'safe'),
 			// The following rule is used by search().

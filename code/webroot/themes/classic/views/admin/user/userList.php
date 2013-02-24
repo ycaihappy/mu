@@ -18,6 +18,10 @@
         	'value'=>'$data->user_name',
         ),  // display the 'name' attribute of the 'category' relation
         array(
+        	'name'=>'姓名',
+        	'value'=>'$data->user_first_name',
+        ),  // display the 'name' attribute of the 'category' relation
+        array(
         	'name'=>'角色',
         	'value'=>'$data->user_type',
         ),

@@ -4,14 +4,10 @@
 	$this->widget('FrontHeadStyle');
 ?>
 <body>
-<{if $com.jsbook&&$smarty.get.action!='mail'}>
+<!-- <{if $com.jsbook&&$smarty.get.action!='mail'}>
 <script src="api/mail_box_js.php?uid=<{$com.userid}>&action=<{$smarty.get.action}>" type=text/javascript></script>
-<{/if}>
-<div id="top">
-<?php 
-$this->widget('FrontTop');
-?>
-</div>
+<{/if}> -->
+
 <div id="header">
 <?php
 $this->widget('FrontHeader');

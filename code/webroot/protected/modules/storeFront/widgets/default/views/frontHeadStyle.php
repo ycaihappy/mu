@@ -1,8 +1,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title><{$shopconfig.hometitle}>-<{$config.company}></title>
-	<meta name="description" content="<{$shopconfig.homedes}>">
-	<meta name="keywords" content="<{$shopconfig.homekeyword}>">
+	<title><?php echo $company->ent_name?>-<?php echo $config['hometitle']?></title>
+	<meta name="description" content="<?php echo $config['homedes']?>">
+	<meta name="keywords" content="<?php echo $config['homekeyword']?>">
 </head>
 <style type="text/css">
 #imageFlow{top:705px; width:620px; left:410px; background-color:#CCCCCC;}
@@ -10,7 +10,7 @@
 img { border:0; }
 th { text-align:right; }
 ul, li { list-style:none; }
-body {background-image: url(<{$shopconfig.styleimg}>);}
+body {background-image: url(<?php echo $config['styleimg']; ?>);}
 body, div, input, select, textarea, td { font-family:Verdana, Arial, Helvetica, sans-serif; }
 img, input, select { vertical-align:middle }
 ul, li {list-style:none;list-style-image:none;list-style-position:outside;list-style-type:none; margin:0px;}
@@ -22,7 +22,7 @@ a:hover {color:#d443a7;}
 #top a:hover { color:#E66D02 }
 
 #header{background:#284B75 url(<?php echo $imgurl ?>header.jpg) repeat-x scroll center top;clear:both;height:147px;margin:auto;width:980px;}
-.company_name{<{if $shopconfig.headimage!=''}>background:#284B75 url(<{$shopconfig.headimage}>)scroll center top;<{/if}>;}
+.company_name{<?php if($config['headimage']!=''): ?>background:#284B75 url(<?php echo $config['headimage'] ?>)scroll center top;<?php endif; ?>}
 .company_name h1{color:#FFFFFF; height:32px; line-height:32px; font-size:22px;}
 .company_name{color:#6C8AB5}
 #name{ height:112px;}

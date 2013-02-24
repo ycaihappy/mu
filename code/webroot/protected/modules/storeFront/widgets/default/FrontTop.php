@@ -4,7 +4,7 @@ class FrontTop extends CWidget {
 
 	public function run()
 	{
-		$this->render('frontTop',array('build'=>1));
+		$this->render('frontTop',array('buid'=>1));
 	}
 }
 

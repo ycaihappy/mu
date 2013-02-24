@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-02-25 00:24:51
+# Date/time:                    2013-02-25 01:12:27
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -410,9 +410,9 @@ CREATE TABLE IF NOT EXISTS `mu_friend_link` (
   `flink_status` tinyint(4) DEFAULT NULL,
   `flink_create_date` datetime DEFAULT NULL,
   PRIMARY KEY (`flink_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='友情链接';
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='友情链接';
 
-# Dumping data for table mu.mu_friend_link: 1 rows
+# Dumping data for table mu.mu_friend_link: 2 rows
 DELETE FROM `mu_friend_link`;
 /*!40000 ALTER TABLE `mu_friend_link` DISABLE KEYS */;
 INSERT INTO `mu_friend_link` (`flink_id`, `flink_name`, `flink_user_id`, `flink_url`, `flink_status`, `flink_create_date`) VALUES
@@ -1475,6 +1475,28 @@ INSERT INTO `mu_user` (`user_id`, `user_name`, `user_pwd`, `user_email`, `user_n
 	(2, 'ueelife1', 'e10adc3949ba59abbe56e057f20f883e', 'xiao2008abc@163.com', 'adada', 0, '', NULL, 'xiaofuqian', NULL, 1, NULL, 0, 1, NULL, NULL, 0, '2013-02-06 20:53:49', NULL, NULL),
 	(3, 'ueelife2', 'e10adc3949ba59abbe56e057f20f883e', '', 'nike', 1, '15015088124', '023-43367621', '肖富乾', NULL, 1, NULL, 0, 1, NULL, 'default', 1, '2013-02-06 20:53:51', '2013-02-24 23:37:47', '2013-02-24 23:37:45');
 /*!40000 ALTER TABLE `mu_user` ENABLE KEYS */;
+
+
+# Dumping structure for table mu.mu_user_arctile
+DROP TABLE IF EXISTS `mu_user_arctile`;
+CREATE TABLE IF NOT EXISTS `mu_user_arctile` (
+  `art_id` int(10) NOT NULL AUTO_INCREMENT,
+  `art_user_id` int(10) NOT NULL DEFAULT '0',
+  `art_title` varchar(218) NOT NULL DEFAULT '' COMMENT '新闻动态标题',
+  `art_subtitle` varchar(218) DEFAULT '' COMMENT '新闻动态副标题',
+  `art_tags` varchar(218) DEFAULT '' COMMENT '新闻动态副标题',
+  `art_intro` varchar(512) DEFAULT '' COMMENT '新闻简介',
+  `art_click_count` int(11) DEFAULT '0' COMMENT '新闻点击数',
+  `art_content` mediumtext COMMENT '新闻内容',
+  `art_added_date` datetime DEFAULT NULL COMMENT '新闻发布时间',
+  `art_updated_date` datetime DEFAULT NULL COMMENT '新闻更新时间',
+  PRIMARY KEY (`art_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户企业动态';
+
+# Dumping data for table mu.mu_user_arctile: ~0 rows (approximately)
+DELETE FROM `mu_user_arctile`;
+/*!40000 ALTER TABLE `mu_user_arctile` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mu_user_arctile` ENABLE KEYS */;
 
 
 # Dumping structure for table mu.mu_user_certificate

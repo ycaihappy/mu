@@ -100,4 +100,17 @@ class DefaultController extends Controller
 		$template=$this->user->user_template;
 		return $this->getModule() ? $this->getModule()->getId()."/{$template}/".$this->getId() : $this->getId();
 	}
+	public function actionNewsList()
+	{
+		
+		$this->render('newsList');
+	}
+	public function actionNewsDetail()
+	{
+		$this->render('newsDetail');
+	}
+	public function actionMail()
+	{
+		
+	}
 }

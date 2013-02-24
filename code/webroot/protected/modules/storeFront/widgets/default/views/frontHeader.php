@@ -1,3 +1,6 @@
+<?php if($action!='mail'):?>
+<!-- 此处放置浮动的邮箱发送窗口 -->
+<?php endif;?>
 <div id="name">
 	<table width="965" border="0" cellspacing="0" cellpadding="0">
 	  <tr>

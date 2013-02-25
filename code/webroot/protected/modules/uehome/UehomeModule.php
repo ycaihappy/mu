@@ -26,6 +26,7 @@ class UehomeModule extends CWebModule
 
 	public function beforeControllerAction($controller, $action)
 	{
+		//return parent::beforeControllerAction($controller, $action);
 		if(parent::beforeControllerAction($controller, $action))
 		{
 			// this method is called before any module controller action is performed
@@ -34,6 +35,7 @@ class UehomeModule extends CWebModule
 			$publicPages=array(
                         'user/login',
 						'user/captcha',
+						'user/register',
 			);
 			if(Yii::app()->user->isGuest && !in_array($route,$publicPages))
 				Yii::app()->user->loginRequired();

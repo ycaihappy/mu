@@ -14,13 +14,24 @@ class UserController extends Controller {
 		) 
 						);
 	}
+	/*public function filters()
+    {
+        return array(
+            'accessControl',
+        );
+    }
 	public function accessRules()
 	{
-		return array('allow',  // allow all users to perform 'index' and 'view' actions
-			    'actions'=>array('index','view','captcha'),
-			    'users'=>array('*'),
+		return array(
+		array('allow',  // allow all users to perform 'index' and 'view' actions
+			    'actions'=>array('login','captcha','register'),
+			    'users'=>array('*'),)
+		,
+		array('deny',  // deny all users
+                'users'=>array('*'),
+        ),
 			   );
-	}
+	}*/
 	public function actionIndex() {
 		$this->render ( 'index' );
 	}

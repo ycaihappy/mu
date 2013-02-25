@@ -11,33 +11,33 @@
     </tr>
     <tr>
       <td width="15%" class="text_label">所在地区：</td>
-      <td width="85%"><?php echo $area?></td>
+      <td width="85%"><?php echo $company->ent_city?></td>
     </tr>
     <tr>
       <td class="text_label">企业所在地：</td>
-      <td><a onclick="alertWin('Map','',500,300,'<{$config.weburl}>/templates/default/map.php?addr=<{$com.addr|urlencode}>');" href="javascript:void(0);"><{$com.addr }></a></td>
+      <td><a onclick="alertWin('Map','',500,300,'<{$config.weburl}>/templates/default/map.php?addr=<{$com.addr|urlencode}>');" href="javascript:void(0);"><?php echo $company->ent_location?></a></td>
     </tr>
     <tr>
       <td class="text_label">电话：</td>
-      <td><{$com.tel }></td>
+      <td><?php echo $user->user_first_name.' '.$user->user_telephone?></td>
     </tr>
-    <{if $com.mobile!=''}>
+    <?php if($user->user_mobile_no):?>
     <tr>
       <td class="text_label">手机：</td>
-      <td><{$com.mobile }></td>
+      <td><?php echo $user->user_mobile_no?></td>
     </tr>
-    <{/if}>
+    <?php endif;?>
     <tr>
       <td class="text_label">传真：</td>
-      <td><{$com.fax}></td>
+      <td><?php echo $company->ent_tax?></td>
     </tr>
     <tr>
-      <td class="text_label">右边</td>
-      <td><{$com.zip }></td>
+      <td class="text_label">邮编：</td>
+      <td><?php echo $company->zipcode?></td>
     </tr>
     <tr>
       <td class="text_label">公司网址：</td>
-      <td><{if $com.url&&$com.url!='http://'}> <a target="_blank" href="javascript:window.location='<{$com.url }>'"><{$com.url }></a> <{/if}> </td>
+      <td><?php if($company->ent_website&&strncmp($company->ent_website,'http://',4)==0):?> <a target="_blank" href="javascript:window.location='<?php echo $company->ent_website?>'"><?php echo $company->ent_website?></a> <?php endif;?> </td>
     </tr>
     <!--<tr>
       <td class="text_label"><{$lang.reg_time}> </td>
@@ -66,7 +66,15 @@
 </div>
 <div class="common_box m1"> 
   
-  <form method="post" action="" >
+  <?php 
+  	$form=$this->beginWidget('CActiveForm', array(
+	'id'=>'message-form',
+	'enableClientValidation'=>true,
+	'clientOptions'=>array(
+		'validateOnSubmit'=>true,
+	),
+));
+  ?>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td colspan="2" class="guide_ba"><span>在线留言</span></td>
@@ -75,7 +83,13 @@
         <td colspan="2" align="left" style="color:#999999">
 	        <li>请认真填写发信人信息和邮件内容，以便收信人看到后能及时与您联系，切勿发送垃圾信息。</li>
 	        <li>此信息将发往客户邮箱和站内留言里，请经常登录我们的网站及时查看回复信息。</li>
-        </td>
+            <?php if(!$uid):?>
+	            <strong>提示已经是会员？</strong>
+	            <br>
+		                    请先<a href="<?php echo $loginUrl?>"><strong>登录</strong></a>，
+		                    将发送的商业信息保存至您的信息中心内,这样更有利于商家互相联系。
+	        <?php endif;?>
+           </td>
       </tr>
      <!--  <{if $tid}>
       <tr>
@@ -87,68 +101,71 @@
       <{/if}> -->
       <tr>
         <td  class="text_label" >收件人：</td>
-        <td><{$com.company}> <{$com.contact}></td>
+        <td><?php echo $company->ent_name ?>&nbsp;<?php echo $user->user_first_name?></td>
       </tr>
-      <!-- <{if !$buid}>
+     
       <tr>
-        <td class="text_label"><{$lang.company}>*</td>
-        <td><input type='text' name='company' value='' style="width:400px;" ></td>
-      </tr>
-      <tr>
-        <td  class="text_label"><{$lang.country}></td>
-        <td><select name="country" id="country" class="input" style="width:300px;">
-            <{foreach item=list key=num from=$country}>
-            <option value="<{$list.name}>"><{$list.name}></option>
-            <{/foreach}>
-          </select></td>
-      </tr>
-      <{/if}> -->
-      <tr>
-        <td width="15%"  class="text_label" >邮件主题：*</td>
-        <td  width="85%" ><input type="text" value="<{$smarty.get.title}>" name="sub" style="width:400px;"  dataType="Require" msg="<{$lang.pls_title}>" />
+        <td width="15%"  class="text_label" >邮件主题*：</td>
+        <td  width="85%" >
+        <?php $form->textField($model,'sub',array('style'=>'width:400px;'));?>
+       <?php echo $form->error($model,'sub'); ?>
         </td>
       </tr>
       <tr>
-        <td width="15%" class="text_label" valign="top" >邮件内容*</td>
-        <td width="85%" valign="middle" ><textarea name="con"  rows="10" style="width:400px;" dataType="Require" msg="<{$lang.pls_con}>"></textarea></td>
+        <td width="15%" class="text_label" valign="top" >邮件内容*：</td>
+        <td width="85%" valign="middle" >
+         <?php $form->textArea($model,'content',array('style'=>'width:400px;'));?>
+         <?php echo $form->error($model,'content'); ?>
+        </td>
       </tr>
-      <{if $smarty.cookies.USER==''}>
-      <tr>
-        <td width="15%"  class="text_label" >联系人*</td>
-        <td  width="85%" ><input name="name" type="text" style="width:400px;"  dataType="Require" msg="<{$lang.pls_name}>" />
+      <?php if ($uid):?>
+       <tr>
+        <td class="text_label">企业名称*：</td>
+        <td>
+        <?php $form->textField($model,'fromCompany',array('style'=>'width:400px;'));?>
+        <?php echo $form->error($model,'fromCompany'); ?>
         </td>
       </tr>
       <tr>
-        <td  class="text_label" ><{$lang.email}>*</td>
-        <td><input name="email" type="text" style="width:400px;" dataType="Require" msg="<{$lang.pls_email}>" />
+        <td width="15%"  class="text_label" >联系人*：</td>
+        <td  width="85%" >
+        <?php $form->textField($model,'fromContact',array('style'=>'width:400px;'));?>
+        <?php echo $form->error($model,'fromContact'); ?>
         </td>
       </tr>
       <tr>
-        <td  class="text_label" ><{$lang.tel}>*</td>
-        <td><input name="tell" type="text" style="width:400px;" dataType="Require" msg="<{$lang.pls_tel}>" />
+        <td  class="text_label" >邮箱*：</td>
+        <td>
+        <?php $form->textField($model,'fromEmail',array('style'=>'width:400px;'));?>
+        <?php echo $form->error($model,'fromEmail'); ?>
         </td>
       </tr>
-      <{else}>
       <tr>
-        <td width="15%"  class="text_label" ><{$lang.sender}></td>
-        <td  width="85%" ><a target="_blank" href="shop.php?uid=<{$buid}>"><{$smarty.cookies.USER}></a> </td>
-      </tr>
-      <{/if}>
-      <tr>
-        <td height="28" class="text_label" ><{$lang.yzm}>*</td>
-        <td height="28" ><input name="yzm" type="text" style="width:60px; height:20px;" dataType="Require" msg="<{$lang.yzm}>" />
-          <img style="vertical-align:top;" src='includes/rand_func.php' width="60" height="22"/></td>
-      </tr>
-      <tr>
-        <td width="15%" height="28" >&nbsp;</td>
-        <td height="28" width="85%" ><input type="hidden" name="contype" value="<{if $smarty.get.contype}><{$smarty.get.contype}><{else}>1<{/if}>" />
-          <input type="hidden" name="tid" value="<{$tid}>" />
-          <input type="submit" name="Submit" value="<{$lang.send_now}>" />
-          <input name="submit" type="hidden" id="submit" value="submit" />
-          <input name="toid" type="hidden"  value="<{$smarty.get.uid}>" />
-          <input type="hidden"  name="tocontact" value="<{$com.email}>" />
+        <td  class="text_label" >电话号码*：</td>
+        <td>
+        <?php $form->textField($model,'fromTelephone',array('style'=>'width:400px;'));?>
+        <?php echo $form->error($model,'fromTelephone'); ?>
         </td>
       </tr>
+      <?php else:?>
+      <tr>
+        <td width="15%"  class="text_label" >发件人：</td>
+        <td  width="85%" >
+        <a target="_blank" href="shop.php?uid=<{$buid}>">
+        <?php echo $userName?>
+        </a> </td>
+      </tr>
+      <?php endif;?>
+      <?php if(CCaptcha::checkRequirements()): ?>
+      <tr>
+        <td height="28" class="text_label" >验证码*：</td>
+        <td height="28" >
+        <?php echo $form->textField($model,'verifyCode'); ?>
+		<?php $this->widget('CCaptcha',array('showRefreshButton'=>false,'clickableImage'=>false,'imageOptions'=>array('alt'=>'点击换图','title'=>'点击换图','style'=>'cursor:pointer'))); ?>
+        <?php echo $form->error($model,'verifyCode'); ?>
+		</td>
+      </tr>
+      <?php endif;?>
     </table>
-  </form>
+<?php $this->endWidget(); ?>
   </div>

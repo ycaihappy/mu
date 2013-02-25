@@ -25,7 +25,6 @@ class DefaultController extends Controller
 			$companyCriteria=new CDbCriteria();
 			$companyCriteria->with=array(
 				'type'=>array('select'=>'term_name'),
-				'city'=>array('select'=>'city_name'),
 				'business'=>array('select'=>'term_name'),
 				'chiefPosition'=>array('select'=>'term_name'),
 			);
@@ -37,6 +36,11 @@ class DefaultController extends Controller
 			}
 			else {//企业未审核或者企业信息不存在
 				$this->redirect(array('/site/index'));
+			}
+			$cityCache=CCacheHelper::getAllCity();
+			if($company->ent_city)
+			{
+				$company->ent_city=City::getCityLayer($company->ent_city,'.');
 			}
 		}
 	}
@@ -163,6 +167,45 @@ class DefaultController extends Controller
 	}
 	public function actionMail()
 	{
+		$company=$this->company;
+		$user=$this->user;
+		$data=compact('company','user');
+		$messageForm=new MessageForm();
+		if(isset($_POST['MessageForm']))
+		{
+			//验证输入字段信息
+			$messageForm->attributes=$_POST['MessageForm'];
+			if($messageForm->validate())
+			{//进行保存操作
+				$message=new Message();
+				$message->msg_content=$messageForm->content;
+				$message->msg_subject=$messageForm->sub;
+				$message->msg_to_user_id=$this->user->user_id;
+				if(!Yii::app()->user->isGuest)
+				{
+					$message->msg_from_user_id=Yii::app()->user->getId();
+				}
+				else {
+					if(!empty($messageForm->fromCompany))
+						$message->msg_from_info.="企业名称:{$messageForm->fromCompany}<br>";
+					if(!empty($messageForm->fromContact))
+						$message->msg_from_info.="联系人:{$messageForm->fromContact}<br>";
+					if(!empty($messageForm->fromEmail))
+						$message->msg_from_info.="发件人:{$messageForm->fromEmail}<br>";
+					if(!empty($messageForm->fromTelephone))
+						$message->msg_from_info.="电话号码:{$messageForm->fromTelephone}<br>";
+				}
+				if($message->save())
+				{
+					$messageForm=new MessageForm();
+				}
+			}
+			
+		}
+		$uid=Yii::app()->user->isGuest?0:Yii::app()->user->getId();
+		$loginUrl=Yii::app()->getController()->createUrl(array('/uehome/user/login'));
+		$userName=Yii::app()->user->isGuest?0:Yii::app()->user->getName();
+		$data=compact('messageForm','uid','loginUrl','userName');
 		$this->render('mail',$data);
 	}
 }

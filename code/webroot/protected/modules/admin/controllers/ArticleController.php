@@ -3,13 +3,11 @@
 class ArticleController extends AdminController {
 
 	
-	private $cityCache;
 	private $muCategoryCache;
 	
 	public function __construct($id,$module=null)
 	{
 		parent::__construct($id,$module);
-		$this->cityCache=CCacheHelper::getAllCity();
 		$this->muCategoryCache=CCacheHelper::getMuCategory();
 	}
 	public function actionManageNews()
@@ -475,20 +473,7 @@ class ArticleController extends AdminController {
 	}
 	private function _getCityLayer($cityId)
 	{
-		$parent=$this->cityCache[$cityId]['city_parent'];
-		$parentCity=array();
-		while($parent)
-		{
-			$parentCity[]=$this->cityCache[$parent]->city_name;
-			$parent=$this->cityCache[$parent]->city_parent;
-		}
-		$parentCity=array_reverse($parentCity);
-		$parentCity[]=$this->cityCache[$cityId]->city_name;
-		if($parentCity)
-		$cityLayer=implode('>>',$parentCity);
-		else
-		$cityLayer='未指明';
-		return $cityLayer;
+		return  City::getCityLayer($cityId);
 	}
 }
 

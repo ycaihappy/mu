@@ -73,6 +73,29 @@ class City extends CActiveRecord
 			return array();
 		}
 	}
+	public static function getCityLayer($cityId,$sep='>>',$noCityText='未指明')
+	{
+		static $cityCache=null;
+		if(!$cityCache)
+		{
+			$cityCache=CCacheHelper::getAllCity();
+		}
+		$parent=$cityCache[$cityId]['city_parent'];
+		$parentCity=array();
+		while($parent)
+		{
+			$parentCity[]=$cityCache[$parent]->city_name;
+			$parent=$cityCache[$parent]->city_parent;
+		}
+		if($parentCity)
+			$parentCity=array_reverse($parentCity);
+		$parentCity[]=$cityCache[$cityId]->city_name;
+		if($parentCity)
+		$cityLayer=implode($sep,$parentCity);
+		else
+		$cityLayer=$noCityText;
+		return $cityLayer;
+	}
 	/**
 	 * @return array relational rules.
 	 */

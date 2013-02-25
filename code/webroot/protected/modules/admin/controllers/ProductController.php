@@ -1,13 +1,7 @@
 <?php
 class ProductController extends AdminController {
 
-	private $cityCache;
 	
-	public function __construct($id,$module=null)
-	{
-		parent::__construct($id,$module);
-		$this->cityCache=CCacheHelper::getAllCity();
-	}
 	public function actionManageProduct()
 	{
 		$productResult=$this->_manageProduct(0);
@@ -257,23 +251,9 @@ class ProductController extends AdminController {
 		'isSupply'=>$type==18?true:false,
 		'model'=>$model));
 	}
-	private function _getCityLayer($cityId)
+	private function _getCityLayer($cityId,$sep='>>',$noCityText='未指明')
 	{
-		$parent=$this->cityCache[$cityId]['city_parent'];
-		$parentCity=array();
-		while($parent)
-		{
-			$parentCity[]=$this->cityCache[$parent]->city_name;
-			$parent=$this->cityCache[$parent]->city_parent;
-		}
-		if($parentCity)
-			$parentCity=array_reverse($parentCity);
-		$parentCity[]=$this->cityCache[$cityId]->city_name;
-		if($parentCity)
-		$cityLayer=implode('>>',$parentCity);
-		else
-		$cityLayer='未指明';
-		return $cityLayer;
+		return City::getCityLayer($cityId,$sep='>>',$noCityText='未指明');
 	}
 	public function actionManageBuy()
 	{

@@ -1,9 +1,9 @@
 # --------------------------------------------------------
 # Host:                         127.0.0.1
-# Server version:               5.5.8
+# Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-02-25 16:52:11
+# Date/time:                    2013-02-26 01:33:38
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -476,6 +476,26 @@ INSERT INTO `mu_image_library` (`image_id`, `image_title`, `image_thumb_src`, `i
 	(22, '的发的是否', 'thumb_31_1361517672_2639.jpg', '31_1361517672_2639.jpg', 1, 31, 1, '2013-02-22 08:21:12'),
 	(23, '未指定', 'thumb_28_1361517783_2944.jpg', '28_1361517783_2944.jpg', 1, 28, 1, '2013-02-22 08:23:03');
 /*!40000 ALTER TABLE `mu_image_library` ENABLE KEYS */;
+
+
+# Dumping structure for table mu.mu_message
+DROP TABLE IF EXISTS `mu_message`;
+CREATE TABLE IF NOT EXISTS `mu_message` (
+  `msg_id` int(10) NOT NULL AUTO_INCREMENT,
+  `msg_to_user_id` int(10) DEFAULT '0',
+  `msg_from_info` int(10) DEFAULT '0',
+  `msg_from_user_id` int(10) DEFAULT '0',
+  `msg_subject` varchar(218) DEFAULT NULL,
+  `msg_content` text,
+  `msg_type` int(11) DEFAULT NULL,
+  `msg_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`msg_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='站内信箱';
+
+# Dumping data for table mu.mu_message: ~0 rows (approximately)
+DELETE FROM `mu_message`;
+/*!40000 ALTER TABLE `mu_message` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mu_message` ENABLE KEYS */;
 
 
 # Dumping structure for table mu.mu_point_rule
@@ -1491,9 +1511,9 @@ CREATE TABLE IF NOT EXISTS `mu_user_article` (
   `art_added_date` datetime DEFAULT NULL COMMENT '新闻发布时间',
   `art_updated_date` datetime DEFAULT NULL COMMENT '新闻更新时间',
   PRIMARY KEY (`art_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户企业动态';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='用户企业动态';
 
-# Dumping data for table mu.mu_user_article: ~0 rows (approximately)
+# Dumping data for table mu.mu_user_article: ~12 rows (approximately)
 DELETE FROM `mu_user_article`;
 /*!40000 ALTER TABLE `mu_user_article` DISABLE KEYS */;
 INSERT INTO `mu_user_article` (`art_id`, `art_user_id`, `art_title`, `art_subtitle`, `art_tags`, `art_intro`, `art_click_count`, `art_content`, `art_added_date`, `art_updated_date`) VALUES
@@ -1596,8 +1616,8 @@ CREATE TABLE `mu_view_recommend` (
 	`recommend_id` INT(11) NOT NULL DEFAULT '0',
 	`name` VARCHAR(256) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`recommend_object_id` BIGINT(20) NOT NULL DEFAULT '0',
-	`recommend_type` TINYINT(11) NOT NULL DEFAULT '0',
-	`recommend_position` TINYINT(11) NOT NULL DEFAULT '0',
+	`recommend_type` TINYINT(4) NOT NULL DEFAULT '0',
+	`recommend_position` TINYINT(4) NOT NULL DEFAULT '0',
 	`recommend_status` TINYINT(4) NULL DEFAULT NULL,
 	`recommend_time` DATETIME NULL DEFAULT NULL
 ) ENGINE=MyISAM;

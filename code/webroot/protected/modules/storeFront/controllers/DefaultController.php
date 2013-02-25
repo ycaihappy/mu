@@ -23,6 +23,12 @@ class DefaultController extends Controller
 		if($this->user->user_id)
 		{
 			$companyCriteria=new CDbCriteria();
+			$companyCriteria->with=array(
+				'type'=>array('select'=>'term_name'),
+				'city'=>array('select'=>'city_name'),
+				'business'=>array('select'=>'term_name'),
+				'chiefPosition'=>array('select'=>'term_name'),
+			);
 			$companyCriteria->compare('ent_user_id', '='.$this->user->user_id);
 			$this->company=Enterprise::model()->find($companyCriteria);
 			if($this->company && $this->company->ent_status==1)
@@ -100,14 +106,60 @@ class DefaultController extends Controller
 		$template=$this->user->user_template;
 		return $this->getModule() ? $this->getModule()->getId()."/{$template}/".$this->getId() : $this->getId();
 	}
+	public function actionCompanyProfile()
+	{
+		$img='images/enterprise/'.$this->company->ent_image;
+		$content=htmlspecialchars($this->company->ent_introduce);
+		$company=$this->company;
+		$authenticate=0;
+		$data=compact('company','img','content','authenticate');
+		$this->render('profile',$data);
+	}
 	public function actionNewsList()
 	{
+		$criteria = new CDbCriteria();
+
+		$criteria->order = ' art_added_date desc'; 
 		
-		$this->render('newsList');
+		$criteria->select='art_id,art_title,art_intro,art_added_date';
+		
+		$criteria->condition='art_user_id='.$this->user->user_id;
+		
+		$count = UserArticle::model()->count($criteria);//
+		
+		$pager = new CPagination($count);
+		
+		$pager -> pageSize = 10; 
+		
+		$pager->applyLimit($criteria);
+		
+		$artList = UserArticle::model()->findAll($criteria);
+		foreach ($artList as &$art)
+		{
+			$titleLength=strlen($art->art_title);
+			echo $titleLength.'|';
+			$art->art_intro=CStringHelper::truncate_utf8_string(strip_tags($art->art_intro), 50-$titleLength);
+		}
+		
+		$data=compact('artList','pager');
+		
+		$this->render('newsList',$data);
 	}
 	public function actionNewsDetail()
 	{
-		$this->render('newsDetail');
+		if($newsId=@$_GET['id'])
+		{
+			$model=UserArticle::model()->findByPk($newsId);
+			if($model)
+			{
+				$model->art_content=$model->art_content;
+			}
+		}
+		else {
+			$this->redirect(array('newsList'));
+		}
+		$data=compact('model');
+		$this->render('newsDetail',$data);
 	}
 	public function actionMail()
 	{

@@ -49,13 +49,30 @@
 					<form>
 					<table width="100%">
 						<tr>
+							<td align="right"><label>手机号：</label></td>
+							<td><div class="field"><input type="text" name="mobile_number" ><button class="btn-modify send-sms" type="button" data-api="http://iv.gtxh.com/RegStep1.aspx">发送验证码</button></div></td>
+						</tr>
+						<tr>
+							<td align="right"><label>请输入验证码：</label></td>
+							<td><div class="field"><input type="text" name="validate_code" ></div></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><div class="reg-btns"><button tabindex="5" class="btn-reg act-one">确定</button>
+							</div></td>
+						</tr>
+					</table>
+					</form>
+					
+				</div>
+				<div class="steps step-2 hide">
+					<form>
+					<table width="100%">
+						<tr>
 							<td align="right"><label>用户类别：</label></td>
 							<td><div class="field"><label><input type="radio" name="user_type" value="0" class="cb user-type" checked>个人</label><label><input type="radio" name="user_type" value="1" class="cb user-type">企业</label></div></td>
 						</tr>
-						<tr>
-							<td align="right"><label>手机号：</label></td>
-							<td><div class="field"><input type="text" name="mobile_number" ><button class="btn-modify" type="submit">发送验证码</button></div></td>
-						</tr>
+						
 						<tr>
 							<td align="right"><label>邮箱：</label></td>
 							<td><div class="field"><input type="text" name="email" ></div></td>
@@ -94,23 +111,8 @@
 						</tr>
 						<tr>
 							<td></td>
-							<td><div class="reg-btns"><button tabindex="5" class="btn-reg">同意条款并注册</button>
+							<td><div class="reg-btns"><button tabindex="5" class="btn-reg prev">上一步</button> <button tabindex="5" class="btn-reg">同意条款并注册</button>
 							<p><a>《钼市网服务条款》</a></p>
-							</div></td>
-						</tr>
-					</table>
-					</form>
-				</div>
-				<div class="steps step-2 hide">
-					<form>
-					<table width="100%">						
-						<tr>
-							<td align="right"><label>请输入验证码：</label></td>
-							<td><div class="field"><input type="text" name="validate_code" ><button class="btn-modify">重发验证码</button></div></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td><div class="reg-btns"><button tabindex="5" class="btn-reg prev">上一步</button> <button tabindex="5" class="btn-reg">确定</button>
 							</div></td>
 						</tr>
 					</table>

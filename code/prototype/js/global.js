@@ -89,16 +89,30 @@ $.extend(MU.mods,{
 		});
 		self.find('.btn-reg').click(function(e){
 			e.preventDefault();
-			var cur = self.data('step');
+			var cur = self.data('step'), o = $(this);
+			
+			if( o.hasClass('act-one')) {
+				
+			}
+				
+			
 			cur = $(this).hasClass('prev') ? 1 : cur + 1;
 			self.data('step',cur);
-			self.find('.flow li').removeClass('on').filter(':lt('+cur+')').addClass('on');
-			
+			self.find('.flow li').removeClass('on').filter(':lt('+cur+')').addClass('on');			
 			self.find('.step-' + cur).fadeIn().siblings('.steps').hide();
 		});
 		self.find('input[name=pwd]').keyup(function(){
 			var strength = MU.Tool.wordStrength($(this).val()),pw = self.find('.pw-strength'),arr = ['weak','weak','medium','strong'];
 			pw[0].className = pw[0].className.split(' ')[0] + ' pw-' + arr[strength];
 		});
+		
+		self.find('.send-sms').click(function(){
+			var o = $(this);
+			$.getJSON(o.data('api') + '?mobile_number=' + o.prev('input[name=mobile_number]').val(),function(re){
+				
+			});
+		});
+		
+		
 	}
 });

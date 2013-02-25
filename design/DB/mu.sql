@@ -1,9 +1,9 @@
 # --------------------------------------------------------
 # Host:                         127.0.0.1
-# Server version:               5.1.28-rc-community
+# Server version:               5.5.8
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-02-25 01:12:27
+# Date/time:                    2013-02-25 16:52:11
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -1477,9 +1477,9 @@ INSERT INTO `mu_user` (`user_id`, `user_name`, `user_pwd`, `user_email`, `user_n
 /*!40000 ALTER TABLE `mu_user` ENABLE KEYS */;
 
 
-# Dumping structure for table mu.mu_user_arctile
-DROP TABLE IF EXISTS `mu_user_arctile`;
-CREATE TABLE IF NOT EXISTS `mu_user_arctile` (
+# Dumping structure for table mu.mu_user_article
+DROP TABLE IF EXISTS `mu_user_article`;
+CREATE TABLE IF NOT EXISTS `mu_user_article` (
   `art_id` int(10) NOT NULL AUTO_INCREMENT,
   `art_user_id` int(10) NOT NULL DEFAULT '0',
   `art_title` varchar(218) NOT NULL DEFAULT '' COMMENT '新闻动态标题',
@@ -1493,10 +1493,23 @@ CREATE TABLE IF NOT EXISTS `mu_user_arctile` (
   PRIMARY KEY (`art_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户企业动态';
 
-# Dumping data for table mu.mu_user_arctile: ~0 rows (approximately)
-DELETE FROM `mu_user_arctile`;
-/*!40000 ALTER TABLE `mu_user_arctile` DISABLE KEYS */;
-/*!40000 ALTER TABLE `mu_user_arctile` ENABLE KEYS */;
+# Dumping data for table mu.mu_user_article: ~0 rows (approximately)
+DELETE FROM `mu_user_article`;
+/*!40000 ALTER TABLE `mu_user_article` DISABLE KEYS */;
+INSERT INTO `mu_user_article` (`art_id`, `art_user_id`, `art_title`, `art_subtitle`, `art_tags`, `art_intro`, `art_click_count`, `art_content`, `art_added_date`, `art_updated_date`) VALUES
+	(1, 3, '测试标题1', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '<p>&#12288;&#12288;中新社北京2月25日电 (张蔚然 常胜)中国外交部发言人华春莹25日对日本首相安倍晋三近日涉钓鱼岛言论作出反驳，称其逻辑荒谬，“不管日方如何狡辩，都掩盖不了其非法侵占中国领土的事实”。</p>\r\n\r\n<div id="hzh_div" class="otherContent_01" style="width: 200px; height: 300px; margin: 10px 20px 10px 0px; float: left; display: none; overflow: hidden; clear: both; padding: 4px; border: 1px solid rgb(205, 205, 205);"><iframe scrolling="no" width="200" height="300" frameborder="0" id="ifm_hzh_div" src="http://d4.sina.com.cn/sina/ae/2009/guonei_leftbutton.html"></iframe></div><p>&#12288;&#12288;有记者提问，日本首相安倍晋三22日在美国“战略与国际问题研究中心”发表演讲称，历史和国际法均可证明“尖阁列岛”是日本领土，事实上，在1895到1971年间，没有一个国家对此提出质疑。中方对此有何评论？</p>\r\n\r\n<p>&#12288;&#12288;“上述言论的逻辑是荒谬的。就像一个人偷了别人的东西，在口袋里捂了一段时间，就能改变其偷窃并非法占据他人财产的实质吗？”华春莹反问道。</p>\r\n\r\n<p>&#12288;&#12288;她指出，不管日方如何狡辩，都掩盖不了其非法侵占中国领土的事实。</p>\r\n\r\n<p>&#12288;&#12288;华春莹表示，钓鱼岛是中国的固有领土，从15世纪到1895年的近500年间，没有任何国家挑战中国对钓鱼岛的主权。二战结束后，日本未按《开罗宣言》和《波茨坦公告》有关规定，履行作为战败国应尽的国际义务，将其窃取的钓鱼岛归还中国。日本迄今对钓鱼岛采取的一切行动都基于对中国领土的非法窃取和侵占，都是非法和无效的。</p>\r\n\r\n<p>&#12288;&#12288;“我们敦促日方端正态度，正视历史和现实，为妥善处理钓鱼岛问题、改善中日关系作出切实努力。”华春莹说。(完)</p>\r\n\r\n<p align="right">(原标题：中方驳安倍涉钓言论：“偷”不能改变非法占据实质)</p><div style="font-size: 0px; height: 0px; clear: both;"></div>\r\n<!-- publish_helper_end -->', '2013-02-25 11:51:08', '2013-02-25 11:51:10'),
+	(2, 3, '测试标题2', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10'),
+	(3, 3, '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10'),
+	(4, 3, '测试标题3', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10'),
+	(5, 3, '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10'),
+	(6, 3, '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10'),
+	(7, 3, '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10'),
+	(8, 3, '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10'),
+	(9, 3, '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10'),
+	(10, 3, '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10'),
+	(11, 3, '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10'),
+	(12, 3, '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', 1, '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
+/*!40000 ALTER TABLE `mu_user_article` ENABLE KEYS */;
 
 
 # Dumping structure for table mu.mu_user_certificate
@@ -1583,8 +1596,8 @@ CREATE TABLE `mu_view_recommend` (
 	`recommend_id` INT(11) NOT NULL DEFAULT '0',
 	`name` VARCHAR(256) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`recommend_object_id` BIGINT(20) NOT NULL DEFAULT '0',
-	`recommend_type` TINYINT(4) NOT NULL DEFAULT '0',
-	`recommend_position` TINYINT(4) NOT NULL DEFAULT '0',
+	`recommend_type` TINYINT(11) NOT NULL DEFAULT '0',
+	`recommend_position` TINYINT(11) NOT NULL DEFAULT '0',
 	`recommend_status` TINYINT(4) NULL DEFAULT NULL,
 	`recommend_time` DATETIME NULL DEFAULT NULL
 ) ENGINE=MyISAM;

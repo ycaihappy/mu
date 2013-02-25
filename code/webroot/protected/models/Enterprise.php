@@ -86,7 +86,7 @@ class Enterprise extends CActiveRecord
 			'city'=>array(self::BELONGS_TO,'City','ent_city'),
 			'type'=>array(self::BELONGS_TO,'Term','ent_type'),
 			'business'=>array(self::BELONGS_TO,'Term','ent_business_model'),
-			'chiefPosition'=>array(self::BELONGS_TO,'Term','ent_chief_position'),
+			'chiefPosition'=>array(self::BELONGS_TO,'Term','ent_chief_postion'),
 		);
 	}
 

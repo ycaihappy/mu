@@ -47,8 +47,8 @@ a:hover {color:#d443a7;}
 #mPro {padding:0px;margin:0px;}
 #mPro .now {padding:5px 25px 5px 25px;background-color:#feb747;color:#1a498e;border-bottom:1px solid #295690;}
 #mPro li{color:#FFFFFF;}
-#mPro li a:link, #mPro li a:visited {padding:5px 25px 5px 25px;background-color:#5486bd;color:#eef2f7;border-bottom: 1px solid #295690; margin:0px;}
-#mPro li a:hover {background-color:#feb747;color:#1a498e;border-bottom:1px solid #b2a47f; margin:0px;}
+#mPro li  {padding:5px 25px 5px 25px;background-color:#5486bd;color:#eef2f7;border-bottom: 1px solid #295690; margin:0px;}
+#mPro li span {font-weight:bold;}
 #mPro div.r {margin:0px;padding:5px;background-color:#5486BD;}
 #mPro div.r a:link, #mPro div.r a:visited {color:#eef2f7;}
 #mPro div.r li a:link, #mPro div.r li a:visited {background-image:none;}
@@ -70,7 +70,8 @@ a:hover {color:#d443a7;}
 .com_intro p{ font-size:14px; margin-top:5px;}
 .common_box{ width:100%; margin-bottom:5px; background-color:#9DB9DA;}
 .common_box table{border-collapse:collapse;}
-.common_box td{padding:5px; text-align:left}
+.common_box td{padding:10px; text-align:left}
+.common_box td.pager{padding:15px; text-align:right;}
 .guide_ba{font-weight:bold; text-align:left; padding:5px; background-image:url(<?php echo $imgurl ?>bg-item.gif); height:16px; color:#FFFFFF;text-transform:capitalize; border-bottom:1px solid #163E7D;}
 .info_text{text-align:left}
 

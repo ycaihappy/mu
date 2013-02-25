@@ -21,22 +21,21 @@ $this->breadcrumbs=array(
 <tr>
 <td class="label">用户名：</td>
 		<td><?php echo $form->textField($model,'user_name',array('class'=>'cmp-input')); ?>
-		<?php if($model->getIsNewRecord())echo $form->hiddenField($model,'user_pwd');?>
+		<?php echo $form->error($model,'user_name'); ?>
 		</td>
 </tr>
-<?php if($model->getIsNewRecord()):?>
+
 <tr>
 <td class="label">密码：</td>
 		<td>
-		<?php echo $form->passwordField($model,'user_pwd',array('class'=>'cmp-input'));?>
-		<?php echo $form->error($model,'user_pwd'); ?></td>
+		<input type="password" value="" name="user_pwd_1" class="cmp-input"/>
+		<?php if(!$model->getIsNewRecord()): ?>
+		<em>如果无需修改密码请留空</em>
+		<?php endif;?>
+		<?php if(!$model->getIsNewRecord())echo $form->hiddenField($model,'user_pwd');?>
+		</td>
 </tr>
-<tr>
-<td class="label">确认密码：</td>
-		<td>
-		<input type="password" class="cmp-input" name="comfirmPwd"/></td>
-</tr>
-<?php endif;?>
+
 <tr>
 <td class="label">姓名：</td>
 		<td>

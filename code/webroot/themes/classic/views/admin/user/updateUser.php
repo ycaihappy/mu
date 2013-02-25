@@ -41,14 +41,7 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'user_nickname'); ?>
 		</td>
 </tr>
-<?php if($model->user_status==1):?>
-<tr>
-<td class="label">角色分配：</td>
-		<td>
-		<?php echo CHtml::button('分配角色')?>
-		</td>
-</tr>
-<?php endif;?>
+
 <tr>
 <td class="label">邮箱：</td>
 		<td>
@@ -72,6 +65,16 @@ $this->breadcrumbs=array(
 <td class="label">地点：</td>
 		<td><?php echo $form->dropDownList($model,'user_city_id',$allCity); ?>
 		<?php echo $form->error($model,'user_city_id'); ?></td>
+</tr>
+<tr>
+<td class="label">是否开启旺铺模板：</td>
+		<td><?php echo $form->checkBox($model,'user_open_template',array('value'=>1)); ?>
+		<?php echo $form->error($model,'user_open_template'); ?></td>
+</tr>
+<tr>
+<td class="label">旺铺模板：</td>
+		<td><?php echo $form->dropDownList($model,'user_template',$userTemplate,array('empty'=>'选择旺铺模板')); ?>
+		<?php echo $form->error($model,'user_template'); ?></td>
 </tr>
 <tr>
 <td class="label">是否订阅：</td>

@@ -23,7 +23,7 @@
         ),
         array(
         	'name'=>'姓名',
-        	'value'=>'$data->user_nickname',
+        	'value'=>'$data->user_first_name',
         ),   // display the 'content' attribute as purified HTML
         
        array(

@@ -163,6 +163,6 @@ class DefaultController extends Controller
 	}
 	public function actionMail()
 	{
-		
+		$this->render('mail',$data);
 	}
 }

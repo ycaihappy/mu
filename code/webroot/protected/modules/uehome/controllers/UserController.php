@@ -112,6 +112,12 @@ class UserController extends Controller {
         }
 
 	}
+    public function actionRegister()
+    {
+        $this->layout = '//layouts/ajax_main';
+        // display the login form
+        $this->render ( 'register');
+    }
 	public function actionLogin() {
 		$this->layout = '//layouts/ajax_main';
 		$model = new UserLoginForm ();

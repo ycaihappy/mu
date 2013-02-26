@@ -1,9 +1,9 @@
 # --------------------------------------------------------
 # Host:                         127.0.0.1
-# Server version:               5.5.8
+# Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-02-26 16:36:55
+# Date/time:                    2013-02-26 21:48:25
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -490,9 +490,9 @@ CREATE TABLE IF NOT EXISTS `mu_message` (
   `msg_type` int(11) DEFAULT NULL,
   `msg_date` datetime DEFAULT NULL,
   PRIMARY KEY (`msg_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='站内信箱';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='站内信箱';
 
-# Dumping data for table mu.mu_message: ~1 rows (approximately)
+# Dumping data for table mu.mu_message: ~2 rows (approximately)
 DELETE FROM `mu_message`;
 /*!40000 ALTER TABLE `mu_message` DISABLE KEYS */;
 INSERT INTO `mu_message` (`msg_id`, `msg_to_user_id`, `msg_from_info`, `msg_from_user_id`, `msg_subject`, `msg_content`, `msg_type`, `msg_date`) VALUES
@@ -564,20 +564,20 @@ CREATE TABLE IF NOT EXISTS `mu_product` (
 DELETE FROM `mu_product`;
 /*!40000 ALTER TABLE `mu_product` DISABLE KEYS */;
 INSERT INTO `mu_product` (`product_id`, `product_user_id`, `product_keyword`, `product_name`, `product_quanity`, `product_unit`, `product_type_id`, `product_price`, `product_status`, `product_city_id`, `product_content`, `product_location`, `product_special`, `product_join_date`, `product_image_src`, `product_check_by`) VALUES
-	(1, 1, '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', 990, 11, 22, 504, 2, 4, NULL, '深圳龙华大浪石光工业区', 0, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
-	(2, 1, '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', 354, 11, 22, 851, 2, 3, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
-	(3, 1, '钼铁，钼矿', '工业炉用钼制品', 425, 11, 22, 987, 2, 6, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
-	(4, 1, '钼铁，钼矿', 'C-276万能的抗腐蚀镍-铬-钼合金', 300, 11, 21, 135, 2, 4, NULL, '深圳龙华大浪石光工业区', 0, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
-	(5, 1, '钼铁，钼矿', '钨粉，钨条，钨铁，钨钼合金粉，钨锭', 466, 11, 21, 887, 2, 6, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
-	(6, 1, '钼铁，钼矿', '钼板', 874, 11, 21, 752, 2, 6, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
-	(7, 1, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 383, 11, 22, 735, 2, 3, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
-	(8, 1, '钼铁，钼矿', '钼盒', 500, 11, 22, 524, 2, 4, NULL, '深圳龙华大浪石光工业区', 0, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
-	(9, 1, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 554, 11, 21, 456, 2, 3, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
-	(10, 1, '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', 160, 11, 22, 131, 2, 6, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
-	(11, 1, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 240, 11, 21, 750, 2, 4, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
-	(12, 1, '钼铁，钼矿', '钼片', 697, 11, 21, 684, 2, 3, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
-	(13, 1, '钼铁，钼矿', 'C-276万能的抗腐蚀镍-铬-钼合金', 993, 11, 22, 298, 2, 6, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
-	(14, 1, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 492, 11, 21, 29, 1, 3, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
+	(1, 3, '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', 990, 11, 22, 504, 1, 4, NULL, '深圳龙华大浪石光工业区', 0, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
+	(2, 3, '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', 354, 11, 22, 851, 1, 3, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
+	(3, 3, '钼铁，钼矿', '工业炉用钼制品', 425, 11, 22, 987, 1, 6, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
+	(4, 3, '钼铁，钼矿', 'C-276万能的抗腐蚀镍-铬-钼合金', 300, 11, 21, 135, 1, 4, NULL, '深圳龙华大浪石光工业区', 0, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
+	(5, 3, '钼铁，钼矿', '钨粉，钨条，钨铁，钨钼合金粉，钨锭', 466, 11, 21, 887, 1, 6, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
+	(6, 3, '钼铁，钼矿', '钼板', 874, 11, 21, 752, 1, 6, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
+	(7, 3, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 383, 11, 22, 735, 1, 3, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
+	(8, 3, '钼铁，钼矿', '钼盒', 500, 11, 22, 524, 1, 4, NULL, '深圳龙华大浪石光工业区', 0, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
+	(9, 3, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 554, 11, 21, 456, 1, 3, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
+	(10, 3, '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', 160, 11, 22, 131, 1, 6, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
+	(11, 3, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 240, 11, 21, 750, 1, 4, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
+	(12, 3, '钼铁，钼矿', '钼片', 697, 11, 21, 684, 1, 3, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
+	(13, 3, '钼铁，钼矿', 'C-276万能的抗腐蚀镍-铬-钼合金', 993, 11, 22, 298, 1, 6, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife1'),
+	(14, 3, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 492, 11, 21, 29, 1, 3, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(15, 1, '钼铁，钼矿', '钼板', 723, 11, 21, 308, 1, 4, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(16, 1, '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', 347, 11, 22, 777, 1, 4, NULL, '深圳龙华大浪石光工业区', 1, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(17, 1, '钼铁，钼矿', '钼板', 956, 11, 21, 672, 2, 4, NULL, '深圳龙华大浪石光工业区', 0, '0000-00-00 00:00:00', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
@@ -1619,8 +1619,8 @@ CREATE TABLE `mu_view_recommend` (
 	`recommend_id` INT(11) NOT NULL DEFAULT '0',
 	`name` VARCHAR(256) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`recommend_object_id` BIGINT(20) NOT NULL DEFAULT '0',
-	`recommend_type` TINYINT(11) NOT NULL DEFAULT '0',
-	`recommend_position` TINYINT(11) NOT NULL DEFAULT '0',
+	`recommend_type` TINYINT(4) NOT NULL DEFAULT '0',
+	`recommend_position` TINYINT(4) NOT NULL DEFAULT '0',
 	`recommend_status` TINYINT(4) NULL DEFAULT NULL,
 	`recommend_time` DATETIME NULL DEFAULT NULL
 ) ENGINE=MyISAM;

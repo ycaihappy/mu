@@ -35,6 +35,13 @@ class UserController extends Controller {
 	public function actionIndex() {
 		$this->render ( 'index' );
 	}
+    public function actionRegister()
+    {
+        $model = new UserForm();
+
+        echo json_encode(array('status'=>1,'data'=>array()));
+
+    }
 	public function actionDetail() {
         $model = new UserForm();
         if (isset($_POST['UserForm']))

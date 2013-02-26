@@ -1,9 +1,9 @@
 # --------------------------------------------------------
 # Host:                         127.0.0.1
-# Server version:               5.1.28-rc-community
+# Server version:               5.5.8
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-02-26 01:33:38
+# Date/time:                    2013-02-26 16:36:55
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -338,7 +338,7 @@ DELETE FROM `mu_city`;
 INSERT INTO `mu_city` (`city_id`, `city_name`, `city_parent`, `city_level`, `city_order`, `city_open`) VALUES
 	(1, '西南', 0, 1, 1, NULL),
 	(2, '重庆', 1, 2, 1, NULL),
-	(3, '大>足', 2, 3, 1, NULL),
+	(3, '大足', 2, 3, 1, NULL),
 	(4, '渝中区', 2, 3, 2, NULL),
 	(5, '华北', 0, NULL, NULL, NULL),
 	(6, '河南', 5, NULL, NULL, NULL),
@@ -483,18 +483,21 @@ DROP TABLE IF EXISTS `mu_message`;
 CREATE TABLE IF NOT EXISTS `mu_message` (
   `msg_id` int(10) NOT NULL AUTO_INCREMENT,
   `msg_to_user_id` int(10) DEFAULT '0',
-  `msg_from_info` int(10) DEFAULT '0',
+  `msg_from_info` text,
   `msg_from_user_id` int(10) DEFAULT '0',
   `msg_subject` varchar(218) DEFAULT NULL,
   `msg_content` text,
   `msg_type` int(11) DEFAULT NULL,
   `msg_date` datetime DEFAULT NULL,
   PRIMARY KEY (`msg_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='站内信箱';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='站内信箱';
 
-# Dumping data for table mu.mu_message: ~0 rows (approximately)
+# Dumping data for table mu.mu_message: ~1 rows (approximately)
 DELETE FROM `mu_message`;
 /*!40000 ALTER TABLE `mu_message` DISABLE KEYS */;
+INSERT INTO `mu_message` (`msg_id`, `msg_to_user_id`, `msg_from_info`, `msg_from_user_id`, `msg_subject`, `msg_content`, `msg_type`, `msg_date`) VALUES
+	(1, 3, '0', 3, 'ssdfasdf', 'asfasdfasdf', NULL, NULL),
+	(2, 3, '企业名称:asdfasdf<br>联系人:asdfasdfasdf <br>发件人:xiaofuqian@live.cn<br>电话号码:023-4336763<br>', 0, 'asdf', 'asdfasdfasdfasdf', NULL, NULL);
 /*!40000 ALTER TABLE `mu_message` ENABLE KEYS */;
 
 
@@ -1616,8 +1619,8 @@ CREATE TABLE `mu_view_recommend` (
 	`recommend_id` INT(11) NOT NULL DEFAULT '0',
 	`name` VARCHAR(256) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`recommend_object_id` BIGINT(20) NOT NULL DEFAULT '0',
-	`recommend_type` TINYINT(4) NOT NULL DEFAULT '0',
-	`recommend_position` TINYINT(4) NOT NULL DEFAULT '0',
+	`recommend_type` TINYINT(11) NOT NULL DEFAULT '0',
+	`recommend_position` TINYINT(11) NOT NULL DEFAULT '0',
 	`recommend_status` TINYINT(4) NULL DEFAULT NULL,
 	`recommend_time` DATETIME NULL DEFAULT NULL
 ) ENGINE=MyISAM;

@@ -97,7 +97,6 @@ class Message extends CActiveRecord
 		$criteria->compare('msg_content',$this->msg_content,true);
 		$criteria->compare('msg_type',$this->msg_type);
 		$criteria->compare('msg_date',$this->msg_date,true);
-
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

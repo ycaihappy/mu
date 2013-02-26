@@ -11,9 +11,11 @@ class FrontHeader extends CWidget {
 		{
 			$logo='images/enterprise/'.$this->getController()->company->ent_logo;
 		}
+		$action='/'.$this->getController()->getModule()->getId().'/'.$this->getController()->getId().'/'.$this->getController()->getAction()->getId();
 		$menu=$this->getController()->storeFrontConfig['menu'];
 		$company=$this->getController()->company;
-		$this->render('frontHeader',array('menu'=>$menu,'logo'=>$logo,'company'=>$company));
+		$data=compact('action','menu','log','company');
+		$this->render('frontHeader',$data);
 	}
 }
 

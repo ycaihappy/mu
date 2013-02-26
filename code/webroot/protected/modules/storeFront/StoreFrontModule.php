@@ -22,7 +22,7 @@ class StoreFrontModule extends CWebModule
 		));
 	}
 
-	public function beforeControllerAction($controller, $action)
+	/*public function beforeControllerAction($controller, $action)
 	{
 		if(parent::beforeControllerAction($controller, $action))
 		{
@@ -32,5 +32,5 @@ class StoreFrontModule extends CWebModule
 		}
 		else
 			return false;
-	}
+	}*/
 }

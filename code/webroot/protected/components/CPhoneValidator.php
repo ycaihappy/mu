@@ -2,7 +2,7 @@
 
 
 
-class CPhoneValidator extends CValidator {
+class CPhoneValidator extends CTelephoneValidator {
 
 	public $pattern='/^(([0+]d{2,3}-)?(0d{2,3})-)(d{7,8})(-(d{3,}))?$|^(([0+]d{2,3}-)?(0d{2,3})-)?(d{7,8})(-(d{3,}))?$/';
 	

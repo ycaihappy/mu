@@ -10,6 +10,7 @@ class MessageForm extends CFormModel {
 	public $fromEmail;
 	public $fromCompany;
 	public $fromTelephone;
+	public $verifyCode;
 	
 	public function rules()
 	{
@@ -21,6 +22,8 @@ class MessageForm extends CFormModel {
 			array('fromCompany','length','max'=>128),
 			array('fromContact','length','min'=>2),
 			array('fromTelephone','CPhoneValidator'),
+			array('verifyCode', 'required','message'=>'验证码不能为空'),
+			array('verifyCode', 'captcha','message'=>'验证码输入不正确', 'allowEmpty'=>!extension_loaded('gd')), 
 		);
 		if(!$guest)
 		{

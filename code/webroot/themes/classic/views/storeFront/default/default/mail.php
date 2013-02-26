@@ -33,7 +33,7 @@
     </tr>
     <tr>
       <td class="text_label">邮编：</td>
-      <td><?php echo $company->zipcode?></td>
+      <td><?php echo $company->ent_zipcode?></td>
     </tr>
     <tr>
       <td class="text_label">公司网址：</td>
@@ -107,43 +107,43 @@
       <tr>
         <td width="15%"  class="text_label" >邮件主题*：</td>
         <td  width="85%" >
-        <?php $form->textField($model,'sub',array('style'=>'width:400px;'));?>
+        <?php echo $form->textField($model,'sub',array('style'=>'width:400px;'));?>
        <?php echo $form->error($model,'sub'); ?>
         </td>
       </tr>
       <tr>
         <td width="15%" class="text_label" valign="top" >邮件内容*：</td>
         <td width="85%" valign="middle" >
-         <?php $form->textArea($model,'content',array('style'=>'width:400px;'));?>
+         <?php echo $form->textArea($model,'content',array('style'=>'width:400px;','rows'=>10));?>
          <?php echo $form->error($model,'content'); ?>
         </td>
       </tr>
-      <?php if ($uid):?>
+      <?php if (!$uid):?>
        <tr>
         <td class="text_label">企业名称*：</td>
         <td>
-        <?php $form->textField($model,'fromCompany',array('style'=>'width:400px;'));?>
+        <?php echo $form->textField($model,'fromCompany',array('style'=>'width:400px;'));?>
         <?php echo $form->error($model,'fromCompany'); ?>
         </td>
       </tr>
       <tr>
         <td width="15%"  class="text_label" >联系人*：</td>
         <td  width="85%" >
-        <?php $form->textField($model,'fromContact',array('style'=>'width:400px;'));?>
+        <?php echo $form->textField($model,'fromContact',array('style'=>'width:400px;'));?>
         <?php echo $form->error($model,'fromContact'); ?>
         </td>
       </tr>
       <tr>
         <td  class="text_label" >邮箱*：</td>
         <td>
-        <?php $form->textField($model,'fromEmail',array('style'=>'width:400px;'));?>
+        <?php echo $form->textField($model,'fromEmail',array('style'=>'width:400px;'));?>
         <?php echo $form->error($model,'fromEmail'); ?>
         </td>
       </tr>
       <tr>
         <td  class="text_label" >电话号码*：</td>
         <td>
-        <?php $form->textField($model,'fromTelephone',array('style'=>'width:400px;'));?>
+        <?php echo $form->textField($model,'fromTelephone',array('style'=>'width:400px;'));?>
         <?php echo $form->error($model,'fromTelephone'); ?>
         </td>
       </tr>
@@ -161,11 +161,15 @@
         <td height="28" class="text_label" >验证码*：</td>
         <td height="28" >
         <?php echo $form->textField($model,'verifyCode'); ?>
-		<?php $this->widget('CCaptcha',array('showRefreshButton'=>false,'clickableImage'=>false,'imageOptions'=>array('alt'=>'点击换图','title'=>'点击换图','style'=>'cursor:pointer'))); ?>
+		<?php $this->widget('CCaptcha',array('showRefreshButton'=>false,'clickableImage'=>true,'imageOptions'=>array('alt'=>'点击换图','title'=>'点击换图','style'=>'cursor:pointer'))); ?>
         <?php echo $form->error($model,'verifyCode'); ?>
 		</td>
       </tr>
       <?php endif;?>
+      <tr>
+      	<td height="28" class="text_label" ></td>
+      	<td height="28" ><?php echo CHtml::submitButton('保存'); ?></td>
+      </tr>
     </table>
 <?php $this->endWidget(); ?>
   </div>

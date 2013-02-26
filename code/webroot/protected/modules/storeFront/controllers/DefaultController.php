@@ -9,7 +9,28 @@ class DefaultController extends Controller
 	public $company;
 	public $configCacheExpire=300;
 	
-	public function init()
+	public function actions() {
+		return array (// captcha action renders the CAPTCHA image displayed on the contact page
+				'captcha' => array (
+				'class' => 'CCaptchaAction', 
+				'backColor' => 0xFFFFFF, 
+				'minLength' => 4, //最短为4位
+				'maxLength' => 4, //是长为4位
+				'transparent' => true ,
+				'height'=>35
+		) 
+						);
+	}
+	public function beforeAction($action)
+	{
+		if($this->getAction()->getId()=='captcha')
+		{
+			return true;
+		}
+		$this->_initStoreFrontData();
+		return true;
+	}
+	private function _initStoreFrontData()
 	{
 		Yii::import('storeFront.widgets.default.*');
 		$userName=@$_REQUEST['username'];
@@ -38,9 +59,9 @@ class DefaultController extends Controller
 				$this->redirect(array('/site/index'));
 			}
 			$cityCache=CCacheHelper::getAllCity();
-			if($company->ent_city)
+			if($this->company->ent_city)
 			{
-				$company->ent_city=City::getCityLayer($company->ent_city,'.');
+				$this->company->ent_city=City::getCityLayer($this->company->ent_city,'.');
 			}
 		}
 	}
@@ -141,7 +162,6 @@ class DefaultController extends Controller
 		foreach ($artList as &$art)
 		{
 			$titleLength=strlen($art->art_title);
-			echo $titleLength.'|';
 			$art->art_intro=CStringHelper::truncate_utf8_string(strip_tags($art->art_intro), 50-$titleLength);
 		}
 		
@@ -167,45 +187,47 @@ class DefaultController extends Controller
 	}
 	public function actionMail()
 	{
-		$company=$this->company;
-		$user=$this->user;
-		$data=compact('company','user');
-		$messageForm=new MessageForm();
+		$model=new MessageForm();
 		if(isset($_POST['MessageForm']))
 		{
 			//验证输入字段信息
-			$messageForm->attributes=$_POST['MessageForm'];
+			$model->attributes=$_POST['MessageForm'];
 			if($messageForm->validate())
 			{//进行保存操作
 				$message=new Message();
-				$message->msg_content=$messageForm->content;
-				$message->msg_subject=$messageForm->sub;
+				$message->msg_content=$model->content;
+				$message->msg_subject=$model->sub;
 				$message->msg_to_user_id=$this->user->user_id;
 				if(!Yii::app()->user->isGuest)
 				{
 					$message->msg_from_user_id=Yii::app()->user->getId();
 				}
 				else {
-					if(!empty($messageForm->fromCompany))
-						$message->msg_from_info.="企业名称:{$messageForm->fromCompany}<br>";
-					if(!empty($messageForm->fromContact))
-						$message->msg_from_info.="联系人:{$messageForm->fromContact}<br>";
-					if(!empty($messageForm->fromEmail))
-						$message->msg_from_info.="发件人:{$messageForm->fromEmail}<br>";
-					if(!empty($messageForm->fromTelephone))
-						$message->msg_from_info.="电话号码:{$messageForm->fromTelephone}<br>";
+					if(!empty($model->fromCompany))
+						$message->msg_from_info.="企业名称:{$model->fromCompany}<br>";
+					if(!empty($model->fromContact))
+						$message->msg_from_info.="联系人:{$model->fromContact}<br>";
+					if(!empty($model->fromEmail))
+						$message->msg_from_info.="发件人:{$model->fromEmail}<br>";
+					if(!empty($model->fromTelephone))
+						$message->msg_from_info.="电话号码:{$model->fromTelephone}<br>";
 				}
 				if($message->save())
 				{
-					$messageForm=new MessageForm();
+					$model=new MessageForm();
 				}
 			}
 			
 		}
+		$company=$this->company;
+		$user=$this->user;
 		$uid=Yii::app()->user->isGuest?0:Yii::app()->user->getId();
-		$loginUrl=Yii::app()->getController()->createUrl(array('/uehome/user/login'));
+		echo '------'.Yii::app()->user->getId();
+		$loginUrl=Yii::app()->getController()->createUrl('/uehome/user/login');
 		$userName=Yii::app()->user->isGuest?0:Yii::app()->user->getName();
-		$data=compact('messageForm','uid','loginUrl','userName');
+		$company=$this->company;
+		$user=$this->user;
+		$data=compact('model','uid','loginUrl','userName','company','user');
 		$this->render('mail',$data);
 	}
 }

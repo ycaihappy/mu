@@ -753,3 +753,92 @@ padding: 0 20px;
 .pager-bar-loading{display:none;line-height:22px;height:22px;}
 .pager-bar-loading img{vertical-align:middle;margin-right:8px;}
 .pager-bar-loading.refresh{border:none;vertical-align:middle;margin-top:4px;margin-left:4px;cursor:pointer;}
+
+.dq {
+  border: 1px solid #DEDEDE;
+  margin-bottom: 10px;
+  padding-bottom: 12px;
+  width:250px;
+}
+.dq h1 a {
+  color: red;
+ 
+}
+.dq ul {
+  margin: 0 15px;
+}
+.dq h1 {
+  background: url("imgs/sidebar_bg.png") no-repeat scroll 0 0 transparent;
+  border-bottom: 1px solid #DEDEDE;
+  color: red;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  text-align: left;
+   font-size:14px;
+  font-weight:bold;
+}
+.dq ul li {
+  background: url("imgs/dot.png") no-repeat scroll left center transparent;
+  height: 25px;
+  line-height: 25px;
+  overflow: hidden;
+  padding-left: 10px;
+  text-align: left;
+}
+.dq ul li span {
+  color: #808080;
+  float: right;
+}
+.news {
+  background: none repeat scroll 0 0 #FFFFFF;
+  float: left;
+  height: 210px;
+  padding-top: 5px;
+  position: relative;
+  width: 341px;
+}
+.news h1 {
+  background: url("imgs/news_bg.png") no-repeat scroll left top transparent;
+  height: 34px;
+  text-align: left;
+}
+.news h1 a {
+  background: url("imgs/zjgd_bg.png") no-repeat scroll 0 0 transparent;
+  display: inline-block;
+  height: 34px;
+  line-height: 28px;
+  text-align: center;
+  width: 77px;
+}
+.news h1 a.sel-a {
+  background: url("imgs/gsyb_bg.png") no-repeat scroll 0 0 transparent;
+  color: #FFFFFF;
+}
+.Change_news01 {
+  left: 0;
+  top: 5px;
+  width: 331px;
+}
+.con {
+  padding-top: 5px;
+  text-align: left;
+}
+.con h2 {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+}
+.con h2 a {
+  color: red;
+}
+.con span.article2 {
+  color: #A0A0A0;
+  display: block;
+  height: 40px;
+  line-height: 21px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-indent: 2em;
+}

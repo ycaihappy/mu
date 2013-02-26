@@ -73,6 +73,8 @@ class CCaptcha extends CWidget
 	 * @var array HTML attributes to be applied to the rendered refresh button element.
 	 */
 	public $buttonOptions=array();
+	
+	public $urlParams=array();
 
 
 	/**
@@ -97,7 +99,12 @@ class CCaptcha extends CWidget
 		if(!isset($this->imageOptions['id']))
 			$this->imageOptions['id']=$this->getId();
 
-		$url=$this->getController()->createUrl($this->captchaAction,array('v'=>uniqid()));
+		$params=array('v'=>uniqid());
+		if($this->urlParams)
+		{
+			$params+=$this->urlParams;
+		}
+		$url=$this->getController()->createUrl($this->captchaAction,$params);
 		$alt=isset($this->imageOptions['alt'])?$this->imageOptions['alt']:'';
 		echo CHtml::image($url,$alt,$this->imageOptions);
 	}
@@ -109,7 +116,12 @@ class CCaptcha extends CWidget
 	{
 		$cs=Yii::app()->clientScript;
 		$id=$this->imageOptions['id'];
-		$url=$this->getController()->createUrl($this->captchaAction,array(CCaptchaAction::REFRESH_GET_VAR=>true));
+		$params=array(CCaptchaAction::REFRESH_GET_VAR=>true);
+		if($this->urlParams)
+		{
+			$params+=$this->urlParams;
+		}
+		$url=$this->getController()->createUrl($this->captchaAction,$params);
 
 		$js="";
 		if($this->showRefreshButton)

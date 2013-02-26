@@ -17,16 +17,13 @@ class DefaultController extends Controller
 				'minLength' => 4, //最短为4位
 				'maxLength' => 4, //是长为4位
 				'transparent' => true ,
-				'height'=>35
+				'height'=>35,
+				'urlParams'=>array('username'=>Yii::app()->request->getParam('username')),
 		) 
 						);
 	}
 	public function beforeAction($action)
 	{
-		if($this->getAction()->getId()=='captcha')
-		{
-			return true;
-		}
 		$this->_initStoreFrontData();
 		return true;
 	}
@@ -192,8 +189,10 @@ class DefaultController extends Controller
 		{
 			//验证输入字段信息
 			$model->attributes=$_POST['MessageForm'];
-			if($messageForm->validate())
+			
+			if($model->validate())
 			{//进行保存操作
+				
 				$message=new Message();
 				$message->msg_content=$model->content;
 				$message->msg_subject=$model->sub;
@@ -217,17 +216,18 @@ class DefaultController extends Controller
 					$model=new MessageForm();
 				}
 			}
-			
 		}
 		$company=$this->company;
 		$user=$this->user;
+		//登陆用户信息
 		$uid=Yii::app()->user->isGuest?0:Yii::app()->user->getId();
-		echo '------'.Yii::app()->user->getId();
 		$loginUrl=Yii::app()->getController()->createUrl('/uehome/user/login');
 		$userName=Yii::app()->user->isGuest?0:Yii::app()->user->getName();
+		$storeFrontUrl=Yii::app()->getController()->createUrl('index',array('username'=>$userName));
+		
 		$company=$this->company;
 		$user=$this->user;
-		$data=compact('model','uid','loginUrl','userName','company','user');
+		$data=compact('model','uid','loginUrl','userName','company','user','storeFrontUrl');
 		$this->render('mail',$data);
 	}
 }

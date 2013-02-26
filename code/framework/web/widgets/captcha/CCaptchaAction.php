@@ -103,6 +103,8 @@ class CCaptchaAction extends CAction
 	 * @since 1.1.4
 	 */
 	public $fixedVerifyCode;
+	
+	public $urlParams=array();
 
 	/**
 	 * Runs the action.
@@ -112,16 +114,23 @@ class CCaptchaAction extends CAction
 		if(isset($_GET[self::REFRESH_GET_VAR]))  // AJAX request for regenerating code
 		{
 			$code=$this->getVerifyCode(true);
+			$params=array('v' => uniqid());
+			if($this->urlParams)
+			{
+				$params+=$this->urlParams;
+			}
 			echo CJSON::encode(array(
 				'hash1'=>$this->generateValidationHash($code),
 				'hash2'=>$this->generateValidationHash(strtolower($code)),
 				// we add a random 'v' parameter so that FireFox can refresh the image
 				// when src attribute of image tag is changed
-				'url'=>$this->getController()->createUrl($this->getId(),array('v' => uniqid())),
+				'url'=>$this->getController()->createUrl($this->getId(),$params),
 			));
 		}
 		else
+		{
 			$this->renderImage($this->getVerifyCode());
+		}
 		Yii::app()->end();
 	}
 

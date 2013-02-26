@@ -41,12 +41,12 @@ class Message extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('msg_to_user_id, msg_from_info, msg_from_user_id, msg_type', 'numerical', 'integerOnly'=>true),
+			array('msg_to_user_id, msg_from_user_id, msg_type', 'numerical', 'integerOnly'=>true),
 			array('msg_subject', 'length', 'max'=>218),
-			array('msg_content, msg_date', 'safe'),
+			array('msg_content,msg_from_info, msg_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('msg_id, msg_to_user_id, msg_from_info, msg_from_user_id, msg_subject, msg_content, msg_type, msg_date', 'safe', 'on'=>'search'),
+			array('msg_id, msg_to_user_id, msg_from_user_id, msg_subject, msg_content, msg_type, msg_date', 'safe', 'on'=>'search'),
 		);
 	}
 

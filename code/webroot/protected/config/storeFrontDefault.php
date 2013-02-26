@@ -10,7 +10,14 @@ return array(
 	),
 	'styleimg'=>'',
 	'headimage'=>'',
-	'flash'=>array(),//最多五张图片
+	'flash'=>array(
+		'banner1.jpg',
+		'banner2.jpg',
+		'banner3.jpg',
+		'banner2.jpg',
+		'banner1.jpg',
+
+	),//最多五张图片
 	'hometitle'=>'',
 	'homekeyword'=>'',
 	'homedes'=>'',

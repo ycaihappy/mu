@@ -20,7 +20,7 @@ class FrontFlash extends CWidget {
 			{
 				if(file_exists('images/enterprise/'.$image))
 				{
-					$flashImg[]='images/enterprise/'.$image;
+					$flashImg[]='http://local.mushw.com/images/enterprise/'.$image;
 				}
 			}
 			$flashImg=implode('|',$flashImg);

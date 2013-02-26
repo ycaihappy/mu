@@ -22,7 +22,7 @@ class FrontHeader extends CWidget {
 			}
 		}
 		$company=$this->getController()->company;
-		$data=compact('action','menu','log','company');
+		$data=compact('action','menu','logo','company');
 		$this->render('frontHeader',$data);
 	}
 }

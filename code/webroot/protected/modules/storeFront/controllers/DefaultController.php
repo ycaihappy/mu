@@ -230,4 +230,32 @@ class DefaultController extends Controller
 		$data=compact('model','uid','loginUrl','userName','company','user','storeFrontUrl');
 		$this->render('mail',$data);
 	}
+	public function actionProductsList()
+	{
+		$productCriteria=new CDbCriteria();
+		$productCriteria->select='product_name,product_type_id,product_city_id,product_price,product_join_date';
+		$productCriteria->with=array('unit'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name'));
+		$productCriteria->condition='product_status=1 and product_special=0 and product_user_id='.$this->user->user_id;
+		
+		$count = Product::model()->count($productCriteria);//
+		
+		$pager = new CPagination($count);
+		
+		$pager -> pageSize = 10; 
+		
+		$pager->applyLimit($productCriteria);
+		
+		$productsList = Product::model()->findAll($productCriteria);
+		
+		if($productsList)
+		{
+			foreach ($productsList as &$product)
+			{
+				$product->product_city_id=City::getCityLayer($product->product_city_id,'.');
+			}
+		}
+		$data=compact('productsList','pager');
+		$this->render('productsList',$data);
+		
+	}
 }

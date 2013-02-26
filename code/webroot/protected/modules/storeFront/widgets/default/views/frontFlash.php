@@ -4,8 +4,7 @@
 <param value="high" name="quality"><param value="false" name="menu">
 <param value="opaque" name="wmode">
 <param value="bcastr_file=<?php echo $flash ?>&bcastr_link=&bcastr_title=" name="FlashVars">
-<embed width="980" height="250" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" quality="high" false="" flashvars="bcastr_file=
-<?php echo $flash ?>&bcastr_link=<{$links}>&bcastr_title=<{$texts}>& menu=" wmode="opaque" src="<{$config.weburl}>/image/default/hot_new.swf"></object>
+<embed width="980" height="250" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" quality="high" false="" flashvars="bcastr_file=<?php echo $flash ?>&bcastr_link=&bcastr_title=&menu=" wmode="opaque" src="http://local.mushw.com/images/storeFront/default/hot_new.swf"></object>
 <?php else:?>
 <img src="<?php echo $imgurl?>grey_banner.jpg"/>
 <?php endif;?>

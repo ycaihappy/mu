@@ -444,7 +444,7 @@ $.extend(MU.Tool, {
 			modName+=item.substr(0,1).toUpperCase();
 			modName+=item.substr(1);
 		}
-		return modName;
+		return modName.replace(/\d/g,'');
 	};
 	project.modsBind=function(obj){
 		var mods=obj?obj.find("div[id^='J_'][isInit!='true']"):$("div[id^='J_'][isInit!='true']");

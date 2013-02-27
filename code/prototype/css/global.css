@@ -276,6 +276,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-detail .info{padding: 10px 0;line-height: 26px;}
 .m-detail .proInfo {background-color: #F6F6F6;display: block;line-height: 2;overflow: hidden;padding: 10px 0;width: 100%;}
 .m-detail .proInfo li {display: block;float: left;padding-left: 10px;width: 235px;}
+.m-detail h1{font-size:14px;font-weight:bold}
 /*m-detail */
 
 /*m-refinfo*/
@@ -307,7 +308,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-article-detail .color-a-0 {padding-right: 7px;}
 .m-article-detail div.tit-bar.clearfix.tit-bar {color: #666666;}
 .m-article-detail .line{border-bottom: 1px dotted #dbdbdb;margin:10px 0px;}
-.m-article-detail .content p{padding-bottom: 29px;font-size: 16px;line-height: 28px;}
+.m-article-detail .content p,.m-article-detail .content {padding-bottom: 29px;font-size: 16px;line-height: 28px;}
 
 
 

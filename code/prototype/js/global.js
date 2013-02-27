@@ -114,5 +114,22 @@ $.extend(MU.mods,{
 		});
 		
 		
+	},
+	JHqNews : function (){
+		var self = $(this);
+		self.find('h1 a').mouseover(function(){
+			$(this).addClass('on').siblings().removeClass('on');
+			var index = $(this).parent().find('a').index($(this));
+			self.find('.ck-news').eq(index).show().siblings('.ck-news').hide();
+		});
+	},
+	JHqBox : function(){
+		var self = $(this);
+		self.find('h2 a').mouseover(function(){
+			$(this).addClass('on').siblings().removeClass('on');
+			var index = $(this).parent().find('a').index($(this));
+			self.find('.fp-con ul').eq(index).show().siblings().hide();
+		});
+
 	}
 });

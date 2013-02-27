@@ -1,8 +1,8 @@
 		<div class="m-qk-entry right">
 			<div class="hd">
-				<span><a href="">免费注册</a></span>
-				<span><a href="">登陆</a></span>
-				<span><a href="">现货专区</a></span>
+				<span><a href="<?php echo Yii::app()->controller->createUrl('uehome/user/register');?>">免费注册</a></span>
+				<span><a href="<?php echo Yii::app()->controller->createUrl('uehome/user/login');?>">登陆</a></span>
+				<span><a href="<?php echo Yii::app()->controller->createUrl('product/index');?>">现货专区</a></span>
 			</div>
 			<div class="bd">
 				<ul>

@@ -2,10 +2,16 @@
 
 class EnterpriseForm extends CFormModel
 {
-	public $art_title;
-	public $art_content;
-	public $art_user_id;
-
+	public $ent_name;
+	public $ent_type;
+	public $ent_city;
+	public $ent_business_scope;
+	public $ent_zipcode;
+	public $ent_website;
+	public $ent_location;
+	public $ent_introduce;
+	public $ent_registered_capital;
+	public $ent_chief;
 
 	/**
 	 * Declares the validation rules.
@@ -13,9 +19,9 @@ class EnterpriseForm extends CFormModel
 	public function rules()
     {
         return array(
-            array('art_title', 'required'),		
-            array('art_content', 'required'),		
-            array('art_user_id', 'safe'),		
+            #array('ent_name', 'required'),		
+            #array('ent_type', 'required'),		
+            array('ent_name,ent_type,ent_business_scope,ent_city,ent_zipcode,ent_website,ent_location,ent_introduce,ent_chief,ent_registered_capital', 'safe'),		
 		);
 	}
 
@@ -28,16 +34,27 @@ class EnterpriseForm extends CFormModel
 		);
 	}
 
-	public function draft()
+	public function update()
 	{
-        $addsql = "insert into mu_article(art_title, art_content, art_user_id)
-            values(:art_title,:art_content,:art_user_id)";
+        $addsql = "update mu_user_enterprise set ent_name=:ent_name,ent_type=:ent_type,ent_city=:ent_city,
+            ent_business_scope=:ent_business_scope,ent_zipcode=:ent_zipcode,ent_website=:ent_website,ent_location=:ent_location,
+            ent_introduce=:ent_introduce,ent_registered_capital=:ent_registered_capital,ent_chief=:ent_chief
+            where ent_user_id=:ent_user_id";
+
 
         $commd = Yii::app()->db->createCommand($addsql);
 
-        $commd->bindValue(":art_title", $this->art_title, PDO::PARAM_STR);
-        $commd->bindValue(":art_content", $this->art_content, PDO::PARAM_STR);
-        $commd->bindValue(":art_user_id", yii::app()->user->getID(), PDO::PARAM_STR);
+        $commd->bindValue(":ent_name", $this->ent_name, PDO::PARAM_STR);
+        $commd->bindValue(":ent_type", $this->ent_type, PDO::PARAM_STR);
+        $commd->bindValue(":ent_city", $this->ent_city, PDO::PARAM_STR);
+        $commd->bindValue(":ent_business_scope", $this->ent_business_scope, PDO::PARAM_STR);
+        $commd->bindValue(":ent_zipcode", $this->ent_zipcode, PDO::PARAM_STR);
+        $commd->bindValue(":ent_website", $this->ent_website, PDO::PARAM_STR);
+        $commd->bindValue(":ent_location", $this->ent_location, PDO::PARAM_STR);
+        $commd->bindValue(":ent_introduce", $this->ent_introduce, PDO::PARAM_STR);
+        $commd->bindValue(":ent_registered_capital", $this->ent_registered_capital, PDO::PARAM_STR);
+        $commd->bindValue(":ent_chief", $this->ent_chief, PDO::PARAM_STR);
+        $commd->bindValue(":ent_user_id", yii::app()->user->getID(), PDO::PARAM_STR);
 
         $commd->execute();
 	}

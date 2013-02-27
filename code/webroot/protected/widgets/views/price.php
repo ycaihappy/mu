@@ -1,19 +1,21 @@
             <div class="m-quot">
 				<div class="hd">
 				<span class="on"><a href="">价格行情</a></span>			
-				<a href="" class="more">更多</a>
+				<a href="<?php echo Yii::app()->controller->createUrl('price/index');?>" class="more">更多</a>
 				</div>
 				<div class="bd">
 					<div class="col-l">
 					<p>
 						<select>
-							<option>交易所</option>
+							<option>--地区--</option>
+							<option>--栾川--</option>
+							<option>--黑龙江--</option>
 						</select>
 						<select>
-							<option>沪铝</option>
-						</select>
-						<select>
-							<option>沪铝连续</option>
+							<option>--品类--</option>
+							<option>钼精矿</option>
+							<option>三氧化钼</option>
+							<option>钼酸胺</option>
 						</select>
 					</p>
 					<div class="chart">

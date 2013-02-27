@@ -89,16 +89,103 @@ $.extend(MU.mods,{
 		});
 		self.find('.btn-reg').click(function(e){
 			e.preventDefault();
-			var cur = self.data('step');
+			var cur = self.data('step'), o = $(this),isok = false;
+			
+			if( o.hasClass('act-one')) {
+			
+				 $.ajax({  
+					type:"post",  
+					url:'index.php?r=sms/check',  
+					dataType:"json",
+					async : false,
+					data : o.closest('form').serializeArray(),
+					success: function(re) {  
+						if(re.status == 0){
+							alert('验证码错误！');
+							isok = false;
+						}else{
+							isok = true;
+						}
+					},
+					failure : function (){
+						isok = false;
+					}
+				});
+				if(false === isok) return;
+				self.find('.step-2').find('input[name=mobile_number]').val(self.find('.step-1').find('input[name=mobile_number]').val());
+			}
+			
+			if( o.hasClass('save')) {
+			
+				 $.ajax({  
+					type:"post", 
+					url:'index.php?r=uehome/user/registeruser',  
+					dataType:"json",
+					async : false,
+					data : o.closest('form').serializeArray(),
+					success: function(re) {  
+						if(re.status == 0){
+							alert('保存失败！');
+							isok = false;
+						}else{
+							isok = true;
+						}
+					},
+					failure : function (){
+						isok = false;
+					}
+				});
+				if(false === isok) return;				
+			}
+			
+			
 			cur = $(this).hasClass('prev') ? 1 : cur + 1;
 			self.data('step',cur);
-			self.find('.flow li').removeClass('on').filter(':lt('+cur+')').addClass('on');
-			
+			self.find('.flow li').removeClass('on').filter(':lt('+cur+')').addClass('on');			
 			self.find('.step-' + cur).fadeIn().siblings('.steps').hide();
 		});
 		self.find('input[name=pwd]').keyup(function(){
 			var strength = MU.Tool.wordStrength($(this).val()),pw = self.find('.pw-strength'),arr = ['weak','weak','medium','strong'];
 			pw[0].className = pw[0].className.split(' ')[0] + ' pw-' + arr[strength];
 		});
+		
+		var timer,t;
+		
+		self.find('.send-sms').click(function(){
+			var o = $(this);
+			if(o.hasClass('disabled')) return;
+				t = 10;
+				o.addClass('disabled');
+			$.getJSON(o.data('api') + '?mobile_number=' + o.prev('input[name=mobile_number]').val(),function(re){
+				
+				timer = setInterval(function(){
+					o.text(t-- + '秒后重发');
+					if(t == 0) {
+						o.text('发送验证码').removeClass('disabled');
+						clearInterval(timer);
+						
+					}
+				},1000);
+			});
+		});
+		
+		
+	},
+	JHqNews : function (){
+		var self = $(this);
+		self.find('h1 a').mouseover(function(){
+			$(this).addClass('on').siblings().removeClass('on');
+			var index = $(this).parent().find('a').index($(this));
+			self.find('.ck-news').eq(index).show().siblings('.ck-news').hide();
+		});
+	},
+	JHqBox : function(){
+		var self = $(this);
+		self.find('h2 a').mouseover(function(){
+			$(this).addClass('on').siblings().removeClass('on');
+			var index = $(this).parent().find('a').index($(this));
+			self.find('.fp-con ul').eq(index).show().siblings().hide();
+		});
+
 	}
 });

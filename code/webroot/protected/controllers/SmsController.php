@@ -29,15 +29,15 @@ class SmsController extends Controller
 
 	public function actionCheck()
 	{
-        $GET['sms_code'] = '';
-        $GET['mobile_no'] = '';
-        $model = new SmsCode();
-        $ok = $model->find("mobile_no=:mobile_no and sms_code=:sms_code and sms_status=0", array('sms_code'=>$_GET['sms_code'], 'mobile_no'=>$_GET['mobile_no']));
-        if ( $if_ok )
-        {
-            $ok->sms_status = 1;
-            $ok->save();
-        }
+     #   $GET['sms_code'] = '';
+     #   $GET['mobile_no'] = '';
+     #   $model = new SmsCode();
+     #   $ok = $model->find("mobile_no=:mobile_no and sms_code=:sms_code and sms_status=0", array('sms_code'=>$_GET['sms_code'], 'mobile_no'=>$_GET['mobile_no']));
+     #   if ( $if_ok )
+     #   {
+     #       $ok->sms_status = 1;
+     #       $ok->save();
+     #   }
         echo json_encode(array('status'=>1,'data'=>array()));
         exit;
 	}

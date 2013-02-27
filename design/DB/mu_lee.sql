@@ -370,7 +370,7 @@ CREATE TABLE `mu_file` (
   `file_user_id` int(11) NOT NULL,
   `file_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`file_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mu_file
@@ -462,7 +462,7 @@ CREATE TABLE `mu_price_summary` (
   `sum_product_zone` tinyint(4) DEFAULT NULL COMMENT '产品地区',
   `sum_add_date` datetime DEFAULT NULL,
   PRIMARY KEY (`sum_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mu_price_summary
@@ -792,7 +792,7 @@ CREATE TABLE `mu_success_case` (
   `case_status` int(11) DEFAULT NULL,
   `case_recommend` tinyint(4) NOT NULL,
   PRIMARY KEY (`case_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of mu_success_case

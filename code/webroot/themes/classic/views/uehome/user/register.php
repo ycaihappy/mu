@@ -36,8 +36,8 @@
 			<div class="hd clearfix">
 				<div class="flow">
 					<ul>
-						<li class="step-1 on">验证账户信息<i class="reg-ok"></i></li>
-						<li class="step-2">填写用户信息<i class="reg-ok"></i></li>
+						<li class="step-1 on">填写用户信息<i class="reg-ok"></i></li>
+						<li class="step-2">验证账户信息<i class="reg-ok"></i></li>
 						<li class="step-3">注册成功<i class="reg-ok"></i></li>
 					</ul>
 				</div>
@@ -50,7 +50,7 @@
 					<table width="100%">
 						<tr>
 							<td align="right"><label>手机号：</label></td>
-							<td><div class="field"><input type="text" name="mobile_number" ><button class="btn-modify send-sms" type="button" data-api="http://iv.gtxh.com/RegStep1.aspx">发送验证码</button></div></td>
+							<td><div class="field"><input type="text" name="mobile_number" ><button class="btn-modify send-sms" type="button" data-api="index.php?r=sms/send">发送验证码</button></div></td>
 						</tr>
 						<tr>
 							<td align="right"><label>请输入验证码：</label></td>
@@ -67,10 +67,19 @@
 				</div>
 				<div class="steps step-2 hide">
 					<form>
+					<input type="hidden" name="mobile_number" value="" />
 					<table width="100%">
 						<tr>
 							<td align="right"><label>用户类别：</label></td>
 							<td><div class="field"><label><input type="radio" name="user_type" value="0" class="cb user-type" checked>个人</label><label><input type="radio" name="user_type" value="1" class="cb user-type">企业</label></div></td>
+						</tr>
+						<tr class="for-company hide">
+							<td align="right"><label>企业名称：</label></td>
+							<td><div class="field"><input type="text" name="company_name" /></div></td>
+						</tr>
+						<tr class="for-company hide">
+							<td align="right"><label>企业类型：</label></td>
+							<td><div class="field"><select name="company_type"><option value="0">生产型</option><option value="1">贸易型</option></select></div></td>
 						</tr>
 						
 						<tr>
@@ -111,7 +120,7 @@
 						</tr>
 						<tr>
 							<td></td>
-							<td><div class="reg-btns"><button tabindex="5" class="btn-reg prev">上一步</button> <button tabindex="5" class="btn-reg">同意条款并注册</button>
+							<td><div class="reg-btns"><button tabindex="5" class="btn-reg prev">上一步</button> <button tabindex="5" class="btn-reg save">同意条款并注册</button>
 							<p><a>《钼市网服务条款》</a></p>
 							</div></td>
 						</tr>
@@ -122,7 +131,7 @@
 					
 					<p class="msg">注册成功</p>
 					<div class="btn">
-                    <a class="btn-modify" href="<?php echo Yii::app()->controller->createUrl('/site/index');?>">回到首页</a><a class="btn-modify" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/detail');?>">个人中心</a>
+					<a class="btn-modify" href="index.html">回到首页</a><a class="btn-modify" href="member.html">个人中心</a>
 					</div>
 					
 				</div>

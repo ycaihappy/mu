@@ -35,7 +35,7 @@ class UserController extends Controller {
 	public function actionIndex() {
 		$this->render ( 'index' );
 	}
-    public function actionRegister()
+    public function actionRegisterUser()
     {
         $model = new UserForm();
 
@@ -44,18 +44,39 @@ class UserController extends Controller {
     }
 	public function actionDetail() {
         $model = new UserForm();
-        if (isset($_POST['UserForm']))
+
+        if (isset($_POST['User']))
         {
-            $model->attributes = $_POST['UserForm'];
-            if ( $model->validate() )
+            $model->attributes = $_POST['User'];
+            #if ( $model->validate() )
             {
-                $model->draft();
+                $model->update();
             }
+        }
+        else
+        {
+            $user = new User();
+            $model = $user_info = User::model()->findByPk(yii::app()->user->getID());
         }
 		$this->render ( 'detail', array('model'=>$model) );
 	}
 	public function actionCompany() {
-		$this->render ( 'company' );
+        $model = new EnterpriseForm();
+
+        if (isset($_POST['Enterprise']))
+        {
+            $model->attributes = $_POST['Enterprise'];
+            #if ( $model->validate() )
+            {
+                $model->update();
+            }
+        }
+        else
+        {
+            $user = new Enterprise();
+            $model = Enterprise::model()->find("ent_user_id=:ent_user_id", array('ent_user_id'=>yii::app()->user->getID()));
+        }
+		$this->render ( 'company' ,array('model'=>$model));
 	}
 	public function actionPassword() {
 		$this->render ( 'password' );

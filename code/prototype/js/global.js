@@ -156,7 +156,7 @@ $.extend(MU.mods,{
 			if(o.hasClass('disabled')) return;
 				t = 10;
 				o.addClass('disabled');
-			$.getJSON(o.data('api') + '?mobile_number=' + o.prev('input[name=mobile_number]').val(),function(re){
+			$.getJSON(o.data('api') + '&mobile_number=' + o.prev('input[name=mobile_number]').val(),function(re){
 				
 				timer = setInterval(function(){
 					o.text(t-- + '秒后重发');

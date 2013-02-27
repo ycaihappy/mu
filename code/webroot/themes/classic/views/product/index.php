@@ -13,7 +13,7 @@
 <body>
 
 
-<div id="p_news_index" class="pg-layout">
+<div id="p_xh_index" class="pg-layout">
 
 <div class="m-top">
 	<div class="layout">
@@ -92,7 +92,7 @@
 	<div class="layout-area">
 		
 		<!--left-->
-<div id="sider">
+<div class="xh-col-l">
         <!--发布功能区开始-->
         <div class="sdTop">
             <div class="btBox">
@@ -213,7 +213,7 @@
 		<!--left-->
 		<!--right-->
 
-		<div id="main">
+		<div class="xh-col-r">
         <!--搜索表单开始-->
         <div class="searchForm">
             <table cellspacing="0" cellpadding="0" border="0">

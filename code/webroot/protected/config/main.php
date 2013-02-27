@@ -71,6 +71,10 @@ return array(
 
 	// application components
 	'components'=>array(
+		'user'=>array(
+			'class'=>'WebUser',
+			'loginUrl'=>'/index.php?r=uehome/user/login',
+		),
 //		'user'=>array(
 			// enable cookie-based authentication
 //			'class'=>'WebUser',
@@ -142,6 +146,7 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+		
 	#	'log'=>array(
 	#		'class'=>'CLogRouter',
 	#		'routes'=>array(

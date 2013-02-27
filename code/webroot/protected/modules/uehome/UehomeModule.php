@@ -18,7 +18,6 @@ class UehomeModule extends CWebModule
 		Yii::app()->setComponents(array(
                    'user'=>array(
                            'class'=>'WebUser',
-							'stateKeyPrefix'=>'uehome',
                            'loginUrl'=>Yii::app()->createUrl('uehome/user/login'),
 		),
 		), false);

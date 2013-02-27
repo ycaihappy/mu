@@ -15,9 +15,9 @@
     <?php foreach ($menu as $list):?>
         <?php if($list['menu_show']=='1'):?>
         	<?php if($list['menu_link']!=''):?>
-            	<a <?php if($list['menu_link']==$action):?>class="now" <?php endif;?> href="<?php echo $list['menu_link'] ?>"><?php echo $list['menu_name']?></a>
+            	<a <?php if($list['menu_link']==$action):?>class="now" <?php endif;?> href="<?php echo $list['menu_href'] ?>"><?php echo $list['menu_name']?></a>
             <?php else :?>
-            	<a href="<?php echo $list['menu_link'] ?>"><?php echo $list['menu_name']?></a>
+            	<a href="<?php echo $list['menu_href'] ?>"><?php echo $list['menu_name']?></a>
             <?php endif;?>
         <?php endif;?>    
     <?php endforeach;?>

@@ -151,7 +151,7 @@
       <tr>
         <td width="15%"  class="text_label" >发件人：</td>
         <td  width="85%" >
-        <a target="_blank" href="shop.php?uid=<{$buid}>">
+        <a target="_blank" href="<?php echo $storeFrontUrl?>">
         <?php echo $userName?>
         </a> </td>
       </tr>
@@ -161,7 +161,11 @@
         <td height="28" class="text_label" >验证码*：</td>
         <td height="28" >
         <?php echo $form->textField($model,'verifyCode'); ?>
-		<?php $this->widget('CCaptcha',array('showRefreshButton'=>false,'clickableImage'=>true,'imageOptions'=>array('alt'=>'点击换图','title'=>'点击换图','style'=>'cursor:pointer'))); ?>
+		<?php $this->widget('CCaptcha',array('showRefreshButton'=>false,
+		'clickableImage'=>true,
+		'imageOptions'=>array('alt'=>'点击换图','title'=>'点击换图','style'=>'cursor:pointer'),
+		'urlParams'=>array('username'=>$user->user_name))
+		); ?>
         <?php echo $form->error($model,'verifyCode'); ?>
 		</td>
       </tr>

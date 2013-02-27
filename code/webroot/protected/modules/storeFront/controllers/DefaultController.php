@@ -17,16 +17,13 @@ class DefaultController extends Controller
 				'minLength' => 4, //最短为4位
 				'maxLength' => 4, //是长为4位
 				'transparent' => true ,
-				'height'=>35
+				'height'=>35,
+				'urlParams'=>array('username'=>Yii::app()->request->getParam('username')),
 		) 
 						);
 	}
 	public function beforeAction($action)
 	{
-		if($this->getAction()->getId()=='captcha')
-		{
-			return true;
-		}
 		$this->_initStoreFrontData();
 		return true;
 	}
@@ -114,12 +111,23 @@ class DefaultController extends Controller
 	{
 		$img='images/enterprise/'.$this->company->ent_image;
 		$content=CStringHelper::truncate_utf8_string($this->company->ent_introduce, 300);
-		$rec_pro=array(
-		array('title'=>'测试产品','pic'=>''),
-		array('title'=>'测试产品','pic'=>''),
-		array('title'=>'测试产品','pic'=>''),
-		);
-		$data=compact('img','content','rec_pro');
+	$productCriteria=new CDbCriteria();
+		$productCriteria->select='product_name,product_type_id,product_city_id,product_price,product_join_date';
+		$productCriteria->with=array('unit'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name'));
+		$productCriteria->condition='product_status=1 and product_special=0 and product_user_id='.$this->user->user_id;
+		$productCriteria->order='product_join_date desc';
+		$productCriteria->limit=10;
+		$productsList = Product::model()->findAll($productCriteria);
+		
+		if($productsList)
+		{
+			foreach ($productsList as &$product)
+			{
+				$product->product_city_id=City::getCityLayer($product->product_city_id,'.');
+			}
+		}
+		$userName=$this->user->user_name;
+		$data=compact('img','content','productsList','userName');
 		$this->render('index',$data);
 	}
 	/**
@@ -192,8 +200,10 @@ class DefaultController extends Controller
 		{
 			//验证输入字段信息
 			$model->attributes=$_POST['MessageForm'];
-			if($messageForm->validate())
+			
+			if($model->validate())
 			{//进行保存操作
+				
 				$message=new Message();
 				$message->msg_content=$model->content;
 				$message->msg_subject=$model->sub;
@@ -217,17 +227,46 @@ class DefaultController extends Controller
 					$model=new MessageForm();
 				}
 			}
-			
 		}
 		$company=$this->company;
 		$user=$this->user;
+		//登陆用户信息
 		$uid=Yii::app()->user->isGuest?0:Yii::app()->user->getId();
-		echo '------'.Yii::app()->user->getId();
 		$loginUrl=Yii::app()->getController()->createUrl('/uehome/user/login');
 		$userName=Yii::app()->user->isGuest?0:Yii::app()->user->getName();
+		$storeFrontUrl=Yii::app()->getController()->createUrl('index',array('username'=>$userName));
+		
 		$company=$this->company;
 		$user=$this->user;
-		$data=compact('model','uid','loginUrl','userName','company','user');
+		$data=compact('model','uid','loginUrl','userName','company','user','storeFrontUrl');
 		$this->render('mail',$data);
+	}
+	public function actionProductsList()
+	{
+		$productCriteria=new CDbCriteria();
+		$productCriteria->select='product_name,product_type_id,product_city_id,product_price,product_join_date';
+		$productCriteria->with=array('unit'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name'));
+		$productCriteria->condition='product_status=1 and product_special=0 and product_user_id='.$this->user->user_id;
+		$productCriteria->order='product_join_date desc';
+		$count = Product::model()->count($productCriteria);//
+		
+		$pager = new CPagination($count);
+		
+		$pager -> pageSize = 10; 
+		
+		$pager->applyLimit($productCriteria);
+		
+		$productsList = Product::model()->findAll($productCriteria);
+		
+		if($productsList)
+		{
+			foreach ($productsList as &$product)
+			{
+				$product->product_city_id=City::getCityLayer($product->product_city_id,'.');
+			}
+		}
+		$data=compact('productsList','pager');
+		$this->render('productsList',$data);
+		
 	}
 }

@@ -16,7 +16,15 @@
       <td class="com_intro">
         <?php if($img):?> <img src="<?php echo $img?>" style="float:right; width:250px; border:1px solid #CCCCCC;margin-left:10px;"> <?php endif;?>
         <?php echo $content?>
-        <table style="margin-top:30px;" width="100%" border="0" cellpadding="0" cellspacing="0">
+ 
+      </td>
+    </tr>
+    <tr>
+      <td class="guide_ba"><span>详细资料</span> </td>
+    </tr>
+    <tr>
+    	<td class="com_intro">
+    	 <table style="margin-top:30px;" width="100%" border="0" cellpadding="0" cellspacing="0">
           <tr>
             <td width="20%"><span class="STYLE1">企业类型：</span></td>
             <td width="30%"><?php echo $company->type->term_name?></td>
@@ -24,23 +32,20 @@
             <td width="30%"><?php echo $company->business->term_name?></td>
           </tr>
           <tr>
-            <td><span class="STYLE1">采购产品：</span></td>
-            <td>氧化钼</td>
+           <td><span class="STYLE1">注册资本：</span></td>
+            <td><?php echo $company->ent_registered_capital?>万元</td>
             <td><span class="STYLE1">主营范围：</span></td>
             <td><?php echo $company->ent_business_scope?></td>
           </tr>
-          <tr>
-            <td><span class="STYLE1">注册资本：</span></td>
-            <td><?php echo $company->ent_registered_capital?>万元</td>
-            <td><span class="STYLE1">员工规模：</span></td>
-            <td>2000（人）</td>
-          </tr>
         </table>
-      </td>
+    	</td>
     </tr>
     <?php if($authenticate):?>
      <tr>
       <td class="guide_ba"><span>工商认证信息 </span> </td>
+    </tr>
+    <tr></td>
+    <td><
     </tr>
         <tr>
       <td class="com_intro"><{if $smarty.get.authenticate==1}>

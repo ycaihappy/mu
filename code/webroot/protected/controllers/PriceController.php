@@ -2,6 +2,7 @@
 
 class PriceController extends Controller
 {
+    public $layout = '//layouts/news_main';
 	/**
 	 * Declares class-based actions.
 	 */

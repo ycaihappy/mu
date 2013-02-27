@@ -11,17 +11,13 @@ class SmsController extends Controller
 		);
 	}
 
-	/**
-	 * This is the default 'index' action that is invoked
-	 * when an action is not explicitly requested by users.
-	 */
 	public function actionSend()
 	{
         $smscode = new SmsCode();
         $smscode->mobile_no  = '18665900046';
         $smscode->sms_code   = '123456';
         $smscode->sms_status = 0;
-        $smscode->sms_send_date = date("Y-m-d H:i:s");
+        $smscode->sms_send_date = '2013-01-09 09:00:30';
         $smscode->save();
         echo json_encode(array('status'=>1,'data'=>array()));
         exit;
@@ -29,16 +25,20 @@ class SmsController extends Controller
 
 	public function actionCheck()
 	{
-     #   $GET['sms_code'] = '';
-     #   $GET['mobile_no'] = '';
-     #   $model = new SmsCode();
-     #   $ok = $model->find("mobile_no=:mobile_no and sms_code=:sms_code and sms_status=0", array('sms_code'=>$_GET['sms_code'], 'mobile_no'=>$_GET['mobile_no']));
-     #   if ( $if_ok )
-     #   {
-     #       $ok->sms_status = 1;
-     #       $ok->save();
-     #   }
-        echo json_encode(array('status'=>1,'data'=>array()));
+        $_GET['sms_code'] = '123456';
+        $_GET['mobile_no'] = '18665900046';
+        $model = new SmsCode();
+        $ok = $model->find("mobile_no=:mobile_no and sms_code=:sms_code and sms_status=0", array('sms_code'=>$_GET['sms_code'], 'mobile_no'=>$_GET['mobile_no']));
+        if ( $ok )
+        {
+            $ok->sms_status = 1;
+            $ok->save();
+            echo json_encode(array('status'=>1,'data'=>array()));
+        }
+        else
+        {
+            echo json_encode(array('status'=>0,'data'=>array()));
+        }
         exit;
 	}
 

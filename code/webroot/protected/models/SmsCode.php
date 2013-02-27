@@ -27,8 +27,14 @@ class SmsCode extends CActiveRecord
 	 */
 	public function tableName()
 	{
+		return 'mu_sms_code';
 		return '{{_sms_code}}';
 	}
+
+    public function primaryKey()
+    {
+        return 'sms_id';
+    }
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -38,11 +44,11 @@ class SmsCode extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('sms_id', 'required'),
-			array('sms_status', 'numerical', 'integerOnly'=>true),
-			array('sms_id', 'length', 'max'=>20),
-			array('mobile_no, sms_code', 'length', 'max'=>45),
-			array('sms_send_date', 'safe'),
+		#	array('sms_id', 'required'),
+		#	array('sms_status', 'numerical', 'integerOnly'=>true),
+		#	array('sms_id', 'length', 'max'=>20),
+		#	array('mobile_no, sms_code', 'length', 'max'=>45),
+		#	array('sms_send_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('sms_id, mobile_no, sms_code, sms_status, sms_send_date', 'safe', 'on'=>'search'),

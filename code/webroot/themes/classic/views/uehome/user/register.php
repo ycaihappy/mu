@@ -36,8 +36,8 @@
 			<div class="hd clearfix">
 				<div class="flow">
 					<ul>
-						<li class="step-1 on">填写用户信息<i class="reg-ok"></i></li>
-						<li class="step-2">验证账户信息<i class="reg-ok"></i></li>
+						<li class="step-1 on">验证账户信息<i class="reg-ok"></i></li>
+						<li class="step-2">填写用户信息<i class="reg-ok"></i></li>
 						<li class="step-3">注册成功<i class="reg-ok"></i></li>
 					</ul>
 				</div>
@@ -122,7 +122,7 @@
 					
 					<p class="msg">注册成功</p>
 					<div class="btn">
-					<a class="btn-modify" href="index.html">回到首页</a><a class="btn-modify" href="member.html">个人中心</a>
+                    <a class="btn-modify" href="<?php echo Yii::app()->controller->createUrl('/site/index');?>">回到首页</a><a class="btn-modify" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/detail');?>">个人中心</a>
 					</div>
 					
 				</div>

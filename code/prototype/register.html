@@ -50,7 +50,7 @@
 					<table width="100%">
 						<tr>
 							<td align="right"><label>手机号：</label></td>
-							<td><div class="field"><input type="text" name="mobile_number" ><button class="btn-modify send-sms" type="button" data-api="http://iv.gtxh.com/RegStep1.aspx">发送验证码</button></div></td>
+							<td><div class="field"><input type="text" name="mobile_number" ><button class="btn-modify send-sms" type="button" data-api="index.php?r=sms/send">发送验证码</button></div></td>
 						</tr>
 						<tr>
 							<td align="right"><label>请输入验证码：</label></td>
@@ -67,6 +67,7 @@
 				</div>
 				<div class="steps step-2 hide">
 					<form>
+					<input type="hidden" name="mobile_number" value="" />
 					<table width="100%">
 						<tr>
 							<td align="right"><label>用户类别：</label></td>
@@ -119,7 +120,7 @@
 						</tr>
 						<tr>
 							<td></td>
-							<td><div class="reg-btns"><button tabindex="5" class="btn-reg prev">上一步</button> <button tabindex="5" class="btn-reg">同意条款并注册</button>
+							<td><div class="reg-btns"><button tabindex="5" class="btn-reg prev">上一步</button> <button tabindex="5" class="btn-reg save">同意条款并注册</button>
 							<p><a>《钼市网服务条款》</a></p>
 							</div></td>
 						</tr>

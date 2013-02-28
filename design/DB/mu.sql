@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `mu_advertisement` (
   `ad_media_src` varchar(128) DEFAULT NULL COMMENT '广告媒体文件',
   `ad_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`ad_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_advertisement: 1 rows
 DELETE FROM `mu_advertisement`;
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `mu_article` (
   `art_modified_date` datetime DEFAULT NULL COMMENT '''修改时间''',
   `art_recommend` tinyint(4) DEFAULT NULL COMMENT '文章推荐',
   PRIMARY KEY (`art_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=251 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_article: 250 rows
 DELETE FROM `mu_article`;
@@ -374,12 +374,7 @@ CREATE TABLE IF NOT EXISTS `mu_file` (
   `file_user_id` int(11) NOT NULL,
   `file_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`file_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-# Dumping data for table mu.mu_file: ~0 rows (approximately)
-DELETE FROM `mu_file`;
-/*!40000 ALTER TABLE `mu_file` DISABLE KEYS */;
-/*!40000 ALTER TABLE `mu_file` ENABLE KEYS */;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 # Dumping structure for table mu.mu_find_passwd
@@ -410,7 +405,7 @@ CREATE TABLE IF NOT EXISTS `mu_friend_link` (
   `flink_status` tinyint(4) DEFAULT NULL,
   `flink_create_date` datetime DEFAULT NULL,
   PRIMARY KEY (`flink_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='友情链接';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='友情链接';
 
 # Dumping data for table mu.mu_friend_link: 2 rows
 DELETE FROM `mu_friend_link`;
@@ -552,13 +547,7 @@ CREATE TABLE IF NOT EXISTS `mu_price_summary` (
   `sum_product_zone` int(4) DEFAULT NULL COMMENT '产品地区',
   `sum_add_date` datetime DEFAULT NULL,
   PRIMARY KEY (`sum_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-# Dumping data for table mu.mu_price_summary: ~0 rows (approximately)
-DELETE FROM `mu_price_summary`;
-/*!40000 ALTER TABLE `mu_price_summary` DISABLE KEYS */;
-/*!40000 ALTER TABLE `mu_price_summary` ENABLE KEYS */;
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 # Dumping structure for table mu.mu_product
 DROP TABLE IF EXISTS `mu_product`;
@@ -583,7 +572,7 @@ CREATE TABLE IF NOT EXISTS `mu_product` (
   `product_check_by` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   KEY `product_user_id` (`product_user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=200 DEFAULT CHARSET=utf8 COMMENT='现货';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='现货';
 
 # Dumping data for table mu.mu_product: 199 rows
 DELETE FROM `mu_product`;
@@ -801,7 +790,7 @@ CREATE TABLE IF NOT EXISTS `mu_recommend` (
   `recommend_status` tinyint(4) DEFAULT NULL,
   `recommend_time` datetime DEFAULT NULL,
   PRIMARY KEY (`recommend_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_recommend: 2 rows
 DELETE FROM `mu_recommend`;
@@ -1096,7 +1085,7 @@ CREATE TABLE IF NOT EXISTS `mu_success_case` (
   `case_status` int(11) DEFAULT NULL,
   `case_recommend` tinyint(4) NOT NULL,
   PRIMARY KEY (`case_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_success_case: ~99 rows (approximately)
 DELETE FROM `mu_success_case`;
@@ -1230,7 +1219,7 @@ CREATE TABLE IF NOT EXISTS `mu_supply` (
   `supply_join_date` datetime DEFAULT NULL COMMENT '''发表日期''',
   PRIMARY KEY (`supply_id`),
   KEY `supply_user_id` (`supply_user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=201 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_supply: 170 rows
 DELETE FROM `mu_supply`;
@@ -1420,7 +1409,7 @@ CREATE TABLE IF NOT EXISTS `mu_term` (
   `term_order` int(4) DEFAULT '0',
   `term_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`term_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_term: 39 rows
 DELETE FROM `mu_term`;
@@ -1475,7 +1464,7 @@ CREATE TABLE IF NOT EXISTS `mu_term_group` (
   `group_name` varchar(100) DEFAULT NULL,
   `group_desc` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_term_group: 15 rows
 DELETE FROM `mu_term_group`;
@@ -1614,7 +1603,7 @@ CREATE TABLE IF NOT EXISTS `mu_user_enterprise` (
   `ent_check_by` varchar(50) DEFAULT NULL COMMENT '审核人',
   PRIMARY KEY (`ent_id`),
   KEY `ent_user_id` (`ent_user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_user_enterprise: 3 rows
 DELETE FROM `mu_user_enterprise`;

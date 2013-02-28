@@ -14,10 +14,10 @@ class SmsController extends Controller
 	public function actionSend()
 	{
         $smscode = new SmsCode();
-        $smscode->mobile_no  = '18665900046';
+        $smscode->mobile_no  = $_REQUEST['mobile_number'];
         $smscode->sms_code   = '123456';
         $smscode->sms_status = 0;
-        $smscode->sms_send_date = '2013-01-09 09:00:30';
+        $smscode->sms_send_date = date("Y-m-d H:i:s");
         $smscode->save();
         echo json_encode(array('status'=>1,'data'=>array()));
         exit;
@@ -26,7 +26,7 @@ class SmsController extends Controller
 	public function actionCheck()
 	{
         $_GET['sms_code'] = '123456';
-        $_GET['mobile_no'] = '18665900046';
+        $_GET['mobile_no'] = $_REQUEST['mobile_number'];
         $model = new SmsCode();
         $ok = $model->find("mobile_no=:mobile_no and sms_code=:sms_code and sms_status=0", array('sms_code'=>$_GET['sms_code'], 'mobile_no'=>$_GET['mobile_no']));
         if ( $ok )

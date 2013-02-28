@@ -1,5 +1,7 @@
 <?php
-sleep(2);
+
+echo 'images/logo.jpg';
+exit;
 
 $data = array(
 	'status'=>1

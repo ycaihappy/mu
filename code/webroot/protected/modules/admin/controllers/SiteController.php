@@ -327,10 +327,8 @@ class SiteController extends AdminController {
 			$smsSettingModel->attributes = $_POST ['SMSSetting'];
 			if ($smsSettingModel->validate ()) {
 				$smsSettingModel->save ();
-				$this->render ( 'smsSetting', array ('model' => $smsSettingModel ) );
 			} else {
 				Yii::app ()->admin->setFlash ( 'erroInfo', '输入的字段不合法，保存失败' );
-				$this->render ( 'smsSetting', array ('model' => $smsSettingModel ) );
 			}
 		} else {
 			$smsSettingModel = $smsSettingModel->LoadData ();
@@ -338,7 +336,9 @@ class SiteController extends AdminController {
 			{
 				$smsSettingModel->system=PHP_OS=='WINNT'?'windows':PHP_OS;
 			}
-			$this->render ( 'smsSetting', array ('model' => $smsSettingModel ) );
+			
 		}
+		$smsTemplates=MessageTemplate::getTemplates('sms');
+		$this->render ( 'smsSetting', array ('model' => $smsSettingModel,'smsTemplates'=>$smsTemplates ) );
 	}
 }

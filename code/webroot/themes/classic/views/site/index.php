@@ -23,7 +23,7 @@
         <div class="col-right">		
         <?php $this->widget("PriceWidget");?>
         <div class="m-mid-ad"><a href=""><img src="images/ad6.jpg" /></a></div>
-        <?php $this->widget("CaseWidget");?>
+        <?php #$this->widget("CaseWidget");?>
         <?php $this->widget("KnowledgeWidget");?>
 		</div>
 		<div class="clearfix"></div>

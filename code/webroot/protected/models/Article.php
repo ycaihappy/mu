@@ -71,7 +71,7 @@ class Article extends CActiveRecord
             'knowledgeList'=>array(
                 'condition'=>'art_category_id=20 and art_status=1',
                 'order'=>'art_post_date desc',
-                'limit'=>8
+                'limit'=>5
             ),
             'topNews'=>array(
                 'condition'=>'art_category_id=17 and art_status=1',

@@ -6,7 +6,7 @@
 				<div class="bd">
 				
 					<dl class="aside">
-						<dt><span><b>生成工艺</b></span></dt>
+						<dt><span><b>生产工艺</b></span></dt>
 						<dd style="height:140px;">
                         <ul class="list" style="display: block;">
    			<?php for($index=0;$index<count($data);$index++):
@@ -17,7 +17,7 @@
 						</dd>
 					</dl>
 					<dl class="aside">
-						<dt><span><b>选矿技术</b></span></dt>
+						<dt><span><b>钼的用途</b></span></dt>
 						<dd style="height:140px;">
                         <ul class="list"  style="display: block;">
    			<?php for($index=0;$index<count($data);$index++):

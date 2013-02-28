@@ -3,7 +3,7 @@
 # Server version:               5.5.8
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-02-28 10:38:36
+# Date/time:                    2013-02-28 11:08:33
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -508,7 +508,7 @@ CREATE TABLE IF NOT EXISTS `mu_message_template` (
   `msg_template_name` varchar(128) NOT NULL COMMENT '邮件的名称，供管理只用',
   `msg_template_mnemonic` varchar(128) NOT NULL COMMENT '模板助记符',
   `msg_template_type` int(11) NOT NULL,
-  `msg_template_title` int(11) DEFAULT NULL COMMENT '邮件标题，短信不用标题',
+  `msg_template_title` varchar(255) DEFAULT NULL COMMENT '邮件标题，短信不用标题',
   `msg_template_content` text COMMENT '信息模板内容，短信注意文字数量',
   `msg_template_added_date` datetime DEFAULT NULL COMMENT '模板添加时间',
   `msg_template_update_date` datetime DEFAULT NULL COMMENT '模板修改时间',
@@ -519,6 +519,8 @@ CREATE TABLE IF NOT EXISTS `mu_message_template` (
 # Dumping data for table mu.mu_message_template: ~0 rows (approximately)
 DELETE FROM `mu_message_template`;
 /*!40000 ALTER TABLE `mu_message_template` DISABLE KEYS */;
+INSERT INTO `mu_message_template` (`msg_template_id`, `msg_template_name`, `msg_template_mnemonic`, `msg_template_type`, `msg_template_title`, `msg_template_content`, `msg_template_added_date`, `msg_template_update_date`) VALUES
+	(1, 'asdfasdf', 'asdfasdfasdf', 38, 'asdfasdfasdfas', '<p>\r\n	dfasdfasdfasdfasdfasdfasdf</p>\r\n', '2013-02-28 11:06:44', NULL);
 /*!40000 ALTER TABLE `mu_message_template` ENABLE KEYS */;
 
 
@@ -1418,9 +1420,9 @@ CREATE TABLE IF NOT EXISTS `mu_term` (
   `term_order` int(4) DEFAULT '0',
   `term_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`term_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_term: 37 rows
+# Dumping data for table mu.mu_term: 39 rows
 DELETE FROM `mu_term`;
 /*!40000 ALTER TABLE `mu_term` DISABLE KEYS */;
 INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES
@@ -1460,7 +1462,9 @@ INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `t
 	(34, 17, '国际新闻', '', 10, 0, NULL),
 	(35, 17, '国内新闻', '', 10, 0, NULL),
 	(36, 16, '国内行情', '', 10, 0, NULL),
-	(37, 16, '国际行情', '', 10, 0, NULL);
+	(37, 16, '国际行情', '', 10, 0, NULL),
+	(38, 0, '短信息模板', '', 15, 0, NULL),
+	(39, 0, '邮件模板', '', 15, 0, NULL);
 /*!40000 ALTER TABLE `mu_term` ENABLE KEYS */;
 
 
@@ -1471,9 +1475,9 @@ CREATE TABLE IF NOT EXISTS `mu_term_group` (
   `group_name` varchar(100) DEFAULT NULL,
   `group_desc` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_term_group: 14 rows
+# Dumping data for table mu.mu_term_group: 15 rows
 DELETE FROM `mu_term_group`;
 /*!40000 ALTER TABLE `mu_term_group` DISABLE KEYS */;
 INSERT INTO `mu_term_group` (`group_id`, `group_name`, `group_desc`) VALUES
@@ -1490,7 +1494,8 @@ INSERT INTO `mu_term_group` (`group_id`, `group_name`, `group_desc`) VALUES
 	(11, '供求类型', NULL),
 	(12, '推荐信息类型', NULL),
 	(13, '推荐模块', NULL),
-	(14, '钼分类', '');
+	(14, '钼分类', ''),
+	(15, '邮件模板类型', '');
 /*!40000 ALTER TABLE `mu_term_group` ENABLE KEYS */;
 
 

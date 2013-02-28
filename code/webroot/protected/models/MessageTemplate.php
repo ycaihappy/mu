@@ -41,8 +41,10 @@ class MessageTemplate extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('msg_template_name, msg_template_type', 'required'),
-			array('msg_template_type, msg_template_title', 'numerical', 'integerOnly'=>true),
+			array('msg_template_type', 'numerical', 'integerOnly'=>true),
+			array('msg_template_title', 'length', 'max'=>255),
 			array('msg_template_name,msg_template_mnemonic', 'length', 'max'=>128),
+			
 			array('msg_template_mnemonic', 'unique'),
 			array('msg_template_content, msg_template_added_date, msg_template_update_date', 'safe'),
 			// The following rule is used by search().

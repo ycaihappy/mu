@@ -36,7 +36,7 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">父级：</td>
-		<td><?php echo $form->dropDownList($model,'term_parent_id',$terms); ?>
+		<td><?php echo $form->dropDownList($model,'term_parent_id',$terms,array('empty'=>'顶级')); ?>
 		<?php echo $form->error($model,'term_parent_id'); ?></td>
 </tr>
 <tr>

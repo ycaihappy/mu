@@ -59,5 +59,12 @@ case 6:
 				array('label'=>'推荐管理', 'url'=>array('advertisementRecommend/manageRecommend'),'linkOptions'=>array('target'=>'mainFrame')),
 				),
 		)); 
+case 7:
+ $this->widget('zii.widgets.CMenu',array(
+			'activeCssClass'=>'on',
+			'items'=>array(
+				array('label'=>'邮件模板管理', 'url'=>array('system/manageMessageTemplate'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
+				),
+		)); 
 		endswitch;?>
 </div>

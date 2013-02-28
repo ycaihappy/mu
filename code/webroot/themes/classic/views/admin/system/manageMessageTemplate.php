@@ -12,7 +12,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			'value'=>'asd',
 			'cssFile'=>'jquery.ui.css',
 			'onclick'=>'js:function(){
-			    location.href="'.Yii::app()->controller->createUrl("updateTerm").'";
+			    location.href="'.Yii::app()->controller->createUrl("saveMessageTemplate").'";
 			}',
 			)
 	);
@@ -42,11 +42,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
         	'value'=>'$data->msg_template_title',
         	'htmlOptions'=>array('align'=>'center'),
         ),
+        array(
+        	'name'=>'创建时间',
+        	'value'=>'$data->msg_template_added_date',
+        	'htmlOptions'=>array('align'=>'center'),
+        ),
         array(            // display a column with "view", "update" and "delete" buttons
             'header'=>'操作',
         	'class'=>'CButtonColumn',
         	'template'=>'{update}',
-        	'updateButtonUrl'=>'Yii::app()->controller->createUrl("updateMessageTemplate",array("msg_template_id"=>$data->msg_template_id))',
+        	'updateButtonUrl'=>'Yii::app()->controller->createUrl("saveMessageTemplate",array("msg_template_id"=>$data->msg_template_id))',
         	'updateButtonLabel'=>'修改',
         	),
     ),

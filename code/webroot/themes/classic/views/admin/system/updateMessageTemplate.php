@@ -39,8 +39,23 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">模板内容：</td>
-		<td><?php echo $form->textField($model,'msg_template_title',array('class'=>'cmp-input')); ?>
-		<?php echo $form->error($model,'msg_template_title'); ?></td>
+		<td><?php
+		$this->widget('application.extensions.ckeditor.CKEditor',array( 
+				    
+		"model"=>$model,
+
+		"attribute"=>'msg_template_content',
+
+		"height"=>'400px',
+				    
+		"width"=>'600px',       
+				    
+		'editorTemplate'=>'advanced',
+		
+		) 
+);
+		?>
+		<?php echo $form->error($model,'msg_template_content'); ?></td>
 </tr>
 <tr>
 <td class="label">创建时间：</td>

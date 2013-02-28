@@ -18,6 +18,6 @@
 		<a class="<?php echo $this->type==4?'on':'' ?>" href="<?php echo Yii::app()->controller->createUrl("index",array('type'=>4))?>">信息管理 </a><i>|</i>
 		<a class="<?php echo $this->type==5?'on':'' ?>" href="<?php echo Yii::app()->controller->createUrl("index",array('type'=>5))?>">新闻行情管理</a><i>|</i>
 		<a class="<?php echo $this->type==6?'on':'' ?>" href="<?php echo Yii::app()->controller->createUrl("index",array('type'=>6))?>">广告及推荐管理</a><i>|</i>
-		<a>系统</a>
+		<a class="<?php echo $this->type==7?'on':'' ?>" href="<?php echo Yii::app()->controller->createUrl("index",array('type'=>7))?>">系统</a>
 	</div>
 </div>

@@ -177,6 +177,38 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 #p_supplier_detail .layout-right{width:250px;}
 
 
+.m-nous{width:584px;}
+.m-nous .aside{width:50%;float:left;}
+.m-nous .aside dt {
+  height: 25px;
+  padding: 0 10px 8px;
+}
+.m-nous .aside dt span {
+  border-bottom: 1px solid #E8E8E8;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  height: 24px;
+  line-height: 26px;
+  overflow: hidden;
+  padding-left: 2px;
+}
+.m-nous .aside dt span div {
+  background: none repeat scroll 0 center transparent;
+  float: right;
+  font-size: 13px;
+  font-weight: lighter;
+  line-height: 24px;
+  padding-right: 0;
+}
+.m-nous .aside dt span a:link, .aside dt span a:hover, .aside dt span a:visited {
+  color: #000000;
+}
+.m-nous .aside dd {
+  padding: 0 12px 8px;
+}
+
+
 .m-banner{margin-bottom:30px;}
 
 .m-rcm{float:left;margin-right:20px;}

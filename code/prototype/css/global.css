@@ -131,9 +131,9 @@ padding-right: 1px;
 .m-nav{margin-top: 25px;overflow: hidden;margin-bottom:15px;}
 .m-nav .bd{width:1100px;}
 .m-nav .hd{background:#206e94;height:5px;margin:10px 0}
-.m-nav a{font-size:14px;margin-right:13px;float:left;line-height:30px;}
+.m-nav a{font-size:14px;margin-right:13px;line-height:30px;}
 .m-nav strong a{font-weight:bold}
-.m-nav .nav-con{width:174px;overflow:hidden;float:left;}
+.m-nav .nav-con{overflow:hidden;float:left;}
 
 .m-index-ad{width:358px;float:left;margin-right:20px;}
 .m-index-ad .pic{position:relative;height: 275px;overflow: hidden;width: 358px;}

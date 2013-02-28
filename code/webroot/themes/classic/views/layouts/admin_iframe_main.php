@@ -35,6 +35,9 @@ switch (Yii::app()->request->getParam('type',0))
 	case 6:
 		$indexAction='advertisementRecommend/manageAdvertisement';
 		break;
+	case 7:
+		$indexAction='system/manageMessageTemplate';
+		break;
 	default:
 		$indexAction='site/manageBasicSiteInfo';
 }

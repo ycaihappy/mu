@@ -1,9 +1,9 @@
 # --------------------------------------------------------
 # Host:                         127.0.0.1
-# Server version:               5.1.28-rc-community
+# Server version:               5.5.8
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-02-28 03:13:38
+# Date/time:                    2013-02-28 10:38:36
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -501,6 +501,27 @@ INSERT INTO `mu_message` (`msg_id`, `msg_to_user_id`, `msg_from_info`, `msg_from
 /*!40000 ALTER TABLE `mu_message` ENABLE KEYS */;
 
 
+# Dumping structure for table mu.mu_message_template
+DROP TABLE IF EXISTS `mu_message_template`;
+CREATE TABLE IF NOT EXISTS `mu_message_template` (
+  `msg_template_id` int(10) NOT NULL AUTO_INCREMENT,
+  `msg_template_name` varchar(128) NOT NULL COMMENT '邮件的名称，供管理只用',
+  `msg_template_mnemonic` varchar(128) NOT NULL COMMENT '模板助记符',
+  `msg_template_type` int(11) NOT NULL,
+  `msg_template_title` int(11) DEFAULT NULL COMMENT '邮件标题，短信不用标题',
+  `msg_template_content` text COMMENT '信息模板内容，短信注意文字数量',
+  `msg_template_added_date` datetime DEFAULT NULL COMMENT '模板添加时间',
+  `msg_template_update_date` datetime DEFAULT NULL COMMENT '模板修改时间',
+  PRIMARY KEY (`msg_template_id`),
+  UNIQUE KEY `msg_template_mnemonic` (`msg_template_mnemonic`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='短信或者邮件的模板';
+
+# Dumping data for table mu.mu_message_template: ~0 rows (approximately)
+DELETE FROM `mu_message_template`;
+/*!40000 ALTER TABLE `mu_message_template` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mu_message_template` ENABLE KEYS */;
+
+
 # Dumping structure for table mu.mu_point_rule
 DROP TABLE IF EXISTS `mu_point_rule`;
 CREATE TABLE IF NOT EXISTS `mu_point_rule` (
@@ -820,7 +841,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_item` (
   PRIMARY KEY (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_right_item: 86 rows
+# Dumping data for table mu.mu_right_item: 89 rows
 DELETE FROM `mu_right_item`;
 /*!40000 ALTER TABLE `mu_right_item` DISABLE KEYS */;
 INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`, `data`) VALUES
@@ -909,7 +930,10 @@ INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`
 	('manageUserTemplate', 1, '旺铺模板管理', '', '', 's:0:"";'),
 	('admin-UserManageUserTemplate', 0, NULL, NULL, NULL, 'N;'),
 	('admin-UserDeleteUserTemplate', 0, NULL, NULL, NULL, 'N;'),
-	('admin-UserUpdateUserTemplate', 0, NULL, NULL, NULL, 'N;');
+	('admin-UserUpdateUserTemplate', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SystemManageMessageTemplate', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SystemSaveMessageTemplate', 0, NULL, NULL, NULL, 'N;'),
+	('messageTemplateManage', 1, '邮件模板管理', '', '', 's:0:"";');
 /*!40000 ALTER TABLE `mu_right_item` ENABLE KEYS */;
 
 
@@ -921,7 +945,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_itemchildren` (
   PRIMARY KEY (`parent`,`child`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_right_itemchildren: 96 rows
+# Dumping data for table mu.mu_right_itemchildren: 99 rows
 DELETE FROM `mu_right_itemchildren`;
 /*!40000 ALTER TABLE `mu_right_itemchildren` DISABLE KEYS */;
 INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
@@ -946,6 +970,8 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('manageUserTemplate', 'admin-UserDeleteUserTemplate'),
 	('manageUserTemplate', 'admin-UserManageUserTemplate'),
 	('manageUserTemplate', 'admin-UserUpdateUserTemplate'),
+	('messageTemplateManage', 'admin-SystemManageMessageTemplate'),
+	('messageTemplateManage', 'admin-SystemSaveMessageTemplate'),
 	('newsManage', 'admin-ArticleBatchUpdateImageTitle'),
 	('newsManage', 'admin-ArticleBatchUploadImage'),
 	('newsManage', 'admin-ArticleChangeImageLibaryStatus'),
@@ -1002,6 +1028,7 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('superAdmin', 'cityManage'),
 	('superAdmin', 'enterpriseManage'),
 	('superAdmin', 'manageUserTemplate'),
+	('superAdmin', 'messageTemplateManage'),
 	('superAdmin', 'newsManage'),
 	('superAdmin', 'operatorsManage'),
 	('superAdmin', 'priceManage'),
@@ -1564,7 +1591,7 @@ CREATE TABLE IF NOT EXISTS `mu_user_enterprise` (
   `ent_type` int(4) DEFAULT NULL COMMENT '企业类型，如国有，私营',
   `ent_website` varchar(512) DEFAULT NULL COMMENT '''网站地址''',
   `ent_business_model` int(4) unsigned DEFAULT NULL COMMENT '经营模式，生产，贸易等',
-  `ent_tax` varchar(30) DEFAULT NULL COMMENT '经营模式，生产，贸易等',
+  `ent_tax` varchar(30) DEFAULT NULL COMMENT '传真',
   `ent_zipcode` char(32) DEFAULT NULL COMMENT '''邮编''',
   `ent_introduce` text COMMENT '''企业介绍''',
   `ent_location` varchar(218) DEFAULT NULL COMMENT '''企业详细地址''',
@@ -1623,8 +1650,8 @@ CREATE TABLE `mu_view_recommend` (
 	`recommend_id` INT(11) NOT NULL DEFAULT '0',
 	`name` VARCHAR(256) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`recommend_object_id` BIGINT(20) NOT NULL DEFAULT '0',
-	`recommend_type` TINYINT(4) NOT NULL DEFAULT '0',
-	`recommend_position` TINYINT(4) NOT NULL DEFAULT '0',
+	`recommend_type` TINYINT(11) NOT NULL DEFAULT '0',
+	`recommend_position` TINYINT(11) NOT NULL DEFAULT '0',
 	`recommend_status` TINYINT(4) NULL DEFAULT NULL,
 	`recommend_time` DATETIME NULL DEFAULT NULL
 ) ENGINE=MyISAM;

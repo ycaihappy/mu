@@ -50,12 +50,16 @@ class City extends CActiveRecord
 	}
 	public static function getAllCity($cityId=0)
 	{
-		if(!$cityId)
+		static $citys=null;
+		if(!$citys)
 		{
 			$citys=CCacheHelper::getAllCity();
+		}
+		if(!$cityId)
+		{
 			$returnCity=array();
 			$returnCity[0]='地区';
-			foreach ($citys as &$city) {
+			foreach ($citys as $city) {
 				$parentCity=array();
 				$parent=$city->city_parent;
 				while($parent)
@@ -70,7 +74,14 @@ class City extends CActiveRecord
 		}
 		else
 		{
-			return array();
+			$returnCity=array();
+			foreach ($citys as $city) {
+				if($city->city_parent==$cityId)
+				{
+					$returnCity[$city->city_id]=$city->city_name;
+				}
+			}
+			return $returnCity;
 		}
 	}
 	public static function getCityLayer($cityId,$sep='>>',$noCityText='未指明')

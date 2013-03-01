@@ -13,13 +13,6 @@ class StoreFrontModule extends CWebModule
 			'storeFront.components.*',
 			'storeFront.widgets.*',
 		));
-		Yii::app()->setComponents(array(
-			'fileCache'=>array(
-				'class'=>'CFileCache',
-				'cachePath'=>'cache/storeFrontConfigCache',
-				'directoryLevel'=>2,
-			),
-		));
 	}
 
 	/*public function beforeControllerAction($controller, $action)

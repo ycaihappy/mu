@@ -23,4 +23,8 @@
 		<li><a href="index.php?r=uehome/user/goods" >添加现货</a></li>
 		<!-- <li><a href="index.php?r=uehome/user/special" >特价产品</a></li> -->
 	</ul>
+	<h3><a>旺铺管理</a></h3>
+	<ul>
+		<li><a href="index.php?r=uehome/user/templateSetting" >主页设置</a></li>
+	</ul>
 	</div>

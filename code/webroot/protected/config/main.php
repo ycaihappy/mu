@@ -24,7 +24,7 @@ return array(
 		'application.widgets.*',
 		'application.extensions.ckeditor.*',
 	    'application.extensions.yii-mail.*', 
-		//'packages.solr.*',
+		'packages.solr.*',
 	),
 
 	'modules'=>array(
@@ -84,13 +84,14 @@ return array(
 //		'session'=>array(
 //			'class'=>'CMongodbHttpSession',
 //		),
-//		"solr" => array(
-//	        "class" => "packages.solr.ASolrConnection",
-//	        "clientOptions" => array(
-//	            "hostname" => "localhost",
-//	            "port" => 8983,
-//	        ),
-//     	),
+		"solr" => array(
+	        "class" => "packages.solr.ASolrConnection",
+	        "clientOptions" => array(
+				'path'=>'/solr-keyword/core1/',
+	            "hostname" => "192.168.219.103",
+	            "port" => 8080,
+	        ),
+     	),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
@@ -137,6 +138,11 @@ return array(
 		'cache'=>array(
 			'class'=>'CXCache',
 		),
+		'fileCache'=>array(
+				'class'=>'CFileCache',
+				'cachePath'=>'cache/storeFrontConfigCache',
+				'directoryLevel'=>2,
+			),
 		'clientScript'=>array(
 			'coreScriptPosition'=>2,
 			'defaultScriptFilePosition'=>2,

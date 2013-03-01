@@ -37,7 +37,22 @@ class UserController extends Controller {
 	}
     public function actionRegisterUser()
     {
-        $model = new UserForm();
+        $u_model = new User();
+        $u_model->user_email = $_REQUEST['email'];
+        $u_model->user_pwd   = md5($_REQUEST['pwd']);
+        $u_model->user_nickname = $_REQUEST['nickname'];
+        $u_model->user_province_id = $_REQUEST['province'];
+        $u_model->user_city_id     = $_REQUEST['city'];
+        $u_model->user_subscribe   = $_REQUEST['newsletter'];
+        $u_model->save();
+        if ( $_REQUEST['user_type'] == 1)
+        {
+            $e_model = new Enterprise();
+            $e_model->ent_user_id='';
+            $e_model->location = $_REQUEST['ent_location'];
+            $e_model->ent_chief= $_REQUEST['ent_chief'];
+            $e_model->save();
+        }
 
         echo json_encode(array('status'=>1,'data'=>array()));
 

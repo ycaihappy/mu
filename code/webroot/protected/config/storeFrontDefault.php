@@ -11,11 +11,11 @@ return array(
 	'styleimg'=>'',
 	'headimage'=>'',
 	'flash'=>array(
-		'banner1.jpg',
-		'banner2.jpg',
-		'banner3.jpg',
-		'banner2.jpg',
-		'banner1.jpg',
+		'images/enterprise/banner1.jpg',
+		'images/enterprise/banner2.jpg',
+		'images/enterprise/banner3.jpg',
+		'images/enterprise/banner2.jpg',
+		'images/enterprise/banner1.jpg',
 
 	),//最多五张图片
 	'hometitle'=>'',

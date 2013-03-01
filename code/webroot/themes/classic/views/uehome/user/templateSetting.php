@@ -15,10 +15,10 @@
 		<td bgcolor="#ffffff" style="font-weight:normal">排序</td>
 		<td bgcolor="#ffffff" style="font-weight:normal">名称</td>
 	</tr>
-	<?php foreach ($storeFrontConfig['menu'] as $menu):?>
+	<?php foreach ($storeFrontConfig['menu'] as $key=>$menu):?>
 		 <tr> 
 	   <td width="50" bgcolor="#ffffff">
-	   <?php CHtml::checkBox('menu_show[]',$menu['menu_show']==1?true:false,array('value'=>1))?>
+	   <?php echo CHtml::checkBox("menu_show[{$key}]",$menu['menu_show']==1?true:false,array('value'=>1))?>
 	   </td>
        <td width="20" bgcolor="#ffffff">
 	   	   <input type="text" maxlength="3" size="5" value="<?php echo $menu['menu_order']?>" name="menu_order[]">
@@ -37,7 +37,7 @@
     <td bgcolor="#f3f3f3">商铺整体背景图片</td>
     <td bgcolor="#ffffff">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['styleimg']?>" name="styleimg">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload"  data-width="300" data-height="300">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 	</td>
@@ -47,7 +47,7 @@
 	<td bgcolor="#f3f3f3">头部图片Banner广告</td>
 	<td bgcolor="#ffffff">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['headimage']?>"  name="headimage">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="700" data-height="90">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 	</td>
@@ -59,31 +59,31 @@
     <td bgcolor="#ffffff" style="line-height:25px;">
 		<div class="item">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['flash'][0]?>" name="flash[]">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="980" data-height="250">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 		</div>
 		<div class="item">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['flash'][1]?>" name="flash[]">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="980" data-height="250">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 		</div>
 		<div class="item">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['flash'][2]?>" name="flash[]">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="980" data-height="250">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 		</div>
 		<div class="item">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['flash'][3]?>" name="flash[]">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="980" data-height="250">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 		</div>
 		<div class="item">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['flash'][4]?>" name="flash[]">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="980" data-height="250">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 		</div>
@@ -110,8 +110,19 @@
       [未设置则显示公司名称] </td>
     </tr>
   <tr> 
-	<td bgcolor="#f3f3f3" align="center" colspan="4"><button type="submit" class="btn-modify">保存</button></td>
+	<td bgcolor="#EAEFF3" align="center" colspan="4">
+	<button type="submit" id="sconfig" class="btn-modify">保存</button>
+	
+	</td>
+
 	</tr>
 </tbody></table>
 </form>
 </div>
+<?php 
+$cs=Yii::app()->getClientScript();
+$cs->registerCssFile('css/uploadify.css');
+$cs->registerCssFile('css/jquery-ui-1.10.1.custom.min.css');
+Yii::app()->getClientScript()->registerScriptFile('js/jquery.1.8.min.js');
+$cs->registerScriptFile('js/jquery.uploadify.min.js');
+?>

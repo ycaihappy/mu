@@ -7,18 +7,18 @@ $key = 'art_title';
 }
 elseif ( $type == 'supply')
 {
-$class = 'middle';
+$class = 'left';
 $title = '供求';
 $key = 'supply_content';
 }
 elseif ( $type == 'special')
 {
-$class = 'left';
+$class = 'home-special left';
 $title = '特价';
 }
 else 
 {
-$class = 'right';
+$class = 'home-xh';
 $title = '现货';
 }
 ?>

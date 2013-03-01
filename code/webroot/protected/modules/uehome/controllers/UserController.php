@@ -203,36 +203,6 @@ class UserController extends Controller {
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
-<<<<<<< HEAD
-			$imgSrc=CUploadedFile::getInstancesByName('image_src');
-			if($imgSrc)
-			{
-				$userId=Yii::app()->user->getId();
-				$newimg =$userId.'_'.time().'_'.rand(1, 9999).'.'.$imgSrc->extensionName;
-				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
-				$uploadedImg="images/enterprise/{$userId}/".$newimg;
-				$im = null;
-				$imagetype = strtolower($imgSrc->getExtensionName());
-				if($imagetype == 'gif')
-					$im = imagecreatefromgif($imgSrc->getTempName());
-				else if ($imagetype == 'jpg')
-					$im = imagecreatefromjpeg($imgSrc->getTempName());
-				else if ($imagetype == 'png')
-					$im = imagecreatefrompng($imgSrc->getTempName());
-				$width=$_REQUEST['img_width'];
-				$height=$_REQUEST['img_height'];
-				CThumb::resizeImage ( 
-				$im,$width, $height,
-				$uploadedImg, $imgSrc->getExtensionName());
-				$result['status']=1;
-				$result['imgPath']=$uploadedImg;
-			}
-			else {
-				$result['status']=0;
-			}
-		}
-		echo json_encode($result);
-=======
 			$uid=Yii::app()->user->getId();
 			$targetFolder="images/enterprise/{$uid}";
 			if (!empty($_FILES) ) {
@@ -278,7 +248,6 @@ class UserController extends Controller {
 				echo '请选择要上传的文件！';
 			}
 		}
->>>>>>> 2afdf7c658772676e9d40143838be315af5322ba
 	}
 	public function actionTemplateSetting()
 	{

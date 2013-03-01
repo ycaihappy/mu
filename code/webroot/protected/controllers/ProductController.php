@@ -32,6 +32,7 @@ class ProductController extends Controller
 
 	public function actionSearchProduct()
 	{
+		Yii::import('application.packages.apache_solr.Service');
 		$bigType=@$_REQUEST['bigType'];
 		$smallType=@$_REQUEST['smallType'];
 		$muCotent=@$_REQUEST['muContent'];
@@ -39,10 +40,55 @@ class ProductController extends Controller
 		$enterprise=@$_REQUEST['enterprise'];
 		$province=@$_REQUEST['province'];
 		$city=@$_REQUEST['city'];
-		$asCriteria=new ASolrCriteria();
+		$query='';
+		$params=array();
+		if($bigType)
+		{
+			if($smallType)
+			{
+				$query="product_type_id:{$smallType}";
+			}
+			else {
+				$typsQuery=$this->_getSolrQeryString('product_type_id', 14, $bigType);
+				$query=$typsQuery;
+			}
+		}
+		if($muCotent)
+		{
+			$asCriteria->addCondition("product_mu_content:{$muCotent}");
+			$query.=($query?' AND ':'')."product_mu_content:{$muCotent}";
+		}
+		if($waterContent)
+		{
+			$query.=($query?' AND ':'')."product_water_content:{$waterContent}";
+		}
+		if($enterprise)
+		{
+			$query.=($query?' AND ':'')."product_enterprise:{$enterprise}";
+			$params['pf']='product_enterprise';
+			$params['defType']='edismax';
+		}
+		if($province)
+		{
+			if($city)
+			{
+				$query.=($query?' AND ':'')."product_city_id:{$city}";
+			}
+			else {
+				$query.=($query?' AND ':'').$cityQuery;
+			}
+		}
+		$query=$query?$query:'*:*';
+		$result= Yii::app()->searcher->get($query,0,50,$params);
+		$response=$result->response;
+		$pager=new CPagination($response->numFound);
+		$pager->pageSize=48;
+		$pager->pageVar='page';
+		/*$asCriteria=new ASolrCriteria();
 		$asCriteria->setParam('wt','json');
-		$asCriteria->setParam('fq',0);
 		$asCriteria->addField('product_id');
+		$asCriteria->setOffset(0);
+		$asCriteria->setLimit(100);
 		$asCriteria->setOrder('product_join_date desc');
 		if($bigType)
 		{
@@ -90,9 +136,7 @@ class ProductController extends Controller
 				'pageSize'=>48,
 				'pageVar'=>'page',
 			),
-		));
-		var_dump($dataProvider);
-		exit;
+		));*/
 		
 		
 	}

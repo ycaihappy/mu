@@ -24,7 +24,7 @@ return array(
 		'application.widgets.*',
 		'application.extensions.ckeditor.*',
 	    'application.extensions.yii-mail.*', 
-		'packages.solr.*',
+		'application.extensions.solr.*',
 	),
 
 	'modules'=>array(
@@ -84,14 +84,14 @@ return array(
 //		'session'=>array(
 //			'class'=>'CMongodbHttpSession',
 //		),
-		"solr" => array(
-	        "class" => "packages.solr.ASolrConnection",
-	        "clientOptions" => array(
-				'path'=>'/solr-keyword/core1/',
-	            "hostname" => "192.168.219.103",
-	            "port" => 8080,
-	        ),
-     	),
+//		"solr" => array(
+//	        "class" => "packages.solr.ASolrConnection",
+//	        "clientOptions" => array(
+//				'path'=>'/solr-keyword/core1',
+//	            "hostname" => "192.168.219.103",
+//	            "port" => '8080',
+//	        ),
+//     	),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
@@ -152,6 +152,12 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+		'searcher'=>array(
+            'class'=>'CSolrComponent',
+            'host'=>'192.168.219.103',
+            'port'=>8080,
+            'indexPath'=>'/solr-keyword/core1'
+        ),
 		
 	#	'log'=>array(
 	#		'class'=>'CLogRouter',

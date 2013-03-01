@@ -188,6 +188,7 @@ class ASolrConnection extends CApplicationComponent implements IASolrConnection
 			$profileTag = "packages.solr.AConnection.rawSearch(".$criteria->__toString().")";
 			Yii::beginProfile($profileTag);
 		}
+		
 		$this->resetClient(); // solr client is not safely reusable, reset before every request
 		$response = $this->getClient()->query($criteria)->getResponse();
 		if ($this->enableProfiling)

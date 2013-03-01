@@ -5,9 +5,9 @@
 	<div class="m-form" id="J_Shop_Setting">
 	
 	<form enctype="multipart/form-data" method="post" action="">
-<table width="100%" cellspacing="1" cellpadding="7" border="0" bgcolor="#dddddd" class="table-field">
+<table width="100%" cellspacing="1" cellpadding="7" border="0"  class="table-field">
 <tbody><tr>
-<td bgcolor="#EAEFF3">菜单栏目</td>
+<td bgcolor="#f3f3f3">菜单栏目</td>
 <td bgcolor="#ffffff">
 <table width="100%" cellspacing="0" cellpadding="0" border="0">
 	<tbody><tr> 
@@ -34,7 +34,7 @@
 </td>
 </tr>
  <tr class="styleimg">
-    <td bgcolor="#EAEFF3">商铺整体背景图片</td>
+    <td bgcolor="#f3f3f3">商铺整体背景图片</td>
     <td bgcolor="#ffffff">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['styleimg']?>" name="styleimg">
 		[<a href="javascript:;" class="upload">上传</a>] 
@@ -44,7 +44,7 @@
 </tr>
  
 <tr class="banner">
-	<td bgcolor="#EAEFF3">头部图片Banner广告</td>
+	<td bgcolor="#f3f3f3">头部图片Banner广告</td>
 	<td bgcolor="#ffffff">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['headimage']?>"  name="headimage">
 		[<a href="javascript:;" class="upload">上传</a>] 
@@ -55,7 +55,7 @@
 
 
 <tr class="flash">
-    <td bgcolor="#EAEFF3">头部幻灯片<br>[最多可上传五张]</td>
+    <td bgcolor="#f3f3f3">头部幻灯片<br>[最多可上传五张]</td>
     <td bgcolor="#ffffff" style="line-height:25px;">
 		<div class="item">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['flash'][0]?>" name="flash[]">
@@ -91,26 +91,26 @@
  </tr>
 
 <tr>
-<td bgcolor="#EAEFF3">公司网站Title </td>
+<td bgcolor="#f3f3f3">公司网站Title </td>
 <td bgcolor="#ffffff">
   <input type="text" value="<?php echo $storeFrontConfig['hometitle']?>" maxlength="100" size="70"  name="hometitle">
  [未设置则显示公司名称]</td>
 </tr>
 <tr>
-<td bgcolor="#EAEFF3">公司网站关键词</td>
+<td bgcolor="#f3f3f3">公司网站关键词</td>
 <td bgcolor="#ffffff">
   <input type="text" value="<?php echo $storeFrontConfig['homekeyword']?>" maxlength="100" size="70" name="homekeyword">
  [未设置则显示公司名称]</td>
     </tr>
   <tr>
 
-    <td bgcolor="#EAEFF3">公司网站描述</td>
+    <td bgcolor="#f3f3f3">公司网站描述</td>
     <td bgcolor="#ffffff">
       <input type="text" value="<?php echo $storeFrontConfig['homedes']?>" maxlength="100" size="70" name="homedes">
       [未设置则显示公司名称] </td>
     </tr>
   <tr> 
-	<td bgcolor="#EAEFF3" align="center" colspan="4"><button type="submit" class="btn-modify">保存</button></td>
+	<td bgcolor="#f3f3f3" align="center" colspan="4"><button type="submit" class="btn-modify">保存</button></td>
 	</tr>
 </tbody></table>
 </form>

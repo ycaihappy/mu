@@ -15,10 +15,10 @@
 		<td bgcolor="#ffffff" style="font-weight:normal">排序</td>
 		<td bgcolor="#ffffff" style="font-weight:normal">名称</td>
 	</tr>
-	<?php foreach ($storeFrontConfig['menu'] as $menu):?>
+	<?php foreach ($storeFrontConfig['menu'] as $key=>$menu):?>
 		 <tr> 
 	   <td width="50" bgcolor="#ffffff">
-	   <?php echo CHtml::checkBox('menu_show[]',$menu['menu_show']==1?true:false,array('value'=>1))?>
+	   <?php echo CHtml::checkBox("menu_show[{$key}]",$menu['menu_show']==1?true:false,array('value'=>1))?>
 	   </td>
        <td width="20" bgcolor="#ffffff">
 	   	   <input type="text" maxlength="3" size="5" value="<?php echo $menu['menu_order']?>" name="menu_order[]">
@@ -110,15 +110,11 @@
       [未设置则显示公司名称] </td>
     </tr>
   <tr> 
-<<<<<<< HEAD
 	<td bgcolor="#EAEFF3" align="center" colspan="4">
-	<?php echo CHtml::button()?>
 	<button type="submit" id="sconfig" class="btn-modify">保存</button>
 	
 	</td>
-=======
-	<td bgcolor="#f3f3f3" align="center" colspan="4"><button type="submit" class="btn-modify">保存</button></td>
->>>>>>> 5d16fababf12281db6472376bcc8933682fe6535
+
 	</tr>
 </tbody></table>
 </form>

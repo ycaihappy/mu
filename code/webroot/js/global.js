@@ -218,7 +218,11 @@ $.extend(MU.mods,{
 						'multi'    : false,
 						'fileTypeExts' : '*.gif; *.jpg; *.png',
 						'swf'      : 'css/uploadify.swf',
+<<<<<<< HEAD
 						'uploader' : 'index.php?r=uehome/user/uploadTemplateImage',
+=======
+						'uploader' : 'index.php?r=uehome/default/uploadTemplateImage',
+>>>>>>> 5d16fababf12281db6472376bcc8933682fe6535
 						 'onUploadSuccess' : function(file, data, response) {
 							//alert('文件 ' + file.name + ' 上传成功！' + data);
 							o.siblings('input').val(data);

@@ -1,4 +1,7 @@
-<script src="js/jquery.1.8.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/global.js"></script>
-<script src="js/init.js"></script>
+<?php 
+Yii::app()->getClientScript()->registerScriptFile('js/jquery.1.8.min.js');
+Yii::app()->getClientScript()->registerScriptFile('js/config.js');
+Yii::app()->getClientScript()->registerScriptFile('js/global.js');
+Yii::app()->getClientScript()->registerScriptFile('js/init.js');
+?>
+

@@ -28,3 +28,4 @@
 		<li><a href="index.php?r=uehome/user/templateSetting" >主页设置</a></li>
 	</ul>
 	</div>
+	

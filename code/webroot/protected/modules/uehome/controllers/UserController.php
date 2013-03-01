@@ -37,7 +37,22 @@ class UserController extends Controller {
 	}
     public function actionRegisterUser()
     {
-        $model = new UserForm();
+        $u_model = new User();
+        $u_model->user_email = $_REQUEST['email'];
+        $u_model->user_pwd   = md5($_REQUEST['pwd']);
+        $u_model->user_nickname = $_REQUEST['nickname'];
+        $u_model->user_province_id = $_REQUEST['province'];
+        $u_model->user_city_id     = $_REQUEST['city'];
+        $u_model->user_subscribe   = $_REQUEST['newsletter'];
+        $u_model->save();
+        if ( $_REQUEST['user_type'] == 1)
+        {
+            $e_model = new Enterprise();
+            $e_model->ent_user_id='';
+            $e_model->location = $_REQUEST['ent_location'];
+            $e_model->ent_chief= $_REQUEST['ent_chief'];
+            $e_model->save();
+        }
 
         echo json_encode(array('status'=>1,'data'=>array()));
 
@@ -188,6 +203,7 @@ class UserController extends Controller {
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
+<<<<<<< HEAD
 			$imgSrc=CUploadedFile::getInstancesByName('image_src');
 			if($imgSrc)
 			{
@@ -216,6 +232,53 @@ class UserController extends Controller {
 			}
 		}
 		echo json_encode($result);
+=======
+			$uid=Yii::app()->user->getId();
+			$targetFolder="images/enterprise/{$uid}";
+			if (!empty($_FILES) ) {
+				$image_src=CUploadedFile::getInstanceByName('Filedata');
+				$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
+				if(!in_array($image_src->getExtensionName(),$fileTypes))
+				{
+					echo '上传非图片类型.';
+					exit;
+				}
+				if($image_src)
+				{
+					$newimg = $uid.'_'.time().'_'.rand(1, 9999).'.'.$image_src->getExtensionName();
+					//根据时间戳重命名文件名,extensionName是获取文件的扩展名
+					if(!file_exists($targetFolder))
+					{
+						mkdir($targetFolder);
+					}
+					$uploadedImg=$targetFolder.'/'.$newimg;
+					$im = null;
+					$imagetype = strtolower($image_src->getExtensionName());
+					if($imagetype == 'gif')
+						$im = imagecreatefromgif($image_src->getTempName());
+					else if ($imagetype == 'jpg')
+						$im = imagecreatefromjpeg($image_src->getTempName());
+					else if ($imagetype == 'png')
+						$im = imagecreatefrompng($image_src->getTempName());
+					$width=@$_REQUEST['upload_width'];
+					$height=@$_REQUEST['upload_height'];
+					CThumb::resizeImage ( 
+					$im,$width, $height,
+					$uploadedImg, $image_src->getExtensionName());
+					if(file_exists($uploadedImg))
+					{
+						echo $uploadedImg;
+					}
+					else {
+						echo '该图片保存失败！';
+					}
+				}
+			}
+			else {
+				echo '请选择要上传的文件！';
+			}
+		}
+>>>>>>> 2afdf7c658772676e9d40143838be315af5322ba
 	}
 	public function actionTemplateSetting()
 	{
@@ -225,7 +288,7 @@ class UserController extends Controller {
 			$shopconfig=array();
 			foreach($_POST['menu_order'] as $key=>$v)
 			{
-				$c[$key]['menu_show']=$_POST['menu_show'][$key];
+				$c[$key]['menu_show']=isset($_POST['menu_show'][$key])?$_POST['menu_show'][$key]:0;
 				$c[$key]['menu_order']=$v;
 				$c[$key]['menu_name']=$_POST['menu_name'][$key];
 				$c[$key]['menu_link']=$_POST['menu_link'][$key];
@@ -254,6 +317,8 @@ class UserController extends Controller {
 			$storeFrontConfig->setting_config_data=$shop_config_str;
 			if($storeFrontConfig->save())
 			{
+				Yii::app()->fileCache->delete(Yii::app()->user->getId());
+				Yii::app()->fileCache->set(Yii::app()->user->getId(),$storeFrontConfig->setting_config_data,2000);
 				Yii::app()->user->setFlash('saveSuccess','保存成功！');
 			}
 			else {
@@ -270,11 +335,15 @@ class UserController extends Controller {
 				if($storeFrontConfig && $storeFrontConfig->setting_config_data)
 				{
 					$storeFrontConfig=unserialize($storeFrontConfig->setting_config_data);
-					Yii::app()->fileCache->set(Yii::app()->user->getId(),$storeFrontConfig->setting_config_data,$this->configCacheExpire);
+					Yii::app()->fileCache->set(Yii::app()->user->getId(),$storeFrontConfig->setting_config_data,2000);
 				}
 				else {
 					$storeFrontConfig=require 'protected/config/storeFrontDefault.php';
 				}
+			}
+			else
+			{
+				$storeFrontConfig=unserialize($storeFrontConfig);
 			}
 		}
 		$data=compact('storeFrontConfig');

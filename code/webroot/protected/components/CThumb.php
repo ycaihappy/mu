@@ -41,7 +41,7 @@ class CThumb extends CApplicationComponent {
 			imagejpeg ( $newim, $name );
 			imagedestroy ( $newim );
 		} else {
-			$name = $name . $filetype;
+			$name = $name ;
 			imagejpeg ( $im, $name );
 		}
 	}

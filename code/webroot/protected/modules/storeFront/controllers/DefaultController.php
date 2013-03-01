@@ -78,6 +78,9 @@ class DefaultController extends Controller
 				$this->storeFrontConfig=require 'protected/config/storeFrontDefault.php';
 			}
 		}
+		else {
+			$this->storeFrontConfig=unserialize($this->storeFrontConfig);
+		}
 	}
 	private function _getCurrentUser($userName)
 	{

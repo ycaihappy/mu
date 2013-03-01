@@ -166,6 +166,10 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-tab-list .bd ul{display:none;}
 .m-tab-list .bd .current{display:block;}
 
+
+.col-left{float:left;width:358px;margin-right:20px;overflow:hidden;}
+.col-right{float:left;width:584px;overflow:hidden;}
+
 .layout-area{margin-top:20px;width:1000px;overflow:hidden;}
 .layout-area .m-tab-list{margin-right:20px}
 .layout-area .col-right{float:left}
@@ -208,11 +212,68 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-nous .aside dd {
   padding: 0 12px 8px;
 }
-
+.uploader{width:300px;}
+.uploader p{padding:5px 2px;}
+.m-form .item{margin-bottom:10px;}
+.home-special .bd a{font-size:12px;}
+.home-special .bd em{color:#B0B0B0}
+.home-xh{width:584px;}
+.home-xh .bd li{width:47%;float:left;margin-right:5px;}
+.fbs ul {
+  background-image: url("imgs/fltj.gif");
+  background-repeat: no-repeat;
+  height: 89px;
+  width: 608px;
+}
+.fbs ul li {
+  float: left;
+  height: 25px;
+  margin-bottom: 7px;
+  padding-left: 45px;
+  padding-top: 15px;
+  position: relative;
+  text-align: left;
+  width: 107px;
+}
+.fbs i{font-size:10px;font-style:normal}
+.fbs ul li em {
+  background-image: url("imgs/gc_ico.gif");
+  background-repeat: no-repeat;
+  display: block;
+  height: 40px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 40px;
+}
+.fbs ul li span {
+  color: #004198;
+}
+.fbs ul li .gc02 {
+  background-position: -41px 0;
+}
+.fbs ul li .gc03 {
+  background-position: -82px 0;
+}
+.fbs ul li .gc04 {
+  background-position: -123px 0;
+}
+.fbs ul li .gc05 {
+  background-position: 0 -40px;
+}
+.fbs ul li .gc06 {
+  background-position: -41px -40px;
+}
+.fbs ul li .gc07 {
+  background-position: -82px -40px;
+}
+.fbs ul li .gc08 {
+  background-position: -123px -40px;
+}
 
 .m-banner{margin-bottom:30px;}
 
-.m-rcm{float:left;margin-right:20px;}
+.m-rcm{float:left;margin-right:20px;margin-top:20px;}
 .m-rcm li{padding:10px 0 10px 3px;border-bottom:1px dashed #DCDDDD;overflow:hidden;height:20px;}
 .m-rcm li.on{height:70px;background:#FFF8E5;border:1px solid #F3C857}
 .m-rcm .last{border:0}
@@ -845,3 +906,5 @@ padding: 0 20px;
 .m-jxs .jxs-con ul li {  height: 23px;  line-height: 23px;  overflow: hidden;  width: 210px;}
 .m-jxs .jxs-con ul {  float: left;  margin-right: 70px;  overflow: hidden;  text-align: left;  width: 180px;}
 .m-jxs .jxs-con ul.jxs-ul03 {  margin-right: 0;}
+
+

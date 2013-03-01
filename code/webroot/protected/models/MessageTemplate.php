@@ -49,7 +49,7 @@ class MessageTemplate extends CActiveRecord
 			array('msg_template_content, msg_template_added_date, msg_template_update_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('msg_template_id, msg_template_name, msg_template_type, msg_template_title, msg_template_content, msg_template_added_date, msg_template_update_date', 'safe', 'on'=>'search'),
+			array('msg_template_id, msg_template_name, msg_template_type, msg_template_title, msg_template_content, msg_template_added_date, msg_template_update_date', 'safe'),
 		);
 	}
 
@@ -75,7 +75,34 @@ class MessageTemplate extends CActiveRecord
 		}
 		return parent::beforeSave();
 	}
+	public static function getTemplates($type)
+	{
+		if($type=='email')
+		{
+			$templates=self::model()->getEmailTemplate()->findAll();
+		}
+		elseif($type=='sms')
+		{
+			$templates=self::model()->getSmsTemplate()->findAll();
+		}
+		$resultTemplates=array();
+		if($templates)
+		{
+			foreach ($templates as $template)
+			{
+				$resultTemplates[$template->msg_template_mnemonic]=$template->msg_template_name;
+			}
+		}
+		return $resultTemplates;
+	}
 
+	public function scopes()
+	{
+		return array(
+			'getEmailTemplate'=>array('select'=>'msg_template_mnemonic,msg_template_name','condition'=>'msg_template_type=39'),
+			'getSmsTemplate'=>array('select'=>'msg_template_mnemonic,msg_template_name','condition'=>'msg_template_type=38'),
+		);
+	}
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

@@ -199,4 +199,67 @@ class UserController extends Controller {
 		Yii::app ()->user->logout ( false );
 		$this->redirect ( array ('login' ) );
 	}
+	public function actionTemplateSetting()
+	{
+		if(Yii::app()->request->isPostRequest)
+		{
+			$c=array();
+			$shopconfig=array();
+			foreach($_POST['menu_order'] as $key=>$v)
+			{
+				$c[$key]['menu_show']=$_POST['menu_show'][$key];
+				$c[$key]['menu_order']=$v;
+				$c[$key]['menu_name']=$_POST['menu_name'][$key];
+				$c[$key]['menu_link']=$_POST['menu_link'][$key];
+			}
+			foreach($c as $k=>$val) 
+			{  
+				$name[$k] = $val['menu_order'];
+			}
+			
+			array_multisort($name,SORT_ASC,$c);
+			$shopconfig['menu']=$c;
+			foreach($_POST as $ks=>$v)
+			{
+				if(substr($ks,0,4)!='menu'&&$ks!='sconfig')
+				{
+					$shopconfig[$ks]=$v;
+				}
+			}
+			$shop_config_array=$shopconfig;
+			$shop_config_str=serialize($shop_config_array);	
+			$storeFrontConfig=StoreFrontSetting::model()->find('user_id=:uid',array(':uid'=>Yii::app()->user->getId()));
+			if(!$storeFrontConfig){
+				$storeFrontConfig=new StoreFrontSetting();
+				$storeFrontConfig->user_id=Yii::app()->user->getId();
+			}
+			$storeFrontConfig->setting_config_data=$shop_config_str;
+			if($storeFrontConfig->save())
+			{
+				Yii::app()->user->setFlash('saveSuccess','保存成功！');
+			}
+			else {
+				Yii::app()->user->setFlash('saveSuccess','保存失败！');
+			}
+			$storeFrontConfig=$shopconfig;
+		}
+		else {
+			$storeFrontConfig=Yii::app()->fileCache->get(Yii::app()->user->getId());
+			if(!$storeFrontConfig)
+			{
+				$storeFrontConfig=StoreFrontSetting::model()->find('user_id=:uid',array(':uid'=>Yii::app()->user->getId()));
+				
+				if($storeFrontConfig && $storeFrontConfig->setting_config_data)
+				{
+					$storeFrontConfig=unserialize($storeFrontConfig->setting_config_data);
+					Yii::app()->fileCache->set(Yii::app()->user->getId(),$storeFrontConfig->setting_config_data,$this->configCacheExpire);
+				}
+				else {
+					$storeFrontConfig=require 'protected/config/storeFrontDefault.php';
+				}
+			}
+		}
+		$data=compact('storeFrontConfig');
+		$this->render('templateSetting',$data);
+	}
 }

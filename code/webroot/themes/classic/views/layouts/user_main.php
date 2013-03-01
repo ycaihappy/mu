@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>User Center</title>
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/uploadify.css">
+	<link rel="stylesheet" href="css/jquery-ui-1.10.1.custom.min.css">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
 

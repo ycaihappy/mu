@@ -26,7 +26,7 @@ class SystemController extends AdminController {
 			if($model->msg_template_id) $model->setIsNewRecord(false);
 			if($model->save())
 			{
-				$this->redirect(array('manageMessageTemplate','page'));
+				$this->redirect(array('manageMessageTemplate'));
 			}
 		}
 		else {

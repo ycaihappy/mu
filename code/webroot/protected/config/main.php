@@ -137,6 +137,11 @@ return array(
 		'cache'=>array(
 			'class'=>'CXCache',
 		),
+		'fileCache'=>array(
+			'class'=>'CFileCache',
+			'cachePath'=>'cache/storeFrontConfigCache',
+			'directoryLevel'=>2,
+		),
 		'clientScript'=>array(
 			'coreScriptPosition'=>2,
 			'defaultScriptFilePosition'=>2,

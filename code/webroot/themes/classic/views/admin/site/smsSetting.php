@@ -34,12 +34,12 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">注册验证短信模板：</td>
-		<td><?php echo $form->textArea($model,'registeTemplate',array('cols'=>40,'rows'=>6)); ?>
+		<td><?php echo $form->dropDownList($model,'registeTemplate',$smsTemplates,array('empty'=>'请选择模板')); ?>
 		<?php echo $form->error($model,'registeTemplate'); ?></td>
 </tr>
 <tr>
 <td class="label">行情短信模板：</td>
-		<td><?php echo $form->textArea($model,'priceTemplate',array('cols'=>40,'rows'=>10)); ?>
+		<td><?php echo $form->dropDownList($model,'priceTemplate',$smsTemplates,array('empty'=>'请选择模板')); ?>
 		<?php echo $form->error($model,'priceTemplate'); ?></td>
 </tr>
 

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>User Center</title>
+    <link rel="stylesheet" href="css/global.css">
+	 <link rel="stylesheet" href="css/uploadify.css">
+	<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.1.custom.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
+
+
+</head>
+
+<body>
+
+
+<div id="p_modify_password" class="pg-layout">
+
+
+<div class="layout head">
+	<div class="m-logo clearfix">
+		<a target="_self" href="" class="logo"><img title="xxx.com - xxxx" alt="zzz" src="images/logo.jpg"></a>
+	</div>
+	<div class="m-user-top">
+	
+	<p class="user-info">
+		  <a href="">返回首页</a> | <a href="">修改密码</a> | <a href="">安全退出</a> 
+	</p>	
+	
+</div>
+
+</div>
+
+<div class="layout main">
+
+	<div class="m-menubar">
+		<p class="bar"><span class="on"><a href="">会员中心</a></span><span><a href="">业务管理</a></span></p>
+	</div>
+	
+	<div class="layout-area">
+	
+	
+	<div class="m-left-panel" id="J_LeftPanel">
+	<h3><a>基本信息</a></h3>
+	<ul>
+		<li class="on"><a href="member.html" >企业资料</a></li>
+		<li><a href="#" >修改企业资料</a></li>
+		<li><a href="#" >修改登陆密码</a></li>
+		<li><a href="#" >找回密码</a></li>
+	</ul>
+	<h3><a>发布供求信息</a></h3>
+	<ul>
+		<li class="on"><a href="member.html" >企业资料</a></li>
+		<li><a href="#" >修改企业资料</a></li>
+		<li><a href="#" >修改登陆密码</a></li>
+		<li><a href="#" >找回密码</a></li>
+	</ul>
+	<h3><a>发布现货信息</a></h3>
+	<ul>
+		<li class="on"><a href="member.html" >企业资料</a></li>
+		<li><a href="#" >修改企业资料</a></li>
+		<li><a href="#" >修改登陆密码</a></li>
+		<li><a href="#" >找回密码</a></li>
+	</ul>
+	<h3><a>个人资料</a></h3>
+	<ul>
+		<li class="on"><a href="member.html" >企业资料</a></li>
+		<li><a href="#" >修改企业资料</a></li>
+		<li><a href="#" >修改登陆密码</a></li>
+		<li><a href="#" >找回密码</a></li>
+	</ul>
+	<h3><a>供求管理</a></h3>
+	<ul>
+		<li class="on"><a href="member.html" >企业资料</a></li>
+		<li><a href="#" >修改企业资料</a></li>
+		<li><a href="#" >修改登陆密码</a></li>
+		<li><a href="#" >找回密码</a></li>
+	</ul>
+	<h3><a>企业动态</a></h3>
+	<ul>
+		<li class="on"><a href="member.html" >企业资料</a></li>
+		<li><a href="#" >修改企业资料</a></li>
+		<li><a href="#" >修改登陆密码</a></li>
+		<li><a href="#" >找回密码</a></li>
+	</ul>
+	<h3><a>企业相册</a></h3>
+	<ul>
+		<li class="on"><a href="member.html" >企业资料</a></li>
+		<li><a href="#" >修改企业资料</a></li>
+		<li><a href="#" >修改登陆密码</a></li>
+		<li><a href="#" >找回密码</a></li>
+	</ul>
+	</div>
+	
+	<div class="col-r">
+		
+		<div class="m-breadcrumb">
+	<p><b class="crumb"></b>会员中心<i></i>旺铺管理<i></i>主页设置</p>
+</div>
+
+	<div class="m-form" id="J_Shop_Setting">
+	
+	<form enctype="multipart/form-data" method="post" action="">
+<table width="100%" cellspacing="1" cellpadding="7" border="0" bgcolor="#dddddd" class="table-field">
+<tbody><tr>
+<td bgcolor="#EAEFF3">菜单栏目</td>
+<td bgcolor="#ffffff">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+	<tbody><tr> 
+		<td bgcolor="#ffffff" style="font-weight:normal">是否显示</td>
+		<td bgcolor="#ffffff" style="font-weight:normal">排序</td>
+		<td bgcolor="#ffffff" style="font-weight:normal">名称</td>
+	</tr>
+		 <tr> 
+	   <td width="50" bgcolor="#ffffff"><input type="checkbox" checked="" value="1" name="menu_show[]"></td>
+       <td width="20" bgcolor="#ffffff">
+	   	   <input type="text" maxlength="3" size="5" value="1" name="menu_order[]">
+	   	   </td>
+       <td width="*%" bgcolor="#ffffff"><input type="text" maxlength="100" size="20" value="公司首页" name="menu_name[]">
+	    <input type="hidden" value="" name="menu_link[]">
+	    <input type="hidden" value="" name="module[]">
+	   </td>
+       </tr>
+		 <tr> 
+	   <td width="50" bgcolor="#ffffff"><input type="checkbox" checked="" value="1" name="menu_show[]"></td>
+       <td width="20" bgcolor="#ffffff">
+	   	   <input type="text" maxlength="3" size="5" value="2" name="menu_order[]">
+	   	   </td>
+       <td width="*%" bgcolor="#ffffff"><input type="text" maxlength="100" size="20" value="产品展厅" name="menu_name[]">
+	    <input type="hidden" value="offer_list" name="menu_link[]">
+	    <input type="hidden" value="offer" name="module[]">
+	   </td>
+       </tr>
+		 <tr> 
+	   <td width="50" bgcolor="#ffffff"><input type="checkbox" checked="" value="1" name="menu_show[]"></td>
+       <td width="20" bgcolor="#ffffff">
+	   	   <input type="text" maxlength="3" size="5" value="5" name="menu_order[]">
+	   	   </td>
+       <td width="*%" bgcolor="#ffffff"><input type="text" maxlength="100" size="20" value="公司新闻" name="menu_name[]">
+	    <input type="hidden" value="news_list" name="menu_link[]">
+	    <input type="hidden" value="news" name="module[]">
+	   </td>
+       </tr>
+		 <tr> 
+	   <td width="50" bgcolor="#ffffff"><input type="checkbox" checked="" value="1" name="menu_show[]"></td>
+       <td width="20" bgcolor="#ffffff">
+	   	   <input type="text" maxlength="3" size="5" value="7" name="menu_order[]">
+	   	   </td>
+       <td width="*%" bgcolor="#ffffff"><input type="text" maxlength="100" size="20" value="企业相册" name="menu_name[]">
+	    <input type="hidden" value="album_list" name="menu_link[]">
+	    <input type="hidden" value="album" name="module[]">
+	   </td>
+       </tr>
+		 <tr> 
+	   <td width="50" bgcolor="#ffffff"><input type="checkbox" checked="" value="1" name="menu_show[]"></td>
+       <td width="20" bgcolor="#ffffff">
+	   	   <input type="text" maxlength="3" size="5" value="9" name="menu_order[]">
+	   	   </td>
+       <td width="*%" bgcolor="#ffffff"><input type="text" maxlength="100" size="20" value="联系我们" name="menu_name[]">
+	    <input type="hidden" value="mail" name="menu_link[]">
+	    <input type="hidden" value="company" name="module[]">
+	   </td>
+       </tr>
+		 <tr> 
+	   <td width="50" bgcolor="#ffffff"><input type="checkbox" checked="" value="1" name="menu_show[]"></td>
+       <td width="20" bgcolor="#ffffff">
+	   	   <input type="text" maxlength="3" size="5" value="10" name="menu_order[]">
+	   	   </td>
+       <td width="*%" bgcolor="#ffffff"><input type="text" maxlength="100" size="20" value="公司介绍" name="menu_name[]">
+	    <input type="hidden" value="profile" name="menu_link[]">
+	    <input type="hidden" value="company" name="module[]">
+	   </td>
+       </tr>
+	</tbody></table>
+</td>
+</tr>
+<tr>
+<td bgcolor="#EAEFF3">公司首页</td>
+<td bgcolor="#ffffff">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tbody><tr>
+    <td bgcolor="#ffffff"><input type="checkbox" checked="" value="1" name="home_intro_show"> </td>
+    <td bgcolor="#ffffff"><input type="text" value="公司介绍" maxlength="100" size="20" name="home_intro_name">
+    </td>
+    </tr>
+		<tr>
+    <td bgcolor="#ffffff"><input type="checkbox" checked="" value="1" name="home_news_show"> </td>
+    <td bgcolor="#ffffff"><input type="text" value="公司新闻" maxlength="100" size="20" name="home_news_name">
+    数量
+	<input type="text" value="5" maxlength="5" size="5" name="home_news_nums"></td>
+    </tr>
+		<tr>
+    <td bgcolor="#ffffff"><input type="checkbox" checked="" value="1" name="home_contact_show"> </td>
+    <td bgcolor="#ffffff"><input type="text" value="联系方式" maxlength="100" size="20" name="home_contact_name">
+    </td>
+    </tr>
+	</tbody></table>
+	</td>
+	</tr>
+<tr>
+    <td bgcolor="#EAEFF3">公司产品列表显示方式</td>
+    <td bgcolor="#ffffff">
+     <input type="radio" checked="" value="1"  name="shop_pro_list">
+竖排
+<input type="radio" value="2" name="shop_pro_list">
+横排</td>
+ </tr>
+ 
+ <tr class="styleimg">
+    <td bgcolor="#EAEFF3">商铺整体背景图片</td>
+    <td bgcolor="#ffffff">
+		<input type="text" size="60" value="" name="styleimg">
+		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="preview">预览</a>]
+		[<a href="javascript:;" class="delete">删除</a>]
+	</td>
+</tr>
+ 
+<tr class="banner">
+	<td bgcolor="#EAEFF3">头部图片Banner广告</td>
+	<td bgcolor="#ffffff">
+		<input type="text" size="60" value="images/logo.jpg"  name="headimage">
+		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="preview">预览</a>]
+		[<a href="javascript:;" class="delete">删除</a>]
+	</td>
+</tr>
+
+
+<tr class="flash">
+    <td bgcolor="#EAEFF3">头部幻灯片<br>[最多可上传五张]</td>
+    <td bgcolor="#ffffff" style="line-height:25px;">
+		<div class="item">
+		<input type="text" size="60" value="" name="flash[]">
+		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="preview">预览</a>]
+		[<a href="javascript:;" class="delete">删除</a>]
+		</div>
+		<div class="item">
+		<input type="text" size="60" value="" name="flash[]">
+		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="preview">预览</a>]
+		[<a href="javascript:;" class="delete">删除</a>]
+		</div>
+		<div class="item">
+		<input type="text" size="60" value="" name="flash[]">
+		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="preview">预览</a>]
+		[<a href="javascript:;" class="delete">删除</a>]
+		</div>
+		<div class="item">
+		<input type="text" size="60" value="" name="flash[]">
+		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="preview">预览</a>]
+		[<a href="javascript:;" class="delete">删除</a>]
+		</div>
+		<div class="item">
+		<input type="text" size="60" value="" name="flash[]">
+		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="preview">预览</a>]
+		[<a href="javascript:;" class="delete">删除</a>]
+		</div>
+	</td>
+ </tr>
+
+<tr>
+<td bgcolor="#EAEFF3">公司网站Title </td>
+<td bgcolor="#ffffff">
+  <input type="text" value="平顶山钼铁" maxlength="100" size="70"  name="hometitle">
+ [未设置则显示公司名称]</td>
+</tr>
+<tr>
+<td bgcolor="#EAEFF3">公司网站关键词</td>
+<td bgcolor="#ffffff">
+  <input type="text" value="平顶山钼铁" maxlength="100" size="70" name="homekeyword">
+ [未设置则显示公司名称]</td>
+    </tr>
+  <tr>
+
+    <td bgcolor="#EAEFF3">公司网站描述</td>
+    <td bgcolor="#ffffff">
+      <input type="text" value="平顶山钼铁" maxlength="100" size="70" name="homedes">
+      [未设置则显示公司名称] </td>
+    </tr>
+  <tr> 
+	<td bgcolor="#EAEFF3" align="center" colspan="4"><button type="submit" class="btn-modify">确定</button></td>
+	</tr>
+</tbody></table>
+</form>
+</div>
+		
+		
+	</div>
+
+	
+	
+
+
+	</div>
+	
+	<div class="layout-area">
+		<div class="m-footer">
+		<p class="first"><a>公司简介</a> | <a>广告服务</a> | <a>联系方式</a> | <a>服务项目</a> | <a>公司动态</a> | <a>工作机会</a> | <a>网站地图</a> | <a>公司简介</a> | <a>公司简介</a> | <a>公司简介</a></p>
+		<p>客服热线：400-0000-0000  0766-1111111 / 11111111 / 1111111 传真：0443-11111111</p>
+		<p>Copyright &copy; 1998 - 2012 中国XX网 All Rights Reserved</p>
+		<p>全国咨询/投诉电话：400-000-0000   E-mail:kf@xxxx.com ICP证1003232</p>
+		
+		<p class="fa"> <a class="fa1" target="_blank" href="http://www.cqc.com.cn"></a> <a class="fa2" target="_blank" href="http://www.smestar.com/detail.credit?action=preLevel&amp;credcode=NO.20000001143"></a> <a class="fa3" target="_blank" href="http://www.e-315.org"></a> <a class="fa4" target="_blank" href="http://www.isc.org.cn"></a> <a class="fa5" target="_blank" href="http://www.ec.org.cn"></a> <a class="fa6" target="_blank" href="https://www.itrust.org.cn/yz/pjwx.asp?wm=1697657781"></a> 
+	</p>
+		
+		</div>
+	</div>
+	
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+<script src="js/jquery.1.8.min.js"></script>
+<script src="js/jquery.uploadify.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/global.js"></script>
+<script src="js/init.js"></script>
+</body>
+</html>

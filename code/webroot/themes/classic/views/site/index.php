@@ -7,7 +7,6 @@
 		<div class="clearfix"></div>
 	</div>
 	<div class="layout-area">
-        <?php $this->widget("ProductTopWidget", array('type'=>'special'));?>
         <?php $this->widget("TabListWidget", array('type'=>'supply'));?>
         <?php $this->widget("ProductTopWidget", array('type'=>'product'));?>
 
@@ -18,6 +17,7 @@
 			<img src="images/banner.jpg" width="960" height="100" />
 		</div>
 		<div class="col-left">
+        <?php $this->widget("ProductTopWidget", array('type'=>'special'));?>
         <?php $this->widget("RecommedWidget",array('type'=>1));?>
 		</div>
         <div class="col-right">		

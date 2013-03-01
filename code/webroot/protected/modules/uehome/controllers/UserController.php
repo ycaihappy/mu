@@ -190,8 +190,7 @@ class UserController extends Controller {
 		{
 			$uid=Yii::app()->user->getId();
 			$targetFolder="images/enterprise/{$uid}";
-			$verifyToken = md5('unique_salt' . $_POST['timestamp']);
-			if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
+			if (!empty($_FILES) ) {
 				$image_src=CUploadedFile::getInstanceByName('Filedata');
 				$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
 				if(!in_array($image_src->getExtensionName(),$fileTypes))
@@ -203,6 +202,10 @@ class UserController extends Controller {
 				{
 					$newimg = $uid.'_'.time().'_'.rand(1, 9999).'.'.$image_src->getExtensionName();
 					//根据时间戳重命名文件名,extensionName是获取文件的扩展名
+					if(!file_exists($targetFolder))
+					{
+						mkdir($targetFolder);
+					}
 					$uploadedImg=$targetFolder.'/'.$newimg;
 					$im = null;
 					$imagetype = strtolower($image_src->getExtensionName());
@@ -225,6 +228,9 @@ class UserController extends Controller {
 						echo '该图片保存失败！';
 					}
 				}
+			}
+			else {
+				echo '请选择要上传的文件！';
 			}
 		}
 	}

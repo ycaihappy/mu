@@ -194,8 +194,10 @@ $.extend(MU.mods,{
 			var o = $(this);
 			switch(o.attr('class')){
 				case 'upload':
-				var html = '<div class="m-form uploader"><p><input type="file" name="file_upload" id="file_upload" /></p><p>宽度<input type="text" name="upload_width"  />px 高度<input type="text" name="upload_height"  />px</p><p><button class="btn">上传</button></p></div>';
-				$(html).dialog({width:'auto',height:'auto',title:'Upload Image',
+				var width=o.data('width');
+				var height=o.data('height');
+				var html = '<div class="m-form uploader"><p><input type="file" name="file_upload" id="file_upload" /></p><p>宽度<input type="text" name="upload_width" value="'+width+'" />px 高度<input type="text" name="upload_height" value="'+height+'" />px</p><p><button class="btn">上传</button></p></div>';
+				$(html).dialog({width:'auto',height:'auto',title:'图片上传',
 				close : function(){
 					$('#file_upload').uploadify('destroy');
 					$(this).dialog('destroy');

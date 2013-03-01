@@ -37,7 +37,7 @@
     <td bgcolor="#f3f3f3">商铺整体背景图片</td>
     <td bgcolor="#ffffff">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['styleimg']?>" name="styleimg">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload"  data-width="300" data-height="300">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 	</td>
@@ -47,7 +47,7 @@
 	<td bgcolor="#f3f3f3">头部图片Banner广告</td>
 	<td bgcolor="#ffffff">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['headimage']?>"  name="headimage">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="700" data-height="90">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 	</td>
@@ -59,31 +59,31 @@
     <td bgcolor="#ffffff" style="line-height:25px;">
 		<div class="item">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['flash'][0]?>" name="flash[]">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="980" data-height="250">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 		</div>
 		<div class="item">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['flash'][1]?>" name="flash[]">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="980" data-height="250">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 		</div>
 		<div class="item">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['flash'][2]?>" name="flash[]">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="980" data-height="250">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 		</div>
 		<div class="item">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['flash'][3]?>" name="flash[]">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="980" data-height="250">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 		</div>
 		<div class="item">
 		<input type="text" size="60" value="<?php echo $storeFrontConfig['flash'][4]?>" name="flash[]">
-		[<a href="javascript:;" class="upload">上传</a>] 
+		[<a href="javascript:;" class="upload" data-width="980" data-height="250">上传</a>] 
 		[<a href="javascript:;" class="preview">预览</a>]
 		[<a href="javascript:;" class="delete">删除</a>]
 		</div>

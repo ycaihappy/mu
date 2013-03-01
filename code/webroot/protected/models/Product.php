@@ -69,7 +69,9 @@ class Product extends CActiveRecord
 			'status'=>array(self::BELONGS_TO,'Term','product_status'),
 			'user'=>array(self::BELONGS_TO,'User','product_user_id'),
 			'city'=>array(self::BELONGS_TO,'City','product_city_id'),
-			'unit'=>array(self::BELONGS_TO,'Term','product_unit')
+			'unit'=>array(self::BELONGS_TO,'Term','product_unit'),
+			'muContent'=>array(self::BELONGS_TO,'Term','product_mu_content'),
+			'waterContent'=>array(self::BELONGS_TO,'Term','product_water_content'),
 		);
 	}
 	public function scopes()

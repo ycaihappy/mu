@@ -2,6 +2,7 @@
 
 class ProductController extends Controller
 {
+	public $layout = '//layouts/product_main';
 	/**
 	 * Declares class-based actions.
 	 */
@@ -17,7 +18,6 @@ class ProductController extends Controller
 	 */
 	public function actionIndex()
 	{
-        $this->layout = '//layouts/ajax_main';
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
@@ -38,10 +38,11 @@ class ProductController extends Controller
 		$muCotent=@$_REQUEST['muContent'];
 		$waterContent=@$_REQUEST['waterContent'];
 		$enterprise=@$_REQUEST['enterprise'];
+		$keyword=@$_REQUEST['keyword'];
 		$province=@$_REQUEST['province'];
 		$city=@$_REQUEST['city'];
 		$query='';
-		$params=array();
+		$params['fl']='product_id';
 		if($bigType)
 		{
 			if($smallType)
@@ -62,10 +63,18 @@ class ProductController extends Controller
 		{
 			$query.=($query?' AND ':'')."product_water_content:{$waterContent}";
 		}
-		if($enterprise)
+		if($enterprise || $keyword)
 		{
-			$query.=($query?' AND ':'')."product_enterprise:{$enterprise}";
-			$params['pf']='product_enterprise';
+			if($enterprise && $keyword)
+			{
+				$query.=($query?' AND ':'')."product_enterprise:{$enterprise}";
+				$query.=($query?' AND ':'')."product_name:{$keyword}";
+			}
+			else {
+				$keyword=$enterprise?$enterprise:$keyword;
+				$query.=($query?' AND ':'')."text:{$keyword}";
+			}
+			$params['qf']='text';
 			$params['defType']='edismax';
 		}
 		if($province)
@@ -79,11 +88,36 @@ class ProductController extends Controller
 			}
 		}
 		$query=$query?$query:'*:*';
-		$result= Yii::app()->searcher->get($query,0,50,$params);
-		$response=$result->response;
-		$pager=new CPagination($response->numFound);
+		$pager=new CPagination();
 		$pager->pageSize=48;
 		$pager->pageVar='page';
+		$result= Yii::app()->searcher->get($query,0,50,$params);
+		$response=$result->response;
+		$pager->setItemCount($response->numFound);
+		if($response->numFound>0)
+		{
+			$products=array();
+			foreach ($response->docs as $doc)
+			{
+				$products[]=$doc->product_id;
+			}
+			$productCriteria=new CDbCriteria();
+			$productCriteria->select='product_id,product_city_id,product_name,product_price,product_quanity,product_join_date';
+			$productCriteria->with=array('user.enterprise'=>array('select'=>'ent_name'),
+			'type'=>array('select'=>'term_name'),
+			'unit'=>array('select'=>'term_name'),
+			'muContent'=>array('select'=>'term_name'),
+			'waterContent'=>array('select'=>'term_name'),
+			);
+			$productCriteria->addInCondition('product_id',$products);
+			$products=Product::model()->findAll($productCriteria);
+			foreach ($products as &$product)
+			{
+				$product->product_city_id=City::getCityLayer($product->product_city_id,'.','未标明');
+			}
+		}
+		$data=compact('pager','products');
+		$this->render('index',$data);
 		/*$asCriteria=new ASolrCriteria();
 		$asCriteria->setParam('wt','json');
 		$asCriteria->addField('product_id');

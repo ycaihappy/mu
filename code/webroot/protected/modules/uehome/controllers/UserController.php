@@ -286,6 +286,7 @@ class UserController extends Controller {
 			$storeFrontConfig->setting_config_data=$shop_config_str;
 			if($storeFrontConfig->save())
 			{
+				Yii::app()->fileCache->delete(Yii::app()->user->getId());
 				Yii::app()->fileCache->set(Yii::app()->user->getId(),$storeFrontConfig->setting_config_data,2000);
 				Yii::app()->user->setFlash('saveSuccess','保存成功！');
 			}

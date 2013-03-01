@@ -212,7 +212,9 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-nous .aside dd {
   padding: 0 12px 8px;
 }
-
+.uploader{width:300px;}
+.uploader p{padding:5px 2px;}
+.m-form .item{margin-bottom:10px;}
 .home-special .bd a{font-size:12px;}
 .home-special .bd em{color:#B0B0B0}
 .home-xh{width:584px;}

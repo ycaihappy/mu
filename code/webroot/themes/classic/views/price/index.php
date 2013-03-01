@@ -31,203 +31,16 @@
 	<div class="hq-col-l">
 	
 		<!--module 1-->
-		<div class="m-hq-dq">
-        <h1><a href="/NewsList.aspx?pItemId=23&amp;itemId=108">国际行情</a></h1>
-        <ul id="gjhqInfo"><li><span>02-25</span><a target="_blank" title="2月22日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=d376013a-2cb6-4d3e-a14e-1d9dd78fddb3">2月22日国际主要钢材市场价格汇总</a></li><li><span>02-22</span><a target="_blank" title="2月21日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=9b36c4bc-d8fc-42bb-b92b-c3f86f2718f4">2月21日国际主要钢材市场价格汇总</a></li><li><span>02-20</span><a target="_blank" title="2月19日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=c684cc54-9636-4fe6-87d0-104a0fdc0115">2月19日国际主要钢材市场价格汇总</a></li><li><span>02-18</span><a target="_blank" title="2月16日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=ad02dcb9-b3f1-4a59-a7fd-8f4413d447e3">2月16日国际主要钢材市场价格汇总</a></li><li><span>02-07</span><a target="_blank" title="2月6日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=525c35f8-8d4d-42a7-8906-2e97163d4149">2月6日国际主要钢材市场价格汇总</a></li><li><span>02-06</span><a target="_blank" title="2月5日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=a2ea4034-345d-4c55-a598-2435dd4f227b">2月5日国际主要钢材市场价格汇总</a></li><li><span>02-02</span><a target="_blank" title="2月1日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=2e08deda-6ac6-49a2-9c77-fd1e2b5d41f6">2月1日国际主要钢材市场价格汇总</a></li></ul>
-    </div>
+        <?php $this->widget("PriceWorldWidget");?>
 		<!--module 1-->	
 		</div>
 		
 		<!--module 2-->
-		<div class="m-hq-news" id="J_Hq_news">
-                <h1>
-                    <a class="on" href="http://hq.steelcn.com/Forecast.aspx">钢市预报</a> <a href="http://hq.steelcn.com/NewsList.aspx?pItemId=201&amp;itemId=205" class="">
-                        专家观点</a> <a href="http://gc.steelcn.com" class="">钢厂调价</a>
-                </h1>
-                <div class="ck-news" style="display: block;">
-                    <div class="con">
-                        <label id="GsybList">
-                            <h2><a target="_blank" title="26日钢价预测：心态偏弱 钢价弱调依旧" href="NewsInfo.aspx?id=392e2ca1-60d8-4ec9-a995-43918ec0db8d">26日钢价预测：心态偏弱 钢价弱调依旧</a></h2><span class="article2">在目前期货继续下跌调整，需求、成交始终未见起色，各商家心态也偏弱的情况下，预计今日主流走势将延续弱势...</span>
-                        </label>
-                        <ul id="indexGsrbInfo">
-                            <li><span>02-26</span><a target="_blank" title="2月26日钢市早报：商家谨慎操作 价格小幅走弱" href="NewsInfo.aspx?id=db4216f9-06b4-477d-b048-fe24e46c8bf2">2月26日钢市早报：商家谨慎操作 价格小幅走弱</a></li><li><span>02-26</span><a target="_blank" title="2月26日热卷预测：热卷维持跌势" href="NewsInfo.aspx?id=e71cda78-c36c-456b-8d67-64628df4b69c">2月26日热卷预测：热卷维持跌势</a></li><li><span>02-26</span><a target="_blank" title="26日钢价预测：心态偏弱 钢价弱调依旧" href="NewsInfo.aspx?id=392e2ca1-60d8-4ec9-a995-43918ec0db8d">26日钢价预测：心态偏弱 钢价弱调依旧</a></li><li><span>02-26</span><a target="_blank" title="2月26日建材走势预测：信心受挫，弱势走低" href="NewsInfo.aspx?id=dd0c7366-83db-437e-948b-2a1af4961e7a">2月26日建材走势预测：信心受挫，弱势走低</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="display: none;" class="ck-news">
-                    <div class="con">
-                        <label id="ZjgdList">
-                            <h2><a target="_blank" title="张长富：2013年我国粗钢产量将有2%左右的增幅" href="NewsInfo.aspx?id=4dd9840c-d1ab-4d2a-827a-e66fdb1af626">张长富：2013年我国粗钢产量将有2%左右</a></h2><span class="article2">15日中钢协秘书长张长富表示，今年我国粗钢产量预计将达7.23亿吨。中钢协还预计，2013年我国粗钢产量将有2%...</span>
-                        </label>
-                        <ul id="indexZjgdInfo"><li><span>01-29</span><a target="_blank" title="邓崎琳:三到五年,将不再购买矿商一吨铁矿石" href="NewsInfo.aspx?id=ca3f538c-e05d-4fe5-b82a-f9b7e30ec98f">邓崎琳:三到五年,将不再购买矿商一吨铁矿石</a></li><li><span>01-28</span><a target="_blank" title="李小鹏：山西建国家综合能源基地一定要煤电和谐" href="NewsInfo.aspx?id=6b00c17b-a1d8-4682-aa9e-5fe710762e66">李小鹏：山西建国家综合能源基地一定要煤电和谐</a></li><li><span>01-28</span><a target="_blank" title="张国宝:2013年煤电价格上涨乏力 或有企业遭淘汰" href="NewsInfo.aspx?id=39cfe466-547e-4dd6-b351-89ca6a954ac9">张国宝:2013年煤电价格上涨乏力 或有企业遭淘汰</a></li><li><span>01-23</span><a target="_blank" title="马忠普：钢铁市场已发生根本性变化" href="NewsInfo.aspx?id=1de70bde-a1ab-4b83-baca-53676ac6e300">马忠普：钢铁市场已发生根本性变化</a></li></ul>
-                    </div>
-                </div>
-                <div style="display: none;" class="ck-news">
-                    <div class="con">
-                        <ul id="ul_tiaojia">
-
-    <li><a title="2月26日山西新金山特钢建筑钢材出厂价格调整信息" target="_blank" href="http://gc.steelcn.com/a/47/20130226/62469109CAEC4F.html">2月26日山西新金山特钢建筑钢材出厂价格调整信息</a></li>
-
-
-    <li><a title="2月26日山西海鑫建筑钢材出厂价格调整信息" target="_blank" href="http://gc.steelcn.com/a/47/20130226/62469086F8454B.html">2月26日山西海鑫建筑钢材出厂价格调整信息</a></li>
-
-
-    <li><a title="2月26日长江钢铁合肥地区建筑钢材价格调整信息" target="_blank" href="http://gc.steelcn.com/a/47/20130226/624689E53E6710.html">2月26日长江钢铁合肥地区建筑钢材价格调整信息</a></li>
-
-
-    <li><a title="2月26日福建三宝集团建筑钢材价格调整信息" target="_blank" href="http://gc.steelcn.com/a/47/20130226/624679CB530D34.html">2月26日福建三宝集团建筑钢材价格调整信息</a></li>
-
-
-    <li><a title="2月26日唐山鑫宇工字钢价格调整信息" target="_blank" href="http://gc.steelcn.com/a/47/20130226/624677EC53EB96.html">2月26日唐山鑫宇工字钢价格调整信息</a></li>
-
-
-    <li><a title="2月26日唐山荣泰工字钢价格调整信息" target="_blank" href="http://gc.steelcn.com/a/47/20130226/6246766315C250.html">2月26日唐山荣泰工字钢价格调整信息</a></li>
-
-
-    <li><a title="2月26日唐山唐城工字钢价格调整信息" target="_blank" href="http://gc.steelcn.com/a/47/20130226/624674AC403A62.html">2月26日唐山唐城工字钢价格调整信息</a></li>
-</ul>
-                    </div>
-                </div>
-            </div>
+        <?php $this->widget("PriceNewsWidget");?>
 		<!--module 2-->
 		
 		<!--module 3-->
-		<div class="m-jrbj">
-            <h1>
-                <a href="#">今日报价</a></h1>
-            
-    <table width="93%" cellspacing="0" cellpadding="0" style=" line-height:29px;">
-        
-        <tbody><tr>
-            <th align="left">
-                品名/价格
-            </th>
-            
-            <th>
-                上海
-            </th>
-            
-            <th>
-                北京
-            </th>
-            
-            <th>
-                广州
-            </th>
-            </tr>
-        
-        <tr>
-            <td style="text-align: left; width: 28%">
-                4.75mm热轧
-            </td>
-            
-            <td>
-                4140
-                
-            </td>
-            
-            <td>
-                4050
-                
-            </td>
-            
-            <td>
-                4120
-                
-            </td>
-            </tr>
-        
-        <tr>
-            <td style="text-align: left; width: 28%">
-                1.0mm冷轧
-            </td>
-            
-            <td>
-                4910
-                
-            </td>
-            
-            <td>
-                4990
-                
-            </td>
-            
-            <td>
-                
-                -
-                
-            </td>
-            </tr>
-        
-        <tr>
-            <td style="text-align: left; width: 28%">
-                20mm普板
-            </td>
-            
-            <td>
-                4010
-                
-            </td>
-            
-            <td>
-                
-                -
-                
-            </td>
-            
-            <td>
-                4180
-                
-            </td>
-            </tr>
-        
-        <tr>
-            <td style="text-align: left; width: 28%">
-                20mm三级螺
-            </td>
-            
-            <td>
-                3830
-                
-            </td>
-            
-            <td>
-                3730
-                
-            </td>
-            
-            <td>
-                4060
-                
-            </td>
-            </tr>
-        
-        <tr>
-            <td style="text-align: left; width: 28%">
-                5#角钢
-            </td>
-            
-            <td>
-                3950
-                
-            </td>
-            
-            <td>
-                3600
-                
-            </td>
-            
-            <td>
-                
-                -
-                
-            </td>
-            </tr>
-        
-    </tbody></table>
- 
-
-        </div>
+        <?php $this->widget("PriceTodayWidget");?>
 		<!--module 3-->
 		
 		<div class="clearfix"></div>
@@ -236,25 +49,9 @@
 	<div class="layout-area">
 	<div class="hq-col-l">
 	<!--module 1-->
-	<div class="m-hq-dq">
-        <h1>地区行情</h1>
-        <div class="nav_tree">
-            
-                    <h2 class="ico-close"><a href="/Steel.aspx?city=1080000">直辖城市</a></h2>
-                    <p><span class="dqd"><a href="/Steel.aspx?city=1080100">北京</a></span><span class="dqd"><a href="/Steel.aspx?city=1080200">上海</a></span><span class="dqd"><a href="/Steel.aspx?city=1080300">天津</a></span><a href="/Steel.aspx?&amp;city=1080301">天津港</a><span class="dqd"><a href="/Steel.aspx?city=1080400">重庆</a></span></p>
-                
-                 
-                
-                   
-                
-        </div>
-    </div>
+     <?php $this->widget("PriceAreaWidget");?>
 	<!--module 1-->
-	<div class="m-hq-dq">
-        <h1><a href="/NewsList.aspx?pItemId=23&amp;itemId=108">国内行情</a></h1>
-        <ul id="gjhqInfo"><li><span>02-25</span><a href="NewsInfo.aspx?id=d376013a-2cb6-4d3e-a14e-1d9dd78fddb3" title="2月22日国际主要钢材市场价格汇总" target="_blank">2月22日国际主要钢材市场价格汇总</a></li><li><span>02-22</span><a href="NewsInfo.aspx?id=9b36c4bc-d8fc-42bb-b92b-c3f86f2718f4" title="2月21日国际主要钢材市场价格汇总" target="_blank">2月21日国际主要钢材市场价格汇总</a></li><li><span>02-20</span><a href="NewsInfo.aspx?id=c684cc54-9636-4fe6-87d0-104a0fdc0115" title="2月19日国际主要钢材市场价格汇总" target="_blank">2月19日国际主要钢材市场价格汇总</a></li><li><span>02-18</span><a href="NewsInfo.aspx?id=ad02dcb9-b3f1-4a59-a7fd-8f4413d447e3" title="2月16日国际主要钢材市场价格汇总" target="_blank">2月16日国际主要钢材市场价格汇总</a></li><li><span>02-07</span><a href="NewsInfo.aspx?id=525c35f8-8d4d-42a7-8906-2e97163d4149" title="2月6日国际主要钢材市场价格汇总" target="_blank">2月6日国际主要钢材市场价格汇总</a></li><li><span>02-06</span><a href="NewsInfo.aspx?id=a2ea4034-345d-4c55-a598-2435dd4f227b" title="2月5日国际主要钢材市场价格汇总" target="_blank">2月5日国际主要钢材市场价格汇总</a></li><li><span>02-02</span><a href="NewsInfo.aspx?id=2e08deda-6ac6-49a2-9c77-fd1e2b5d41f6" title="2月1日国际主要钢材市场价格汇总" target="_blank">2月1日国际主要钢材市场价格汇总</a></li></ul>
-    </div>
-	</div>
+     <?php $this->widget("PriceChinaWidget");?>
 	<!--module 2-->
 	<div class="hq-col-r">
 	<div class="m-hq-box" id="J_Hq_Box_1">
@@ -349,19 +146,6 @@
 	</div>
 	<div class="layout-area">
 	<!--module 1-->
-	<div class="m-jxs">
-                <h1>
-                    <a class="bt" href="javascript:;">钢材经销商</a></h1>
-                <div class="jxs-con">
-                    <div>
-                        <ul><li><a target="_blank" href="">郑州市金润钢铁有限公司</a></li><li><a target="_blank" href="">河南济源钢铁（集团）有限公司</a></li><li><a target="_blank" href="">河南济源钢铁（集团）有限公司</a></li><li><a target="_blank" href="">郑州同乐物资有限公司</a></li><li><a target="_blank" href="">郑州万花钢管有限公司</a></li><li><a target="_blank" href="http://www.hndwsteel.com/">河南大万钢铁有限公司 </a></li></ul>
-						<ul class=""><li><a target="_blank" href="">郑州隆晟物资有限公司</a></li><li><a target="_blank" href="">河南新达森贸易有限公司</a></li><li><a target="_blank" href="">河南光兴钢铁有限公司</a></li><li><a target="_blank" href="">郑州瑞隆物资有限公司</a></li><li><a target="_blank" href="">河南省展程实业有限公司</a></li><li><a target="_blank" href="http://www.aypxwz.com/">安阳市平信物资有限公司</a></li></ul>
-						<ul class=""><li><a target="_blank" href="">郑州隆晟物资有限公司</a></li><li><a target="_blank" href="">河南新达森贸易有限公司</a></li><li><a target="_blank" href="">河南光兴钢铁有限公司</a></li><li><a target="_blank" href="">郑州瑞隆物资有限公司</a></li><li><a target="_blank" href="">河南省展程实业有限公司</a></li><li><a target="_blank" href="http://www.aypxwz.com/">安阳市平信物资有限公司</a></li></ul>
-						<ul class="jxs-ul03"><li><a target="_blank" href="http://www.hnjhgt.com/">河南金亨钢铁有限公司</a></li><li><a target="_blank" href="http://www.455000.cn/">河南中天钢铁有限公司</a></li><li><a target="_blank" href="http://www.hnshgt.com/">河南双海钢铁贸易有限公司</a></li><li><a target="_blank" href="">河南正亚贸易有限公司</a></li><li><a target="_blank" href="">河南安信钢铁销售有限公司</a></li><li><a target="_blank" href="">郑州银泽物资有限公司</a></li></ul>
-                        <div class="clear">
-                        </div>
-                    </div>
-                </div>
-            </div>
+     <?php $this->widget("PriceEnterpriseWidget");?>
 	<!--module 1-->
 	</div>

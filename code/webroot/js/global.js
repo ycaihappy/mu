@@ -187,5 +187,67 @@ $.extend(MU.mods,{
 			self.find('.fp-con ul').eq(index).show().siblings().hide();
 		});
 
+	},
+	JShopSetting : function () {
+		var self = $(this);
+		self.find('.upload,.preview,.delete').on('click',function(){
+			var o = $(this);
+			switch(o.attr('class')){
+				case 'upload':
+				var html = '<div class="m-form uploader"><p><input type="file" name="file_upload" id="file_upload" /></p><p>宽度<input type="text" name="upload_width"  />px 高度<input type="text" name="upload_height"  />px</p><p><button class="btn">上传</button></p></div>';
+				$(html).dialog({width:'auto',height:'auto',title:'Upload Image',
+				close : function(){
+					$('#file_upload').uploadify('destroy');
+					$(this).dialog('destroy');
+					
+				},
+				create : function(){
+					var dialog = $(this);
+					$('#file_upload').uploadify({
+						'buttonText' : '选择文件',
+						'auto'     : false,
+						'formData' : {
+							
+						},
+						'onUploadStart' : function(file) {
+							$("#file_upload").uploadify("settings", "formData",  {
+							'upload_width' : $('.uploader').find('input[name=upload_width]').val(),
+							'upload_height' : $('.uploader').find('input[name=upload_height]').val()
+							});
+						},
+						'multi'    : false,
+						'fileTypeExts' : '*.gif; *.jpg; *.png',
+						'swf'      : 'css/uploadify.swf',
+						'uploader' : 'index.php?r=uehome/user/uploadTemplateImage',
+						 'onUploadSuccess' : function(file, data, response) {
+							//alert('文件 ' + file.name + ' 上传成功！' + data);
+							o.siblings('input').val(data);
+							dialog.dialog('close');
+							
+						},
+						'onUploadError' : function(file, errorCode, errorMsg, errorString) {
+							alert('文件 ' + file.name + ' 上传失败！');
+						}
+						
+					});
+					$(this).find('.btn').on('click',function(){
+						$('#file_upload').uploadify('upload');
+					});
+				}});
+				
+				
+				break;
+				case 'preview':
+				if(o.siblings('input').val() != '' ) {
+					$('<img />').attr('src',o.siblings('input').val()).dialog({width:'auto',height:'auto',title:'Preview',close : function(){
+						$(this).dialog('destroy');
+					}});
+				}
+				break;
+				case 'delete':
+				o.siblings('input').val('');
+				break;
+			}
+		});
 	}
 });

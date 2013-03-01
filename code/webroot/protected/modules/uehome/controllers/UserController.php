@@ -184,6 +184,50 @@ class UserController extends Controller {
 		Yii::app ()->user->logout ( false );
 		$this->redirect ( array ('login' ) );
 	}
+	public function actionUploadTemplateImage()
+	{
+		if(Yii::app()->request->isPostRequest)
+		{
+			$uid=Yii::app()->user->getId();
+			$targetFolder="images/enterprise/{$uid}";
+			$verifyToken = md5('unique_salt' . $_POST['timestamp']);
+			if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
+				$image_src=CUploadedFile::getInstanceByName('Filedata');
+				$fileTypes = array('jpg','jpeg','gif','png'); // File extensions
+				if(!in_array($image_src->getExtensionName(),$fileTypes))
+				{
+					echo '上传非图片类型.';
+					exit;
+				}
+				if($image_src)
+				{
+					$newimg = $uid.'_'.time().'_'.rand(1, 9999).'.'.$image_src->getExtensionName();
+					//根据时间戳重命名文件名,extensionName是获取文件的扩展名
+					$uploadedImg=$targetFolder.'/'.$newimg;
+					$im = null;
+					$imagetype = strtolower($image_src->getExtensionName());
+					if($imagetype == 'gif')
+						$im = imagecreatefromgif($image_src->getTempName());
+					else if ($imagetype == 'jpg')
+						$im = imagecreatefromjpeg($image_src->getTempName());
+					else if ($imagetype == 'png')
+						$im = imagecreatefrompng($image_src->getTempName());
+					$width=@$_REQUEST['upload_width'];
+					$height=@$_REQUEST['upload_height'];
+					CThumb::resizeImage ( 
+					$im,$width, $height,
+					$uploadedImg, $image_src->getExtensionName());
+					if(file_exists($uploadedImg))
+					{
+						echo $uploadedImg;
+					}
+					else {
+						echo '该图片保存失败！';
+					}
+				}
+			}
+		}
+	}
 	public function actionTemplateSetting()
 	{
 		if(Yii::app()->request->isPostRequest)
@@ -192,7 +236,7 @@ class UserController extends Controller {
 			$shopconfig=array();
 			foreach($_POST['menu_order'] as $key=>$v)
 			{
-				$c[$key]['menu_show']=$_POST['menu_show'][$key];
+				$c[$key]['menu_show']=isset($_POST['menu_show'][$key])?$_POST['menu_show'][$key]:0;
 				$c[$key]['menu_order']=$v;
 				$c[$key]['menu_name']=$_POST['menu_name'][$key];
 				$c[$key]['menu_link']=$_POST['menu_link'][$key];
@@ -221,6 +265,7 @@ class UserController extends Controller {
 			$storeFrontConfig->setting_config_data=$shop_config_str;
 			if($storeFrontConfig->save())
 			{
+				Yii::app()->fileCache->set(Yii::app()->user->getId(),$storeFrontConfig->setting_config_data,2000);
 				Yii::app()->user->setFlash('saveSuccess','保存成功！');
 			}
 			else {
@@ -237,11 +282,15 @@ class UserController extends Controller {
 				if($storeFrontConfig && $storeFrontConfig->setting_config_data)
 				{
 					$storeFrontConfig=unserialize($storeFrontConfig->setting_config_data);
-					Yii::app()->fileCache->set(Yii::app()->user->getId(),$storeFrontConfig->setting_config_data,$this->configCacheExpire);
+					Yii::app()->fileCache->set(Yii::app()->user->getId(),$storeFrontConfig->setting_config_data,2000);
 				}
 				else {
 					$storeFrontConfig=require 'protected/config/storeFrontDefault.php';
 				}
+			}
+			else
+			{
+				$storeFrontConfig=unserialize($storeFrontConfig);
 			}
 		}
 		$data=compact('storeFrontConfig');

@@ -15,15 +15,7 @@ class FrontFlash extends CWidget {
 		$flashImg='';
 		if($flash)
 		{
-			$flashImg=array();
-			foreach ($flash as $image)
-			{
-				if(file_exists('images/enterprise/'.$image))
-				{
-					$flashImg[]='images/enterprise/'.$image;
-				}
-			}
-			$flashImg=implode('|',$flashImg);
+			$flashImg=implode('|',$flash);
 		}
 		$this->render('frontFlash',array('flash'=>$flashImg,'imgurl'=>$imgurl));
 	}

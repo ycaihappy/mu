@@ -2,7 +2,7 @@
 $class = ($type == 1) ? '1' : '2';
 
 ?>
-<div class="m-hq-box" id="J_Hq_Box_<?php echo $class;?>>
+<div class="m-hq-box" id="J_Hq_Box_<?php echo $class;?>">
                 <h1>
                     <a class="bt" href="/Market.aspx?pMarketType=51">全国板材行情</a><span class="fb"><a href="/Market.aspx?MarketType=3">中厚板</a>｜<a href="/Market.aspx?MarketType=6">热轧</a>｜<a href="/Market.aspx?MarketType=9">冷轧</a>｜<a href="/Market.aspx?MarketType=16">镀锌</a>｜<a href="/Market.aspx?MarketType=17">彩涂</a>｜<a href="/Market.aspx?MarketType=20">带钢</a>｜<a href="/Market.aspx?MarketType=18">花纹</a>｜<a href="/Market.aspx?MarketType=5">船板</a>｜<a href="/Market.aspx?MarketType=4">锅炉容器板</a>｜<a href="/Market.aspx?MarketType=7">桥梁板</a>｜<a href="/Market.aspx?MarketType=45">热轧酸洗</a></span></h1>
                 <div class="hq-con">

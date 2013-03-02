@@ -717,7 +717,7 @@ padding: 0 20px;
 .m-supply-news .hd{margin-bottom:5px;}
 .m-supply-news .bd{background:#e2e2e2;padding:10px;}
 .m-supply-news li{padding-left:10px;background:url(imgs/gray_dot.gif) no-repeat left center;margin-bottom:5px;}
-
+.col-right .m-supply-news{float:left;margin-right:10px;}
 
 /*m-suppy-topnews*/
 .m-suppy-topnews .topnews {background: url(imgs/topnews.png) repeat scroll 0 0 transparent;border: 1px solid #DAE2E9;height: 110px;padding: 0 12px;}

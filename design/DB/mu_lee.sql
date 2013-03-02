@@ -515,7 +515,8 @@ CREATE TABLE IF NOT EXISTS `mu_message_template` (
 DELETE FROM `mu_message_template`;
 /*!40000 ALTER TABLE `mu_message_template` DISABLE KEYS */;
 INSERT INTO `mu_message_template` (`msg_template_id`, `msg_template_name`, `msg_template_mnemonic`, `msg_template_type`, `msg_template_title`, `msg_template_content`, `msg_template_added_date`, `msg_template_update_date`) VALUES
-	(1, 'asdfasdf', 'asdfasdfasdf', 38, 'asdfasdfasdfas', '<p>\r\n	dfasdfasdfasdfasdfasdfasdf</p>\r\n', '2013-02-28 11:06:44', NULL);
+	(1, '金牌会员行情模板', 'goldMemberPrice', 38, '', '<p>\r\n	当前行情如下：{$price}</p>\r\n', '2013-02-28 11:06:44', '2013-02-28 14:33:49'),
+	(2, '注册手机验证码模板', 'registerMobileVerify', 38, '', '<p>\r\n	当前的验证码为：{$verifyCode}</p>\r\n', '2013-02-28 14:27:47', NULL);
 /*!40000 ALTER TABLE `mu_message_template` ENABLE KEYS */;
 
 

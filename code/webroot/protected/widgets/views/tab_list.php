@@ -25,7 +25,7 @@ $title = '现货';
     <div class="m-tab-list <?php echo $class;?>">
 			<div class="hd">
 				<span class="on"><a href="">供求</a></span>			
-				<a href="" class="more">更多</a>
+                <a href="<?php echo Yii::app()->controller->createUrl('supply/index');?>" class="more">更多</a>
 			</div>
 			<div class="bd">
 				<ul class="current">

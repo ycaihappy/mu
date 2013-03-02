@@ -122,7 +122,8 @@
 <?php 
 $cs=Yii::app()->getClientScript();
 $cs->registerCssFile('css/uploadify.css');
-$cs->registerCssFile('css/jquery-ui-1.10.1.custom.min.css');
+$cs->registerCssFile('css/ui-lightness/jquery-ui-1.10.1.custom.min.css');
 Yii::app()->getClientScript()->registerScriptFile('js/jquery.1.8.min.js');
+Yii::app()->getClientScript()->registerScriptFile('js/jquery.ui.js');
 $cs->registerScriptFile('js/jquery.uploadify.min.js');
 ?>

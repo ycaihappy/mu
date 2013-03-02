@@ -5,6 +5,26 @@ class buildCommand extends CConsoleCommand{
 
         switch ($args[0])
         {
+        case 'summary':
+
+            $year = array(2012,2011,2013);
+            $month = array(1,2,3,4,5,6,7,8,9,10,11,12);
+            $day   = array(1,2,3,4,5,6,7,8);
+            for($i=0;$i<100;$i++)
+            {
+               $smp = new PriceSummary();
+               $smp->sum_id    = $i+1;
+               $smp->sum_unit  = 1;
+               $smp->sum_price = rand(1, 100);
+               $smp->sum_year = $year[array_rand($year)];
+               $smp->sum_month = $month[array_rand($month)];
+               $smp->sum_day  = $day[array_rand($day)];
+               $smp->sum_product_type = rand(21,22);
+               $smp->sum_product_zone = rand(6,7);
+               $smp->sum_add_date = date("Y-m-d");
+               $smp->save();
+            }
+            break;
         case 'knowledge':
             $title = array(
               ' 关于钼的一般常识 ',
@@ -17,7 +37,7 @@ class buildCommand extends CConsoleCommand{
               ' 钼铁的牌号及其用途'
             );
             
-            for($i=100;$i<150;$i++)           
+            for($i=250;$i<450;$i++)           
             {
                 $article = new Article();
                 
@@ -57,7 +77,7 @@ class buildCommand extends CConsoleCommand{
              '2011年4月份钼系产品月报告',
             );
             
-            for($i=0;$i<100;$i++)           
+            for($i=450;$i<600;$i++)           
             {
                 $article = new Article();
                 

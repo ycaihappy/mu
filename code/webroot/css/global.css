@@ -913,7 +913,7 @@ padding: 0 20px;
 .m-suppy-list .left_table {
   border-collapse: collapse;
 }
-.m-suppy-list .art_gyxx{font-size:16px;font-weight:bold;font-family:'微软雅黑';color:#004098;border-bottom:5px solid #f3f3f3;margin-bottom:10px;padding-bottom:5px}
+
 
 .m-suppy-list .left_table th {
   background: url("imgs/left_th.png") repeat scroll 0 0 transparent;
@@ -959,3 +959,7 @@ padding: 0 20px;
   line-height: 22px;
   margin: 10px auto;
 }
+.m-suppy-list .art_gyxx{background: rgb(236, 236, 236);height: 30px;width: 100%;}
+.m-suppy-list h2 span{float:left;display:inline-block;padding:0 10px;text-align:center;background:#206f96;height: 30px; line-height:30px; position: relative;z-index: 1;}
+.m-suppy-list h2 span i{position:absolute;left:45%;bottom:-4px;width:7px;height:4px;background:url(imgs/blue_d_aw.gif) no-repeat;font-size:0;display:block;}
+.m-suppy-list h2 span a{font-weight:bold;color:#fff;font-size:14px;}

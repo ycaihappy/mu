@@ -53,6 +53,7 @@ class Article extends CActiveRecord
             array('art_title', 'required'),
             array('art_id, art_category_id,art_subcategory_id, art_status, art_user_id, art_recommend', 'numerical', 'integerOnly'=>true),
             array('art_title, art_source', 'length', 'max'=>128),
+            array('art_img', 'length', 'max'=>218),
             array('art_tags, art_check_by', 'length', 'max'=>45),
             array('art_content, art_post_date, art_modified_date', 'safe'),
             // The following rule is used by search().

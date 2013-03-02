@@ -992,3 +992,7 @@ padding: 0 20px;
   overflow: hidden;
   padding-left: 20px;
 }
+.m-news-list li span{
+	float:right;	
+}
+}

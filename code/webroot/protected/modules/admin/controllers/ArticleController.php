@@ -54,7 +54,7 @@ class ArticleController extends AdminController {
 			$articleCriteria->compare('art_subcategory_id','='.$model->art_subcategory_id);
 		}
 
-		$articleCriteria->select='art_id,art_title,art_post_date,art_check_by';
+		$articleCriteria->select='art_id,art_title,art_post_date,art_check_by,art_img';
 		$articleCriteria->with=array('category'=>array('select'=>'term_name'),'subcategory'=>array('select'=>'term_name'),'createUser'=>array('select'=>'user_name'),'status'=>array('select'=>'term_name'));
 		$articleDataProvider=new CActiveDataProvider('Article',array(
 			'criteria'=>$articleCriteria,
@@ -69,10 +69,12 @@ class ArticleController extends AdminController {
 		));
 		$artStatus=Term::getTermsByGroupId(1);
 		$artCategory=Term::getTermsByGroupId(10,true);
+		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
 		$this->render('manageArticle',array(
 		'dataProvider'=>$articleDataProvider,
 		'artCategory'=>$artCategory,
 		'artStatus'=>$artStatus,
+		'rePosition'=>$rePosition,
 		'model'=>$model,
 		));
 	}
@@ -84,6 +86,29 @@ class ArticleController extends AdminController {
 		{
 			$model->attributes=$_POST['Article'];
 			if($model->art_id)$model->setIsNewRecord(false);
+			$model->art_img=CUploadedFile::getInstance($model,'art_img');
+			if($model->art_img)
+			{
+				$newimg = $model->art_category_id.'_'.time().'_'.rand(1, 9999).'.'.$model->art_img->extensionName;
+				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
+				$uploadedImg='images/article/'.$newimg;
+				$model->art_img->saveAs($uploadedImg);
+				$im = null;
+				$imagetype = strtolower($model->art_img->getExtensionName());
+				if($imagetype == 'gif')
+					$im = imagecreatefromgif($uploadedImg);
+				else if ($imagetype == 'jpg')
+					$im = imagecreatefromjpeg($uploadedImg);
+				else if ($imagetype == 'png')
+					$im = imagecreatefrompng($uploadedImg);
+				CThumb::resizeImage ( 
+				$im,400, 280,
+				'images/article/thumb/'.$newimg, $model->art_img->getExtensionName() );
+				$model->art_img = $newimg;
+			}
+			else {
+				$model->art_img=@$_REQUEST['art_img_2'];
+			}
 			if($model->save())
 			{
 				$this->redirect(array('manageNews','page'=>Yii::app()->admin->getState('page')));

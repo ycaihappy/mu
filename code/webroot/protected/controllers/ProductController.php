@@ -20,7 +20,6 @@ class ProductController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		
 		$this->render('index');
 	}
 
@@ -119,60 +118,6 @@ class ProductController extends Controller
 		}
 		$data=compact('pager','products');
 		$this->render('index',$data);
-		/*$asCriteria=new ASolrCriteria();
-		$asCriteria->setParam('wt','json');
-		$asCriteria->addField('product_id');
-		$asCriteria->setOffset(0);
-		$asCriteria->setLimit(100);
-		$asCriteria->setOrder('product_join_date desc');
-		if($bigType)
-		{
-			if($smallType)
-			{
-				$asCriteria->addCondition("product_type_id:{$smallType}");
-			}
-			else {
-				$typsQuery=$this->_getSolrQeryString('product_type_id', 14, $bigType);
-				$asCriteria->addCondition($typsQuery);
-			}
-		}
-		if($muCotent)
-		{
-			$asCriteria->addCondition("product_mu_content:{$muCotent}");
-		}
-		if($waterContent)
-		{
-			$asCriteria->addCondition("product_water_content:{$waterContent}");
-		}
-		if($enterprise)
-		{
-			$asCriteria->query="product_enterprise:{$enterprise}";
-			//$asCriteria->addCondition("product_enterprise:{$enterprise}");
-			$asCriteria->setParam('defType','edismax');
-			$asCriteria->setParam('pf','product_enterprise');
-		}
-		if($province)
-		{
-			if($city)
-			{
-				$asCriteria->addCondition("product_city_id:{$city}");
-			}
-			else {
-				$cityQuery=$this->_getCitySolrQueryString('product_city_id',$province);
-				$asCriteria->addCondition($cityQuery);
-			}
-		}
-		$models=SolrProduct::model()->findAll($asCriteria);
-		echo count($models);
-		exit;
-		$dataProvider=new ASolrDataProvider('SolrProduct',array(
-			'criteria'=>$asCriteria,
-			'pagination'=>array(
-				'pageSize'=>48,
-				'pageVar'=>'page',
-			),
-		));*/
-		
 		
 	}
 	private function _getCitySolrQueryString($fieldName,$province)

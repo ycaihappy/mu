@@ -216,6 +216,38 @@ class AdvertisementRecommendController extends AdminController {
 		$toStatus=$_POST['Recommend']['recommend_status'];
 		$result=$this->_changeInfo($recommendIds, 'recommend_status', $toStatus);
 	}
+	public function actionRecommendInfo()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			$infoIds=@$_REQUEST['info_ids'];
+			$infoType=@$_REQUEST['info_type'];
+			$infoPos=@$_REQUEST['info_pos'];
+			$resultMsg='推荐失败！';
+			if(!$infoIds && !$infoType && infoPos )
+			{
+				$resultMsg='参数不完整';
+			}
+			else {
+				$error=array();
+				foreach ($infoIds as $infoId) {
+					$recommendModel=new Recommend();
+					$recommendModel->recommend_type=$infoType;
+					$recommendModel->recommend_object_id=$infoId;
+					$recommendModel->recommend_position=$infoPos;
+					$recommendModel->recommend_status=1;
+					$recommendModel->recommend_time=date('Y-m-d H:i:s');
+					if(!$recommendModel->save())
+					{
+						$error[]=$infoId;
+					}
+				}
+				if(!$error)
+					$resultMsg='推荐成功！';
+			}
+			echo $resultMsg;
+		}
+	}
 
 
 }

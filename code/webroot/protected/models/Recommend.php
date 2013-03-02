@@ -38,7 +38,7 @@ class Recommend extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('recommend_id, recommend_object_id, recommend_type, recommend_position', 'required'),
+			array(' recommend_object_id, recommend_type, recommend_position', 'required'),
 			array('recommend_id, recommend_type, recommend_position', 'numerical', 'integerOnly'=>true),
 			array('recommend_object_id', 'length', 'max'=>20),
 			array('recommend_time', 'safe'),

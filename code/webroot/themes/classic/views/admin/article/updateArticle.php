@@ -7,7 +7,8 @@ $this->breadcrumbs=array(
 ?>
 <div class="m-form">
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'product-form',
+	'id'=>'article-form',
+    'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
@@ -37,11 +38,7 @@ endif;?>
 		<td><?php echo $form->textField($model,'art_tags',array('class'=>'cmp-input')); ?>	
 		<?php echo $form->error($model,'art_tags'); ?></td>
 </tr>
-<tr>
-<td class="label">状态：</td>
-		<td><?php echo $form->dropDownList($model,'art_status',$artStatus); ?>
-		<?php echo $form->error($model,'art_status'); ?></td>
-</tr>
+
 <tr>
 <td class="label">内容：</td>
 		<td>
@@ -64,6 +61,30 @@ endif;?>
 
 ?>
 		<?php echo $form->error($model,'art_content'); ?></td>
+</tr>
+<tr>
+<td class="label">阅览数：</td>
+		<td>
+		<input name="art_click_count" disabled type=text class='cmp-input' value="<?php echo $model->art_click_count?>"/>		
+        <input name='Article[art_click_count]' type=hidden value="<?php echo $model->art_click_count?>""/>
+		</td>
+</tr>
+<tr>
+<td class="label">文章图片：</td>
+		<td>
+		<?php echo CHtml::activeFileField($model,'art_img'); ?>
+		<div id="imgDiv">
+			<?php if($model->art_img) echo CHtml::image('images/article/'.$model->art_img,'',array('width'=>400,'height'=>280))?>
+        </div>
+        <?php if(!$model->isNewRecord):?>
+        <?php echo CHtml::hiddenField('art_img_2',$model->art_img)?>
+        <?php endif;?>
+		</td>
+</tr>
+<tr>
+<td class="label">状态：</td>
+		<td><?php echo $form->dropDownList($model,'art_status',$artStatus); ?>
+		<?php echo $form->error($model,'art_status'); ?></td>
 </tr>
 <tr>
 <td class="label">发布人：</td>
@@ -90,3 +111,10 @@ endif;?>
 </table>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+<?php 
+Yii::app()->getClientScript()->registerScriptFile('js/jquery.uploadPreview.js');
+$previewScript=<<<PREVIEW
+$("#Article_art_img").uploadPreview({ width:400, height: 280, imgDiv: "#imgDiv", imgType: ["bmp", "gif", "png", "jpg"] });
+PREVIEW;
+Yii::app()->getClientScript()->registerScript('Article#uploadPreview',$previewScript);
+?>

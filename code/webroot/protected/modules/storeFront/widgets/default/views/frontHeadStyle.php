@@ -14,8 +14,8 @@ body {background-image: url(<?php echo $config['styleimg']; ?>);}
 body, div, input, select, textarea, td { font-family:Verdana, Arial, Helvetica, sans-serif; }
 img, input, select { vertical-align:middle }
 ul, li {list-style:none;list-style-image:none;list-style-position:outside;list-style-type:none; margin:0px;}
-a:link, a:visited {color:#022e9f;}
-a:hover {color:#d443a7;}
+a:link, a:visited {color:#022e9f;text-decoration:none;}
+a:hover {text-decoration:underline;}
 
 #top { background-image:url(<?php echo $imgurl ?>top_bg.gif); background-repeat:repeat-x; height:24px; line-height:24px; font-size: 12px; border-bottom:1px solid #C4C4C4; border-top:1px solid #FFFFFF; padding-right:10px; padding-left:10px; clear:both; font-weight:bold; }
 #top a { color:#022e9f }
@@ -72,8 +72,11 @@ a:hover {color:#d443a7;}
 .common_box table{border-collapse:collapse;}
 .common_box td{padding:10px; text-align:left}
 .common_box td.pager{padding:15px; text-align:right;}
+.common_box th{text-align:center;;line-height:30px;color: #fff;background: rgb(33, 66, 150);}
+
 .guide_ba{font-weight:bold; text-align:left; padding:5px; background-image:url(<?php echo $imgurl ?>bg-item.gif); height:16px; color:#FFFFFF;text-transform:capitalize; border-bottom:1px solid #163E7D;}
 .info_text{text-align:left}
+.common_box .guide_ba{padding-top:5px}
 
 .li_pro_list{ padding-top:0px!important; padding-top:5px; width:100%; height:90px; }
 .li_pro_list li{width:85px; height:90px;float:left;}
@@ -87,4 +90,8 @@ a:hover {color:#d443a7;}
 .shop_pro_list li img{width:92px; height:80px;padding:3px;}
 .newoffer{padding-top:0px!important; padding-top:5px; width:100%;}
 .newoffer li{width:100%; padding:3px;}
+ul.yiiPager .hidden a{color:#F2F2F2}
+#mPro a{color:#fff}
+#mPro a:hover{text-decoration:underline;}
+.com_intro .STYLE1{color:#000;font-weight:bold}
 </style>

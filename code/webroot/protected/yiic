@@ -1,4 +1,4 @@
-#!/cygdrive/l/xampp/php/php.exe
+#!/cygdrive/g/xampp/php/php.exe
 <?php
 
 require_once(dirname(__FILE__).'/yiic.php');

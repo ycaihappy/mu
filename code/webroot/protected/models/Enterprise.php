@@ -45,7 +45,7 @@ class Enterprise extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ent_id, ent_name', 'required'),
+			array('ent_name', 'required'),
 			array('ent_id,ent_status, ent_user_id, ent_chief_postion, ent_recommend', 'numerical', 'integerOnly'=>true),
 			array('ent_name', 'length', 'max'=>256),
 			array('ent_website, ent_business_scope', 'length', 'max'=>512),

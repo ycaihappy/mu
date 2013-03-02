@@ -38,19 +38,28 @@ class UserController extends Controller {
     public function actionRegisterUser()
     {
         $u_model = new User();
+        $u_model->user_name  = $_REQUEST['nickname'];
         $u_model->user_email = $_REQUEST['email'];
         $u_model->user_pwd   = md5($_REQUEST['pwd']);
         $u_model->user_nickname = $_REQUEST['nickname'];
         $u_model->user_province_id = $_REQUEST['province'];
         $u_model->user_city_id     = $_REQUEST['city'];
         $u_model->user_subscribe   = $_REQUEST['newsletter'];
+        $u_model->user_type = $_REQUEST['user_type'];
+        $u_model->user_mobile_no = $_REQUEST['mobile_number'];
+        $u_model->user_status = 1;
+        $u_model->user_join_date = date("Y-m-d");
+        $u_model->user_subscribe = $_REQUEST['newsletter'];
         $u_model->save();
+
         if ( $_REQUEST['user_type'] == 1)
         {
             $e_model = new Enterprise();
-            $e_model->ent_user_id='';
-            $e_model->location = $_REQUEST['ent_location'];
-            $e_model->ent_chief= $_REQUEST['ent_chief'];
+            $e_model->ent_user_id=$u_model->primaryKey;
+            $e_model->ent_name   = $_REQUEST['company_name'];
+            $e_model->ent_type   = $_REQUEST['company_type'];
+            $e_model->ent_location = $_REQUEST['address'];
+            $e_model->ent_chief= $_REQUEST['nickname'];
             $e_model->save();
         }
 

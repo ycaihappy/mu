@@ -83,6 +83,54 @@ class Article extends CActiveRecord
                 'order'=>'art_post_date desc',
                 'limit'=>8
             ),
+            'newest4News'=>array(//新闻首页--最新新闻4
+            	'select'=>'art_id,art_title',
+                'condition'=>'art_category_id=17 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>4
+            ),
+            'topRankingNews'=>array(//新闻首页--新闻排行
+            	'select'=>'art_id,art_title,art_click_count',
+                'condition'=>'art_category_id=17 and art_status=1',
+                'order'=>'art_click_count desc,art_post_date desc',
+                'limit'=>10
+            ),
+            'topViewPointNews'=>array(//新闻首页--本网视点
+            	'select'=>'art_id,art_title',
+                'condition'=>'art_category_id=17 and art_subcategory_id=40 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>4
+            ),
+            'topHotSpotNews'=>array(//新闻首页--热点新闻
+            	'select'=>'art_id,art_title',
+                'condition'=>'art_category_id=17 and art_subcategory_id=41 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>12
+            ),
+            'topTrendsNews'=>array(//新闻首页--行业动态
+            	'select'=>'art_id,art_title,art_img',
+                'condition'=>'art_category_id=17 and art_subcategory_id=42 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>9
+            ),
+            'topStockNews'=>array(//新闻首页--股票
+            	'select'=>'art_id,art_title',
+                'condition'=>'art_category_id=17 and art_subcategory_id=44 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>10
+            ),
+            'topBusinessNews'=>array(//新闻首页--财经
+            	'select'=>'art_id,art_title',
+                'condition'=>'art_category_id=17 and art_subcategory_id=44 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>10
+            ),
+            'newest10News'=>array(//新闻首页--最新新闻10
+                'condition'=>'art_category_id=17 and art_status=1',
+                'order'=>'art_post_date desc',
+            	'offset'=>5,
+                'limit'=>12
+            ),
         );
     }
 

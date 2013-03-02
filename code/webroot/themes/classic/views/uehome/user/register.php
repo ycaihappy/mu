@@ -131,7 +131,7 @@
 					
 					<p class="msg">注册成功</p>
 					<div class="btn">
-					<a class="btn-modify" href="index.html">回到首页</a><a class="btn-modify" href="member.html">个人中心</a>
+                    <a class="btn-modify" href="<?php echo Yii::app()->controller->createUrl('/site/index');?>">回到首页</a><a class="btn-modify" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/detail');?>">个人中心</a>
 					</div>
 					
 				</div>

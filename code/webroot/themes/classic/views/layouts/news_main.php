@@ -1,81 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <title>新闻中心首页</title>
-    <link rel="stylesheet" href="css/global.css">	
-	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
-
-
-</head>
-
+<?php $this->widget("CommonHeaderWidget");?>
 <body>
 
 
 <div id="p_news_index" class="pg-layout">
 
-<div class="m-top">
-	<div class="layout">
-	<p class="user-info">
-		<a href="">请登陆</a>
-		<a href="">免费注册 </a>
-	</p>
-	<p class="site-tool">
-		<span>|</span>
-		<a href="">找回密码</a>
-		<span>|</span>
-		<a href="">网站地图</a>
-		<span>|</span>
-		<a href="">联系客服</a>
-		<span>|</span>
-		<a href="">收藏本站</a>
-	</p>
-	</div>
-</div>
+<?php $this->widget('TopWidget');?>
 
 <div class="layout head">
-	<div class="m-logo">
-		<a target="_self" href="" class="logo"><img title="xxx.com - xxxx" alt="zzz" src="images/logo.jpg"></a>
-	</div>
-	<div class="m-search" id="J_SearchForm">
-		<div class="search-triggers">
-			<ul class="switchable-nav">
-			  <li class="selected" data-type="1"><a href="javascript:void(0);">现货</a></li>
-			  <li data-type="2"><a href="javascript:void(0);">新闻</a></li>
-			  <li data-type="3"><a href="javascript:void(0);">行情</a></li>
-			  <li data-type="4"><a href="javascript:void(0);">行情</a></li>
-			  <li data-type="5"><a href="javascript:void(0);">求购</a></li>
-			</ul>
-		 </div>
-		 <div class="search-box">
-			<form name="search" action="" target="_top">
-			  <input type="hidden" name="type" value=""/>
-			  <div class="search-panel-fields">       
-				<input autocomplete="off" autofocus="true" accesskey="s" name="q" id="q">
-				<s></s>
-			  </div>
-			  <button type="submit">搜 索</button>			 
-			 </form>
-		 </div>
-		<div class="clearfix"></div>
-	</div>
-	
+	<?php $this->widget('SearchWidget');?>
 		<div class="m-news-nav">
 		<div class="nav">
 		<ul>
-			<li><a href="/">首页</a></li>
-			<li><a href="/redian.html">社会热点</a></li>
-			<li><a href="/yuanchuang.html">本网视点</a></li>
-			<li><a href="/gedi.html">区域新闻</a></li>
-			<li><a href="/hangye.html">行业动态</a></li>
-			<li><a href="/guonei.html">国内新闻</a></li>
-			<li><a href="/guoji.html">国际新闻</a></li>
-			<li><a href="/fenxi.html">分析评论</a></li>
-			<li><a href="/chanjing.html">产经新闻</a></li>
+			<li><a href="<?php echo $this->createUrl('site/index')?>">首页</a></li>
+			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>41))?>">社会热点</a></li>
+			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>40))?>">本网视点</a></li>
+			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>47))?>">区域新闻</a></li>
+			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>42))?>">行业动态</a></li>
+			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>35))?>">国内新闻</a></li>
+			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>34))?>">国际新闻</a></li>
+			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>48))?>">分析评论</a></li>
+			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>49))?>">网站动态</a></li>
 			
-			<li><a href="/dongtai.html">网站动态</a></li>
-			<li><a href="/exposure.html">曝光台</a></li>
 		</ul>
 		</div>
 	</div>

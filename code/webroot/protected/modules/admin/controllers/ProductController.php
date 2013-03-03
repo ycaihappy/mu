@@ -62,7 +62,7 @@ class ProductController extends AdminController {
 		{
 			$product->product_city_id=$this->_getCityLayer($product->product_city_id);
 		}
-		$productType=Term::getTermsByGroupId(12);
+		$productType=Term::getTermsByGroupId(14);
 		$productStatus=Term::getTermsByGroupId(1);
 		$this->render('manageProduct',array('dataProvider'=>$dataProvider,
 		'isSpecial'=>$isSpecial,
@@ -118,34 +118,25 @@ class ProductController extends AdminController {
 				$action=$model->product_special?'manageSpecial':'manageProduct';
 				$this->redirect(array($action));
 			}
-			else {
-				//redirect to create/update page when error(es) occured
-				$unit=Term::getTermsByGroupId(2);
-				$allCity=City::getAllCity();
-				$productType=Term::getTermsByGroupId(12);
-				$productStatus=Term::getTermsByGroupId(1);
-				$this->render('updateProduct',array('model'=>$model,
-				'unit'=>$unit,
-				'allCity'=>$allCity,
-				'productType'=>$productType,
-				'productStatus'=>$productStatus,
-				));
-			}
 		}
-		else if(isset($_REQUEST['product_id'])){
-			$productId=@$_REQUEST['product_id'];
+		if($productId=@$_REQUEST['product_id']){
 			$productModel=Product::model()->with(array('user.enterprise'=>array('select'=>'ent_name'),'user'=>array('select'=>'user_name')))->findByPk($productId);
-			$unit=Term::getTermsByGroupId(2);
-			$allCity=City::getAllCity();
-			$productType=Term::getTermsByGroupId(12);
-			$productStatus=Term::getTermsByGroupId(1);
-			$this->render('updateProduct',array('model'=>$productModel,
-			'unit'=>$unit,
-			'allCity'=>$allCity,
-			'productType'=>$productType,
-			'productStatus'=>$productStatus,
-			));
+			
 		}
+		$unit=Term::getTermsByGroupId(2);
+		$allCity=City::getAllCity();
+		$productType=Term::getTermsByGroupId(14);
+		$productStatus=Term::getTermsByGroupId(1);
+		$muContent=Term::getTermsByGroupId(16);
+		$waterContent=Term::getTermsByGroupId(17);
+		$this->render('updateProduct',array('model'=>$productModel,
+		'unit'=>$unit,
+		'allCity'=>$allCity,
+		'productType'=>$productType,
+		'productStatus'=>$productStatus,
+		'muContent'=>$muContent,
+		'waterContent'=>$waterContent
+		));
 
 	}
 	function _actionChangeProductStatus($redirectPage)
@@ -242,7 +233,7 @@ class ProductController extends AdminController {
 		{
 			$supply->supply_city_id=$this->_getCityLayer($supply->supply_city_id);
 		}
-		$supplyCategory=Term::getTermsByGroupId(12);
+		$supplyCategory=Term::getTermsByGroupId(14);
 		$supplyStatus=Term::getTermsByGroupId(1);
 		$this->render('manageSupply',array(
 		'dataProvider'=>$dataProvider,
@@ -271,35 +262,25 @@ class ProductController extends AdminController {
 				$action=$model->supply_type==18?'manageSupply':'manageBuy';
 				$this->redirect(array($action));
 			}
-			else {
-				//redirect to create/update page when error(es) occured
-				$unit=Term::getTermsByGroupId(2);
-				$allCity=City::getAllCity();
-				$supplyCategory=Term::getTermsByGroupId(12);
-				$supplyStatus=Term::getTermsByGroupId(1);
-				$this->render('updateSupply',array('model'=>$productModel,
-				'unit'=>$unit,
-				'allCity'=>$allCity,
-				'supplyCategory'=>$supplyCategory,
-				'supplyStatus'=>$supplyStatus,
-				));
-			}
+			
 		}
-		else if(isset($_REQUEST['supply_id'])){
-			$supplyId=@$_REQUEST['supply_id'];
+		if($supplyId=@$_REQUEST['supply_id']){
 			$supplyModel=Supply::model()->with(array('user.enterprise'=>array('select'=>'ent_name'),'user'=>array('select'=>'user_name')))->findByPk($supplyId);
-				
+		}
+		$muContent=Term::getTermsByGroupId(16);
+		$waterContent=Term::getTermsByGroupId(17);
 			$unit=Term::getTermsByGroupId(2);
 			$allCity=City::getAllCity();
-			$supplyCategory=Term::getTermsByGroupId(12);
+			$supplyCategory=Term::getTermsByGroupId(14);
 			$supplyStatus=Term::getTermsByGroupId(1);
 			$this->render('updateSupply',array('model'=>$supplyModel,
 			'unit'=>$unit,
 			'allCity'=>$allCity,
 			'supplyCategory'=>$supplyCategory,
 			'supplyStatus'=>$supplyStatus,
+			'muContent'=>$muContent,
+		    'waterContent'=>$waterContent,
 			));
-		}
 
 	}
 	public function actionManageEnterprise()

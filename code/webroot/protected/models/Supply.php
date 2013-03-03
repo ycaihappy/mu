@@ -49,8 +49,8 @@ class Supply extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('supply_id, supply_user_id', 'required'),
-			array('supply_id, supply_user_id, supply_type, supply_category_id, supply_status, supply_recommend', 'numerical', 'integerOnly'=>true),
+			array('supply_id,supply_unit, supply_user_id', 'required'),
+			array('supply_id, supply_user_id,supply_mu_content,supply_water_content,  supply_type, supply_category_id, supply_status, supply_recommend', 'numerical', 'integerOnly'=>true),
 			array('supply_keyword, supply_content,supply_check_by', 'length', 'max'=>128),
 			array('supply_contractor, supply_phone', 'length', 'max'=>32),
 			array('supply_address', 'length', 'max'=>100),
@@ -89,6 +89,22 @@ class Supply extends CActiveRecord
 					'limit'=>8
 				),
 		);
+	}
+	public function hasWaterContent()
+	{
+		if($this->supply_category_id!=31)//只有钼精矿才有含水量
+		{
+			return false;
+		}
+		return true;
+	}
+	public function beforeSave()
+	{
+		if($this->supply_category_id!=31)//只有钼精矿才有含水量
+		{
+			$this->supply_water_content=0;
+		}
+		return parent::beforeSave();
 	}
 
 	/**

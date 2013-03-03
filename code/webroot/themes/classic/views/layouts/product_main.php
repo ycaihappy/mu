@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <title>现货首页</title>
-    <link rel="stylesheet" href="css/global.css">	
-	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
-
-
-</head>
+<?php $this->widget("CommonHeaderWidget");?>
 
 <body>
 

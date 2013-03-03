@@ -35,6 +35,22 @@ class Product extends CActiveRecord
 	{
 		return 'mu_product';
 	}
+	public function hasWaterContent()
+	{
+		if($this->product_type_id!=31)//只有钼精矿才有含水量
+		{
+			return false;
+		}
+		return true;
+	}
+	public function beforeSave()
+	{
+		if(!$this->hasWaterContent())//只有钼精矿才有含水量
+		{
+			$this->product_type_id=0;
+		}
+		return parent::beforeSave();
+	}
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -45,7 +61,7 @@ class Product extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('product_id', 'required'),
-			array('product_user_id, product_quanity, product_type_id, product_status,product_unit,product_city_id, product_special', 'numerical', 'integerOnly'=>true),
+			array('product_user_id,product_mu_content,product_water_content,  product_quanity, product_type_id, product_status,product_unit,product_city_id, product_special', 'numerical', 'integerOnly'=>true),
 			array('product_id', 'length', 'max'=>20),
 			array('product_name, product_unit', 'length', 'max'=>45),
 			array('product_price', 'length', 'max'=>10),

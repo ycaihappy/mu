@@ -30,6 +30,21 @@ $this->breadcrumbs=array(
 		<td><input type=text disabled="disabled" class='cmp-input' value="<?php echo $model->user->enterprise->ent_name;?>"/></td>
 </tr>
 <tr>
+<td class="label">品类：</td>
+		<td><?php echo $form->dropDownList($model,'product_type_id',$productType); ?>
+		<?php echo $form->error($model,'product_type_id'); ?></td>
+</tr>
+<tr>
+<td class="label">品质：</td>
+		<td><?php echo $form->dropDownList($model,'product_mu_content',$muContent); ?>
+		<?php echo $form->error($model,'product_mu_content'); ?></td>
+</tr>
+<tr id="water_content_tr" style="display:<?php if(!$model->hasWaterContent()) echo 'none'?>">
+<td class="label" >含水量：</td>
+		<td><?php echo $form->dropDownList($model,'product_water_content',$waterContent); ?>
+		<?php echo $form->error($model,'product_water_content'); ?></td>
+</tr>
+<tr>
 <td class="label">名称：</td>
 		<td><?php echo $form->textField($model,'product_name',array('class'=>'cmp-input')); ?>
 		<?php if($model->product_id): echo $form->hiddenField($model,'product_id');endif;?>
@@ -50,11 +65,7 @@ $this->breadcrumbs=array(
 		<td><?php echo $form->dropDownList($model,'product_city_id',$allCity); ?>
 		<?php echo $form->error($model,'product_city_id'); ?></td>
 </tr>
-<tr>
-<td class="label">品类：</td>
-		<td><?php echo $form->dropDownList($model,'product_type_id',$productType); ?>
-		<?php echo $form->error($model,'product_type_id'); ?></td>
-</tr>
+
 <tr>
 <td class="label">描述：</td>
 		<td>
@@ -78,3 +89,12 @@ $this->breadcrumbs=array(
 </table>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+<?php 
+Yii::app()->clientScript->registerScript('Product#displayWaterConent','
+$("#Product_product_type_id").change(function(){
+	var category_id=$(this).val();
+	var hasWater=category_id==31?"block":"none";
+	$("#water_content_tr").css("display",hasWater);
+});
+');
+?>

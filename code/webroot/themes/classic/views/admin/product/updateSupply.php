@@ -30,6 +30,11 @@ $this->breadcrumbs=array(
 		<td><input type=text disabled="disabled" class='cmp-input' value="<?php echo $model->user->enterprise->ent_name;?>"/></td>
 </tr>
 <tr>
+<td class="label">品类：</td>
+		<td><?php echo $form->dropDownList($model,'supply_category_id',$supplyCategory); ?>
+		<?php echo $form->error($model,'supply_category_id'); ?></td>
+</tr>
+<tr>
 <td class="label">名称：</td>
 		<td><?php echo $form->textField($model,'supply_name',array('class'=>'cmp-input')); ?>
 		<?php if($model->supply_id): echo $form->hiddenField($model,'supply_id');endif;?>
@@ -40,11 +45,18 @@ $this->breadcrumbs=array(
 		<td><?php echo $form->textField($model,'supply_keyword',array('class'=>'cmp-input')); ?>	
 		<?php echo $form->error($model,'supply_keyword'); ?></td>
 </tr>
+
 <tr>
-<td class="label">品类：</td>
-		<td><?php echo $form->dropDownList($model,'supply_category_id',$supplyCategory); ?>
-		<?php echo $form->error($model,'supply_category_id'); ?></td>
+<td class="label">品质：</td>
+		<td><?php echo $form->dropDownList($model,'supply_mu_content',$muContent); ?>
+		<?php echo $form->error($model,'supply_mu_content'); ?></td>
 </tr>
+<tr id="water_content_tr" style="display:<?php if(!$model->hasWaterContent()) echo 'none'?>">
+<td class="label" >含水量：</td>
+		<td><?php echo $form->dropDownList($model,'supply_water_content',$waterContent); ?>
+		<?php echo $form->error($model,'supply_water_content'); ?></td>
+</tr>
+
 <tr>
 <td class="label">单价：</td>
 		<td><?php echo $form->textField($model,'supply_price',array('class'=>'cmp-input')); ?>元/<?php echo $form->dropDownList($model,'supply_unit',$unit); ?>
@@ -89,3 +101,12 @@ $this->breadcrumbs=array(
 </table>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+<?php 
+Yii::app()->clientScript->registerScript('Product#displayWaterConent','
+$("#Supply_supply_category_id").change(function(){
+	var category_id=$(this).val();
+	var hasWater=category_id==31?"block":"none";
+	$("#water_content_tr").css("display",hasWater);
+});
+');
+?>

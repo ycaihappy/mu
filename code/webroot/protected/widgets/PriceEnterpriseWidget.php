@@ -1,16 +1,14 @@
 <?php
 class PriceEnterpriseWidget extends CWidget
 {
-    public $top_news;
-    public $top_mu_news;
+    public $list;
     public function init()
     {
-    	$this->top_news = Article::model()->topNews()->findAll();
-    	$this->top_mu_news = Article::model()->topMuNews()->findAll();
+    	$this->list =Enterprise::model()->recommedEnt()->findAll();
     }
 
     public function run()
     {
-        $this->render('price_enterprise',array('data'=>$this->top_news,'mu_news'=>$this->top_mu_news));
+        $this->render('price_enterprise',array('data'=>$this->list));
     }
 }

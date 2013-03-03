@@ -2,7 +2,7 @@
 class SupplyListWidget extends CWidget
 {
     public $list;
-
+	public $pager;
     public function init()
     {
         $criteria=new CDbCriteria;
@@ -10,14 +10,15 @@ class SupplyListWidget extends CWidget
 
         $count=Supply::model()->count($criteria);
 
-        $pager=new CPagination($count);
-        $pager->pageSize=15;
-        $pager->applyLimit($criteria);
+        $this->pager=new CPagination($count);
+        $this->pager->pageSize=15;
+        $this->pager->applyLimit($criteria);
         $this->list=Supply::model()->findAll($criteria);
+        
     }
 
     public function run()
     {
-        $this->render('supply_list',array('data'=>$this->list));
+        $this->render('supply_list',array('data'=>$this->list,'pager'=>$this->pager));
     }
 }

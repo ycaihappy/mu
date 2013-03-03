@@ -25,15 +25,20 @@
                 
         </tbody></table>
 	  	<div class="page" id="fenye">
-
-		<a href="javascript:void(0);">&lt;上一页</a>
-		<a class="page_cur">1</a>
-		<a href="?p=2">2</a>
-		<a href="?p=3">3</a>
-		<a href="?p=4">4</a>
-		<a>…</a>
-		<a title="下一页" href="?p=2">下一页&gt;</a>
-		<a title="尾页" href="?p=827">尾页</a></div>
+			<?php 
+	            $this->widget('CLinkPager',array(
+							'header'=>'',
+							'firstPageLabel'=>'首页',
+							'lastPageLabel'=>'末页',
+							'prevPageLabel'=>'上一页',
+							'nextPageLabel'=>'下一页',
+							'pages'=>$pager,
+							'maxButtonCount'=>7,
+							)
+				
+				);
+            ?>		
+		</div>
 
 			
 			</div>

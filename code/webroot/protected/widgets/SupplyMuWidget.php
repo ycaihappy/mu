@@ -1,16 +1,23 @@
 <?php
 class SupplyMuWidget extends CWidget
 {
-    public $top_news;
-    public $top_mu_news;
+    public $list;
+    public $pager;
     public function init()
     {
-    	$this->top_news = Article::model()->topNews()->findAll();
-    	$this->top_mu_news = Article::model()->topMuNews()->findAll();
+        $criteria=new CDbCriteria;
+        $criteria->order='supply_id DESC';
+
+        $count=Supply::model()->count($criteria);
+
+        $this->pager=new CPagination($count);
+        $this->pager->pageSize=9;
+        $this->pager->applyLimit($criteria);
+        $this->list=Supply::model()->findAll($criteria);
     }
 
     public function run()
     {
-        $this->render('supply_mu',array('data'=>$this->top_news,'mu_news'=>$this->top_mu_news));
+        $this->render('supply_mu',array('data'=>$this->list));
     }
 }

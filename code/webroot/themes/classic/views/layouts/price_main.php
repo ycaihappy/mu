@@ -94,9 +94,6 @@
 <div class="layout main">
 
 <?php echo $content;?>
-
-</div>
-	
 	
 	<div class="layout-area">
 		<div class="m-link">

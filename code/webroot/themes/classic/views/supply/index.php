@@ -7,7 +7,8 @@
         <?php $this->widget("SupplyAdWidget");?>
 		<!--module ad-->
 		<!--supply news-->
-        <?php $this->widget("SupplyTopNewsWidget");?>
+        <?php #$this->widget("SupplyTopNewsWidget");?>
+        <?php $this->widget("SupplyModuleWidget");?>
 		<!--supply news-->
 		
 		</div>
@@ -21,7 +22,6 @@
         <?php $this->widget("SupplyMuWidget");?>
 			<!--m-supply-mt-->
 		</div>
-		
 		
 	
 		<div class="clearfix"></div>

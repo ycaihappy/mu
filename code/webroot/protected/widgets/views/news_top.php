@@ -2,6 +2,7 @@
 $class = 'middle';
 $title = '新闻中心';
 $key = 'art_title';
+
 ?>
     <div class="m-tab-list <?php echo $class;?>">
 			

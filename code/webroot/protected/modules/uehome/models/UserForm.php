@@ -23,6 +23,7 @@ class UserForm extends CFormModel
             array('user_mobile_no', 'required'),		
             array('user_subscribe', 'required'),		
             array('user_name', 'required'),		
+            array('user_city_id', 'required'),		
 		);
 	}
 
@@ -37,11 +38,12 @@ class UserForm extends CFormModel
 
 	public function update()
 	{
-        $addsql = "update mu_user set user_name=:user_name,user_nickname=:user_nickname,user_mobile_no=:user_mobile_no,user_email=:user_email,user_subscribe=:user_subscribe where user_id=:user_id";
+        $addsql = "update mu_user set user_city_id=:user_city_id,user_name=:user_name,user_nickname=:user_nickname,user_mobile_no=:user_mobile_no,user_email=:user_email,user_subscribe=:user_subscribe where user_id=:user_id";
 
         $commd = Yii::app()->db->createCommand($addsql);
 
         $commd->bindValue(":user_name", $this->user_name, PDO::PARAM_STR);
+        $commd->bindValue(":user_city_id", $this->user_city_id, PDO::PARAM_STR);
         $commd->bindValue(":user_nickname", $this->user_nickname, PDO::PARAM_STR);
         $commd->bindValue(":user_mobile_no", $this->user_mobile_no, PDO::PARAM_STR);
         $commd->bindValue(":user_email", $this->user_email, PDO::PARAM_STR);

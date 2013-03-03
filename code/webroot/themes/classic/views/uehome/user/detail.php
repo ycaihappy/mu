@@ -35,7 +35,7 @@
 " value="0755" class="cmp-input" /><input type="text" name="fax" value="12121212" class="cmp-input" /></td>
 		</tr>-->
 		<tr>
-			<td class="label">城市：</td><td><?php echo $form->dropDownList($model, 'user_province_id',array('0'=>'省份','1'=>'湖北'));?><?php echo $form->dropDownList($model, 'user_city_id',array('0'=>'市','1'=>'天门'));?></td>
+			<td class="label">城市：</td><td><?php echo $form->dropDownList($model, 'user_city_id',$city);?></td>
 		</tr>
 		<!--<tr>
 			<td class="label">详细地址：</td><td><input type="text" name="address" value="深圳市" class="cmp-input w245" /></td>

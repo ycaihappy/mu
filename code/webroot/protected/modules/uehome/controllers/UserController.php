@@ -82,7 +82,8 @@ class UserController extends Controller {
             $user = new User();
             $model = $user_info = User::model()->findByPk(yii::app()->user->getID());
         }
-		$this->render ( 'detail', array('model'=>$model) );
+        $city = City::model()->getAllCity();
+		$this->render ( 'detail', array('model'=>$model, 'city'=>$city) );
 	}
 	public function actionCompany() {
         $model = new EnterpriseForm();
@@ -100,7 +101,10 @@ class UserController extends Controller {
             $user = new Enterprise();
             $model = Enterprise::model()->find("ent_user_id=:ent_user_id", array('ent_user_id'=>yii::app()->user->getID()));
         }
-		$this->render ( 'company' ,array('model'=>$model));
+        $city = City::model()->getAllCity();
+
+        $ent_type = Term::model()->getTermsByGroupId(5);
+		$this->render ( 'company' ,array('model'=>$model,'city'=>$city,'ent_type'=>$ent_type));
 	}
 	public function actionPassword() {
 		$this->render ( 'password' );
@@ -131,7 +135,10 @@ class UserController extends Controller {
                 $model->draft();
             }
         }
-		$this->render ( 'supply' ,array('model'=>$model));
+        $supply_type = Term::model()->getTermsByGroupId(11);
+        $product_type= Term::model()->getTermsByGroupId(14);
+        $city = City::model()->getAllCity();
+		$this->render ( 'supply' ,array('model'=>$model,'supply_type'=>$supply_type,'product_type'=>$product_type,'city'=>$city));
 	}
 	public function actionGoods() {
         $model = new ProductForm();
@@ -144,7 +151,10 @@ class UserController extends Controller {
                 $model->draft();
             }
         }
-		$this->render ( 'goods' , array('model'=>$model));
+        $product_type= Term::model()->getTermsByGroupId(14);
+        $unit_type= Term::model()->getTermsByGroupId(2);
+        $city = City::model()->getAllCity();
+		$this->render ( 'goods' , array('model'=>$model,'product_type'=>$product_type,'city'=>$city,'unit_type'=>$unit_type));
 	}
 	public function actionCert() {
         $model = new FileForm;

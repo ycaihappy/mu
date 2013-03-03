@@ -120,7 +120,7 @@ class buildCommand extends CConsoleCommand{
              '  2012年我国新增铁、锰、镍、钨、钼矿资源储量',
              '  有色金属行业:钓鱼岛争端升温,战争金属上火,',
             );
-            for($i=200;$i<250;$i++)
+            for($i=600;$i<650;$i++)
             {
                 $article = new Article();
                 $article->art_id = $i+1;

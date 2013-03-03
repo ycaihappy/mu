@@ -19,13 +19,13 @@
 		</tr>
 			
 		<tr>
-			<td class="label">现货品类：</td><td><?php echo $form->dropDownList($model, 'product_type_id', array('0'=>'钼铁','1'=>'钼精矿'));?></td>
+			<td class="label">现货品类：</td><td><?php echo $form->dropDownList($model, 'product_type_id', $product_type);?></td>
 		</tr>
         <tr>
-           <td class="label">地点：</td><td><?php echo $form->dropDownList($model, 'district',array('0'=>'地区','1'=>'北京'));?><?php echo $form->dropDownList($model, 'province',array('0'=>'省份','1'=>'湖北'));?><?php echo $form->dropDownList($model, 'product_city_id',array('0'=>'市','1'=>'天门'));?></td>
+           <td class="label">地点：</td><td><?php echo $form->dropDownList($model, 'product_city_id',$city);?></td>
         </tr>
 		<tr>
-        <td class="label">数量：</td><td><?php echo $form->dropDownList($model, 'product_unit', array('0'=>'吨','1'=>'千克'));?></td>
+        <td class="label">数量：</td><td><?php echo $form->dropDownList($model, 'product_unit', $unit_type);?></td>
 		</tr>		
 		<tr>
             <td class="label">价格：</td><td><?php echo $form->textField($model, 'product_price', array('class'=>'cmp-input','value'=>''));?></td>

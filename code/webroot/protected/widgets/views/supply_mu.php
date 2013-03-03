@@ -8,7 +8,7 @@
 			<?php for($index=0;$index<count($data);$index++):
             if ( $index < 3) $class='top';
 						?>
-                            <li class="<?php echo $class;?>"><em><?php echo $index;?></em<a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id']));?>" target="_blank"><?php echo $data[$index]['supply_name']; ?></a></li>
+                      <li class="<?php echo $class;?>"><em><?php echo $index+1;?></em> <a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id'])); ?>" target="_blank"><?php echo $data[$index]['supply_name']; ?></a></li>
 					<?php endfor;?>			
 					</ul>
 					<a class="ad"><img src="images/193x60.gif" width="191" height="60" /></a>
@@ -18,7 +18,7 @@
 						<a class="ad"><img src="images/73x62_1.gif" width="73" height="62" /></a>
 						<p>
 							<i></i>
-                            <a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[3]['supply_id']));?>><?php echo $data[3]['supply_name'];?></a>
+                            <a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[3]['supply_id']));?>"><?php echo $data[3]['supply_name'];?></a>
                             <span><?php echo $data[3]['supply_keyword'];?></span>
 						</p>
 					</div>

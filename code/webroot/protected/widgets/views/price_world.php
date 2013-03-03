@@ -1,4 +1,8 @@
 		<div class="m-hq-dq">
-        <h1><a href="/NewsList.aspx?pItemId=23&amp;itemId=108">国际行情</a></h1>
-        <ul id="gjhqInfo"><li><span>02-25</span><a target="_blank" title="2月22日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=d376013a-2cb6-4d3e-a14e-1d9dd78fddb3">2月22日国际主要钢材市场价格汇总</a></li><li><span>02-22</span><a target="_blank" title="2月21日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=9b36c4bc-d8fc-42bb-b92b-c3f86f2718f4">2月21日国际主要钢材市场价格汇总</a></li><li><span>02-20</span><a target="_blank" title="2月19日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=c684cc54-9636-4fe6-87d0-104a0fdc0115">2月19日国际主要钢材市场价格汇总</a></li><li><span>02-18</span><a target="_blank" title="2月16日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=ad02dcb9-b3f1-4a59-a7fd-8f4413d447e3">2月16日国际主要钢材市场价格汇总</a></li><li><span>02-07</span><a target="_blank" title="2月6日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=525c35f8-8d4d-42a7-8906-2e97163d4149">2月6日国际主要钢材市场价格汇总</a></li><li><span>02-06</span><a target="_blank" title="2月5日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=a2ea4034-345d-4c55-a598-2435dd4f227b">2月5日国际主要钢材市场价格汇总</a></li><li><span>02-02</span><a target="_blank" title="2月1日国际主要钢材市场价格汇总" href="NewsInfo.aspx?id=2e08deda-6ac6-49a2-9c77-fd1e2b5d41f6">2月1日国际主要钢材市场价格汇总</a></li></ul>
+        <h1><a href="#">国际行情</a></h1>
+        <ul id="gjhqInfo">
+      		<?php for($index=0;$index<count($data);$index++):?>
+        <li><span><?php echo date("m-d",strtotime($data[$index]['art_post_date']));?></span><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" title="<?php echo $data[$index]['art_title'] ?>" target="_blank"><?php echo $data[$index]['art_title']; ?></a></li>
+			<?php endfor;?>			
+        </ul>
     </div>

@@ -18,7 +18,7 @@
 						<a class="ad"><img src="images/73x62_1.gif" width="73" height="62" /></a>
 						<p>
 							<i></i>
-                            <a><?php echo $data[3]['supply_name'];?></a>
+                            <a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[3]['supply_id']));?>><?php echo $data[3]['supply_name'];?></a>
                             <span><?php echo $data[3]['supply_keyword'];?></span>
 						</p>
 					</div>
@@ -27,7 +27,7 @@
 						<a class="ad"><img src="images/73x62_2.gif" width="73" height="62" /></a>
 						<p>
 							<i></i>
-                            <a><?php echo $data[6]['supply_name'];?></a>
+                            <a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[6]['supply_id']));?>"><?php echo $data[6]['supply_name'];?></a>
                             <span><?php echo $data[6]['supply_keyword'];?></span>
 						</p>
 					</div>

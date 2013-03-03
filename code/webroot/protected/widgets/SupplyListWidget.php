@@ -1,16 +1,23 @@
 <?php
 class SupplyListWidget extends CWidget
 {
-    public $top_news;
-    public $top_mu_news;
+    public $list;
+
     public function init()
     {
-    	$this->top_news = Article::model()->topNews()->findAll();
-    	$this->top_mu_news = Article::model()->topMuNews()->findAll();
+        $criteria=new CDbCriteria;
+        $criteria->order='supply_id DESC';
+
+        $count=Supply::model()->count($criteria);
+
+        $pager=new CPagination($count);
+        $pager->pageSize=15;
+        $pager->applyLimit($criteria);
+        $this->list=Supply::model()->findAll($criteria);
     }
 
     public function run()
     {
-        $this->render('supply_list',array('data'=>$this->top_news,'mu_news'=>$this->top_mu_news));
+        $this->render('supply_list',array('data'=>$this->list));
     }
 }

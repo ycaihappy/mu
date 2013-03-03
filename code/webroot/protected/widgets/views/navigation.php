@@ -17,7 +17,11 @@
            <a href="<?php echo Yii::app()->controller->createUrl('price/index');?>">当日价</a><a href="">现货价</a><a href="">钼行情</a><a href="">钼走势</a></p>
 			<i class="sp"></i>
 			</div>
-			
+			<div class="nav-con">
+            <strong><a href="<?php echo Yii::app()->controller->createUrl('news/index');?>">钼服务</a></strong><p>
+           <a href="<?php echo Yii::app()->controller->createUrl('price/index');?>">物流仓储</a><a href="">信用金</a><a href="">抵押贷款</a><a href="">物流</a></p>
+			<i class="sp"></i>
+			</div>
 			<div class="nav-con">
             <strong><a href="<?php echo Yii::app()->controller->createUrl('news/index',array('type'=>5));?>">钼百科</a></strong><p>
             <a href="<?php echo Yii::app()->controller->createUrl('news/index',array('type'=>6));?>">钼用途</a><a href="<?php echo Yii::app()->controller->createUrl('news/index',array('type'=>7));?>">钼国际</a><a href="<?php echo Yii::app()->controller->createUrl('news/index',array('type'=>8));?>">钼治炼</a><a href="<?php echo Yii::app()->controller->createUrl('news/index',array('type'=>9));?>">钼化工</a></p>

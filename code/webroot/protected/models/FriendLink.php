@@ -43,6 +43,7 @@ class FriendLink extends CActiveRecord
 			array('flink_id, flink_user_id, flink_status', 'numerical', 'integerOnly'=>true),
 			array('flink_name', 'length', 'max'=>128),
 			array('flink_url', 'length', 'max'=>512),
+			array('flink_url', 'url','message'=>'不正确的链接地址格式'),
 			array('flink_create_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -59,6 +60,7 @@ class FriendLink extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'user'=>array(self::BELONGS_TO,'User','flink_user_id'),
+			'status'=>array(self::BELONGS_TO,'Term','flink_status'),
 		);
 	}
 	public function scopes()
@@ -66,6 +68,14 @@ class FriendLink extends CActiveRecord
 		return array(
 			'recentlyFriendLink'=>array('select'=>'flink_name,flink_url','condition'=>'flink_status=1'),
 		);
+	}
+	public function beforeSave()
+	{
+		if($this->isNewRecord)
+		{
+			$this->flink_create_date=date('Y-m-d H:i:s');
+		}
+		return parent::beforeSave();
 	}
 	public function recentlyFriendLink($uid,$limit=5)
 	{

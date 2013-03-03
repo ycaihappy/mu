@@ -942,5 +942,75 @@ class UserController extends AdminController
 		$templateStatus=Term::getTermsByGroupId(1);
 		$this->render('updateUserTemplate',array('model'=>$model,'templateStatus'=>$templateStatus));
 	}
+	public function actionManageFLink()
+	{
+		$model=new FriendLink();
+		$model->flink_status=@$_REQUEST['FriendLink']['flink_status'];
+		$model->flink_name=@$_REQUEST['FriendLink']['flink_name'];
+		$flinkCriteria=new CDbCriteria();
+		$flinkCriteria->with=array('status'=>array('select'=>'term_name'),
+		'user'=>array('select'=>'user_name')
+		);
+		$dataProvider=new CActiveDataProvider('FriendLink',array(
+			'criteria'=>$flinkCriteria,
+			'pagination'=>array(
+				'pageSize'=>10,
+				'pageVar'=>'page',
+				'params'=>array(
+					'FriendLink[flink_status]'=>$model->flink_status,
+					'FriendLink[flink_name]'=>$model->flink_name,
+				),
+			),
+		));
+		$flinkStatus=Term::getTermsByGroupId(1);
+		$data=compact('dataProvider','flinkStatus','model');
+		$this->render('manageFLink',$data);
+		
+	}
+	public function actionUpdateFLink()
+	{
+		$model=new FriendLink();
+		if(isset($_POST['FriendLink']))
+		{
+			$model->attributes=$_POST['FriendLink'];
+			if($model->flink_id)$model->setIsNewRecord(false);
+			if($model->save())
+			{
+				$this->redirect(array('manageFLink'));
+			}
+		}
+		if($flinkId=@$_GET['flink_id'])
+		{
+			$model=$model->findByPk($flinkId);
+		}
+		$flinkStatus=Term::getTermsByGroupId(1);
+		$data=compact('model','flinkStatus');
+		$this->render('updateFLink',$data);
+	}
+	public function actionChangeFLinkStatus()
+	{
+		$toStatus=@$_REQUEST['toStatus'];
+		$flinkIds=@$_REQUEST['flink_id'];
+		if(!$flinkIds && in_array($toStatus,array(1,2)))
+		{
+				
+			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的友情链接，以及改变的状态');
+			$this->redirect(array('manageFLink'));
+				
+		}
+		$updateStatusCriteria=new CDbCriteria();
+		$updateStatusCriteria->addInCondition('flink_id', $productIds);
+		
+		$updateRows=FriendLink::model()->updateAll(array('flink_status'=>$toStatus),$updateStatusCriteria);
+		if($updateRows>0)
+		{
+			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
+		}
+		else {
+			Yii::app()->admin->setFlash('changeStatusError','更新异常');
+		}
+		$this->redirect(array('manageFLink','page'=>Yii::app()->request->getParam('page',1)));
+		
+	}
 
 }

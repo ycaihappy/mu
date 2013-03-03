@@ -21,6 +21,7 @@ case 2:
 				array('label'=>'会员管理', 'url'=>array('user/manageUser'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
 				array('label'=>'管理员管理', 'url'=>array('user/manageAdminUser'),'linkOptions'=>array('target'=>'mainFrame')),
 				array('label'=>'旺铺模板管理', 'url'=>array('user/manageUserTemplate'),'linkOptions'=>array('target'=>'mainFrame')),
+				array('label'=>'友情链接管理', 'url'=>array('user/manageFLink'),'linkOptions'=>array('target'=>'mainFrame')),
 				array('label'=>'角色管理', 'url'=>array('user/manageAuthItem'),'linkOptions'=>array('target'=>'mainFrame')),
 				array('label'=>'功能管理', 'url'=>array('user/generateNewRightOpers'),'linkOptions'=>array('target'=>'mainFrame')),
 				),

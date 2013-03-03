@@ -338,10 +338,12 @@ class ProductController extends AdminController {
 		$businessModel=Term::getTermsByGroupId(5);
 		$type=Term::getTermsByGroupId(4);
 		$entStatus=Term::getTermsByGroupId(1);
+		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
 		$this->render('manageEnterprise',array('dataProvider'=>$dataProvider,
 		'type'=>$type,
 		'entStatus'=>$entStatus,
 		'businessModel'=>$businessModel,
+		'rePosition'=>$rePosition,
 		'model'=>$model));
 	}
 	public function actionChangeEnterpriseStatus()

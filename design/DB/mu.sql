@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-03 21:21:32
+# Date/time:                    2013-03-04 00:14:12
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -409,6 +409,7 @@ CREATE TABLE IF NOT EXISTS `mu_friend_link` (
   `flink_name` varchar(128) NOT NULL,
   `flink_user_id` int(11) NOT NULL,
   `flink_url` varchar(512) DEFAULT NULL,
+  `flink_order` tinyint(4) DEFAULT '0',
   `flink_status` tinyint(4) DEFAULT NULL,
   `flink_create_date` datetime DEFAULT NULL,
   PRIMARY KEY (`flink_id`)
@@ -417,9 +418,9 @@ CREATE TABLE IF NOT EXISTS `mu_friend_link` (
 # Dumping data for table mu.mu_friend_link: 2 rows
 DELETE FROM `mu_friend_link`;
 /*!40000 ALTER TABLE `mu_friend_link` DISABLE KEYS */;
-INSERT INTO `mu_friend_link` (`flink_id`, `flink_name`, `flink_user_id`, `flink_url`, `flink_status`, `flink_create_date`) VALUES
-	(1, '百度科技', 3, 'http://www.baidu.com', 1, '2013-02-25 00:17:38'),
-	(2, 'google科技', 3, 'http://www.google.com', 1, '2013-02-25 00:17:38');
+INSERT INTO `mu_friend_link` (`flink_id`, `flink_name`, `flink_user_id`, `flink_url`, `flink_order`, `flink_status`, `flink_create_date`) VALUES
+	(1, '百度科技', 3, 'http://www.baidu.com', 0, 2, '2013-02-25 00:17:38'),
+	(2, 'google科技', 3, 'http://www.google.com', 0, 1, '2013-02-25 00:17:38');
 /*!40000 ALTER TABLE `mu_friend_link` ENABLE KEYS */;
 
 
@@ -806,7 +807,7 @@ CREATE TABLE IF NOT EXISTS `mu_recommend` (
   `recommend_status` int(4) DEFAULT NULL,
   `recommend_time` datetime DEFAULT NULL,
   PRIMARY KEY (`recommend_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_recommend: 11 rows
 DELETE FROM `mu_recommend`;
@@ -822,7 +823,10 @@ INSERT INTO `mu_recommend` (`recommend_id`, `recommend_object_id`, `recommend_ty
 	(8, 3, 23, 45, 1, '2013-03-03 00:47:07'),
 	(9, 4, 23, 45, 1, '2013-03-03 00:47:07'),
 	(10, 5, 23, 45, 1, '2013-03-03 00:49:19'),
-	(11, 4, 23, 46, 1, '2013-03-03 00:59:36');
+	(11, 4, 23, 46, 1, '2013-03-03 00:59:36'),
+	(12, 45, 24, 53, 1, '2013-03-03 23:47:23'),
+	(13, 69, 24, 53, 1, '2013-03-03 23:47:23'),
+	(14, 100, 24, 53, 1, '2013-03-03 23:47:23');
 /*!40000 ALTER TABLE `mu_recommend` ENABLE KEYS */;
 
 
@@ -950,7 +954,10 @@ INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`
 	('admin-SystemManageMessageTemplate', 0, NULL, NULL, NULL, 'N;'),
 	('admin-SystemSaveMessageTemplate', 0, NULL, NULL, NULL, 'N;'),
 	('messageTemplateManage', 1, '邮件模板管理', '', '', 's:0:"";'),
-	('admin-AdvertisementRecommendRecommendInfo', 0, NULL, NULL, NULL, 'N;');
+	('admin-AdvertisementRecommendRecommendInfo', 0, NULL, NULL, NULL, 'N;'),
+	('admin-UserManageFLink', 0, NULL, NULL, NULL, 'N;'),
+	('flinkMange', 1, '友情链接管理', '', '', 's:0:"";'),
+	('admin-UserUpdateFLink', 0, NULL, NULL, NULL, 'N;');
 /*!40000 ALTER TABLE `mu_right_item` ENABLE KEYS */;
 
 
@@ -983,6 +990,8 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('enterpriseManage', 'admin-ProductChangeEnterpriseStatus'),
 	('enterpriseManage', 'admin-ProductManageEnterprise'),
 	('enterpriseManage', 'admin-ProductUpdateEnterprise'),
+	('flinkMange', 'admin-UserManageFLink'),
+	('flinkMange', 'admin-UserUpdateFLink'),
 	('manageUserTemplate', 'admin-UserChangeUserTemplateStatus'),
 	('manageUserTemplate', 'admin-UserDeleteUserTemplate'),
 	('manageUserTemplate', 'admin-UserManageUserTemplate'),
@@ -1045,6 +1054,7 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('superAdmin', 'buyManage'),
 	('superAdmin', 'cityManage'),
 	('superAdmin', 'enterpriseManage'),
+	('superAdmin', 'flinkMange'),
 	('superAdmin', 'manageUserTemplate'),
 	('superAdmin', 'messageTemplateManage'),
 	('superAdmin', 'newsManage'),
@@ -1493,7 +1503,8 @@ INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `t
 	(49, 0, '钼含量0.02', '', 16, 0, NULL),
 	(50, 0, '钼含量50', '', 16, 0, NULL),
 	(51, 0, '含水量30%', '', 17, 0, NULL),
-	(52, 0, '含水量80', '', 17, 0, NULL);
+	(52, 0, '含水量80', '', 17, 0, NULL),
+	(53, 0, '现货首页--左侧栏', '', 13, 0, NULL);
 /*!40000 ALTER TABLE `mu_term` ENABLE KEYS */;
 
 
@@ -1652,7 +1663,7 @@ DELETE FROM `mu_user_enterprise`;
 /*!40000 ALTER TABLE `mu_user_enterprise` DISABLE KEYS */;
 INSERT INTO `mu_user_enterprise` (`ent_id`, `ent_user_id`, `ent_name`, `ent_type`, `ent_website`, `ent_business_model`, `ent_tax`, `ent_zipcode`, `ent_introduce`, `ent_location`, `ent_city`, `ent_status`, `ent_chief`, `ent_create_time`, `ent_chief_postion`, `ent_business_scope`, `ent_registered_capital`, `ent_recommend`, `ent_logo`, `ent_image`, `ent_update_time`, `ent_check_by`) VALUES
 	(45, 1, '镇江市金广铁合金有限公司(钼贸易型企业)', 4, 'http://www.mushw.com', 6, NULL, '51800', '企业是从事生产、流通、服务等经济活动，以生产或服务满足社会需要，实行自主经营、独立核算、依法设立的一种盈利性的经济组织。企业主要指独立的盈利性组织。在中国计划经济时期，“企业”是与“事业单位”平行使用的常用词语。《辞海》1979年版中，“企业”的解释为：“从事生产、流通或服务活动的独立核算经济单位”；“事业单位”的解释为：“受国家机关领导，不实行经济核算的单位”。在20世纪后期中国大陆改革开放与现代化建设及信息技术领域新概念大量涌入的背景下，“企业”一词的用法有所变化，并不限于商业性或盈利组织', '深圳', 4, 1, '李总', '2013-01-31 00:00:00', 8, '网络，安全，建站', 500, 1, 'image', NULL, '2013-01-31 00:00:00', 'ueelife'),
-	(69, 2, '昆明昊泰钼化有限公司(钼生产型/贸易型企业)', 5, 'http://www.mushw.com', 6, NULL, '51800', '企业是从事生产、流通、服务等经济活动，以生产或服务满足社会需要，实行自主经营、独立核算、依法设立的一种盈利性的经济组织。企业主要指独立的盈利性组织。在中国计划经济时期，“企业”是与“事业单位”平行使用的常用词语。《辞海》1979年版中，“企业”的解释为：“从事生产、流通或服务活动的独立核算经济单位”；“事业单位”的解释为：“受国家机关领导，不实行经济核算的单位”。在20世纪后期中国大陆改革开放与现代化建设及信息技术领域新概念大量涌入的背景下，“企业”一词的用法有所变化，并不限于商业性或盈利组织', '深圳', 3, 2, '李总', '2013-01-31 00:00:00', 8, '网络，安全，建站', 500, 1, 'image', NULL, '2013-01-31 00:00:00', 'ueelife'),
+	(69, 2, '昆明昊泰钼化有限公司(钼生产型/贸易型企业)', 5, 'http://www.mushw.com', 6, NULL, '51800', '企业是从事生产、流通、服务等经济活动，以生产或服务满足社会需要，实行自主经营、独立核算、依法设立的一种盈利性的经济组织。企业主要指独立的盈利性组织。在中国计划经济时期，“企业”是与“事业单位”平行使用的常用词语。《辞海》1979年版中，“企业”的解释为：“从事生产、流通或服务活动的独立核算经济单位”；“事业单位”的解释为：“受国家机关领导，不实行经济核算的单位”。在20世纪后期中国大陆改革开放与现代化建设及信息技术领域新概念大量涌入的背景下，“企业”一词的用法有所变化，并不限于商业性或盈利组织', '深圳', 3, 1, '李总', '2013-01-31 00:00:00', 8, '网络，安全，建站', 500, 1, 'image', NULL, '2013-01-31 00:00:00', 'ueelife'),
 	(100, 3, '昆明昊泰钼化有限公司(钼生产型/贸易型企业)-分部', 5, 'http://www.mushw.com', 6, '023-4555443', '51800', '企业是从事生产、流通、服务等经济活动，以生产或服务满足社会需要，实行自主经营、独立核算、依法设立的一种盈利性的经济组织。企业主要指独立的盈利性组织。在中国计划经济时期，“企业”是与“事业单位”平行使用的常用词语。《辞海》1979年版中，“企业”的解释为：“从事生产、流通或服务活动的独立核算经济单位”；“事业单位”的解释为：“受国家机关领导，不实行经济核算的单位”。在20世纪后期中国大陆改革开放与现代化建设及信息技术领域新概念大量涌入的背景下，“企业”一词的用法有所变化，并不限于商业性或盈利组织', '深圳', 3, 1, '李总', '2013-01-31 00:00:00', 8, '网络，安全，建站', 500, 1, 'logo.jpg', 'image.jpg', '2013-01-31 00:00:00', 'ueelife');
 /*!40000 ALTER TABLE `mu_user_enterprise` ENABLE KEYS */;
 

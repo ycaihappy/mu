@@ -11,7 +11,7 @@
 				<div class="img"><a><img src="images/108x112_1.gif" width="108" height="112" /></a></div>
 				<div class="list">
 					<ul>       
-	<?php for($index=0;$index<count($data);$index++):
+	<?php for($index=0;$index<count($data)-2;$index++):
 						?>
                             <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" target="_blank"><?php echo $data[$index]['art_title']; ?></a></li>
 					<?php endfor;?>			
@@ -22,7 +22,7 @@
 				<div class="img"><a><img src="images/108x112_2.gif" width="108" height="112" /></a></div>
 				<div class="list">
 					<ul>       
-	<?php for($index=1;$index<count($data);$index++):
+	<?php for($index=1;$index<count($data)-2;$index++):
 						?>
                             <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" target="_blank"><?php echo $data[$index]['art_title']; ?></a></li>
 					<?php endfor;?>			
@@ -33,7 +33,7 @@
 				<div class="img"><a><img src="images/108x112_3.gif" width="108" height="112" /></a></div>
 				<div class="list">
 					<ul>       
-	<?php for($index=0;$index<count($data);$index++):
+	<?php for($index=0;$index<count($data)-2;$index++):
 						?>
                             <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" target="_blank"><?php echo $data[$index]['art_title']; ?></a></li>
 					<?php endfor;?>			

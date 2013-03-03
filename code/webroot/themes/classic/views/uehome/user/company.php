@@ -25,7 +25,7 @@
 			<td class="label">企业类型：</td><td><select name="company_category"><option value="0">国有企业</option></select></td>
 		</tr>-->
 		<tr>
-			<td class="label">经营模式：</td><td><?php echo $form->dropDownList($model, 'ent_type', array('0'=>'生产型','1'=>'贸易型'));?></td>
+			<td class="label">经营模式：</td><td><?php echo $form->dropDownList($model, 'ent_type', $ent_type);?></td>
 		</tr>
 		<tr>
 			<td class="label">主营产品：</td><td><?php echo $form->textField($model, 'ent_business_scope', array('class'=>'cmp-input','value'=>$model->ent_business_scope));?></td>

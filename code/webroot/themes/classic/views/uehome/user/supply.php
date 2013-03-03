@@ -12,7 +12,7 @@
 ));?>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
 		<tr>
-            <td class="label">类型：</td><td><?php echo $form->dropDownList($model, 'supply_category', array('0'=>'供应','1'=>'求购'));?></td>
+            <td class="label">类型：</td><td><?php echo $form->dropDownList($model, 'supply_category', $supply_type);?></td>
 		</tr>
 		<tr>
             <td class="label">名称：</td><td><?php echo $form->textField($model, 'supply_name', array('class'=>'cmp-input','value'=>''));?><span class="msg">不能包含“.,、/”等特殊字符</span></td>
@@ -21,10 +21,10 @@
 			<td class="label">关键字：</td><td><?php echo $form->textField($model, 'keywords', array('class'=>'cmp-input','value'=>''));?></td>
 		</tr>
 		<tr>
-        <td class="label">品类：</td><td><?php echo $form->dropDownList($model, 'category', array('0'=>'钼铁','1'=>'钼精矿'));?></td>
+        <td class="label">品类：</td><td><?php echo $form->dropDownList($model, 'category', $product_type);?></td>
 		</tr>
 		<tr>
-        <td class="label">地点：</td><td><?php echo $form->dropDownList($model, 'district',array('0'=>'地区','1'=>'北京'));?><?php echo $form->dropDownList($model, 'province',array('0'=>'省份','1'=>'湖北'));?><?php echo $form->dropDownList($model, 'city',array('0'=>'市','1'=>'天门'));?></td>
+        <td class="label">地点：</td><td><?php echo $form->dropDownList($model, 'city',$city);?></td>
 		</tr>
 		<tr>
         <td class="label">地址：</td><td><?php echo $form->textField($model, 'address', array('class'=>'cmp-input','value'=>''));?></td>

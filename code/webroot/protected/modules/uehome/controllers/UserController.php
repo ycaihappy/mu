@@ -82,7 +82,8 @@ class UserController extends Controller {
             $user = new User();
             $model = $user_info = User::model()->findByPk(yii::app()->user->getID());
         }
-		$this->render ( 'detail', array('model'=>$model) );
+        $city = City::model()->getAllCity();
+		$this->render ( 'detail', array('model'=>$model, 'city'=>$city) );
 	}
 	public function actionCompany() {
         $model = new EnterpriseForm();
@@ -100,7 +101,8 @@ class UserController extends Controller {
             $user = new Enterprise();
             $model = Enterprise::model()->find("ent_user_id=:ent_user_id", array('ent_user_id'=>yii::app()->user->getID()));
         }
-		$this->render ( 'company' ,array('model'=>$model));
+        $city = City::model()->getAllCity();
+		$this->render ( 'company' ,array('model'=>$model,'city'=>$city));
 	}
 	public function actionPassword() {
 		$this->render ( 'password' );

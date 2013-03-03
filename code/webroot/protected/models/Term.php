@@ -50,7 +50,7 @@ class Term extends CActiveRecord
 			array('term_id, term_parent_id, term_name, term_slug, term_group_id, term_order, term_create_time', 'safe', 'on'=>'search'),
 		);
 	}
-	public static function getTermsByGroupId($groupId,$top=false,$parent=null,$empty='不限')
+	public static function getTermsByGroupId($groupId,$top=false,$parent=null,$empty='不限',$needEmpty=true)
 	{
 		if($groupId)
 		{
@@ -75,7 +75,9 @@ class Term extends CActiveRecord
 					$returnTermsTermp[$term->term_id]=$term;
 				}
 				$returnTerms=array();
-				$returnTerms[0]=$empty;
+				if($needEmpty){
+					$returnTerms[0]=$empty;
+				}
 				foreach($terms as $term)
 				{
 					$returnLayer=array();

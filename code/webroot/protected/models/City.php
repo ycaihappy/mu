@@ -13,6 +13,7 @@
  */
 class City extends CActiveRecord
 {
+	private  static $cityCache;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -48,24 +49,23 @@ class City extends CActiveRecord
 		array('city_id, city_name, city_parent, city_level, city_order, city_open', 'safe', 'on'=>'search'),
 		);
 	}
-	public static function getAllCity($cityId=0)
+	public static function getAllCity($cityId=false)
 	{
-		static $citys=null;
-		if(!$citys)
+		if(!self::$cityCache)
 		{
-			$citys=CCacheHelper::getAllCity();
+			self::$cityCache=CCacheHelper::getAllCity();
 		}
-		if(!$cityId)
+		if($cityId===false)
 		{
 			$returnCity=array();
 			$returnCity[0]='地区';
-			foreach ($citys as $city) {
+			foreach (self::$cityCache as $city) {
 				$parentCity=array();
 				$parent=$city->city_parent;
 				while($parent)
 				{
-					$parentCity[]=$citys[$parent]->city_name;
-					$parent=$citys[$parent]->city_parent;
+					$parentCity[]=self::$cityCache[$parent]->city_name;
+					$parent=self::$cityCache[$parent]->city_parent;
 				}
 				$parentCity[]=$city->city_name;
 				$returnCity[$city->city_id]=implode('>>',$parentCity);
@@ -75,7 +75,7 @@ class City extends CActiveRecord
 		else
 		{
 			$returnCity=array();
-			foreach ($citys as $city) {
+			foreach (self::$cityCache as $city) {
 				if($city->city_parent==$cityId)
 				{
 					$returnCity[$city->city_id]=$city->city_name;
@@ -86,27 +86,46 @@ class City extends CActiveRecord
 	}
 	public static function getCityLayer($cityId,$sep='>>',$noCityText='未指明')
 	{
-		static $cityCache=null;
-		if(!$cityCache)
+		if(!self::$cityCache)
 		{
-			$cityCache=CCacheHelper::getAllCity();
+			self::$cityCache=CCacheHelper::getAllCity();
 		}
-		$parent=$cityCache[$cityId]['city_parent'];
+		$parent=self::$cityCache[$cityId]['city_parent'];
 		$parentCity=array();
 		while($parent)
 		{
-			$parentCity[]=$cityCache[$parent]->city_name;
-			$parent=$cityCache[$parent]->city_parent;
+			$parentCity[]=self::$cityCache[$parent]->city_name;
+			$parent=self::$cityCache[$parent]->city_parent;
 		}
 		if($parentCity)
 			$parentCity=array_reverse($parentCity);
-		$parentCity[]=$cityCache[$cityId]->city_name;
+		$parentCity[]=self::$cityCache[$cityId]->city_name;
 		if($parentCity)
 		$cityLayer=implode($sep,$parentCity);
 		else
 		$cityLayer=$noCityText;
 		return $cityLayer;
 	}
+	public static function getProvice($emptyProvice='全部')
+	{
+		if(!self::$cityCache)
+		{
+			self::$cityCache=CCacheHelper::getAllCity();
+		}
+		$province=array();
+		$province[0]=$emptyProvice;
+		if(self::$cityCache){
+			foreach (self::$cityCache as $city)
+			{
+				if($city->city_level==2)
+				{
+					$province[$city->city_id]=$city->city_name;
+				}
+			}
+		}
+		return $province;
+	}
+	
 	/**
 	 * @return array relational rules.
 	 */
@@ -116,6 +135,23 @@ class City extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 		);
+	}
+	public function beforeSave()
+	{
+		if($this->isNewRecord)
+		{
+			if($this->city_parent!=0)
+			{
+				if(!self::$cityCache)
+					self::$cityCache=CCacheHelper::getAllCity();
+				$this->city_level=self::$cityCache[$this->city_parent]->city_level+1;
+			}
+			else {
+				$this->city_level=1;
+			}
+			
+		}
+		return parent::beforeSave();
 	}
 
 	/**

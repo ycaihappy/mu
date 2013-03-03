@@ -31,4 +31,27 @@ class CStringHelper extends CController
             }
             return $result;
         }
+        public static function getExculedUrl($excludedParams,$route)
+        {
+        	$paramString='';
+        	if($excludedParams)
+        	{
+	        	if(!is_array($excludedParams))
+	        	{
+	        		$excludedParams=(array)$excludedParams;
+	        	}
+	        	$includeParam=$_REQUEST;
+	        	foreach ($excludedParams as $exc)
+	        	{
+	        		unset($includeParam[$exc]);
+	        	}
+	        	if($includeParam)
+	        	{
+	        		
+	        		$paramString='&'.http_build_query($includeParam);
+	        	}
+        	}
+        	return Yii::app()->getController()->createUrl($route).$paramString;
+        	
+        }
 }

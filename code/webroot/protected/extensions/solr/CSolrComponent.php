@@ -146,9 +146,7 @@ class CSolrComponent extends CApplicationComponent{
     */
     public function get($query, $offset = 0, $limit = 30, $additionalParameters=array())      {
       $response = $this->_solr->search($query, $offset, $limit, $additionalParameters);
-      if ( $response->response->numFound > 0 ) {
-            return($response);
-      }
+      return($response);
     }
 }
 ?>

@@ -8,58 +8,27 @@
                     </td>
                     <td class="headSpan"></td>
                     <td>
+                    <form action="<?php echo $this->createUrl('index') ?>" id="search_form" method='post' >
                         <div class="sfInputBox">
-                            <label>大类:</label><select name="Sorts" id="Sorts"><option value="">选择分类</option>
-<option value="2403">热轧钢板</option>
-<option value="2394">冷轧钢板</option>
-<option value="2402">涂镀产品</option>
-<option value="2395">型材类</option>
-<option value="2396">建材类</option>
-<option value="2397">管材类</option>
-<option value="2398">优钢类</option>
-<option value="2399">不锈钢</option>
-<option value="2401">炉料类</option>
-<option value="2400">有色金属</option>
-<option value="2895">工业线材</option>
-</select>
-                            <label>品种:</label><select id="ddl_nsort" style="width:105px;"><option selected="selected" value="">&ndash;请选择品名&ndash;</option></select>
-                            <label>存放地:</label><select name="ddl_province" id="ddl_province"><option value="">全国</option>
-<option value="146">北京</option>
-<option value="147">天津</option>
-<option value="148">上海</option>
-<option value="149">重庆</option>
-<option value="150">河北</option>
-<option value="151">山西</option>
-<option value="153">辽宁</option>
-<option value="154">吉林</option>
-<option value="155">黑龙江</option>
-<option value="156">江苏</option>
-<option value="157">浙江</option>
-<option value="158">安徽</option>
-<option value="159">福建</option>
-<option value="160">江西</option>
-<option value="161">山东</option>
-<option value="162">河南</option>
-<option value="163">湖北</option>
-<option value="164">湖南</option>
-<option value="165">广东</option>
-<option value="166">甘肃</option>
-<option value="167">四川</option>
-<option value="168">贵州</option>
-<option value="169">海南</option>
-<option value="170">云南</option>
-<option value="171">青海</option>
-<option value="172">陕西</option>
-<option value="173">广西</option>
-<option value="175">宁夏</option>
-<option value="176">新疆</option>
-<option value="177">内蒙古</option>
-</select>
-                            <label>规格：</label><input type="text" value="" id="txt_spec">
+                            <label>大类:</label>
+							<?php echo CHtml::dropDownList('bigType', $bigType, $allCategory,array(
+							'ajax'=>array(
+			                    'type'=>'GET',
+			                    'url'=>CController::createUrl('getChildrenTerms'),
+			                    'update'=>'#smallType',
+			                    'data'=>array('group_id'=>"14",'parent_id'=>'js:this.value')
+			                )
+                			))?>
+                            <label>品种:</label>
+							<?php echo CHtml::dropDownList('smallType', $smallType, $allSmallType,array('empty'=>'全部'))?>
+                            <label>存放地:</label>
+							<?php echo CHtml::dropDownList('province', $province, $allProvince)?>
+                            <label>发布企业：</label><input type="text" value="<?php echo $enterprise?>" id="txt_spec" name="enterprise" />
                         </div>
                         <div class="searchBt">
-                            <a id="do_search" href="javascript:">搜索</a>
+                            <a id="do_search" href="javascript:$('#search_form').submit();">搜索</a>
                         </div>
+                        </form>
                     </td>
                 </tr>
             </tbody></table>            
@@ -81,16 +50,17 @@
                                 <div class="chooseDate">
                                     <dl>
                                         <dd id="sort_List">
-                                            <i><a sid="0" href="javascript:" class="selected">全部</a></i>
-                                            <i><a sid="2403" href="javascript:">热轧钢板</a></i>
-                                            <i><a sid="2394" href="javascript:">冷轧钢板</a></i>
-                                            <i><a sid="2402" href="javascript:">涂镀产品</a></i>
-                                            <i><a sid="2395" href="javascript:">型材类</a></i>
-                                            <i><a sid="2396" href="javascript:">建材类</a></i>
-                                            <i><a sid="2397" href="javascript:">管材类</a></i>
-                                            <i><a sid="2398" href="javascript:">优钢类</a></i>
-                                            <i><a sid="2399" href="javascript:">不锈钢</a></i>
-                                            <i><a sid="2400" href="javascript:">有色金属</a></i>
+                                        <?php 
+                                        	
+                                        	if($allCategory):
+                                        		
+                                        		foreach ($allCategory as $key=>$category):
+                                        		$categoryUrl=CStringHelper::getExculedUrl(array('bigType','page'),'index').'&bigType='.$key;
+                                        ?>
+                                            <i><a sid="0" href="<?php echo $categoryUrl?>" class="<?php echo $bigType==$key?'selected':''?>"><?php echo $category?></a></i>
+                                        <?php   endforeach;
+                                             endif;
+                                        ?>
                                         </dd>  
                                     </dl>
                                 </div>
@@ -103,19 +73,15 @@
                                     <div class="chooseDate">
                                         <dl>
                                             <dd id="nsort_link_list">
-                                                <i><a sid="0" href="javascript:" class="selected">全部</a></i>
-                                                <i><a onmousedown="_s_(2403,2405,this)" href="javascript:">热轧卷板</a></i>
-                                                <i><a onmousedown="_s_(2403,2410,this)" href="javascript:">中厚板</a></i>
-                                                <i><a onmousedown="_s_(2403,2411,this)" href="javascript:">低合金板</a></i>
-                                                <i><a onmousedown="_s_(2394,2415,this)" href="javascript:">冷轧板卷</a></i>
-                                                <i><a onmousedown="_s_(2402,2628,this)" href="javascript:">镀锌板卷</a></i>
-                                                <i><a onmousedown="_s_(2395,2422,this)" href="javascript:">工字钢</a></i>
-                                                <i><a onmousedown="_s_(2395,2423,this)" href="javascript:">H型钢</a></i>
-                                                <i><a onmousedown="_s_(2397,2432,this)" href="javascript:">焊管</a></i>
-                                                <i><a onmousedown="_s_(2397,2429,this)" href="javascript:">圆钢</a></i>
-                                                <i><a onmousedown="_s_(2396,2427,this)" href="javascript:">螺纹钢</a></i>
-                                                <i><a onmousedown="_s_(2396,2430,this)" href="javascript:">高线</a></i>
-                                            </dd>
+                                       <?php if($allSmallType):
+                                        		foreach ($allSmallType as $key=>$category):
+                                        		$smallTypeUrl=CStringHelper::getExculedUrl(array('smallType','page'),'index').'&smallType='.$key;
+                                        ?>
+                                            <i><a sid="0" href="<?php echo $smallTypeUrl?>" class="<?php echo $smallType==$key?'selected':''?>"><?php echo $category?></a></i>
+                                        <?php   endforeach;
+                                             endif;
+                                        ?>
+                                        </dd>
                                         </dl>  
                                     </div>
                                     <div ct="#nsort_link_list" class="moreOpen"><a title="查看更多选项" href="javascript:">更多</a></div>
@@ -128,19 +94,14 @@
                                     <div class="chooseDate">
                                         <dl>
                                             <dd id="sf_link_list">
-                                                <i><a sid="0" href="javascript:" class="selected">全部</a></i>
-                                                <i><a sid="148" href="javascript:">上海</a></i>
-                                                <i><a sid="164" href="javascript:">湖南</a></i>
-                                                <i><a sid="161" href="javascript:">山东</a></i>
-                                                <i><a sid="162" href="javascript:">河南</a></i>
-                                                <i><a sid="150" href="javascript:">河北</a></i>
-                                                <i><a sid="156" href="javascript:">江苏</a></i>
-                                                <i><a sid="157" href="javascript:">浙江</a></i>
-                                                <i><a sid="163" href="javascript:">湖北</a></i>
-                                                <i><a sid="147" href="javascript:">天津</a></i>
-                                                <i><a sid="165" href="javascript:">广东</a></i>
-                                                <i><a sid="170" href="javascript:">云南</a></i>
-                                                <i><a sid="149" href="javascript:">重庆</a></i>
+                         				<?php if($allProvince):
+                                        		foreach ($allProvince as $key=>$city):
+                                        		$provinceUrl=CStringHelper::getExculedUrl(array('province','page'),'index').'&province='.$key;
+                                        ?>
+                                            <i><a sid="0" href="<?php echo $provinceUrl?>" class="<?php echo $province==$key?'selected':''?>"><?php echo $city?></a></i>
+                                        <?php   endforeach;
+                                             endif;
+                                        ?>
                                             </dd>
                                         </dl>  
                                     </div>
@@ -154,17 +115,14 @@
                                 <div class="chooseDate">
                                     <dl>
                                         <dd id="gg_link_list">
-                                            <i><a sid="0" href="javascript:" class="selected">全部</a></i>
-                                                <i><a href="javascript:">19.00</a></i>
-                                                <i><a href="javascript:">24.00</a></i>
-                                                <i><a href="javascript:">60.00</a></i>
-                                                <i><a href="javascript:">63.50</a></i>
-                                                <i><a href="javascript:">70.00</a></i>
-                                                <i><a href="javascript:">121.00</a></i>
-                                                <i><a href="javascript:">219.00</a></i>
-                                                <i><a href="javascript:">325.00</a></i>
-                                                <i><a href="javascript:">355.00</a></i>
-                                                <i><a href="javascript:">508.00</a></i>
+                         				<?php if($allMuContent):
+                                        		foreach ($allMuContent as $key=>$content):
+                                        		$muContentUrl=CStringHelper::getExculedUrl(array('muContent','page'),'index').'&muContent='.$key;
+                                        ?>
+                                            <i><a sid="0" href="<?php echo $muContentUrl?>" class="<?php echo $muContent==$key?'selected':'';?>"><?php echo $content?></a></i>
+                                        <?php   endforeach;
+                                             endif;
+                                        ?>
                                         </dd>
                                     </dl>
                                 </div>
@@ -187,7 +145,9 @@
         			<h4>
         				<span class="sds-size-0">品名</span>
         				<span class="sds-size-2">品质</span>
+        				<?php if($smallType==31):?>
         				<span class="sds-size-2">含水量</span>
+        				<?php endif;?>
         				<span class="sds-size-1">发布企业</span>
         				<span class="sds-size-4">存货地</span>
         				<span class="sds-size-6">价格</span>
@@ -198,11 +158,15 @@
         		</div>
                 <div class="sds-center">
                     <ul id="data_container" class="sds-date-list">
-                    <?php foreach ($products as $product):?>
+                    <?php 
+                    if($products):
+                    foreach ($products as $product):?>
                         <li cid="<?php echo $product->product_id?>" class="no-border" style="">
 					        <span class="sds-size-0"><a title="<?php echo $product->product_name?>" href="/StaticResource/3/345152.html" target="_blank"><?php echo $product->product_name?></a></span>
 					        <span class="sds-size-2"><?php echo $product->muContent->term_name;?></span>
+					        <?php if($smallType==31):?>
 					        <span class="sds-size-2"><?php echo $product->waterContent->term_name;?></span>
+					        <?php endif;?>
 					        <span class="sds-size-1"><span title="<?php echo $product->user->enterprise->ent_name?>"><?php echo $product->user->enterprise->ent_name?></span></span>
 					        <span class="sds-size-4"><?php echo $product->product_city_id?></span>
 					        <span class="sds-size-6"><?php echo $product->product_price?></span>
@@ -211,11 +175,17 @@
 					        <span cid="<?php echo $product->product_id?>" xj="1" sid="345152" class="sds-size-9"><a onclick="try{parent.closeMini();}catch(e){;}globalStaticIcon.getOnGenerateClick()" href="javascript:void(0)" id="live800iconlink"><img border="0" src="http://live800.gtxh.cn/live800/SurferServer?cmd=111&amp;companyID=8909&amp;skillId=2&amp;enterurl=http%3A%2F%2Fsteel%2Egtxh%2Ecom%2F&amp;k=1&amp;configID=9&amp;online=http%3A%2F%2Fpub.gtxh.com%2Fimages%2FICO%2FonlineMsg.gif&amp;offline=http%3A%2F%2Fpub.gtxh.com%2Fimages%2FICO%2FliveMsg.gif" id="live800icon" name="live800icon"></a></span>
 					        <div class="clear"></div>
 					    </li>
-					    <?php endforeach;?>
+					    <?php endforeach;
+					    else:
+					    ?>
+					    <div class="clear">没有你要找的现货信息</div>
+					    <?php endif;?>
 </ul>
                 </div>
         </div>
+        
             <!--分页-->
+            <div class="page" id="fenye">
             <?php 
 	            $this->widget('CLinkPager',array(
 							'header'=>'',
@@ -229,6 +199,7 @@
 				
 				);
             ?>
+            </div>
         </div>
         <!--搜索列表结束-->
             

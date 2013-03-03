@@ -58,7 +58,8 @@ class CCacheHelper  {
 	public static function getAllCity()
 	{
 		$cityCriteria=new CDbCriteria();
-		$cityCriteria->select='city_id,city_name,city_parent';
+		$cityCriteria->select='city_id,city_name,city_parent,city_level';
+		$cityCriteria->condition='city_open=1';
 		$sort=new CSort('City');
 		$sort->defaultOrder='city_parent asc';
 		$allCity=CacheStrategy::getInstance(CacheStrategy::FIVE_MINITS_EXPIRE)->getCacheDataForDb('allCity',$cityCriteria,'City','city_id');

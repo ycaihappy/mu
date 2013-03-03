@@ -1,6 +1,6 @@
 	<div class="m-jxs">
                 <h1>
-                    <a class="bt" href="javascript:;">钢材经销商</a></h1>
+                    <a class="bt" href="javascript:;">钼经销商</a></h1>
                 <div class="jxs-con">
                     <div>
                         <ul><li><a target="_blank" href="">郑州市金润钢铁有限公司</a></li><li><a target="_blank" href="">河南济源钢铁（集团）有限公司</a></li><li><a target="_blank" href="">河南济源钢铁（集团）有限公司</a></li><li><a target="_blank" href="">郑州同乐物资有限公司</a></li><li><a target="_blank" href="">郑州万花钢管有限公司</a></li><li><a target="_blank" href="http://www.hndwsteel.com/">河南大万钢铁有限公司 </a></li></ul>

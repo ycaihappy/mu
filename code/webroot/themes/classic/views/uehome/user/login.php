@@ -32,8 +32,8 @@
 		<div class="img"><img src="images/login_img.png" /></div>
 		<div class="login-box">
 			<div class="hd clearfix">
-				<span class="on"><a href="javascript:;">会员登录</a></span>
-				<span><a href="register.html">用户注册</a></span>
+				<!--<span class="on"><a href="javascript:;">会员登录</a></span>-->
+				<!--<span><a href="register.html">用户注册</a></span>-->
 			</div>
 			<div class="bd">
 			<?php $form=$this->beginWidget('CActiveForm', array(

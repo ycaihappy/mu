@@ -136,7 +136,7 @@ padding-right: 1px;
 .m-nav .hd{background:#206e94;height:5px;margin:10px 0}
 .m-nav a{font-size:12px;margin-right:13px;line-height:25px;color:#fff;}
 .m-nav strong a{font-weight:bold;font-size:14px;}
-.m-nav .nav-con{overflow:hidden;float:left;padding:4px 25px;position:relative;}
+.m-nav .nav-con{overflow:hidden;float:left;padding:4px 7px;position:relative;}
 .m-nav .sp{position:absolute;right:0px;top:12px;height:38px;width:2px;display:block;background:url(imgs/nav_sp.png) no-repeat;}
 
 .m-index-ad{width:358px;float:left;margin-right:20px;}

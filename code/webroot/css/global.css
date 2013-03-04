@@ -494,7 +494,7 @@ padding: 0 20px;
 /*m-login*/
 
 .m-login .img{float:left;margin-right:70px;}
-.m-login  .hd{margin-bottom: -2px;}
+.m-login  .hd{margin-bottom: -2px;display:none;}
 .m-login .login-box{width:377px;float:left;}
 .m-login .hd span{height:35px;line-height:35px;text-align:center;background:url(imgs/loginbox_h.gif) repeat-x;display:inline-block;font-weight:bold;font-size:14px;float:left;width:187px;border:1px solid #cacaca;margin-right:-1px;}
 .m-login .hd span.on{background:#fff;border-bottom:0}

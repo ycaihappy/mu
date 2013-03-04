@@ -60,8 +60,8 @@
 					<tr>
 						<td><label>验证码</label></td>
 						<td><div class="field">
-						<?php echo $form->textField($model,'verifyCode'); ?>
-						<?php $this->widget('CCaptcha',array('showRefreshButton'=>false,'clickableImage'=>true,'imageOptions'=>array('alt'=>'点击换图','title'=>'点击换图','style'=>'cursor:pointer'))); ?>
+						<?php echo $form->textField($model,'verifyCode',array('class'=>'small')); ?>
+						<?php $this->widget('CCaptcha',array('showRefreshButton'=>false,'clickableImage'=>true,'imageOptions'=>array('alt'=>'点击换图','title'=>'点击换图','style'=>'cursor:pointer;vertical-align:middle'))); ?>
                 		<?php echo $form->error($model,'verifyCode'); ?>
                 		</div></td>
 					</tr>

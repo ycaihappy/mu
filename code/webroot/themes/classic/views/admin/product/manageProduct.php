@@ -154,6 +154,44 @@ $this->widget('zii.widgets.jui.CJuiButton',
 		}',
 		)
 );
+echo '   '.CHtml::dropDownList('info_pos', 0, $rePosition);
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'button4',
+			'caption'=>'确定推荐',
+		'value'=>'asd',
+		'onclick'=>'js:function(){
+		var selectedProducts=$("#yw0 .select-on-check:checked");
+			if(selectedProducts.size()<1)
+			{
+				alert("请选择要推荐的'.$alertTitle.'信息！");
+			}
+			else
+			{
+				var ids=[],info_pos=$("#info_pos").val();
+				for(var i=0;i<selectedProducts.size();i++)
+				{
+					ids.push(selectedProducts[i].value);
+				}
+				
+				$.ajax(
+				{
+					url:"'.Yii::app()->controller->createUrl("advertisementRecommend/recommendInfo").'",
+        			type:"POST",
+        			data:{info_ids:ids,info_type:22,info_pos:info_pos},
+        			success:function(msg){
+        				alert(msg);
+        			},
+        			error:function(){
+        				alert("请求发送失败!");
+        			},
+				}
+				);
+			}
+			return false;
+		}',
+		)
+);
 ?>
 </DIV>
 </form>

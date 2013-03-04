@@ -64,11 +64,13 @@ class ProductController extends AdminController {
 		}
 		$productType=Term::getTermsByGroupId(14);
 		$productStatus=Term::getTermsByGroupId(1);
+		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
 		$this->render('manageProduct',array('dataProvider'=>$dataProvider,
 		'isSpecial'=>$isSpecial,
 		'model'=>$model,
 		'productType'=>$productType,
-		'productStatus'=>$productStatus
+		'productStatus'=>$productStatus,
+		'rePosition'=>$rePosition,
 		));
 	}
 	function _actionChangeSupplyStatus($redirectAction)
@@ -129,6 +131,7 @@ class ProductController extends AdminController {
 		$productStatus=Term::getTermsByGroupId(1);
 		$muContent=Term::getTermsByGroupId(16);
 		$waterContent=Term::getTermsByGroupId(17);
+		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
 		$this->render('updateProduct',array('model'=>$productModel,
 		'unit'=>$unit,
 		'allCity'=>$allCity,
@@ -235,11 +238,13 @@ class ProductController extends AdminController {
 		}
 		$supplyCategory=Term::getTermsByGroupId(14);
 		$supplyStatus=Term::getTermsByGroupId(1);
+		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
 		$this->render('manageSupply',array(
 		'dataProvider'=>$dataProvider,
 		'supplyStatus'=>$supplyStatus,
 		'supplyCategory'=>$supplyCategory,
 		'isSupply'=>$type==18?true:false,
+		'rePosition'=>$rePosition,
 		'model'=>$model));
 	}
 	private function _getCityLayer($cityId,$sep='>>',$noCityText='未指明')

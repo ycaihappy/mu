@@ -60,6 +60,7 @@ case 6:
 				array('label'=>'推荐管理', 'url'=>array('advertisementRecommend/manageRecommend'),'linkOptions'=>array('target'=>'mainFrame')),
 				),
 		)); 
+		break;
 case 7:
  $this->widget('zii.widgets.CMenu',array(
 			'activeCssClass'=>'on',

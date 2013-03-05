@@ -210,7 +210,8 @@ class UserController extends Controller {
 	}
 	public function actionSlist() {
 
-		$this->render ( 'slist' );
+        $status = Term::model()->getTermsByGroupId(1);
+		$this->render ( 'slist', array('status'=>$status) );
 	}
 	public function actionGlist() {
 

@@ -50,13 +50,15 @@ class UserForm extends CFormModel
         user_mobile_no=:user_mobile_no,
         user_email=:user_email,
         user_telephone=:user_telephone,
-        user_subscribe=:user_subscribe 
+        user_subscribe=:user_subscribe,
+        user_province_id=:user_province_id
         where user_id=:user_id";
 
         $commd = Yii::app()->db->createCommand($addsql);
 
         $commd->bindValue(":user_first_name", $this->user_first_name, PDO::PARAM_STR);
         $commd->bindValue(":user_city_id", $this->user_city_id, PDO::PARAM_STR);
+        $commd->bindValue(":user_province_id", $this->user_province_id, PDO::PARAM_STR);
         $commd->bindValue(":user_nickname", $this->user_nickname, PDO::PARAM_STR);
         $commd->bindValue(":user_mobile_no", $this->user_mobile_no, PDO::PARAM_STR);
         $commd->bindValue(":user_telephone", $this->user_telephone, PDO::PARAM_STR);

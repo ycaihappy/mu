@@ -21,11 +21,28 @@
 			<td class="label">关键字：</td><td><?php echo $form->textField($model, 'keywords', array('class'=>'cmp-input','value'=>''));?></td>
 		</tr>
 		<tr>
-        <td class="label">品类：</td><td><?php echo $form->dropDownList($model, 'category', $product_type);?></td>
+			<td class="label">供求品类：</td><td><?php echo CHtml::dropDownList('parent_category',$parentCategory,$category,array(
+				 'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getChildrenTerm'),
+                    'update'=>'#SupplyForm_category',
+                    'data'=>array('parent_id'=>"js:this.value",'group_id'=>14)
+				),
+			));?> <?php echo $form->dropDownList($model, 'category', $smallCategory,array('empty'=>'选择品类'));?></td>
 		</tr>
 		<tr>
-        <td class="label">地点：</td><td><?php echo $form->dropDownList($model, 'city',$city);?></td>
+            <td class="label">品质：</td><td><?php echo $form->dropDownList($model, 'muContent', $allMuContent);?></td>
 		</tr>
+		<tr>
+           <td class="label">地点：</td><td><?php echo CHtml::dropDownList( 'province',$province,$allProvince,array(
+           'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getCity'),
+                    'update'=>'#SupplyForm_city',
+                    'data'=>array('province_id'=>"js:this.value")
+				),
+           ));?> <?php echo $form->dropDownList($model, 'city',$allCity,array('empty'=>'选择城市'));?></td>
+        </tr>
 		<tr>
         <td class="label">地址：</td><td><?php echo $form->textField($model, 'address', array('class'=>'cmp-input','value'=>''));?></td>
 		</tr>

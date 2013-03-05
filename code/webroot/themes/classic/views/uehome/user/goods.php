@@ -19,16 +19,31 @@
 		</tr>
 			
 		<tr>
-			<td class="label">现货品类：</td><td><?php echo $form->dropDownList($model, 'product_type_id', $product_type);?></td>
+			<td class="label">现货品类：</td><td><?php echo CHtml::dropDownList('product_parent_type',$parentType,$product_type,array(
+				 'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getChildrenTerm'),
+                    'update'=>'#ProductForm_product_type_id',
+                    'data'=>array('parent_id'=>"js:this.value",'group_id'=>14)
+				),
+			));?> <?php echo $form->dropDownList($model, 'product_type_id', $product_smallType,array('empty'=>'选择品类'));?></td>
 		</tr>
         <tr>
-           <td class="label">地点：</td><td><?php echo $form->dropDownList($model, 'product_city_id',$city);?></td>
+           <td class="label">地点：</td><td><?php echo CHtml::dropDownList( 'province',$province,$allProvince,array(
+           
+           'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getCity'),
+                    'update'=>'#ProductForm_product_city_id',
+                    'data'=>array('province_id'=>"js:this.value")
+				),
+           ));?> <?php echo $form->dropDownList($model, 'product_city_id',$allCity,array('empty'=>'选择城市'));?></td>
         </tr>
 		<tr>
-        <td class="label">数量：</td><td><?php echo $form->dropDownList($model, 'product_unit', $unit_type);?></td>
-		</tr>		
+        <td class="label">数量：</td><td><?php echo $form->textField($model, 'product_quanity', array('class'=>'cmp-input'));?>/<?php echo $form->dropDownList($model, 'product_unit', $unit_type);?></td>
+		</tr>	
 		<tr>
-            <td class="label">价格：</td><td><?php echo $form->textField($model, 'product_price', array('class'=>'cmp-input','value'=>''));?></td>
+            <td class="label">价格：</td><td><?php echo $form->textField($model, 'product_price', array('class'=>'cmp-input'));?></td>
 		</tr>
 		<tr>
 			<td class="label">现货描述：</td><td><?php echo $form->textArea($model,'product_content',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
@@ -37,7 +52,7 @@
 			<td class="label">现货附图：</td><td><img src="images/thumb.gif" class="thumb"><input type="file" name="photo" value="浏览" /></td>
 		</tr>
 		<tr>
-            <td class="label">有效时间至：</td><td><?php echo $form->textField($model, 'product_join_date', array('class'=>'cmp-input','value'=>''));?></td>
+            <td class="label">有效时间至：</td><td><?php echo $form->textField($model, 'product_join_date', array('class'=>'cmp-input'));?></td>
 		</tr>
 		<tr>
 			<td></td><td><button type="submit" class="btn-save">发布/保存</button></td>

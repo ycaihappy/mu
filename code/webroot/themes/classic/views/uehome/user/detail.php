@@ -53,7 +53,16 @@
 " value="0755" class="cmp-input" /><input type="text" name="fax" value="12121212" class="cmp-input" /></td>
 		</tr>-->
 		<tr>
-			<td class="label">城市：</td><td><?php echo $form->dropDownList($model, 'user_city_id',$city);?></td>
+			<td class="label">城市：</td>
+			<td><?php echo $form->dropDownList($model, 'user_province_id',$province,array(
+				'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getCity'),
+                    'update'=>'#UserForm_user_city_id',
+                    'data'=>array('province_id'=>"js:this.value")
+				),
+			));?>  
+			<?php echo $form->dropDownList($model, 'user_city_id',$citys,array('empty'=>'选择城市'));?></td>
 		</tr>
 		<!--<tr>
 			<td class="label">详细地址：</td><td><input type="text" name="address" value="深圳市" class="cmp-input w245" /></td>

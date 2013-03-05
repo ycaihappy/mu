@@ -283,5 +283,54 @@ $.extend(MU.mods,{
 		$('#supply_status').change(function(){
 			$(this).closest('form').submit();
 		});
+	},
+	JQuot : function () {
+		var self = $(this);
+		$('#chart').css({width:250,height:150});
+		$.getAsset('script',['js/highcharts.js'],function(){
+			 var chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'chart',
+                    type: 'line'
+                },
+                title: {
+                    text: '行情走势图'
+                },
+                xAxis: {
+                    categories: ['Jan','Feb','Mar']
+                },
+                yAxis: {
+                    title: {
+                        text: '价格'
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '' +  this.series.name + ': ' + this.y + '';
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [
+					{
+						name : 'a',
+						data : [2,3,4]
+					},
+					{
+						name : 'b',
+						data : [1,2,3]
+					},
+					{
+						name : 'c',
+						data : [5,7,8]
+					}
+					
+				],
+                exporting: {
+                    enabled: false
+                }
+            });
+		});
 	}
 });

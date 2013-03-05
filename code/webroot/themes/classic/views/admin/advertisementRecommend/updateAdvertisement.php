@@ -8,20 +8,24 @@ $this->breadcrumbs=array(
 <div class="m-form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'advertisement-form',
+    'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),
 )); ?>
-<?php echo $form->hiddenField($model,'ad_id');?>
-<?php if($model->ad_id): echo $form->hiddenField($model,'ad_id');endif;?>
+
+<?php if($model->ad_id): 
+echo $form->hiddenField($model,'ad_id');
+echo $form->hiddenField($model,'ad_user_id'); 
+endif;?>
 
 
 <table border="0" cellpadding="0" cellspacing="0" class="table-field">
 <tr>
 <td class="label">所属公司：</td>
 		<td><input type=text disabled value="<?php echo $model->user->enterprise->ent_name;?>" />
-		<?php echo $form->hiddenField($model,'ad_id',array('class'=>'cmp-input')); ?>
+		
 		<?php echo $form->error($model,'art_title'); ?></td>
 </tr>
 <tr>
@@ -36,10 +40,14 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'ad_link'); ?></td>
 </tr>
 <tr>
-<tr>
 <td class="label">广告位置：</td>
 		<td><?php echo $form->dropDownList($model,'ad_no',$adPosition); ?>
 		<?php echo $form->error($model,'ad_no'); ?></td>
+</tr>
+<tr>
+<td class="label">价格：</td>
+		<td><?php echo $form->numberField($model,'ad_price'); ?>元
+		<?php echo $form->error($model,'ad_price'); ?></td>
 </tr>
 <tr>
 <td class="label">媒体类型：</td>
@@ -57,20 +65,49 @@ $this->breadcrumbs=array(
 		</td>
 </tr>
 <tr>
-<td class="label">广告起效时间：</td>
+<td class="label">广告有效时间：</td>
 		<td>
-		<?php echo $form->textField($model,'ad_start_date',array('class'=>'cmp-input')); ?>	
-        <?php echo $form->error($model,'ad_start_date'); ?></td>
+		<?php 
+		$this->widget('zii.widgets.jui.CJuiDatePicker', array(
+			    'name'=>'ad_start_date',
+			    'options'=>array(
+			        'showAnim'=>'fold',
+			    ),
+			    'value'=>$model->ad_start_date,
+			    'language'=>'zh',
+			    'htmlOptions'=>array(
+			    	'class'=>'cmp-input',
+			    ),
+			)
+		);?>
+<?php echo $form->error($model,'ad_start_date'); ?> - <?php 
+		$this->widget('zii.widgets.jui.CJuiDatePicker', array(
+			    'name'=>'ad_end_date',
+			    'options'=>array(
+			        'showAnim'=>'fold',
+			    ),
+			    'value'=>$model->ad_end_date,
+			    'language'=>'zh',
+			    'htmlOptions'=>array(
+			    	'class'=>'cmp-input',
+			    ),
+			)
+		);?></td>
 </tr>
-<tr>
-<td class="label">广告结束时间：</td>
-		<td>
-		<?php echo $form->textField($model,'ad_end_date',array('class'=>'cmp-input')); ?>	
-        <?php echo $form->error($model,'ad_end_date'); ?></td>
-</tr>
+
 <tr>
 <td class="label">上传媒体：</td>
-		<td></td>
+		<td>
+		<?php echo CHtml::activeFileField($model,'ad_media_src'); ?>
+		<div id="imgDiv">
+			<?php if($model->ad_media_src) echo CHtml::image($model->ad_media_src,'',array('height'=>150))?>
+        </div>
+        <?php if(!$model->isNewRecord):?>
+       	
+        <?php echo CHtml::hiddenField('ad_media_src_hidden',$model->ad_media_src)?>
+		
+        <?php endif;?>
+		</td>
 </tr>
 <tr>
 <td align='right' colspan=2><?php echo CHtml::submitButton('保存'); ?></td>
@@ -78,3 +115,10 @@ $this->breadcrumbs=array(
 </table>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+<?php 
+Yii::app()->getClientScript()->registerScriptFile('js/jquery.uploadPreview.js');
+$previewScript=<<<PREVIEW
+$("#Advertisement_ad_media_src").uploadPreview({ width: 200, height: 200, imgDiv: "#imgDiv", imgType: ["bmp", "gif", "png", "jpg"] });
+PREVIEW;
+Yii::app()->getClientScript()->registerScript('Advertisement#uploadPreview',$previewScript);
+?>

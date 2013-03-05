@@ -83,6 +83,28 @@ class CCacheHelper  {
 		$muCategory=CacheStrategy::getInstance(CacheStrategy::FIVE_MINITS_EXPIRE)->getCacheDataForDb('muCategory',$categoryCriteria,'Term','term_id');
 		return $muCategory;
 	}
+	public static function getAdvertisement($position)
+	{
+		$allAdvertisement=Yii::app()->cache->get('advertisement');
+		if(!$allAdvertisement)
+		{
+			$advCriteria=new CDbCriteria();
+			$advCriteria->select='ad_id,ad_link,ad_media_src,ad_no';
+			$advCriteria->condition='ad_status=1';
+			$advCriteria->compare('ad_start_date', '<='.date('Y-m-d'));
+			$advCriteria->compare('ad_end_date', '>='.date('Y-m-d'));
+			$advs=Advertisement::model()->findAll($advCriteria);
+			if($advs)
+			{
+				foreach ($advs as $adv) {
+					$allAdvertisement[$adv->ad_no][]=$adv;
+				}
+				Yii::app()->cache->set('advertisement',$allAdvertisement,CacheStrategy::ONE_DAY_EXPIRE);
+			}
+			
+		}
+		return isset($allAdvertisement[$position])?$allAdvertisement[$position]:array();
+	}
 }
 
 

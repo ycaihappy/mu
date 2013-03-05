@@ -29,10 +29,11 @@ class ProductTopWidget extends CWidget
 		    		$this->proTypes[$type]=array('name'=>$typesCache[$type]->term_name,'num'=>$num);
 		    	}
 		    }
+		    $this->proTypes=array_slice($this->proTypes,0,8);
         	//推荐现货
 	        $recProCriteria=new CDbCriteria();
 			$recProCriteria->select='product_id,product_name';
-			$recProCriteria->join='inner join mu_recommend b on t.product_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=22 and b.recommend_position=53';
+			$recProCriteria->join='inner join mu_recommend b on t.product_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=22 and b.recommend_position=54';
 			$recProCriteria->condition='product_status=1';
 			$recProCriteria->limit=10;
 			$recProducts=Product::model()->findAll($recProCriteria);

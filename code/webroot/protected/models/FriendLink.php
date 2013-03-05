@@ -39,7 +39,7 @@ class FriendLink extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('flink_id, flink_name, flink_user_id', 'required'),
+			array('flink_name, flink_user_id', 'required'),
 			array('flink_id, flink_user_id, flink_status', 'numerical', 'integerOnly'=>true),
 			array('flink_name', 'length', 'max'=>128),
 			array('flink_url', 'length', 'max'=>512),
@@ -66,7 +66,21 @@ class FriendLink extends CActiveRecord
 	public function scopes()
 	{
 		return array(
-			'recentlyFriendLink'=>array('select'=>'flink_name,flink_url','condition'=>'flink_status=1'),
+			'recentlyFriendLink'=>
+				array(
+				'select'=>'flink_name,flink_url',
+				'condition'=>'flink_status=1',
+				'order'=>'flink_order asc',
+				'limit'=>8
+				),
+			'siteFriendLink'=>
+				array(
+				'select'=>'flink_name,flink_url',
+				'condition'=>'flink_status=1 and flink_user_id=0',
+				'order'=>'flink_order asc',
+				'limit'=>10,
+				),	
+			
 		);
 	}
 	public function beforeSave()

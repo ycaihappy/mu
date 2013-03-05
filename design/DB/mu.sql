@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-05 00:49:24
+# Date/time:                    2013-03-06 01:33:53
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -40,7 +40,14 @@ CREATE TABLE IF NOT EXISTS `mu_advertisement` (
 DELETE FROM `mu_advertisement`;
 /*!40000 ALTER TABLE `mu_advertisement` DISABLE KEYS */;
 INSERT INTO `mu_advertisement` (`ad_id`, `ad_user_id`, `ad_title`, `ad_type`, `ad_no`, `ad_link`, `ad_status`, `ad_click_num`, `ad_start_date`, `ad_end_date`, `ad_price`, `ad_media_src`, `ad_create_time`) VALUES
-	(1, 1, '集团', 9, 12, 'http://www.baidu.com', 1, 233, '2013-01-31 22:41:02', '2013-04-28 22:41:04', 30000, NULL, '2013-01-31 22:41:16');
+	(1, 1, '集团', 9, 11, 'http://www.baidu.com', 1, 233, '2013-01-31 22:41:02', '2013-04-28 22:41:04', 30000, 'images/advertisement/advertisement_1_1362504315_8690.jpg', '2013-01-31 22:41:16'),
+	(2, 1, '集团', 9, 11, 'http://www.baidu.com', 1, 233, '2013-01-31 22:41:02', '2013-04-28 22:41:04', 30000, 'images/advertisement/advertisement_1_1362504315_8690.jpg', '2013-01-31 22:41:16'),
+	(3, 1, '集团', 9, 11, 'http://www.baidu.com', 1, 233, '2013-01-31 22:41:02', '2013-04-28 22:41:04', 30000, 'images/advertisement/advertisement_1_1362504315_8690.jpg', '2013-01-31 22:41:16'),
+	(4, 1, '集团', 9, 11, 'http://www.baidu.com', 1, 233, '2013-01-31 22:41:02', '2013-04-28 22:41:04', 30000, 'images/advertisement/advertisement_1_1362504315_8690.jpg', '2013-01-31 22:41:16'),
+	(5, 1, '集团', 9, 11, 'http://www.baidu.com', 1, 233, '2013-01-31 22:41:02', '2013-04-28 22:41:04', 30000, 'images/advertisement/advertisement_1_1362504315_8690.jpg', '2013-01-31 22:41:16'),
+	(6, 1, '集团', 9, 11, 'http://www.baidu.com', 1, 233, '2013-01-31 22:41:02', '2013-04-28 22:41:04', 30000, 'images/advertisement/advertisement_1_1362504315_8690.jpg', '2013-01-31 22:41:16'),
+	(7, 1, '集团', 9, 11, 'http://www.baidu.com', 1, 233, '2013-01-31 22:41:02', '2013-04-28 22:41:04', 30000, 'images/advertisement/advertisement_1_1362504315_8690.jpg', '2013-01-31 22:41:16'),
+	(8, 1, '集团', 9, 11, 'http://www.baidu.com', 1, 233, '2013-01-31 22:41:02', '2013-04-28 22:41:04', 30000, 'images/advertisement/advertisement_1_1362504315_8690.jpg', '2013-01-31 22:41:16');
 /*!40000 ALTER TABLE `mu_advertisement` ENABLE KEYS */;
 
 
@@ -65,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `mu_article` (
   PRIMARY KEY (`art_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=651 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_article: 600 rows
+# Dumping data for table mu.mu_article: 650 rows
 DELETE FROM `mu_article`;
 /*!40000 ALTER TABLE `mu_article` DISABLE KEYS */;
 INSERT INTO `mu_article` (`art_id`, `art_title`, `art_source`, `art_click_count`, `art_category_id`, `art_subcategory_id`, `art_content`, `art_status`, `art_tags`, `art_user_id`, `art_check_by`, `art_post_date`, `art_img`, `art_modified_date`, `art_recommend`) VALUES
@@ -821,7 +828,8 @@ DELETE FROM `mu_friend_link`;
 /*!40000 ALTER TABLE `mu_friend_link` DISABLE KEYS */;
 INSERT INTO `mu_friend_link` (`flink_id`, `flink_name`, `flink_user_id`, `flink_url`, `flink_order`, `flink_status`, `flink_create_date`) VALUES
 	(1, '百度科技', 3, 'http://www.baidu.com', 0, 2, '2013-02-25 00:17:38'),
-	(2, 'google科技', 3, 'http://www.google.com', 0, 1, '2013-02-25 00:17:38');
+	(2, 'google科技', 3, 'http://www.google.com', 0, 1, '2013-02-25 00:17:38'),
+	(4, '中国钢铁网', 0, 'http://www.steelcn.com', 0, 1, '2013-03-05 23:32:44');
 /*!40000 ALTER TABLE `mu_friend_link` ENABLE KEYS */;
 
 
@@ -1210,7 +1218,7 @@ CREATE TABLE IF NOT EXISTS `mu_recommend` (
   PRIMARY KEY (`recommend_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_recommend: 14 rows
+# Dumping data for table mu.mu_recommend: 21 rows
 DELETE FROM `mu_recommend`;
 /*!40000 ALTER TABLE `mu_recommend` DISABLE KEYS */;
 INSERT INTO `mu_recommend` (`recommend_id`, `recommend_object_id`, `recommend_type`, `recommend_position`, `recommend_status`, `recommend_time`) VALUES
@@ -1234,7 +1242,11 @@ INSERT INTO `mu_recommend` (`recommend_id`, `recommend_object_id`, `recommend_ty
 	(18, 4, 22, 54, 1, '2013-03-04 23:40:24'),
 	(19, 5, 22, 54, 1, '2013-03-04 23:40:24'),
 	(20, 6, 22, 54, 1, '2013-03-04 23:40:24'),
-	(21, 7, 22, 54, 1, '2013-03-04 23:40:24');
+	(21, 7, 22, 54, 1, '2013-03-04 23:40:24'),
+	(22, 48, 22, 54, 1, '2013-03-05 20:34:07'),
+	(23, 49, 22, 54, 1, '2013-03-05 20:34:07'),
+	(24, 50, 22, 54, 1, '2013-03-05 20:34:07'),
+	(25, 51, 22, 54, 1, '2013-03-05 20:34:07');
 /*!40000 ALTER TABLE `mu_recommend` ENABLE KEYS */;
 
 
@@ -1365,7 +1377,12 @@ INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`
 	('admin-AdvertisementRecommendRecommendInfo', 0, NULL, NULL, NULL, 'N;'),
 	('admin-UserManageFLink', 0, NULL, NULL, NULL, 'N;'),
 	('flinkMange', 1, '友情链接管理', '', '', 's:0:"";'),
-	('admin-UserUpdateFLink', 0, NULL, NULL, NULL, 'N;');
+	('admin-UserUpdateFLink', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SiteManageFLink', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SiteUpdateFLink', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SiteChangeFLinkStatus', 0, NULL, NULL, NULL, 'N;'),
+	('admin-UserChangeFLinkStatus', 0, NULL, NULL, NULL, 'N;'),
+	('admin-AdvertisementRecommendChangeAdvertisementStatus', 0, NULL, NULL, NULL, 'N;');
 /*!40000 ALTER TABLE `mu_right_item` ENABLE KEYS */;
 
 
@@ -1384,6 +1401,7 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('adminManage', 'admin-UserAssign'),
 	('adminManage', 'admin-UserManageAdminUser'),
 	('adminManage', 'admin-UserUpdateAdminUser'),
+	('advertisementManage', 'admin-AdvertisementRecommendChangeAdvertisementStatus'),
 	('advertisementManage', 'admin-AdvertisementRecommendManageAdvertisement'),
 	('advertisementManage', 'admin-AdvertisementRecommendUpdateAdvertisement'),
 	('basicTypeManage', 'admin-SiteManageTerm'),
@@ -1398,6 +1416,7 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('enterpriseManage', 'admin-ProductChangeEnterpriseStatus'),
 	('enterpriseManage', 'admin-ProductManageEnterprise'),
 	('enterpriseManage', 'admin-ProductUpdateEnterprise'),
+	('flinkMange', 'admin-UserChangeFLinkStatus'),
 	('flinkMange', 'admin-UserManageFLink'),
 	('flinkMange', 'admin-UserUpdateFLink'),
 	('manageUserTemplate', 'admin-UserChangeUserTemplateStatus'),
@@ -1449,7 +1468,10 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('siteIndex', 'admin-SiteLogin'),
 	('siteIndex', 'admin-SiteLogout'),
 	('siteIndex', 'admin-SitePage'),
+	('siteSetting', 'admin-SiteChangeFLinkStatus'),
 	('siteSetting', 'admin-SiteManageBasicSiteInfo'),
+	('siteSetting', 'admin-SiteManageFLink'),
+	('siteSetting', 'admin-SiteUpdateFLink'),
 	('smsSetting', 'admin-SiteManageSMSSetting'),
 	('smtpSetting', 'admin-SiteManageSiteEmailSetting'),
 	('smtpSetting', 'admin-SiteSendTestEmail'),
@@ -1854,9 +1876,9 @@ CREATE TABLE IF NOT EXISTS `mu_term` (
   `term_order` int(4) DEFAULT '0',
   `term_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`term_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_term: 53 rows
+# Dumping data for table mu.mu_term: 54 rows
 DELETE FROM `mu_term`;
 /*!40000 ALTER TABLE `mu_term` DISABLE KEYS */;
 INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES

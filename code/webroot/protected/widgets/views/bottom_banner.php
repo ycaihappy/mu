@@ -1,10 +1,9 @@
 		<div class="m-brand">
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
+		<?php if($bottom_banners):
+				foreach ($bottom_banners as  $banner):
+		?>
+			<a href="<?php echo $banner->ad_link?>"><img src="<?php echo $banner->ad_media_src?>" /></a>
+			<?php endforeach;
+			endif;
+			?>
 	</div>

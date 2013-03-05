@@ -252,5 +252,8 @@ $.extend(MU.mods,{
 				break;
 			}
 		});
+	},
+	JUserSuppy : function () {
+		$('#SupplyForm_effective_time').datepicker();
 	}
 });

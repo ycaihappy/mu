@@ -7,6 +7,6 @@ class FooterWidget extends CWidget
 
     public function run()
     {
-        $this->render('footer',array('name'=>'lizhli'));
+        $this->render('footer',array('siteConfig'=>$siteConfig));
     }
 }

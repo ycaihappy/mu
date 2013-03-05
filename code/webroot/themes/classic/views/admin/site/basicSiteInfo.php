@@ -21,14 +21,19 @@ $this->breadcrumbs=array(
 </tr>
 
 <tr>
-<td class="label">网站标题：</td>
-		<td><?php echo $form->textField($model,'siteTitle',array('class'=>'cmp-input')); ?>
-		<?php echo $form->error($model,'siteTitle'); ?>
+<td class="label">meta标题：</td>
+		<td><?php echo $form->textField($model,'siteMetaTitle',array('class'=>'cmp-input','style'=>'width:300px')); ?><em>前14个字符搜索引擎索引权重最大</em>
+		<?php echo $form->error($model,'siteMetaTitle'); ?>
 </tr>
 <tr>
-<td class="label">网站副标题：</td>
-		<td><?php echo $form->textField($model,'siteSubtitle',array('class'=>'cmp-input')); ?>
-		<?php echo $form->error($model,'siteSubtitle'); ?></td>
+<td class="label">meta关键词：</td>
+		<td><?php echo $form->textField($model,'siteMetaKeyword',array('class'=>'cmp-input','style'=>'width:300px')); ?><em>关键字用英文格式的分隔符，如：_ , | 等，极限长度为255个字符</em>
+		<?php echo $form->error($model,'siteMetaKeyword'); ?></td>
+</tr>
+<tr>
+<td class="label">meta描述：</td>
+		<td><?php echo $form->textArea($model,'siteMetaDescription',array('class'=>'cmp-input', 'wrap'=>"wrap",'style'=>'width:305px;height:50px')); ?>
+		<?php echo $form->error($model,'siteMetaDescription'); ?></td>
 </tr>
 <tr>
 <td class="label">Logo地址：</td>
@@ -52,13 +57,38 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">客服热线：</td>
-		<td><?php echo $form->textField($model,'csHotline'); ?>
-		<?php echo $form->error($model,'csHotline'); ?></td>
+		<td><?php echo $form->textField($model,'csHotline1'); ?>
+		<?php echo $form->error($model,'csHotline1'); ?></td>
+</tr>
+<tr>
+<td class="label"></td>
+		<td><?php echo $form->textField($model,'csHotline2'); ?>
+		<?php echo $form->error($model,'csHotline2'); ?></td>
+</tr>
+<tr>
+<td class="label"></td>
+		<td><?php echo $form->textField($model,'csHotline3'); ?>
+		<?php echo $form->error($model,'csHotline3'); ?></td>
+</tr>
+<tr>
+<td class="label"></td>
+		<td><?php echo $form->textField($model,'csHotline4'); ?>
+		<?php echo $form->error($model,'csHotline4'); ?></td>
 </tr>
 <tr>
 <td class="label">销售热线：</td>
 		<td><?php echo $form->textField($model,'sellHotline'); ?>
 		<?php echo $form->error($model,'sellHotline'); ?></td>
+</tr>
+<tr>
+<td class="label">咨询热线：</td>
+		<td><?php echo $form->textField($model,'advisoryHotline'); ?>
+		<?php echo $form->error($model,'advisoryHotline'); ?></td>
+</tr>
+<tr>
+<td class="label">传真：</td>
+		<td><?php echo $form->textField($model,'fax'); ?>
+		<?php echo $form->error($model,'fax'); ?></td>
 </tr>
 <tr>
 <td class="label">网站客服QQ：</td>

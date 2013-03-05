@@ -944,25 +944,27 @@ padding: 0 20px;
 .m-suppy-list .left_table .td02 {
   color: #333333;
 }
-.page a {
+.page a ,ul.yiiPager a:link {
   background: none repeat scroll 0 0 #F8F8F8;
   border: 1px solid #D8E8F4;
   color: #003964;
   display: block;
+  font-size:12px;
   float: left;
   margin-right: 7px;
   padding: 0 9px;
 }
-.page a:hover,.page .page_cur {
+.page a:hover,.page .page_cur ,ul.yiiPager a:hover{
   background: none repeat scroll 0 0 #1467C0;
   border: 1px solid #1467C0;
   color: #FFFFFF;
 }
-.page {
+.page ,ul.yiiPager li{
   height: 25px;
   line-height: 22px;
   margin: 10px auto;
 }
+
 .m-suppy-list .art_gyxx{background: rgb(236, 236, 236);height: 30px;width: 100%;}
 .m-suppy-list h2 span{float:left;display:inline-block;padding:0 10px;text-align:center;background:#206f96;height: 30px; line-height:30px; position: relative;z-index: 1;}
 .m-suppy-list h2 span i{position:absolute;left:45%;bottom:-4px;width:7px;height:4px;background:url(imgs/blue_d_aw.gif) no-repeat;font-size:0;display:block;}

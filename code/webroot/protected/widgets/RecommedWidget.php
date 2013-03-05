@@ -6,7 +6,7 @@ class RecommedWidget extends CWidget
 
     public function init()
     {
-    	$this->list =Enterprise::model()->recommedEnt()->findAll();
+    	$this->list =Enterprise::model()->with(array('user'=>array('select'=>'user_name')))->recommedEnt()->findAll();
         switch ($this->type)
         {
         case '1':

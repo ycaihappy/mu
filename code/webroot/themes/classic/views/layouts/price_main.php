@@ -1,67 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <title>行情首页</title>
-    <link rel="stylesheet" href="css/global.css">	
-	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
-
-
-</head>
-
+<?php $this->widget("CommonHeaderWidget");?>
 <body>
 
 
 <div id="p_hq_index" class="pg-layout">
 
-<div class="m-top">
-	<div class="layout">
-	<p class="user-info">
-		<a href="">请登陆</a>
-		<a href="">免费注册 </a>
-	</p>
-	<p class="site-tool">
-		<span>|</span>
-		<a href="">找回密码</a>
-		<span>|</span>
-		<a href="">网站地图</a>
-		<span>|</span>
-		<a href="">联系客服</a>
-		<span>|</span>
-		<a href="">收藏本站</a>
-	</p>
-	</div>
-</div>
+<?php $this->widget('TopWidget');?>
 
 <div class="layout head">
-	<div class="m-logo">
-		<a target="_self" href="" class="logo"><img title="xxx.com - xxxx" alt="zzz" src="images/logo.jpg"></a>
-	</div>
-	<div class="m-search" id="J_SearchForm">
-		<div class="search-triggers">
-			<ul class="switchable-nav">
-			  <li class="selected" data-type="1"><a href="javascript:void(0);">现货</a></li>
-			  <li data-type="2"><a href="javascript:void(0);">新闻</a></li>
-			  <li data-type="3"><a href="javascript:void(0);">行情</a></li>
-			  <li data-type="4"><a href="javascript:void(0);">行情</a></li>
-			  <li data-type="5"><a href="javascript:void(0);">求购</a></li>
-			</ul>
-		 </div>
-		 <div class="search-box">
-			<form name="search" action="" target="_top">
-			  <input type="hidden" name="type" value=""/>
-			  <div class="search-panel-fields">       
-				<input autocomplete="off" autofocus="true" accesskey="s" name="q" id="q">
-				<s></s>
-			  </div>
-			  <button type="submit">搜 索</button>			 
-			 </form>
-		 </div>
-		<div class="clearfix"></div>
-	</div>
-	
-	
+	<?php $this->widget('SearchWidget');?>
 	<!--news nav-->
 	
 	

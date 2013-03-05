@@ -211,11 +211,22 @@ class UserController extends Controller {
 	public function actionSlist() {
 
         $status = Term::model()->getTermsByGroupId(1);
-		$this->render ( 'slist', array('status'=>$status) );
+        $city  = city::getAllCity();
+        $category = Term::model()->getTermsByGroupId(14);
+        $criteria=new CDbCriteria;
+        $criteria->order='supply_id DESC';
+
+        $count=Supply::model()->count($criteria);
+
+        $pager=new CPagination($count);
+        $pager->pageSize=15;
+        $pager->applyLimit($criteria);
+        $list=Supply::model()->findAll($criteria);
+		$this->render ( 'slist', array('status'=>$status,'allcity'=>$city,'allcategory'=>$category,'data'=>$list, 'pager'=>$pager) );
 	}
 	public function actionGlist() {
-
-		$this->render ( 'glist' );
+        $status = Term::model()->getTermsByGroupId(1);
+		$this->render ( 'glist', array('status'=>$status) );
 	}
 	public function actionCert() {
         $model = new FileForm;

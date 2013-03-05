@@ -390,6 +390,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 /*m-refinfo*/
 
 /*m-rcm-list*/
+.m-rcm-list{margin-bottom:10px;}
 .m-rcm-list dt{background:#f3f3f3;line-height:30px;font-size:14px;}
 .m-rcm-list dl{border:1px solid #ccc;border-bottom:0;}
 .m-rcm-list dl.last{border:1px solid #ccc}
@@ -993,6 +994,31 @@ padding: 0 20px;
   padding-left: 20px;
 }
 .m-news-list li span{
-	float:right;	
+	float:right;
 }
+
+.m-rel-news  .hd{
+  border-bottom: 1px solid #D0D4D9;
+  height: auto;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  width: 100%;
 }
+.m-rel-news h4 {
+  color: #212121;
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.m-rel-news li {
+  float: left;
+  height: auto;
+  width: 318px;
+  background: url("imgs/iconzy_03.gif") no-repeat scroll left center transparent;
+  line-height: 30px;
+  overflow: hidden;
+  padding-left: 12px;
+}
+.m-rel-news strong{font-weight:bold}
+

@@ -254,6 +254,6 @@ $.extend(MU.mods,{
 		});
 	},
 	JUserSuppy : function () {
-		$('#SupplyForm_effective_time').datepicker();
+		$('#SupplyForm_effective_time').datepicker({dateFormat : 'yy-mm-dd'});
 	}
 });

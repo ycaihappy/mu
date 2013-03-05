@@ -56,7 +56,7 @@ class ProductForm extends CFormModel
         $commd->bindValue(":product_price", $this->product_price);
         $commd->bindValue(":product_status", 0);
         $commd->bindValue(":product_unit", $this->product_unit);
-        $commd->bindValue(":product_join_date", $this->product_join_date);
+        $commd->bindValue(":product_join_date", date('Y-m-d H:i:s'));
         $commd->execute();
 	}
 }

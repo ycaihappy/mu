@@ -390,6 +390,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 /*m-refinfo*/
 
 /*m-rcm-list*/
+.m-rcm-list{margin-bottom:10px;}
 .m-rcm-list dt{background:#f3f3f3;line-height:30px;font-size:14px;}
 .m-rcm-list dl{border:1px solid #ccc;border-bottom:0;}
 .m-rcm-list dl.last{border:1px solid #ccc}
@@ -903,13 +904,13 @@ padding: 0 20px;
 .m-hq-box .fp {  float: right;  overflow: hidden;  padding: 10px;  width: 327px;}
 .m-hq-box .fp h2 {  background: url("imgs/fq_bg01.png") repeat-x scroll 0 0 transparent;}
 
-.m-jxs {  border: 1px solid #DEDEDE;  height: 194px;  width:958px;  overflow: hidden;}
+.m-jxs {  border: 1px solid #DEDEDE;  height: 194px; overflow: hidden;}
 .m-jxs h1 {  background: url("imgs/gcjxs_bg.png") no-repeat scroll 0 0 #fbfbfb;  border-bottom: 1px solid #DADADA;  height: 27px;  line-height: 27px;  text-align: left;}
 .m-jxs h1 a.bt {  color: red;  display: inline-block;  text-align: center;  width: 134px;  font-weight:bold;  font-size:14px}
 .m-jxs .jxs-con {  margin: 0 auto;  padding:10px;}
-.m-jxs .jxs-con ul li {  height: 23px;  line-height: 23px;  overflow: hidden;  width: 210px;}
-.m-jxs .jxs-con ul {  float: left;  margin-right: 70px;  overflow: hidden;  text-align: left;  width: 180px;}
-.m-jxs .jxs-con ul.jxs-ul03 {  margin-right: 0;}
+.m-jxs .jxs-con ul li {  height: 23px;  line-height: 23px;  overflow: hidden; float: left;  margin-right: 50px;  overflow: hidden;  text-align: left;  width: 170px;}
+
+
 
 .m-suppy-list{}
 .m-suppy-list .left_table {
@@ -993,6 +994,32 @@ padding: 0 20px;
   padding-left: 20px;
 }
 .m-news-list li span{
-	float:right;	
+	float:right;
 }
+.m-rel-news a{color:#004276}
+
+.m-rel-news  .hd{
+  border-bottom: 1px solid #D0D4D9;
+  height: auto;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  width: 100%;
 }
+.m-rel-news h4 {
+  color: #212121;
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.m-rel-news li {
+  float: left;
+  height: auto;
+  width: 318px;
+  background: url("imgs/iconzy_03.gif") no-repeat scroll left center transparent;
+  line-height: 30px;
+  overflow: hidden;
+  padding-left: 12px;
+}
+.m-rel-news strong{font-weight:bold}
+

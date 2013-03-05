@@ -252,5 +252,13 @@ $.extend(MU.mods,{
 				break;
 			}
 		});
+	},
+	JUserSuppy : function () {
+		$('#SupplyForm_effective_time').datepicker({dateFormat : 'yy-mm-dd'});
+	},
+	JCertAdd : function (){
+		var self = $(this);
+		$("#FileForm_image").uploadPreview({ width: 200, height: 200, imgDiv: ".thumb", imgType: ["bmp", "gif", "png", "jpg"] });
+
 	}
 });

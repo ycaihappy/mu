@@ -21,7 +21,7 @@
 	<div class="m-user-top">
 	
 	<p class="user-info">
-		  <a href="">返回首页</a> | <a href="">修改密码</a> | <a href="">安全退出</a> 
+		  <a href="<?php echo $this->createUrl('/site/index')?>">返回首页</a> | <a href="<?php echo $this->createUrl('user/password')?>">修改密码</a> | <a href="<?php echo $this->createUrl('user/logout')?>">安全退出</a> 
 	</p>	
 	
 </div>

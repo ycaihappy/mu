@@ -11,7 +11,14 @@ class UserController extends Controller {
 				'maxLength' => 4, //是长为4位
 				'transparent' => true ,
 				'height'=>35
-		) 
+		) ,
+		'getCity'=>array(
+			'class'=>'CGetCityAction',
+		),
+		'getChildrenTerm'=>array(
+			'class'=>'CGetChildrenTermsAction',
+			'emptySelect'=>'选择品类',
+		),
 						);
 	}
 	/*public function filters()
@@ -69,21 +76,27 @@ class UserController extends Controller {
 	public function actionDetail() {
         $model = new UserForm();
 
-        if (isset($_POST['User']))
+        if (isset($_POST['UserForm']))
         {
-            $model->attributes = $_POST['User'];
-            #if ( $model->validate() )
+            $model->attributes = $_POST['UserForm'];
+            if ( $model->validate() )
             {
                 $model->update();
             }
         }
         else
         {
-            $user = new User();
-            $model = $user_info = User::model()->findByPk(yii::app()->user->getID());
+            $user = User::model()->findByPk(Yii::app()->user->getID());
+            $model->attributes=$user->attributes;
         }
-        $city = City::model()->getAllCity();
-		$this->render ( 'detail', array('model'=>$model, 'city'=>$city) );
+        $province=City::getProvice('选择省份');
+        $citys=array();
+        if($model->user_city_id)
+        {
+        	$citys=City::getAllCity($model->user_province_id);
+        }
+        $data=compact('model','province','citys');
+		$this->render ( 'detail',$data);
 	}
 	public function actionCompany() {
         $model = new EnterpriseForm();
@@ -134,11 +147,33 @@ class UserController extends Controller {
             {
                 $model->draft();
             }
+            else {
+            	var_dump($model->getErrors());
+            	exit;
+            }
         }
-        $supply_type = Term::model()->getTermsByGroupId(11);
-        $product_type= Term::model()->getTermsByGroupId(14);
-        $city = City::model()->getAllCity();
-		$this->render ( 'supply' ,array('model'=>$model,'supply_type'=>$supply_type,'product_type'=>$product_type,'city'=>$city));
+        $supply_type = Term::getTermsByGroupId(11);
+		$category= Term::getTermsByGroupId(14,true,'选择分类');
+        $parentCategory=0;
+        $smallCategory=array();
+        if($model->category)
+        {
+        	$allCategory=CCacheHelper::getMuCategory();
+        	$parentCategory=$allCategory[$model->category]->term_parent_id;
+        	$smallCategory=Term::getTermsByGroupId(14,false,$parentCategory,'选择品类');
+        }
+        $allProvince =City::getProvice();
+        $province=0;
+        $allCity=array();
+        if($model->city)
+        {
+        	$cityCache=CCacheHelper::getAllCity();
+        	$province=$cityCache[$model->city]->city_parent;
+        	$allCity=City::getAllCity($province);
+        }
+        $allMuContent=Term::getTermsByGroupId(16,false,null,'选择品质');
+        $data=compact('allMuContent','model','supply_type','category','smallCategory','parentCategory','province','allCity','allProvince');
+		$this->render ( 'supply', $data);
 	}
 	public function actionGoods() {
         $model = new ProductForm();
@@ -151,10 +186,36 @@ class UserController extends Controller {
                 $model->draft();
             }
         }
-        $product_type= Term::model()->getTermsByGroupId(14);
+        $product_type= Term::model()->getTermsByGroupId(14,true,'选择分类');
+        $parentType=0;
+        $product_smallType=array();
+        if($model->product_type_id)
+        {
+        	$allCategory=CCacheHelper::getMuCategory();
+        	$parentType=$allCategory[$model->product_type_id]->term_parent_id;
+        	$product_smallType=Term::getTermsByGroupId(14,false,$parentType,'选择品类');
+        }
+        $allProvince =City::getProvice();
+        $province=0;
+        $allCity=array();
+        if($model->product_city_id)
+        {
+        	$cityCache=CCacheHelper::getAllCity();
+        	$province=$cityCache[$model->product_city_id]->city_parent;
+        	$allCity=City::getAllCity($province);
+        }
         $unit_type= Term::model()->getTermsByGroupId(2);
-        $city = City::model()->getAllCity();
-		$this->render ( 'goods' , array('model'=>$model,'product_type'=>$product_type,'city'=>$city,'unit_type'=>$unit_type));
+        $data=compact('model','product_type','product_smallType','allCity','unit_type','allProvince');
+		$this->render ( 'goods' , $data);
+	}
+	public function actionSlist() {
+
+        $status = Term::model()->getTermsByGroupId(1);
+		$this->render ( 'slist', array('status'=>$status) );
+	}
+	public function actionGlist() {
+
+		$this->render ( 'glist' );
 	}
 	public function actionCert() {
         $model = new FileForm;
@@ -209,7 +270,7 @@ class UserController extends Controller {
 			$model->attributes = $_POST ['UserLoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if ($model->validate () && $model->login ())
-				$this->redirect ( array ('index' ) );
+				$this->redirect(Yii::app()->user->returnUrl);
 		}
 		// display the login form
 		$this->render ( 'login', array ('model' => $model ) );

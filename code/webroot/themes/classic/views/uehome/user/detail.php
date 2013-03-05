@@ -12,19 +12,37 @@
 ));?>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
 		<tr>
-        <td class="label">姓名：</td><td><?php echo $form->textField($model, 'user_name', array('class'=>'cmp-input','value'=>$model->user_name));?></td>
+        <td class="label">用户名：</td><td><?php echo $form->textField($model, 'user_name', array('class'=>'cmp-input','readOnly'=>'readOnly'));?>
+        
+        </td>
+		</tr>
+		<tr>
+        <td class="label">姓名：</td><td><?php echo $form->textField($model, 'user_first_name', array('class'=>'cmp-input'));?>
+        <?php echo $form->error($model,'user_first_name'); ?>
+        </td>
 		</tr>
 	<!--	<tr>
 			<td class="label">姓别：</td><td><label><input type="radio" name="gender" value="0" />男</label> <input type="radio" name="gender" value="1" />女</label></td>
 		</tr>-->
 		<tr>
-        <td class="label">邮箱：</td><td><?php echo $form->textField($model, 'user_email', array('class'=>'cmp-input','value'=>$model->user_email));?></td>
+        <td class="label">邮箱：</td><td><?php echo $form->textField($model, 'user_email', array('class'=>'cmp-input','value'=>$model->user_email));?>
+        <?php echo $form->error($model,'user_email'); ?>
+        </td>
 		</tr>
 		<tr>
-        <td class="label">昵称：</td><td><?php echo $form->textField($model, 'user_nickname',array('class'=>'cmp-input','value'=>$model->user_nickname));?></td>
+        <td class="label">昵称：</td><td><?php echo $form->textField($model, 'user_nickname',array('class'=>'cmp-input','value'=>$model->user_nickname));?>
+        <?php echo $form->error($model,'user_nickname'); ?>
+        </td>
 		</tr>
 		<tr>
-        <td class="label">手机：</td><td><?php echo $form->textField($model, 'user_mobile_no', array('class'=>'cmp-input','value'=>$model->user_mobile_no));?></td>
+        <td class="label">手机：</td><td><?php echo $form->textField($model, 'user_mobile_no', array('class'=>'cmp-input'));?>
+        <?php echo $form->error($model,'user_mobile_no'); ?>
+        </td>
+		</tr>
+		<tr>
+        <td class="label">电话号码：</td><td><?php echo $form->textField($model, 'user_telephone', array('class'=>'cmp-input'));?>
+        <?php echo $form->error($model,'user_telephone'); ?>
+        </td>
 		</tr>
 		<tr>
 		<!--	<td class="label">固定电话：</td><td><input type="text" name="photo_areacode

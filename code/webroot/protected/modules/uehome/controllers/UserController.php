@@ -69,18 +69,21 @@ class UserController extends Controller {
 	public function actionDetail() {
         $model = new UserForm();
 
-        if (isset($_POST['User']))
+        if (isset($_POST['UserForm']))
         {
-            $model->attributes = $_POST['User'];
-            #if ( $model->validate() )
+            $model->attributes = $_POST['UserForm'];
+            if ( $model->validate() )
             {
                 $model->update();
+            }
+            else {
+            	var_dump($model->getErrors());
             }
         }
         else
         {
-            $user = new User();
-            $model = $user_info = User::model()->findByPk(yii::app()->user->getID());
+            $user = User::model()->findByPk(Yii::app()->user->getID());
+            $model->attributes=$user->attributes;
         }
         $city = City::model()->getAllCity();
 		$this->render ( 'detail', array('model'=>$model, 'city'=>$city) );

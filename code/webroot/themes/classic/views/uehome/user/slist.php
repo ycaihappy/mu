@@ -28,7 +28,7 @@
             <tr <?php echo $class;?>>                     
                     <td><?php echo $status[$data[$index]['supply_status']];?></td>
                     <td><input type="checkbox" /></td>
-                    <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('/uehome/supply/view',array('supply_id'=>$data[$index]['supply_id'],'update'=>true));?>"><?php echo $data[$index]['supply_name'];?></a></td>
+                    <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supply',array('supply_id'=>$data[$index]['supply_id'],'update'=>true));?>"><?php echo $data[$index]['supply_name'];?></a></td>
                     <td><?php echo $allcategory[$data[$index]['supply_category_id']];?></td>
                     <td><?php echo $data[$index]['supply_mu_content'];?></td>
                     <td><?php echo $allcity[$data[$index]['supply_city_id']];?></td>
@@ -37,7 +37,7 @@
                     </tr>
 	        		<?php endfor;?>			   
 		<tr>
-			<td colspan="6">
+			<td colspan="8">
 				<p class="btn-group">
 					<a class="cmp-btn">全选</a>
 					<a class="cmp-btn">取消</a>

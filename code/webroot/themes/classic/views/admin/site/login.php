@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="header-bar">
-		<img class="logo" src="images/logo_admin.png" />
+		<img class="logo" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.jpg" />
 	</div>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'loginForm',

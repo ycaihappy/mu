@@ -8,7 +8,7 @@
 
 <div class="head">
 	<div class="m-logo">
-		<a target="_self" href="" class="logo"><img title="www.mushw.com - 钼市网管理后台" alt="钼市网" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo_admin.png"></a>
+		<a target="_self" href="" class="logo"><img title="www.mushw.com - 钼市网管理后台" alt="钼市网" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.jpg"></a>
 	</div>
 	<?php ?>
 	<div class="m-nav">

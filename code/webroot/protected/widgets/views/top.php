@@ -1,8 +1,12 @@
 <div class="m-top">
 	<div class="layout">
 	<p class="user-info">
+	<?php if(Yii::app()->user->isGuest):?>
         <a href="<?php echo Yii::app()->controller->createUrl('uehome/user/login');?>">请登陆</a>
 		<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/register');?>">免费注册 </a>
+	<?php else:?>
+		您好，<?php echo Yii::app()->user->getName()?> ！ <a href="<?php echo Yii::app()->controller->createUrl('uehome/user/logout');?>">[退出]</a>
+	<?php endif;?>
 	</p>
 	<p class="site-tool">
 		<!--<span>|</span>

@@ -4,23 +4,15 @@
 	<!--m-table-list-->
 	<div class="m-table-list">
 	
-	<div class="hd">		
-		<div class="repeatbg btn-a">
-			<a class="cmp-btn">添加供求信息</a>
-			<a class="cmp-btn">稿件审核</a>
-			<a class="cmp-btn">栏目管理</a>
-			<a class="cmp-btn">更新列表</a>
-			<a class="cmp-btn">更新文档</a>
-			<a class="cmp-btn">文章回收站</a>
-		</div>
-	</div>
 	<div class="repeatbg search">
 			<form>
-				<select name="category"><option>选择栏目</option></select>
+<?php echo CHtml::dropDownList('product_status','', $status,array());?>
+				<!--<select name="category"><option>选择栏目</option></select>
 				<label>关键字：</label>
 				<input type="text" name="keyword" class="cmp-input" />
 				<select name="rank"><option>排序</option></select>
-				<input type="submit" class="cmp-btn" value="搜索"/>
+				<input type="submit" class="cmp-btn" value="搜索"/>-->
+			<a class="cmp-btn">添加现货</a>
 			</form>
 		</div>
 	

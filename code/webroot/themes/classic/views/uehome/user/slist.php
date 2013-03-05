@@ -21,64 +21,21 @@
 		<tr class="repeatbg">
 			<th width="58">状态</th><th width="35">选择</th><th width="314">标题</th><th width="107">品类</th><th width="106">品位</th><th width="106">存货地</th><th width="106">有效时间</th><th>操作</th>
 		</tr>
-		<tr>
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-            <td>面议</td>
-            <td>2013-1-1</td>
-            <td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr class="even">
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr>
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr class="even">
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr>
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr class="even">
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr>
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
+
+        <?php for($index=0;$index<count($data);$index++):
+        $class = ($index%2 == 0) ? "" : "class='even'";
+        ?>
+            <tr <?php echo $class;?>>                     
+                    <td><?php echo $status[$data[$index]['supply_status']];?></td>
+                    <td><input type="checkbox" /></td>
+                    <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('/uehome/supply/view',array('supply_id'=>$data[$index]['supply_id'],'update'=>true));?>"><?php echo $data[$index]['supply_name'];?></a></td>
+                    <td><?php echo $allcategory[$data[$index]['supply_category_id']];?></td>
+                    <td><?php echo $data[$index]['supply_mu_content'];?></td>
+                    <td><?php echo $allcity[$data[$index]['supply_city_id']];?></td>
+                    <td><?php echo $data[$index]['supply_valid_date'];?></td>                      
+			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">删除</a></td>
+                    </tr>
+	        		<?php endfor;?>			   
 		<tr>
 			<td colspan="6">
 				<p class="btn-group">

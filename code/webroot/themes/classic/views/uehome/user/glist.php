@@ -18,7 +18,7 @@
 	
 	<table border="0" cellpadding="0" cellspacing="0" class="table-list" width="100%">
 		<tr class="repeatbg">
-			<th width="58">ID</th><th width="35">选择</th><th width="314">标题</th><th width="107">到期时间</th><th width="106">价格</th><th>操作</th>
+			<th width="58">状态</th><th width="35">选择</th><th width="314">标题</th><th width="107">品类</th><th width="106">品位</th><th width="106">存货地</th><th>操作</th>
 		</tr>
 		<tr>
 			<td>001</td>
@@ -26,6 +26,7 @@
 			<td>文字文字文字文字文字文字</td>
 			<td>2013-1-1</td>
 			<td>面议</td>
+	    	<td>面议</td>
 			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
 		</tr>
 		<tr class="even">

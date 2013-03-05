@@ -2,7 +2,7 @@
 	    <p><b class="crumb"></b>会员中心<i></i>添加图片</p>
     </div>
 
-	<div class="m-form">
+	<div class="m-form" id="J_Cert_Add">
 <?php	
     $form = $this->beginWidget(
         'CActiveForm',
@@ -39,3 +39,10 @@
 	</table>
 <?php $this->endWidget();?>
 </div>
+
+<?php 
+
+Yii::app()->getClientScript()->registerScriptFile('js/jquery.1.8.min.js');
+Yii::app()->getClientScript()->registerScriptFile('js/jquery.uploadPreview.js');
+
+?>

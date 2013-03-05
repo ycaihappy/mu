@@ -13,7 +13,7 @@ $.extend(MU.mods,{
 			self.find('.table-list :checkbox').prop('checked',$(this).prop('checked'));
 		});
 		
-		self.find('.ico-set').click(function(e){
+		self.find('.ico-set').live('click',function(e){
 			e.preventDefault();
 			var obj = $(this),id = obj.data('id'),acttype=obj.data('acttype'); 
 			if(acttype>=0)
@@ -28,7 +28,21 @@ $.extend(MU.mods,{
 	                    data: { id : id, act : 'nonassigned' ,actType:acttype}
 	                }
 	            });
-				rolebox.dialog({width:'auto',height:'auto',title:'角色分配'});
+				var title;
+				switch(acttype)
+				{
+				case 2:
+					title='角色';
+					break;
+				case 1:
+					title='任务';
+					break;
+				case 0:
+					title='功能';
+					break
+				}
+				rolebox.dialog({width:'auto',height:'auto',title:title+'分配'});
+				$("span.title").text(title);
 			}
 			
 		});
@@ -80,7 +94,7 @@ $.extend(MU.mods,{
 				//if(re) {
 					rolebox = $('#J_RoleOperate');
 					$.fn.yiiGridView.update('J_RoleList');
-					rolebox.close();
+					rolebox.dialog('close');
 					//location.reload();
 				//}
 			},'json');

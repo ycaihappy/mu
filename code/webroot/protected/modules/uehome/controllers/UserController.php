@@ -208,6 +208,15 @@ class UserController extends Controller {
         $data=compact('model','product_type','product_smallType','allCity','unit_type','allProvince');
 		$this->render ( 'goods' , $data);
 	}
+	public function actionSlist() {
+
+        $status = Term::model()->getTermsByGroupId(1);
+		$this->render ( 'slist', array('status'=>$status) );
+	}
+	public function actionGlist() {
+
+		$this->render ( 'glist' );
+	}
 	public function actionCert() {
         $model = new FileForm;
         $cert_list = $model->glist();

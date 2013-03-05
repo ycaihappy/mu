@@ -260,5 +260,28 @@ $.extend(MU.mods,{
 		var self = $(this);
 		$("#FileForm_image").uploadPreview({ width: 200, height: 200, imgDiv: ".thumb", imgType: ["bmp", "gif", "png", "jpg"] });
 
+	},
+	JSupplyList : function () {
+		var self = $(this);
+		var chks = self.find('.table-list :checkbox');
+		self.find('.btn-group .cmp-btn').on('click',function(){
+			var o = $(this);
+			if(o.hasClass('all')){
+				chks.prop('checked',true);
+			}else if(o.hasClass('cancel')){
+				chks.prop('checked',false);
+			}else if(o.hasClass('delete')){
+				if(confirm('确定要删除？！')){
+					var arr = chks.filter(':checked').map(function(){
+						return this.value;
+					}).get().join(',');
+					alert(arr);
+				}
+			}
+		});
+		
+		$('#supply_status').change(function(){
+			$(this).closest('form').submit();
+		});
 	}
 });

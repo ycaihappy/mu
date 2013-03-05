@@ -468,6 +468,7 @@ padding: 0 20px;
 .table-list{border-left:1px solid #cfcfcf;border-top:1px solid #cfcfcf;}
 .table-list th,.table-list td{padding:6px;border-right:1px solid #cfcfcf;border-bottom:1px solid #cfcfcf;text-align:center;}
 .table-list .even{background:#f5fafe}
+.table-list td.td02{text-align:left;}
 .m-table-list .btn-group{text-align:left;padding:5px;}
 .m-table-list .btn-group a{margin-right:5px;}
 .m-table-list .pager{padding:12px 0px;text-align:center;background:#fafcef;border:1px solid #cfcfcf;margin-top:10px;}

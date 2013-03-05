@@ -2,11 +2,12 @@
 		<p><b class="crumb"></b>会员中心<i></i>供求列表</p>
 	</div>
 	<!--m-table-list-->
-	<div class="m-table-list">
+	<div class="m-table-list" id="J_Supply_List">
 	
 
 	<div class="repeatbg search">
 			<form>
+			<input type="hidden" name="r" value="uehome/user/slist" />
 <?php echo CHtml::dropDownList('supply_status','', $status,array());?>
 				<!--<select name="category"><option>选择栏目</option></select>
 				<label>关键字：</label>
@@ -25,9 +26,9 @@
         <?php for($index=0;$index<count($data);$index++):
         $class = ($index%2 == 0) ? "" : "class='even'";
         ?>
-            <tr <?php echo $class;?>>                     
+            <tr <?php echo $class;?>>           
                     <td><?php echo $status[$data[$index]['supply_status']];?></td>
-                    <td><input type="checkbox" /></td>
+                    <td><input type="checkbox" name="supply_id[]" value="<?php echo $data[$index]['supply_id'];?>" /></td>
                     <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('/uehome/supply/view',array('supply_id'=>$data[$index]['supply_id'],'update'=>true));?>"><?php echo $data[$index]['supply_name'];?></a></td>
                     <td><?php echo $allcategory[$data[$index]['supply_category_id']];?></td>
                     <td><?php echo $data[$index]['supply_mu_content'];?></td>
@@ -39,9 +40,9 @@
 		<tr>
 			<td colspan="6">
 				<p class="btn-group">
-					<a class="cmp-btn">全选</a>
-					<a class="cmp-btn">取消</a>
-					<a class="cmp-btn">删除</a>
+					<a class="cmp-btn all">全选</a>
+					<a class="cmp-btn cancel">取消</a>
+					<a class="cmp-btn delete">删除</a>
 				</p>
 			</td>
 		

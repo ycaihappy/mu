@@ -147,10 +147,20 @@ class UserController extends Controller {
         $model->delete();
         echo json_encode(array('status'=>1,'data'=>array()));
     }
-    public function actionGoodDel()
+    public function actionProductDel()
     {
-        $model = Product::model()->find("product_id=:product_id", array('product_id'=>$_REQUEST['product_id']));
-        $model->delete();
+        if ( strstr($_REQUEST['ids'],',') )
+        {
+            $criteria=new CDbCriteria;
+            $criteria->order='supply_id DESC';
+            $criteria->addCondition("supply_in in(".$_REQUEST['ids'].")");
+            Product::model()->deleteAll($criteria);
+        }
+        else
+        {
+            $model = Product::model()->find("product_id=:product_id", array('product_id'=>$_REQUEST['ids']));
+            $model->delete();
+        }
         echo json_encode(array('status'=>1,'data'=>array()));
     }
 	public function actionSupply() {

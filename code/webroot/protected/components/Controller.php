@@ -20,4 +20,12 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+	
+	public $siteConfig;
+	public function init()
+	{
+		$this->siteConfig=new BasicSiteInfo();
+    	$this->siteConfig=$this->siteConfig->LoadData();
+    	$this->siteConfig->csHotline2=implode('/ ',array_diff(array($this->siteConfig->csHotline2,$this->siteConfig->csHotline3,$this->siteConfig->csHotline4),array('')));
+	}
 }

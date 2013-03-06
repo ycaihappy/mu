@@ -18,12 +18,15 @@ class CGetImageFromLibary extends CAction {
 			$pager->pageVar='page';
 			$pager->applyLimit($imageCretria);
 			$images=ImageLibrary::model()->findAll($imageCretria);
+			
 			$returnImage=array();
+			$returnImage['imageCount']=$count;
+			$returnImage['currentPage']=$pager->getCurrentPage()+1;
 			if($images)
 			{
 				foreach ($images as $image)
 				{
-					$returnImage[]=array('image_src'=>$image->image_src,'image_title'=>$image->image_title,'image_thumb_src'=>$image->image_thumb_src);
+					$returnImage['imageList'][]=array('image_src'=>$image->image_src,'image_title'=>$image->image_title,'image_thumb_src'=>$image->image_thumb_src);
 				}
 			}
 			echo json_encode($returnImage);

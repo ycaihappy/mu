@@ -11,11 +11,12 @@
     ),
 ));?>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
+        <?php echo $form->hiddenField($model, 'product_id');?>
 		<tr>
-			<td class="label">现货名称：</td><td><?php echo $form->textField($model, 'product_name', array('class'=>'cmp-input','value'=>''));?><span class="msg">不能包含“.,、/”等特殊字符</span></td>
+			<td class="label">现货名称：</td><td><?php echo $form->textField($model, 'product_name', array('class'=>'cmp-input'));?><span class="msg">不能包含“.,、/”等特殊字符</span></td>
 		</tr>
 		<tr>
-			<td class="label">关键字：</td><td><?php echo $form->textField($model, 'product_keyword', array('class'=>'cmp-input','value'=>''));?></td>
+			<td class="label">关键字：</td><td><?php echo $form->textField($model, 'product_keyword', array('class'=>'cmp-input'));?></td>
 		</tr>
 			
 		<tr>

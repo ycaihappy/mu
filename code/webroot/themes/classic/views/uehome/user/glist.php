@@ -7,19 +7,19 @@
 	<div class="repeatbg search">
 			<form>
 			<input type="hidden" name="r" value="<?php echo $_GET['r']?>" />
-<?php echo CHtml::dropDownList('product_status','', $status,array());?>
+<?php echo CHtml::dropDownList('product_status',$select_status, $status,array());?>
 				<!--<select name="category"><option>选择栏目</option></select>
 				<label>关键字：</label>
 				<input type="text" name="keyword" class="cmp-input" />
 				<select name="rank"><option>排序</option></select>
 				<input type="submit" class="cmp-btn" value="搜索"/>-->
-			<a class="cmp-btn">添加现货</a>
+			<a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/goods');?>" class="cmp-btn">添加现货</a>
 			</form>
 		</div>
 	
 	<table border="0" cellpadding="0" cellspacing="0" class="table-list" width="100%">
 		<tr class="repeatbg">
-			<th width="40">状态</th><th width="30">选择</th><th width="314">标题</th><th width="107">品类</th><th width="106">品位</th><th width="106">存货地</th><th width="30">操作</th>
+			<th width="40">状态</th><th width="30">选择</th><th width="314">标题</th><th width="107">品类</th><th width="106">品位</th><th width="106">存货地</th><th width="106">添加时间</th><th width="85">操作</th>
 		</tr>
                     <?php for($index=0;$index<count($data);$index++):
                     $class = ($index%2 == 0) ? "" : "class='even'";?>

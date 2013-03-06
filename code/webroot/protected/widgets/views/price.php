@@ -1,4 +1,4 @@
-            <div class="m-quot">
+            <div class="m-quot" id="J_Quot">
 				<div class="hd">
 				<span class="on"><a href="">价格行情</a></span>			
 				<a href="<?php echo Yii::app()->controller->createUrl('price/index');?>" class="more">更多</a>
@@ -18,7 +18,7 @@
 							<option>钼酸胺</option>
 						</select>
 					</p>
-					<div class="chart">
+					<div class="chart" id="chart">
 						<img src="images/b.png" />
 					</div>
 					</div>

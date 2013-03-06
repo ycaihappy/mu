@@ -11,6 +11,7 @@ case 1:
 				array('label'=>'基本类别管理', 'url'=>array('site/manageTerm'),'linkOptions'=>array('target'=>'mainFrame')),
 				array('label'=>'邮件设置', 'url'=>array('site/manageSiteEmailSetting'),'linkOptions'=>array('target'=>'mainFrame',)),
 				array('label'=>'短信设置', 'url'=>array('site/manageSMSSetting'),'linkOptions'=>array('target'=>'mainFrame',)),
+				array('label'=>'网站友情链接', 'url'=>array('site/manageFLink'),'linkOptions'=>array('target'=>'mainFrame',)),
 				),
 		));
 break;
@@ -60,6 +61,7 @@ case 6:
 				array('label'=>'推荐管理', 'url'=>array('advertisementRecommend/manageRecommend'),'linkOptions'=>array('target'=>'mainFrame')),
 				),
 		)); 
+		break;
 case 7:
  $this->widget('zii.widgets.CMenu',array(
 			'activeCssClass'=>'on',

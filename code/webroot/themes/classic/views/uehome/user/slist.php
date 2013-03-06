@@ -20,7 +20,7 @@
 		<tr class="repeatbg">
 			<th width="58">状态</th><th width="35">选择</th><th width="314">标题</th><th width="107">品类</th><th width="106">品位</th><th width="106">存货地</th><th>操作</th>
 		</tr>
-         		<?php for($index=0;$index<count($data);$index++):?>
+             		<?php for($index=0;$index<count($data);$index++):?>
         <tr>                     
                     <td><?php echo $status[$data[$index]['supply_status']];?></td>
                     <td><input type="checkbox" /></td>
@@ -32,6 +32,7 @@
 		<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">删除</a></td>
                     </tr>
 		<?php endfor;?>			   
+
 		<tr>
 			<td colspan="8">
 				<p class="btn-group">

@@ -1,6 +1,6 @@
 <?php 
 $this->breadcrumbs=array(
-	'用户管理'=>array('manageUser'),
+	'网站基本设置'=>array('manageTerm'),
 	'友情链接管理'=>array('manageFLink'),
 	'添加/修改',
 );
@@ -14,13 +14,7 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 <table border="0" cellpadding="0" cellspacing="0" class="table-field">
-<tr>
-<td class="label">会员名：</td>
-		<td>
-			<input type=text disabled="disabled" class='cmp-input' value="<?php echo $model->user->user_name;?>"/>		
-        <?php echo $form->hiddenField($model,'flink_user_id');?>
-		</td>
-</tr>
+
 
 <tr>
 <td class="label">名称：</td>

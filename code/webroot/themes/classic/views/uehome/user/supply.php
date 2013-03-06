@@ -15,10 +15,10 @@
             <td class="label">类型：</td><td><?php echo $form->dropDownList($model, 'supply_category', $supply_type);?></td>
 		</tr>
 		<tr>
-            <td class="label">名称：</td><td><?php echo $form->textField($model, 'supply_name', array('class'=>'cmp-input','value'=>''));?><span class="msg">不能包含“.,、/”等特殊字符</span></td>
+            <td class="label">名称：</td><td><?php echo $form->textField($model, 'supply_name', array('class'=>'cmp-input','value'=>$supply->supply_name));?><span class="msg">不能包含“.,、/”等特殊字符</span></td>
 		</tr>
 		<tr>
-			<td class="label">关键字：</td><td><?php echo $form->textField($model, 'keywords', array('class'=>'cmp-input','value'=>''));?></td>
+			<td class="label">关键字：</td><td><?php echo $form->textField($model, 'supply_keyword', array('class'=>'cmp-input','value'=>$supply->supply_keyword));?></td>
 		</tr>
 		<tr>
 			<td class="label">供求品类：</td><td><?php echo CHtml::dropDownList('parent_category',$parentCategory,$category,array(
@@ -44,13 +44,13 @@
            ));?> <?php echo $form->dropDownList($model, 'city',$allCity,array('empty'=>'选择城市'));?></td>
         </tr>
 		<tr>
-        <td class="label">地址：</td><td><?php echo $form->textField($model, 'address', array('class'=>'cmp-input','value'=>''));?></td>
+        <td class="label">地址：</td><td><?php echo $form->textField($model, 'address', array('class'=>'cmp-input','value'=>$supply->supply_address));?></td>
 		</tr>
 		<tr>
-        <td class="label">电话：</td><td><?php echo $form->textField($model, 'tel', array('class'=>'cmp-input','value'=>''));?></td>
+        <td class="label">电话：</td><td><?php echo $form->textField($model, 'tel', array('class'=>'cmp-input','value'=>$supply->supply_phone));?></td>
 		</tr>
 		<tr>
-        <td class="label">价格：</td><td><?php echo $form->textField($model, 'price', array('class'=>'cmp-input','value'=>''));?></td>
+        <td class="label">价格：</td><td><?php echo $form->textField($model, 'price', array('class'=>'cmp-input','value'=>$supply->supply_price));?></td>
 		</tr>
 		<tr>
         <td class="label">信息描述：</td><td><?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
@@ -59,7 +59,7 @@
 			<td class="label">信息附图：</td><td><img src="images/thumb.gif" class="thumb"><input type="file" name="photo" value="浏览" /></td>
 		</tr>
 		<tr>
-        <td class="label">有效时间至：</td><td><?php echo $form->textField($model, 'effective_time', array('class'=>'cmp-input','value'=>''));?></td>
+        <td class="label">有效时间至：</td><td><?php echo $form->textField($model, 'effective_time', array('class'=>'cmp-input','value'=>$supply->supply_valid_date));?></td>
 		</tr>
 		<tr>
 			<td></td><td><button type="submit" class="btn-save">发布/保存</button></td>

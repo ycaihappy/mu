@@ -78,7 +78,7 @@ class SupplyForm extends CFormModel
         $commd->bindValue(":supply_category_id", $this->category);
         $commd->bindValue(":supply_content", $this->description);
         $commd->bindValue(":supply_address", $this->address);
-        $commd->bindValue(":muContent", $this->muContent);
+        $commd->bindValue(":supply_mu_content", $this->muContent);
         $commd->bindValue(":supply_phone", $this->tel);
         $commd->bindValue(":supply_price", $this->price);
         $commd->bindValue(":supply_status", 1);

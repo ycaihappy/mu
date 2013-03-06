@@ -31,7 +31,7 @@
                     <td><?php echo $data[$index]['product_mu_content'];?></td>
                     <td><?php echo $allcity[$data[$index]['product_city_id']];?></td>
                     <td><?php echo $data[$index]['product_join_date'];?></td>                      
-		<td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/goods',array('product_id'=>$data[$index]['product_id'],'update'=>1));?>" class="ico-edit">编辑</a><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/productdel',array('product_id'=>$data[$index]['product_id']));?>" class="ico-del">删除</a></td>
+		<td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/goods',array('product_id'=>$data[$index]['product_id'],'update'=>1));?>" class="ico-edit">编辑</a><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/productdel',array('ids'=>$data[$index]['product_id']));?>" class="ico-del">删除</a></td>
                     </tr>
 		<?php endfor;?>			   
 		<tr>

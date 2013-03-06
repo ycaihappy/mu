@@ -275,7 +275,12 @@ $.extend(MU.mods,{
 					var arr = chks.filter(':checked').map(function(){
 						return this.value;
 					}).get().join(',');
-					alert(arr);
+					$.getJSON('index.php?r=uehome/user/productdel&ids' + arr,function(re){
+						if(re.status == 1){
+							location.reload();
+						}
+					})
+					
 				}
 			}
 		});

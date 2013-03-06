@@ -2,7 +2,6 @@
 
 <div class="layout main">
 	
-    <?php $this->widget("BreadCrumbWidget");?>
 
 	<div class="layout-area">
 	
@@ -14,7 +13,7 @@
 		</div>
 	<div class="layout-right">
 	
-<?php $this->widget("CaseWidget");?>
+<?php $this->widget("NewsRelateWidget");?>
 	
 	</div>
 		

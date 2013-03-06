@@ -5,49 +5,46 @@
             <div id="com_info" class="cmp_info">
             	<ul>
                 	<li>
+                    	<span>供应</span>
+                        <em><?php echo $supply['supply_content'];?></em>
+                   	</li>
+                	<li>
                     	<span>发布公司</span>
-                        <em>邯郸市西丁贸易有限公司</em>
+                        <em><?php echo $user_info['enterprise']['ent_name'];?></em>
                    	</li>
                     <li>
                     	<span>联系人</span>
-                        <em>张经理</em>
-                        <a href="http://i.steelcn.com/member/contacto/contactoAdd.aspx?user=xidingmaoyi" class="ci_mail" target="_blank">站内信</a>
+                        <em><?php echo $user_info['enterprise']['ent_chief'];?></em>
+                        <!--<a href="http://i.steelcn.com/member/contacto/contactoAdd.aspx?user=xidingmaoyi" class="ci_mail" target="_blank">站内信</a>-->
                     </li>
                     <li class="ci_li01">
                     	<span>品种</span>
-                        供应板材类/普碳中板
+<?php echo $category[$supply['supply_category_id']];?>
+
                     </li>
                     <li class="ci_li">
-                    	<span>规格</span>
-                        70
+                    	<span>品位</span>
+<?php echo $supply['supply_mu_content'];?> 
                     </li>
                     <li class="ci_li">
-                    	<span>材质</span>
-                        Q235B
-                    </li>
-                    <li class="ci_li">
-                    	<span>宽</span>
-                        2200
-                    </li>
-                    <li class="ci_li">
-                    	<span>长</span>
-                        10800
+                    	<span>含水量</span>
+<?php echo $supply['supply_water_content'];?>
                     </li>
                     <li class="ci_li">
                     	<span>交货地</span>
-                        邯郸市
+<?php echo $city[$supply['supply_city_id']];?>
                     </li>
                     <li class="ci_li">
-                    	<span>数量</span>
-                        14吨
+                    	<span>关键字</span>
+<?php echo $supply['supply_keyword'];?>
                     </li>
                     <li class="ci_li">
                     	<span>联系电话</span>
-                        <em>0310-7878266</em>
+                        <em><?php echo $supply['supply_phone'];?></em>
                     </li>
                     <li class="ci_li">
                     	<span>价格</span>
-                        3800
+<?php echo $supply['supply_price'];?>
                     </li>
                 </ul>
             </div>
@@ -55,5 +52,5 @@
             <div class="am_note">
                 现货
             </div>
-            <p class="art_note">·联系我时，请注明您是在中国钢材网上看到了我的采购信息</p>
+            <p class="art_note">·联系我时，请注明您是在钼市网上看到了我的采购信息</p>
       </div>

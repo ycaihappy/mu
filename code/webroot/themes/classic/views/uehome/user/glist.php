@@ -7,13 +7,13 @@
 	<div class="repeatbg search">
 			<form>
 			<input type="hidden" name="r" value="<?php echo $_GET['r']?>" />
-<?php echo CHtml::dropDownList('product_status','', $status,array());?>
+<?php echo CHtml::dropDownList('product_status',$select_status, $status,array());?>
 				<!--<select name="category"><option>选择栏目</option></select>
 				<label>关键字：</label>
 				<input type="text" name="keyword" class="cmp-input" />
 				<select name="rank"><option>排序</option></select>
 				<input type="submit" class="cmp-btn" value="搜索"/>-->
-			<a class="cmp-btn">添加现货</a>
+			<a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/goods');?>" class="cmp-btn">添加现货</a>
 			</form>
 		</div>
 	

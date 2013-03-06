@@ -156,9 +156,9 @@ return array(
 		),
 		'searcher'=>array(
             'class'=>'CSolrComponent',
-            'host'=>'192.168.219.103',
+            'host'=>'61.163.6.93',
             'port'=>8080,
-            'indexPath'=>'/solr-keyword/core1'
+            'indexPath'=>'/solr/core1'
         ),
 		
 	#	'log'=>array(

@@ -51,16 +51,3 @@
 			<?php $this->widget('TopRankingNewsWidget');?>
     </div>
 
-	 </div>
-	     <div class="layout-area">
-		<div class="m-brand">
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-			<a><img src="images/img2.jpg" /></a>
-	</div>
-	</div>

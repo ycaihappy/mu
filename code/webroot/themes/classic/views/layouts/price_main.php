@@ -16,7 +16,7 @@
 	<div class="m-news-nav">
 		<div class="nav">
 		<ul>
-                <li class="bgnone"><a href="" title="首页">行情首页</a></li>
+                <li class="bgnone"><a href="<?php echo $this->createUrl('price/index');?>" title="首页">行情首页</a></li>
                 <li> <a href="<?php echo $this->createUrl('price/list',array('subcategory_id'=>58));?>">当日报价</a></li>
 		        <li><a href="<?php echo $this->createUrl('price/list',array('subcategory_id'=>59));?>">价格汇总</a></li>
 		        <li><a href="<?php echo $this->createUrl('price/list',array('subcategory_id'=>37));?>">国际行情</a></li>

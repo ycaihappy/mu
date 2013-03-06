@@ -55,7 +55,7 @@ class NewsController extends Controller
 			$newsCriteria->order='art_post_date desc';
 			$count = Article::model()->count($newsCriteria);//
 			$pager = new CPagination($count);
-			$pager -> pageSize = 10; 
+			$pager -> pageSize = 25; 
 			$pager->applyLimit($newsCriteria);
 			$newses=Article::model()->findAll($newsCriteria);
 			if($newses)

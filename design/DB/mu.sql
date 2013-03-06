@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-07 00:25:04
+# Date/time:                    2013-03-07 00:57:55
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -1959,7 +1959,9 @@ INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `t
 	(63, 20, '国际标准', '', 10, 0, NULL),
 	(64, 20, '国内标准', '', 10, 0, NULL),
 	(65, 20, '生产工艺', '', 10, 0, NULL),
-	(66, 20, '钼用途', '', 10, 0, NULL);
+	(66, 20, '钼用途', '', 10, 0, NULL),
+	(67, 20, '钼产品', '', 10, 0, NULL),
+	(68, 20, '钼应用', '', 10, 0, NULL);
 /*!40000 ALTER TABLE `mu_term` ENABLE KEYS */;
 
 

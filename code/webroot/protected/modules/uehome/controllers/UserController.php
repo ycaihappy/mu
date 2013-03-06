@@ -142,11 +142,13 @@ class UserController extends Controller {
     {
         $model = Supply::model()->find("supply_id=:supply_id", array('supply_id'=>$_REQUEST['supply_id']));
         $model->delete();
+        echo json_encode(array('status'=>1,'data'=>array()));
     }
     public function actionGoodDel()
     {
         $model = Product::model()->find("product_id=:product_id", array('product_id'=>$_REQUEST['product_id']));
         $model->delete();
+        echo json_encode(array('status'=>1,'data'=>array()));
     }
 	public function actionSupply() {
         $model = new SupplyForm();
@@ -258,16 +260,17 @@ class UserController extends Controller {
         $criteria=new CDbCriteria;
         $criteria->order='supply_id DESC';
         if ( isset($_REQUEST['supply_status']) )
-        $criteria->addCondition("supply_status=".$_REQUEST['supply_status']);
+            $criteria->addCondition("supply_status=".$_REQUEST['supply_status']);
         $criteria->addCondition("supply_user_id=".yii::app()->user->getID());
 
         $count=Supply::model()->count($criteria);
+        $selectStatus = isset($_REQUEST['supply_status']) ? $_REQUEST['supply_status'] : 0;
 
         $pager=new CPagination($count);
         $pager->pageSize=15;
         $pager->applyLimit($criteria);
         $list=Supply::model()->findAll($criteria);
-		$this->render ( 'slist', array('status'=>$status,'allcity'=>$city,'allcategory'=>$category,'data'=>$list, 'pager'=>$pager) );
+		$this->render ( 'slist', array('status'=>$status,'allcity'=>$city,'allcategory'=>$category,'data'=>$list, 'pager'=>$pager, 'select_status'=>$selectStatus) );
 	}
 	public function actionGlist() {
         $status = Term::model()->getTermsByGroupId(1);
@@ -276,16 +279,17 @@ class UserController extends Controller {
         $criteria=new CDbCriteria;
         $criteria->order='product_id DESC';
         if ( isset($_REQUEST['product_status']) )
-        $criteria->addCondition("product_status=".$_REQUEST['product_status']);
+            $criteria->addCondition("product_status=".$_REQUEST['product_status']);
         $criteria->addCondition("product_user_id=".yii::app()->user->getID());
 
+        $selectStatus = isset($_REQUEST['product_status']) ? $_REQUEST['product_status'] : 0;
         $count=Product::model()->count($criteria);
 
         $pager=new CPagination($count);
         $pager->pageSize=15;
         $pager->applyLimit($criteria);
         $list=Product::model()->findAll($criteria);
-		$this->render ( 'glist', array('status'=>$status,'allcity'=>$city,'allcategory'=>$category,'data'=>$list, 'pager'=>$pager) );
+		$this->render ( 'glist', array('status'=>$status,'allcity'=>$city,'allcategory'=>$category,'data'=>$list, 'pager'=>$pager, 'select_status'=>$selectStatus) );
 	}
 	public function actionCert() {
         $model = new FileForm;

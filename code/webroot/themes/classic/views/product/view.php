@@ -1,6 +1,5 @@
 <div class="layout main">
 
-    <?php $this->widget("BreadCrumbWidget");?>
 
 	<div class="layout-area">
 	

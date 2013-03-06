@@ -7,6 +7,7 @@ class BottomBannerWidget extends CWidget
 
     public function run()
     {
-        $this->render('bottom_banner',array('name'=>'lizhli'));
+    	$bottom_banners=CCacheHelper::getAdvertisement(11);
+        $this->render('bottom_banner',array('bottom_banners'=>$bottom_banners));
     }
 }

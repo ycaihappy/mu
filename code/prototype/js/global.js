@@ -260,5 +260,77 @@ $.extend(MU.mods,{
 		var self = $(this);
 		$("#FileForm_image").uploadPreview({ width: 200, height: 200, imgDiv: ".thumb", imgType: ["bmp", "gif", "png", "jpg"] });
 
+	},
+	JSupplyList : function () {
+		var self = $(this);
+		var chks = self.find('.table-list :checkbox');
+		self.find('.btn-group .cmp-btn').on('click',function(){
+			var o = $(this);
+			if(o.hasClass('all')){
+				chks.prop('checked',true);
+			}else if(o.hasClass('cancel')){
+				chks.prop('checked',false);
+			}else if(o.hasClass('delete')){
+				if(confirm('确定要删除？！')){
+					var arr = chks.filter(':checked').map(function(){
+						return this.value;
+					}).get().join(',');
+					alert(arr);
+				}
+			}
+		});
+		
+		$('#supply_status').change(function(){
+			$(this).closest('form').submit();
+		});
+	},
+	JQuot : function () {
+		var self = $(this);
+		$('#chart').css({width:250,height:150});
+		$.getAsset('script',['js/highcharts.js'],function(){
+			 var chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'chart',
+                    type: 'line'
+                },
+                title: {
+                    text: '行情走势图'
+                },
+                xAxis: {
+                    categories: ['Jan','Feb','Mar']
+                },
+                yAxis: {
+                    title: {
+                        text: '价格'
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '' +  this.series.name + ': ' + this.y + '';
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [
+					{
+						name : 'a',
+						data : [2,3,4]
+					},
+					{
+						name : 'b',
+						data : [1,2,3]
+					},
+					{
+						name : 'c',
+						data : [5,7,8]
+					}
+					
+				],
+                exporting: {
+                    enabled: false
+                }
+            });
+		});
 	}
 });

@@ -23,7 +23,17 @@ if ( $flag)
 {
 ?>
 			<div class="fbs">
-			<ul><li><em class="gc01"></em><span>低合金板：</span><i>26895</i></li><li><em class="gc02"></em><span>锅炉容器板：</span><i>26895</i></li><li><em class="gc03"></em><span>普碳中板：</span><i>26895</i></li><li><em class="gc04"></em><span>无缝管：</span><i>888</i></li><li><em class="gc05"></em><span>容器板：</span><i>344</i></li><li><em class="gc06"></em><span>耐磨钢板：</span>7527</li><li><em class="gc07"></em><span>高强板：</span><i>876</i></li><li><em class="gc08"></em><span>螺纹钢：</span><i>222</i></li></ul></div>
+			<ul>
+			<?php if($proTypes):
+					foreach ($proTypes as $type):
+			?>
+			<li><em class="gc01"></em><span><?php echo $type['name']?>：</span><i><?php echo $type['num']?></i></li>
+			<?php 
+					endforeach;
+					endif;
+			?>
+			
+			</ul></div>
 <?php } ?>
 			<div class="bd">
 				<ul class="current">

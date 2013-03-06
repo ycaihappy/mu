@@ -150,24 +150,32 @@ class UserController extends Controller {
     }
 	public function actionSupply() {
         $model = new SupplyForm();
+        if ( isset($_REQUEST['update']) )
+        {
+            $supply= Supply::model()->find("supply_id=:supply_id", array('supply_id'=>$_REQUEST['supply_id']));
+            $model->supply_id   = $supply->supply_id;
+            $model->supply_name = $supply->supply_name;
+            $model->supply_keyword = $supply->supply_keyword;
+            $model->address     = $supply->supply_address;
+            $model->tel         = $supply->supply_phone;
+            $model->price       = $supply->supply_price;
+            $model->description = $supply->supply_content;
+            $model->effective_time = $supply->supply_valid_date;
+        }
+
         if (isset($_POST['SupplyForm']))
         {
             $model->attributes = $_POST['SupplyForm'];
             if ( $model->validate() )
             {
-                $model->draft();
+                empty($model->supply_id) ? $model->draft() : $model->update();
             }
             else {
             	var_dump($model->getErrors());
             	exit;
             }
         }
-        $supply_data = array();
-        if ( isset($_REQUEST['update']) )
-        {
-            $supply= Supply::model()->find("supply_id=:supply_id", array('supply_id'=>$_REQUEST['supply_id']));
-            $model->description = $supply->supply_content;
-        }
+
         $supply_type = Term::getTermsByGroupId(11);
 		$category= Term::getTermsByGroupId(14,true,'选择分类');
         $parentCategory=0;
@@ -188,7 +196,7 @@ class UserController extends Controller {
         	$allCity=City::getAllCity($province);
         }
         $allMuContent=Term::getTermsByGroupId(16,false,null,'选择品质');
-        $data=compact('allMuContent','model','supply_type','category','smallCategory','parentCategory','province','allCity','allProvince','supply');
+        $data=compact('allMuContent','model','supply_type','category','smallCategory','parentCategory','province','allCity','allProvince');
 		$this->render ( 'supply', $data);
 	}
 	public function actionGoods() {

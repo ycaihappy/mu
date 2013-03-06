@@ -32,7 +32,7 @@
                     <td><?php echo $data[$index]['supply_mu_content'];?></td>
                     <td><?php echo $allcity[$data[$index]['supply_city_id']];?></td>
                     <td><?php echo $data[$index]['supply_valid_date'];?></td>                      
-		            <td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supply',array('supply_id'=>$data[$index]['supply_id'],'update'=>1));?>" class="ico-edit">编辑</a><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supplydel',array('supply_id'=>$data[$index]['supply_id']));?>" class="ico-del">删除</a></td>
+		            <td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supply',array('supply_id'=>$data[$index]['supply_id'],'update'=>1));?>" class="ico-edit">编辑</a><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supplydel',array('ids'=>$data[$index]['supply_id']));?>" class="ico-del">删除</a></td>
                     </tr>
 		<?php endfor;?>			   
 

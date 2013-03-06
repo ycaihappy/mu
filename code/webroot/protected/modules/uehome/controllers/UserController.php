@@ -161,6 +161,7 @@ class UserController extends Controller {
             $model->price       = $supply->supply_price;
             $model->description = $supply->supply_content;
             $model->effective_time = $supply->supply_valid_date;
+            $model->category    = $supply->supply_category_id;
         }
 
         if (isset($_POST['SupplyForm']))

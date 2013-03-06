@@ -279,9 +279,19 @@ $.extend(MU.mods,{
 						if(re.status == 1){
 							location.reload();
 						}
-					})
+					});
 					
 				}
+			}
+		});
+		self.find('.ico-del').on('click',function(e){
+			e.preventDefault();
+			if(confirm('确定要删除？！')){
+				$.getJSON($(this).attr('href'),function(re){
+						if(re.status == 1){
+							location.reload();
+						}
+				});
 			}
 		});
 		

@@ -96,6 +96,18 @@ class Article extends CActiveRecord
                 'order'=>'art_click_count desc,art_post_date desc',
                 'limit'=>10
             ),
+            'topRankingPrice'=>array(//行情列表--行情排行
+            	'select'=>'art_id,art_title,art_click_count',
+                'condition'=>'art_category_id=16 and art_status=1',
+                'order'=>'art_click_count desc,art_post_date desc',
+                'limit'=>10
+            ),
+            'topRankingKnowledge'=>array(//百科列表--知识排行
+            	'select'=>'art_id,art_title,art_click_count',
+                'condition'=>'art_category_id=20 and art_status=1',
+                'order'=>'art_click_count desc,art_post_date desc',
+                'limit'=>10
+            ),
             'topViewPointNews'=>array(//新闻首页--本网视点
             	'select'=>'art_id,art_title',
                 'condition'=>'art_category_id=17 and art_subcategory_id=40 and art_status=1',

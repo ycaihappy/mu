@@ -17,15 +17,16 @@
 	<div class="m-news-nav">
 		<div class="nav">
 		<ul>
-                	<li class="bgnone"><a href="http://www.gtxh.com" title="首页">首页</a></li>
-                    <li><a href="http://steel.gtxh.com" title="中国钢铁资源库">资源库</a></li>
-                    <li><a href="http://market.gtxh.com" title="中国钢铁现货超市">现货超市</a></li>
-                    <li><a href="http://news.gtxh.com" title="中国钢铁信息库">信息库</a></li>
-                    <li><a href="http://news.gtxh.com/yanjiuzhongxin/" title="研究中心">研究中心</a></li>
-                    <li><a href="http://bbs.gtxh.com" title="钢铁社区">钢铁社区</a></li>
-                    <li><a href="http://union.gtxh.com" target="_blank">搜索联盟</a></li>
-                    <li><a href="http://hyjy.gtxh.com" title="行业视频">行业视频</a></li>
-                    <li><a href="http://www.gtxh.com/go/g.aspx?g=https://www.gopay.com.cn/index.jsp?source=0000008061" target="_blank">国付宝</a></li>
+                	<li class="bgnone"><a href="<?php $this->createUrl('/site/index')?>" title="首页">首页</a></li>
+                    <li><a href="<?php echo $this->createUrl('/news/index')?>" title="钼市网新闻中心">新闻中心</a></li>
+                    <li><a href="<?php echo $this->createUrl('/price/index')?>" title="钼市网行情资讯">行情资讯</a></li>
+                    <li><a href="<?php echo $this->createUrl('/supply/index')?>" title="钼市网供求">供应求购</a></li>
+                    <li><a href="<?php echo $this->createUrl('/knowledge/list')?>" title="钼市网钼百科">钼百科</a></li>
+                    <li><a href="<?php echo $this->createUrl('/service/index')?>" title="钼服务">钼服务</a></li>
+                    <li><a href="<?php echo $this->createUrl('/product/index',array('bigType'=>28))?>" title="钼服务">钼初级</a></li>
+                    <li><a href="<?php echo $this->createUrl('/product/index',array('bigType'=>29))?>" title="钼化工">钼化工</a></li>
+                    <li><a href="<?php echo $this->createUrl('/product/index',array('bigType'=>30))?>" title="钼制品">钼制品</a></li>
+                    <li><a href="<?php echo $this->createUrl('/product/index',array('bigType'=>56))?>" title="钼制品">钼终极</a></li>
                 </ul>
 		</div>
 	</div>

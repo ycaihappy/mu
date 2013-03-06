@@ -9,126 +9,27 @@
                 品名/价格
             </th>
             
+<?php foreach($area as $key => $value){?>
             <th>
-                上海
+<?php echo $city[$key];?>
             </th>
-            
-            <th>
-                北京
-            </th>
-            
-            <th>
-                广州
-            </th>
+<?php }?>
             </tr>
-        
+<?php foreach ($data as $key=>$price_value){?>
         <tr>
             <td style="text-align: left; width: 28%">
-                4.75mm热轧
+<?php echo $category[$key];?>
             </td>
-            
+<?php foreach ($price_value as $one_value){?> 
             <td>
-                4140
-                
+<?php echo $one_value;?>
             </td>
-            
-            <td>
-                4050
-                
-            </td>
-            
-            <td>
-                4120
-                
-            </td>
+                <?php }?> 
+
             </tr>
         
-        <tr>
-            <td style="text-align: left; width: 28%">
-                1.0mm冷轧
-            </td>
-            
-            <td>
-                4910
-                
-            </td>
-            
-            <td>
-                4990
-                
-            </td>
-            
-            <td>
-                
-                -
-                
-            </td>
-            </tr>
-        
-        <tr>
-            <td style="text-align: left; width: 28%">
-                20mm普板
-            </td>
-            
-            <td>
-                4010
-                
-            </td>
-            
-            <td>
-                
-                -
-                
-            </td>
-            
-            <td>
-                4180
-                
-            </td>
-            </tr>
-        
-        <tr>
-            <td style="text-align: left; width: 28%">
-                20mm三级螺
-            </td>
-            
-            <td>
-                3830
-                
-            </td>
-            
-            <td>
-                3730
-                
-            </td>
-            
-            <td>
-                4060
-                
-            </td>
-            </tr>
-        
-        <tr>
-            <td style="text-align: left; width: 28%">
-                5#角钢
-            </td>
-            
-            <td>
-                3950
-                
-            </td>
-            
-            <td>
-                3600
-                
-            </td>
-            
-            <td>
-                
-                -
-                
-            </td>
-            </tr>
+<?php }?>
+
         
     </tbody></table>
  

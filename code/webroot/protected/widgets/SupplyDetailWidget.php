@@ -7,7 +7,11 @@ class SupplyDetailWidget extends CWidget
 
     public function run()
     {
-        $supply_detail = Supply::model()->findByPk($_GET['supply_id']);
-        $this->render('supply_detail',array('supply_detail'=>$supply_detail));
+        $supply_detail = Supply::model()->find("supply_id=:supply_id", array('supply_id'=>$_REQUEST['supply_id']));
+        $user_info     = User::model()->with(array('enterprise'=>array('select'=>'*')))->find('user_id=:user_id', array('user_id'=>$supply_detail->supply_user_id));
+        $city  = city::getAllCity();
+        $category = Term::model()->getTermsByGroupId(14);
+
+        $this->render('supply_detail',array('supply'=>$supply_detail,'user_info'=>$user_info,'category'=>$category, 'city'=>$city));
     }
 }

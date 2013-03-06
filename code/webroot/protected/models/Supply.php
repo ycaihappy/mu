@@ -101,6 +101,25 @@ class Supply extends CActiveRecord
 					'condition'=>'supply_status=1 and supply_type=19',
 					'order'=>'supply_join_date desc',
 					'limit'=>20
+
+                ),
+   			'categorysupply01'=>array(
+					'select'=>'supply_id,supply_name',
+					'condition'=>'supply_status=1 and supply_category_id=28',
+					'order'=>'supply_join_date desc',
+					'limit'=>5
+				),
+   			'categorysupply02'=>array(
+					'select'=>'supply_id,supply_name',
+					'condition'=>'supply_status=1 and supply_category_id=32',
+					'order'=>'supply_join_date desc',
+					'limit'=>5
+				),
+   			'categorysupply03'=>array(
+					'select'=>'supply_id,supply_name',
+					'condition'=>'supply_status=1 and supply_category_id=31',
+					'order'=>'supply_join_date desc',
+					'limit'=>5
 				),
 		);
 	}

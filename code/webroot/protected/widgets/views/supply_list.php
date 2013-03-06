@@ -14,12 +14,12 @@
                     </tr>
              		<?php for($index=0;$index<count($data);$index++):?>
                     <tr>                     
-                    <td><font style="color:red;"><?php echo $data[$index]['supply_type'];?></font></td>
-                    <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id']));?>"><?php echo $data[$index]['supply_category_id'];?></a></td>
+                    <td><font style="color:red;"><?php echo $status[$data[$index]['supply_type']];?></font></td>
+                    <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id']));?>"><?php echo $category[$data[$index]['supply_category_id']];?></a></td>
                     <td><?php echo $data[$index]['supply_unit'];?></td>
                     <td><?php echo $data[$index]['supply_price'];?></td>
-                    <td><?php echo $data[$index]['supply_city_id'];?></td>
-                    <td><?php echo $data[$index]['supply_join_date'];?></td>                      
+                    <td><?php echo $city[$data[$index]['supply_city_id']];?></td>
+                    <td><?php echo date("Y-m-d",strtotime($data[$index]['supply_join_date']));?></td>                      
                     </tr>
 	        		<?php endfor;?>			   
                 

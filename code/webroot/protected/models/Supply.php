@@ -89,16 +89,19 @@ class Supply extends CActiveRecord
 					'limit'=>8
 				),
 			'topsupplyIndex'=>array(
-					'select'=>'supply_id,supply_name',
+					'select'=>'supply_id,supply_name,supply_join_date',
+					'with'=>array('user.enterprise'=>array('ent_name'),'muContent'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name')),
 					'condition'=>'supply_status=1 and supply_type=18',
 					'order'=>'supply_join_date desc',
 					'limit'=>15
 				),
 			'topbuyIndex'=>array(
-					'select'=>'supply_id,supply_name',
+					'select'=>'supply_id,supply_name,supply_contractor,supply_phone,supply_join_date',
+					'with'=>array('user.enterprise'=>array('ent_name'),'user'=>array('select'=>'user_name'),'muContent'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name')),
 					'condition'=>'supply_status=1 and supply_type=19',
 					'order'=>'supply_join_date desc',
-                    'limit'=>8
+					'limit'=>20
+
                 ),
    			'categorysupply01'=>array(
 					'select'=>'supply_id,supply_name',

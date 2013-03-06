@@ -22,6 +22,44 @@ class SupplyController extends Controller
 		$this->render('index');
 	}
 
+    public function actionList()
+    {
+        if ( isset($_REQUEST['type']) )
+        {
+            switch ($_REQUEST['type'])
+            {
+            case '1':
+                $criteria=new CDbCriteria;
+                $criteria->order='supply_id DESC';
+                $criteria->addCondition("supply_type=18");
+
+                $count=Supply::model()->count($criteria);
+
+                $pager=new CPagination($count);
+                $pager->pageSize=15;
+                $pager->applyLimit($criteria);
+                $list=Supply::model()->findAll($criteria);
+                break;
+            case '2':
+                $criteria=new CDbCriteria;
+                $criteria->order='supply_id DESC';
+                $criteria->addCondition("supply_type=19");
+
+                $count=Supply::model()->count($criteria);
+
+                $pager=new CPagination($count);
+                $pager->pageSize=15;
+                $pager->applyLimit($criteria);
+                $list=Supply::model()->findAll($criteria);
+                break;
+            }
+            $supply_type= Term::model()->getTermsByGroupId(11);
+            $city  = city::getAllCity();
+            $category = Term::model()->getTermsByGroupId(14);
+        }
+        $this->render('list',array('data'=>$list,'category'=>$category,'city'=>$city,'supply_type'=>$supply_type,'pager'=>$pager));
+    }
+
 	public function actionView()
 	{
 		// renders the view file 'protected/views/site/index.php'

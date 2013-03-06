@@ -127,7 +127,8 @@ class ProductController extends Controller
 	}
 
 	public function actionView()
-	{
+    {
+        $this->layout = '//layouts/main';
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('view');

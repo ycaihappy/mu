@@ -19,8 +19,11 @@ class EnterpriseForm extends CFormModel
 	public function rules()
     {
         return array(
-            #array('ent_name', 'required'),		
-            #array('ent_type', 'required'),		
+            array('ent_name', 'required','message'=>'企业名称必须填写！'),	
+            array('ent_business_scope', 'required','message'=>'主营业务必须填写！'),	
+            array('ent_location', 'required','message'=>'详细地址必须填写！'),	
+            array('ent_zipcode', 'number','message'=>'必须是数字串'),
+            array('ent_website', 'url', 'message'=>'必须是正常的url!'),		
             array('ent_name,ent_type,ent_business_scope,ent_city,ent_zipcode,ent_website,ent_location,ent_introduce,ent_chief,ent_registered_capital', 'safe'),		
 		);
 	}

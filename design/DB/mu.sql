@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-06 21:21:35
+# Date/time:                    2013-03-07 00:25:04
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -1218,7 +1218,7 @@ CREATE TABLE IF NOT EXISTS `mu_recommend` (
   PRIMARY KEY (`recommend_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_recommend: 25 rows
+# Dumping data for table mu.mu_recommend: 37 rows
 DELETE FROM `mu_recommend`;
 /*!40000 ALTER TABLE `mu_recommend` DISABLE KEYS */;
 INSERT INTO `mu_recommend` (`recommend_id`, `recommend_object_id`, `recommend_type`, `recommend_position`, `recommend_status`, `recommend_time`) VALUES
@@ -1888,9 +1888,9 @@ CREATE TABLE IF NOT EXISTS `mu_term` (
   `term_order` int(4) DEFAULT '0',
   `term_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`term_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_term: 54 rows
+# Dumping data for table mu.mu_term: 66 rows
 DELETE FROM `mu_term`;
 /*!40000 ALTER TABLE `mu_term` DISABLE KEYS */;
 INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES
@@ -1913,7 +1913,7 @@ INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `t
 	(17, 0, '新闻', NULL, 10, 0, '2013-01-26 23:41:59'),
 	(18, 0, '供应', NULL, 11, 0, '2013-01-27 14:37:56'),
 	(19, 0, '求购', NULL, 11, 0, '2013-01-27 14:37:54'),
-	(20, 0, '钼知识', NULL, 10, 0, '2013-01-28 00:49:38'),
+	(20, 0, '钼百科', '', 10, 0, '2013-01-28 00:49:38'),
 	(21, 0, '供求信息', NULL, 12, 0, NULL),
 	(22, 0, '现货特价信息', NULL, 12, 0, NULL),
 	(23, 0, '文章信息', NULL, 12, 0, NULL),
@@ -1948,7 +1948,18 @@ INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `t
 	(52, 0, '含水量80', '', 17, 0, NULL),
 	(53, 0, '现货首页--左侧栏', '', 13, 0, NULL),
 	(54, 0, '首页中部--现货推荐', '', 13, 0, NULL),
-	(55, 0, '供求首页--左下推荐供应商', '', 13, 0, NULL);
+	(55, 0, '供求首页--左下推荐供应商', '', 13, 0, NULL),
+	(56, 0, '钼终极', '', 14, 0, NULL),
+	(57, 56, '钼铁', '', 14, 0, NULL),
+	(58, 16, '当日报价', '', 10, 0, NULL),
+	(59, 16, '价格汇总', '', 10, 0, NULL),
+	(60, 16, '市场评论', '', 10, 0, NULL),
+	(61, 16, '预测分析', '', 10, 0, NULL),
+	(62, 16, '钼走势', '', 10, 0, NULL),
+	(63, 20, '国际标准', '', 10, 0, NULL),
+	(64, 20, '国内标准', '', 10, 0, NULL),
+	(65, 20, '生产工艺', '', 10, 0, NULL),
+	(66, 20, '钼用途', '', 10, 0, NULL);
 /*!40000 ALTER TABLE `mu_term` ENABLE KEYS */;
 
 
@@ -2100,9 +2111,9 @@ CREATE TABLE IF NOT EXISTS `mu_user_enterprise` (
   `ent_check_by` varchar(50) DEFAULT NULL COMMENT '审核人',
   PRIMARY KEY (`ent_id`),
   KEY `ent_user_id` (`ent_user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=111 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_user_enterprise: 3 rows
+# Dumping data for table mu.mu_user_enterprise: 13 rows
 DELETE FROM `mu_user_enterprise`;
 /*!40000 ALTER TABLE `mu_user_enterprise` DISABLE KEYS */;
 INSERT INTO `mu_user_enterprise` (`ent_id`, `ent_user_id`, `ent_name`, `ent_type`, `ent_website`, `ent_business_model`, `ent_tax`, `ent_zipcode`, `ent_introduce`, `ent_location`, `ent_city`, `ent_status`, `ent_chief`, `ent_create_time`, `ent_chief_postion`, `ent_business_scope`, `ent_registered_capital`, `ent_recommend`, `ent_logo`, `ent_image`, `ent_update_time`, `ent_check_by`) VALUES

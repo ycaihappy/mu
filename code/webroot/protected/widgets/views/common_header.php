@@ -1,6 +1,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title><?php echo $this->getController()->siteConfig->siteMetaTitle?></title>
+    <title>钼市网-<?php echo $this->getController()->siteConfig->siteMetaTitle?></title>
 	<meta name="Keywords" content="<?php  echo $this->getController()->siteConfig->siteMetaKeyword ;?>" />
 	<meta name="Description" content="<?php  echo $this->getController()->siteConfig->siteMetaDescription; ?>" />
 

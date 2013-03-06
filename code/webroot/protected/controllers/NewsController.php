@@ -51,7 +51,7 @@ class NewsController extends Controller
 		{
 			$newsCriteria=new CDbCriteria();
 			$newsCriteria->select='art_id,art_title,art_post_date';
-			$newsCriteria->condition='art_status=1 and art_subcategory_id='.$newsCategoryId;
+			$newsCriteria->condition='art_status=1 and art_category_id=17 and art_subcategory_id='.$newsCategoryId;
 			$newsCriteria->order='art_post_date desc';
 			$count = Article::model()->count($newsCriteria);//
 			$pager = new CPagination($count);

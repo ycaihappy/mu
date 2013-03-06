@@ -170,11 +170,13 @@ class UserController extends Controller {
             if ( $model->validate() )
             {
                 empty($model->supply_id) ? $model->draft() : $model->update();
+
             }
             else {
             	var_dump($model->getErrors());
             	exit;
             }
+            $this->actionSlist();
         }
 
         $supply_type = Term::getTermsByGroupId(11);
@@ -202,19 +204,30 @@ class UserController extends Controller {
 	}
 	public function actionGoods() {
         $model = new ProductForm();
+        if ( isset($_REQUEST['update']) )
+        {
+            $good= Product::model()->find("product_id=:product_id", array('product_id'=>$_REQUEST['product_id']));
+            $model->product_id   = $good->product_id;
+            $model->product_name = $good->product_name;
+            $model->product_keyword = $good->product_keyword;
+            $model->product_city_id = $good->product_city_id;
+            $model->product_price = $good->product_price;
+            $model->product_join_date = $good->product_join_date;
+            $model->product_type_id = $good->product_type_id;
+            $model->product_quanity = $good->product_quanity;
+            $model->product_content = $good->product_content;
+        }
         if ( isset($_POST['ProductForm']) )
         {
             $model->attributes = $_POST['ProductForm'];
 
             if ( $model->validate() )
             {
-                $model->draft();
+               empty($model->product_id) ? $model->draft() : $model->update();
             }
+            $this->actionGlist();
         }
-        if ( isset($_REQUEST['update']) )
-        {
-            $good= Product::model()->find("product_id=:product_id", array('product_id'=>$_REQUEST['product_id']));
-        }
+
         $product_type= Term::model()->getTermsByGroupId(14,true,'选择分类');
         $parentType=0;
         $product_smallType=array();
@@ -234,7 +247,7 @@ class UserController extends Controller {
         	$allCity=City::getAllCity($province);
         }
         $unit_type= Term::model()->getTermsByGroupId(2);
-        $data=compact('model','product_type','product_smallType','allCity','unit_type','allProvince','good');
+        $data=compact('model','product_type','parentType','product_smallType','allCity','unit_type','allProvince','province');
 		$this->render ( 'goods' , $data);
 	}
 	public function actionSlist() {
@@ -246,6 +259,7 @@ class UserController extends Controller {
         $criteria->order='supply_id DESC';
         if ( isset($_REQUEST['supply_status']) )
         $criteria->addCondition("supply_status=".$_REQUEST['supply_status']);
+        $criteria->addCondition("supply_user_id=".yii::app()->user->getID());
 
         $count=Supply::model()->count($criteria);
 
@@ -257,7 +271,21 @@ class UserController extends Controller {
 	}
 	public function actionGlist() {
         $status = Term::model()->getTermsByGroupId(1);
-		$this->render ( 'glist', array('status'=>$status) );
+        $city  = city::getAllCity();
+        $category = Term::model()->getTermsByGroupId(14);
+        $criteria=new CDbCriteria;
+        $criteria->order='product_id DESC';
+        if ( isset($_REQUEST['product_status']) )
+        $criteria->addCondition("product_status=".$_REQUEST['product_status']);
+        $criteria->addCondition("product_user_id=".yii::app()->user->getID());
+
+        $count=Product::model()->count($criteria);
+
+        $pager=new CPagination($count);
+        $pager->pageSize=15;
+        $pager->applyLimit($criteria);
+        $list=Product::model()->findAll($criteria);
+		$this->render ( 'glist', array('status'=>$status,'allcity'=>$city,'allcategory'=>$category,'data'=>$list, 'pager'=>$pager) );
 	}
 	public function actionCert() {
         $model = new FileForm;

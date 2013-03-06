@@ -26,7 +26,8 @@ class CGetImageFromLibary extends CAction {
 			{
 				foreach ($images as $image)
 				{
-					$returnImage['imageList'][]=array('image_src'=>'/images/commonProductsImages/'.$image->image_src,'image_title'=>$image->image_title,'image_thumb_src'=>'/images/commonProductsImages/thumb/'.$image->image_thumb_src);
+					$returnImage['imageList'][]=array('image_src'=>$image->image_src,'image_title'=>$image->image_title,'image_thumb_src'=>$image->image_thumb_src);
+
 				}
 			}
 			echo json_encode($returnImage);

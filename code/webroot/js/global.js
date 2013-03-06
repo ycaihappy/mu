@@ -280,7 +280,7 @@ $.extend(MU.mods,{
 			}
 		});
 		
-		$('#supply_status').change(function(){
+		$('#product_status').change(function(){
 			$(this).closest('form').submit();
 		});
 	},

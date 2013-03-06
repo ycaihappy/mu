@@ -3,10 +3,12 @@
 
 <div class="layout main">
 	
-    <?php $this->widget("BreadCrumbWidget", array('crumbs'=>array(
-    array('name'=>'新闻中心','link'=>'#'),
-    array('name'=>'新闻详细', 'link'=>'#')
-    )));?>
+<?php 
+#$this->widget("BreadCrumbWidget", array('crumbs'=>array(
+#    array('name'=>'新闻中心','link'=>'#'),
+#    array('name'=>'新闻详细', 'link'=>'#')
+#)));
+?>
 
 	<div class="layout-area">
 	

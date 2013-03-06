@@ -47,6 +47,20 @@
 		
 	</table>
 	
-	<div class="pager">共 600 页/20000条记录 <a>首页</a><a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>下页</a><a>末页</a></div>
+	<div class="pager">
+			<?php 
+	            $this->widget('CLinkPager',array(
+							'header'=>'',
+							'firstPageLabel'=>'首页',
+							'lastPageLabel'=>'末页',
+							'prevPageLabel'=>'上一页',
+							'nextPageLabel'=>'下一页',
+							'pages'=>$pager,
+							'maxButtonCount'=>7,
+							)
+				
+				);
+            ?>	
+	</div>
 	
 	</div>

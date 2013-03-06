@@ -19,6 +19,9 @@ class UserController extends Controller {
 			'class'=>'CGetChildrenTermsAction',
 			'emptySelect'=>'选择品类',
 		),
+		'getImagesFromLibary'=>array(
+			'class'=>'CGetImageFromLibary'
+		)
 						);
 	}
 	/*public function filters()
@@ -286,7 +289,7 @@ class UserController extends Controller {
         $count=Product::model()->count($criteria);
 
         $pager=new CPagination($count);
-        $pager->pageSize=15;
+        $pager->pageSize=10;
         $pager->applyLimit($criteria);
         $list=Product::model()->findAll($criteria);
 		$this->render ( 'glist', array('status'=>$status,'allcity'=>$city,'allcategory'=>$category,'data'=>$list, 'pager'=>$pager, 'select_status'=>$selectStatus) );

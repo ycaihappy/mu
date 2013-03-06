@@ -8,6 +8,27 @@ class CGetImageFromLibary extends CAction {
 		if($imageCategory)
 		{
 			$imageCretria=new CDbCriteria();
+			$imageCretria->select='image_title,image_src,image_thumb_src';
+			$imageCretria->condition='image_status=1';
+			$imageCretria->addCondition('image_used_type=:categoryId');
+			$imageCretria->params[':categoryId']=$imageCategory;
+			$count=ImageLibrary::model()->count($imageCretria);
+			$pager=new CPagination($count);
+			$pager->pageSize=16;
+			$pager->pageVar='page';
+			$pager->applyLimit($imageCretria);
+			$images=ImageLibrary::model()->findAll($imageCretria);
+			$returnImage=array();
+			if($images)
+			{
+				foreach ($images as $image)
+				{
+					$returnImage[]=array('image_src'=>$image->image_src,'image_title'=>$image->image_title,'image_thumb_src'=>$image->image_thumb_src);
+				}
+			}
+			echo json_encode($returnImage);
+			exit;
+			
 		}
 		else
 		{

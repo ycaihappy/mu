@@ -275,8 +275,23 @@ $.extend(MU.mods,{
 					var arr = chks.filter(':checked').map(function(){
 						return this.value;
 					}).get().join(',');
-					alert(arr);
+					$.getJSON('index.php?r=uehome/user/productdel&ids' + arr,function(re){
+						if(re.status == 1){
+							location.reload();
+						}
+					});
+					
 				}
+			}
+		});
+		self.find('.ico-del').on('click',function(e){
+			e.preventDefault();
+			if(confirm('确定要删除？！')){
+				$.getJSON($(this).attr('href'),function(re){
+						if(re.status == 1){
+							location.reload();
+						}
+				});
 			}
 		});
 		

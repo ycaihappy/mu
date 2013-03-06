@@ -22,6 +22,7 @@ class CGetImageFromLibary extends CAction {
 			$returnImage=array();
 			$returnImage['imageCount']=$count;
 			$returnImage['currentPage']=$pager->getCurrentPage()+1;
+			$returnImage['pageCount']=$pager->getPageCount();
 			if($images)
 			{
 				foreach ($images as $image)

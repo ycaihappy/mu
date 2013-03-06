@@ -4,17 +4,15 @@
         <div class="sdTop">
             <div class="btBox">
                 <ul>
-                    <li class="btLf"><a title="免费发布现货资源到资源库" href="/Manage/Resource/">发布现货资源</a></li> 
-                    <li class="btRg"><a title="钢铁求购信息" href="/SourceRequest/">查看求购资源</a></li>
+                    <li class="btLf"><a title="免费发布现货资源到资源库" href="<?php echo $this->getController()->createUrl('/uehome/user/goods')?>">发布现货资源</a></li> 
+                    <li class="btRg"><a title="钢铁求购信息" href="<?php echo $this->getController()->createUrl('/supply/index')?>">查看求购资源</a></li>
                 </ul>
             </div>
         </div><!--发布功能区结束-->
             <style type="text/css">
                 .zykDateTab tbody td{ border-bottom:1px solid #CCC; padding:4px 0;_padding:4px 0;*padding:4px 0;cursor:pointer;color:#003333;line-height:16px;}
             </style>
-        <div class="sdAd">
-            <a href="/Manage/KeywordAd/"><img width="244px" height="43px" src="images/ayksdAd.jpg" alt="发布广告"></a>
-        </div>
+       
         <div id="RightAdList">  
         <?php if($advEnt):
         		foreach ($advEnt as $ent):

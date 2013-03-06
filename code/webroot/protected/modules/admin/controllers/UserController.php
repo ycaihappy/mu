@@ -1012,5 +1012,28 @@ class UserController extends AdminController
 		$this->redirect(array('manageFLink','page'=>Yii::app()->request->getParam('page',1)));
 		
 	}
+	public function actionChangeUserStatus()
+	{
+		$toStatus=@$_REQUEST['toStatus'];
+		$userId=@$_REQUEST['user_id'];
+		if(!$userId && in_array($toStatus,array(1,2)))
+		{
+			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的用户信息，以及改变的状态');
+			$this->redirect(array('manageUser'));
+				
+		}
+		$updateStatusCriteria=new CDbCriteria();
+		$updateStatusCriteria->addInCondition('user_id', $userId);
+		$updateRows=User::model()->updateAll(array('user_status'=>$toStatus),$updateStatusCriteria);
+		if($updateRows>0)
+		{
+			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
+		}
+		else {
+			Yii::app()->admin->setFlash('changeStatusError','更新异常');
+		}
+		$this->redirect(array('manageUser','page'=>Yii::app()->request->getParam('page',1)));
+
+	}
 
 }

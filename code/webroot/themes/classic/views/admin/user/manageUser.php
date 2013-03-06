@@ -5,6 +5,8 @@ $this->breadcrumbs=array(
 );
 
 ?>
+<div class='changeSuccess'><?php echo Yii::app()->admin->getFlash('changeStatus');?></div>
+<div class='changeError'><?php echo Yii::app()->admin->getFlash('changeStatusError');?></div>
 <div style="float:left;">
 <?php 
 if($adminUser)
@@ -41,10 +43,61 @@ if($adminUser)
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
+<form action='<?php echo  Yii::app()->controller->createUrl('changeUserStatus') ?>' method='post'>
+
 <?php 
 	$list=$adminUser?'adminUserList':'userList';
 	$this->renderPartial($list,array('dataProvider'=>$dataProvider));
 ?>
+<DIV>
+<input type="hidden" name="page" value="<?php echo Yii::app()->request->getParam('page',1);?>"/>
+<?php 
+if(!$adminUser):
+	$alertTitle='用户';
+	$this->widget('zii.widgets.jui.CJuiButton',
+		array(
+			'name'=>'button',
+				'caption'=>'通过审核',
+			'value'=>'asd',
+			'onclick'=>'js:function(){
+				var selectedProducts=$("#J_RoleList .select-on-check:checked");
+				if(selectedProducts.size()<1)
+				{
+					alert("请选择要通过审核的'.$alertTitle.'信息！");
+				}
+				else
+				{
+					this.form.action+="&toStatus=1";
+					this.form.submit();
+				}
+				return false;
+			}',
+			)
+	);
+	$this->widget('zii.widgets.jui.CJuiButton',
+		array(
+			'name'=>'button2',
+				'caption'=>'拒绝通过',
+			'value'=>'asd',
+			'onclick'=>'js:function(){
+			var selectedProducts=$("#J_RoleList .select-on-check:checked");
+				if(selectedProducts.size()<1)
+				{
+					alert("请选择要拒绝通过审核的'.$alertTitle.'信息！");
+				}
+				else
+				{
+					this.form.action+="&toStatus=2";
+					this.form.submit();
+				}
+				return false;
+			}',
+			)
+	);
+endif;
+?>
+</DIV>
+</form>
 <!--m-table-list-->
 	<div class="m-role-op hide" id="J_RoleOperate" data-post-api="<?php echo Yii::app()->controller->createUrl("assign");?>">
 	<table border="0" cellpadding="0" cellspacing="0" >

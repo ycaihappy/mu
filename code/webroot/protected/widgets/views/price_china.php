@@ -6,4 +6,4 @@
 			<?php endfor;?>			
         </ul>
     </div>
-	</div>
+

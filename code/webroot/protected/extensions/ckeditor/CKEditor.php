@@ -16,11 +16,11 @@ class CKEditor extends CInputWidget{
 
     private $language='zh-cn';
     private $allowedLanguages=array(
-        'af','ar','bg','bn','bs','ca','cs','da','de','el','en','en-au','en-ca',
+        /*'af','ar','bg','bn','bs','ca','cs','da','de','el','en','en-au','en-ca',
         'en-uk','eo','es','et','eu','fa','fi','fo','fr','fr-ca','gl','gu','he',
         'hi','hr','hu','is','it','ja','km','ko','lt','lv','mn','ms','nb','nl',
         'no','pl','pt','pt-br','ro','ru','sk','sl','sr','sr-latn','sv','th','tr',
-        'uk','vi','zh','zh-cn'
+        'uk','vi',*/'zh','zh-cn'
     );
     
     private $options=array();
@@ -81,7 +81,7 @@ class CKEditor extends CInputWidget{
 						array('Maximize'),
 		);
     
-    public $skin='kama';
+    public $skin='office2003';//office2003,v2
     private $theme='default';
 
 
@@ -265,6 +265,7 @@ class CKEditor extends CInputWidget{
             $fontFamilies.=$k.'/'.$v.';';
         }
         $options['font_names']=$fontFamilies;
+        $options['toolbarCanCollapse ']='false';
 
         $fontSizes='';
         foreach($this->fontSizes as $k=>$v){

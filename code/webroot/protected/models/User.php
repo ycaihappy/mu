@@ -68,13 +68,6 @@ class User extends CActiveRecord
 		);
 	}
 
-	public function scopes()
-	{
-		return array(
-			'recenltyUncheckUser'=>array('select'=>'user_id,user_name,user_join_date','condition'=>'user_status=0','order'=>'user_join_date desc','limit'=>8),
-		);
-	}
-
 	/**
 	 * @return array relational rules.
 	 */

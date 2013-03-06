@@ -414,4 +414,32 @@ class SiteController extends AdminController {
 		$this->redirect(array('manageFLink','page'=>Yii::app()->request->getParam('page',1)));
 		
 	}
+	public function actionFrontPage()
+	{
+		//待审核会员，企业，特价，现货，供应，求购，友情链接
+		$userSql='select count(user_id) from mu_user where user_status=33 and user_type=1';
+		$userCount=Yii::app()->db->createCommand($userSql)->queryScalar();
+		$entSql='select count(ent_id) from mu_user_enterprise where ent_status=33';
+		$entCount=Yii::app()->db->createCommand($entSql)->queryScalar();
+		$specialSql='select count(product_id) from mu_product where product_status=33 and product_special=1';
+		$specialCount=Yii::app()->db->createCommand($specialSql)->queryScalar();
+		$productSql='select count(product_id) from mu_product where product_status=33 and product_special=0';
+		$productCount=Yii::app()->db->createCommand($productSql)->queryScalar();
+		$supplySql='select count(supply_id) from mu_supply where supply_status=33 and supply_type=18';
+		$supplyCount=Yii::app()->db->createCommand($supplySql)->queryScalar();
+		$buySql='select count(supply_id) from mu_supply where supply_status=33 and supply_type=19';
+		$buyCount=Yii::app()->db->createCommand($buySql)->queryScalar();
+		$flinkSql='select count(flink_id) from mu_friend_link where flink_status=33 and flink_user_id<>0';
+		$flinkCount=Yii::app()->db->createCommand($flinkSql)->queryScalar();
+		//当前用户的登陆IP,登陆名称，权限组，可考虑展示权限列表
+		$userIp=Yii::app()->request->getUserHostAddress();
+		$userName=Yii::app()->admin->getName();
+		$userRoles=Yii::app()->db->createCommand('select zh_name from mu_right_assignment a 
+						inner join mu_right_item i on i.name=a.itemname where a.userid=:uid')->queryColumn(array('uid'=>Yii::app()->admin->getId()));
+		$userRoles=implode('，',$userRoles);
+		$data=compact('userCount','entCount','specialCount','productCount',
+		'supplyCount','buyCount','flinkCount','userIp','userName','userRoles');
+		$this->render('frontPage',$data);
+		
+	}
 }

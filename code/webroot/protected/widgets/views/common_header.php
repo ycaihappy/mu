@@ -4,7 +4,7 @@
 	<meta name="Keywords" content="<?php  echo $this->getController()->siteConfig->siteMetaKeyword ;?>" />
 	<meta name="Description" content="<?php  echo $this->getController()->siteConfig->siteMetaDescription; ?>" />
 
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="/css/global.css">
 	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
 
 

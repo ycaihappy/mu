@@ -34,11 +34,11 @@
 		<div class="grid-290">
 			
 		<!--supply news-->
-        <?php $this->widget("SupplyModuleWidget");?>
+        <?php $this->widget("NewestBuyModuleWidget");?>
 		<!--supply news-->
-
+		<br/>
 		<!--supply news-->
-        <?php $this->widget("SupplyModuleWidget");?>
+        <?php $this->widget("SupplyIndexRecEnterpriseLeftWidget");?>
 		<!--supply news-->
 		</div>
 		<div class="grid-660">		

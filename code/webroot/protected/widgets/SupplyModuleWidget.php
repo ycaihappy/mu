@@ -2,14 +2,14 @@
 class SupplyModuleWidget extends CWidget
 {
     public $type;
-    public $top_mu_news;
+    public $top_supply;
     public function init()
     {
-    	$this->top_mu_news = Article::model()->topMuNews()->findAll();
+    	$this->top_supply = Supply::model()->topsupplyIndex()->findAll();
     }
 
     public function run()
     {
-        $this->render('supply_module',array('type'=>$this->type,'data'=>$this->top_mu_news));
+        $this->render('supply_module',array('type'=>$this->type,'data'=>$this->top_supply));
     }
 }

@@ -1,10 +1,10 @@
 		<div class="m-supply-news">
 			<div class="hd clearfix">
-				<span class="on"><a href="">最新供应</a><i></i></span>			
+				<span class="on"><a href="">最新求购</a><i></i></span>			
 			</div>
 			<div class="bd">
 				<ul>
-			<?php 
+					<?php 
 					if($data):
 						for($index=0;$index<count($data);$index++):
 						?>

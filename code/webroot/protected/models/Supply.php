@@ -88,6 +88,18 @@ class Supply extends CActiveRecord
 					'order'=>'supply_join_date desc',
 					'limit'=>8
 				),
+			'topsupplyIndex'=>array(
+					'select'=>'supply_id,supply_name',
+					'condition'=>'supply_status=1 and supply_type=18',
+					'order'=>'supply_join_date desc',
+					'limit'=>15
+				),
+			'topbuyIndex'=>array(
+					'select'=>'supply_id,supply_name',
+					'condition'=>'supply_status=1 and supply_type=19',
+					'order'=>'supply_join_date desc',
+					'limit'=>8
+				),
 		);
 	}
 	public function hasWaterContent()

@@ -138,6 +138,16 @@ class UserController extends Controller {
         }
 		$this->render ( 'news', array('model'=>$model) );
 	}
+    public function actionSupplyDel()
+    {
+        $model = Supply::model()->find("supply_id=:supply_id", array('supply_id'=>$_REQUEST['supply_id']));
+        $model->delete();
+    }
+    public function actionGoodDel()
+    {
+        $model = Product::model()->find("product_id=:product_id", array('product_id'=>$_REQUEST['product_id']));
+        $model->delete();
+    }
 	public function actionSupply() {
         $model = new SupplyForm();
         if (isset($_POST['SupplyForm']))
@@ -151,6 +161,12 @@ class UserController extends Controller {
             	var_dump($model->getErrors());
             	exit;
             }
+        }
+        $supply_data = array();
+        if ( isset($_REQUEST['update']) )
+        {
+            $supply= Supply::model()->find("supply_id=:supply_id", array('supply_id'=>$_REQUEST['supply_id']));
+            $model->description = $supply->supply_content;
         }
         $supply_type = Term::getTermsByGroupId(11);
 		$category= Term::getTermsByGroupId(14,true,'选择分类');
@@ -172,7 +188,7 @@ class UserController extends Controller {
         	$allCity=City::getAllCity($province);
         }
         $allMuContent=Term::getTermsByGroupId(16,false,null,'选择品质');
-        $data=compact('allMuContent','model','supply_type','category','smallCategory','parentCategory','province','allCity','allProvince');
+        $data=compact('allMuContent','model','supply_type','category','smallCategory','parentCategory','province','allCity','allProvince','supply');
 		$this->render ( 'supply', $data);
 	}
 	public function actionGoods() {
@@ -185,6 +201,10 @@ class UserController extends Controller {
             {
                 $model->draft();
             }
+        }
+        if ( isset($_REQUEST['update']) )
+        {
+            $good= Product::model()->find("product_id=:product_id", array('product_id'=>$_REQUEST['product_id']));
         }
         $product_type= Term::model()->getTermsByGroupId(14,true,'选择分类');
         $parentType=0;
@@ -205,7 +225,7 @@ class UserController extends Controller {
         	$allCity=City::getAllCity($province);
         }
         $unit_type= Term::model()->getTermsByGroupId(2);
-        $data=compact('model','product_type','product_smallType','allCity','unit_type','allProvince');
+        $data=compact('model','product_type','product_smallType','allCity','unit_type','allProvince','good');
 		$this->render ( 'goods' , $data);
 	}
 	public function actionSlist() {
@@ -215,6 +235,8 @@ class UserController extends Controller {
         $category = Term::model()->getTermsByGroupId(14);
         $criteria=new CDbCriteria;
         $criteria->order='supply_id DESC';
+        if ( isset($_REQUEST['supply_status']) )
+        $criteria->addCondition("supply_status=".$_REQUEST['supply_status']);
 
         $count=Supply::model()->count($criteria);
 

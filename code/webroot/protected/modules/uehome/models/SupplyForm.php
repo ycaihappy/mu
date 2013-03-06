@@ -4,7 +4,7 @@ class SupplyForm extends CFormModel
 {
 	public $supply_category;
 	public $supply_name;
-	public $keywords;
+	public $supply_keyword;
 	public $category;
 	public $district;
     public $city;
@@ -22,7 +22,7 @@ class SupplyForm extends CFormModel
 	public function rules()
     {
         return array(
-            array('supply_category,category,muContent,keywords,supply_name,tel,price,description', 'required'),		
+            array('supply_category,category,muContent,supply_keyword,supply_name,tel,price,description', 'required'),		
             	
 		);
 	}
@@ -48,7 +48,7 @@ class SupplyForm extends CFormModel
         $commd->bindValue(":supply_name", $this->supply_name, PDO::PARAM_STR);
         $commd->bindValue(":supply_user_id", yii::app()->user->getID(), PDO::PARAM_STR);
         $commd->bindValue(":supply_type", $this->supply_category);
-        $commd->bindValue(":supply_keyword", $this->keywords);
+        $commd->bindValue(":supply_keyword", $this->supply_keyword);
         $commd->bindValue(":supply_category_id", $this->category);
         $commd->bindValue(":supply_content", $this->description);
         $commd->bindValue(":supply_address", $this->address);

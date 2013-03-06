@@ -20,71 +20,23 @@
 		<tr class="repeatbg">
 			<th width="58">状态</th><th width="35">选择</th><th width="314">标题</th><th width="107">品类</th><th width="106">品位</th><th width="106">存货地</th><th>操作</th>
 		</tr>
+         		<?php for($index=0;$index<count($data);$index++):?>
+        <tr>                     
+                    <td><?php echo $status[$data[$index]['supply_status']];?></td>
+                    <td><input type="checkbox" /></td>
+                    <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supply',array('supply_id'=>$data[$index]['supply_id'],'update'=>1));?>"><?php echo $data[$index]['supply_name'];?></a></td>
+                    <td><?php echo $allcatetory[$data[$index]['supply_category_id']];?></td>
+                    <td><?php echo $data[$index]['supply_mu_content'];?></td>
+                    <td><?php echo $allcity[$data[$index]['supply_city_id']];?></td>
+                    <td><?php echo $data[$index]['supply_invalid_date'];?></td>                      
+		<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">删除</a></td>
+                    </tr>
+		<?php endfor;?>			   
 		<tr>
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-	    	<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr class="even">
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr>
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr class="even">
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr>
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr class="even">
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr>
-			<td>001</td>
-			<td><input type="checkbox" /></td>
-			<td>文字文字文字文字文字文字</td>
-			<td>2013-1-1</td>
-			<td>面议</td>
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
-		</tr>
-		<tr>
-			<td colspan="6">
+			<td colspan="8">
 				<p class="btn-group">
 					<a class="cmp-btn">全选</a>
 					<a class="cmp-btn">取消</a>
-					<a class="cmp-btn">更新</a>
-					<a class="cmp-btn">审核</a>
-					<a class="cmp-btn">推荐</a>
 					<a class="cmp-btn">删除</a>
 				</p>
 			</td>

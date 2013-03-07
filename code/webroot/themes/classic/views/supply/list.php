@@ -57,7 +57,7 @@
 		<!--module end-->
 		
 		<!--module start-->
-            <?php $this->widget('SupplySpecialWidget');?>
+            <?php $this->widget('SupplyEnterpriseWidget');?>
 		<!--module end-->
         </div>
 

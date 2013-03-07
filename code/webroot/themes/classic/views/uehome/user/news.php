@@ -11,8 +11,9 @@
     ),
 ));?>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
+        <?php echo $form->hiddenField($model, 'art_id');?>
 		<tr>
-			<td class="label">标题：</td><td><?php echo $form->textField($model, 'art_title', array('class'=>'cmp-input','value'=>''));?></td>
+			<td class="label">标题：</td><td><?php echo $form->textField($model, 'art_title', array('class'=>'cmp-input'));?></td>
 		</tr>
 		<tr>
 			<td class="label">详细内容：</td><td><?php
@@ -26,7 +27,7 @@ $this->widget('application.extensions.ckeditor.CKEditor',array(
 
     "width"=>'600px',
 
-    'editorTemplate'=>'advanced',
+    'editorTemplate'=>'basic',
 
 
 ));?></td>

@@ -6,7 +6,7 @@ if ( $type == 1)
     $hq_sub_name = '<a href="#">钼精矿</a>｜<a href="#">钼铁</a>｜<a href="#">三氧化钼</a>｜<a href="#">钼酸铵</a>｜<a href="#">钼棒</a>｜<a href="#">钼靶</a>';
 else
     $hq_sub_name = '<a href="#">栾川</a>｜<a href="#">黑龙江</a>｜<a href="#">沈阳</a>';
-
+$hq_sub_name = '';
 ?>
 <div class="m-hq-box" id="J_Hq_Box_<?php echo $class;?>">
                 <h1><a class="bt" href="#"><?php echo $hq_name;?></a><span class="fb"><?php echo $hq_sub_name;?></span></h1>

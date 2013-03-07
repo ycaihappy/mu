@@ -426,9 +426,8 @@ class UserController extends Controller {
     public function actionRegister()
     {
         $this->layout = '//layouts/ajax_main';
-        $province=City::getProvice('选择省份');
-        	$citys=City::getAllCity();
-        $data=compact('province','citys');
+        $allProvince=City::getProvice('选择省份');
+        $data=compact('allProvince');
         // display the login form
         $this->render ( 'register', $data);
     }

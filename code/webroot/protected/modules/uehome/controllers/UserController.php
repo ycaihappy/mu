@@ -203,6 +203,7 @@ class UserController extends Controller {
             $model->unit    = $supply->supply_unit;
             $model->muContent    = $supply->supply_mu_content;
             $model->waterContent    = $supply->supply_water_content;
+            $model->image    = $supply->supply_image_src;
         }
 
         if (isset($_POST['SupplyForm']))

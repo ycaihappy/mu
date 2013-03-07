@@ -13,6 +13,8 @@ class ProductForm extends CFormModel
     public $product_quanity;
     public $product_price;
     public $product_content;
+    public $product_mu_content;
+    public $product_water_content;
     public $product_join_date;
 
 	/**
@@ -26,7 +28,8 @@ class ProductForm extends CFormModel
             array('district,province', 'safe'),		
             array('product_type_id', 'required'),		
             array('product_city_id', 'required'),		
-            array('product_unit,product_quanity,product_price,product_content, product_join_date', 'safe'),		
+            array('product_mu_content', 'required'),		
+            array('product_unit,product_water_content,product_quanity,product_price,product_content, product_join_date', 'safe'),		
 		);
 	}
 
@@ -41,15 +44,17 @@ class ProductForm extends CFormModel
 
 	public function draft()
 	{
-        $addsql = "insert into mu_product(product_name, product_user_id,product_type_id,product_keyword,
+        $addsql = "insert into mu_product(product_name, product_mu_content, product_water_content, product_user_id,product_type_id,product_keyword,
             product_content,product_status,product_unit,product_price,product_join_date,product_city_id)
-            values(:product_name,:product_user_id,:product_type_id,:product_keyword,
+            values(:product_name,:product_mu_content,:product_water_content,:product_user_id,:product_type_id,:product_keyword,
             :product_content,:product_status,:product_unit,:product_price,:product_join_date,:product_city_id)";
 
         $commd = Yii::app()->db->createCommand($addsql);
 
         $commd->bindValue(":product_name", $this->product_name, PDO::PARAM_STR);
         $commd->bindValue(":product_user_id", yii::app()->user->getID(), PDO::PARAM_STR);
+        $commd->bindValue(":product_mu_content", $this->product_mu_content, PDO::PARAM_STR);
+        $commd->bindValue(":product_water_content", $this->product_water_content, PDO::PARAM_STR);
         $commd->bindValue(":product_type_id", $this->product_type_id);
         $commd->bindValue(":product_city_id", $this->product_city_id);
         $commd->bindValue(":product_keyword", $this->product_keyword);
@@ -63,13 +68,15 @@ class ProductForm extends CFormModel
 
 	public function update()
 	{
-        $addsql = "update mu_product set product_name=:product_name, product_user_id=:product_user_id,product_type_id=:product_type_id,product_keyword=:product_keyword,
+        $addsql = "update mu_product set product_name=:product_name, product_mu_content=:product_mu_content, product_water_content=:product_water_content,product_user_id=:product_user_id,product_type_id=:product_type_id,product_keyword=:product_keyword,
             product_content=:product_content,product_status=:product_status,product_unit=:product_unit,product_price=:product_price,product_join_date=:product_join_date,product_city_id=:product_city_id where product_id=:product_id";
 
         $commd = Yii::app()->db->createCommand($addsql);
 
         $commd->bindValue(":product_id", $this->product_id, PDO::PARAM_STR);
         $commd->bindValue(":product_name", $this->product_name, PDO::PARAM_STR);
+        $commd->bindValue(":product_mu_content", $this->product_mu_content, PDO::PARAM_STR);
+        $commd->bindValue(":product_water_content", $this->product_water_content, PDO::PARAM_STR);
         $commd->bindValue(":product_user_id", yii::app()->user->getID(), PDO::PARAM_STR);
         $commd->bindValue(":product_type_id", $this->product_type_id);
         $commd->bindValue(":product_city_id", $this->product_city_id);

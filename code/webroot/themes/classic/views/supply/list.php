@@ -60,4 +60,4 @@
             <?php $this->widget('SupplySpecialWidget');?>
 		<!--module end-->
         </div>
-        </div>
+

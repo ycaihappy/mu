@@ -57,7 +57,7 @@ class SupplyController extends Controller
                 break;
             }
             $supply_type= Term::model()->getTermsByGroupId(11);
-            $city  = city::getAllCity();
+            $city  = City::getAllCity();
             $category = Term::model()->getTermsByGroupId(14);
         }
         $this->render('list',array('data'=>$list,'title'=>$title,'category'=>$category,'city'=>$city,'supply_type'=>$supply_type,'pager'=>$pager));

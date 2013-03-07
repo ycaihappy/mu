@@ -51,7 +51,7 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_name, user_pwd', 'required'),
+			array('user_name, user_pwd', 'required','message'=>'用户名不允许为空'),
 			array('user_type, user_status, user_province_id, user_city_id, user_subscribe', 'numerical', 'integerOnly'=>true),
 			array('user_name, user_first_name, user_last_name', 'length', 'max'=>50),
 			array('user_pwd', 'length', 'max'=>40),

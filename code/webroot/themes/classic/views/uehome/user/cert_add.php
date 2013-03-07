@@ -20,7 +20,7 @@
 		</tr>
 			
 		<tr>
-			<td class="label">文件类型：</td><td><?php echo $form->dropDownList($model, 'file_type_id', array('1'=>'图片','2'=>'文档'));?></td>
+			<td class="label">文件类型：</td><td><?php echo $form->dropDownList($model, 'file_type_id', $category);?></td>
 		</tr>	
 		<tr>
 			<td class="label">文件描述：</td><td><?php echo $form->textArea($model,'file_content',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>

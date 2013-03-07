@@ -6,7 +6,7 @@
 	<div class="hd">
 		<div class="photo-hd">
 		<p>您可以添加贵公司的营业执照和资质证书</p>
-		<a class="cmp-btn-a" href="index.php?r=uehome/user/addcert">添加企业相册图片</a>
+        <a class="cmp-btn-a" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/addcert');?>">添加企业相册图片</a>
 		</div>
 	</div>
 	
@@ -29,7 +29,7 @@ for ($i=0;$i<count($data);$i++)
 			<td>
 <?php echo $data[$i]['file_content'];?>
 			</td>		
-			<td><a href="" class="ico-edit">编辑</a><a href="" class="ico-del">编辑</a></td>
+                <td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/certdel',array('ids'=>$data[$i]['file_id']));?>" class="ico-del">删除</a></td>
 		</tr>
 <?php
 }

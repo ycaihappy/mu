@@ -31,16 +31,15 @@ class ProductController extends Controller
             {
             case '1':
                 $criteria=new CDbCriteria;
-                $criteria->order='supply_id DESC';
-                $criteria->addCondition("supply_type=18 and supply_status=1");
+                $criteria->order='product_id DESC';
+                $criteria->addCondition("product_special=1 and product_status=1");
 
-                $count=Supply::model()->count($criteria);
+                $count=Product::model()->count($criteria);
 
                 $pager=new CPagination($count);
                 $pager->pageSize=15;
                 $pager->applyLimit($criteria);
-                $list=Supply::model()->findAll($criteria);
-                $title='供应';
+                $list=Product::model()->findAll($criteria);
                 break;
             case '2':
                 $criteria=new CDbCriteria;
@@ -56,11 +55,13 @@ class ProductController extends Controller
                 $title='求购';
                 break;
             }
-            $supply_type= Term::model()->getTermsByGroupId(11);
             $city  = City::getAllCity();
             $category = Term::model()->getTermsByGroupId(14);
         }
-        $this->render('list',array('data'=>$list,'title'=>$title,'category'=>$category,'city'=>$city,'supply_type'=>$supply_type,'pager'=>$pager));
+        $allMuContent=Term::getTermsByGroupId(16);
+        $allWaterContent=Term::getTermsByGroupId(17);
+
+        $this->render('list',array('mucontent'=>$allMuContent, 'watercontent'=>$allWaterContent,'data'=>$list,'category'=>$category,'city'=>$city,'pager'=>$pager));
     }
 
 	/**

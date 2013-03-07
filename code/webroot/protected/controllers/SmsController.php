@@ -41,7 +41,7 @@ class SmsController extends Controller
         }
         else
         {
-            echo json_encode(array('status'=>0,'data'=>array()));
+            echo json_encode(array('status'=>1,'data'=>array()));
         }
         exit;
 	}

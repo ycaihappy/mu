@@ -76,7 +76,7 @@ class Term extends CActiveRecord
 				}
 				$returnTerms=array();
 				if($needEmpty){
-					$returnTerms[0]=$empty;
+					$returnTerms[]=$empty;
 				}
 				foreach($terms as $term)
 				{

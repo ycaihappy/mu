@@ -160,7 +160,7 @@
 			if($products):
 				foreach ($products as $product):?>
 				<tr cid="<?php echo $product->product_id?>" class="no-border" style="">
-					<td><a  title="<?php echo $product->product_name?>" href="<?php echo $this->createUrl('view',array('product_id'=>$product->product_id))?>" target="_blank"><?php echo $product->product_name?></a></td>
+					<td nowrap="true"><a  title="<?php echo $product->product_name?>" href="<?php echo $this->createUrl('view',array('product_id'=>$product->product_id))?>" target="_blank"><?php echo $product->product_name?></a></td>
 					<td><?php echo $product->muContent->term_name;?></td>
 					<?php if($smallType==31):?>
 					<td><?php echo $product->waterContent->term_name;?></td>

@@ -320,7 +320,7 @@ $.extend(MU.mods,{
 		self.find('.btn-select').click(function(){
 			box.showBox();
 		});
-		$('#SupplyForm_effective_time').datepicker({dateFormat : 'yy-mm-dd'});
+		$('#SupplyForm_effective_time,#ProductForm_product_join_date').datepicker({dateFormat : 'yy-mm-dd'});
 	},
 	JCertAdd : function (){
 		var self = $(this);

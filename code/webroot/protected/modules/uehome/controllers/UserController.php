@@ -252,6 +252,8 @@ class UserController extends Controller {
             $model->product_type_id = $good->product_type_id;
             $model->product_quanity = $good->product_quanity;
             $model->product_content = $good->product_content;
+            $model->product_mu_content = $good->product_mu_content;
+            $model->product_water_content = $good->product_water_content;
         }
         if ( isset($_POST['ProductForm']) )
         {
@@ -283,7 +285,9 @@ class UserController extends Controller {
         	$allCity=City::getAllCity($province);
         }
         $unit_type= Term::model()->getTermsByGroupId(2);
-        $data=compact('model','product_type','parentType','product_smallType','allCity','unit_type','allProvince','province');
+        $allMuContent=Term::getTermsByGroupId(16,false,null,'选择品阶');
+        $allWaterContent=Term::getTermsByGroupId(17,false,null,'选择含水量');
+        $data=compact('allWaterContent','allMuContent','model','product_type','parentType','product_smallType','allCity','unit_type','allProvince','province');
 		$this->render ( 'goods' , $data);
 	}
 	public function actionNlist() {

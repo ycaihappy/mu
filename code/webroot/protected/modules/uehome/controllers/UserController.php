@@ -280,8 +280,10 @@ class UserController extends Controller {
 
             if ( $model->validate() )
             {
-               empty($model->product_id) ? $model->draft() : $model->update();
+                empty($model->product_id) ? $model->draft() : $model->update();
+                $this->actionGlist();
             }
+
             $this->actionGlist();
         }
 

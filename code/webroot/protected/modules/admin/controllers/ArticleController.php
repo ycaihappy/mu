@@ -69,12 +69,18 @@ class ArticleController extends AdminController {
 		));
 		$artStatus=Term::getTermsByGroupId(1);
 		$artCategory=Term::getTermsByGroupId(10,true);
+		$artSubcategory=array();
+		if($model->art_category_id)
+		{
+			$artSubcategory=Term::getTermsByGroupId(10,false,$model->art_category_id);
+		}
 		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
 		$this->render('manageArticle',array(
 		'dataProvider'=>$articleDataProvider,
 		'artCategory'=>$artCategory,
 		'artStatus'=>$artStatus,
 		'rePosition'=>$rePosition,
+		'artSubcategory'=>$artSubcategory,
 		'model'=>$model,
 		));
 	}

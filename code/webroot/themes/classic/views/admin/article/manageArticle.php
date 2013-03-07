@@ -39,7 +39,6 @@ foreach ($artCategory as $categoryId=>$category) {
 <?php echo $form->dropDownList($model,'art_status',$artStatus);?>
 <label>大分类：</label>
 <?php echo $form->dropDownList($model,'art_category_id',$artCategory,array(
-        'empty'=>'不限分类',
         'ajax'=>array(
                     'type'=>'GET',
                     'url'=>CController::createUrl('article/manageNews'),
@@ -47,7 +46,7 @@ foreach ($artCategory as $categoryId=>$category) {
                     'data'=>array('categoryId'=>"js:this.value",'type'=>'getSubCategory')
                 )));?>
 <label>小分类：</label>
-<?php echo $form->dropDownList($model,'art_subcategory_id',array());?>
+<?php echo $form->dropDownList($model,'art_subcategory_id',$artSubcategory);?>
 <label>标题：</label>
 <?php echo $form->textField($model,'art_title',array('class'=>'cmp-input'));?>
 <?php echo CHtml::submitButton('搜索'); ?>

@@ -55,7 +55,7 @@ foreach ($artCategory as $categoryId=>$category) {
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
-<form action='<?php echo  Yii::app()->controller->createUrl('changeNewsStatus') ?>' method='post'>
+<form id="articleForm" action='<?php echo  Yii::app()->controller->createUrl('changeNewsStatus') ?>' method='post'>
 
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
@@ -125,8 +125,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=1";
-				this.form.submit();
+				var url=this.form.action+"&toStatus=1";
+				$("#articleForm").ajaxSubmit(
+					{
+						url:url,
+						success:function(msg){
+							alert(msg);
+							$.fn.yiiGridView.update("yw0");
+						},
+					}
+				);
 			}
 			return false;
 		}',
@@ -145,8 +153,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=2";
-				this.form.submit();
+				var url=this.form.action+"&toStatus=2";
+				$("#articleForm").ajaxSubmit(
+					{
+						url:url,
+						success:function(msg){
+							alert(msg);
+							$.fn.yiiGridView.update("yw0");
+						},
+					}
+				);
 			}
 			return false;
 		}',
@@ -167,8 +183,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			{
 				if(confirm("确定删除选中的'.$alertTitle.'信息"))
 				{
-					this.form.action+="&toStatus=29";
-					this.form.submit();
+					var url=this.form.action+"&toStatus=33";
+					$("#articleForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("yw0");
+							},
+						}
+					);
 				}
 			}
 			return false;
@@ -216,3 +240,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 ?>
 </DIV>
 </form>
+<?php 
+$cs = Yii::app()->getClientScript();
+$cs->registerScriptFile('/js/jquery.form.js');
+?>

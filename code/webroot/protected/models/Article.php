@@ -50,12 +50,15 @@ class Article extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('art_title', 'required'),
-            array('art_id, art_category_id,art_subcategory_id, art_status, art_user_id, art_recommend', 'numerical', 'integerOnly'=>true),
+            array('art_title', 'required','message'=>'请填写文章标题'),
+            array('art_id, art_category_id,art_subcategory_id, art_status, art_user_id, art_recommend', 'numerical', 'integerOnly'=>true,'message'=>'必须是填写数字'),
             array('art_title, art_source', 'length', 'max'=>128),
             array('art_img', 'length', 'max'=>218),
             array('art_tags, art_check_by', 'length', 'max'=>45),
+            array('art_subcategory_id','required','message'=>'请选择文章分类'),
+            array('art_status','required','message'=>'请选择状态'),
             array('art_content, art_post_date, art_modified_date', 'safe'),
+            
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('art_id, art_title, art_source, art_category_id, art_content, art_status, art_tags, art_user_id, art_check_by, art_post_date, art_modified_date, art_recommend', 'safe', 'on'=>'search'),

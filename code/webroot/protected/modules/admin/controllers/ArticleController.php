@@ -129,8 +129,8 @@ class ArticleController extends AdminController {
 		if($parentId)
 		{
 			$model->art_category_id=$parentId;
-			$artStatus=Term::getTermsByGroupId(1);
-			$artSubCategory=Term::getTermsByGroupId(10,false,$parentId);
+			$artStatus=Term::getTermsByGroupId(1,false,null,'',false);
+			$artSubCategory=Term::getTermsByGroupId(10,false,$parentId,'',false);
 			$this->render('updateArticle',array('model'=>$model,
 			'artStatus'=>$artStatus,
 			'artSubCategory'=>$artSubCategory,));
@@ -148,16 +148,32 @@ class ArticleController extends AdminController {
 	{
 		$toStatus=@$_REQUEST['toStatus'];
 		$artId=@$_REQUEST['art_id'];
-		if(!$artId && in_array($toStatus,array(1,2)))
+		if(!$artId && in_array($toStatus,array(1,2,33)))
 		{
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				echo '请选择要更新的文章';
+				exit;
+			}
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的文章信息，以及改变的状态');
-			$this->redirect(array($redirectPage));
+			$this->redirect(array($redirectAction));
 
 		}
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('art_id', $artId);
 		$checkedBy=Yii::app()->admin->getName();
 		$updateRows=Article::model()->updateAll(array('art_status'=>$toStatus,'art_check_by'=>$checkedBy),$updateStatusCriteria);
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			if($updateRows>0)
+			{
+				echo '更新成功！';
+			}
+			else {
+				echo '更新失败！';
+			}
+			exit;
+		}
 		if($updateRows>0)
 		{
 			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>User Center</title>
+    <title>钼市网-会员中心欢迎您！</title>
     <link rel="stylesheet" href="css/global.css">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">

@@ -19,7 +19,7 @@
 	
 	<table border="0" cellpadding="0" cellspacing="0" class="table-list" width="100%">
 		<tr class="repeatbg">
-			<th width="30">选择</th><th width="300">标题</th><th width="107">分类</th><th width="56">点击量</th><th width="160">发表日期</th><th width="40">操作</th>
+			<th width="30">选择</th><th width="300">标题</th><th width="160">发表日期</th><th width="40">操作</th>
 		</tr>
                     <?php for($index=0;$index<count($data);$index++):
                     $class = ($index%2 == 0) ? "" : "class='even'";
@@ -27,8 +27,6 @@
                     <tr <?php echo $class;?>>                     
                     <td><input type="checkbox" value="<?php echo $data[$index]['art_id'];?>" /></td>
                     <td><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/news',array('art_id'=>$data[$index]['art_id'],'update'=>1));?>"><?php echo $data[$index]['art_title'];?></a></td>
-                    <td><?php echo $data[$index]['art_title'];?></td>
-                    <td><?php echo "首页新闻";?></td>
                     <td><?php echo date("Y-m-d", strtotime($data[$index]['art_added_date']));?></td>                      
 		            <td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/news',array('art_id'=>$data[$index]['art_id'],'update'=>1));?>" class="ico-edit">编辑</a><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/newsdel',array('ids'=>$data[$index]['art_id']));?>" class="ico-del">删除</a></td>
                     </tr>

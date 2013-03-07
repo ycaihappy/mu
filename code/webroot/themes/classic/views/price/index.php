@@ -24,7 +24,7 @@
 	<!--module 1-->
      <?php  $this->widget("PriceChinaWidget",array('type'=>1));?>
 	  <?php  $this->widget("PriceChinaWidget",array('type'=>2));?>
-	   <?php  $this->widget("PriceChinaWidget",array('type'=>3));?>
+	   <?php  #$this->widget("PriceChinaWidget",array('type'=>3));?>
 	
 
 	 

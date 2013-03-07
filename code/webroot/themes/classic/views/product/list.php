@@ -6,22 +6,24 @@
         <table width="100%" cellspacing="0" cellpadding="0" border="0" class="left_table">    
             
                     <tbody><tr>
-                      <th>状态</th>
-                      <th>品名</th>
-                      <th>规格</th>
-                      <th>数量</th>
+                      <th>品类</th>
+                      <th>现货名称</th>
+                      <th>品阶</th>
+                      <th>含水量</th>
+                      <th>价格</th>
                       <th>存货地</th>
                       <th>发布日期</th>
                     </tr>
                 
              		<?php for($index=0;$index<count($data);$index++):?>
                     <tr>                     
-                    <td><font style="color:red;"><?php echo $supply_type[$data[$index]['supply_type']];?></font></td>
-                    <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id']));?>"><?php echo $category[$data[$index]['supply_category_id']];?></a></td>
-                    <td><?php echo $data[$index]['supply_unit'];?></td>
-                    <td><?php echo $data[$index]['supply_price'];?></td>
-                    <td><?php echo $city[$data[$index]['supply_city_id']];?></td>
-                    <td><?php echo date("Y-m-d",strtotime($data[$index]['supply_join_date']));?></td>                      
+                    <td><font style="color:red;"><?php echo $category[$data[$index]['product_type_id']];?></font></td>
+                    <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('product/view',array('product_id'=>$data[$index]['product_id']));?>"><?php echo $data[$index]['product_name'];?></a></td>
+                    <td><?php echo $mucontent[$data[$index]['product_mu_content']];?></td>
+                    <td><?php echo $watercontent[$data[$index]['product_water_content']];?></td>
+                    <td><?php echo $data[$index]['product_price'];?></td>
+                    <td><?php echo $city[$data[$index]['product_city_id']];?></td>
+                    <td><?php echo date("Y-m-d",strtotime($data[$index]['product_join_date']));?></td>                      
                     </tr>
 	        		<?php endfor;?>			   
                 

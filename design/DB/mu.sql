@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-07 23:44:10
+# Date/time:                    2013-03-07 23:48:31
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -1528,7 +1528,7 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 # Dumping structure for table mu.mu_sms_code
 DROP TABLE IF EXISTS `mu_sms_code`;
 CREATE TABLE IF NOT EXISTS `mu_sms_code` (
-  `sms_id` bigint(20) NOT NULL,
+  `sms_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `mobile_no` varchar(45) DEFAULT NULL,
   `sms_code` varchar(45) DEFAULT NULL,
   `sms_status` tinyint(4) DEFAULT NULL COMMENT '是否验证成功',

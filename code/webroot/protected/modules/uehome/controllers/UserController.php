@@ -198,19 +198,22 @@ class UserController extends Controller {
             $model->description = $supply->supply_content;
             $model->effective_time = $supply->supply_valid_date;
             $model->category    = $supply->supply_category_id;
+            $model->supply_category    = $supply->supply_type;
+            $model->city    = $supply->supply_city_id;
+            $model->unit    = $supply->supply_unit;
+            $model->muContent    = $supply->supply_mu_content;
+            $model->waterContent    = $supply->supply_water_content;
         }
 
         if (isset($_POST['SupplyForm']))
         {
+        	 
             $model->attributes = $_POST['SupplyForm'];
+           
             if ( $model->validate() )
             {
                 empty($model->supply_id) ? $model->draft() : $model->update();
 
-            }
-            else {
-            	var_dump($model->getErrors());
-            	exit;
             }
             $this->actionSlist();
         }
@@ -234,8 +237,9 @@ class UserController extends Controller {
         	$province=$cityCache[$model->city]->city_parent;
         	$allCity=City::getAllCity($province);
         }
-        $allMuContent=Term::getTermsByGroupId(16,false,null,'选择品质');
-        $data=compact('allMuContent','model','supply_type','category','smallCategory','parentCategory','province','allCity','allProvince');
+        $allMuContent=Term::getTermsByGroupId(16,false,null,'选择品阶');
+        $allWaterContent=Term::getTermsByGroupId(17,false,null,'选择含水量');
+        $data=compact('allMuContent','model','supply_type','allWaterContent','category','smallCategory','parentCategory','province','allCity','allProvince');
 		$this->render ( 'supply', $data);
 	}
 	public function actionGoods() {

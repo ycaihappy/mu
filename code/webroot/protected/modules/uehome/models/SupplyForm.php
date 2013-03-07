@@ -10,9 +10,11 @@ class SupplyForm extends CFormModel
 	public $district;
     public $city;
     public $address;
+    public $unit;
     public $tel;
     public $price;
     public $muContent;
+    public $waterContent;
     public $description;
     public $effective_time;
 
@@ -23,7 +25,7 @@ class SupplyForm extends CFormModel
 	public function rules()
     {
         return array(
-            array('supply_category,category,muContent,supply_keyword,supply_name,tel,price,description', 'required'),		
+            array('supply_category,address,city,category,muContent,supply_keyword,supply_name,tel,price,description', 'required'),		
             	
 		);
 	}
@@ -39,9 +41,9 @@ class SupplyForm extends CFormModel
 
 	public function draft()
 	{
-        $addsql = "insert into mu_supply(supply_mu_content,supply_name, supply_user_id,supply_type,supply_keyword,
+        $addsql = "insert into mu_supply(supply_city_id,supply_mu_content,supply_water_content,supply_name, supply_user_id,supply_type,supply_keyword,
             supply_category_id,supply_content,supply_address,supply_status,supply_phone,supply_unit,supply_price,supply_valid_date)
-            values(:muContent,:supply_name,:supply_user_id,:supply_type,:supply_keyword,:supply_category_id,
+            values(:supply_city,:muContent,:waterContent,:supply_name,:supply_user_id,:supply_type,:supply_keyword,:supply_category_id,
             :supply_content,:supply_address,:supply_status,:supply_phone,:supply_unit,:supply_price,:supply_valid_date)";
 
         $commd = Yii::app()->db->createCommand($addsql);
@@ -53,11 +55,13 @@ class SupplyForm extends CFormModel
         $commd->bindValue(":supply_category_id", $this->category);
         $commd->bindValue(":supply_content", $this->description);
         $commd->bindValue(":supply_address", $this->address);
+        $commd->bindValue(":supply_city", $this->city);
         $commd->bindValue(":muContent", $this->muContent);
+        $commd->bindValue(":waterContent", $this->waterContent);
         $commd->bindValue(":supply_phone", $this->tel);
         $commd->bindValue(":supply_price", $this->price);
-        $commd->bindValue(":supply_status", 0);
-        $commd->bindValue(":supply_unit", 0);
+        $commd->bindValue(":supply_status", 33);
+        $commd->bindValue(":supply_unit",$this->unit);
         $commd->bindValue(":supply_valid_date", date('Y-m-d H:i:s'));
         $commd->execute();
 	}

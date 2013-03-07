@@ -32,7 +32,10 @@
 			));?> <?php echo $form->dropDownList($model, 'category', $smallCategory,array('empty'=>'选择品类'));?></td>
 		</tr>
 		<tr>
-            <td class="label">品质：</td><td><?php echo $form->dropDownList($model, 'muContent', $allMuContent);?></td>
+            <td class="label">品阶：</td><td><?php echo $form->dropDownList($model, 'muContent', $allMuContent);?></td>
+		</tr>
+		<tr>
+            <td class="label">含水量：</td><td><?php echo $form->dropDownList($model, 'waterContent', $allWaterContent);?></td>
 		</tr>
 		<tr>
            <td class="label">地点：</td><td><?php echo CHtml::dropDownList( 'province',$province,$allProvince,array(

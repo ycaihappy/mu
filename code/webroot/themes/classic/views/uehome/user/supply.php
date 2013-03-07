@@ -10,7 +10,7 @@
         'validateOnSubmit'=>true,
     ),
 ));?>
-	<?php echo $form->errorSummary($model,'<div><p>您填写的信息不符合一下规则：</p>','</div>');?>
+	<?php echo $form->errorSummary($model,'<div class="info_warining"><p>您填写的信息不符合一下规则：</p>','</div>');?>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
         <?php echo $form->hiddenField($model, 'supply_id');?>
 		<tr>

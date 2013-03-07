@@ -7,7 +7,7 @@
 	<div class="repeatbg search">
 			<form>
 			<input type="hidden" name="r" value="<?php echo $_GET['r']?>" />
-<?php echo CHtml::dropDownList('product_status',$select_status, $status,array());?>
+<?php echo CHtml::dropDownList('supply_status',$select_status, $status);?>
 				<!--<select name="category"><option>选择栏目</option></select>
 				<label>关键字：</label>
 				<input type="text" name="keyword" class="cmp-input" />

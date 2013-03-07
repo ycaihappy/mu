@@ -409,5 +409,9 @@ $.extend(MU.mods,{
 		self.find('.btn-select').click(function(){
 			box.showBox();
 		});
+	},
+	JXhSlist : function (){
+		var self = $(this);
+		$('#data_container').find('li:odd').addClass('odd');
 	}
 });

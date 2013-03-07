@@ -831,7 +831,7 @@ padding: 0 20px;
 .search-Date-show{border: 1px solid #ccc;}
 .sds-size-0,.sds-size-1,.sds-size-2,.sds-size-3,.sds-size-4,.sds-size-5,.sds-size-6,.sds-size-7,.sds-size-8,.sds-size-9{display:inline-block;float:left;text-align: center;overflow:hidden;}
 .sds-size-0{width:106px;}
-.sds-size-1{width:106px;}
+.sds-size-1{width:220px;}
 .sds-size-2{width:65px;}
 .sds-size-3{width:97px;}
 .sds-size-4{width:80px;_width:70px;}
@@ -842,8 +842,9 @@ padding: 0 20px;
 .sds-size-9{width:57px;}
 .sds-top h4{background: url(imgs/gtxhzykX.png) repeat-x scroll 0 -111px transparent;color: #993300;height:27px;}
 .sds-top h4 span{height:22px;padding-top:3px;}
-.sds-date-list li span{height:20px;padding:5px 0;color:#033;}
-.sds-date-list li{cursor: pointer;height: 30px;overflow:hidden;border-bottom: 1px solid #ccc;vertical-align: bottom;}
+.sds-date-list li span{padding:5px 0;color:#033;}
+.sds-date-list li{cursor: pointer;overflow:hidden;border-bottom: 1px solid #ccc;vertical-align: bottom;}
+.sds-date-list li.odd{background:rgb(245, 239, 234)}
 .sds-date-list .no-border{border-bottom: 1px solid #fff;}
 
 .pager-bar-container{font-size:12px;line-height:22px;height:22px;font-weight:bold;}

@@ -134,7 +134,7 @@ padding-right: 1px;
 .m-nav{margin-top: 25px;overflow: hidden;margin-bottom:15px;background:url(imgs/nav_bg.png) repeat-x;height:60px;}
 .m-nav .bd{width:1100px;}
 .m-nav .hd{background:#206e94;height:5px;margin:10px 0}
-.m-nav a{font-size:12px;margin-right:13px;line-height:25px;color:#fff;}
+.m-nav a{font-size:12px;margin-right:11px;line-height:25px;color:#fff;}
 .m-nav strong a{font-weight:bold;font-size:14px;}
 .m-nav .nav-con{overflow:hidden;float:left;padding:4px 7px;position:relative;}
 .m-nav .sp{position:absolute;right:0px;top:12px;height:38px;width:2px;display:block;background:url(imgs/nav_sp.png) no-repeat;}
@@ -379,7 +379,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 /*m-refinfo*/
 .m-refinfo dt{background:#f3f3f3;line-height:30px;font-size:14px;}
-.m-refinfo dl{border:1px solid #ccc;border-bottom:0;}
+.m-refinfo dl{border:1px solid #ccc;margin-bottom:10px;}
 .m-refinfo dl.last{border:1px solid #ccc}
 .m-refinfo dd{padding:10px;line-height:20px;}
 .m-refinfo  li{line-height:22px;}
@@ -471,7 +471,7 @@ padding: 0 20px;
 .table-list td.td02{text-align:left;}
 .m-table-list .btn-group{text-align:left;padding:5px;}
 .m-table-list .btn-group a{margin-right:5px;}
-.m-table-list .pager{padding:12px 0px;text-align:center;background:#fafcef;border:1px solid #cfcfcf;margin-top:10px;}
+.m-table-list .pager{padding:12px 0px;text-align:center;margin-top:10px;}
 .m-table-list .pager a{margin-right:5px;}
 
 .m-table-list .photo-hd{overflow:hidden;margin:10px 0;}
@@ -519,7 +519,7 @@ padding: 0 20px;
 .m-user-top{position:absolute;right:0;top:10px;font-size:14px;}
 
 
-.m-breadcrumb{margin-bottom:20px;}
+.m-breadcrumb{margin-bottom:20px;margin-top:10px}
 .m-breadcrumb .crumb{background:url(imgs/ico-crumb-1.png) no-repeat;width:8px;height:9px;display:inline-block;margin-right:10px;}
 .m-breadcrumb i{background:url(imgs/ico-crumb-arr.png) no-repeat;width:11px;height:10px;display:inline-block;margin:0px 10px;}
 .m-breadcrumb p{padding-bottom:10px;border-bottom:1px solid #ccc;}
@@ -1026,3 +1026,9 @@ padding: 0 20px;
 }
 .m-rel-news strong{font-weight:bold}
 
+#pic_box .bd{overflow:hidden;}
+#pic_box li{width:100px;float:left;margin-right:10px;margin-bottom:10px;cursor:pointer}
+#pic_box li img{width:100px;height:100px;border:2px solid #ccc;}
+#pic_box li p{text-align:center}
+#pic_box li:hover img,#pic_box li.selected img{border:2px solid orange}
+#pic_box .ft .page{float:right;}

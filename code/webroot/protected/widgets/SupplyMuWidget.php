@@ -5,15 +5,7 @@ class SupplyMuWidget extends CWidget
     public $pager;
     public function init()
     {
-        $criteria=new CDbCriteria;
-        $criteria->order='supply_id DESC';
-
-        $count=Supply::model()->count($criteria);
-
-        $this->pager=new CPagination($count);
-        $this->pager->pageSize=9;
-        $this->pager->applyLimit($criteria);
-        $this->list=Supply::model()->findAll($criteria);
+        $this->list = Supply::model()->topsupplyIndex()->findAll();
     }
 
     public function run()

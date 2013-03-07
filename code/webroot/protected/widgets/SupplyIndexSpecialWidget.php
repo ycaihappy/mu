@@ -14,7 +14,7 @@ class SupplyIndexSpecialWidget extends CWidget {
 			}
 		}
 		$data=compact('topSpecial');
-		$this->render();
+		$this->render('supply_index_special',$data);
 	}
 }
 

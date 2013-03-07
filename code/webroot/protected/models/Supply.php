@@ -75,6 +75,8 @@ class Supply extends CActiveRecord
 			'status'=>array(self::BELONGS_TO,'Term','supply_status'),
 			'user'=>array(self::BELONGS_TO,'User','supply_user_id'),
 			'city'=>array(self::BELONGS_TO,'City','supply_city_id'),
+			'muContent'=>array(self::BELONGS_TO,'Term','supply_mu_content'),
+			'waterContent'=>array(self::BELONGS_TO,'Term','supply_water_content'),
 			'unit'=>array(self::BELONGS_TO,'Term','supply_unit'),
 		);
 	}
@@ -90,14 +92,14 @@ class Supply extends CActiveRecord
 				),
 			'topsupplyIndex'=>array(
 					'select'=>'supply_id,supply_name,supply_join_date',
-					'with'=>array('user.enterprise'=>array('ent_name'),'muContent'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name')),
+					'with'=>array('user.enterprise'=>array('ent_name'),'muContent'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name'),'category'=>array('select'=>'term_name')),
 					'condition'=>'supply_status=1 and supply_type=18',
 					'order'=>'supply_join_date desc',
 					'limit'=>15
 				),
 			'topbuyIndex'=>array(
 					'select'=>'supply_id,supply_name,supply_contractor,supply_phone,supply_join_date',
-					'with'=>array('user.enterprise'=>array('ent_name'),'user'=>array('select'=>'user_name'),'muContent'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name')),
+					'with'=>array('user.enterprise'=>array('ent_name'),'user'=>array('select'=>'user_name'),'muContent'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name'),'category'=>array('select'=>'term_name')),
 					'condition'=>'supply_status=1 and supply_type=19',
 					'order'=>'supply_join_date desc',
 					'limit'=>20

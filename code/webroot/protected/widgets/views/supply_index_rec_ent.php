@@ -1,18 +1,13 @@
-		<div class="m-supply-news">
-			<div class="hd clearfix">
-				<span class="on"><a href="">推荐供应商</a><i></i></span>			
-			</div>
-			<div class="bd">
-				<ul>
-			<?php 
-					if($data):
-						foreach ($data as $ent):
-						?>
-                            <li><a title="<?php echo $ent->ent_name; ?>" href="<?php echo $ent->ent_id?>" target="_blank"><?php echo $ent->ent_name; ?></a></li>
-					<?php endforeach;
-					endif;
-					?>			
-				</ul>
-			</div>
-		
-		</div>
+<div class="cgal">
+	<h2>推荐供应商信息</h2>
+	<ul>
+		<?php if($data):
+				foreach ($data as $ent):
+		?>
+		<li><a target="_blank" href="<?php echo $ent->ent_id?>"><?php echo $ent->ent_name?></a></li>
+		<?php 
+				endforeach;
+			endif;
+		?>
+	</ul>
+</div>

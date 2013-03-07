@@ -1,38 +1,25 @@
-			<div class="m-supply-mt">
-				<div class="hd">
-					<h5>推荐供求</h5>
-					<a class="ad"><img src="images/191x100.gif" width="191" height="100" /></a>
-				</div>
-				<div class="bd">
-					<ul>
-			<?php for($index=0;$index<count($data);$index++):
-            if ( $index < 3) $class='top';
-						?>
-                      <li class="<?php echo $class;?>"><em><?php echo $index+1;?></em> <a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id'])); ?>" target="_blank"><?php echo $data[$index]['supply_name']; ?></a></li>
-					<?php endfor;?>			
-					</ul>
-					<a class="ad"><img src="images/193x60.gif" width="191" height="60" /></a>
-				</div>
-				<div class="ft">
-					<div class="item">						
-						<a class="ad"><img src="images/73x62_1.gif" width="73" height="62" /></a>
-						<p>
-							<i></i>
-                            <a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[3]['supply_id']));?>"><?php echo $data[3]['supply_name'];?></a>
-                            <span><?php echo $data[3]['supply_keyword'];?></span>
-						</p>
-					</div>
-					<div class="item">
-						
-						<a class="ad"><img src="images/73x62_2.gif" width="73" height="62" /></a>
-						<p>
-							<i></i>
-                            <a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[6]['supply_id']));?>"><?php echo $data[6]['supply_name'];?></a>
-                            <span><?php echo $data[6]['supply_keyword'];?></span>
-						</p>
-					</div>
-					
-				</div>
-				
-			
-			</div>
+<div class="m-gyxx">
+        	<h2><a href="<?php echo $this->getController()->createUrl('supply/list',array('type'=>1))?>">更多</a><em>供应信息</em></h2>
+            <ul>
+            	<?php 
+            	if($data):
+            		foreach ($data as $supply):
+            	?>
+            	<li>
+            		<span class="gy01">
+            			<a target="_blank" title="<?php echo $supply->user->enterprise->ent_name?>" href="<?php echo $this->getController()->createUrl('supply/view',array('supply_id'=>$supply->supply_id))?>"><?php echo $supply->user->enterprise->ent_name?></a>
+            		</span>
+            		<span class="gy02">
+            			<a target="_blank" title="<?php echo $supply->supply_name?>" href="<?php echo $this->getController()->createUrl('supply/view',array('supply_id'=>$supply->supply_id))?>"><?php echo $supply->supply_name?></a>
+            		</span>
+            		<span class="gy03"><?php echo $supply->category->term_name?></span>
+            		<span class="gy04"><?php echo $supply->muContent->term_name?></span>
+            		<span class="gy05"><?php echo $supply->city->city_name?></span>
+            		<span class="gy06"><?php echo date('m/d',strtotime($supply->supply_join_date))?></span>
+            	</li>
+            	<?php 
+            		endforeach;
+            	endif;
+            	?>
+			</ul>
+</div>

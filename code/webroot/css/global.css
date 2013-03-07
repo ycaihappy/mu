@@ -1029,7 +1029,7 @@ padding: 0 20px;
 
 #pic_box .bd{overflow:hidden;}
 #pic_box li{width:100px;float:left;margin-right:10px;margin-bottom:10px;cursor:pointer}
-#pic_box li img{width:100px;height:100px;border:2px solid #ccc;}
+#pic_box li img{width:100px;height:100px;border:2px solid #ccc;display:block;}
 #pic_box li p{text-align:center}
 #pic_box li:hover img,#pic_box li.selected img{border:2px solid orange}
 #pic_box .ft .page{float:right;}

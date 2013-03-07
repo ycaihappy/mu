@@ -26,7 +26,7 @@
                     ?>
                     <tr <?php echo $class;?>>                     
                     <td><input type="checkbox" value="<?php echo $data[$index]['art_id'];?>" /></td>
-                    <td><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/news',array('art_id'=>$data[$index]['supply_id'],'update'=>1));?>"><?php echo $data[$index]['supply_name'];?></a></td>
+                    <td><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/news',array('art_id'=>$data[$index]['art_id'],'update'=>1));?>"><?php echo $data[$index]['art_title'];?></a></td>
                     <td><?php echo $data[$index]['art_title'];?></td>
                     <td><?php echo "首页新闻";?></td>
                     <td><?php echo date("Y-m-d", strtotime($data[$index]['art_added_date']));?></td>                      

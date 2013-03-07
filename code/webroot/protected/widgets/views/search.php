@@ -12,10 +12,10 @@
 			</ul>
 		 </div>
 		 <div class="search-box">
-			<form method='get' name="search" action="<?php echo $this->getController()->createUrl('product/index')?>" >
+			<form method='post' name="search" action="<?php echo $this->getController()->createUrl('product/index')?>" >
 			 
 			  <div class="search-panel-fields">       
-				<input autocomplete="off" autofocus="true" accesskey="s" name="keyword" id="q" value=<?php Yii::app()->request->getParam('keyword')?>>
+				<input autocomplete="off" autofocus="true" accesskey="s" name="keyword" id="q" value=<?php echo Yii::app()->request->getParam('keyword')?>>
 				<s></s>
 			  </div>
 			  <button type="submit">搜 索</button>			 

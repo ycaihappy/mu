@@ -314,8 +314,8 @@ class UserController extends Controller {
         $criteria=new CDbCriteria;
         $criteria->order='supply_id DESC';
         $criteria->with=array('city'=>array('select'=>'city_name'),'muContent'=>array('select'=>'term_name'),'category'=>array('select'=>'term_name'));
-        if ( isset($_REQUEST['supply_status']) )
-            $criteria->addCondition("supply_status=".$_REQUEST['supply_status']);
+        if ( isset($_REQUEST['product_status']) )
+            $criteria->addCondition("supply_status=".$_REQUEST['product_status']);
         $criteria->addCondition("supply_user_id=".yii::app()->user->getID());
 
         $count=Supply::model()->count($criteria);

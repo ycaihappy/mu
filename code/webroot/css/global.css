@@ -517,7 +517,7 @@ padding: 0 20px;
 .m-menubar span.on{background:url(imgs/tab_on_bg.png);}
 .m-menubar span.on a{color:#fff}
 
-.m-user-top{position:absolute;right:0;top:10px;font-size:14px;}
+.m-user-top{position:absolute;right:0;top:10px;font-size:12px;}
 
 
 .m-breadcrumb{margin-bottom:20px;margin-top:10px}

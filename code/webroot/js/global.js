@@ -258,6 +258,7 @@ $.extend(MU.mods,{
 		var box  = {
 			current : 1,
 			total : 2,
+			cid : 1,
 			getBox : function(){
 				return $('#pic_box').length > 0 ? $('#pic_box') : $('<div>').attr('id','pic_box').append('<div class="bd"></div><div class="ft"><div class="page"><a href="javascript:void(0);" class="prev">&lt;上一页</a><a href="javascript:void(0);" title="下一页" class="next">下一页&gt;</a></div></div>');
 			},
@@ -270,6 +271,8 @@ $.extend(MU.mods,{
 						html.push('<p>暂无数据</p>');
 					}
 					if(re.imageList){
+						objbox.current = re.currentPage;
+						objbox.total = re.pageCount;
 						for(var i=0,len = re.imageList.length;i < len;i++){
 							html.push('<li src="'+re.imageList[i].image_src+'"><img src="'+re.imageList[i].image_thumb_src+'" /><p>'+re.imageList[i].image_title+'</p></li>');
 						}
@@ -278,10 +281,11 @@ $.extend(MU.mods,{
 					box.find('.bd').html('<ul>' + html.join('') + '</ul>');
 				});
 			},
-			showBox : function(){
+			showBox : function(cid){
 				var box = this.getBox(),objbox = this;
+				objbox.cid = cid;
 				box.dialog({width:470,height:'auto',title:'选择图片',
-				close : function(){					
+				close : function(){	
 					$(this).dialog('destroy');
 					
 				},
@@ -301,24 +305,32 @@ $.extend(MU.mods,{
 						
 					
 					});
-					objbox.request(1,objbox.current);
+					objbox.request(objbox.cid,objbox.current);
 				}});
 			},
 			nextPage : function(){
 				if(this.current < this.total){
 					this.current++;
 				}
-				this.request(1,this.current);
+				this.request(this.cid,this.current);
 			},
 			prevPage : function(){
 				if(this.current > 1){
 					this.current--;
 				}
-				this.request(1,this.current);
+				this.request(this.cid,this.current);
 			}
 		}
 		self.find('.btn-select').click(function(){
-			box.showBox();
+			var cid = 0;
+			if($('#ProductForm_product_type_id,#SupplyForm_category').length > 0){
+				cid = $('#ProductForm_product_type_id,#SupplyForm_category').val();
+			}
+			if(cid ==0){
+				alert('请先选择品类');
+			}else{
+				box.showBox(cid);
+			}
 		});
 		$('#SupplyForm_effective_time,#ProductForm_product_join_date').datepicker({dateFormat : 'yy-mm-dd'});
 	},

@@ -1,7 +1,7 @@
 <?php 
 
 $class_user = $class_password = $class_company = $class_cert = $class_news = '';
-$class_supply = $class_goods = $class_template = $class_slist = $class_glist = '';
+$class_supply = $class_goods = $class_template = $class_slist = $class_glist = $class_nlist = '';
 switch (Yii::app()->controller->action->id)
 {
 case 'detail':

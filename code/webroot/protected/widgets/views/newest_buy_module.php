@@ -1,4 +1,4 @@
-<div class="m-qgxx">
+<div class="m-qgxx" id="J_Qgxx">
         	<h2><a href="<?php echo $this->getController()->createUrl('supply/list',array('type'=>2))?>">更多</a><em>最新求购信息</em></h2>
             <div class="qgxx_main">
                 <div id="nihao" class="halftransp"></div>

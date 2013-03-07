@@ -1,6 +1,4 @@
-<div class="layout main">
 
-	<div class="layout-area">
 		<div class="grid-290">
 			<?php $this->widget('SupplyIndexSpecialWidget');?>
 			<!--module end-->
@@ -18,5 +16,5 @@
 			<?php $this->widget('SupplyMuWidget');?>
 		</div>
 		
-	</div>
-</div>
+
+

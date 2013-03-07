@@ -7,7 +7,6 @@ class SupplyForm extends CFormModel
 	public $supply_name;
 	public $supply_keyword;
 	public $category;
-	public $district;
     public $city;
     public $address;
     public $unit;
@@ -35,8 +34,7 @@ class SupplyForm extends CFormModel
         	array('price','numerical','message'=>'价格必须是数字类型'),
         	array('category','required','message'=>'请选择品类'),
         	array('supply_category','required','message'=>'请选择供求类型'),
-        	array('effective_time','date','message'=>'日期格式不正确'),
-            array('supply_category,city,category,muContent,supply_name,tel', 'required'),		
+        	array('image,description,unit,address,supply_keyword,supply_id,effective_time','safe'),	
             	
 		);
 	}

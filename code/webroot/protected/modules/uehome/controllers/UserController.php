@@ -227,15 +227,15 @@ class UserController extends Controller {
 
         if (isset($_POST['SupplyForm']))
         {
-        	 
             $model->attributes = $_POST['SupplyForm'];
-           
+            
             if ( $model->validate() )
             {
                 empty($model->supply_id) ? $model->draft() : $model->update();
+                $this->actionSlist();
 
             }
-            $this->actionSlist();
+            
         }
 
         $supply_type = Term::getTermsByGroupId(11);
@@ -277,19 +277,18 @@ class UserController extends Controller {
             $model->product_quanity = $good->product_quanity;
             $model->product_content = $good->product_content;
             $model->product_mu_content = $good->product_mu_content;
+            $model->product_image_src = $good->product_image_src;
+            $model->product_unit = $good->product_unit;
             $model->product_water_content = $good->product_water_content;
         }
         if ( isset($_POST['ProductForm']) )
         {
             $model->attributes = $_POST['ProductForm'];
-
             if ( $model->validate() )
             {
                 empty($model->product_id) ? $model->draft() : $model->update();
                 $this->actionGlist();
             }
-
-            $this->actionGlist();
         }
 
         $product_type= Term::model()->getTermsByGroupId(14,true,'选择分类');
@@ -364,8 +363,8 @@ class UserController extends Controller {
         $criteria=new CDbCriteria;
         $criteria->order='product_id DESC';
         $criteria->with=array('city'=>array('select'=>'city_name'),'muContent'=>array('select'=>'term_name'),'type'=>array('select'=>'term_name'));
-        if ( isset($_REQUEST['product_status']) )
-            $criteria->addCondition("product_status=".$_REQUEST['product_status']);
+        if ( $product_status=@$_REQUEST['product_status'] )
+            $criteria->addCondition("product_status=".$product_status);
         $criteria->addCondition("product_user_id=".yii::app()->user->getID());
 
         $selectStatus = isset($_REQUEST['product_status']) ? $_REQUEST['product_status'] : 0;

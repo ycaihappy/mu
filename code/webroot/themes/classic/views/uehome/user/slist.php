@@ -13,7 +13,7 @@
 				<input type="text" name="keyword" class="cmp-input" />
 				<select name="rank"><option>排序</option></select>
 				<input type="submit" class="cmp-btn" value="搜索"/>-->
-                <a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supply');?>" class="cmp-btn">添加现货</a>
+                <a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supply');?>" class="cmp-btn">添加供求</a>
 			</form>
 		</div>
 	

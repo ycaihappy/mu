@@ -2,7 +2,7 @@
 	<p><b class="crumb"></b>会员中心<i></i>发布供求信息</p>
 </div>
     <div class="m-form" id="J_User_Suppy">
-	
+
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'supply-form',
     'enableClientValidation'=>true,
@@ -10,6 +10,7 @@
         'validateOnSubmit'=>true,
     ),
 ));?>
+	<?php echo $form->errorSummary($model,'<div><p>您填写的信息不符合一下规则：</p>','</div>');?>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
         <?php echo $form->hiddenField($model, 'supply_id');?>
 		<tr>
@@ -74,7 +75,8 @@
         <td class="label">信息描述：</td><td><?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
 		</tr>
 		<tr>
-			<td class="label">信息附图：</td><td><img src="<?php echo $model->image?'/images/commonProductsImages/thumb/thumb_'.$model->image:'/images/thumb.gif'?>" class="thumb" id="image_thumb"><button type="button" class="btn-modify btn-select">选择图片</button><input type="hidden" name="SupplyForm[image]" value="" id="image_src"/></td>
+			<td class="label">信息附图：</td><td><img src="<?php echo $model->image?'/images/commonProductsImages/thumb/thumb_'.$model->image:'/images/thumb.gif'?>" class="thumb" id="image_thumb"><button type="button" class="btn-modify btn-select">选择图片</button>
+			<input type="hidden" name="SupplyForm[image]" value="<?php echo $model->image?>" id="image_src"/></td>
 		</tr>
 		<tr>
         <td class="label">有效时间至：</td><td><?php echo $form->textField($model, 'effective_time', array('class'=>'cmp-input'));?>

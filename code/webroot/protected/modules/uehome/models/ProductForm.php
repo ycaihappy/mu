@@ -6,8 +6,6 @@ class ProductForm extends CFormModel
 	public $product_name;
 	public $product_keyword;
 	public $product_type_id;
-	public $district;
-    public $province;
     public $product_city_id;
     public $product_unit;
     public $product_quanity;
@@ -16,6 +14,7 @@ class ProductForm extends CFormModel
     public $product_mu_content;
     public $product_water_content;
     public $product_join_date;
+    public $product_image_src;
 
 	/**
 	 * Declares the validation rules.
@@ -24,14 +23,15 @@ class ProductForm extends CFormModel
     {
         return array(
             array('product_name', 'required','message'=>'产品名称必须填写！'),	
-            array('product_keyword', 'required'),		
-            array('district,province', 'safe'),		
+            array('product_unit', 'required','message'=>'请选择数量单位！'),		
             array('product_type_id', 'required','message'=>'请选择产品类别！'),	
             array('product_city_id', 'required','message'=>'请选择城市！'),	
-            array('product_quanity', 'required','message'=>'数量不能为空！'),	
+            array('product_quanity', 'numerical','message'=>'数量必须为数字！'),
+            array('product_quanity', 'required','message'=>'数量不能为空！'),		
             array('product_price', 'required','message'=>'价钱不能为空！'),	
+            array('product_price', 'numerical','message'=>'价钱必须为数字！'),	
             array('product_mu_content', 'required','message'=>'请选择品阶！'),	
-            array('product_unit,product_water_content,product_content, product_join_date', 'safe'),		
+            array('product_image_src,product_keyword,product_water_content,product_content, product_join_date', 'safe'),		
 		);
 	}
 
@@ -46,9 +46,9 @@ class ProductForm extends CFormModel
 
 	public function draft()
 	{
-        $addsql = "insert into mu_product(product_name, product_mu_content, product_water_content, product_user_id,product_type_id,product_keyword,
+        $addsql = "insert into mu_product(product_quanity,product_image_src,product_name, product_mu_content, product_water_content, product_user_id,product_type_id,product_keyword,
             product_content,product_status,product_unit,product_price,product_join_date,product_city_id)
-            values(:product_name,:product_mu_content,:product_water_content,:product_user_id,:product_type_id,:product_keyword,
+            values(:product_quanity,:product_image_src,:product_name,:product_mu_content,:product_water_content,:product_user_id,:product_type_id,:product_keyword,
             :product_content,:product_status,:product_unit,:product_price,:product_join_date,:product_city_id)";
 
         $commd = Yii::app()->db->createCommand($addsql);
@@ -61,17 +61,31 @@ class ProductForm extends CFormModel
         $commd->bindValue(":product_city_id", $this->product_city_id);
         $commd->bindValue(":product_keyword", $this->product_keyword);
         $commd->bindValue(":product_content", $this->product_content);
+        $commd->bindValue(":product_image_src", $this->product_image_src);
         $commd->bindValue(":product_price", $this->product_price);
-        $commd->bindValue(":product_status", 0);
+        $commd->bindValue(":product_status", 33);
         $commd->bindValue(":product_unit", $this->product_unit);
+        $commd->bindValue(":product_quanity", $this->product_quanity);
         $commd->bindValue(":product_join_date", date('Y-m-d H:i:s'));
         $commd->execute();
 	}
 
 	public function update()
 	{
-        $addsql = "update mu_product set product_name=:product_name, product_mu_content=:product_mu_content, product_water_content=:product_water_content,product_user_id=:product_user_id,product_type_id=:product_type_id,product_keyword=:product_keyword,
-            product_content=:product_content,product_status=:product_status,product_unit=:product_unit,product_price=:product_price,product_join_date=:product_join_date,product_city_id=:product_city_id where product_id=:product_id";
+        $addsql = "update mu_product set 
+        product_name=:product_name, 
+        product_mu_content=:product_mu_content, 
+        product_water_content=:product_water_content,
+        product_user_id=:product_user_id,
+        product_type_id=:product_type_id,
+        product_keyword=:product_keyword,
+        product_content=:product_content,
+        product_unit=:product_unit,
+        product_price=:product_price,
+        product_city_id=:product_city_id,
+        product_image_src=:product_image_src,
+        product_quanity=:product_quanity 
+        where product_id=:product_id";
 
         $commd = Yii::app()->db->createCommand($addsql);
 
@@ -84,10 +98,10 @@ class ProductForm extends CFormModel
         $commd->bindValue(":product_city_id", $this->product_city_id);
         $commd->bindValue(":product_keyword", $this->product_keyword);
         $commd->bindValue(":product_content", $this->product_content);
+        $commd->bindValue(":product_image_src", $this->product_image_src);
         $commd->bindValue(":product_price", $this->product_price);
-        $commd->bindValue(":product_status", 0);
         $commd->bindValue(":product_unit", $this->product_unit);
-        $commd->bindValue(":product_join_date", date('Y-m-d H:i:s'));
+        $commd->bindValue(":product_quanity", $this->product_quanity);
         $commd->execute();
 	}
 }

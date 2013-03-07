@@ -242,9 +242,13 @@ $.extend(MU.mods,{
 				break;
 				case 'preview':
 				if(o.siblings('input').val() != '' ) {
-					$('<img />').attr('src',o.siblings('input').val()).dialog({width:'auto',height:'auto',title:'Preview',close : function(){
-						$(this).dialog('destroy');
-					}});
+					$('<img />').attr('src',o.siblings('input').val()).load(function(){
+						$(this).dialog({width:'auto',height:'auto',title:'Preview',
+							close : function(){
+								$(this).dialog('destroy');
+							}
+						});
+					}).error(function(){alert('图片加载失败');});
 				}
 				break;
 				case 'delete':

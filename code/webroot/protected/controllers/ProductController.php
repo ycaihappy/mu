@@ -32,6 +32,12 @@ class ProductController extends Controller
             case '1':
                 $criteria=new CDbCriteria;
                 $criteria->order='product_id DESC';
+                $criteria->with=array(
+                'city'=>array('select'=>'city_name'),
+                'type'=>array('select'=>'term_name'),
+                'unit'=>array('select'=>'term_name'),
+                'muContent'=>array('select'=>'term_name'),
+                );
                 $criteria->addCondition("product_special=1 and product_status=1");
 
                 $count=Product::model()->count($criteria);
@@ -40,19 +46,6 @@ class ProductController extends Controller
                 $pager->pageSize=15;
                 $pager->applyLimit($criteria);
                 $list=Product::model()->findAll($criteria);
-                break;
-            case '2':
-                $criteria=new CDbCriteria;
-                $criteria->order='supply_id DESC';
-                $criteria->addCondition("supply_type=19 and supply_status=1");
-
-                $count=Supply::model()->count($criteria);
-
-                $pager=new CPagination($count);
-                $pager->pageSize=15;
-                $pager->applyLimit($criteria);
-                $list=Supply::model()->findAll($criteria);
-                $title='求购';
                 break;
             }
             $city  = City::getAllCity();

@@ -17,12 +17,12 @@
                 
              		<?php for($index=0;$index<count($data);$index++):?>
                     <tr>                     
-                    <td><font style="color:red;"><?php echo $category[$data[$index]['product_type_id']];?></font></td>
+                    <td><font style="color:red;"><?php echo $data[$index]->type->term_name;?></font></td>
                     <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('product/view',array('product_id'=>$data[$index]['product_id']));?>"><?php echo $data[$index]['product_name'];?></a></td>
-                    <td><?php echo $mucontent[$data[$index]['product_mu_content']];?></td>
+                    <td><?php echo $data[$index]->muContent->term_name;?></td>
                     <td><?php echo $watercontent[$data[$index]['product_water_content']];?></td>
-                    <td><?php echo $data[$index]['product_price'];?></td>
-                    <td><?php echo $city[$data[$index]['product_city_id']];?></td>
+                    <td><?php echo $data[$index]->product_price.'/'.$data[$index]->unit->term_name;?></td>
+                    <td><?php echo $data[$index]->city->city_name;?></td>
                     <td><?php echo date("Y-m-d",strtotime($data[$index]['product_join_date']));?></td>                      
                     </tr>
 	        		<?php endfor;?>			   

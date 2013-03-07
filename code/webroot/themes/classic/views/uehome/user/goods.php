@@ -10,6 +10,7 @@
         'validateOnSubmit'=>true,
     ),
 ));?>
+<?php echo $form->errorSummary($model);?>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
         <?php echo $form->hiddenField($model, 'product_id');?>
 		<tr>

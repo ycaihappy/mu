@@ -325,6 +325,7 @@ class UserController extends Controller {
         $category = Term::model()->getTermsByGroupId(14);
         $criteria=new CDbCriteria;
         $criteria->order='product_id DESC';
+        $criteria->with=array('city'=>array('select'=>'city_name'),'muContent'=>array('select'=>'term_name'),'type'=>array('select'=>'term_name'));
         if ( isset($_REQUEST['product_status']) )
             $criteria->addCondition("product_status=".$_REQUEST['product_status']);
         $criteria->addCondition("product_user_id=".yii::app()->user->getID());

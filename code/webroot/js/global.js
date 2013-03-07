@@ -92,7 +92,6 @@ $.extend(MU.mods,{
 			var cur = self.data('step'), o = $(this),isok = false;
 			
 			if( o.hasClass('act-one')) {
-			
 				 $.ajax({  
 					type:"post",  
 					url:'index.php?r=sms/check',  
@@ -101,7 +100,10 @@ $.extend(MU.mods,{
 					data : o.closest('form').serializeArray(),
 					success: function(re) {  
 						if(re.status == 0){
-							alert('验证码错误！');
+							for(var i in re.data){
+								alert(re.data[i]);
+								$(':input[name='+i+']').parent().append('<p class="err-msg">'+re.data[i]+'</p>');
+							}
 							isok = false;
 						}else{
 							isok = true;
@@ -153,11 +155,20 @@ $.extend(MU.mods,{
 		
 		self.find('.send-sms').click(function(){
 			var o = $(this);
+			$('.err-msg').remove();
 			if(o.hasClass('disabled')) return;
 				t = 10;
 				o.addClass('disabled');
 			$.getJSON(o.data('api') + '&mobile_number=' + o.prev('input[name=mobile_number]').val(),function(re){
 				
+				
+				if(re.status == 0){
+					for(var i in re.data){
+						$(':input[name='+i+']').parent().append('<span class="err-msg">'+re.data[i]+'</span>');
+					}
+					o.text('发送验证码').removeClass('disabled');
+					return;
+				}
 				timer = setInterval(function(){
 					o.text(t-- + '秒后重发');
 					if(t == 0) {

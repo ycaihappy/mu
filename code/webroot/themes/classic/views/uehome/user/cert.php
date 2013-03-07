@@ -36,6 +36,5 @@ for ($i=0;$i<count($data);$i++)
 ?>
 	</table>
 	
-	<div class="pager">共 600 页/20000条记录 <a>首页</a><a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>下页</a><a>末页</a></div>
 	
 	</div>

@@ -103,11 +103,10 @@ class UserController extends Controller {
 	}
 	public function actionCompany() {
         $model = new EnterpriseForm();
-
         if (isset($_POST['Enterprise']))
         {
             $model->attributes = $_POST['Enterprise'];
-            #if ( $model->validate() )
+            if ( $model->validate() )
             {
                 $model->update();
             }

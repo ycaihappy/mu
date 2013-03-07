@@ -58,7 +58,6 @@ class EnterpriseForm extends CFormModel
         $commd->bindValue(":ent_registered_capital", $this->ent_registered_capital, PDO::PARAM_STR);
         $commd->bindValue(":ent_chief", $this->ent_chief, PDO::PARAM_STR);
         $commd->bindValue(":ent_user_id", yii::app()->user->getID(), PDO::PARAM_STR);
-
         $commd->execute();
 	}
 }

@@ -31,8 +31,16 @@
 			<td class="label">主营产品：</td><td><?php echo $form->textField($model, 'ent_business_scope', array('class'=>'cmp-input','value'=>$model->ent_business_scope));?></td>
 		</tr>
 		<tr>
-			<td class="label">经营地点：</td><td><?php echo $form->dropDownList($model, 'ent_city',$city);?></td>
-		</tr>
+           <td class="label">经营地点：</td><td><?php echo CHtml::dropDownList( 'province',$province,$allProvince,array(
+           
+           'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getCity'),
+                    'update'=>'#Enterprise_ent_city',
+                    'data'=>array('province_id'=>"js:this.value")
+				),
+           ));?> <?php echo $form->dropDownList($model, 'ent_city',$allCity,array('empty'=>'选择城市'));?></td>
+        </tr>
 		<tr>
 			<td class="label">详细地址：</td><td><?php echo $form->textField($model, 'ent_location', array('class'=>'cmp-input','value'=>$model->ent_location));?></td>
 		</tr>

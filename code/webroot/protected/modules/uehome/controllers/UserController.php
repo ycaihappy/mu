@@ -131,19 +131,33 @@ class UserController extends Controller {
     }
 	public function actionNews() {
         $model = new NewsForm();
+        if ( isset($_REQUEST['update']) )
+        {
+            $article= UserArticle::model()->find("art_id=:art_id", array('art_id'=>$_REQUEST['art_id']));
+            $model->art_id    = $article->art_id;
+            $model->art_title = $article->art_title;
+            $model->art_content= $article->art_content;
+        }
         if (isset($_POST['NewsForm']))
         {
             $model->attributes = $_POST['NewsForm'];
             if ( $model->validate() )
             {
-                $model->draft();
+               empty($model->art_id) ? $model->draft() : $model->update();
             }
+            $this->actionNlist();
         }
 		$this->render ( 'news', array('model'=>$model) );
 	}
+    public function actionNewsDel()
+    {
+        $model = UserArticle::model()->find("art_id=:art_id", array('art_id'=>$_REQUEST['ids']));
+        $model->delete();
+        echo json_encode(array('status'=>1,'data'=>array()));
+    }
     public function actionSupplyDel()
     {
-        $model = Supply::model()->find("supply_id=:supply_id", array('supply_id'=>$_REQUEST['supply_id']));
+        $model = Supply::model()->find("supply_id=:supply_id", array('supply_id'=>$_REQUEST['ids']));
         $model->delete();
         echo json_encode(array('status'=>1,'data'=>array()));
     }

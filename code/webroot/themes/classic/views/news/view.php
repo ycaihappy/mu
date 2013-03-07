@@ -22,8 +22,8 @@
 	</div>
 	
 	<div class="layout-right">
-	<?php $this->widget("NewsRecommendWidget");?>
-	<?php $this->widget("NewsRecommendWidget");?>
+	<?php $this->widget("NewsRecommendWidget",array('type'=>1));?>
+	<?php $this->widget("NewsRecommendWidget",array('type'=>2));?>
 	
 	</div>
 

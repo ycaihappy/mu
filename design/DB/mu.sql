@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-07 23:48:31
+# Date/time:                    2013-03-08 00:06:21
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -868,27 +868,7 @@ CREATE TABLE IF NOT EXISTS `mu_image_library` (
 DELETE FROM `mu_image_library`;
 /*!40000 ALTER TABLE `mu_image_library` DISABLE KEYS */;
 INSERT INTO `mu_image_library` (`image_id`, `image_title`, `image_thumb_src`, `image_src`, `image_status`, `image_used_type`, `image_added_by`, `image_added_time`) VALUES
-	(3, '侧事故', '', '28_1361441380_228.jpg', 33, 28, 1, '2013-02-21 18:09:40'),
-	(4, '测试图片4', '', '28_1361456537_8483.jpg', 33, 28, 1, '2013-02-21 18:11:10'),
-	(5, '出', '', '31_1361450015_1209.jpg', 33, 31, 1, '2013-02-21 20:33:35'),
-	(6, '出', '', '31_1361450015_1209.jpg', 33, 31, 1, '2013-02-21 21:49:07'),
-	(7, '出', '', '31_1361454751_5647.jpg', 33, 31, 1, '2013-02-21 21:50:25'),
-	(8, '未指定', '', '28_1361510942_5194.png', 33, 28, 1, '2013-02-22 06:29:02'),
-	(9, '未指定', '', '28_1361511282_1871.jpg', 33, 28, 1, '2013-02-22 06:34:42'),
-	(10, '未指定', '', '28_1361511282_8491.jpg', 33, 28, 1, '2013-02-22 06:34:42'),
-	(11, '未指定', '', '28_1361511303_1810.jpg', 33, 28, 1, '2013-02-22 06:35:03'),
-	(12, '未指定', '', '28_1361511303_835.jpg', 33, 28, 1, '2013-02-22 06:35:03'),
-	(13, '未指定', '', '28_1361513840_8148.jpg', 29, 28, 1, '2013-02-22 07:17:20'),
-	(14, '未指定', '', '28_1361513840_7299.jpg', 29, 28, 1, '2013-02-22 07:17:20'),
-	(15, '未指定', '', '28_1361513840_5819.jpg', 33, 28, 1, '2013-02-22 07:17:20'),
-	(16, '未指定', '', '28_1361513895_813.jpg', 29, 28, 1, '2013-02-22 07:18:15'),
-	(17, '未指定', '', '28_1361513895_6133.jpg', 29, 28, 1, '2013-02-22 07:18:15'),
-	(18, '未指定', '', '28_1361513973_1438.jpg', 29, 28, 1, '2013-02-22 07:19:33'),
-	(19, '未指定', '', '28_1361513973_4258.jpg', 29, 28, 1, '2013-02-22 07:19:33'),
-	(20, '未指定', '', '28_1361514040_6251.jpg', 29, 28, 1, '2013-02-22 07:20:08'),
-	(21, '未指定', '', '28_1361514008_4276.jpg', 29, 28, 1, '2013-02-22 07:20:08'),
-	(22, '的发的是否', 'thumb_31_1361517672_2639.jpg', '31_1361517672_2639.jpg', 29, 31, 1, '2013-02-22 08:21:12'),
-	(23, '未指定', 'thumb_28_1361517783_2944.jpg', '28_1361517783_2944.jpg', 29, 28, 1, '2013-02-22 08:23:03');
+	(3, '侧事故', '', '28_1361441380_228.jpg', 33, 28, 1, '2013-02-21 18:09:40');
 /*!40000 ALTER TABLE `mu_image_library` ENABLE KEYS */;
 
 
@@ -1398,7 +1378,10 @@ INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`
 	('admin-SiteUpdateFLink', 0, NULL, NULL, NULL, 'N;'),
 	('admin-SiteChangeFLinkStatus', 0, NULL, NULL, NULL, 'N;'),
 	('admin-UserChangeFLinkStatus', 0, NULL, NULL, NULL, 'N;'),
-	('admin-AdvertisementRecommendChangeAdvertisementStatus', 0, NULL, NULL, NULL, 'N;');
+	('admin-AdvertisementRecommendChangeAdvertisementStatus', 0, NULL, NULL, NULL, 'N;'),
+	('admin-ArticleDeleteImageLibary', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SiteFrontPage', 0, NULL, NULL, NULL, 'N;'),
+	('admin-UserChangeUserStatus', 0, NULL, NULL, NULL, 'N;');
 /*!40000 ALTER TABLE `mu_right_item` ENABLE KEYS */;
 
 
@@ -1446,6 +1429,7 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('newsManage', 'admin-ArticleBatchUploadImage'),
 	('newsManage', 'admin-ArticleChangeImageLibaryStatus'),
 	('newsManage', 'admin-ArticleChangeNewsStatus'),
+	('newsManage', 'admin-ArticleDeleteImageLibary'),
 	('newsManage', 'admin-ArticleManageImageLibary'),
 	('newsManage', 'admin-ArticleManageNews'),
 	('newsManage', 'admin-ArticleUpdateArticle'),
@@ -1485,6 +1469,7 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('siteIndex', 'admin-SiteLogout'),
 	('siteIndex', 'admin-SitePage'),
 	('siteSetting', 'admin-SiteChangeFLinkStatus'),
+	('siteSetting', 'admin-SiteFrontPage'),
 	('siteSetting', 'admin-SiteManageBasicSiteInfo'),
 	('siteSetting', 'admin-SiteManageFLink'),
 	('siteSetting', 'admin-SiteUpdateFLink'),
@@ -1520,6 +1505,7 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('supplyManage', 'admin-ProductManageSupply'),
 	('supplyManage', 'admin-ProductUpdateSupply'),
 	('userManage', 'admin-UserAssign'),
+	('userManage', 'admin-UserChangeUserStatus'),
 	('userManage', 'admin-UserManageUser'),
 	('userManage', 'admin-UserUpdateUser');
 /*!40000 ALTER TABLE `mu_right_itemchildren` ENABLE KEYS */;

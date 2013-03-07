@@ -53,7 +53,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
-<form action='<?php echo  Yii::app()->controller->createUrl('changeImageLibaryStatus') ?>' method='post'>
+<form id="imageLibForm" action='<?php echo  Yii::app()->controller->createUrl('changeImageLibaryStatus') ?>' method='post'>
 
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
@@ -119,8 +119,18 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=1";
-				this.form.submit();
+				//this.form.action+="&toStatus=1";
+				//this.form.submit();
+				var url=this.form.action+"&toStatus=1";
+				$("#imageLibForm").ajaxSubmit(
+					{
+						url:url,
+						success:function(msg){
+							alert(msg);
+							$.fn.yiiGridView.update("yw0");
+						},
+					}
+				);
 			}
 			return false;
 		}',
@@ -139,8 +149,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=2";
-				this.form.submit();
+				var url=this.form.action+"&toStatus=2";
+				$("#imageLibForm").ajaxSubmit(
+					{
+						url:url,
+						success:function(msg){
+							alert(msg);
+							$.fn.yiiGridView.update("yw0");
+						},
+					}
+				);
 			}
 			return false;
 		}',
@@ -162,7 +180,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 				if(confirm("确定删除选中的'.$alertTitle.'信息"))
 				{
 					this.form.action+="&toStatus=29";
-					this.form.submit();
+					var url="'.$this->createUrl('deleteImageLibary').'";
+					$("#imageLibForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("yw0");
+							},
+						}
+					);
 				}
 			}
 			return false;
@@ -174,5 +201,5 @@ $this->widget('zii.widgets.jui.CJuiButton',
 </form>
 <?php 
 $cs = Yii::app()->getClientScript();
-$cs->registeScriptFile('/js/jquery.form.js');
+$cs->registerScriptFile('/js/jquery.form.js');
 ?>

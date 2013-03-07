@@ -44,6 +44,12 @@
         <td class="label">数量：</td><td><?php echo $form->textField($model, 'product_quanity', array('class'=>'cmp-input'));?>/<?php echo $form->dropDownList($model, 'product_unit', $unit_type);?></td>
 		</tr>	
 		<tr>
+            <td class="label">品阶：</td><td><?php echo $form->dropDownList($model, 'product_mu_content', $allMuContent);?></td>
+		</tr>
+		<tr>
+            <td class="label">含水量：</td><td><?php echo $form->dropDownList($model, 'product_water_content', $allWaterContent);?></td>
+		</tr>
+		<tr>
             <td class="label">价格：</td><td><?php echo $form->textField($model, 'product_price', array('class'=>'cmp-input'));?></td>
 		</tr>
 		<tr>

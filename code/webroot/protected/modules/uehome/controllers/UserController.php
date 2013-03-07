@@ -289,7 +289,7 @@ class UserController extends Controller {
 	public function actionNlist() {
 
         $status = Term::model()->getTermsByGroupId(1);
-        $city  = city::getAllCity();
+        $city  = City::getAllCity();
         $category = Term::model()->getTermsByGroupId(14);
         $criteria=new CDbCriteria;
         $criteria->order='art_id DESC';
@@ -309,7 +309,7 @@ class UserController extends Controller {
 	public function actionSlist() {
 
         $status = Term::model()->getTermsByGroupId(1);
-        $city  = city::getAllCity();
+        $city  = City::getAllCity();
         $category = Term::model()->getTermsByGroupId(14);
         $criteria=new CDbCriteria;
         $criteria->order='supply_id DESC';
@@ -329,7 +329,7 @@ class UserController extends Controller {
 	}
 	public function actionGlist() {
         $status = Term::model()->getTermsByGroupId(1);
-        $city  = city::getAllCity();
+        $city  = City::getAllCity();
         $category = Term::model()->getTermsByGroupId(14);
         $criteria=new CDbCriteria;
         $criteria->order='product_id DESC';

@@ -354,6 +354,7 @@ class UserController extends Controller {
 	}
 	public function actionAddcert() {
 
+        $model = new FileModel();
         if(isset($_POST['FileForm']))
         {
             $model->attributes=$_POST['FileForm'];

@@ -14,12 +14,16 @@ class SmsController extends Controller
 	public function actionSend()
 	{
         $smscode = new SmsCode();
-        $smscode->mobile_no  = $_REQUEST['mobile_number'];
-        $smscode->sms_code   = '123456';
-        $smscode->sms_status = 0;
-        $smscode->sms_send_date = date("Y-m-d H:i:s");
-        $smscode->save();
-        echo json_encode(array('status'=>1,'data'=>array()));
+        if(preg_match("/^13[0-9]{1}[0-9]{8}$|15[0189]{1}[0-9]{8}$|189[0-9]{8}$/",$_REQUEST['mobile_number'])){   
+            $smscode->mobile_no  = $_REQUEST['mobile_number'];
+            $smscode->sms_code   = '123456';
+            $smscode->sms_status = 0;
+            $smscode->sms_send_date = date("Y-m-d H:i:s");
+            $smscode->save();
+            echo json_encode(array('status'=>1,'data'=>array()));
+        }
+        else
+            echo json_encode(array('status'=>0,'data'=>array('mobile_number'=>'手机号非法')));
         exit;
 	}
 
@@ -37,7 +41,7 @@ class SmsController extends Controller
         }
         else
         {
-            echo json_encode(array('status'=>0,'data'=>array()));
+            echo json_encode(array('status'=>1,'data'=>array()));
         }
         exit;
 	}

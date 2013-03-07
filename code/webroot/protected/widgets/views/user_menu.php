@@ -19,6 +19,9 @@ case 'cert':
 case 'news':
     $class_news = "on";
     break;
+case 'nlist':
+    $class_nlist = "on";
+    break;
 case 'supply':
     $class_supply = "on";
     break;
@@ -49,7 +52,8 @@ case 'glist':
 	<ul>
     <li class="<?php echo $class_company;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/company');?>" >基本信息</a></li>
     <li class="<?php echo $class_cert;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/cert');?>" >企业资质</a></li>
-    <li class="<?php echo $class_news;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/news');?>" >新闻中心</a></li>
+    <li class="<?php echo $class_nlist;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/nlist');?>" >企业新闻</a></li>
+    <li class="<?php echo $class_news;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/news');?>" >添加新闻</a></li>
 		<!-- <li><a href="index.php?r=uehome/user/ad" >广告中心</a></li> -->
 		<!-- <li><a href="index.php?r=uehome/user/job" >人才招聘</a></li> -->
 	</ul>

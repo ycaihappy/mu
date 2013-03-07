@@ -306,6 +306,7 @@ class UserController extends Controller {
         $category = Term::model()->getTermsByGroupId(14);
         $criteria=new CDbCriteria;
         $criteria->order='supply_id DESC';
+        $criteria->with=array('city'=>array('select'=>'city_name'),'muContent'=>array('select'=>'term_name'),'category'=>array('select'=>'term_name'));
         if ( isset($_REQUEST['supply_status']) )
             $criteria->addCondition("supply_status=".$_REQUEST['supply_status']);
         $criteria->addCondition("supply_user_id=".yii::app()->user->getID());
@@ -345,7 +346,6 @@ class UserController extends Controller {
 		$this->render ( 'cert' ,array('data'=>$cert_list));
 	}
 	public function actionAddcert() {
-        $model=new FileForm;
 
         if(isset($_POST['FileForm']))
         {

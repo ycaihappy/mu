@@ -1,7 +1,7 @@
     <div class="m-breadcrumb">
         <p><b class="crumb"></b>会员中心<i></i>发布现货信息</p>
     </div>
-    <div class="m-form">
+    <div class="m-form" id="J_User_Suppy">
 	
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'product-form',
@@ -50,7 +50,7 @@
 			<td class="label">现货描述：</td><td><?php echo $form->textArea($model,'product_content',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
 		</tr>
 		<tr>
-			<td class="label">现货附图：</td><td><img src="images/thumb.gif" class="thumb"><input type="file" name="photo" value="浏览" /></td>
+			<td class="label">现货附图：</td><td><img src="images/thumb.gif" class="thumb" id="image_thumb"><button type="button" class="btn-modify btn-select">选择图片</button><input type="text" name="image_src" value="" id="image_src"/></td>
 		</tr>
 		<tr>
             <td class="label">有效时间至：</td><td><?php echo $form->textField($model, 'product_join_date', array('class'=>'cmp-input'));?></td>
@@ -62,3 +62,10 @@
 	</table>
 <?php $this->endWidget();?>
 </div>
+<?php 
+$cs=Yii::app()->getClientScript();
+$cs->registerCssFile('css/ui-lightness/jquery-ui-1.10.1.custom.min.css');
+Yii::app()->getClientScript()->registerScriptFile('js/jquery.1.8.min.js');
+Yii::app()->getClientScript()->registerScriptFile('js/jquery.ui.js');
+
+?>

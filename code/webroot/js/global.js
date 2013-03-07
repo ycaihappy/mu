@@ -441,5 +441,45 @@ $.extend(MU.mods,{
 	JXhSlist : function (){
 		var self = $(this);
 		$('#data_container').find('li:odd').addClass('odd');
+	},
+	JQgxx : function(){
+		var $outer = $('#jq_animate_loop');
+		if ( ! $outer.length) { return false; }
+		var timer = 0;
+		var loop = true;
+		$outer.on({
+			frame: function() {
+				var $last = $outer.children(':last');
+
+				var height = $last.outerHeight();
+
+				$outer.animate({paddingTop:height}, 1000, 'linear', function() {
+					$outer.css({
+						paddingTop:0
+					}).prepend($last);
+
+					if (loop) {
+						$outer.triggerHandler('mouseleave');
+					}
+				});
+			},
+			mouseleave: function() {
+				loop = true;
+				if ( ! timer) {
+					timer = setTimeout(function() {
+						$outer.triggerHandler('frame');
+						timer = 0;
+					}, 3000);
+				}
+			},
+			mouseenter: function() {
+				loop = false;
+
+				if (timer) {
+					clearTimeout(timer);
+					timer = 0;
+				}
+			}
+		}).triggerHandler('frame');
 	}
 });

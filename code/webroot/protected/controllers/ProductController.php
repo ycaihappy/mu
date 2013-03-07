@@ -22,6 +22,47 @@ class ProductController extends Controller
 		$this->siteConfig->siteMetaDescription='钼初级,钼制品,钼化工,钼铁';
 	}
 
+    public function actionList()
+    {
+        $this->layout='//layouts/supply_main';
+        if ( isset($_REQUEST['type']) )
+        {
+            switch ($_REQUEST['type'])
+            {
+            case '1':
+                $criteria=new CDbCriteria;
+                $criteria->order='supply_id DESC';
+                $criteria->addCondition("supply_type=18 and supply_status=1");
+
+                $count=Supply::model()->count($criteria);
+
+                $pager=new CPagination($count);
+                $pager->pageSize=15;
+                $pager->applyLimit($criteria);
+                $list=Supply::model()->findAll($criteria);
+                $title='供应';
+                break;
+            case '2':
+                $criteria=new CDbCriteria;
+                $criteria->order='supply_id DESC';
+                $criteria->addCondition("supply_type=19 and supply_status=1");
+
+                $count=Supply::model()->count($criteria);
+
+                $pager=new CPagination($count);
+                $pager->pageSize=15;
+                $pager->applyLimit($criteria);
+                $list=Supply::model()->findAll($criteria);
+                $title='求购';
+                break;
+            }
+            $supply_type= Term::model()->getTermsByGroupId(11);
+            $city  = City::getAllCity();
+            $category = Term::model()->getTermsByGroupId(14);
+        }
+        $this->render('list',array('data'=>$list,'title'=>$title,'category'=>$category,'city'=>$city,'supply_type'=>$supply_type,'pager'=>$pager));
+    }
+
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.

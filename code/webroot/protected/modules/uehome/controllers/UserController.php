@@ -168,13 +168,32 @@ class UserController extends Controller {
         $model->delete();
         echo json_encode(array('status'=>1,'data'=>array()));
     }
+    public function actionProductSpecial()
+    {
+        if ( strstr($_REQUEST['ids'],',') )
+        {
+            $product_ids = explode(',', $_REQUEST['ids']);
+            foreach ($product_ids as $one_id)
+            {
+                $model = Product::model()->find("product_id=:product_id", array('product_id'=>$one_id));
+                $model->product_special = 1;
+                $model->save();
+            }
+        }
+        else
+        {
+            $model = Product::model()->find("product_id=:product_id", array('product_id'=>$_REQUEST['ids']));
+            $model->product_special = 1;
+            $model->save();
+        }
+        echo json_encode(array('status'=>1,'data'=>array()));
+    }
     public function actionProductDel()
     {
         if ( strstr($_REQUEST['ids'],',') )
         {
             $criteria=new CDbCriteria;
-            $criteria->order='supply_id DESC';
-            $criteria->addCondition("supply_in in(".$_REQUEST['ids'].")");
+            $criteria->addCondition("product_id in(".$_REQUEST['ids'].")");
             Product::model()->deleteAll($criteria);
         }
         else
@@ -266,8 +285,10 @@ class UserController extends Controller {
 
             if ( $model->validate() )
             {
-               empty($model->product_id) ? $model->draft() : $model->update();
+                empty($model->product_id) ? $model->draft() : $model->update();
+                $this->actionGlist();
             }
+
             $this->actionGlist();
         }
 

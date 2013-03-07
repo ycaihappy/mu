@@ -23,13 +23,15 @@ class ProductForm extends CFormModel
 	public function rules()
     {
         return array(
-            array('product_name', 'required'),		
+            array('product_name', 'required','message'=>'产品名称必须填写！'),	
             array('product_keyword', 'required'),		
             array('district,province', 'safe'),		
-            array('product_type_id', 'required'),		
-            array('product_city_id', 'required'),		
-            array('product_mu_content', 'required'),		
-            array('product_unit,product_water_content,product_quanity,product_price,product_content, product_join_date', 'safe'),		
+            array('product_type_id', 'required','message'=>'请选择产品类别！'),	
+            array('product_city_id', 'required','message'=>'请选择城市！'),	
+            array('product_quanity', 'required','message'=>'数量不能为空！'),	
+            array('product_price', 'required','message'=>'价钱不能为空！'),	
+            array('product_mu_content', 'required','message'=>'请选择品阶！'),	
+            array('product_unit,product_water_content,product_content, product_join_date', 'safe'),		
 		);
 	}
 

@@ -9,7 +9,7 @@
 	<?php endif;?>
 	</p>
 	<p class="site-tool">
-		<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/index');?>">会员中心</a>
+		<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/detail');?>">会员中心</a>
 		<!--<span>|</span>
 		<a href="">找回密码</a> -->
 		<span>|</span>

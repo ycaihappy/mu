@@ -63,7 +63,7 @@ class KnowledgeController extends Controller
 			foreach ($newses as &$news)
 			{//用其他字段封装链接
 				$news->art_title=CStringHelper::truncate_utf8_string($news->art_title, 20);
-				$news->art_source=$this->createUrl('/price/view',array('art_id'=>$news->art_id));
+				$news->art_source=$this->createUrl('/news/view',array('art_id'=>$news->art_id));
 			}
 		}
 		

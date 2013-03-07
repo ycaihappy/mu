@@ -10,7 +10,7 @@ class buildCommand extends CConsoleCommand{
             $year = array(2012,2011,2013);
             $month = array(1,2,3,4,5,6,7,8,9,10,11,12);
             $day   = array(1,2,3,4,5,6,7,8);
-            for($i=0;$i<100;$i++)
+            for($i=1;$i<100;$i++)
             {
                $smp = new PriceSummary();
                $smp->sum_id    = $i+1;
@@ -19,8 +19,8 @@ class buildCommand extends CConsoleCommand{
                $smp->sum_year = $year[array_rand($year)];
                $smp->sum_month = $month[array_rand($month)];
                $smp->sum_day  = $day[array_rand($day)];
-               $smp->sum_product_type = rand(21,22);
-               $smp->sum_product_zone = rand(6,7);
+               $smp->sum_product_type = rand(31,32);
+               $smp->sum_product_zone = rand(3,7);
                $smp->sum_add_date = date("Y-m-d");
                $smp->save();
             }

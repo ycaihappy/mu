@@ -11,9 +11,9 @@
 				<div class="img"><a><img src="images/108x112_1.gif" width="108" height="112" /></a></div>
 				<div class="list">
 					<ul>       
-	<?php for($index=0;$index<count($data)-2;$index++):
+	<?php for($index=0;$index<count($data01);$index++):
 						?>
-                            <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" target="_blank"><?php echo $data[$index]['art_title']; ?></a></li>
+                            <li><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data01[$index]['supply_id']));?>" target="_blank"><?php echo $data01[$index]['supply_name']; ?></a></li>
 					<?php endfor;?>			
 				</ul>
 				</div>
@@ -22,9 +22,9 @@
 				<div class="img"><a><img src="images/108x112_2.gif" width="108" height="112" /></a></div>
 				<div class="list">
 					<ul>       
-	<?php for($index=1;$index<count($data)-2;$index++):
+	<?php for($index=0;$index<count($data02);$index++):
 						?>
-                            <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" target="_blank"><?php echo $data[$index]['art_title']; ?></a></li>
+                            <li><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data02[$index]['supply_id']));?>" target="_blank"><?php echo $data02[$index]['supply_name']; ?></a></li>
 					<?php endfor;?>			
 				</ul>
 				</div>
@@ -33,9 +33,9 @@
 				<div class="img"><a><img src="images/108x112_3.gif" width="108" height="112" /></a></div>
 				<div class="list">
 					<ul>       
-	<?php for($index=0;$index<count($data)-2;$index++):
+	<?php for($index=0;$index<count($data03);$index++):
 						?>
-                            <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" target="_blank"><?php echo $data[$index]['art_title']; ?></a></li>
+                            <li><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data03[$index]['supply_id']));?>" target="_blank"><?php echo $data03[$index]['supply_name']; ?></a></li>
 					<?php endfor;?>			
 				</ul>
 				</div>

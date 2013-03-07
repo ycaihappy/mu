@@ -1,33 +1,21 @@
 		<div class="m-refinfo">
+
 			<dl>
-			  <dt><strong>相关信息</strong></dt>
+            <dt><strong><?php echo $data['enterprise']['ent_name'];?></strong></dt>
 			  <dd>				
-				<ul>
-				  <li>供应数量:39</li>
-				  <li>经营模式:生产加工&nbsp;</li>
-				  <li>业务类型:</li>
-				  <li>荣誉资质:0项</li>
-				  <li>企业实名认证:未进行认证</li>
-				</ul>
-			  </dd>
-			</dl>
-			<dl>
-			  <dt><strong>天津市百华钢铁贸易有限公司</strong></dt>
-			  <dd>				
-			【联系人】：肖斌。【天】【津】【百】【华】公司为舞钢，鞍钢，济钢为主各大钢厂生产的优质中厚板，并可根据你的需求进行加工、切割各种异型件，也可根据您的要求定轧各种材质规格的期货，交货时间快。 主营:舞钢普板 低合金板 容器板 锅炉板 碳结板 耐磨板 船板 桥梁板等,可供钢板如表所示，厚度8mm-650mm，宽度1500mm-4020mm，长度3000mm-18800mm，单重最大26.5吨（也可根据需要供应更大规格的钢板）。铜   板/管：紫铜板、黄铜板。紫铜管、黄铜管。不锈钢管/板材质：201、202、303、304、304L、316、316L、321、310S、904L等低合金板：Q345A-E、Q390A、420A/c、Q460C、WH60a/70B、A709、SM490B、s
-			
+<?php echo $data['enterprise']['ent_introduce'];?>
 			  </dd>
 			</dl>
 			<dl>
 			  <dt><strong>联系信息</strong></dt>
 			  <dd>				
 				<ul>
-				  <li>联 系 人:安广虎()</li>
-				  <li>联系电话:86-022-60909034</li>
-				  <li>手机:13502153395</li>
+                <li>联 系 人:<?php echo $data['enterprise']['ent_chief'];?></li>
+                <li>联系电话:<?php echo $data['user_telephone'];?></li>
+                <li>手机:<?php echo $data['user_mobile_no'];?></li>
 				  <li> QQ在线:<a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2510906890&amp;site=qq&amp;menu=yes" target="_blank"><img border="0" src="http://wpa.qq.com/pa?p=2:2510906890:41 &amp;r=0.35315199465694036"></a></li>
-				  <li>传    真:86-022-58554227</li>
-				  <li>地   址:天津天津南开区天津市南开区黄河道不锈钢市场</li>
+                  <li>传    真:<?php echo $data['enterprise']['ent_tax'];?></li>
+                  <li>地   址:<?php echo $data['enterprise']['ent_location'];?></li>
 				</ul>
 			  </dd>
 			</dl>

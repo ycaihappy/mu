@@ -12,9 +12,10 @@
                       <th>存货地</th>
                       <th>发布日期</th>
                     </tr>
+                
              		<?php for($index=0;$index<count($data);$index++):?>
                     <tr>                     
-                    <td><font style="color:red;"><?php echo $status[$data[$index]['supply_type']];?></font></td>
+                    <td><font style="color:red;"><?php echo $supply_type[$data[$index]['supply_type']];?></font></td>
                     <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id']));?>"><?php echo $category[$data[$index]['supply_category_id']];?></a></td>
                     <td><?php echo $data[$index]['supply_unit'];?></td>
                     <td><?php echo $data[$index]['supply_price'];?></td>
@@ -23,8 +24,10 @@
                     </tr>
 	        		<?php endfor;?>			   
                 
+
         </tbody></table>
 	  	<div class="page" id="fenye">
+
 			<?php 
 	            $this->widget('CLinkPager',array(
 							'header'=>'',
@@ -38,7 +41,5 @@
 				
 				);
             ?>		
-		</div>
-
 			
 			</div>

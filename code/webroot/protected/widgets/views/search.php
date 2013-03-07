@@ -1,5 +1,5 @@
 	<div class="m-logo">
-		<a target="_self" href="" class="logo"><img title="xxx.com - xxxx" alt="zzz" src="/images/logo.jpg"></a>
+		<a target="_self" href="<?php echo $this->getController()->createUrl('/site/index')?>" class="logo"><img title="xxx.com - xxxx" alt="zzz" src="/images/logo.jpg"></a>
 	</div>
 	<div class="m-search" id="J_SearchForm">
 		<div class="search-triggers">

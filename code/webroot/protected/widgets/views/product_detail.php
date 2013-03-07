@@ -21,9 +21,9 @@
                 有效期至：<span>2012-06-04</span></p>
  
             <p class="btn">
-                <a title="立即询价" class="btn_lx" href="javascript:;">立即询价</a></p>
+            <a title="立即询价" class="btn_lx" href="<?php echo Yii::app()->controller->createUrl('/storeFront/default/mail',array('username'=>$ent_info['user_name']));?>">立即询价</a></p>
             <div class="vipinfo">
-                <ul>
+              <!--  <ul>
                     <li class="btn"><a title="查看联系电话" class="btn_phone" href="#">查看联系电话</a>
                         <ul style="display: none;" class="allinfo">
                             <li>联系人：<span>安广虎</span>()</li>
@@ -32,9 +32,9 @@
                             <li>拨打电话时您可以说：您好，我在中国建材网看到您发布的……</li>
                         </ul>
                     </li>
-                </ul>
+                </ul>-->
             </div>
-<p class="btn"><a title="加入收藏" href="javascript:addCollect(3983588,1,1,406856,'%2f%ef%bf%a5%25%e2%80%94%e3%80%9016mn%e6%96%b9%e9%92%a2%e2%80%94%e2%80%94%e3%80%90%e7%99%be%e5%8d%8e%e3%80%91%e2%80%94%e2%80%9465mn%e6%96%b9%e9%92%a2-20%23%e6%96%b9%e9%92%a2');">加入收藏</a></p>
+<!--<p class="btn"><a title="加入收藏" href="javascript:addCollect(3983588,1,1,406856,'%2f%ef%bf%a5%25%e2%80%94%e3%80%9016mn%e6%96%b9%e9%92%a2%e2%80%94%e2%80%94%e3%80%90%e7%99%be%e5%8d%8e%e3%80%91%e2%80%94%e2%80%9465mn%e6%96%b9%e9%92%a2-20%23%e6%96%b9%e9%92%a2');">加入收藏</a></p>-->
  
         </div>
     </div>

@@ -19,6 +19,10 @@ class SupplyListWidget extends CWidget
 
     public function run()
     {
-        $this->render('supply_list',array('data'=>$this->list,'pager'=>$this->pager));
+        $city  = city::getAllCity();
+        $category = Term::model()->getTermsByGroupId(14);
+        $status = Term::model()->getTermsByGroupId(11);
+
+        $this->render('supply_list',array('data'=>$this->list,'pager'=>$this->pager,'category'=>$category,'city'=>$city,'status'=>$status));
     }
 }

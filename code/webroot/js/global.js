@@ -347,5 +347,67 @@ $.extend(MU.mods,{
                 }
             });
 		});
+	},
+	JSupplyAdd : function () {
+		var self = $(this);
+		var box  = {
+			current : 1,
+			total : 2,
+			getBox : function(){
+				return $('#pic_box').length > 0 ? $('#pic_box') : $('<div>').attr('id','pic_box').append('<div class="bd"></div><div class="ft"><div class="page"><a href="javascript:void(0);" class="prev">&lt;上一页</a><a href="javascript:void(0);" title="下一页" class="next">下一页&gt;</a></div></div>');
+			},
+			request : function(cid,page){				
+				var box = this.getBox(),html = [],objbox = this;
+				$.getJSON('index.php?r=uehome/user/getImagesFromLibary&category_id='+cid+'&page=' + page,function(re){
+					if(re.imageList){
+						for(var i=0,len = re.imageList.length;i < len;i++){
+							html.push('<li src="'+re.imageList[i].image_src+'"><img src="'+re.imageList[i].image_thumb_src+'" /><p>'+re.imageList[i].image_title+'</p></li>');
+						}
+						box.find('.bd').html('<ul>' + html.join('') + '</ul>');
+					}
+				});
+			},
+			showBox : function(){
+				var box = this.getBox(),objbox = this;
+				box.dialog({width:470,height:'auto',title:'选择图片',
+				close : function(){					
+					$(this).dialog('destroy');
+					
+				},
+				create : function(){
+					var dialog = $(this);	
+					$(this).find('.page').on('click','a',function(){
+						if($(this).hasClass('prev')){
+							objbox.prevPage();
+						}else{
+							objbox.nextPage();
+						}
+					});
+					$(this).find('.bd').on('click','li',function(){
+						dialog.dialog('close');
+						$('#image_src').val($(this).attr('src'));
+						$('#image_thumb').attr('src',$(this).find('img').attr('src'));
+						
+					
+					});
+					objbox.request(1,objbox.current);
+				}});
+			},
+			nextPage : function(){
+				if(this.current < this.total){
+					this.current++;
+				}
+				this.request(1,this.current);
+			},
+			prevPage : function(){
+				if(this.current > 1){
+					this.current--;
+				}
+				this.request(1,this.current);
+			}
+		}
+		self.find('.btn-select').click(function(){
+			box.showBox();
+		});
 	}
 });

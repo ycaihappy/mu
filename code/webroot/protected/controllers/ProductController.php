@@ -15,6 +15,12 @@ class ProductController extends Controller
 			),
 		);
 	}
+	public function init(){
+		parent::init();
+		$this->siteConfig->siteMetaTitle='现货中心';
+		$this->siteConfig->siteMetaKeyword='钼铁,氧化钼,钼酸钠';
+		$this->siteConfig->siteMetaDescription='钼初级,钼制品,钼化工,钼铁';
+	}
 
 	/**
 	 * This is the default 'index' action that is invoked
@@ -22,6 +28,7 @@ class ProductController extends Controller
 	 */
 	public function actionIndex()
 	{
+		
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		Yii::import('application.packages.apache_solr.Service');
@@ -127,7 +134,8 @@ class ProductController extends Controller
 	}
 
 	public function actionView()
-	{
+    {
+        $this->layout = '//layouts/main';
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('view');

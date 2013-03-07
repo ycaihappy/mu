@@ -40,6 +40,7 @@
 					<a class="cmp-btn all">全选</a>
 					<a class="cmp-btn cancel">取消</a>
 					<a class="cmp-btn delete">删除</a>
+					<a class="cmp-btn special">设置特价</a>
 				</p>
 			</td>
 		

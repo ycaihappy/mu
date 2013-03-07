@@ -1,4 +1,6 @@
-			<div class="m-suppy-list">
+<div class="layout-area">
+<div class="grid-690">
+<div class="m-suppy-list">
 			
 
    	  <h2 class="art_gyxx"><span class="on"><a href="">供应信息</a><i></i></span></h2>
@@ -44,3 +46,46 @@
 			
 			</div>
 </div>
+</div>
+<div class="grid-260">
+		
+		
+		<!--module start-->
+		<div class="m-tjxx">
+        	<h2><span><a href="/special.aspx">更多</a></span>特价信息</h2>
+            <ul>
+            	<li style="cursor:pointer;" href=""><span class="tj01"><a target="_blank" href="specinfo.aspx?t=1&amp;id=41252">普碳中板</a></span><span class="tj02">25</span><span class="tj03">118吨</span><span class="tj04">邯郸市</span></li>
+				<li style="cursor:pointer;" href=""><span class="tj01"><a target="_blank" href="specinfo.aspx?t=1&amp;id=41252">普碳中板</a></span><span class="tj02">25</span><span class="tj03">118吨</span><span class="tj04">邯郸市</span></li>
+				<li style="cursor:pointer;" href=""><span class="tj01"><a target="_blank" href="specinfo.aspx?t=1&amp;id=41252">普碳中板</a></span><span class="tj02">25</span><span class="tj03">118吨</span><span class="tj04">邯郸市</span></li>
+				<li style="cursor:pointer;" href=""><span class="tj01"><a target="_blank" href="specinfo.aspx?t=1&amp;id=41252">普碳中板</a></span><span class="tj02">25</span><span class="tj03">118吨</span><span class="tj04">邯郸市</span></li>
+				<li style="cursor:pointer;" href=""><span class="tj01"><a target="_blank" href="specinfo.aspx?t=1&amp;id=41252">普碳中板</a></span><span class="tj02">25</span><span class="tj03">118吨</span><span class="tj04">邯郸市</span></li>
+				<li style="cursor:pointer;" href=""><span class="tj01"><a target="_blank" href="specinfo.aspx?t=1&amp;id=41252">普碳中板</a></span><span class="tj02">25</span><span class="tj03">118吨</span><span class="tj04">邯郸市</span></li>
+				<li style="cursor:pointer;" href=""><span class="tj01"><a target="_blank" href="specinfo.aspx?t=1&amp;id=41252">普碳中板</a></span><span class="tj02">25</span><span class="tj03">118吨</span><span class="tj04">邯郸市</span></li>
+				<li style="cursor:pointer;" href=""><span class="tj01"><a target="_blank" href="specinfo.aspx?t=1&amp;id=41252">普碳中板</a></span><span class="tj02">25</span><span class="tj03">118吨</span><span class="tj04">邯郸市</span></li>
+            </ul>
+        </div>
+		
+		<!--module end-->
+		<!--module start-->
+		<div class="m-gc-ad"><a target="_blank" href="http://xh.steelcn.com/new.aspx"><img width="260" height="85" src="images/xinahuotong_288_85.png"></a></div>
+		<!--module end-->
+		
+		<!--module start-->
+		<div class="cgal">
+		<h2><span><a href="/special.aspx">更多</a></span>推荐供应商信息</h2>
+        	<ul>
+			<li><a target="_blank" href="http://www.wgxtgt.com/">舞钢市鑫涛钢铁有限公司</a></li>
+			<li><a target="_blank" href="http://www.fuliu.com/">邯郸市滏流商贸有限公司</a></li>
+			<li><a target="_blank" href="http://www.wgxtgt.com/">舞钢市鑫涛钢铁有限公司</a></li>
+			<li><a target="_blank" href="http://www.fuliu.com/">邯郸市滏流商贸有限公司</a></li>
+			<li><a target="_blank" href="http://www.wgxtgt.com/">舞钢市鑫涛钢铁有限公司</a></li>
+			<li><a target="_blank" href="http://www.fuliu.com/">邯郸市滏流商贸有限公司</a></li>
+			<li><a target="_blank" href="http://www.wgxtgt.com/">舞钢市鑫涛钢铁有限公司</a></li>
+			<li><a target="_blank" href="http://www.fuliu.com/">邯郸市滏流商贸有限公司</a></li>
+			</ul>
+        </div>
+		<!--module end-->
+		
+		
+		
+</div></div>

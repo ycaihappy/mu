@@ -2,9 +2,9 @@
 
 class ArticleController extends AdminController {
 
-	
+
 	private $muCategoryCache;
-	
+
 	public function __construct($id,$module=null)
 	{
 		parent::__construct($id,$module);
@@ -96,12 +96,12 @@ class ArticleController extends AdminController {
 				$im = null;
 				$imagetype = strtolower($model->art_img->getExtensionName());
 				if($imagetype == 'gif')
-					$im = imagecreatefromgif($uploadedImg);
+				$im = imagecreatefromgif($uploadedImg);
 				else if ($imagetype == 'jpg')
-					$im = imagecreatefromjpeg($uploadedImg);
+				$im = imagecreatefromjpeg($uploadedImg);
 				else if ($imagetype == 'png')
-					$im = imagecreatefrompng($uploadedImg);
-				CThumb::resizeImage ( 
+				$im = imagecreatefrompng($uploadedImg);
+				CThumb::resizeImage (
 				$im,400, 280,
 				'images/article/thumb/'.$newimg, $model->art_img->getExtensionName() );
 				$model->art_img = $newimg;
@@ -234,7 +234,7 @@ class ArticleController extends AdminController {
 	{
 		if(!Yii::app()->request->isPostRequest)
 		{//保存标题
-			
+				
 		}
 		else {//展示需要修改标题的图片
 			$imageNeedUpdatesCriteria=new CDbCriteria();
@@ -273,13 +273,13 @@ class ArticleController extends AdminController {
 					$im = null;
 					$imagetype = strtolower($model->image_src->getExtensionName());
 					if($imagetype == 'gif')
-						$im = imagecreatefromgif($uploadedImg);
+					$im = imagecreatefromgif($uploadedImg);
 					else if ($imagetype == 'jpg')
-						$im = imagecreatefromjpeg($uploadedImg);
+					$im = imagecreatefromjpeg($uploadedImg);
 					else if ($imagetype == 'png')
-						$im = imagecreatefrompng($uploadedImg);
+					$im = imagecreatefrompng($uploadedImg);
 					$thumbImg='thumb_'.$newimg;
-					CThumb::resizeImage ( 
+					CThumb::resizeImage (
 					$im,100, 100,
 					'images/commonProductsImages/thumb/'.$thumbImg, $model->image_src->getExtensionName());
 					$model->image_src = $newimg;
@@ -317,13 +317,13 @@ class ArticleController extends AdminController {
 				$im = null;
 				$imagetype = strtolower($model->image_src->getExtensionName());
 				if($imagetype == 'gif')
-					$im = imagecreatefromgif($uploadedImg);
+				$im = imagecreatefromgif($uploadedImg);
 				else if ($imagetype == 'jpg')
-					$im = imagecreatefromjpeg($uploadedImg);
+				$im = imagecreatefromjpeg($uploadedImg);
 				else if ($imagetype == 'png')
-					$im = imagecreatefrompng($uploadedImg);
+				$im = imagecreatefrompng($uploadedImg);
 				$thumbImg='thumb_'.$newimg;
-				CThumb::resizeImage ( 
+				CThumb::resizeImage (
 				$im,100, 100,
 				'images/commonProductsImages/thumb/'.$thumbImg, $model->image_src->getExtensionName() );
 				$model->image_src = $newimg;
@@ -350,10 +350,11 @@ class ArticleController extends AdminController {
 		$imageStatus=Term::getTermsByGroupId(1);
 		$imageUsedType=Term::getMuCategory();
 		$this->render('updateImageLibary',array('model'=>$model,'imageStatus'=>$imageStatus,'imageUsedType'=>$imageUsedType));
-	  
+		 
 	}
 	public function actionChangeImageLibaryStatus()
 	{
+
 		$toStatus=@$_REQUEST['toStatus'];
 		$imageId=@$_REQUEST['image_id'];
 		if(!$imageId && in_array($toStatus,array(1,2,33)))
@@ -365,14 +366,21 @@ class ArticleController extends AdminController {
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('image_id', $imageId);
 		$updateRows=ImageLibrary::model()->updateAll(array('image_status'=>$toStatus),$updateStatusCriteria);
-		if($updateRows>0)
+		if(Yii::app()->request->isAjaxRequest)
 		{
-			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
+			echo $updateRows>0?'更新成功！':'更新失败！';
+			exit;
 		}
 		else {
-			Yii::app()->admin->setFlash('changeStatusError','更新异常');
+			if($updateRows>0)
+			{
+				Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
+			}
+			else {
+				Yii::app()->admin->setFlash('changeStatusError','更新异常');
+			}
+			$this->redirect(array('manageImageLibary','page'=>Yii::app()->request->getParam('page',1)));
 		}
-		$this->redirect(array('manageImageLibary','page'=>Yii::app()->request->getParam('page',1)));
 	}
 	public function actionDeleteImageLibary()
 	{
@@ -384,6 +392,9 @@ class ArticleController extends AdminController {
 			$delrows=ImageLibrary::model()->deleteAll($deleteCreteria);
 			if($delrows>0)
 			{
+				echo '删除成功！';
+			}
+			else {
 				echo '删除失败！';
 			}
 		}
@@ -399,7 +410,7 @@ class ArticleController extends AdminController {
 		$model->sum_day=@$_REQUEST['PriceSummary']['sum_day'];
 		$model->sum_product_type=@$_REQUEST['PriceSummary']['sum_product_type'];
 		$model->sum_product_zone=@$_REQUEST['PriceSummary']['sum_product_zone'];
-		
+
 		$sumCriteria=new CDbCriteria();
 		if($model->sum_year)
 		{
@@ -468,7 +479,7 @@ class ArticleController extends AdminController {
 			if($sumId=(int)@$_GET['sum_id'])
 			{
 				$model=$model->findByPk($sumId);
-				
+
 			}
 		}
 		if($model->isNewRecord)
@@ -510,7 +521,7 @@ class ArticleController extends AdminController {
 		if($muCategoryLayer)
 		array_reverse($muCategoryLayer);
 		$muCategoryLayer[]=$this->muCategoryCache[$muCategoryId]['term_name'];
-		
+
 		return implode('>>',$muCategoryLayer);
 	}
 	private function _getCityLayer($cityId)

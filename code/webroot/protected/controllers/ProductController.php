@@ -24,6 +24,7 @@ class ProductController extends Controller
 
     public function actionList()
     {
+        $this->layout='//layouts/supply_main';
         if ( isset($_REQUEST['type']) )
         {
             switch ($_REQUEST['type'])

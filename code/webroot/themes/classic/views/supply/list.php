@@ -2,7 +2,7 @@
 <div class="m-suppy-list">
 			
 
-   	  <h2 class="art_gyxx"><span class="on"><a href="">供应信息</a><i></i></span></h2>
+   	  <h2 class="art_gyxx"><span class="on"><a href=""><?php echo $title?>信息</a><i></i></span></h2>
         <table width="100%" cellspacing="0" cellpadding="0" border="0" class="left_table">    
             
                     <tbody><tr>

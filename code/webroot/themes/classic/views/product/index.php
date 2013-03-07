@@ -160,20 +160,19 @@
                     <ul id="data_container" class="sds-date-list">
                     <?php 
                     if($products):
-                    foreach ($products as $product):?>
+                    	foreach ($products as $product):?>
                         <li cid="<?php echo $product->product_id?>" class="no-border" style="">
-					        <span class="sds-size-0"><a title="<?php echo $product->product_name?>" href="/StaticResource/3/345152.html" target="_blank"><?php echo $product->product_name?></a></span>
+					        <span class="sds-size-0"><a  title="<?php echo $product->product_name?>" href="<?php echo $this->createUrl('view',array('product_id'=>$product->product_id))?>" target="_blank"><?php echo $product->product_name?></a></span>
 					        <span class="sds-size-2"><?php echo $product->muContent->term_name;?></span>
 					        <?php if($smallType==31):?>
 					        <span class="sds-size-2"><?php echo $product->waterContent->term_name;?></span>
 					        <?php endif;?>
 					        <span class="sds-size-1"><span title="<?php echo $product->user->enterprise->ent_name?>"><?php echo $product->user->enterprise->ent_name?></span></span>
-					        <span class="sds-size-4"><?php echo $product->product_city_id?></span>
+					        <span class="sds-size-4"><?php echo $product->city->city_name?></span>
 					        <span class="sds-size-6"><?php echo $product->product_price?></span>
 					        <span class="sds-size-7"><?php echo $product->product_quanity.$product->unit->term_name?></span>
 					        <span class="sds-size-8"><?php echo date('Y-m-d',strtotime($product->product_join_date))?></span>
-					        <span cid="<?php echo $product->product_id?>" xj="1" sid="345152" class="sds-size-9"><a onclick="try{parent.closeMini();}catch(e){;}globalStaticIcon.getOnGenerateClick()" href="javascript:void(0)" id="live800iconlink"><img border="0" src="http://live800.gtxh.cn/live800/SurferServer?cmd=111&amp;companyID=8909&amp;skillId=2&amp;enterurl=http%3A%2F%2Fsteel%2Egtxh%2Ecom%2F&amp;k=1&amp;configID=9&amp;online=http%3A%2F%2Fpub.gtxh.com%2Fimages%2FICO%2FonlineMsg.gif&amp;offline=http%3A%2F%2Fpub.gtxh.com%2Fimages%2FICO%2FliveMsg.gif" id="live800icon" name="live800icon"></a></span>
-					        <div class="clear"></div>
+					       <div class="clear"></div>
 					    </li>
 					    <?php endforeach;
 					    else:

@@ -110,13 +110,11 @@ class ProductController extends Controller
 			'unit'=>array('select'=>'term_name'),
 			'muContent'=>array('select'=>'term_name'),
 			'waterContent'=>array('select'=>'term_name'),
+			'city'=>array('select'=>'city_name'),
 			);
 			$productCriteria->addInCondition('product_id',$products);
 			$products=Product::model()->findAll($productCriteria);
-			foreach ($products as &$product)
-			{
-				$product->product_city_id=City::getCityLayer($product->product_city_id,'.','未标明');
-			}
+			
 		}
 		$muCategory=Term::getTermsByGroupId(14,true,null,'全部');
 		$allProvince=City::getProvice('全部');

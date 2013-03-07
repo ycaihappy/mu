@@ -1,7 +1,19 @@
-		<div class="m-rcm-list">
+<?php
+switch ($type)
+{
+case 1:
+    $title = '推荐新闻';
+    break;
+case 2:
+    $title = '行内新闻';
+    $data = $mu_news;
+    break;
+}
+?>
+        <div class="m-rcm-list">
 			
 			<dl class="last">
-			  <dt><strong>推荐报道</strong></dt>
+            <dt><strong><?php echo $title;?></strong></dt>
 			  <dd>				
 				<ul>
 			<?php for($index=0;$index<count($data);$index++):

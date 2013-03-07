@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-08 00:06:21
+# Date/time:                    2013-03-08 00:24:41
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -868,7 +868,11 @@ CREATE TABLE IF NOT EXISTS `mu_image_library` (
 DELETE FROM `mu_image_library`;
 /*!40000 ALTER TABLE `mu_image_library` DISABLE KEYS */;
 INSERT INTO `mu_image_library` (`image_id`, `image_title`, `image_thumb_src`, `image_src`, `image_status`, `image_used_type`, `image_added_by`, `image_added_time`) VALUES
-	(3, '侧事故', '', '28_1361441380_228.jpg', 33, 28, 1, '2013-02-21 18:09:40');
+	(24, '钼板坯', 'thumb_83_1362672707_6505.jpg', '83_1362672707_6505.jpg', 33, 83, 1, '2013-03-08 00:11:47'),
+	(25, '钼精矿', 'thumb_28_1362673115_6912.jpg', '28_1362673115_6912.jpg', 33, 28, 1, '2013-03-08 00:18:35'),
+	(26, '钼铁', 'thumb_57_1362673162_6959.jpg', '57_1362673162_6959.jpg', 1, 57, 1, '2013-03-08 00:19:22'),
+	(27, '氧化钼', 'thumb_72_1362673193_6990.jpg', '72_1362673193_6990.jpg', 1, 72, 1, '2013-03-08 00:19:53'),
+	(28, '钼酸', 'thumb_89_1362673429_7225.jpg', '89_1362673429_7225.jpg', 1, 89, 1, '2013-03-08 00:23:49');
 /*!40000 ALTER TABLE `mu_image_library` ENABLE KEYS */;
 
 
@@ -1974,7 +1978,8 @@ INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `t
 	(85, 30, '杆　料', '', 14, 0, NULL),
 	(86, 30, '钼　丝', '', 14, 0, NULL),
 	(87, 30, '废　钼', '', 14, 0, NULL),
-	(88, 30, '钼异型', '', 14, 0, NULL);
+	(88, 30, '钼异型', '', 14, 0, NULL),
+	(89, 29, '钼酸', '', 14, 0, NULL);
 /*!40000 ALTER TABLE `mu_term` ENABLE KEYS */;
 
 

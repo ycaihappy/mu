@@ -35,6 +35,7 @@ class UehomeModule extends CWebModule
                         'user/login',
 						'user/captcha',
 						'user/register',
+						'user/getCity',
 						'user/registeruser',
 			);
 			if(Yii::app()->user->isGuest && !in_array($route,$publicPages))

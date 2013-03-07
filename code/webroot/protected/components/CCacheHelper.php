@@ -85,7 +85,7 @@ class CCacheHelper  {
 	}
 	public static function getAdvertisement($position)
 	{
-		$allAdvertisement=Yii::app()->cache->get('advertisement');
+		$allAdvertisement=null;//Yii::app()->cache->get('advertisement');
 		if(!$allAdvertisement)
 		{
 			$advCriteria=new CDbCriteria();
@@ -99,7 +99,7 @@ class CCacheHelper  {
 				foreach ($advs as $adv) {
 					$allAdvertisement[$adv->ad_no][]=$adv;
 				}
-				Yii::app()->cache->set('advertisement',$allAdvertisement,CacheStrategy::ONE_DAY_EXPIRE);
+				//Yii::app()->cache->set('advertisement',$allAdvertisement,CacheStrategy::ONE_DAY_EXPIRE);
 			}
 			
 		}

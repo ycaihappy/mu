@@ -49,6 +49,17 @@ class City extends CActiveRecord
 		array('city_id, city_name, city_parent, city_level, city_order, city_open', 'safe', 'on'=>'search'),
 		);
 	}
+    public static function getCityList()
+    {
+		if(!self::$cityCache)
+		{
+			self::$cityCache=CCacheHelper::getAllCity();
+		}
+        foreach (self::$cityCache as $city) {
+            $returnCity[$city->city_id]=$city->city_name;
+        }
+        return $returnCity;
+    }
 	public static function getAllCity($cityId=false)
 	{
 		if(!self::$cityCache)

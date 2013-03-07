@@ -172,3 +172,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 ?>
 </DIV>
 </form>
+<?php 
+$cs = Yii::app()->getClientScript();
+$cs->registeScriptFile('/js/jquery.form.js');
+?>

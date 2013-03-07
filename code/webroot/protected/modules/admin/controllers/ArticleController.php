@@ -374,6 +374,23 @@ class ArticleController extends AdminController {
 		}
 		$this->redirect(array('manageImageLibary','page'=>Yii::app()->request->getParam('page',1)));
 	}
+	public function actionDeleteImageLibary()
+	{
+		$imageIds=@$_REQUEST['image_id'];
+		if($imageIds && is_array($imageIds))
+		{
+			$deleteCreteria=new CDbCriteria();
+			$deleteCreteria->addInCondition('image_id', $imageIds);
+			$delrows=ImageLibrary::model()->deleteAll($deleteCreteria);
+			if($delrows>0)
+			{
+				echo '删除失败！';
+			}
+		}
+		else {
+			echo '删除失败！';
+		}
+	}
 	public function actionManagePriceSummary()
 	{
 		$model=new PriceSummary();

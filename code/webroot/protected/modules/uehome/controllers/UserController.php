@@ -265,6 +265,26 @@ class UserController extends Controller {
         $data=compact('model','product_type','parentType','product_smallType','allCity','unit_type','allProvince','province');
 		$this->render ( 'goods' , $data);
 	}
+	public function actionNlist() {
+
+        $status = Term::model()->getTermsByGroupId(1);
+        $city  = city::getAllCity();
+        $category = Term::model()->getTermsByGroupId(14);
+        $criteria=new CDbCriteria;
+        $criteria->order='art_id DESC';
+        if ( isset($_REQUEST['news_status']) )
+            $criteria->addCondition("news_status=".$_REQUEST['news_status']);
+        $criteria->addCondition("art_user_id=".yii::app()->user->getID());
+
+        $count=UserArticle::model()->count($criteria);
+        $selectStatus = isset($_REQUEST['news_status']) ? $_REQUEST['news_status'] : 0;
+
+        $pager=new CPagination($count);
+        $pager->pageSize=15;
+        $pager->applyLimit($criteria);
+        $list=UserArticle::model()->findAll($criteria);
+		$this->render ( 'nlist', array('status'=>$status,'allcity'=>$city,'allcategory'=>$category,'data'=>$list, 'pager'=>$pager, 'select_status'=>$selectStatus) );
+	}
 	public function actionSlist() {
 
         $status = Term::model()->getTermsByGroupId(1);

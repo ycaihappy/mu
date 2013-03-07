@@ -24,11 +24,11 @@
                     </li>
                     <li class="ci_li">
                     	<span>品位</span>
-<?php echo $supply['supply_mu_content'];?> 
+<?php echo $mucontent[$supply['supply_mu_content']];?> 
                     </li>
                     <li class="ci_li">
                     	<span>含水量</span>
-<?php echo $supply['supply_water_content'];?>
+<?php echo $watercontent[$supply['supply_water_content']];?>
                     </li>
                     <li class="ci_li">
                     	<span>交货地</span>

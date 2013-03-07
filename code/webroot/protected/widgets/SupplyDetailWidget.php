@@ -12,6 +12,9 @@ class SupplyDetailWidget extends CWidget
         $city  = City::getAllCity();
         $category = Term::model()->getTermsByGroupId(14);
 
-        $this->render('supply_detail',array('supply'=>$supply_detail,'user_info'=>$user_info,'category'=>$category, 'city'=>$city));
+                $allMuContent=Term::getTermsByGroupId(16);
+                $allWaterContent=Term::getTermsByGroupId(17);
+
+        $this->render('supply_detail',array('mucontent'=>$allMuContent,'watercontent'=>$allWaterContent,'supply'=>$supply_detail,'user_info'=>$user_info,'category'=>$category, 'city'=>$city));
     }
 }

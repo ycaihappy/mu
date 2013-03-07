@@ -24,7 +24,7 @@ for ($i=0;$i<count($data);$i++)
     }
 ?>
     <tr <?php echo $class;?>>
-    <td><img src="<?php echo $data[$i]['file_url'];?>" /></td>		
+    <td><img src="<?php echo $data[$i]['file_url'];?>" style="width:100px;" /></td>		
     <td><?php echo $data[$i]['file_title'];?></td>
 			<td>
 <?php echo $data[$i]['file_content'];?>

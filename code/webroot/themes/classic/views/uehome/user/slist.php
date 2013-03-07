@@ -27,7 +27,7 @@
                     <tr <?php echo $class;?>>    
                     <td><input type="checkbox" value="<?php echo $data[$index]['supply_id'];?>" /></td>
                     <td><?php echo $status[$data[$index]['supply_status']];?></td>
-                    <td><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supply',array('supply_id'=>$data[$index]['supply_id'],'update'=>1));?>"><?php echo $data[$index]['supply_name'];?></a></td>
+                    <td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supply',array('supply_id'=>$data[$index]['supply_id'],'update'=>1));?>"><?php echo $data[$index]['supply_name'];?></a></td>
                     <td><?php echo $data[$index]->category->term_name;?></td>
                     <td><?php echo $data[$index]->muContent->term_name;?></td>
                     <td><?php echo $data[$index]->city->city_name;?></td>

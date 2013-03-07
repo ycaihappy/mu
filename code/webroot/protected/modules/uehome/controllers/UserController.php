@@ -376,10 +376,17 @@ class UserController extends Controller {
         $list=Product::model()->findAll($criteria);
 		$this->render ( 'glist', array('status'=>$status,'allcity'=>$city,'allcategory'=>$category,'data'=>$list, 'pager'=>$pager, 'select_status'=>$selectStatus) );
 	}
+    public function actionCertDel()
+    {
+        $model = FileModel::model()->find("file_id=:file_id", array('file_id'=>$_REQUEST['ids']));
+        $model->delete();
+        echo json_encode(array('status'=>1,'data'=>array()));
+    }
 	public function actionCert() {
         $model = new FileForm;
         $cert_list = $model->glist();
-		$this->render ( 'cert' ,array('data'=>$cert_list));
+        $category = Term::getTermsListByGroupId(18);
+		$this->render ( 'cert' ,array('data'=>$cert_list,'category'=>$category));
 	}
 	public function actionAddcert() {
 
@@ -401,7 +408,8 @@ class UserController extends Controller {
         }
         else
         {
-            $this->render ('cert_add', array('model'=>$model));
+            $category = Term::getTermsListByGroupId(18);
+            $this->render ('cert_add', array('model'=>$model,'category'=>$category));
         }
 
 	}

@@ -111,7 +111,7 @@
 							<td><div class="field"><select name="job_title"><option value="0">总经理</option></select></div></td>
 						</tr>
 						<tr>
-							<td class="label">城市：</td>
+							<td align="right" class="label">城市：</td>
 							<td><?php echo CHtml::dropDownList('user_province_id',0,$allProvince,array(
 								'ajax'=>array(
 									'type'=>'GET',

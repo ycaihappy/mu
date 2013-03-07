@@ -353,13 +353,25 @@ $.extend(MU.mods,{
 					var arr = chks.filter(':checked').map(function(){
 						return this.value;
 					}).get().join(',');
-					$.getJSON('index.php?r=uehome/user/productdel&ids' + arr,function(re){
+					$.getJSON('index.php?r=uehome/user/productdel&ids=' + arr,function(re){
 						if(re.status == 1){
 							location.reload();
 						}
 					});
 					
 				}
+			}else if(o.hasClass('special')){
+			
+				var arr = chks.filter(':checked').map(function(){
+					return this.value;
+				}).get().join(',');
+				$.getJSON('index.php?r=uehome/user/productSpecial&ids=' + arr,function(re){
+					if(re.status == 1){
+						location.reload();
+					}
+				});
+					
+				
 			}
 		});
 		self.find('.ico-del').on('click',function(e){

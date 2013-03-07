@@ -117,10 +117,18 @@ class UserController extends Controller {
             $user = new Enterprise();
             $model = Enterprise::model()->find("ent_user_id=:ent_user_id", array('ent_user_id'=>yii::app()->user->getID()));
         }
-        $city = City::model()->getAllCity();
 
         $ent_type = Term::model()->getTermsByGroupId(5);
-		$this->render ( 'company' ,array('model'=>$model,'city'=>$city,'ent_type'=>$ent_type));
+		$allProvince =City::getProvice();
+        $province=0;
+        $allCity=array();
+        if($model->ent_city)
+        {
+        	$cityCache=CCacheHelper::getAllCity();
+        	$province=$cityCache[$model->ent_city]->city_parent;
+        	$allCity=City::getAllCity($province);
+        }
+		$this->render ( 'company' ,array('model'=>$model,'allProvince'=>$allProvince,'allCity'=>$allCity,'province'=>$province,'city'=>$allCity,'ent_type'=>$ent_type));
 	}
 	public function actionPassword() {
 		$this->render ( 'password' );

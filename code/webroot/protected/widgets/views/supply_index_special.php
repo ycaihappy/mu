@@ -1,7 +1,7 @@
 <div class="m-tjxx">
 	<h2><span><a href="/special.aspx">更多</a></span>特价信息</h2>
 	<ul>
-	<?php if(topSpecial):
+	<?php if($topSpecial):
 			foreach ($topSpecial as $special):
 	?>
 	        <li style="cursor:pointer;">

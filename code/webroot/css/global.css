@@ -113,7 +113,7 @@ width: 960px;
 
 
 .m-top{height:35px;background:url(imgs/top_bg.jpg) repeat-x;text-align:right;line-height:35px;}
-.m-top a{font-size:14px;}
+.m-top a{font-size:12px;}
 .m-top p{display:inline;}
 .m-top .user-info a{color:#31659f;margin-right:20px}
 .m-top span{padding:0 5px}
@@ -517,7 +517,7 @@ padding: 0 20px;
 .m-menubar span.on{background:url(imgs/tab_on_bg.png);}
 .m-menubar span.on a{color:#fff}
 
-.m-user-top{position:absolute;right:0;top:10px;font-size:14px;}
+.m-user-top{position:absolute;right:0;top:10px;font-size:12px;}
 
 
 .m-breadcrumb{margin-bottom:20px;margin-top:10px}

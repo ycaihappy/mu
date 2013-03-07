@@ -21,7 +21,6 @@ class SupplyEnterpriseWidget extends CWidget
 				$ent->ent_id=$ent->ent_website?$ent->ent_website:$this->getController()->createUrl('/storeFront/default/default',array('username'=>$ent->user->user_name));
 			}
 		}
-		$data=compact('advEnt');
-        $this->render('supply_enterprise',array('data'=>$data));
+        $this->render('supply_enterprise',array('advEnt'=>$advEnt));
     }
 }

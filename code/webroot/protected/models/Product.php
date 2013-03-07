@@ -96,7 +96,7 @@ class Product extends CActiveRecord
 			'recenltyUncheckProduct'=>array('select'=>'product_id,product_name,product_join_date','condition'=>'product_status=20 and product_special=0','order'=>'product_join_date desc','limit'=>8),
 			'recenltyUncheckSpecial'=>array('select'=>'product_id,product_name,product_join_date','condition'=>'product_status=20 and product_special=1','order'=>'product_join_date desc','limit'=>8),
             'topSpecial'=>array(
-				'select'=>'product_id,product_name,product_mu_content,',
+				'select'=>'product_id,product_name,product_mu_content',
 	            'condition'=>'product_status=1 and product_special=1',
 	            'order'=>'product_join_date desc',
 	            'limit'=>10

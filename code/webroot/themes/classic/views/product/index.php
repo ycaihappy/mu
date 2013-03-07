@@ -69,7 +69,7 @@
                         </div>
                         <div class="getParam">
                             <div class="getBox">
-                                <div class="dateTitle">品名:</div>
+                                <div class="dateTitle">分类:</div>
                                     <div class="chooseDate">
                                         <dl>
                                             <dd id="nsort_link_list">
@@ -111,7 +111,7 @@
                         </div>
                         <div style="border-bottom:none;" class="getParam">
                             <div class="getBox">
-                                <div class="dateTitle">规格:</div>
+                                <div class="dateTitle">品阶:</div>
                                 <div class="chooseDate">
                                     <dl>
                                         <dd id="gg_link_list">

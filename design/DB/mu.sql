@@ -1,9 +1,9 @@
 # --------------------------------------------------------
 # Host:                         127.0.0.1
-# Server version:               5.5.8
+# Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-07 18:58:05
+# Date/time:                    2013-03-07 22:21:23
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -784,13 +784,14 @@ CREATE TABLE IF NOT EXISTS `mu_file` (
   `file_user_id` int(11) NOT NULL,
   `file_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`file_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_file: 1 rows
 DELETE FROM `mu_file`;
 /*!40000 ALTER TABLE `mu_file` DISABLE KEYS */;
 INSERT INTO `mu_file` (`file_id`, `file_title`, `file_type_id`, `file_content`, `file_url`, `file_user_id`, `file_create_time`) VALUES
-	(1, 'ceshi ', 1, 'asdfasdfasdfasfasdf', 'uploads/d58b6b1d2883288d57456e17ab4758c0.jpg', 3, '2013-03-07 14:43:11');
+	(1, 'ceshi ', 1, 'asdfasdfasdfasfasdf', 'uploads/d58b6b1d2883288d57456e17ab4758c0.jpg', 3, '2013-03-07 14:43:11'),
+	(2, '测试资质', 1, '阿斯顿发生大幅', 'uploads/b0362f6274c99a49f765747eafa519f3.jpg', 1, '2013-03-07 21:42:24');
 /*!40000 ALTER TABLE `mu_file` ENABLE KEYS */;
 
 
@@ -1000,9 +1001,9 @@ CREATE TABLE IF NOT EXISTS `mu_product` (
   `product_check_by` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   KEY `product_user_id` (`product_user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=201 DEFAULT CHARSET=utf8 COMMENT='现货';
+) ENGINE=MyISAM AUTO_INCREMENT=202 DEFAULT CHARSET=utf8 COMMENT='现货';
 
-# Dumping data for table mu.mu_product: 199 rows
+# Dumping data for table mu.mu_product: 200 rows
 DELETE FROM `mu_product`;
 /*!40000 ALTER TABLE `mu_product` DISABLE KEYS */;
 INSERT INTO `mu_product` (`product_id`, `product_user_id`, `product_keyword`, `product_name`, `product_quanity`, `product_unit`, `product_type_id`, `product_price`, `product_mu_content`, `product_status`, `product_water_content`, `product_city_id`, `product_content`, `product_location`, `product_special`, `product_join_date`, `product_image_src`, `product_check_by`) VALUES
@@ -1204,7 +1205,9 @@ INSERT INTO `mu_product` (`product_id`, `product_user_id`, `product_keyword`, `p
 	(196, 1, '钼铁，钼矿', '废钼回收', 408, 3, 31, 297, 49, 1, 51, 6, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(197, 1, '钼铁，钼矿', '钼杆/钼棒', 739, 3, 31, 624, 49, 1, 51, 6, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(198, 1, '钼铁，钼矿', '钛丝网除沫器', 418, 3, 31, 711, 49, 1, 51, 6, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
-	(199, 1, '钼铁，钼矿', '钼靶材', 823, 3, 31, 990, 49, 1, 51, 4, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL);
+	(199, 1, '钼铁，钼矿', '钼靶材', 823, 3, 31, 990, 49, 1, 51, 4, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
+	(201, 1, '阿斯顿发生大幅', '测试现货', 123213, 3, 31, 120000, 49, 33, 51, 3, '阿斯顿发生大法斯蒂芬', NULL, NULL, '2013-03-07 21:10:40', '31_1361517672_2639.jpg', NULL),
+	(202, 1, '添加现货', '添加现货', 12323, 3, 31, 1213, 49, 33, 0, 4, '阿德发生大法师父', NULL, NULL, '2013-03-07 21:38:07', '31_1361517672_2639.jpg', NULL);
 /*!40000 ALTER TABLE `mu_product` ENABLE KEYS */;
 
 
@@ -1700,9 +1703,9 @@ CREATE TABLE IF NOT EXISTS `mu_supply` (
   `supply_join_date` datetime DEFAULT NULL COMMENT '''发表日期''',
   PRIMARY KEY (`supply_id`),
   KEY `supply_user_id` (`supply_user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=207 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=209 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_supply: 175 rows
+# Dumping data for table mu.mu_supply: 177 rows
 DELETE FROM `mu_supply`;
 /*!40000 ALTER TABLE `mu_supply` DISABLE KEYS */;
 INSERT INTO `mu_supply` (`supply_id`, `supply_name`, `supply_user_id`, `supply_type`, `supply_keyword`, `supply_category_id`, `supply_mu_content`, `supply_water_content`, `supply_contractor`, `supply_content`, `supply_address`, `supply_city_id`, `supply_status`, `supply_phone`, `supply_unit`, `supply_price`, `supply_valid_date`, `supply_check_by`, `supply_recommend`, `supply_image_src`, `supply_join_date`) VALUES
@@ -1881,7 +1884,8 @@ INSERT INTO `mu_supply` (`supply_id`, `supply_name`, `supply_user_id`, `supply_t
 	(204, '随碟附送的', 3, 19, '山等发生的发生的', 32, 49, NULL, NULL, '山等发生的发生的发', NULL, NULL, 33, '1646456456', NULL, 656, '2013-03-07 17:25:57', NULL, 0, NULL, NULL),
 	(205, '阿斯顿发斯蒂芬', 3, 18, '阿斯顿发送到', 32, 49, NULL, NULL, '完全为恶趣味企鹅王', NULL, 3, 33, '阿斯顿发斯蒂芬', NULL, 312312, '2013-03-07 17:34:02', NULL, 0, NULL, NULL),
 	(206, '阿斯顿发斯蒂芬', 3, 18, '阿斯顿发斯蒂芬', 32, 49, NULL, NULL, '12313123123', NULL, 3, 33, '1313123', NULL, 12313131, '2013-03-07 17:35:49', NULL, 0, NULL, NULL),
-	(207, '手动阀发斯蒂芬1111', 3, 18, '撒旦法斯蒂芬', 31, 49, NULL, NULL, '12312312312313123123', '阿斯顿发顺丰', 3, 33, '12313', NULL, 12313123, '2013-03-07 17:44:33', NULL, 0, '31_1361517672_2639.jpg', NULL);
+	(207, '手动阀发斯蒂芬1111', 3, 18, '撒旦法斯蒂芬', 31, 49, NULL, NULL, '12312312312313123123', '阿斯顿发顺丰', 3, 33, '12313', NULL, 12313123, '2013-03-07 17:44:33', NULL, 0, '31_1361517672_2639.jpg', NULL),
+	(208, '测试供应222', 1, 18, '测试供应222', 31, 49, NULL, NULL, '阿斯顿发生发生大幅', '测试供应222', 3, 33, '13433445444', NULL, 12334343, '2013-03-13 00:00:00', NULL, 0, '31_1361517672_2639.jpg', NULL);
 /*!40000 ALTER TABLE `mu_supply` ENABLE KEYS */;
 
 
@@ -1896,7 +1900,7 @@ CREATE TABLE IF NOT EXISTS `mu_term` (
   `term_order` int(4) DEFAULT '0',
   `term_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`term_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_term: 68 rows
 DELETE FROM `mu_term`;
@@ -1969,7 +1973,27 @@ INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `t
 	(65, 20, '生产工艺', '', 10, 0, NULL),
 	(66, 20, '钼用途', '', 10, 0, NULL),
 	(67, 20, '钼产品', '', 10, 0, NULL),
-	(68, 20, '钼应用', '', 10, 0, NULL);
+	(68, 20, '钼应用', '', 10, 0, NULL),
+	(69, 0, '企业资质', '', 18, 0, NULL),
+	(70, 0, '营业执照', '', 18, 0, NULL),
+	(71, 0, '钼中级', '', 14, 0, NULL),
+	(72, 71, '氧化钼', '', 14, 0, NULL),
+	(73, 71, '钼酸', '', 14, 0, NULL),
+	(74, 29, '四钼酸铵', '', 14, 0, NULL),
+	(75, 29, '二钼酸铵', '', 14, 0, NULL),
+	(76, 29, '七钼酸铵', '', 14, 0, NULL),
+	(77, 29, '八钼酸铵', '', 14, 0, NULL),
+	(78, 29, '钼酸钠', '', 14, 0, NULL),
+	(79, 29, '高纯三氧化钼', '', 14, 0, NULL),
+	(80, 30, '四钼酸铵', '', 14, 0, NULL),
+	(81, 30, '高纯三氧化钼', '', 14, 0, NULL),
+	(82, 30, '钼粉', '', 14, 0, NULL),
+	(83, 30, '钼板坯', '', 14, 0, NULL),
+	(84, 30, '钼条', '', 14, 0, NULL),
+	(85, 30, '杆　料', '', 14, 0, NULL),
+	(86, 30, '钼　丝', '', 14, 0, NULL),
+	(87, 30, '废　钼', '', 14, 0, NULL),
+	(88, 30, '钼异型', '', 14, 0, NULL);
 /*!40000 ALTER TABLE `mu_term` ENABLE KEYS */;
 
 
@@ -1980,7 +2004,7 @@ CREATE TABLE IF NOT EXISTS `mu_term_group` (
   `group_name` varchar(100) DEFAULT NULL,
   `group_desc` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 # Dumping data for table mu.mu_term_group: 17 rows
 DELETE FROM `mu_term_group`;
@@ -2002,7 +2026,8 @@ INSERT INTO `mu_term_group` (`group_id`, `group_name`, `group_desc`) VALUES
 	(14, '钼分类', ''),
 	(15, '邮件模板类型', ''),
 	(16, '钼品质', ''),
-	(17, '含水量', '');
+	(17, '含水量', ''),
+	(18, '企业资质图片类型', '');
 /*!40000 ALTER TABLE `mu_term_group` ENABLE KEYS */;
 
 

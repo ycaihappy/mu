@@ -81,7 +81,10 @@
 							<td align="right"><label>企业类型：</label></td>
 							<td><div class="field"><select name="company_type"><option value="0">生产型</option><option value="1">贸易型</option></select></div></td>
 						</tr>
-						
+							<tr>
+							<td align="right"><label>用户名：</label></td>
+							<td><div class="field"><input type="text" name="user_name" ></div></td>
+						</tr>					
 						<tr>
 							<td align="right"><label>邮箱：</label></td>
 							<td><div class="field"><input type="text" name="email" ></div></td>
@@ -107,6 +110,18 @@
 							<td align="right"><label>职务：</label></td>
 							<td><div class="field"><select name="job_title"><option value="0">总经理</option></select></div></td>
 						</tr>
+		<tr>
+			<td class="label">城市：</td>
+			<td><?php echo CHtml::dropDownList('user_province_id',$province,array(
+				'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('/uehome/user/getCity'),
+                    'update'=>'#UserForm_user_city_id',
+                    'data'=>array('province_id'=>"js:this.value")
+				),
+			));?>  
+			<?php echo CHtml::dropDownList('user_city_id',$citys,array('empty'=>'选择城市'));?></td>
+		</tr>
 						<tr>
 						<td align="right"><label>所在地：</label></td><td><select name="district"><option value="0">地区</option></select><select name="province"><option value="0">省份</option></select><select name="city"><option value="0">市</option></select></td>
 						</tr>

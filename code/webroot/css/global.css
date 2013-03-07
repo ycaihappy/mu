@@ -800,6 +800,8 @@ padding: 0 20px;
 .zykDateTab tbody .noborder td a { color:#003333;white-space:nowrap;overflow:hidden;}
 .zykDateTab thead tr th{ background:url(imgs/gtxhzykX.png) repeat-x 0 -111px; padding:4px 0; color:#930; font-weight:bold;}
 
+
+
 .xh-col-l{ float:left;width:244px;overflow:hidden;margin-right:10px}
 .sdTop .btBox ul li{display:block; width:115px; height:33px;background:url(imgs/gtxhzykX.png) repeat-x 0 -73px; border-top: 1px solid #CCC;border-left: 1px solid #CCC;border-right: 1px solid #999;border-bottom: 1px solid #999;box-shadow:0 0 1px #ccc;text-align:center;}
 
@@ -843,11 +845,12 @@ padding: 0 20px;
 .sds-size-7{width:51px;}
 .sds-size-8{width:58px;}
 .sds-size-9{width:65px;}
-.sds-top h4{background: url(imgs/gtxhzykX.png) repeat-x scroll 0 -111px transparent;color: #993300;height:27px;}
+.sds-top h4,.searchDateList th{background: url(imgs/gtxhzykX.png) repeat-x scroll 0 -111px transparent;color: #993300;height:27px;text-align:center}
+.searchDateList td{padding:3px;}
 .sds-top h4 span{height:22px;padding-top:3px;}
 .sds-date-list li span{padding:5px 0;color:#033;}
 .sds-date-list li{overflow:hidden;border-bottom: 1px solid #ccc;vertical-align: bottom;}
-.sds-date-list li.odd{background:rgb(245, 239, 234)}
+.searchDateList tr.odd{background:rgb(245, 239, 234)}
 .sds-date-list .no-border{border-bottom: 1px solid #fff;}
 
 .pager-bar-container{font-size:12px;line-height:22px;height:22px;font-weight:bold;}

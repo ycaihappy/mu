@@ -141,46 +141,48 @@
         <!--搜索列表开始-->
         <div class="searchDateList" id="J_Xh_Slist">
         <div class="search-Date-show">
-        		<div class="sds-top">
-        			<h4>
-        				<span class="sds-size-0">品名</span>
-        				<span class="sds-size-2">品质</span>
-        				<?php if($smallType==31):?>
-        				<span class="sds-size-2">含水量</span>
-        				<?php endif;?>
-        				<span class="sds-size-1">发布企业</span>
-        				<span class="sds-size-4">存货地</span>
-        				<span class="sds-size-6">价格</span>
-        				<span class="sds-size-7">重量</span>
-        				<span class="sds-size-8">更新时间</span>
-        			</h4>
-                    <div class="clear"></div>
-        		</div>
-                <div class="sds-center">
-                    <ul id="data_container" class="sds-date-list">
-                    <?php 
-                    if($products):
-                    	foreach ($products as $product):?>
-                        <li cid="<?php echo $product->product_id?>" class="no-border" style="">
-					        <span class="sds-size-0"><a  title="<?php echo $product->product_name?>" href="<?php echo $this->createUrl('view',array('product_id'=>$product->product_id))?>" target="_blank"><?php echo $product->product_name?></a></span>
-					        <span class="sds-size-2"><?php echo $product->muContent->term_name;?></span>
-					        <?php if($smallType==31):?>
-					        <span class="sds-size-2"><?php echo $product->waterContent->term_name;?></span>
-					        <?php endif;?>
-					        <span class="sds-size-1"><span title="<?php echo $product->user->enterprise->ent_name?>"><?php echo $product->user->enterprise->ent_name?></span></span>
-					        <span class="sds-size-4"><?php echo $product->city->city_name?></span>
-					        <span class="sds-size-6"><?php echo $product->product_price?></span>
-					        <span class="sds-size-7"><?php echo $product->product_quanity.$product->unit->term_name?></span>
-					        <span class="sds-size-8"><?php echo date('Y-m-d',strtotime($product->product_join_date))?></span>
-					       <div class="clear"></div>
-					    </li>
-					    <?php endforeach;
-					    else:
-					    ?>
-					    <div class="clear">没有你要找的现货信息</div>
-					    <?php endif;?>
-</ul>
-                </div>
+		<table width="100%">
+		
+		<tr>
+			<th width="220">品名</th>
+			<th>品质</th>
+			<?php if($smallType==31):?>
+			<th>含水量</th>
+			<?php endif;?>
+			<th width="170">发布企业</th>
+			<th>存货地</th>
+			<th>价格</th>
+			<th>重量</th>
+			<th>更新时间</th>
+		</tr>
+		
+		 <?php 
+			if($products):
+				foreach ($products as $product):?>
+				<tr cid="<?php echo $product->product_id?>" class="no-border" style="">
+					<td><a  title="<?php echo $product->product_name?>" href="<?php echo $this->createUrl('view',array('product_id'=>$product->product_id))?>" target="_blank"><?php echo $product->product_name?></a></td>
+					<td><?php echo $product->muContent->term_name;?></td>
+					<?php if($smallType==31):?>
+					<td><?php echo $product->waterContent->term_name;?></td>
+					<?php endif;?>
+					<td><span title="<?php echo $product->user->enterprise->ent_name?>"><?php echo $product->user->enterprise->ent_name?></span></td>
+					<td><?php echo $product->city->city_name?></td>
+					<td><?php echo $product->product_price?></td>
+					<td><?php echo $product->product_quanity.$product->unit->term_name?></td>
+					<td><?php echo date('Y-m-d',strtotime($product->product_join_date))?></td>
+				  
+				</tr>
+				<?php endforeach;
+				else:
+				?>
+				<tr><td colspan="<?php echo $smallType==31 ? 8 : 7;?>">没有你要找的现货信息</td></tr>
+				<?php endif;?>
+		
+		
+		
+		</table>
+
+              
         </div>
         
             <!--分页-->

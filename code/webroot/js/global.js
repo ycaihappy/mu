@@ -440,7 +440,7 @@ $.extend(MU.mods,{
 	},
 	JXhSlist : function (){
 		var self = $(this);
-		$('#data_container').find('li:odd').addClass('odd');
+		$('.search-Date-show').find('tr:odd').addClass('odd');
 	},
 	JQgxx : function(){
 		var $outer = $('#jq_animate_loop');

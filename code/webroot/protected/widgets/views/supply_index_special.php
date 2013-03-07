@@ -1,5 +1,5 @@
 <div class="m-tjxx">
-	<h2><!-- <span><a href="<?php //echo $this->getController()->createUrl('list',array('type'=>3))?>">更多</a></span> -->特价信息</h2>
+	<h2><span><a href="<?php echo $this->getController()->createUrl('product/list',array('type'=>1))?>">更多</a></span>特价信息</h2>
 	<ul>
 	<?php if($topSpecial):
 			foreach ($topSpecial as $special):

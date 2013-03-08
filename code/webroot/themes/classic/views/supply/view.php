@@ -1,29 +1,14 @@
-<div id="p_supplier_detail" class="pg-layout">
 
-<div class="layout main">
 	
-
-	<div class="layout-area">
-	
-	<div class="layout-left">
+	<div class="grid-690">
 		<!---->
 		
     <?php $this->widget("SupplyDetailWidget");?>
 	  
 		</div>
-	<div class="layout-right">
+	<div class="grid-260">
 	
 <?php $this->widget("NewsRelateWidget");?>
 	
 	</div>
 		
-	</div>
-	
-
-</div>
-
-
-
-
-</div>
-

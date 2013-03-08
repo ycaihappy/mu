@@ -60,7 +60,7 @@ class UserController extends Controller {
         }
         if ( $_REQUEST['pwd'] != $_REQUEST['repwd'])
         {
-            $error['pwd'] = '密码不一致';
+            $error['repwd'] = '密码不一致';
         }
         if (!empty($error))
         {

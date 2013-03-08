@@ -53,17 +53,17 @@ $this->breadcrumbs=array(
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'公司类型',
-        	'value'=>'$data->type->term_name',
+        	'value'=>'$data->type?$data->type->term_name:"未指定"',
         	'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
        array(
         	'name'=>'经营模式',
-        	'value'=>'$data->business->term_name',
+        	'value'=>'$data->business?$data->business->term_name:"未指定"',
        		'htmlOptions'=>array('align'=>'center'),
         ), 
        array(
         	'name'=>'状态',
-        	'value'=>'$data->status->term_name',
+        	'value'=>'$data->status?$data->status->term_name:"无状态"',
        		'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
         array(

@@ -51,11 +51,11 @@ $productChangeStatusAction=$isSpecial?'changeSpecialStatus':'changeProductStatus
         ),  // display the 'name' attribute of the 'category' relation
         array(
         	'name'=>'发布公司',
-        	'value'=>'$data->user->enterprise->ent_name',
+        	'value'=>'$data->user->enterprise?$data->user->enterprise->ent_name:"未指定"',
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'现货分类',
-        	'value'=>'$data->type->term_name',
+        	'value'=>'$data->type?$data->type->term_name:"未指定"',
         	'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
        array(

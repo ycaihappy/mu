@@ -167,7 +167,8 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-tab-list .hd span,.m-case .hd span,.m-quot .hd span,.m-nous .hd span,.m-rcm .hd span{width:103px;height:30px;line-height:30px;border-right: 1px solid #CFCFCF; cursor: pointer;float: left;font-size: 14px;text-align: center;background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(254, 254, 254)), to(rgb(237, 237, 237)));background-image: -webkit-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -moz-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -o-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -ms-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));}
 .m-tab-list .hd span.on,.m-case .hd span.on,.m-quot .hd span.on,.m-nous .hd span.on,.m-rcm .hd span.on{background: none repeat scroll 0 0 #FFFFFF;height: 30px;position: relative;z-index: 1;}
 .m-tab-list .hd span.on a,.m-case .hd span.on a,.m-quot .hd span.on a,.m-nous .hd span.on a,.m-rcm .hd span.on a{font-weight:bold;}
-.m-tab-list .bd li,.m-nous .bd li,.m-case .bd li{line-height:25px;padding-left:10px;background:url(imgs/list-ico.png) no-repeat left center}
+.m-tab-list .bd li,.m-nous .bd li,.m-case .bd li{line-height:25px;padding-left:10px;background:url(imgs/list-ico.png) no-repeat left center;position:relative;}
+.m-tab-list .bd li em,.m-nous .bd li em,.m-case .bd li em{float:right;color:#999}
 .m-tab-list .bd a{font-size:14px;}
 .m-tab-list .bd .b a{font-weight:bold}
 .m-tab-list .bd ul{display:none;}

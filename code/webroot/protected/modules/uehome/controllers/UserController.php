@@ -58,6 +58,10 @@ class UserController extends Controller {
         {
             $error['email'] = '邮箱格式不正确';
         }
+        if ( $_REQUEST['pwd'] != $_REQUEST['repwd'])
+        {
+            $error['pwd'] = '密码不一致';
+        }
         if (!empty($error))
         {
             echo json_encode(array('status'=>0,'data'=>$error));

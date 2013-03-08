@@ -29,7 +29,7 @@ $this->breadcrumbs=array(
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
-<form action='<?php echo  Yii::app()->controller->createUrl('changeEnterpriseStatus') ?>' method='post'>
+<form id="enterpriseForm" action='<?php echo  Yii::app()->controller->createUrl('changeEnterpriseStatus') ?>' method='post'>
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$dataProvider,
@@ -91,7 +91,7 @@ $this->breadcrumbs=array(
 $alertTitle='企业';
 $this->widget('zii.widgets.jui.CJuiButton',
 	array(
-		'name'=>'button',
+		'name'=>'pass',
 			'caption'=>'审核为有效',
 		'value'=>'asd',
 		'onclick'=>'js:function(){
@@ -102,8 +102,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=1";
-				this.form.submit();
+				var url=this.form.action+"&toStatus=1";
+				$("#enterpriseForm").ajaxSubmit(
+					{
+						url:url,
+						success:function(msg){
+							alert(msg);
+							$.fn.yiiGridView.update("yw0");
+						},
+					}
+				);
 			}
 			return false;
 		}',
@@ -122,31 +130,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=2";
-				this.form.submit();
-			}
-			return false;
-		}',
-		)
-);
-$this->widget('zii.widgets.jui.CJuiButton',
-	array(
-		'name'=>'button3',
-			'caption'=>'删除',
-		'value'=>'asd',
-		'onclick'=>'js:function(){
-		var selectedProducts=$("#yw0 .select-on-check:checked");
-			if(selectedProducts.size()<1)
-			{
-				alert("请选择要删除的'.$alertTitle.'信息！");
-			}
-			else
-			{
-				if(confirm("确定删除选中的'.$alertTitle.'信息"))
-				{
-					this.form.action+="&toStatus=29";
-					this.form.submit();
-				}
+				var url=this.form.action+"&toStatus=2";
+				$("#enterpriseForm").ajaxSubmit(
+					{
+						url:url,
+						success:function(msg){
+							alert(msg);
+							$.fn.yiiGridView.update("yw0");
+						},
+					}
+				);
 			}
 			return false;
 		}',
@@ -193,3 +186,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 ?>
 </DIV>
 </form>
+<?php 
+$cs = Yii::app()->getClientScript();
+$cs->registerScriptFile('/js/jquery.form.js');
+?>

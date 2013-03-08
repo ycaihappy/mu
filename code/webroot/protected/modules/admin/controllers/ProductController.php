@@ -84,15 +84,26 @@ class ProductController extends AdminController {
 		$supplyIds=@$_REQUEST['supply_id'];
 		if(!$supplyIds && in_array($toStatus,array(1,2)))
 		{
-				
-			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的供求信息，以及改变的状态');
-			$this->redirect($redirectAction);
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				echo '请求参数不正确！';
+				exit;
+			}
+			else {
+				Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的供求信息，以及改变的状态');
+				$this->redirect($redirectAction);
+			}
 				
 		}
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('supply_id', $supplyIds);
 		$checkedBy=Yii::app()->admin->getName();
 		$updateRows=Supply::model()->updateAll(array('supply_status'=>$toStatus,'supply_check_by'=>$checkedBy),$updateStatusCriteria);
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			echo $updateRows>0?'更新成功！':'更新失败！';
+			exit;
+		}
 		if($updateRows>0)
 		{
 			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
@@ -154,14 +165,26 @@ class ProductController extends AdminController {
 		if(!$productIds && in_array($toStatus,array(1,2)))
 		{
 				
-			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的现货或特价信息，以及改变的状态');
-			$this->redirect(array($redirectPage));
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				echo '请求参数不正确！';
+				exit;
+			}
+			else {
+				Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的现货或特价信息，以及改变的状态');
+				$this->redirect(array($redirectPage));
+			}
 				
 		}
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('product_id', $productIds);
 		$checkedBy=Yii::app()->admin->getName();
 		$updateRows=Product::model()->updateAll(array('product_status'=>$toStatus,'product_check_by'=>$checkedBy),$updateStatusCriteria);
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			echo $updateRows>0?'更新成功！':'更新失败！';
+			exit;
+		}
 		if($updateRows>0)
 		{
 			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
@@ -372,7 +395,11 @@ class ProductController extends AdminController {
 		$entIds=@$_REQUEST['ent_id'];
 		if(!$entIds && in_array($toStatus,array(1,2)))
 		{
-				
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				echo '请求参数不正确！';
+				exit;
+			}
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的企业信息，以及改变的状态');
 			$this->redirect(array($redirectPage));
 				
@@ -381,6 +408,11 @@ class ProductController extends AdminController {
 		$updateStatusCriteria->addInCondition('ent_id', $entIds);
 		$checkedBy=Yii::app()->admin->getName();
 		$updateRows=Enterprise::model()->updateAll(array('ent_status'=>$toStatus,'ent_check_by'=>$checkedBy),$updateStatusCriteria);
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			echo $updateRows>0?'更新成功！':'更新失败！';
+			exit;
+		}
 		if($updateRows>0)
 		{
 			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');

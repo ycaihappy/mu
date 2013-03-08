@@ -375,6 +375,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-detail  img{display: block;height: 300px;overflow: hidden;width: 300px;}
 .m-detail .sellinfo .fl {overflow: hidden;width: 300px;	float:left;}
 .m-detail .sellinfo p{line-height:30px;display:block}
+.m-detail .sellinfo {padding-bottom:20px;border-bottom:1px solid #ccc}
 .m-detail .title {margin:20px 0px;}
 .m-detail .orange{color: #FF6600; font: bold 16px/30px Arial,Helvetica,sans-serif;}
 .m-detail .title strong, .m-detail .title h2 {float: left;font-size: 14px;font-weight: bold;}

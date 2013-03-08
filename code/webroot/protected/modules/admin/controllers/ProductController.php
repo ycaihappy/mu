@@ -338,7 +338,11 @@ class ProductController extends AdminController {
 		$enterprises=$dataProvider->data;
 		foreach ($enterprises as &$enterprise)
 		{
-			$enterprise->ent_city=$this->_getCityLayer($enterprise->ent_city);
+			if($enterprise->ent_city)
+				$enterprise->ent_city=$this->_getCityLayer($enterprise->ent_city);
+			else {
+					$enterprise->ent_city='未指定';
+			}
 		}
 		$businessModel=Term::getTermsByGroupId(5);
 		$type=Term::getTermsByGroupId(4);

@@ -40,9 +40,9 @@ if ( $flag)
 			<?php for($index=0;$index<count($data);$index++):
 							if($index==0):
 						?>
-                            <li class="b"><a href="<?php echo Yii::app()->controller->createUrl('product/view',array('product_id'=>$data[$index]['product_id']));?>"><?php echo $data[$index]['product_name']; ?></a></li>
+                        <li class="b"><a href="<?php echo Yii::app()->controller->createUrl('product/view',array('product_id'=>$data[$index]['product_id']));?>"><?php echo $data[$index]['product_name']; ?></a><em><?php echo date("m-d", strtotime($data[$index]['product_join_date']));?></em></li>
 							<?php else :?>
-                            <li><a href="<?php echo Yii::app()->controller->createUrl('product/view',array('product_id'=>$data[$index]['product_id']));?>" target="_blank"><?php echo $data[$index]['product_name']; ?></a></li>
+                            <li><a href="<?php echo Yii::app()->controller->createUrl('product/view',array('product_id'=>$data[$index]['product_id']));?>" target="_blank"><?php echo $data[$index]['product_name']; ?></a><em><?php echo date("m-d", strtotime($data[$index]['product_join_date']));?></em></li>
 							<?php endif;?>
 					<?php endfor;?>			
 				</ul>

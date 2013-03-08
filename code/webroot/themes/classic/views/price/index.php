@@ -26,7 +26,7 @@
 	  <?php  $this->widget("PriceChinaWidget",array('type'=>2));?>
 	   <?php  #$this->widget("PriceChinaWidget",array('type'=>3));?>
 	
-
+	<div class="m-price-ad"><a href="http://xh.steelcn.com/new.aspx" target="_blank"><img width="290" height="85" src="images/xinahuotong_288_85.png"></a></div>
 	 
 	<!--module 2-->
 	</div>

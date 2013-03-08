@@ -36,7 +36,7 @@ a:active{text-decoration:underline;}
 .pg-layout{min-width:960px}
 .layout {margin: 0 auto;width: 960px; position:relative;}
 
-#mainFrame {height: 100%;width: 100%;z-index: 5;	position:absolute;}
+#mainFrame {height: 100%;width: 98%;z-index: 5;	position:absolute;}
 .logo {float: left;height: 60px;width: 173px;}
 
 
@@ -101,4 +101,23 @@ a:active{text-decoration:underline;}
 
 .m-role-op td{padding:5px;}
 .m-role-op .btn-b{display:block;margin-bottom:10px}
-
+/* LOADING INDICATORS */
+div.srbacLoading {
+  background-position:  center center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  background-image: url('process-working.gif');
+}
+div.srbacLoading * {
+  opacity: .2;
+}
+div.errorMessage{
+	font-style:italic;
+	color:red;
+}
+.m-home h1{font-size:14px;font-weight:bold;color:#2b86a1;margin-bottom:20px;}
+.m-home dl{clear:both;}
+.m-home dt{background:#e8f2fe;color:#2b86a1;padding:8px 3px;font-weight:bold;}
+.m-home dd{border-bottom:1px solid #f3f3f3;padding:8px 3px;overflow:hidden;}
+.m-home .item{width:50%;float:left;}
+.m-home label{width:150px;display:inline-block;}

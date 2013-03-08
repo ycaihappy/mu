@@ -8,7 +8,7 @@
 		</div>
 	<div class="grid-260">
 	
-<?php $this->widget("NewsRelateWidget");?>
+<?php $this->widget("SupplyIndexSpecialWidget");?>
 	
 	</div>
 		

@@ -425,7 +425,7 @@ class ProductController extends AdminController {
 	public function actionUpdateEnterprise()
 	{
 		if (isset($_POST['Enterprise'])) {//update to database
-			$model=new EnterPrise();
+			$model=new Enterprise();
 			$model->attributes=$_POST['Enterprise'];
 			if($model->ent_id)$model->setIsNewRecord(false);
 			if($model->save())
@@ -435,7 +435,7 @@ class ProductController extends AdminController {
 			}
 			else {
 				//redirect to create/update page when error(es) occured
-				$enterprise=EnterPrise::model()->findByPk($model->ent_id);
+				$enterprise=Enterprise::model()->findByPk($model->ent_id);
 				$this->_loadEnterprise($model->ent_id);
 			}
 		}
@@ -448,7 +448,7 @@ class ProductController extends AdminController {
 	private function _loadEnterprise($entId)
 	{
 		$entId=$entId;
-		$enterprise=EnterPrise::model()->with(array('user'=>array('select'=>'user_name')))->findByPk($entId);
+		$enterprise=Enterprise::model()->with(array('user'=>array('select'=>'user_name')))->findByPk($entId);
 		$businessModel=Term::getTermsByGroupId(5);
 		$type=Term::getTermsByGroupId(4);
 		$entStatus=Term::getTermsByGroupId(1);

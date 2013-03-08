@@ -61,7 +61,7 @@ abstract class CJuiWidget extends CWidget
 	 * This property can also be set as false, which means the widget will not include any theme CSS file,
 	 * and it is your responsibility to explicitly include it somewhere else.
 	 */
-	public $cssFile='jquery-ui.css';
+	public $cssFile='jquery.ui.css';
 	/**
 	 * @var array the initial JavaScript options that should be passed to the JUI plugin.
 	 */

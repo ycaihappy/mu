@@ -14,6 +14,9 @@ $.extend(MU.mods,{
 	},
 	JSearchForm : function () {
 		var self = $(this);
+		if($('#q').val() !=""){
+			$(this).parent().addClass('search-status-focus');
+		}
 		$('#q').focusin(function(){
 			$(this).parent().addClass('search-status-focus');
 		}).focusout(function(){

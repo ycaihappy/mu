@@ -1,7 +1,5 @@
 <?php
 
-
-
 class SupplyIndexSpecialWidget extends CWidget {
 
 	public function run(){

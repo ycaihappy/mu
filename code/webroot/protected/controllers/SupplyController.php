@@ -32,6 +32,7 @@ class SupplyController extends Controller
             case '1':
                 $criteria=new CDbCriteria;
                 $criteria->order='supply_id DESC';
+                $criteria->with=array('unit'=>array('select'=>'term_name'));
                 $criteria->addCondition("supply_type=18 and supply_status=1");
 
                 $count=Supply::model()->count($criteria);
@@ -45,6 +46,7 @@ class SupplyController extends Controller
             case '2':
                 $criteria=new CDbCriteria;
                 $criteria->order='supply_id DESC';
+                $criteria->with=array('unit'=>array('select'=>'term_name'));
                 $criteria->addCondition("supply_type=19 and supply_status=1");
 
                 $count=Supply::model()->count($criteria);

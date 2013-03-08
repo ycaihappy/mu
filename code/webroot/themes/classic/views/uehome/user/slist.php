@@ -29,7 +29,7 @@
                     <td><?php echo $status[$data[$index]['supply_status']];?></td>
                     <td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supply',array('supply_id'=>$data[$index]['supply_id'],'update'=>1));?>"><?php echo $data[$index]['supply_name'];?></a></td>
                     <td><?php echo $data[$index]->category->term_name;?></td>
-                    <td><?php echo $data[$index]->muContent->term_name;?></td>
+                    <td><?php echo $data[$index]->supply_mu_content;?></td>
                     <td><?php echo $data[$index]->city->city_name;?></td>
                     <td><?php echo date('Y-m-d',strtotime($data[$index]['supply_valid_date']));?></td>                      
 		            <td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supply',array('supply_id'=>$data[$index]['supply_id'],'update'=>1));?>" class="ico-edit">编辑</a><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/supplydel',array('ids'=>$data[$index]['supply_id']));?>" class="ico-del">删除</a></td>

@@ -8,7 +8,7 @@
                     <tbody><tr>
                       <th>状态</th>
                       <th>品名</th>
-                      <th>规格</th>
+                      <th>品阶</th>
                       <th>数量</th>
                       <th>存货地</th>
                       <th>发布日期</th>
@@ -18,8 +18,8 @@
                     <tr>                     
                     <td><font style="color:red;"><?php echo $supply_type[$data[$index]['supply_type']];?></font></td>
                     <td class="td02"><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id']));?>"><?php echo $category[$data[$index]['supply_category_id']];?></a></td>
-                    <td><?php echo $data[$index]['supply_unit'];?></td>
-                    <td><?php echo $data[$index]['supply_price'];?></td>
+                    <td><?php echo $data[$index]['supply_mu_content'];?></td>
+                    <td><?php echo $data[$index]['supply_price'].'/'.($data[$index]->unit?$data[$index]->unit->term_name:'未指定');?></td>
                     <td><?php echo $city[$data[$index]['supply_city_id']];?></td>
                     <td><?php echo date("Y-m-d",strtotime($data[$index]['supply_join_date']));?></td>                      
                     </tr>

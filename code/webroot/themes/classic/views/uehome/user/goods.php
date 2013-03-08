@@ -54,12 +54,12 @@
         </td>
 		</tr>	
 		<tr>
-            <td class="label">品阶：</td><td><?php echo $form->dropDownList($model, 'product_mu_content', $allMuContent);?>
+            <td class="label">品阶：</td><td><?php echo $form->textField($model, 'product_mu_content');?>
              <?php echo $form->error($model,'product_mu_content')?>
             </td>
 		</tr>
 		<tr>
-            <td class="label">含水量：</td><td><?php echo $form->dropDownList($model, 'product_water_content', $allWaterContent);?></td>
+            <td class="label">含水量：</td><td><?php echo $form->textField($model, 'product_water_content');?></td>
 		</tr>
 		<tr>
             <td class="label">价格：</td><td><?php echo $form->textField($model, 'product_price', array('class'=>'cmp-input'));?>元

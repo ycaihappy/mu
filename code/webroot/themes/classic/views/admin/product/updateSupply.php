@@ -58,13 +58,11 @@ $this->breadcrumbs=array(
 
 <tr>
 <td class="label">品质：</td>
-		<td><?php echo $form->dropDownList($model,'supply_mu_content',$muContent); ?>
-		<?php echo $form->error($model,'supply_mu_content'); ?></td>
+		<td><?php echo $form->textField($model,'supply_mu_content'); ?></td>
 </tr>
 <tr id="water_content_tr" style="display:<?php if(!$model->hasWaterContent()) echo 'none'?>">
 <td class="label" >含水量：</td>
-		<td><?php echo $form->dropDownList($model,'supply_water_content',$waterContent); ?>
-		<?php echo $form->error($model,'supply_water_content'); ?></td>
+		<td><?php echo $form->textField($model,'supply_water_content'); ?></td>
 </tr>
 
 <tr>

@@ -13,7 +13,7 @@
             			<a target="_blank" title="<?php echo $supply->supply_name?>" href="<?php echo $this->getController()->createUrl('supply/view',array('supply_id'=>$supply->supply_id))?>"><?php echo $supply->supply_name?></a>
             		</span>
             		<span class="gy03"><?php echo $supply->category->term_name?></span>
-            		<span class="gy04"><?php echo $supply->muContent->term_name?></span>
+            		<span class="gy04"><?php echo $supply->supply_mu_content?></span>
             		<span class="gy05"><?php echo $supply->city->city_name?></span>
             		<span class="gy06"><?php echo date('m/d',strtotime($supply->supply_join_date))?></span>
             	</li>

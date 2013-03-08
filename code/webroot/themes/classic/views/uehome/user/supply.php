@@ -39,12 +39,12 @@
 			</td>
 		</tr>
 		<tr>
-            <td class="label">品阶：</td><td><?php echo $form->dropDownList($model, 'muContent', $allMuContent);?>
-            <?php echo $form->error($model,'muContent');?>
+            <td class="label">品阶：</td><td><?php echo $form->textField($model, 'muContent');?>
+            
             </td>
 		</tr>
 		<tr>
-            <td class="label">含水量：</td><td><?php echo $form->dropDownList($model, 'waterContent', $allWaterContent);?></td>
+            <td class="label">含水量：</td><td><?php echo $form->textField($model, 'waterContent');?></td>
 		</tr>
 		<tr>
            <td class="label">地点：</td><td><?php echo CHtml::dropDownList( 'province',$province,$allProvince,array(

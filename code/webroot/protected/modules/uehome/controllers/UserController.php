@@ -283,9 +283,7 @@ class UserController extends Controller {
         	$province=$cityCache[$model->city]->city_parent;
         	$allCity=City::getAllCity($province);
         }
-        $allMuContent=Term::getTermsByGroupId(16,false,null,'选择品阶');
-        $allWaterContent=Term::getTermsByGroupId(17,false,null,'选择含水量');
-        $data=compact('allMuContent','model','supply_type','allWaterContent','category','smallCategory','parentCategory','province','allCity','allProvince');
+        $data=compact('model','supply_type','category','smallCategory','parentCategory','province','allCity','allProvince');
 		$this->render ( 'supply', $data);
 	}
 	public function actionGoods() {
@@ -336,9 +334,8 @@ class UserController extends Controller {
         	$allCity=City::getAllCity($province);
         }
         $unit_type= Term::model()->getTermsByGroupId(2);
-        $allMuContent=Term::getTermsByGroupId(16,false,null,'选择品阶');
-        $allWaterContent=Term::getTermsByGroupId(17,false,null,'选择含水量');
-        $data=compact('allWaterContent','allMuContent','model','product_type','parentType','product_smallType','allCity','unit_type','allProvince','province');
+       
+        $data=compact('model','product_type','parentType','product_smallType','allCity','unit_type','allProvince','province');
 		$this->render ( 'goods' , $data);
 	}
 	public function actionNlist() {
@@ -368,7 +365,7 @@ class UserController extends Controller {
         $category = Term::model()->getTermsByGroupId(14);
         $criteria=new CDbCriteria;
         $criteria->order='supply_id DESC';
-        $criteria->with=array('city'=>array('select'=>'city_name'),'muContent'=>array('select'=>'term_name'),'category'=>array('select'=>'term_name'));
+        $criteria->with=array('city'=>array('select'=>'city_name'),'category'=>array('select'=>'term_name'));
         if ( $supplyStatus=@$_REQUEST['supply_status'])
             $criteria->addCondition("supply_status=".$supplyStatus);
         $criteria->addCondition("supply_user_id=".yii::app()->user->getID());
@@ -388,7 +385,7 @@ class UserController extends Controller {
         $category = Term::model()->getTermsByGroupId(14);
         $criteria=new CDbCriteria;
         $criteria->order='product_id DESC';
-        $criteria->with=array('city'=>array('select'=>'city_name'),'muContent'=>array('select'=>'term_name'),'type'=>array('select'=>'term_name'));
+        $criteria->with=array('city'=>array('select'=>'city_name'),'type'=>array('select'=>'term_name'));
         if ( $product_status=@$_REQUEST['product_status'] )
             $criteria->addCondition("product_status=".$product_status);
         $criteria->addCondition("product_user_id=".yii::app()->user->getID());

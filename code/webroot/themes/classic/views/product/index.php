@@ -109,31 +109,6 @@
                                 </div>
                             <div class="clear"></div>
                         </div>
-                        <div style="border-bottom:none;" class="getParam">
-                            <div class="getBox">
-                                <div class="dateTitle">品阶:</div>
-                                <div class="chooseDate">
-                                    <dl>
-                                        <dd id="gg_link_list">
-                         				<?php if($allMuContent):
-                                        		foreach ($allMuContent as $key=>$content):
-                                        		$muContentUrl=CStringHelper::getExculedUrl(array('muContent','page'),'index').'&muContent='.$key;
-                                        ?>
-                                            <i><a sid="0" href="<?php echo $muContentUrl?>" class="<?php echo $muContent==$key?'selected':'';?>"><?php echo $content?></a></i>
-                                        <?php   endforeach;
-                                             endif;
-                                        ?>
-                                        </dd>
-                                    </dl>
-                                </div>
-                                <div ct="#gg_link_list" class="moreOpen"><a title="查看更多选项" href="javascript:" id="gg_lookMore">更多</a></div>
-                            </div>
-                            <div class="clear"></div>
-                            <div style="display:none;" id="pgbar_gg" class="ggpgbar">
-                                <div id="nextPage_size"></div>
-                                <div id="prevPage_size"></div>
-                            </div>
-                        </div>
                     </td>
                 </tr>
             </tbody></table>                                    
@@ -161,12 +136,12 @@
 				foreach ($products as $product):?>
 				<tr cid="<?php echo $product->product_id?>" class="no-border" style="">
 					<td nowrap="true"><a  title="<?php echo $product->product_name?>" href="<?php echo $this->createUrl('view',array('product_id'=>$product->product_id))?>" target="_blank"><?php echo $product->product_name?></a></td>
-					<td><?php echo $product->muContent->term_name;?></td>
+					<td><?php echo $product->product_mu_content;?></td>
 					<?php if($smallType==31):?>
-					<td><?php echo $product->waterContent->term_name;?></td>
+					<td><?php echo $product->product_water_content;?></td>
 					<?php endif;?>
-					<td><span title="<?php echo $product->user->enterprise->ent_name?>"><?php echo $product->user->enterprise->ent_name?></span></td>
-					<td><?php echo $product->city->city_name?></td>
+					<td><span title="<?php echo $product->user->enterprise?$product->user->enterprise->ent_name:'未指定';?>"><?php echo $product->user->enterprise?$product->user->enterprise->ent_name:'未指定';?></span></td>
+					<td><?php echo $product->city?$product->city->city_name:'未指定'?></td>
 					<td><?php echo $product->product_price?></td>
 					<td><?php echo $product->product_quanity.$product->unit->term_name?></td>
 					<td><?php echo date('Y-m-d',strtotime($product->product_join_date))?></td>

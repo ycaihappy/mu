@@ -7,7 +7,7 @@
 	            			foreach ($data as $buy):
 	            	?>
             		<div>
-                                <dt id="gy_txt_39774" class="qg_txt"><?php echo $buy->supply_name?>，品类：<?php echo $buy->category->term_name?> ， 品质：<?php echo $buy->muContent->term_name?>，联系人：<?php echo $buy->supply_contractor?>，电话：<?php echo $buy->supply_phone?>，提货地：<?php echo $buy->city->city_name?></dt>
+                                <dt id="gy_txt_39774" class="qg_txt"><?php echo $buy->supply_name?>，品类：<?php echo $buy->category->term_name?> ， 品质：<?php echo $buy->supply_mu_content?>，联系人：<?php echo $buy->supply_contractor?>，电话：<?php echo $buy->supply_phone?>，提货地：<?php echo $buy->city->city_name?></dt>
                                 <dd>
                                 	<div data="type=tools" id="bdshare_js"></div>
                                     <a class="is_V" href="<?php echo $this->getController()->createUrl('supply/view',array('supply_id'=>$buy->supply_id))?>"><?php echo $buy->user->enterprise->ent_name?></a> 发表于 <?php echo date('Y/m/d',strtotime($buy->supply_join_date))?>

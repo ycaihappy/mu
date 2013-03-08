@@ -158,7 +158,7 @@ class ProductController extends AdminController {
 		{
 			$allCategory=CCacheHelper::getMuCategory();
 			$parentType=$allCategory[$productModel->product_type_id]->term_parent_id;
-			$productSmallTypes=Term::getTermsByGroupId(14,false,$parentType,'选择品类');
+			$productSmallTypes=Term::getTermsByGroupId(14,false,$parentType,'',false);
 		}
 		$unit=Term::getTermsByGroupId(2);
 		$allProvince=City::getProvice();
@@ -171,8 +171,6 @@ class ProductController extends AdminController {
 		}
 		$productType=Term::getTermsByGroupId(14);
 		$productStatus=Term::getTermsByGroupId(1);
-		$muContent=Term::getTermsByGroupId(16);
-		$waterContent=Term::getTermsByGroupId(17);
 		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
 		$this->render('updateProduct',array('model'=>$productModel,
 		'unit'=>$unit,
@@ -184,8 +182,6 @@ class ProductController extends AdminController {
 		'parentProductTypes'=>$parentProductTypes,
 		'productSmallTypes'=>$productSmallTypes,
 		'productStatus'=>$productStatus,
-		'muContent'=>$muContent,
-		'waterContent'=>$waterContent
 		));
 
 	}
@@ -346,9 +342,6 @@ class ProductController extends AdminController {
 			$parentCategory=$allCategory[$supplyModel->supply_category_id]->term_parent_id;
 			$supply_smallType=Term::getTermsByGroupId(14,false,$parentCategory,'选择品类');
 		}
-		$muContent=Term::getTermsByGroupId(16);
-
-		$waterContent=Term::getTermsByGroupId(17);
 		$unit=Term::getTermsByGroupId(2);
 		$allProvince=City::getProvice();
 		$province=0;
@@ -369,8 +362,6 @@ class ProductController extends AdminController {
 			'supplyParentCategory'=>$supplyParentCategory,
 			'supplyCategory'=>$supply_smallType,
 			'supplyStatus'=>$supplyStatus,
-			'muContent'=>$muContent,
-		    'waterContent'=>$waterContent,
 		));
 
 	}

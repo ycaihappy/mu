@@ -9,7 +9,7 @@ $image_coin = ($data['enterprise']['ent_recommend'] == 1) ? 'golden.gif' : 'silv
 				<li style="text-align:center;overflow:hidden;">
                 <img src="images/<?php echo $image_coin;?>" style="float:left;margin-right:10px;"/>
                     <p style="float:left;line-height:20px;"><?php echo $data['enterprise']['ent_name'];?><br />
-<?php echo $business_model[$data['enterprise']['ent_business_model']];?><br />
+<?php echo  $business_model[$data['enterprise']['ent_business_model']];?><br />
                     (<?php echo $citylist[$data['enterprise']['ent_city']];?>)<br />
 					</p>
 			   </li>

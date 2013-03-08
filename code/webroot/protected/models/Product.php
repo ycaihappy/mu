@@ -47,7 +47,7 @@ class Product extends CActiveRecord
 	{
 		if(!$this->hasWaterContent())//只有钼精矿才有含水量
 		{
-			$this->product_type_id=0;
+			$this->product_water_content=0;
 		}
 		return parent::beforeSave();
 	}
@@ -60,12 +60,13 @@ class Product extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('product_user_id,product_mu_content,product_water_content,product_quanity, product_type_id, product_status,product_unit,product_city_id, product_special', 'numerical', 'integerOnly'=>true),
+			array('product_id,product_user_id,product_quanity, product_type_id, product_status,product_unit,product_city_id, product_special', 'numerical', 'integerOnly'=>true),
 			array('product_name, product_unit', 'length', 'max'=>45),
 			array('product_price', 'length', 'max'=>10),
 			array('product_type_id','required'),
 			array('product_location', 'length', 'max'=>100),
 			array('product_join_date', 'safe'),
+			array('product_mu_content,product_water_content','length','max'=>50),
 		);
 	}
 
@@ -82,8 +83,7 @@ class Product extends CActiveRecord
 			'user'=>array(self::BELONGS_TO,'User','product_user_id'),
 			'city'=>array(self::BELONGS_TO,'City','product_city_id'),
 			'unit'=>array(self::BELONGS_TO,'Term','product_unit'),
-			'muContent'=>array(self::BELONGS_TO,'Term','product_mu_content'),
-			'waterContent'=>array(self::BELONGS_TO,'Term','product_water_content'),
+			
 		);
 	}
 	public function scopes()
@@ -93,7 +93,7 @@ class Product extends CActiveRecord
 			'recenltyUncheckSpecial'=>array('select'=>'product_id,product_name,product_join_date','condition'=>'product_status=20 and product_special=1','order'=>'product_join_date desc','limit'=>8),
             'topSpecial'=>array(
 				'select'=>'product_id,product_name,product_mu_content,product_quanity',
-				'with'=>array('city'=>array('select'=>'city_name'),'unit'=>array('select'=>'term_name'),'muContent'=>array('select'=>'term_name')),
+				'with'=>array('city'=>array('select'=>'city_name'),'unit'=>array('select'=>'term_name')),
 	            'condition'=>'product_status=1 and product_special=1',
 	            'order'=>'product_join_date desc',
 	            'limit'=>10

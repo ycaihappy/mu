@@ -41,18 +41,18 @@ $this->breadcrumbs=array(
                     'data'=>array('parent_id'=>"js:this.value",'group_id'=>14)
 				),
 		)); ?>
-		<?php echo $form->dropDownList($model,'product_type_id',$productSmallTypes); ?>
+		<?php echo $form->dropDownList($model,'product_type_id',$productSmallTypes,array('empty'=>'选择品类')); ?>
 		<?php echo $form->error($model,'product_type_id'); ?></td>
 </tr>
 <tr>
 <td class="label">品质：</td>
-		<td><?php echo $form->dropDownList($model,'product_mu_content',$muContent); ?>
-		<?php echo $form->error($model,'product_mu_content'); ?></td>
+		<td><?php echo $form->textField($model,'product_mu_content'); ?>
+		</td>
 </tr>
 <tr id="water_content_tr" style="display:<?php if(!$model->hasWaterContent()) echo 'none'?>">
 <td class="label" >含水量：</td>
-		<td><?php echo $form->dropDownList($model,'product_water_content',$waterContent); ?>
-		<?php echo $form->error($model,'product_water_content'); ?></td>
+		<td><?php echo $form->textField($model,'product_water_content'); ?>
+		</td>
 </tr>
 <tr>
 <td class="label">名称：</td>

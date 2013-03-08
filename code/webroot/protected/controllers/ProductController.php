@@ -36,7 +36,6 @@ class ProductController extends Controller
                 'city'=>array('select'=>'city_name'),
                 'type'=>array('select'=>'term_name'),
                 'unit'=>array('select'=>'term_name'),
-                'muContent'=>array('select'=>'term_name'),
                 );
                 $criteria->addCondition("product_special=1 and product_status=1");
 
@@ -51,10 +50,8 @@ class ProductController extends Controller
             $city  = City::getAllCity();
             $category = Term::model()->getTermsByGroupId(14);
         }
-        $allMuContent=Term::getTermsByGroupId(16);
-        $allWaterContent=Term::getTermsByGroupId(17);
 
-        $this->render('list',array('mucontent'=>$allMuContent, 'watercontent'=>$allWaterContent,'data'=>$list,'category'=>$category,'city'=>$city,'pager'=>$pager));
+        $this->render('list',array( 'data'=>$list,'category'=>$category,'city'=>$city,'pager'=>$pager));
     }
 
 	/**
@@ -69,8 +66,8 @@ class ProductController extends Controller
 		Yii::import('application.packages.apache_solr.Service');
 		$bigType=@$_REQUEST['bigType'];
 		$smallType=@$_REQUEST['smallType'];
-		$muContent=@$_REQUEST['muContent'];
-		$waterContent=@$_REQUEST['waterContent'];
+		//$muContent=@$_REQUEST['muContent'];
+		//$waterContent=@$_REQUEST['waterContent'];
 		$enterprise=@$_REQUEST['enterprise'];
 		$keyword=@$_REQUEST['keyword'];
 		$province=@$_REQUEST['province'];
@@ -88,7 +85,7 @@ class ProductController extends Controller
 				$query=$typsQuery;
 			}
 		}
-		if($muContent)
+		/*if($muContent)
 		{
 			$asCriteria->addCondition("product_mu_content:{$muContent}");
 			$query.=($query?' AND ':'')."product_mu_content:{$muContent}";
@@ -96,7 +93,7 @@ class ProductController extends Controller
 		if($waterContent)
 		{
 			$query.=($query?' AND ':'')."product_water_content:{$waterContent}";
-		}
+		}*/
 		if($enterprise || $keyword)
 		{
 			if($enterprise && $keyword)
@@ -139,12 +136,10 @@ class ProductController extends Controller
 				$products[]=$doc->product_id;
 			}
 			$productCriteria=new CDbCriteria();
-			$productCriteria->select='product_id,product_city_id,product_name,product_price,product_quanity,product_join_date';
+			$productCriteria->select='product_id,product_mu_content,product_water_content,product_city_id,product_name,product_price,product_quanity,product_join_date';
 			$productCriteria->with=array('user.enterprise'=>array('select'=>'ent_name'),
 			'type'=>array('select'=>'term_name'),
 			'unit'=>array('select'=>'term_name'),
-			'muContent'=>array('select'=>'term_name'),
-			'waterContent'=>array('select'=>'term_name'),
 			'city'=>array('select'=>'city_name'),
 			);
 			$productCriteria->addInCondition('product_id',$products);
@@ -154,7 +149,6 @@ class ProductController extends Controller
 		$muCategory=Term::getTermsByGroupId(14,true,null,'全部');
 		$allProvince=City::getProvice('全部');
 		$allCategory=Term::getTermsByGroupId(14,true,null,'全部');
-		$allMuContent=Term::getTermsByGroupId(16,true,null,'全部');
 		$allSmallType=array();
 		if($bigType)
 		{
@@ -162,7 +156,7 @@ class ProductController extends Controller
 		}
 		$baseUrl=$this->createUrl('index');
 		$data=compact('baseUrl','pager','products','muCategory',
-		'allProvince','allCategory','muContent','allMuContent','allSmallType','province','bigType','smallType','enterprise','keyword');
+		'allProvince','allCategory','muContent','allSmallType','province','bigType','smallType','enterprise','keyword');
 		$this->render('index',$data);
 	}
 

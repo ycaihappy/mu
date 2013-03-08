@@ -62,6 +62,10 @@ class UserController extends Controller {
         {
             $error['repwd'] = '密码不一致';
         }
+        if ( strlen($_REQUEST['pwd']) < 6)
+        {
+            $error['pwd'] = '密码至少6位';
+        }
         if (!empty($error))
         {
             echo json_encode(array('status'=>0,'data'=>$error));

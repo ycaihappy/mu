@@ -133,5 +133,6 @@ $this->breadcrumbs=array(
 <td align='right' colspan=2><?php echo CHtml::submitButton('保存'); ?></td>
 </tr>
 </table>
+<br /><br />
 <?php $this->endWidget(); ?>
 </div><!-- form -->

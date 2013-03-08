@@ -79,7 +79,6 @@ class UserController extends Controller {
         $u_model->user_mobile_no = $_REQUEST['mobile_number'];
         $u_model->user_status = 1;
         $u_model->user_join_date = date("Y-m-d");
-        $u_model->user_subscribe = $_REQUEST['newsletter'];
 
         $u_model->save();
 

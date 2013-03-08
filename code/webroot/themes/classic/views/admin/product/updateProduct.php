@@ -31,7 +31,17 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">品类：</td>
-		<td><?php echo $form->dropDownList($model,'product_type_id',$productType); ?>
+		<td>
+		<?php
+		echo CHtml::dropDownList('productParentType',$parentType,$parentProductTypes,array(
+		 'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getChildrenTerm'),
+                    'update'=>'#Product_product_type_id',
+                    'data'=>array('parent_id'=>"js:this.value",'group_id'=>14)
+				),
+		)); ?>
+		<?php echo $form->dropDownList($model,'product_type_id',$productSmallTypes); ?>
 		<?php echo $form->error($model,'product_type_id'); ?></td>
 </tr>
 <tr>
@@ -62,7 +72,14 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">地点：</td>
-		<td><?php echo $form->dropDownList($model,'product_city_id',$allCity); ?>
+		<td><?php echo CHtml::dropDownList('province',$province,$allProvince,array(
+			'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getCity'),
+                    'update'=>'#Product_product_city_id',
+                    'data'=>array('province_id'=>"js:this.value")
+				),
+		)); ?>  <?php echo $form->dropDownList($model,'product_city_id',$allCity,array('empty'=>'选择城市')); ?>
 		<?php echo $form->error($model,'product_city_id'); ?></td>
 </tr>
 

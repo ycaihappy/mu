@@ -71,11 +71,12 @@ class Term extends CActiveRecord
 			if($top)
 			{
 				$termCritria->compare('term_parent_id','=0');
-			}
-			if($parent)
-			{
-				$termCritria->addCondition('term_parent_id=:parent_id');
-				$termCritria->params[':parent_id']=$parent;
+			}else{
+				if($parent)
+				{
+					$termCritria->addCondition('term_parent_id=:parent_id');
+					$termCritria->params[':parent_id']=$parent;
+				}
 			}
 			$termCritria->addCondition('term_group_id=:groupId');
 			$termCritria->params[':groupId']=$groupId;
@@ -89,10 +90,11 @@ class Term extends CActiveRecord
 				}
 				$returnTerms=array();
 				if($needEmpty){
-					$returnTerms[]=$empty;
+					$returnTerms[0]=$empty;
 				}
 				foreach($terms as $term)
 				{
+					
 					$returnLayer=array();
 					$parent=$term->term_parent_id;
 					while($parent&&isset($returnTermsTermp[$parent]))

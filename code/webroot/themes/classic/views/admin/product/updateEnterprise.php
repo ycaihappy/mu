@@ -46,7 +46,14 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">地点：</td>
-		<td><?php echo $form->dropDownList($model,'ent_city',$allCity); ?>
+		<td><?php echo CHtml::dropDownList('province',$province,$allProvince,array(
+			'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getCity'),
+                    'update'=>'#Enterprise_ent_city',
+                    'data'=>array('province_id'=>"js:this.value")
+				),
+		)); ?> <?php echo $form->dropDownList($model,'ent_city',$allCity,array('empty'=>'选择城市')); ?>
 		<?php echo $form->error($model,'ent_city'); ?></td>
 </tr>
 <tr>

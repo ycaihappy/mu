@@ -1,7 +1,17 @@
 <?php
 class ProductController extends AdminController {
 
-	
+	public function actions() {
+		return array (
+		'getCity'=>array(
+			'class'=>'CGetCityAction',
+		),
+		'getChildrenTerm'=>array(
+			'class'=>'CGetChildrenTermsAction',
+			'emptySelect'=>'选择品类',
+		),
+		);
+	}
 	public function actionManageProduct()
 	{
 		$productResult=$this->_manageProduct(0);
@@ -53,7 +63,7 @@ class ProductController extends AdminController {
 								'Product[product_status]'=>$model->product_status,
 								'Product[product_user_id]'=>$model->product_user_id,
 								'Product[product_name]'=>$model->product_name,
-							),
+		),
 		),
 		));
 		$products=$dataProvider->data;
@@ -93,7 +103,7 @@ class ProductController extends AdminController {
 				Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的供求信息，以及改变的状态');
 				$this->redirect($redirectAction);
 			}
-				
+
 		}
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('supply_id', $supplyIds);
@@ -139,10 +149,26 @@ class ProductController extends AdminController {
 		}
 		if($productId=@$_REQUEST['product_id']){
 			$productModel=Product::model()->with(array('user.enterprise'=>array('select'=>'ent_name'),'user'=>array('select'=>'user_name')))->findByPk($productId);
-			
+				
+		}
+		$parentProductTypes= Term::getTermsByGroupId(14,true);
+		$parentType=0;
+		$productSmallTypes=array();
+		if($productModel->product_type_id)
+		{
+			$allCategory=CCacheHelper::getMuCategory();
+			$parentType=$allCategory[$productModel->product_type_id]->term_parent_id;
+			$productSmallTypes=Term::getTermsByGroupId(14,false,$parentType,'选择品类');
 		}
 		$unit=Term::getTermsByGroupId(2);
-		$allCity=City::getAllCity();
+		$allProvince=City::getProvice();
+		$province=0;
+		$allCity=array();
+		if($productModel->product_city_id)
+		{
+			$province=City::getParentId($productModel->product_city_id);
+			$allCity=City::getAllCity($province);
+		}
 		$productType=Term::getTermsByGroupId(14);
 		$productStatus=Term::getTermsByGroupId(1);
 		$muContent=Term::getTermsByGroupId(16);
@@ -150,8 +176,13 @@ class ProductController extends AdminController {
 		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
 		$this->render('updateProduct',array('model'=>$productModel,
 		'unit'=>$unit,
+		'province'=>$province,
+		'allProvince'=>$allProvince,
 		'allCity'=>$allCity,
 		'productType'=>$productType,
+		'parentType'=>$parentType,
+		'parentProductTypes'=>$parentProductTypes,
+		'productSmallTypes'=>$productSmallTypes,
 		'productStatus'=>$productStatus,
 		'muContent'=>$muContent,
 		'waterContent'=>$waterContent
@@ -164,7 +195,7 @@ class ProductController extends AdminController {
 		$productIds=@$_REQUEST['product_id'];
 		if(!$productIds && in_array($toStatus,array(1,2)))
 		{
-				
+
 			if(Yii::app()->request->isAjaxRequest)
 			{
 				echo '请求参数不正确！';
@@ -174,7 +205,7 @@ class ProductController extends AdminController {
 				Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的现货或特价信息，以及改变的状态');
 				$this->redirect(array($redirectPage));
 			}
-				
+
 		}
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('product_id', $productIds);
@@ -256,7 +287,7 @@ class ProductController extends AdminController {
 								'Supply[supply_status]'=>$model->supply_status,
 								'Supply[supply_user_id]'=>$model->supply_user_id,
 								'Supply[supply_name]'=>$model->supply_name,
-							),
+		),
 		),
 		));
 		$supplys=$dataProvider->data;
@@ -301,25 +332,46 @@ class ProductController extends AdminController {
 				$action=$model->supply_type==18?'manageSupply':'manageBuy';
 				$this->redirect(array($action));
 			}
-			
+				
 		}
 		if($supplyId=@$_REQUEST['supply_id']){
 			$supplyModel=Supply::model()->with(array('user.enterprise'=>array('select'=>'ent_name'),'user'=>array('select'=>'user_name')))->findByPk($supplyId);
 		}
+		$supplyParentCategory= Term::getTermsByGroupId(14,true);
+		$parentCategory=0;
+		$supply_smallType=array();
+		if($supplyModel->supply_category_id)
+		{
+			$allCategory=CCacheHelper::getMuCategory();
+			$parentCategory=$allCategory[$supplyModel->supply_category_id]->term_parent_id;
+			$supply_smallType=Term::getTermsByGroupId(14,false,$parentCategory,'选择品类');
+		}
 		$muContent=Term::getTermsByGroupId(16);
+
 		$waterContent=Term::getTermsByGroupId(17);
-			$unit=Term::getTermsByGroupId(2);
-			$allCity=City::getAllCity();
-			$supplyCategory=Term::getTermsByGroupId(14);
-			$supplyStatus=Term::getTermsByGroupId(1);
-			$this->render('updateSupply',array('model'=>$supplyModel,
+		$unit=Term::getTermsByGroupId(2);
+		$allProvince=City::getProvice();
+		$province=0;
+		$allCity=array();
+		if($supplyModel->supply_city_id)
+		{
+			$province=City::getParentId($supplyModel->supply_city_id);
+			$allCity=City::getAllCity($province);
+		}
+		$supplyCategory=Term::getTermsByGroupId(14);
+		$supplyStatus=Term::getTermsByGroupId(1);
+		$this->render('updateSupply',array('model'=>$supplyModel,
 			'unit'=>$unit,
+			'province'=>$province,
+			'allProvince'=>$allProvince,
 			'allCity'=>$allCity,
-			'supplyCategory'=>$supplyCategory,
+			'parentCategory'=>$parentCategory,
+			'supplyParentCategory'=>$supplyParentCategory,
+			'supplyCategory'=>$supply_smallType,
 			'supplyStatus'=>$supplyStatus,
 			'muContent'=>$muContent,
 		    'waterContent'=>$waterContent,
-			));
+		));
 
 	}
 	public function actionManageEnterprise()
@@ -366,16 +418,16 @@ class ProductController extends AdminController {
 						'Enterprise[ent_status]'=>$model->ent_status,
 						'Enterprise[ent_business_model]'=>$model->ent_business_model,
 						'Enterprise[ent_name]'=>$model->ent_name,
-					),
+		),
 		),
 		));
 		$enterprises=$dataProvider->data;
 		foreach ($enterprises as &$enterprise)
 		{
 			if($enterprise->ent_city)
-				$enterprise->ent_city=$this->_getCityLayer($enterprise->ent_city);
+			$enterprise->ent_city=$this->_getCityLayer($enterprise->ent_city);
 			else {
-					$enterprise->ent_city='未指定';
+				$enterprise->ent_city='未指定';
 			}
 		}
 		$businessModel=Term::getTermsByGroupId(5);
@@ -402,7 +454,7 @@ class ProductController extends AdminController {
 			}
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的企业信息，以及改变的状态');
 			$this->redirect(array($redirectPage));
-				
+
 		}
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('ent_id', $entIds);
@@ -424,8 +476,8 @@ class ProductController extends AdminController {
 	}
 	public function actionUpdateEnterprise()
 	{
+		$model=new Enterprise();
 		if (isset($_POST['Enterprise'])) {//update to database
-			$model=new Enterprise();
 			$model->attributes=$_POST['Enterprise'];
 			if($model->ent_id)$model->setIsNewRecord(false);
 			if($model->save())
@@ -433,32 +485,35 @@ class ProductController extends AdminController {
 				//redirect to manage page
 				$this->redirect(array('manageEnterprise'));
 			}
-			else {
-				//redirect to create/update page when error(es) occured
-				$enterprise=Enterprise::model()->findByPk($model->ent_id);
-				$this->_loadEnterprise($model->ent_id);
-			}
 		}
-		else {
-			$entId=@$_REQUEST['ent_id'];
-			$this->_loadEnterprise($entId);
-		}
+		$entId=@$_REQUEST['ent_id'];
+		$this->_loadEnterprise($entId,$model);
+
 
 	}
-	private function _loadEnterprise($entId)
+	private function _loadEnterprise($entId,$enterprise)
 	{
-		$entId=$entId;
+		if($entId)
 		$enterprise=Enterprise::model()->with(array('user'=>array('select'=>'user_name')))->findByPk($entId);
 		$businessModel=Term::getTermsByGroupId(5);
 		$type=Term::getTermsByGroupId(4);
 		$entStatus=Term::getTermsByGroupId(1);
 		$pos=Term::getTermsByGroupId(3);
-		$allCity=City::getAllCity();
+		$allProvince=City::getProvice();
+		$province=0;
+		$allCity=array();
+		if($enterprise->ent_city)
+		{
+			$province=City::getParentId($enterprise->ent_city);
+			$allCity=City::getAllCity($province);
+		}
 		$this->render('updateEnterprise',array('model'=>$enterprise,
 			'businessModel'=>$businessModel,
 			'type'=>$type,
 			'entStatus'=>$entStatus,
 			'allCity'=>$allCity,
+			'province'=>$province,
+			'allProvince'=>$allProvince,
 			'pos'=>$pos,
 		));
 	}

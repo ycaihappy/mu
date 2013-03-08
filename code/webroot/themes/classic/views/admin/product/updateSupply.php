@@ -31,7 +31,17 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">品类：</td>
-		<td><?php echo $form->dropDownList($model,'supply_category_id',$supplyCategory); ?>
+		<td><?php
+
+		echo CHtml::dropDownList('parentCategory',$parentCategory,$supplyParentCategory,array(
+		 'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getChildrenTerm'),
+                    'update'=>'#Supply_supply_category_id',
+                    'data'=>array('parent_id'=>"js:this.value",'group_id'=>14)
+				),
+		)); ?>
+		<?php echo $form->dropDownList($model,'supply_category_id',$supplyCategory,array('empty'=>'选择品类')); ?>
 		<?php echo $form->error($model,'supply_category_id'); ?></td>
 </tr>
 <tr>
@@ -64,7 +74,16 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">地区：</td>
-		<td><?php echo $form->dropDownList($model,'supply_city_id',$allCity); ?>
+		<td><?php echo CHtml::dropDownList('province',$province,$allProvince,array(
+			'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getCity'),
+                    'update'=>'#Supply_supply_city_id',
+                    'data'=>array('province_id'=>"js:this.value")
+				),
+		)); ?> 
+		
+		<?php echo $form->dropDownList($model,'supply_city_id',$allCity,array('emtpy'=>'请选择城市')); ?>
 		<?php echo $form->error($model,'supply_city_id'); ?></td>
 </tr>
 <tr>

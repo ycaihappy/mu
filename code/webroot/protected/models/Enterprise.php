@@ -46,7 +46,7 @@ class Enterprise extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('ent_name', 'required'),
-			array('ent_id,ent_status, ent_user_id, ent_chief_postion, ent_recommend', 'numerical', 'integerOnly'=>true),
+			array('ent_id,ent_city,ent_status,ent_type,ent_business_model,ent_chief_postion, ent_user_id, ent_chief_postion, ent_recommend', 'numerical', 'integerOnly'=>true),
 			array('ent_name', 'length', 'max'=>256),
 			array('ent_website, ent_business_scope', 'length', 'max'=>512),
 			array('ent_zipcode', 'length', 'max'=>32),
@@ -58,7 +58,7 @@ class Enterprise extends CActiveRecord
 			array('ent_introduce', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('ent_id, ent_user_id, ent_name, ent_website, ent_zipcode, ent_introduce, ent_location, ent_chief, ent_chief_postion, ent_business_scope, ent_registered_capital, ent_recommend', 'safe', 'on'=>'search'),
+			array('ent_id, ent_user_id, ent_name, ent_website, ent_zipcode, ent_introduce, ent_location, ent_chief, ent_chief_postion, ent_business_scope, ent_registered_capital, ent_recommend', 'safe'),
 		);
 	}
 

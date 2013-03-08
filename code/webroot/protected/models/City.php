@@ -117,6 +117,18 @@ class City extends CActiveRecord
 		$cityLayer=$noCityText;
 		return $cityLayer;
 	}
+	public static function getParentId($cityId)
+	{
+		if(!self::$cityCache)
+		{
+			self::$cityCache=CCacheHelper::getAllCity();
+		}
+		if(isset(self::$cityCache[$cityId]))
+		{
+			return self::$cityCache[$cityId]->city_parent;
+		}
+		return false;
+	}
 	public static function getProvice($emptyProvice='全部')
 	{
 		if(!self::$cityCache)

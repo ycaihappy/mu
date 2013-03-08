@@ -49,8 +49,8 @@ class Supply extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('supply_id,supply_unit, supply_user_id', 'required'),
-			array('supply_id, supply_user_id,supply_mu_content,supply_water_content,  supply_type, supply_category_id, supply_status, supply_recommend', 'numerical', 'integerOnly'=>true),
+			array('supply_unit, supply_user_id', 'required'),
+			array('supply_id, supply_city_id,supply_user_id,supply_mu_content,supply_water_content,  supply_type, supply_category_id, supply_status, supply_recommend', 'numerical', 'integerOnly'=>true),
 			array('supply_keyword, supply_content,supply_check_by', 'length', 'max'=>128),
 			array('supply_contractor, supply_phone', 'length', 'max'=>32),
 			array('supply_address', 'length', 'max'=>100),
@@ -59,7 +59,7 @@ class Supply extends CActiveRecord
 			array('supply_valid_date, supply_join_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('supply_id, supply_user_id, supply_type, supply_keyword, supply_category_id, supply_contractor, supply_content, supply_address, supply_status, supply_phone, supply_price, supply_valid_date, supply_check_by, supply_recommend, supply_image_src, supply_join_date', 'safe', 'on'=>'search'),
+			array('supply_id, supply_user_id, supply_type, supply_keyword, supply_category_id, supply_contractor, supply_content, supply_address, supply_status, supply_phone, supply_price, supply_valid_date, supply_check_by, supply_recommend, supply_image_src, supply_join_date', 'safe'),
 		);
 	}
 

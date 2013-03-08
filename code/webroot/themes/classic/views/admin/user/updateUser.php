@@ -63,8 +63,15 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">地点：</td>
-		<td><?php echo $form->dropDownList($model,'user_city_id',$allCity); ?>
-		<?php echo $form->error($model,'user_city_id'); ?></td>
+		<td><?php echo $form->dropDownList($model,'user_province_id',$allProvince,array(
+			'ajax'=>array(
+					'type'=>'GET',
+                    'url'=>CController::createUrl('getCity'),
+                    'update'=>'#User_user_city_id',
+                    'data'=>array('province_id'=>"js:this.value")
+				),
+		)); ?>  <?php echo $form->dropDownList($model,'user_city_id',$allCity); ?>
+		<?php echo $form->error($model,'user_province_id'); ?><?php echo $form->error($model,'user_city_id'); ?></td>
 </tr>
 <tr>
 <td class="label">是否开启旺铺模板：</td>

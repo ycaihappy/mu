@@ -2,6 +2,13 @@
 
 class UserController extends AdminController
 {
+	public function actions() {
+		return array (
+		'getCity'=>array(
+			'class'=>'CGetCityAction',
+		),
+		);
+	}
 
 	/**
 	 * @return array action filters
@@ -158,7 +165,7 @@ class UserController extends AdminController
 					}
 				}
 			}
-				
+
 			$dataProvider=new CArrayDataProvider($opers,array(
 				'keyField'=>false,
 				'pagination'=>array(
@@ -192,7 +199,7 @@ class UserController extends AdminController
 		));
 		$this->render('autoGenerateOpers',array('dataProvider'=>$dataProvider));
 	}
-	
+
 
 	private function _getAllRightActions()
 	{
@@ -283,7 +290,7 @@ class UserController extends AdminController
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Getting a controllers actions and also th actions that are always allowed
 	 * return array
@@ -462,7 +469,7 @@ class UserController extends AdminController
 		}
 		echo json_encode($returnData);
 	}
-	
+
 
 	/**
 	 * Assigns child items to a parent item
@@ -623,7 +630,7 @@ class UserController extends AdminController
 		{
 			$model->attributes=$_POST['User'];
 			if($model->user_id)$model->setIsNewRecord(false);
-			
+				
 			if($model->save())
 			{
 				$this->redirect(array('manageUser'));
@@ -661,13 +668,19 @@ class UserController extends AdminController
 			$model=$model->with(array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name')))->findByPK($userId);
 		if($model)
 		{
-			$allCity=City::getAllCity();
+			$allProvince=City::getProvice();
+			$allCity=array();
+			if($model->user_province_id)
+			{
+				$allCity=City::getAllCity($model->user_province_id);
+			}
 			$userStatus=Term::getTermsByGroupId(1);
 			$userTemplate=UserTemplate::getAllTemplate();
 			$this->render('updateUser',
 			array('model'=>$model,
 			'userStatus'=>$userStatus,
 			'allCity'=>$allCity,
+			'allProvince'=>$allProvince,
 			'userTemplate'=>$userTemplate,
 			));
 		}
@@ -884,10 +897,10 @@ class UserController extends AdminController
 		$templateId=@$_REQUEST['temp_id'];
 		if(!$templateId && in_array($toStatus,array(1,2)))
 		{
-				
+
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的模板信息，以及改变的状态');
 			$this->redirect(array($redirectPage));
-				
+
 		}
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('temp_id', $templateId);
@@ -959,13 +972,13 @@ class UserController extends AdminController
 				'params'=>array(
 					'FriendLink[flink_status]'=>$model->flink_status,
 					'FriendLink[flink_name]'=>$model->flink_name,
-				),
-			),
+		),
+		),
 		));
 		$flinkStatus=Term::getTermsByGroupId(1);
 		$data=compact('dataProvider','flinkStatus','model');
 		$this->render('manageFLink',$data);
-		
+
 	}
 	public function actionUpdateFLink()
 	{
@@ -993,14 +1006,14 @@ class UserController extends AdminController
 		$flinkIds=@$_REQUEST['flink_id'];
 		if(!$flinkIds && in_array($toStatus,array(1,2)))
 		{
-				
+
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的友情链接，以及改变的状态');
 			$this->redirect(array('manageFLink'));
-				
+
 		}
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('flink_id', $productIds);
-		
+
 		$updateRows=FriendLink::model()->updateAll(array('flink_status'=>$toStatus),$updateStatusCriteria);
 		if($updateRows>0)
 		{
@@ -1010,7 +1023,7 @@ class UserController extends AdminController
 			Yii::app()->admin->setFlash('changeStatusError','更新异常');
 		}
 		$this->redirect(array('manageFLink','page'=>Yii::app()->request->getParam('page',1)));
-		
+
 	}
 	public function actionChangeUserStatus()
 	{
@@ -1020,7 +1033,7 @@ class UserController extends AdminController
 		{
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的用户信息，以及改变的状态');
 			$this->redirect(array('manageUser'));
-				
+
 		}
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('user_id', $userId);

@@ -47,6 +47,30 @@ class UserController extends Controller {
 	}
     public function actionRegisterUser()
     {
+        # check username
+        $user_exist = User::model()->find('user_name=:user_name',array('user_name'=>$_REQUEST['user_name']));
+        $error = array();
+        if ( !empty($user_exist->user_id) )
+        {
+            $error['user_name'] = '用户名已经被注册';
+        }
+        if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $_REQUEST['email']))
+        {
+            $error['email'] = '邮箱格式不正确';
+        }
+        if ( $_REQUEST['pwd'] != $_REQUEST['repwd'])
+        {
+            $error['repwd'] = '密码不一致';
+        }
+        if ( strlen($_REQUEST['pwd']) < 6)
+        {
+            $error['pwd'] = '密码至少6位';
+        }
+        if (!empty($error))
+        {
+            echo json_encode(array('status'=>0,'data'=>$error));
+            exit;
+        }
         $u_model = new User();
         $u_model->user_name  = $_REQUEST['user_name'];
         $u_model->user_email = $_REQUEST['email'];
@@ -54,12 +78,11 @@ class UserController extends Controller {
         $u_model->user_nickname = $_REQUEST['nickname'];
         $u_model->user_province_id = $_REQUEST['user_province_id'];
         $u_model->user_city_id     = $_REQUEST['user_city_id'];
-        $u_model->user_subscribe   = $_REQUEST['newsletter'];
+        $u_model->user_subscribe   = isset($_REQUEST['newsletter']) ? $_REQUEST['newsletter'] : 0;
         $u_model->user_type = $_REQUEST['user_type'];
         $u_model->user_mobile_no = $_REQUEST['mobile_number'];
         $u_model->user_status = 1;
         $u_model->user_join_date = date("Y-m-d");
-        $u_model->user_subscribe = $_REQUEST['newsletter'];
 
         $u_model->save();
 

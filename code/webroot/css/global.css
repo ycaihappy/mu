@@ -373,8 +373,10 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-detail a.btn_lx {background: none repeat scroll 0 0 #E24800 !important;border-color: #B70F0F !important;border-radius: 3px 3px 3px 3px;color: #FFFFFF !important;}
 .m-detail .sellinfo .fr p.btn, .vipinfo {float: left;padding-top: 30px;}
 .m-detail  img{display: block;height: 300px;overflow: hidden;width: 300px;}
+.m-detail .img{width:300px;height:300px;}
 .m-detail .sellinfo .fl {overflow: hidden;width: 300px;	float:left;}
 .m-detail .sellinfo p{line-height:30px;display:block}
+.m-detail .sellinfo {padding-bottom:20px;border-bottom:1px solid #ccc}
 .m-detail .title {margin:20px 0px;}
 .m-detail .orange{color: #FF6600; font: bold 16px/30px Arial,Helvetica,sans-serif;}
 .m-detail .title strong, .m-detail .title h2 {float: left;font-size: 14px;font-weight: bold;}
@@ -382,7 +384,9 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-detail .info{padding: 10px 0;line-height: 26px;}
 .m-detail .proInfo {background-color: #F6F6F6;display: block;line-height: 2;overflow: hidden;padding: 10px 0;width: 100%;}
 .m-detail .proInfo li {display: block;float: left;padding-left: 10px;width: 235px;}
-.m-detail h1{font-size:14px;font-weight:bold}
+.m-detail h1{font-size:16px;font-weight:bold;margin-bottom:10px;}
+.m-detail .fl{float:left;margin-right:10px;}
+.m-detail .fr{float:left;}
 /*m-detail */
 
 /*m-refinfo*/
@@ -657,6 +661,14 @@ padding: 0 20px;
 .m-register .bd .step-3 .msg{color:green; font-family: "Microsoft YaHei","微软雅黑";  font-size: 22px;margin-bottom:30px;}
 .m-register .btn-modify{color:#fff;}
 .m-register .bd .step-3 a{margin-right:10px;}
+.m-register .success-1 i {
+  background: url("imgs/icon.gif") no-repeat scroll 0 0 transparent;
+  float: left;
+  height: 40px;
+  line-height: 30px;
+  margin-right: 20px;
+  width: 48px;
+}
 
 .pw-bar {
     background-color: #5a7387;

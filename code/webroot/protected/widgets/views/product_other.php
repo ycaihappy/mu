@@ -1,5 +1,19 @@
 		<div class="m-refinfo">
-
+			<dl>
+			  <dt><strong>企业信息</strong></dt>
+			  <dd>
+				<ul>
+				<li style="text-align:center;overflow:hidden;">
+					<img src="images/golden.gif" style="float:left;margin-right:10px;"/>
+					<p style="float:left;line-height:20px;">行不行先生<br />
+					铜牌会员<br />
+					(北京)<br />
+					</p>
+			   </li>
+				
+				</ul>
+			  </dd>
+			</dl>
 			<dl>
             <dt><strong><?php echo $data['enterprise']['ent_name'];?></strong></dt>
 			  <dd>				

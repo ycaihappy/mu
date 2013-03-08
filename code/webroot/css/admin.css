@@ -148,7 +148,7 @@ img{border:0px;}
 
 .bgbg{background:url(imgs/admin/center.jpg) no-repeat;}
 .main{width:545px; height:421px;  margin-left:auto; margin-right:auto;}
-.logo{ padding-left:42px; text-align:left;}
+
 .bottom{height:369px;}
 .bgz{ background-image:url(imgs/admin/left.png); width:38px; heigh:377px;vertical-align: top;*background: none;
          filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='corp', src='imgs/admin/left.png');}

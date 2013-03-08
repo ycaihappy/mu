@@ -71,6 +71,8 @@ class UserController extends Controller {
             $e_model->ent_type   = $_REQUEST['company_type'];
             $e_model->ent_location = $_REQUEST['address'];
             $e_model->ent_chief= $_REQUEST['nickname'];
+            $e_model->ent_create_time = date("Y-m-d H:i:s");
+            $e_model->city  = $_REQUEST['user_city_id'];
             $e_model->save();
         }
 

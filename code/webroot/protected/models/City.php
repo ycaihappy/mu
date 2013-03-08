@@ -40,7 +40,7 @@ class City extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-		array('city_name, city_parent', 'required'),
+		array('city_name, city_level,city_parent', 'required'),
 		array('city_id, city_parent, city_level, city_order', 'numerical', 'integerOnly'=>true),
 		array('city_name', 'length', 'max'=>128),
 		array('city_open', 'length', 'max'=>45),
@@ -149,7 +149,7 @@ class City extends CActiveRecord
 	}
 	public function beforeSave()
 	{
-		if($this->isNewRecord)
+		if($this->isNewRecord&&!$this->city_level)
 		{
 			if($this->city_parent!=0)
 			{

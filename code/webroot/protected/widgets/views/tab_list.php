@@ -32,9 +32,9 @@ $title = '现货';
 			<?php for($index=0;$index<count($data);$index++):
 						if($index==0):
 						?>
-                            <li class="b"><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id']));?>"><?php echo $data[$index][$key] ?></a></li>
+                            <li class="b"><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id']));?>"><?php echo $data[$index][$key] ?></a><em><?php echo date("m-d", strtotime($data[$index]['supply_join_date']));?></em></li>
 							<?php else :?>
-                            <li><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id']));?>" target="_blank"><?php echo $data[$index][$key] ?></a></li>
+                            <li><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data[$index]['supply_id']));?>" target="_blank"><?php echo $data[$index][$key] ?></a><em><?php echo date("m-d", strtotime($data[$index]['supply_join_date']));?></em></li>
 							<?php endif;?>
 					<?php endfor;?>			
 				</ul>

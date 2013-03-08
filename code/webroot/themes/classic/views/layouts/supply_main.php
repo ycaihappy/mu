@@ -20,11 +20,11 @@
                 	<li class="bgnone"><a href="<?php $this->createUrl('/supply/index')?>" title="供求首页">供求首页</a></li>
                     <li><a href="<?php echo $this->createUrl('/supply/list',array('type'=>1))?>" title="供应">供应</a></li>
                     <li><a href="<?php echo $this->createUrl('/supply/list',array('type'=>2))?>" title="求购">求购</a></li>
-                    <li><a href="<?php echo $this->createUrl('/supply/list',array('type'=>3))?>" title="特价">特价</a></li>
+                    <li><a href="<?php echo $this->createUrl('/product/list',array('type'=>1))?>" title="特价">特价</a></li>
                     <li><a href="<?php echo $this->createUrl('/product/index')?>" title="现货资源">现货资源</a></li>
                     <li><a href="<?php echo $this->createUrl('/price/index')?>" title="行情中心">行情中心</a></li>
                     <li><a href="<?php echo $this->createUrl('/knowledge/list')?>" title="钼百科">钼百科</a></li>
-                    <li><a href="<?php echo $this->createUrl('/news/index')?>" title="钼百科">新闻资讯</a></li>
+                    <li><a href="<?php echo $this->createUrl('/news/index')?>" title="新闻资讯">新闻资讯</a></li>
                 </ul>
 		</div>
 	</div>

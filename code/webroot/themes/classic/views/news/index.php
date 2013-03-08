@@ -88,7 +88,7 @@
 		<!--module-->
 		</div>
 		
-		<div class="m-tab-list right">
+		<div class="m-tab-list newest-list right">
 			<?php $this->widget('Newest10NewsWidget');?>
 		</div>
 		<div class="clearfix"></div>

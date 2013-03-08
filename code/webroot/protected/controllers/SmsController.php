@@ -23,7 +23,7 @@ class SmsController extends Controller
             echo json_encode(array('status'=>1,'data'=>array()));
         }
         else
-            echo json_encode(array('status'=>0,'data'=>array('mobile_number'=>'手机号非法')));
+            echo json_encode(array('status'=>0,'data'=>array('mobile_number'=>'手机号格式不正确')));
         exit;
 	}
 
@@ -31,6 +31,12 @@ class SmsController extends Controller
 	{
         $_GET['sms_code'] = '123456';
         $_GET['mobile_no'] = $_REQUEST['mobile_number'];
+
+        if ( empty($_REQUEST['mobile_number']) )
+        {
+            echo json_encode(array('status'=>0,'data'=>array('mobile_number'=>'手机号不允许为空!')));
+            exit;
+        }
         $model = new SmsCode();
         $ok = $model->find("mobile_no=:mobile_no and sms_code=:sms_code and sms_status=0", array('sms_code'=>$_GET['sms_code'], 'mobile_no'=>$_GET['mobile_no']));
         if ( $ok )

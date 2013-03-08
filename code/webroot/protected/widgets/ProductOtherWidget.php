@@ -11,6 +11,8 @@ class ProductOtherWidget extends CWidget
 
     public function run()
     {
-        $this->render('product_other',array('data'=>$this->ent_info));
+        $citylist = City::getCityList();
+        $bussiness_model = Term::model()->getTermsByGroupId(5);
+        $this->render('product_other',array('data'=>$this->ent_info,'citylist'=>$citylist, 'business_model'=>$bussiness_model));
     }
 }

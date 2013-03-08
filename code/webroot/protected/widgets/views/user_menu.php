@@ -45,7 +45,7 @@ case 'glist':
 	<h3><a>用户管理</a></h3>
 	<ul>
     <li class="<?php echo $class_user;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/detail');?>" >基本信息</a></li>
-   <!-- <li class="<?php echo $class_password;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/password');?>" >修改密码</a></li>-->
+    <li class="<?php echo $class_password;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/password');?>" >修改密码</a></li>
 		<!-- <li><a href="#" >账号升级</a></li> -->
 	</ul>
 	<h3><a>企业管理</a></h3>

@@ -6,15 +6,14 @@ class PasswordForm extends CFormModel
     public $new_pwd;
     public $new_repwd;
 
-
 	/**
 	 * Declares the validation rules.
 	 */
 	public function rules()
     {
         return array(
-        array('old_pwd','safe'),
-        array('new_pwd','safe'),
+        array('old_pwd','required','message'=>'不允许为空'),
+        array('new_pwd','required','message'=>'不允许为空'),
         array('new_repwd','safe'),
         );
     }
@@ -30,11 +29,12 @@ class PasswordForm extends CFormModel
 
 	public function save()
 	{
-        $addsql = "update mu_user set user_pwd=:user_pwd where user_id=:user_id";
+        $addsql = "update mu_user set user_pwd=:user_pwd where user_id=:user_id and user_pwd=:old_user_pwd";
 
         $commd = Yii::app()->db->createCommand($addsql);
 
         $commd->bindValue(":user_pwd", md5($this->new_pwd), PDO::PARAM_STR);
+        $commd->bindValue(":old_user_pwd", md5($this->old_pwd), PDO::PARAM_STR);
         $commd->bindValue(":user_id", yii::app()->user->getID(), PDO::PARAM_STR);
 
         $commd->execute();

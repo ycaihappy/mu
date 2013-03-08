@@ -156,7 +156,14 @@ class UserController extends Controller {
 		$this->render ( 'company' ,array('model'=>$model,'allProvince'=>$allProvince,'allCity'=>$allCity,'province'=>$province,'city'=>$allCity,'ent_type'=>$ent_type));
 	}
 	public function actionPassword() {
-		$this->render ( 'password' );
+        $model = new PasswordForm();
+        if (isset($_POST['PasswordForm']))
+        {
+            $model->attributes = $_POST['PasswordForm'];
+            if ( $model->validate())
+                $model->save();
+        }
+		$this->render ( 'password' ,array('model'=>$model));
 	}
     public function actionCase()
     {

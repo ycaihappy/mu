@@ -372,7 +372,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-detail .sellinfo .fr p.btn a, .m-detail a.btn_free, .m-detail .vipinfo .btn a {display: inline-block;height: 31px;margin-right: 10px;width: 100px;}
 .m-detail a.btn_lx {background: none repeat scroll 0 0 #E24800 !important;border-color: #B70F0F !important;border-radius: 3px 3px 3px 3px;color: #FFFFFF !important;}
 .m-detail .sellinfo .fr p.btn, .vipinfo {float: left;padding-top: 30px;}
-.m-detail  img{display: block;height: 300px;overflow: hidden;width: 300px;}
+.m-detail  img{display: block;height: 275px;overflow: hidden;width: 275px;}
 .m-detail .img{width:300px;height:300px;}
 .m-detail .sellinfo .fl {overflow: hidden;width: 300px;	float:left;}
 .m-detail .sellinfo p{line-height:30px;display:block}

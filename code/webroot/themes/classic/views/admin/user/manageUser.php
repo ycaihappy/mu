@@ -56,7 +56,7 @@ if(!$adminUser):
 	$alertTitle='用户';
 	$this->widget('zii.widgets.jui.CJuiButton',
 		array(
-			'name'=>'button',
+			'name'=>'pass',
 				'caption'=>'通过审核',
 			'value'=>'asd',
 			'onclick'=>'js:function(){
@@ -76,7 +76,7 @@ if(!$adminUser):
 	);
 	$this->widget('zii.widgets.jui.CJuiButton',
 		array(
-			'name'=>'button2',
+			'name'=>'refuse',
 				'caption'=>'拒绝通过',
 			'value'=>'asd',
 			'onclick'=>'js:function(){

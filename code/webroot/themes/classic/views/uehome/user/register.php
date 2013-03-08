@@ -67,17 +67,18 @@
 				</div>
 				<div class="steps step-2 hide">
 					<form>
+					<input type="hidden" name="user_type" value="1" />
 					<input type="hidden" name="mobile_number" value="" />
 					<table width="100%">
-						<tr>
+						<!--<tr>
 							<td align="right"><label>用户类别：</label></td>
 							<td><div class="field"><label><input type="radio" name="user_type" value="0" class="cb user-type" checked>个人</label><label><input type="radio" name="user_type" value="1" class="cb user-type">企业</label></div></td>
-						</tr>
-						<tr class="for-company hide">
+						</tr>-->
+						<tr class="for-company ">
 							<td align="right"><label>企业名称：</label></td>
 							<td><div class="field"><input type="text" name="company_name" /></div></td>
 						</tr>
-						<tr class="for-company hide">
+						<tr class="for-company ">
 							<td align="right"><label>企业类型：</label></td>
 							<td><div class="field"><select name="company_type"><option value="0">生产型</option><option value="1">贸易型</option></select></div></td>
 						</tr>
@@ -106,7 +107,7 @@
 							<td align="right"><label class="c-name" data-text="昵称：" data-c-text="称呼：">昵称：</label></td>
 							<td><div class="field"><input type="text" name="nickname" /></div></td>
 						</tr>
-						<tr class="for-company hide">
+						<tr class="for-company ">
 							<td align="right"><label>职务：</label></td>
 							<td><div class="field"><select name="job_title"><option value="0">总经理</option></select></div></td>
 						</tr>
@@ -123,7 +124,7 @@
 							<?php echo CHtml::dropDownList('user_city_id',0,array(),array('empty'=>'选择城市'));?></td>
 						</tr>
 						
-						<tr class="for-company hide">
+						<tr class="for-company ">
 							<td align="right"><label>详细地址：</label></td>
 							<td><div class="field"><input type="text" name="address" /></div></td>
 						</tr>

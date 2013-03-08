@@ -447,7 +447,9 @@ class UserController extends Controller {
     {
         $this->layout = '//layouts/ajax_main';
         $allProvince=City::getProvice('选择省份');
-        $data=compact('allProvince');
+        $ent_type = Term::getTermsByGroupId(4);
+        $role = Term::getTermsByGroupId(3);
+        $data=compact('allProvince','ent_type','role');
         // display the login form
         $this->render ( 'register', $data);
     }

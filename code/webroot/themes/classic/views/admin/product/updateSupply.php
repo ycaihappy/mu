@@ -101,6 +101,7 @@ $this->breadcrumbs=array(
 </table>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+<br/>
 <?php 
 Yii::app()->clientScript->registerScript('Product#displayWaterConent','
 $("#Supply_supply_category_id").change(function(){

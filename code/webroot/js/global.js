@@ -103,10 +103,11 @@ $.extend(MU.mods,{
 					dataType:"json",
 					async : false,
 					data : o.closest('form').serializeArray(),
-					success: function(re) {  
+					success: function(re) { 
+						self.find('.err-msg').remove();
 						if(re.status == 0){
 							for(var i in re.data){
-								alert(re.data[i]);
+								
 								$(':input[name='+i+']').parent().append('<p class="err-msg">'+re.data[i]+'</p>');
 							}
 							isok = false;

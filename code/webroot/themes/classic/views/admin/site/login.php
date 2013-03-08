@@ -1,15 +1,17 @@
-<!DOCTYPE html>
 <html>
 <head>
+<title>管理系统</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Login</title>
-<link rel="stylesheet" type="text/css" href="css/login.css" />
+<link href="/css/admin.css" rel="stylesheet" type="text/css" />
+
 </head>
-<body>
-	<div class="header-bar">
-		<img class="logo" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.jpg" />
-	</div>
-<?php $form=$this->beginWidget('CActiveForm', array(
+<body class="body">
+<center>
+    <div class="main">
+    <div style="height:125px;"></div>
+    
+           <div class="bottom">
+               <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'loginForm',
 	'htmlOptions'=>array('class'=>'loginContainer'),
 	'enableClientValidation'=>true,
@@ -17,26 +19,60 @@
 		'validateOnSubmit'=>true,
 	),
 )); ?>
-		
-		<h2 class="loginTitle" title="网站后台登陆">网站后台登陆</h2>
-		<div class="user-id"> 
-			<label>
-				<strong class="userId-label" title="账号">账号</strong>
-			</label>
-			<?php echo $form->textField($model,'username',array('id'=>'userId')); ?>
+                  <table width="100%" height="377px;" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="38" valign="top" class="bgz"></td>
+                          <td valign="top">
+                          <table width="469px" height="377px" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td class="cen_t"></td>
+                                  </tr>
+                                  <tr>
+                                    <td width="469px" height="310px" valign="top" class="bgbg">
+                                     <div class="bt">后台用户登录</div>
+                        <div class="yhxx">
+                        <div>
+                              <label>
+                              <span class="wz">用户名:</span>
+							  <span class="wb">
+                               <?php echo $form->textField($model,'username',array('id'=>'userId')); ?>
 		    <?php echo $form->error($model,'username'); ?>
-		</div>
-		
-		<div class="user-pwd"> 
-			<label>
-				<strong class="userId-label" title="密码">密码</strong>
-			</label>
-			<?php echo $form->passwordField($model,'password',array('id'=>'userPwd')); ?>
+                                                              </span>
+                              </label>
+                        
+                         </div>
+              <div><label><span class="wz">密码:</span>                            
+                                <span class="wb"><?php echo $form->passwordField($model,'password',array('id'=>'userPwd')); ?>
 		    <?php echo $form->error($model,'password'); ?>
-		</div>
-		
-		<input type="button" class="g-button-submit" name="signIn" id="signIn" value="登录" />
-
+                              </span></label>
+                          
+                          </div>
+                            
+                      
+                        </div>
+                        <div class="button">
+                        <input style="border:none;" name="signIn" type="image" src="/css/imgs/admin/button.jpg">
+                        </div>
+                        <div class="bwz">
+                        Powered by <a target="_blank" href="http://www.xxx.com">xxx.com</a> © 2007-2013
+                        </div>     
+                               </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="cen_b">&nbsp;</td>
+                                  </tr>
+                                </table>
+                          </td>
+                      <td width="38" valign="top" class="bgy">&nbsp;</td>
+                    </tr>
+                  </table>
+                  
+             </form>  
+             
+         </div>
+    </div>
+     
+</center>
 
 <?php $this->endWidget(); ?>
 </body>

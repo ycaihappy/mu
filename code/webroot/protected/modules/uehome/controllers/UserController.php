@@ -70,7 +70,7 @@ class UserController extends Controller {
         $u_model->user_nickname = $_REQUEST['nickname'];
         $u_model->user_province_id = $_REQUEST['user_province_id'];
         $u_model->user_city_id     = $_REQUEST['user_city_id'];
-        $u_model->user_subscribe   = $_REQUEST['newsletter'];
+        $u_model->user_subscribe   = isset($_REQUEST['newsletter']) ? $_REQUEST['newsletter'] : 0;
         $u_model->user_type = $_REQUEST['user_type'];
         $u_model->user_mobile_no = $_REQUEST['mobile_number'];
         $u_model->user_status = 1;

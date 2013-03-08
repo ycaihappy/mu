@@ -60,7 +60,12 @@ class ProductController extends AdminController {
 		$cachedCity=CCacheHelper::getAllCity();
 		foreach ($products as &$product)
 		{
-			$product->product_city_id=$this->_getCityLayer($product->product_city_id);
+			if($product->product_city_id){
+				$product->product_city_id=$this->_getCityLayer($product->product_city_id);
+			}
+			else {
+				$supply->supply_city_id='未指定';
+			}
 		}
 		$productType=Term::getTermsByGroupId(14);
 		$productStatus=Term::getTermsByGroupId(1);
@@ -234,7 +239,13 @@ class ProductController extends AdminController {
 		$supplys=$dataProvider->data;
 		foreach ($supplys as &$supply)
 		{
-			$supply->supply_city_id=$this->_getCityLayer($supply->supply_city_id);
+			if($supply->supply_city_id)
+			{
+				$supply->supply_city_id=$this->_getCityLayer($supply->supply_city_id);
+			}
+			else {
+				$supply->supply_city_id='未指定';
+			}
 		}
 		$supplyCategory=Term::getTermsByGroupId(14);
 		$supplyStatus=Term::getTermsByGroupId(1);

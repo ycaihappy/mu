@@ -50,11 +50,11 @@ $supplyChangeStatusAction=$isSupply?'changeSupplyStatus':'changeBuyStatus';
         ),  // display the 'name' attribute of the 'category' relation
         array(
         	'name'=>'发布公司',
-        	'value'=>'$data->user->enterprise->ent_name',
+        	'value'=>'$data->user->enterprise?$data->user->enterprise->ent_name:"未指定"',
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'分类',
-        	'value'=>'$data->category->term_name',
+        	'value'=>'$data->category?$data->category->term_name:"未指定"',
         	'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
        

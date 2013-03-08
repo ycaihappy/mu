@@ -47,6 +47,22 @@ class UserController extends Controller {
 	}
     public function actionRegisterUser()
     {
+        # check username
+        $user_exist = User::model()->find('user_name=:user_name',array('user_name'=>$_REQUEST['user_name']));
+        $error = array();
+        if ( !empty($user_exist->user_id) )
+        {
+            $error['user_name'] = '用户名已经被注册';
+        }
+        if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $_REQUEST['email']))
+        {
+            $error['email'] = '邮箱格式不正确';
+        }
+        if (!empty($error))
+        {
+            echo json_encode(array('status'=>0,'data'=>$error));
+            exit;
+        }
         $u_model = new User();
         $u_model->user_name  = $_REQUEST['user_name'];
         $u_model->user_email = $_REQUEST['email'];

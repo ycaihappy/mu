@@ -89,6 +89,7 @@ $this->breadcrumbs=array(
 </table>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+<br/>
 <?php 
 Yii::app()->clientScript->registerScript('Product#displayWaterConent','
 $("#Product_product_type_id").change(function(){

@@ -160,8 +160,27 @@ class UserController extends Controller {
         if (isset($_POST['PasswordForm']))
         {
             $model->attributes = $_POST['PasswordForm'];
+            
             if ( $model->validate())
-                $model->save();
+            {
+	            $creteria=new CDbCriteria();
+	            $creteria->select='user_pwd';
+	            $creteria->condition='user_id='.Yii::app()->user->getId();
+	            $user=User::model()->find($creteria);
+            	if(md5($model->old_pwd)!=$user->user_pwd)
+            	{
+            		Yii::app()->user->setFlash('validateError','输入旧密码错误，修改失败！');
+            	}
+            	else {
+                	$model->save();
+                	Yii::app()->user->setFlash('validateSuccess','密码修改成功，请惠存！');
+            	}
+            	
+            }
+            else {
+            	Yii::app()->user->setFlash('validateError','输入旧密码错误，修改失败！');
+            }
+            $model=new PasswordForm();
         }
 		$this->render ( 'password' ,array('model'=>$model));
 	}

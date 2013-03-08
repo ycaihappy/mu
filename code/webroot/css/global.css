@@ -13,6 +13,7 @@ a:hover{color:#f27B04;text-decoration:underline;}
 .disabled {cursor: not-allowed}
 .err-msg{color:#f00;margin-left:5px;}
 .info_warining{padding:5px;border:1px solid #D91111;background:#FCFBE5;margin-bottom:20px;}
+.info_success{padding:5px;border:1px solid #D91111;background:#FCFBE5;margin-bottom:20px;}
 .info_warining p{font-weight:bold;margin-bottom:10px;}
 .info_warining li{line-height:20px;color:#c00}
 
@@ -1109,3 +1110,4 @@ padding: 0 20px;
 .m-gyxx .gy06 {  text-align: right;  width: 42px;}
 .m-gyxx h2 a {  color: #004098;  font-size: 12px;  font-weight: normal;}
 .m-gyxx h2 em {  display: none;}
+div.errorMessage{color:red;font-style:italic;}

@@ -12,9 +12,10 @@ class PasswordForm extends CFormModel
 	public function rules()
     {
         return array(
-        array('old_pwd','required','message'=>'不允许为空'),
-        array('new_pwd','required','message'=>'不允许为空'),
-        array('new_repwd','safe'),
+        array('old_pwd','required','message'=>'旧密码不允许为空'),
+        array('new_pwd','required','message'=>'新密码不允许为空'),
+        array('new_repwd', 'compare', 'compareAttribute'=>'new_pwd','message'=>'新密码和确认密码必须一致'),
+      
         );
     }
 

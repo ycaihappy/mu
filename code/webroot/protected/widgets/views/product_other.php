@@ -3,10 +3,13 @@
 			  <dt><strong>企业信息</strong></dt>
 			  <dd>
 				<ul>
-				<li style="text-align:center;"><img src="images/golden.gif" /></li>
-                <li>用 户 名: 行不行先生</li>
-                <li>级    别: 铜牌会员</li>
-                <li>所 属 地: 北京</li>
+				<li style="text-align:center;overflow:hidden;">
+					<img src="images/golden.gif" style="float:left;margin-right:10px;"/>
+					<p style="float:left;line-height:20px;">行不行先生<br />
+					铜牌会员<br />
+					(北京)<br />
+					</p>
+			   </li>
 				
 				</ul>
 			  </dd>

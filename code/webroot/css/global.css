@@ -373,6 +373,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-detail a.btn_lx {background: none repeat scroll 0 0 #E24800 !important;border-color: #B70F0F !important;border-radius: 3px 3px 3px 3px;color: #FFFFFF !important;}
 .m-detail .sellinfo .fr p.btn, .vipinfo {float: left;padding-top: 30px;}
 .m-detail  img{display: block;height: 300px;overflow: hidden;width: 300px;}
+.m-detail .img{width:300px;height:300px;}
 .m-detail .sellinfo .fl {overflow: hidden;width: 300px;	float:left;}
 .m-detail .sellinfo p{line-height:30px;display:block}
 .m-detail .sellinfo {padding-bottom:20px;border-bottom:1px solid #ccc}
@@ -383,7 +384,9 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-detail .info{padding: 10px 0;line-height: 26px;}
 .m-detail .proInfo {background-color: #F6F6F6;display: block;line-height: 2;overflow: hidden;padding: 10px 0;width: 100%;}
 .m-detail .proInfo li {display: block;float: left;padding-left: 10px;width: 235px;}
-.m-detail h1{font-size:14px;font-weight:bold}
+.m-detail h1{font-size:16px;font-weight:bold}
+.m-detail .fl{float:left;margin-right:10px;}
+.m-detail .fr{float:left;}
 /*m-detail */
 
 /*m-refinfo*/

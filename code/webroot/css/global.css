@@ -657,6 +657,14 @@ padding: 0 20px;
 .m-register .bd .step-3 .msg{color:green; font-family: "Microsoft YaHei","微软雅黑";  font-size: 22px;margin-bottom:30px;}
 .m-register .btn-modify{color:#fff;}
 .m-register .bd .step-3 a{margin-right:10px;}
+.m-register .success-1 i {
+  background: url("imgs/icon.gif") no-repeat scroll 0 0 transparent;
+  float: left;
+  height: 40px;
+  line-height: 30px;
+  margin-right: 20px;
+  width: 48px;
+}
 
 .pw-bar {
     background-color: #5a7387;

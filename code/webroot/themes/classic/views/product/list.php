@@ -52,7 +52,7 @@
 		
 		
         <!--module start-->
-            <?php $this->widget('SupplyIndexSpecialWidget');?>
+            <?php $this->widget('SupplyEnterpriseWidget',array('type'=>1));?>
 		<!--module end-->
 		<!--module start-->
 		<div class="m-gc-ad"><a target="_blank" href="http://xh.steelcn.com/new.aspx"><img width="260" height="85" src="images/xinahuotong_288_85.png"></a></div>

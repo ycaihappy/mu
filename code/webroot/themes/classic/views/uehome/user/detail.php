@@ -71,7 +71,7 @@
 			<td class="label">邮政编码：</td><td><input type="text" name="zipcode" value="4545454" class="cmp-input" /></td>
 		</tr>-->
 		<tr>
-        <td class="label">铝市订阅：</td><td><?php echo $form->checkBox($model,'user_subscribe');?> </td>
+        <td class="label">钼市订阅：</td><td><?php echo $form->checkBox($model,'user_subscribe');?> </td>
 		</tr>
 		<!--<tr>
         <td class="label">审核通过时间：</td><td></td>

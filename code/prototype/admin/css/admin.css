@@ -36,7 +36,7 @@ a:active{text-decoration:underline;}
 .pg-layout{min-width:960px}
 .layout {margin: 0 auto;width: 960px; position:relative;}
 
-#mainFrame {height: 100%;width: 100%;z-index: 5;	position:absolute;}
+#mainFrame {height: 100%;width: 98%;z-index: 5;	position:absolute;}
 .logo {float: left;height: 60px;width: 173px;}
 
 
@@ -101,4 +101,17 @@ a:active{text-decoration:underline;}
 
 .m-role-op td{padding:5px;}
 .m-role-op .btn-b{display:block;margin-bottom:10px}
-
+/* LOADING INDICATORS */
+div.srbacLoading {
+  background-position:  center center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  background-image: url('process-working.gif');
+}
+div.srbacLoading * {
+  opacity: .2;
+}
+div.errorMessage{
+	font-style:italic;
+	color:red;
+}

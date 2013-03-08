@@ -1,13 +1,16 @@
-		<div class="m-refinfo">
+<?php
+$image_coin = ($data['enterprise']['ent_recommend'] == 1) ? 'golden.gif' : 'silver.gif';
+?>
+<div class="m-refinfo">
 			<dl>
-			  <dt><strong>企业信息</strong></dt>
+			  <dt><strong>会员信息</strong></dt>
 			  <dd>
 				<ul>
 				<li style="text-align:center;overflow:hidden;">
-					<img src="images/golden.gif" style="float:left;margin-right:10px;"/>
-					<p style="float:left;line-height:20px;">行不行先生<br />
-					铜牌会员<br />
-					(北京)<br />
+                <img src="images/<?php echo $image_coin;?>" style="float:left;margin-right:10px;"/>
+                    <p style="float:left;line-height:20px;"><?php echo $data['enterprise']['ent_name'];?><br />
+<?php echo $business_model[$data['enterprise']['ent_business_model']];?><br />
+                    (<?php echo $citylist[$data['enterprise']['ent_city']];?>)<br />
 					</p>
 			   </li>
 				
@@ -15,7 +18,7 @@
 			  </dd>
 			</dl>
 			<dl>
-            <dt><strong><?php echo $data['enterprise']['ent_name'];?></strong></dt>
+            <dt><strong>企业介绍</strong></dt>
 			  <dd>				
 <?php echo $data['enterprise']['ent_introduce'];?>
 			  </dd>

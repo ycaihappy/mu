@@ -132,8 +132,11 @@ $.extend(MU.mods,{
 					async : false,
 					data : o.closest('form').serializeArray(),
 					success: function(re) {  
+						self.find('.err-msg').remove();
 						if(re.status == 0){
-							alert('保存失败！');
+							for(var i in re.data){		
+								$(':input[name='+i+']').parent().append('<p class="err-msg">'+re.data[i]+'</p>');
+							}
 							isok = false;
 						}else{
 							isok = true;

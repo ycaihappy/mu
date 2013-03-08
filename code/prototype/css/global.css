@@ -165,6 +165,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-tab-list .hd span.on,.m-case .hd span.on,.m-quot .hd span.on,.m-nous .hd span.on,.m-rcm .hd span.on{background: none repeat scroll 0 0 #FFFFFF;height: 30px;position: relative;z-index: 1;}
 .m-tab-list .hd span.on a,.m-case .hd span.on a,.m-quot .hd span.on a,.m-nous .hd span.on a,.m-rcm .hd span.on a{font-weight:bold;}
 .m-tab-list .bd li,.m-nous .bd li,.m-case .bd li{line-height:25px;padding-left:10px;background:url(imgs/list-ico.png) no-repeat left center}
+.m-tab-list .bd li em,.m-nous .bd li em,.m-case .bd li em{float:right;color:#999}
 .m-tab-list .bd a{font-size:14px;}
 .m-tab-list .bd .b a{font-weight:bold}
 .m-tab-list .bd ul{display:none;}

@@ -20,6 +20,8 @@ $.extend(MU.mods,{
 			if ($(this).val() == "") {
 				$(this).parent().removeClass('search-status-focus');
 			}
+		}).keydown(function(){
+			$(this).parent().addClass('search-status-focus');
 		});
 		
 		self.find('input[name=type]').val(self.find('.switchable-nav li.selected').data('type'));

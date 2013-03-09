@@ -45,6 +45,25 @@ class UserController extends Controller {
 	public function actionIndex() {
 		$this->render ( 'index' );
 	}
+    public function actionMessage()
+    {
+    #    $criteria=new CDbCriteria;
+    #    $criteria->join='join mu_user_enterprise ent on t.msg_from_user_id=ent.ent_user_id';
+    #    $criteria->order='msg_id DESC';
+    #    #$criteria->with=array('user'=>array('select'=>'user_name'));
+
+    #    $criteria->addCondition('t.msg_to_user_id='.yii::app()->user->getID());
+    #    $criteria->addCondition('t.msg_from_user_id=ent.ent_user_id');
+    #    $list = Message::model()->findAll($criteria);
+
+        $connection = Yii::app()->db;
+        $sql = 'select * from mu_message,mu_user_enterprise,mu_user 
+            where (msg_to_user_id=3) AND (msg_from_user_id=ent_user_id) and msg_to_user_id=user_id
+            ORDER BY msg_id DESC ';
+        $list= $connection->createCommand($sql)->queryAll();
+
+        $this->render ( 'message', array('data'=>$list) );
+    }
     public function actionRegisterUser()
     {
         # check username

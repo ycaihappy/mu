@@ -112,7 +112,7 @@ margin: 0 auto;
 width: 960px;
 }
 
-.head{margin-top:30px;position:relative;}
+.head{margin-top:30px;position:relative;overflow:hidden;}
 
 
 .m-top{height:35px;background:url(imgs/top_bg.jpg) repeat-x;text-align:right;line-height:35px;}
@@ -1109,3 +1109,44 @@ padding: 0 20px;
 .m-gyxx .gy06 {  text-align: right;  width: 42px;}
 .m-gyxx h2 a {  color: #004098;  font-size: 12px;  font-weight: normal;}
 .m-gyxx h2 em {  display: none;}
+
+.map1 {
+  background: url("imgs/map_05.jpg") no-repeat scroll 0 0 transparent;
+  position:absolute;
+  height: 33px;
+  width: 122px;
+  left:204px;
+  top:35px;
+}
+.m-map{margin-top:10px;}
+.m-map .hd{background:#3E91E1;height:5px;}
+.m-map .bd{}
+.m-map .tab2 {
+  background: none repeat scroll 0 0 #DEECFA;
+  border: 1px solid #ADC3DA;
+  height: 30px;
+  margin: 10px;
+  text-align: center;
+  width: 86px;
+}
+.m-map .tab2font {
+  color: #002353;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 30px;
+}
+.m-map .line2 {
+  border-bottom: 1px dotted #333333;
+  line-height: 24px;
+  padding: 5px;
+  text-align: left;
+}
+.m-map .line1 {
+  border-bottom: 1px dotted #333333;
+}
+.m-map .line2 li {
+  display: inline;
+  list-style-type: none;
+  margin: 0 5px 0 7px;
+  text-align: left;
+}

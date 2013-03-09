@@ -1154,3 +1154,4 @@ div.errorMessage{color:red;font-style:italic;}
   margin: 0 5px 0 7px;
   text-align: left;
 }
+.page, ul.yiiPager li{display:inline}

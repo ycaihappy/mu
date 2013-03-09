@@ -18,7 +18,7 @@
             <p>
             所&nbsp;在&nbsp;地：<?php echo $product_detail['product_location'];?></p>
             <p>
-                有效期至：<span>2012-06-04</span></p>
+            添加日期：<span><?php echo date("Y-m-d H:i:s",strtotime($product_detail['product_join_date']));?></span></p>
  
             <p class="btn">
             <a title="立即询价" class="btn_lx" href="<?php echo Yii::app()->controller->createUrl('/storeFront/default/mail',array('username'=>$ent_info['user_name']));?>">立即询价</a></p>
@@ -43,7 +43,7 @@
         <h2>详细描述</h2>
     </div>
 
-	<div class="proInfo"><ul><li>产品规格:20# </li><li>形状:方钢 </li><li>仓库:天津 </li><li>制作工艺:冷轧 </li><li>产地/厂家:唐钢 </li><li>材质:Q235B </li></ul></div>
+    <div class="proInfo"><ul><li>品位:<?php echo $product_detail['product_mu_content'];?></li><li>含水量:<?php echo $product_detail['product_water_content'];?></li><li>仓库:<?php echo $city[$product_detail['product_city_id']];?></li></ul></div>
     <div class="info">
 		
     <p><?php echo $product_detail['product_keyword'];?></p>

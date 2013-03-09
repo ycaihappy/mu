@@ -28,7 +28,8 @@ class ProductController extends AdminController {
 		$productName=@$_REQUEST['Product']['product_name'];
 		$model->product_name=$productName;
 		$productCriteria=new CDbCriteria();
-		$productCriteria->select='product_id,product_name,product_quanity,product_city_id';
+		$productCriteria->order='product_join_date desc';
+		$productCriteria->select='product_id,product_name,product_quanity,product_city_id,product_join_date';
 		$productCriteria->addCondition('product_special='.$isSpecial);
 		if($productTypeId)
 		{
@@ -250,6 +251,7 @@ class ProductController extends AdminController {
 		$supplyName=@$_REQUEST['Supply']['supply_name'];
 		$model->supply_name=$supplyName;
 		$supplyCriteria=new CDbCriteria();
+		$supplyCriteria->select='supply_id,supply_name,supply_city_id,supply_join_date';
 		$supplyCriteria->addCondition('supply_type='.$type);
 		if($supplyCategoryId)
 		{
@@ -274,6 +276,7 @@ class ProductController extends AdminController {
 		'status'=>array('select'=>'term_name'),
 		'category'=>array('select'=>'term_name'),
 		'unit'=>array('select'=>'term_name'));
+		$supplyCriteria->order='supply_join_date desc';
 		$dataProvider=new CActiveDataProvider('Supply',array(
 			'criteria'=>$supplyCriteria,
 			'pagination'=>array(

@@ -57,8 +57,9 @@ class Message extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-		);
+        return array(
+            'user'=>array(self::BELONGS_TO,'User','msg_from_user_id'),
+        );
 	}
 
 	/**

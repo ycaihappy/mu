@@ -13,8 +13,12 @@ a:hover{color:#f27B04;text-decoration:underline;}
 .disabled {cursor: not-allowed}
 .err-msg{color:#f00;margin-left:5px;}
 .info_warining{padding:5px;border:1px solid #D91111;background:#FCFBE5;margin-bottom:20px;}
+.info_success{padding:5px;border:1px solid #D91111;background:#FCFBE5;margin-bottom:20px;}
 .info_warining p{font-weight:bold;margin-bottom:10px;}
 .info_warining li{line-height:20px;color:#c00}
+.block-error{padding:5px;border:1px solid #D91111;background:#FCFBE5;margin-bottom:20px;}
+.block-error p{font-weight:bold;line-height:20px;color:#c00}
+
 
 .cmp-dropdown{display:inline-block;position:relative;border:1px solid #e9e9e9;padding:3px 7px;z-index:1000}
 .cmp-dropdown b{font-weight:normal;cursor:default}
@@ -112,7 +116,7 @@ margin: 0 auto;
 width: 960px;
 }
 
-.head{margin-top:30px;position:relative;}
+.head{margin-top:30px;position:relative;overflow:hidden;}
 
 
 .m-top{height:35px;background:url(imgs/top_bg.jpg) repeat-x;text-align:right;line-height:35px;}
@@ -1109,3 +1113,45 @@ padding: 0 20px;
 .m-gyxx .gy06 {  text-align: right;  width: 42px;}
 .m-gyxx h2 a {  color: #004098;  font-size: 12px;  font-weight: normal;}
 .m-gyxx h2 em {  display: none;}
+div.errorMessage{color:red;font-style:italic;}
+.map1 {
+  background: url("imgs/map_05.jpg") no-repeat scroll 0 0 transparent;
+  position:absolute;
+  height: 33px;
+  width: 122px;
+  left:204px;
+  top:35px;
+}
+.m-map{margin-top:10px;}
+.m-map .hd{background:#3E91E1;height:5px;}
+.m-map .bd{}
+.m-map .tab2 {
+  background: none repeat scroll 0 0 #DEECFA;
+  border: 1px solid #ADC3DA;
+  height: 30px;
+  margin: 10px;
+  text-align: center;
+  width: 86px;
+}
+.m-map .tab2font {
+  color: #002353;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 30px;
+}
+.m-map .line2 {
+  border-bottom: 1px dotted #333333;
+  line-height: 24px;
+  padding: 5px;
+  text-align: left;
+}
+.m-map .line1 {
+  border-bottom: 1px dotted #333333;
+}
+.m-map .line2 li {
+  display: inline;
+  list-style-type: none;
+  margin: 0 5px 0 7px;
+  text-align: left;
+}
+.page, ul.yiiPager li{display:inline}

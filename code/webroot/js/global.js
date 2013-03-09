@@ -505,5 +505,10 @@ $.extend(MU.mods,{
 				}
 			}
 		}).triggerHandler('frame');
+	},
+	JMessageCreate : function () {
+		var self = $(this),reveriver = self.find('input[name=receiver]');
+		
+		
 	}
 });

@@ -58,7 +58,7 @@ class CCacheHelper  {
 	public static function getAllCity()
 	{
 		$cityCriteria=new CDbCriteria();
-		$cityCriteria->select='city_id,city_name,city_parent,city_level';
+		$cityCriteria->select='city_id,city_name,city_parent,city_level,city_mu';
 		$cityCriteria->condition='city_open=1';
 		$sort=new CSort('City');
 		$sort->defaultOrder='city_parent asc';

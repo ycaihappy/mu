@@ -147,7 +147,7 @@ class ProductController extends Controller
 			
 		}
 		$muCategory=Term::getTermsByGroupId(14,true,null,'全部');
-		$allProvince=City::getProvice('全部');
+		$allProvince=City::getMuRelCity(2);
 		$allCategory=Term::getTermsByGroupId(14,true,null,'全部');
 		$allSmallType=array();
 		if($bigType)
@@ -168,11 +168,6 @@ class ProductController extends Controller
 		$this->render('view');
 	}
 
-	public function actionSearchProduct()
-	{
-		
-		
-	}
 	private function _getCitySolrQueryString($fieldName,$province)
 	{
 		$citys=City::getAllCity($province);

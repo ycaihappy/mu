@@ -33,6 +33,11 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'city_open'); ?></td>
 </tr>
 <tr>
+<td class="label">钼相关：</td>
+		<td><?php echo $form->checkBox($model,'city_mu',array('value'=>1)); ?>
+		<?php echo $form->error($model,'city_mu'); ?></td>
+</tr>
+<tr>
 <td class="label">排序：</td>
 		<td><?php echo $form->textField($model,'city_order'); ?>
 		<?php echo $form->error($model,'city_order'); ?></td>

@@ -39,7 +39,7 @@ $this->breadcrumbs=array(
         ),
         array(
         	'name'=>'名称',
-        	'value'=>'$data->city_name',
+        	'value'=>'$data->city_name.($data->city_mu?"（钼相关）":"")',
         ),  // display the 'name' attribute of the 'category' relation
         
         array(

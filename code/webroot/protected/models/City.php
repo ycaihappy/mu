@@ -40,8 +40,8 @@ class City extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-		array('city_name, city_level,city_parent', 'required'),
-		array('city_id, city_parent, city_level, city_order', 'numerical', 'integerOnly'=>true),
+		array('city_name', 'required'),
+		array('city_id,city_mu, city_parent, city_level, city_order', 'numerical', 'integerOnly'=>true),
 		array('city_name', 'length', 'max'=>128),
 		array('city_open', 'length', 'max'=>45),
 		// The following rule is used by search().
@@ -147,6 +147,24 @@ class City extends CActiveRecord
 			}
 		}
 		return $province;
+	}
+	public static function getMuRelCity($level=2)
+	{
+		if(!self::$cityCache)
+		{
+			self::$cityCache=CCacheHelper::getAllCity();
+		}
+		$relCity=array();
+		if(self::$cityCache){
+			foreach (self::$cityCache as $city)
+			{
+				if($city->city_level==$level && $city->city_mu==1)
+				{
+					$relCity[$city->city_id]=$city->city_name;
+				}
+			}
+		}
+		return $relCity;
 	}
 	
 	/**

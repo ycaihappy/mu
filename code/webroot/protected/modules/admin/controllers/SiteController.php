@@ -86,7 +86,6 @@ class SiteController extends AdminController {
 	public function actionUpdateCity() {
 		$message = "";
 		$model = new City ();
-		$allCity = City::getAllCity ();
 		if (isset ( $_POST ['City'] )) {
 			$model->attributes = $_POST ['City'];
 			if ($model->city_id)
@@ -94,17 +93,13 @@ class SiteController extends AdminController {
 			if ($model->save ()) {
 				Yii::app ()->user->setFlash ( 'updateSuccess', 'updated successfully' );
 				$this->redirect ( array ('manageCity' ) );
-			} else {
-				$this->render ( 'updateCity', array ('model' => $model, 'allCity' => $allCity ) );
 			}
-		} else if (isset ( $_GET ['city_id'] )) {
+		} 
+		if (isset ( $_GET ['city_id'] )) {
 			$model = $model->findByPk ( $_GET ['city_id'] );
-			$this->render ( 'updateCity', array ('model' => $model, 'allCity' => $allCity ) );
-		} else {
-			$allCity = City::getAllCity ();
-			$this->render ( 'updateCity', array ('model' => $model, 'allCity' => $allCity ) );
-		
 		}
+		$allCity = City::getAllCity ();
+		$this->render ( 'updateCity', array ('model' => $model, 'allCity' => $allCity ) );
 	
 	}
 	public function actionManageCity() {
@@ -122,7 +117,7 @@ class SiteController extends AdminController {
 		if ($model->city_name) {
 			$criteriaCity->addSearchCondition ( 'city_name', $model->city_name, true );
 		}
-		$criteriaCity->select = 'city_id,city_name,city_order,city_parent,city_open';
+		$criteriaCity->select = '*';
 		$criteriaCity->order = 'city_parent asc';
 		$dataProvider = new CActiveDataProvider ( 'City', array ('criteria' => $criteriaCity, 'pagination' => array ('pageSize' => 10, 'pageVar' => 'page' ) ) );
 		$citys = $dataProvider->data;

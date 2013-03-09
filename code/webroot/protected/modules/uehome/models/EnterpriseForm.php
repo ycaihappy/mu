@@ -24,6 +24,7 @@ class EnterpriseForm extends CFormModel
             array('ent_business_model', 'required','message'=>'经营类别必须选择！'),	
             array('ent_business_scope', 'required','message'=>'经营范围必须填写！'),	
             array('ent_type', 'required','message'=>'经营类别必须选择！'),	
+            array('ent_city', 'required','message'=>'经营地区必须选择！'),
             array('ent_location', 'required','message'=>'详细地址必须填写！'),	
             #array('ent_zipcode', 'numerical','message'=>'邮编必须是数字串'),
             array('ent_registered_capital', 'numerical', 'integerOnly'=>true,'message'=>'注册资金必须是数字串'),

@@ -132,7 +132,6 @@ class UserController extends Controller {
         if (isset($_POST['Enterprise']))
         {
             $model->attributes = $_POST['Enterprise'];
-            
             if ( $model->validate() )
             {
                 $model->update();

@@ -39,7 +39,7 @@ switch (Yii::app()->request->getParam('type',0))
 		$indexAction='system/manageMessageTemplate';
 		break;
 	default:
-		$indexAction='site/manageBasicSiteInfo';
+		$indexAction='site/frontPage';
 }
 ?>
 <div class="m-main-frame" id="J_MainFrame"><iframe scrolling="auto"

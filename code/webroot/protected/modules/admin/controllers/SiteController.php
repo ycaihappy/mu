@@ -350,6 +350,14 @@ class SiteController extends AdminController {
 		$flinkCriteria->with=array('status'=>array('select'=>'term_name')
 		);
 		$flinkCriteria->condition='flink_user_id=0';
+		if($model->flink_status)
+		{
+			$flinkCriteria->compare('flink_status', $model->flink_status);
+		}
+		if($model->flink_name)
+		{
+			$flinkCriteria->addSearchCondition('flink_name', $model->flink_name,true);
+		}
 		$dataProvider=new CActiveDataProvider('FriendLink',array(
 			'criteria'=>$flinkCriteria,
 			'pagination'=>array(

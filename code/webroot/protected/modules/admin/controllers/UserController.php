@@ -958,12 +958,21 @@ class UserController extends AdminController
 	public function actionManageFLink()
 	{
 		$model=new FriendLink();
-		$model->flink_status=@$_REQUEST['FriendLink']['flink_status'];
+		$model->flink_status=(int)@$_REQUEST['FriendLink']['flink_status'];
 		$model->flink_name=@$_REQUEST['FriendLink']['flink_name'];
 		$flinkCriteria=new CDbCriteria();
 		$flinkCriteria->with=array('status'=>array('select'=>'term_name'),
 		'user'=>array('select'=>'user_name')
 		);
+		$flinkCriteria->condition='flink_user_id<>0';
+		if($model->flink_status)
+		{
+			$flinkCriteria->compare('flink_status', $model->flink_status);
+		}
+		if($model->flink_name)
+		{
+			$flinkCriteria->addSearchCondition('flink_name', $model->flink_name,true);
+		}
 		$dataProvider=new CActiveDataProvider('FriendLink',array(
 			'criteria'=>$flinkCriteria,
 			'pagination'=>array(

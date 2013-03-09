@@ -27,7 +27,9 @@
         			<td><input type="checkbox" value="<?php echo $data[$index]['product_id'];?>" /></td>            
                     <td><?php echo $status[$data[$index]['product_status']];?></td>
                     <td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/goods',array('product_id'=>$data[$index]['product_id'],'update'=>1));?>"><?php echo $data[$index]['product_name'];?></a></td>
+
                     <td><?php echo $data[$index]->type?$data[$index]->type->term_name:'未指定';?></td>
+
                     <td><?php echo $data[$index]['product_mu_content']?></td>
                     <td><?php echo $data[$index]->city?$data[$index]->city->city_name:'未指定'?></td>
                     <td><?php echo date('Y-m-d',strtotime($data[$index]['product_join_date']));?></td>                      

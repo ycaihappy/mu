@@ -6,17 +6,8 @@
 				<div class="bd">
 					<div class="col-l">
 					<p>
-						<select>
-							<option>--地区--</option>
-							<option>--栾川--</option>
-							<option>--黑龙江--</option>
-						</select>
-						<select>
-							<option>--品类--</option>
-							<option>钼精矿</option>
-							<option>三氧化钼</option>
-							<option>钼酸胺</option>
-						</select>
+<?php echo CHtml::dropDownList( 'sum_product_zone','',$city);?>
+<?php echo CHtml::dropDownList( 'sum_product_type','',$category);?>
 					</p>
 					<div class="chart" id="chart">
 						<img src="images/b.png" />

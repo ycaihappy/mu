@@ -9,6 +9,8 @@ class PriceWidget extends CWidget
 
     public function run()
     {
-        $this->render('price',array('data'=>$this->recentlyPriceList));
+        $city  = City::getCityList();
+        $category = Term::model()->getTermsListByGroupId(14);
+        $this->render('price',array('data'=>$this->recentlyPriceList, 'city'=>$city,'category'=>$category));
     }
 }

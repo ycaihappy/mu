@@ -23,6 +23,29 @@ class PriceController extends Controller
 		$this->render('index');
 	}
 
+    public function actionChart()
+    {
+        $data = array(
+            'categorys'=>array( 'one','two','three' ),
+            'series'=>array(
+                array(
+                    'data' => array(1,2,3),
+                    'name' =>'name1'
+                ),
+                array(
+                    'data' => array(1,2,3),
+                    'name' =>'name1'
+                ),
+                array(
+                    'data' => array(1,2,3),
+                    'name' =>'name1'
+                ),
+            )
+        );
+        
+        echo json_encode($data);
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */

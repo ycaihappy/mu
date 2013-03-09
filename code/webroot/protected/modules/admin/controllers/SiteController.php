@@ -104,8 +104,8 @@ class SiteController extends AdminController {
 	}
 	public function actionManageCity() {
 		$model = new City ();
-		if (isset ( $_POST ['City'] )) {
-			$model->attributes = $_POST ['City'];
+		if (isset ( $_REQUEST ['City'] )) {
+			$model->attributes = $_REQUEST ['City'];
 		}
 		
 		$criteriaCity = new CDbCriteria ();
@@ -119,7 +119,18 @@ class SiteController extends AdminController {
 		}
 		$criteriaCity->select = '*';
 		$criteriaCity->order = 'city_parent asc';
-		$dataProvider = new CActiveDataProvider ( 'City', array ('criteria' => $criteriaCity, 'pagination' => array ('pageSize' => 10, 'pageVar' => 'page' ) ) );
+		$dataProvider = new CActiveDataProvider ( 'City', 
+		array (
+		'criteria' => $criteriaCity, 
+		'pagination' => array (
+			'pageSize' => 10, 
+			'pageVar' => 'page',
+			'params'=>array(
+					'City[city_parent]'=>$model->city_parent,
+					'City[city_name]'=>$model->city_name,
+				),
+		) 
+		));
 		$citys = $dataProvider->data;
 		if ($citys) {
 			$cachedCity = CCacheHelper::getAllCity ();
@@ -177,8 +188,8 @@ class SiteController extends AdminController {
 	public function actionManageTerm() {
 		
 		$model = new Term ();
-		if (isset ( $_POST ['Term'] )) {
-			$model->attributes = $_POST ['Term'];
+		if (isset ( $_REQUEST ['Term'] )) {
+			$model->attributes = $_REQUEST ['Term'];
 		}
 		$criteriaTerm = new CDbCriteria ();
 		if ($model->term_group_id) {
@@ -191,7 +202,15 @@ class SiteController extends AdminController {
 		$criteriaTerm->select = '*';
 		$criteriaTerm->order = 'term_group_id asc';
 		$criteriaTerm->with = array ('termGroup' => array ('select' => 'group_name' ) );
-		$dataProvider = new CActiveDataProvider ( 'Term', array ('criteria' => $criteriaTerm, 'pagination' => array ('pageSize' => 10, 'pageVar' => 'page' ) ) );
+		$dataProvider = new CActiveDataProvider ( 'Term', 
+		array ('criteria' => $criteriaTerm, 
+		'pagination' => array ('pageSize' => 10,
+		 'pageVar' => 'page' ,
+		'params'=>array(
+					'Term[term_group_id]'=>$model->term_group_id,
+					'Term[term_name]'=>$model->term_name,
+				),
+		) ) );
 		if ($dataProvider->data) {
 			$cachedTerm = CCacheHelper::getAllTerm ();
 			foreach ( $dataProvider->data as $term ) {

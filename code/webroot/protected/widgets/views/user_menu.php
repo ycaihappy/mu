@@ -1,6 +1,6 @@
 <?php 
 
-$class_user = $class_password = $class_company = $class_cert = $class_news = '';
+$class_user = $class_password = $class_company = $class_cert = $class_news = $class_message = '';
 $class_supply = $class_goods = $class_template = $class_slist = $class_glist = $class_nlist = '';
 switch (Yii::app()->controller->action->id)
 {
@@ -37,6 +37,9 @@ case "slist":
 case 'glist':
     $class_glist ="on";
     break;
+case 'message':
+    $class_message = "on";
+    break;
 }
 ?>
 
@@ -46,6 +49,7 @@ case 'glist':
 	<ul>
     <li class="<?php echo $class_user;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/detail');?>" >基本信息</a></li>
     <li class="<?php echo $class_password;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/password');?>" >修改密码</a></li>
+    <li class="<?php echo $class_message;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/message');?>" >站内短信</a></li>
 		<!-- <li><a href="#" >账号升级</a></li> -->
 	</ul>
 	<h3><a>企业管理</a></h3>

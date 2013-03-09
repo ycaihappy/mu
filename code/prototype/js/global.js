@@ -14,12 +14,17 @@ $.extend(MU.mods,{
 	},
 	JSearchForm : function () {
 		var self = $(this);
+		if($('#q').val() !=""){
+			$(this).parent().addClass('search-status-focus');
+		}
 		$('#q').focusin(function(){
 			$(this).parent().addClass('search-status-focus');
 		}).focusout(function(){
 			if ($(this).val() == "") {
 				$(this).parent().removeClass('search-status-focus');
 			}
+		}).keydown(function(){
+			$(this).parent().addClass('search-status-focus');
 		});
 		
 		self.find('input[name=type]').val(self.find('.switchable-nav li.selected').data('type'));
@@ -92,16 +97,19 @@ $.extend(MU.mods,{
 			var cur = self.data('step'), o = $(this),isok = false;
 			
 			if( o.hasClass('act-one')) {
-			
 				 $.ajax({  
 					type:"post",  
 					url:'index.php?r=sms/check',  
 					dataType:"json",
 					async : false,
 					data : o.closest('form').serializeArray(),
-					success: function(re) {  
+					success: function(re) { 
+						self.find('.err-msg').remove();
 						if(re.status == 0){
-							alert('验证码错误！');
+							for(var i in re.data){
+								
+								$(':input[name='+i+']').parent().append('<p class="err-msg">'+re.data[i]+'</p>');
+							}
 							isok = false;
 						}else{
 							isok = true;
@@ -124,8 +132,11 @@ $.extend(MU.mods,{
 					async : false,
 					data : o.closest('form').serializeArray(),
 					success: function(re) {  
+						self.find('.err-msg').remove();
 						if(re.status == 0){
-							alert('保存失败！');
+							for(var i in re.data){		
+								$(':input[name='+i+']').parent().append('<p class="err-msg">'+re.data[i]+'</p>');
+							}
 							isok = false;
 						}else{
 							isok = true;
@@ -153,11 +164,20 @@ $.extend(MU.mods,{
 		
 		self.find('.send-sms').click(function(){
 			var o = $(this);
+			$('.err-msg').remove();
 			if(o.hasClass('disabled')) return;
 				t = 10;
 				o.addClass('disabled');
 			$.getJSON(o.data('api') + '&mobile_number=' + o.prev('input[name=mobile_number]').val(),function(re){
 				
+				
+				if(re.status == 0){
+					for(var i in re.data){
+						$(':input[name='+i+']').parent().append('<span class="err-msg">'+re.data[i]+'</span>');
+					}
+					o.text('发送验证码').removeClass('disabled');
+					return;
+				}
 				timer = setInterval(function(){
 					o.text(t-- + '秒后重发');
 					if(t == 0) {
@@ -242,9 +262,13 @@ $.extend(MU.mods,{
 				break;
 				case 'preview':
 				if(o.siblings('input').val() != '' ) {
-					$('<img />').attr('src',o.siblings('input').val()).dialog({width:'auto',height:'auto',title:'Preview',close : function(){
-						$(this).dialog('destroy');
-					}});
+					$('<img />').attr('src',o.siblings('input').val()).load(function(){
+						$(this).dialog({width:'auto',height:'auto',title:'Preview',
+							close : function(){
+								$(this).dialog('destroy');
+							}
+						});
+					}).error(function(){alert('图片加载失败');});
 				}
 				break;
 				case 'delete':
@@ -353,7 +377,7 @@ $.extend(MU.mods,{
 					var arr = chks.filter(':checked').map(function(){
 						return this.value;
 					}).get().join(',');
-					$.getJSON('index.php?r=uehome/user/productdel&ids=' + arr,function(re){
+					$.getJSON(o.data('api')+'&ids=' + arr,function(re){
 						if(re.status == 1){
 							location.reload();
 						}
@@ -440,7 +464,7 @@ $.extend(MU.mods,{
 	},
 	JXhSlist : function (){
 		var self = $(this);
-		$('#data_container').find('li:odd').addClass('odd');
+		$('.search-Date-show').find('tr:odd').addClass('odd');
 	},
 	JQgxx : function(){
 		var $outer = $('#jq_animate_loop');

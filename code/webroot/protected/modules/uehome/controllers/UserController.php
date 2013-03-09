@@ -132,6 +132,7 @@ class UserController extends Controller {
         if (isset($_POST['Enterprise']))
         {
             $model->attributes = $_POST['Enterprise'];
+            
             if ( $model->validate() )
             {
                 $model->update();
@@ -143,7 +144,8 @@ class UserController extends Controller {
             $model = Enterprise::model()->find("ent_user_id=:ent_user_id", array('ent_user_id'=>yii::app()->user->getID()));
         }
 
-        $ent_type = Term::model()->getTermsByGroupId(5);
+        $business_type = Term::model()->getTermsByGroupId(5);
+        $ent_type = Term::getTermsByGroupId(4);
 		$allProvince =City::getProvice();
         $province=0;
         $allCity=array();
@@ -151,9 +153,10 @@ class UserController extends Controller {
         {
         	$cityCache=CCacheHelper::getAllCity();
         	$province=$cityCache[$model->ent_city]->city_parent;
-        	$allCity=City::getAllCity($province);
+            $allCity=City::getAllCity($province);
+
         }
-		$this->render ( 'company' ,array('model'=>$model,'allProvince'=>$allProvince,'allCity'=>$allCity,'province'=>$province,'city'=>$allCity,'ent_type'=>$ent_type));
+		$this->render ( 'company' ,array('model'=>$model,'allProvince'=>$allProvince,'allCity'=>$allCity,'province'=>$province,'city'=>$allCity,'ent_type'=>$ent_type,'business_type'=>$business_type));
 	}
 	public function actionPassword() {
         $model = new PasswordForm();
@@ -466,7 +469,9 @@ class UserController extends Controller {
     {
         $this->layout = '//layouts/ajax_main';
         $allProvince=City::getProvice('选择省份');
-        $data=compact('allProvince');
+        $ent_type = Term::getTermsByGroupId(4);
+        $role = Term::getTermsByGroupId(3);
+        $data=compact('allProvince','ent_type','role');
         // display the login form
         $this->render ( 'register', $data);
     }

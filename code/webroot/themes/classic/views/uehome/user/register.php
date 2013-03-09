@@ -80,7 +80,7 @@
 						</tr>
 						<tr class="for-company ">
 							<td align="right"><label>企业类型：</label></td>
-							<td><div class="field"><select name="company_type"><option value="0">生产型</option><option value="1">贸易型</option></select></div></td>
+							<td><div class="field"><?php echo CHtml::dropDownList('company_type',0,$ent_type,array());?></div></td>
 						</tr>
 							<tr>
 							<td align="right"><label>用户名：</label></td>
@@ -109,7 +109,7 @@
 						</tr>
 						<tr class="for-company ">
 							<td align="right"><label>职务：</label></td>
-							<td><div class="field"><select name="job_title"><option value="0">总经理</option></select></div></td>
+							<td><div class="field"><?php echo CHtml::dropDownList('job_title',0,$role,array());?></td>
 						</tr>
 						<tr>
 							<td align="right" class="label">城市：</td>

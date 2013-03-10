@@ -2,7 +2,7 @@
     <div class="sellinfo clearfix">
         <div class="fl">
             <div class="img">
-                <span><img alt="/￥%&mdash;【16mn方钢&mdash;&mdash;【百华】&mdash;&mdash;65mn方钢-20#方钢" src="http://img1.bmlink.com/big/default/2012/2/25/0/0673446879104454.jpg"></span>
+                <span><img alt=""></span>
              
             </div>
 

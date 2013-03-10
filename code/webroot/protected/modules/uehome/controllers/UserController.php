@@ -38,13 +38,58 @@ class UserController extends Controller {
 			    'users'=>array('*'),)
 		,
 		array('deny',  // deny all users
-                'users'=>array('*'),
+                'cusers'=>array('*'),
         ),
 			   );
 	}*/
 	public function actionIndex() {
 		$this->render ( 'index' );
 	}
+    public function actionMessageAdd()
+    {
+        $model = new MessageForm();
+        if ( isset($_REQUEST['view']) )
+        {
+            $connection = Yii::app()->db;
+            $sql = 'select * from mu_message,mu_user_enterprise,mu_user 
+                where (msg_id='.$_REQUEST['msg_id'].') AND (msg_from_user_id=ent_user_id) and msg_to_user_id=user_id
+                ORDER BY msg_id DESC ';
+            $detail= $connection->createCommand($sql)->queryAll();
+            $model->msg_to_user_id = $detail[0]['msg_to_user_id'];
+            $model->msg_to_user_name = $detail[0]['user_name'];
+            $model->msg_subject= $detail[0]['msg_subject'];
+            $model->msg_content= $detail[0]['msg_content'];
+        }
+
+        if (isset($_POST['MessageForm']))
+        {
+            $model->attributes = $_POST['MessageForm'];
+            if ( $model->validate() )
+            {
+                $model->draft();
+                $this->actionMessage();
+            }
+            
+        }
+
+        $view = isset($_REQUEST['view']) ? true :false;
+        $data=compact('model', 'view');
+		$this->render ( 'message_add', $data);
+    }
+    public function actionMessageDel(){
+        if ( strstr($_REQUEST['ids'],',') )
+        {
+            $criteria=new CDbCriteria;
+            $criteria->addCondition("msg_id in(".$_REQUEST['ids'].")");
+            Message::model()->deleteAll($criteria);
+        }
+        else
+        {
+            $model = Message::model()->find("msg_id=:msg_id", array('msg_id'=>$_REQUEST['ids']));
+            $model->delete();
+        }
+        echo json_encode(array('status'=>1,'data'=>array()));
+    }
     public function actionMessage()
     {
     #    $criteria=new CDbCriteria;
@@ -237,8 +282,17 @@ class UserController extends Controller {
     }
     public function actionSupplyDel()
     {
-        $model = Supply::model()->find("supply_id=:supply_id", array('supply_id'=>$_REQUEST['ids']));
-        $model->delete();
+        if ( strstr($_REQUEST['ids'],',') )
+        {
+            $criteria=new CDbCriteria;
+            $criteria->addCondition("supply_id in(".$_REQUEST['ids'].")");
+            Supply::model()->deleteAll($criteria);
+        }
+        else
+        {
+            $model = Supply::model()->find("supply_id=:supply_id", array('supply_id'=>$_REQUEST['ids']));
+            $model->delete();
+        }
         echo json_encode(array('status'=>1,'data'=>array()));
     }
     public function actionProductSpecial()

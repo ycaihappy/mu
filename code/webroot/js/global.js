@@ -506,7 +506,7 @@ $.extend(MU.mods,{
 			source: reveriver.data('api'),
 			minLength: 1,
 			select: function( event, ui ) {
-				
+				$('#MessageForm_msg_to_user_id').val(ui.item.id);
 				reveriver.val(ui.item.value);
 				
 			}

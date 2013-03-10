@@ -13,7 +13,7 @@
 		<!--<span>|</span>
 		<a href="">找回密码</a> -->
 		<span>|</span>
-		<a href="">网站地图</a>
+        <a href="<?php echo Yii::app()->controller->createUrl('site/map');?>">网站地图</a>
 		<span>|</span>
 		<a href="">联系客服</a>
 		<span>|</span>

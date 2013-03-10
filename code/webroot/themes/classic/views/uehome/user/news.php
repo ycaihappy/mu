@@ -1,6 +1,24 @@
     		<div class="m-breadcrumb">
 	<p><b class="crumb"></b>会员中心<i></i>企业动态</p>
 </div>
+<?php
+$error = $model->getErrors();
+if ( !empty($error))
+{
+?>
+<div class="block-error">
+<?php
+    foreach ($error as $one_error)
+    {
+?>
+    <p><?php echo $one_error[0];?></p>
+<?php
+    }
+?>
+</div>
+<?php
+}
+?>
     <div class="m-form">
 	
 <?php $form = $this->beginWidget('CActiveForm', array(
@@ -14,6 +32,9 @@
         <?php echo $form->hiddenField($model, 'art_id');?>
 		<tr>
 			<td class="label">标题：</td><td><?php echo $form->textField($model, 'art_title', array('class'=>'cmp-input'));?></td>
+		</tr>
+		<tr>
+			<td class="label">摘要：</td><td><?php echo $form->textArea($model,'art_intro',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
 		</tr>
 		<tr>
 			<td class="label">详细内容：</td><td><?php

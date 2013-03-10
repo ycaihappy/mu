@@ -412,6 +412,9 @@ $.extend(MU.mods,{
 		$('#product_status').change(function(){
 			$(this).closest('form').submit();
 		});
+		$('#supply_status').change(function(){
+			$(this).closest('form').submit();
+		});
 	},
 	JQuot : function () {
 		var self = $(this),api = $('#chart').data('api');

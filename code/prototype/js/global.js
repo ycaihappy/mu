@@ -412,6 +412,9 @@ $.extend(MU.mods,{
 		$('#product_status').change(function(){
 			$(this).closest('form').submit();
 		});
+		$('#supply_status').change(function(){
+			$(this).closest('form').submit();
+		});
 	},
 	JQuot : function () {
 		var self = $(this),api = $('#chart').data('api');
@@ -500,12 +503,13 @@ $.extend(MU.mods,{
 		}).triggerHandler('frame');
 	},
 	JMessageCreate : function () {
-		var self = $(this),reveriver = self.find('input[name=receiver]');
+		var self = $(this),reveriver = $('#MessageForm_msg_to_user_name');
+		
 		 reveriver.autocomplete({
 			source: reveriver.data('api'),
 			minLength: 1,
 			select: function( event, ui ) {
-				
+				$('#MessageForm_msg_to_user_id').val(ui.item.id);
 				reveriver.val(ui.item.value);
 				
 			}

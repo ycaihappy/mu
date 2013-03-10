@@ -5,15 +5,15 @@
 	<!--m-table-list-->
 	<div class="m-table-list" id="J_Supply_List">
 	
-	<div class="hd">		
+	<!--<div class="hd">		
 		<div class="block-error">
 			<p>企业名称必须填写！</p>
 		</div>
-	</div>
+	</div>-->
 	<div class="repeatbg search">
-			
-				
-				<a class="cmp-btn">发送站内信</a> <a class="cmp-btn">已发站内信</a>
+
+       <?php #echo CHtml::dropDownList('msg_type',1, array('发送','接收'));?>
+                <a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/messageadd');?>" class="cmp-btn">发送站内信</a> 
 			
 		</div>
 	
@@ -27,7 +27,7 @@
                     <tr <?php echo $class;?>>    
                     <td><input type="checkbox" value="<?php echo $data[$index]['msg_id'];?>" /></td>
                     <td><?php echo $data[$index]['user_name'];?></td>
-                    <td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/messageadd',array('msg_id'=>$data[$index]['msg_id'],'update'=>1));?>"><?php echo $data[$index]['msg_subject'];?></a></td>
+                    <td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/messageadd',array('msg_id'=>$data[$index]['msg_id'],'view'=>1));?>"><?php echo $data[$index]['msg_subject'];?></a></td>
                     <td><?php echo $data[$index]['ent_name'];?></td>
                     <td><?php echo $data[$index]['ent_chief'];?></td>
                     <td><?php echo $data[$index]['msg_date'];?></td>

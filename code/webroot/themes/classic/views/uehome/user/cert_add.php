@@ -1,13 +1,30 @@
 	<div class="m-breadcrumb">
 	    <p><b class="crumb"></b>会员中心<i></i>添加图片</p>
     </div>
-
+<?php
+$error = $model->getErrors();
+if ( !empty($error))
+{
+?>
+<div class="block-error">
+<?php
+    foreach ($error as $one_error)
+    {
+?>
+    <p><?php echo $one_error[0];?></p>
+<?php
+    }
+?>
+</div>
+<?php
+}
+?>
 	<div class="m-form" id="J_Cert_Add">
 <?php	
     $form = $this->beginWidget(
         'CActiveForm',
         array(
-            'id' => 'upload-form',
+            'id' => 'file-form',
             'enableAjaxValidation' => false,
             'htmlOptions' => array('enctype' => 'multipart/form-data'),
         )
@@ -26,10 +43,10 @@
 			<td class="label">文件描述：</td><td><?php echo $form->textArea($model,'file_content',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
 		</tr>
 		<tr>
-        <td class="label">图片上传：</td><td><?php echo CHtml::activeFileField($model, 'image'); ?>
+        <td class="label">图片上传：</td><td><?php echo CHtml::activeFileField($model, 'file_url'); ?>
 			<p>(图片大小不要超过200K，格式GIF,JPG,PNG图片宽度最大为220像素效果最佳！)</p>
 			
-			<br /><img src="images/thumb.gif" class="thumb"></td>
+                <br /><img src="<?php echo $model->file_url;?>" class="thumb"></td>
 		</tr>
 		
 		<tr>

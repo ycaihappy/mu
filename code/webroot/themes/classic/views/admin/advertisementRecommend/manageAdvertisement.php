@@ -43,7 +43,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
-<form action='<?php echo  Yii::app()->controller->createUrl('changeAdvertisementStatus') ?>' method='post'>
+<form id="advForm" action='<?php echo  Yii::app()->controller->createUrl('changeAdvertisementStatus') ?>' method='post'>
 
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
@@ -64,21 +64,21 @@ $this->widget('zii.widgets.jui.CJuiButton',
         ),  // display the 'name' attribute of the 'category' relation
         array(
         	'name'=>'所属人',
-        	'value'=>'$data->user->enterprise->ent_name',
+        	'value'=>'$data->user->enterprise?$data->user->enterprise->ent_name:"未指定"',
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'位置',
-        	'value'=>'$data->position->term_name',
+        	'value'=>'$data->position?$data->position->term_name:"未指定"',
         	'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
        array(
         	'name'=>'媒体类型',
-        	'value'=>'$data->type->term_name',
+        	'value'=>'$data->type?$data->type->term_name:"未指定"',
        		'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
        array(
         	'name'=>'状态',
-        	'value'=>'$data->status->term_name',
+        	'value'=>'$data->status?$data->status->term_name:"未指定"',
        		'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
        array(
@@ -117,8 +117,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=1";
-				this.form.submit();
+				var url="'.Yii::app()->controller->createUrl('changeAdvertisementStatus',array('toStatus'=>1)).'";
+					$("#advForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("yw0");
+							},
+						}
+					);
 			}
 			return false;
 		}',
@@ -137,8 +145,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=2";
-				this.form.submit();
+				var url="'.Yii::app()->controller->createUrl('changeAdvertisementStatus',array('toStatus'=>2)).'";
+					$("#advForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("yw0");
+							},
+						}
+					);
 			}
 			return false;
 		}',
@@ -149,3 +165,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 ?>
 </DIV>
 </form>
+<?php 
+$cs = Yii::app()->getClientScript();
+$cs->registerScriptFile('/js/jquery.form.js');
+?>

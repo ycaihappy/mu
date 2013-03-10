@@ -102,7 +102,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				var url=this.form.action+"&toStatus=1";
+				var url="'.Yii::app()->controller->createUrl('changeEnterpriseStatus',array('toStatus'=>1)).'";
 				$("#enterpriseForm").ajaxSubmit(
 					{
 						url:url,
@@ -130,7 +130,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				var url=this.form.action+"&toStatus=2";
+				var url="'.Yii::app()->controller->createUrl('changeEnterpriseStatus',array('toStatus'=>2)).'";
 				$("#enterpriseForm").ajaxSubmit(
 					{
 						url:url,

@@ -43,7 +43,7 @@ if($adminUser)
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
-<form action='<?php echo  Yii::app()->controller->createUrl('changeUserStatus') ?>' method='post'>
+<form id="useForm" action='<?php echo  Yii::app()->controller->createUrl('changeUserStatus') ?>' method='post'>
 
 <?php 
 	$list=$adminUser?'adminUserList':'userList';
@@ -67,8 +67,16 @@ if(!$adminUser):
 				}
 				else
 				{
-					this.form.action+="&toStatus=1";
-					this.form.submit();
+					var url="'.Yii::app()->controller->createUrl('changeUserStatus',array('toStatus'=>1)).'";
+					$("#useForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("J_RoleList");
+							},
+						}
+					);
 				}
 				return false;
 			}',
@@ -87,8 +95,16 @@ if(!$adminUser):
 				}
 				else
 				{
-					this.form.action+="&toStatus=2";
-					this.form.submit();
+					var url="'.Yii::app()->controller->createUrl('changeUserStatus',array('toStatus'=>2)).'";
+					$("#useForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("J_RoleList");
+							},
+						}
+					);
 				}
 				return false;
 			}',
@@ -123,5 +139,6 @@ endif;
 <?php 
 $cs=Yii::app()->getClientScript();
 $cs->registerCoreScript('jquery.ui');
+$cs->registerScriptFile('/js/jquery.form.js');
 
 ?>

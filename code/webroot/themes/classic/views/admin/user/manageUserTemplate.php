@@ -42,7 +42,7 @@ $this->breadcrumbs=array(
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
-<form action='<?php echo  Yii::app()->controller->createUrl('changeUserTemplateStatus') ?>' method='post'>
+<form id="userTempForm" action='<?php echo  Yii::app()->controller->createUrl('changeUserTemplateStatus') ?>' method='post'>
 
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
@@ -61,7 +61,7 @@ $this->breadcrumbs=array(
         array(
         	'name'=>'缩略图',
         	'type'=>'html',
-        	'value'=>'CHtml::image("images/storeFront/".$data->temp_dir."/temp.jpg",$data->temp_name,array("width"=>97,"height"=>114))',
+        	'value'=>'CHtml::image("/images/storeFront/".$data->temp_dir."/temp.jpg",$data->temp_name,array("width"=>97,"height"=>114))',
         ),  // display the 'name' attribute of the 'category' relation
         array(
         	'name'=>'模板名称',
@@ -135,8 +135,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=1";
-				this.form.submit();
+				var url="'.Yii::app()->controller->createUrl('changeUserTemplateStatus',array('toStatus'=>1)).'";
+					$("#userTempForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("userTemplate");
+							},
+						}
+					);
 			}
 			return false;
 		}',
@@ -155,8 +163,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=2";
-				this.form.submit();
+				var url="'.Yii::app()->controller->createUrl('changeUserTemplateStatus',array('toStatus'=>2)).'";
+					$("#userTempForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("userTemplate");
+							},
+						}
+					);
 			}
 			return false;
 		}',
@@ -165,3 +181,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 ?>
 </DIV>
 </form>
+<?php 
+$cs = Yii::app()->getClientScript();
+$cs->registerScriptFile('/js/jquery.form.js');
+?>

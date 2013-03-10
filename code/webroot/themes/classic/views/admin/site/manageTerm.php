@@ -39,7 +39,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 <div>
 <label>所属分组：</label>
 <?php echo $form->dropDownList($model,'term_group_id',$allGroups);?>
-<label>标题：</label>
+<label>名称：</label>
 <?php echo $form->textField($model,'term_name',array('class'=>'cmp-input'));?>
 <?php echo CHtml::submitButton('搜索'); ?>
 </div>

@@ -37,7 +37,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 </div>
 </div>
 <br style='float:clear;'/>
-<form action='<?php echo  Yii::app()->controller->createUrl('changeFLinkStatus') ?>' method='post'>
+<form id='flinkForm' action='<?php echo  Yii::app()->controller->createUrl('changeFLinkStatus') ?>' method='post'>
 
 <?php $this->endWidget(); ?>
 <?php 
@@ -101,8 +101,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=1";
-				this.form.submit();
+				var url="'.Yii::app()->controller->createUrl('changeFLinkStatus',array('toStatus'=>2)).'";
+					$("#flinkForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("yw0");
+							},
+						}
+					);
 			}
 			return false;
 		}',
@@ -121,8 +129,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				this.form.action+="&toStatus=2";
-				this.form.submit();
+				var url="'.Yii::app()->controller->createUrl('changeFLinkStatus',array('toStatus'=>2)).'";
+					$("#flinkForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("yw0");
+							},
+						}
+					);
 			}
 			return false;
 		}',
@@ -154,3 +170,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 ?>
 </DIV>
 </form>
+<?php 
+$cs = Yii::app()->getClientScript();
+$cs->registerScriptFile('/js/jquery.form.js');
+?>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>login</title>
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="/css/global.css">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
 
@@ -18,7 +18,7 @@
 
 <div class="layout head">
 	<div class="m-logo clearfix">
-		<a target="_self" href="" class="logo"><img title="mushw.com - 钼市网会员登陆" alt="zzz" src="images/login_logo.png"></a>
+		<a target="_self" href="<?php echo $this->createUrl('/site/index')?>" class="logo"><img title="mushw.com - 钼市网会员登陆" alt="zzz" src="/images/login_logo.png"></a>
 	</div>
 
 </div>

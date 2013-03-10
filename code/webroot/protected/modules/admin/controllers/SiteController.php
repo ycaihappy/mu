@@ -417,7 +417,11 @@ class SiteController extends AdminController {
 		$flinkIds=@$_REQUEST['flink_id'];
 		if(!$flinkIds && in_array($toStatus,array(1,2)))
 		{
-				
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				echo '请选择要更新的文章';
+				exit;
+			}
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的友情链接，以及改变的状态');
 			$this->redirect(array('manageFLink'));
 				
@@ -426,6 +430,11 @@ class SiteController extends AdminController {
 		$updateStatusCriteria->addInCondition('flink_id', $productIds);
 		
 		$updateRows=FriendLink::model()->updateAll(array('flink_status'=>$toStatus),$updateStatusCriteria);
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			echo $updateRows>0?'更新成功！':'更新失败！';
+			exit;
+		}
 		if($updateRows>0)
 		{
 			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');

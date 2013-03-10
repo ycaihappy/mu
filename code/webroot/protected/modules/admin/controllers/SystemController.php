@@ -39,6 +39,65 @@ class SystemController extends AdminController {
 		$data=compact('templateType','model');
 		$this->render('updateMessageTemplate',$data);
 	}
+	public function actionManageRelativeRePrice()
+	{
+		$model=new RelativeRePrice();
+		if(isset($_REQUEST['RelativeRePrice']))
+		{
+			$model->attributes=$_REQUEST['RelativeRePrice'];
+		}
+		$model->re_status=(int)@$_REQUEST['RelativeRePrice']['re_status'];
+		$model->re_name=@$_REQUEST['RelativeRePrice']['re_name'];
+		$reCriteria=new CDbCriteria();
+		$reCriteria->with=array('status'=>array('select'=>'term_name'),'fallup'=>array('select'=>'term_name'));
+		$reCriteria->order='re_added_time desc';
+		if($model->re_status)
+		{
+			$reCriteria->compare('re_status', $model->re_status);
+		}
+		if($model->re_name)
+		{
+			$reCriteria->addSearchCondition('re_name', $model->re_name,true);
+		}
+		$dataProvider=new CActiveDataProvider('RelativeRePrice',array(
+			'criteria'=>$reCriteria,
+			'pagination'=>
+				array(
+					'pageSize'=>10,
+					'pageVar'=>'page',
+					'params'=>array(
+						'RelativeRePrice[re_status]'=>$model->re_status,
+						'RelativeRePrice[re_name]'=>$model->re_name,	
+					),
+					
+		)));
+		$allReStatus=Term::getTermsByGroupId(1);
+		$data=compact('dataProvider','allReStatus','model');
+		$this->render('manageRelativeRePrice',$data);
+	}
+	public function actionUpdateRelativeRePrice()
+	{
+		$model=new RelativeRePrice();
+		if(isset($_POST['RelativeRePrice']))
+		{
+			$model->attributes=$_POST['RelativeRePrice'];
+			if($model->re_id) $model->setIsNewRecord(false);
+			if($model->save())
+			{
+				$this->redirect(array('manageRelativeRePrice'));
+			}
+		}
+		else {
+			if($reId=@$_GET['re_id'])
+			{
+				$model=$model->findByPk($reId);
+			}
+		}
+		$allStatus=Term::getTermsByGroupId(1);
+		$allFallUp=Term::getTermsByGroupId(19);
+		$data=compact('allStatus','model','allFallUp');
+		$this->render('updateRelativeRePrice',$data);
+	}
 }
 
 

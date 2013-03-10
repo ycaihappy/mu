@@ -22,7 +22,7 @@
                             <label>品种:</label>
 							<?php echo CHtml::dropDownList('smallType', $smallType, $allSmallType,array('empty'=>'全部'))?>
                             <label>存放地:</label>
-							<?php echo CHtml::dropDownList('province', $province, $allProvince)?>
+							<?php echo CHtml::dropDownList('province', $province, $allProvince,array('empty'=>'全部省份'))?>
                             <label>发布企业：</label><input type="text" value="<?php echo $enterprise?>" id="txt_spec" name="enterprise" />
                         </div>
                         <div class="searchBt">

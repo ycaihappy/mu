@@ -897,7 +897,11 @@ class UserController extends AdminController
 		$templateId=@$_REQUEST['temp_id'];
 		if(!$templateId && in_array($toStatus,array(1,2)))
 		{
-
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				echo '请求参数不正确！';
+				exit;
+			}
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的模板信息，以及改变的状态');
 			$this->redirect(array($redirectPage));
 
@@ -905,6 +909,11 @@ class UserController extends AdminController
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('temp_id', $templateId);
 		$updateRows=UserTemplate::model()->updateAll(array('temp_status'=>$toStatus),$updateStatusCriteria);
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			echo $updateRows>0?'更新成功！':'更新失败！';
+			exit;
+		}
 		if($updateRows>0)
 		{
 			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
@@ -1015,15 +1024,23 @@ class UserController extends AdminController
 		$flinkIds=@$_REQUEST['flink_id'];
 		if(!$flinkIds && in_array($toStatus,array(1,2)))
 		{
-
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				echo '请求参数不正确！';
+				exit;
+			}
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的友情链接，以及改变的状态');
 			$this->redirect(array('manageFLink'));
 
 		}
 		$updateStatusCriteria=new CDbCriteria();
-		$updateStatusCriteria->addInCondition('flink_id', $productIds);
-
+		$updateStatusCriteria->addInCondition('flink_id', $flinkIds);
 		$updateRows=FriendLink::model()->updateAll(array('flink_status'=>$toStatus),$updateStatusCriteria);
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			echo $updateRows>0?'更新成功！':'更新失败！';
+			exit;
+		}
 		if($updateRows>0)
 		{
 			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
@@ -1040,6 +1057,11 @@ class UserController extends AdminController
 		$userId=@$_REQUEST['user_id'];
 		if(!$userId && in_array($toStatus,array(1,2)))
 		{
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				echo '请求参数不正确！';
+				exit;
+			}
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的用户信息，以及改变的状态');
 			$this->redirect(array('manageUser'));
 
@@ -1047,6 +1069,11 @@ class UserController extends AdminController
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('user_id', $userId);
 		$updateRows=User::model()->updateAll(array('user_status'=>$toStatus),$updateStatusCriteria);
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			echo $updateRows>0?'更新成功！':'更新失败！';
+			exit;
+		}
 		if($updateRows>0)
 		{
 			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');

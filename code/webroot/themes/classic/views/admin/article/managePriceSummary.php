@@ -110,8 +110,16 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			{
 				if(confirm("确定删除选中的行情信息"))
 				{
-					this.form.action+="&toStatus=29";
-					this.form.submit();
+					var url="'.Yii::app()->controller->createUrl('deletePriceSummary',array('toStatus'=>33)).'";
+					$("#imageLibForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("yw0");
+							},
+						}
+					);
 				}
 			}
 			return false;
@@ -121,3 +129,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 ?>
 </DIV>
 </form>
+<?php 
+$cs = Yii::app()->getClientScript();
+$cs->registerScriptFile('/js/jquery.form.js');
+?>

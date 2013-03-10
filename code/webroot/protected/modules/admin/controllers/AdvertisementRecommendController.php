@@ -238,6 +238,11 @@ class AdvertisementRecommendController extends AdminController {
 		$adId=@$_REQUEST['ad_id'];
 		if(!$adId && in_array($toStatus,array(1,2)))
 		{
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				echo '请求参数不正确！';
+				exit;
+			}
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的广告信息，以及改变的状态');
 			$this->redirect(array('manageAdvertisement'));
 
@@ -245,6 +250,11 @@ class AdvertisementRecommendController extends AdminController {
 		$updateStatusCriteria=new CDbCriteria();
 		$updateStatusCriteria->addInCondition('ad_id', $adId);
 		$updateRows=Advertisement::model()->updateAll(array('ad_status'=>$toStatus),$updateStatusCriteria);
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			echo $updateRows>0?'更新成功！':'更新失败！';
+			exit;
+		}
 		if($updateRows>0)
 		{
 			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');

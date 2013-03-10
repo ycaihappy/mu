@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-10 00:42:37
+# Date/time:                    2013-03-10 09:15:57
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -1326,7 +1326,7 @@ CREATE TABLE IF NOT EXISTS `mu_price_summary` (
   PRIMARY KEY (`sum_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_price_summary: 1 rows
+# Dumping data for table mu.mu_price_summary: 206 rows
 DELETE FROM `mu_price_summary`;
 /*!40000 ALTER TABLE `mu_price_summary` DISABLE KEYS */;
 INSERT INTO `mu_price_summary` (`sum_id`, `sum_unit`, `sum_price`, `sum_year`, `sum_month`, `sum_day`, `sum_product_type`, `sum_product_zone`, `sum_add_date`) VALUES
@@ -1832,6 +1832,27 @@ INSERT INTO `mu_recommend` (`recommend_id`, `recommend_object_id`, `recommend_ty
 	(36, 106, 24, 55, 1, '2013-03-06 21:17:34'),
 	(37, 110, 24, 55, 1, '2013-03-06 21:17:41');
 /*!40000 ALTER TABLE `mu_recommend` ENABLE KEYS */;
+
+
+# Dumping structure for table mu.mu_relative_re_price
+DROP TABLE IF EXISTS `mu_relative_re_price`;
+CREATE TABLE IF NOT EXISTS `mu_relative_re_price` (
+  `re_id` int(4) NOT NULL AUTO_INCREMENT,
+  `re_name` varchar(50) NOT NULL,
+  `re_fallup` int(4) DEFAULT NULL COMMENT '表示，涨，跌，平',
+  `re_margin` int(4) DEFAULT NULL COMMENT '涨跌幅度',
+  `re_market` varchar(128) DEFAULT NULL COMMENT '所属市场',
+  `re_price` decimal(10,0) DEFAULT NULL COMMENT '今日价',
+  `re_status` int(11) DEFAULT '1' COMMENT '显示状态',
+  `re_added_time` datetime DEFAULT NULL COMMENT '添加时间',
+  `re_updated_time` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`re_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='相关稀土矿价格表';
+
+# Dumping data for table mu.mu_relative_re_price: ~0 rows (approximately)
+DELETE FROM `mu_relative_re_price`;
+/*!40000 ALTER TABLE `mu_relative_re_price` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mu_relative_re_price` ENABLE KEYS */;
 
 
 # Dumping structure for table mu.mu_right_assignment

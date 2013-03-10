@@ -381,6 +381,11 @@ class ArticleController extends AdminController {
 		$imageId=@$_REQUEST['image_id'];
 		if(!$imageId && in_array($toStatus,array(1,2,33)))
 		{
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				echo '请求参数不正确！';
+				exit;
+			}
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的图片信息，以及改变的状态');
 			$this->redirect(array('manageImageLibary','page'=>Yii::app()->request->getParam('page',1)));
 

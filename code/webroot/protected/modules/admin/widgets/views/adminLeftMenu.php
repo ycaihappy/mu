@@ -67,6 +67,7 @@ case 7:
 			'activeCssClass'=>'on',
 			'items'=>array(
 				array('label'=>'邮件模板管理', 'url'=>array('system/manageMessageTemplate'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
+				array('label'=>'钼相关稀土价格', 'url'=>array('system/manageRelativeRePrice'),'linkOptions'=>array('target'=>'mainFrame',)),
 				),
 		)); 
 		endswitch;?>

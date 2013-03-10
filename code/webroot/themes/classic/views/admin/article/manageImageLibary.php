@@ -71,7 +71,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
         array(
         	'name'=>'名称',
         	'type'=>'html',
-        	'value'=>'"<img src=\"images/commonProductsImages/thumb/".$data->image_thumb_src."\" height=\"80\" alt=\"".$data->image_title."\" >"',
+        	'value'=>'"<img src=\"/images/commonProductsImages/thumb/".$data->image_thumb_src."\" height=\"80\" alt=\"".$data->image_title."\" >"',
         ),  // display the 'name' attribute of the 'category' relation
        
         array(
@@ -121,7 +121,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			{
 				//this.form.action+="&toStatus=1";
 				//this.form.submit();
-				var url=this.form.action+"&toStatus=1";
+				var url="'.Yii::app()->controller->createUrl('changeImageLibaryStatus',array('toStatus'=>1)).'";
 				$("#imageLibForm").ajaxSubmit(
 					{
 						url:url,
@@ -149,7 +149,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			}
 			else
 			{
-				var url=this.form.action+"&toStatus=2";
+				var url="'.Yii::app()->controller->createUrl('changeImageLibaryStatus',array('toStatus'=>2)).'";
 				$("#imageLibForm").ajaxSubmit(
 					{
 						url:url,
@@ -179,7 +179,6 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			{
 				if(confirm("确定删除选中的'.$alertTitle.'信息"))
 				{
-					this.form.action+="&toStatus=29";
 					var url="'.$this->createUrl('deleteImageLibary').'";
 					$("#imageLibForm").ajaxSubmit(
 						{

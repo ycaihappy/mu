@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>钼市网--管理后台</title>
-<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="/css/admin.css">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <link rel="shortcut icon" type="image/png" href="/img/favicon.png">
 

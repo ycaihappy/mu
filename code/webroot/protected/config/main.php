@@ -94,16 +94,24 @@ return array(
 //     	),
 		// uncomment the following to enable URLs in path-format
 		
-		/*'urlManager'=>array(
+		'urlManager'=>array(
 			'urlFormat'=>'path',
-		    'showScriptName'=>false,
-			'urlSuffix'=>'.html', //加上.html
+            'urlSuffix'=>'.html',
+            'showScriptName'=>false,
 			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				'news/view/<art_id:\d+>'=>'news/view',
+				'news/list/<subcategory_id:\d+>'=>'news/list',
+				'supply/view/<supply_id:\d+>'=>'supply/view',
+				'supply/list/<type:\d+>'=>'supply/list',
+				'product/view/<product_id:\d+>'=>'product/view',
+				'product/list/<type:\d+>'=>'product/list',
+				'price/list/<subcategory_id:\d+>'=>'price/list',
+				'knowledge/list/<subcategory_id:\d+>'=>'knowledge/list',
+				'http://admin.mushw.com/<_c:\w+>/<_a:\w+>'=>'admin/<_c>/<_a>',
+				'http://uehome.mushw.com/<_a:\w+>'=>'uehome/user/<_a>',
+				'http://<username:\w+>.mushw.com/<_a:\w+>'=>'storeFront/default/<_a>'
 			),
-		),*/
+		),
 		
             /*
 		'db'=>array(

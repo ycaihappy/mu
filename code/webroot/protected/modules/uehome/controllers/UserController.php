@@ -45,6 +45,17 @@ class UserController extends Controller {
 	public function actionIndex() {
 		$this->render ( 'index' );
 	}
+    public function actionAutolist()
+    {
+        $keyword = isset($_REQUEST['term']) ? $_REQUEST['term'] : '';
+
+        $connection = Yii::app()->db;
+        $sql = 'select * from mu_user where user_name like "%'.$keyword.'%"';
+        $detail= $connection->createCommand($sql)->queryAll();
+
+        echo json_encode($detail);
+
+    }
     public function actionJob()
     {
         $this->render ( 'job' );

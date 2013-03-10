@@ -29,7 +29,7 @@
             <td width="20%"><span class="STYLE1">企业类型：</span></td>
             <td width="30%"><?php echo $company->type->term_name?></td>
             <td width="20%"><span class="STYLE1">经营模式：</span></td>
-            <td width="30%"><?php echo $company->business->term_name?></td>
+            <td width="30%"><?php if (!empty($company->business)) echo $company->business->term_name?></td>
           </tr>
           <tr>
            <td><span class="STYLE1">注册资本：</span></td>

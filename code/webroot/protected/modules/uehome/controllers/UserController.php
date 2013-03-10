@@ -45,6 +45,24 @@ class UserController extends Controller {
 	public function actionIndex() {
 		$this->render ( 'index' );
 	}
+    public function actionAutolist()
+    {
+        $keyword = isset($_REQUEST['term']) ? $_REQUEST['term'] : '';
+
+        $connection = Yii::app()->db;
+        $sql = 'select * from mu_user where user_name like "%'.$keyword.'%"';
+        $detail= $connection->createCommand($sql)->queryAll();
+
+        foreach ($detail as $u)
+        {
+            $b['id'] = $u['user_id'];
+            $b['lable'] = $u['user_name'];
+            $b['value'] = $u['user_name'];
+            $a[] = $b;
+        }
+        echo json_encode($a);
+
+    }
     public function actionJob()
     {
         $this->render ( 'job' );
@@ -276,15 +294,16 @@ $connection = Yii::app()->db;
             $model->art_id    = $article->art_id;
             $model->art_title = $article->art_title;
             $model->art_content= $article->art_content;
+            $model->art_intro  = $article->art_intro;
         }
         if (isset($_POST['NewsForm']))
         {
             $model->attributes = $_POST['NewsForm'];
             if ( $model->validate() )
             {
-               empty($model->art_id) ? $model->draft() : $model->update();
+                empty($model->art_id) ? $model->draft() : $model->update();
+                $this->actionNlist();
             }
-            $this->actionNlist();
         }
 		$this->render ( 'news', array('model'=>$model) );
 	}
@@ -516,8 +535,11 @@ $connection = Yii::app()->db;
 	}
     public function actionCertDel()
     {
-        $model = FileModel::model()->find("file_id=:file_id", array('file_id'=>$_REQUEST['ids']));
-        $model->delete();
+        $connection = Yii::app()->db;
+        $sql = 'delete from mu_file where file_id='.$_REQUEST['ids']; 
+        $detail= $connection->createCommand($sql)->execute();
+       # $model = FileModel::model()->find("file_id=:file_id", array('file_id'=>$_REQUEST['ids']));
+       # $model->delete();
         echo json_encode(array('status'=>1,'data'=>array()));
     }
 	public function actionCert() {

@@ -66,7 +66,7 @@ class UserForm extends CFormModel
         $commd->bindValue(":user_subscribe", $this->user_subscribe, PDO::PARAM_STR);
         $commd->bindValue(":user_id", yii::app()->user->getID(), PDO::PARAM_STR);
 
-        $commd->execute();
+        return $commd->execute();
 	}
 
 	public function register()

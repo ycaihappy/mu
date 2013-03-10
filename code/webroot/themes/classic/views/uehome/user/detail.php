@@ -1,6 +1,7 @@
  <div class="m-breadcrumb">
 	<p><b class="crumb"></b>会员中心<i></i>个人资料</p>
 </div>
+
     <div class="m-form">
 	
 <?php $form = $this->beginWidget('CActiveForm', array(
@@ -11,8 +12,9 @@
     ),
 ));?>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
+    <?php echo $form->hiddenField($model, 'user_name');?>
 		<tr>
-        <td class="label">用户名：</td><td><?php echo $form->textField($model, 'user_name', array('class'=>'cmp-input','readOnly'=>'readOnly'));?>
+        <td class="label">用户名：</td><td><?php echo $model->user_name;?>
         
         </td>
 		</tr>

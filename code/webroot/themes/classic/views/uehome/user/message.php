@@ -49,17 +49,19 @@
 	</table>
 	
 	<div class="pager">
-			<ul class="yiiPager" id="yw0"><li class="first hidden"><a href="/index.php?r=uehome/user/slist">首页</a></li>
-<li class="previous hidden"><a href="/index.php?r=uehome/user/slist">上一页</a></li>
-<li class="page selected"><a href="/index.php?r=uehome/user/slist">1</a></li>
-<li class="page"><a href="/index.php?r=uehome/user/slist&amp;page=2">2</a></li>
-<li class="page"><a href="/index.php?r=uehome/user/slist&amp;page=3">3</a></li>
-<li class="page"><a href="/index.php?r=uehome/user/slist&amp;page=4">4</a></li>
-<li class="page"><a href="/index.php?r=uehome/user/slist&amp;page=5">5</a></li>
-<li class="page"><a href="/index.php?r=uehome/user/slist&amp;page=6">6</a></li>
-<li class="page"><a href="/index.php?r=uehome/user/slist&amp;page=7">7</a></li>
-<li class="next"><a href="/index.php?r=uehome/user/slist&amp;page=2">下一页</a></li>
-<li class="last"><a href="/index.php?r=uehome/user/slist&amp;page=10">末页</a></li></ul>		
+			<?php 
+	            $this->widget('CLinkPager',array(
+							'header'=>'',
+							'firstPageLabel'=>'首页',
+							'lastPageLabel'=>'末页',
+							'prevPageLabel'=>'上一页',
+							'nextPageLabel'=>'下一页',
+							'pages'=>$pager,
+							'maxButtonCount'=>7,
+							)
+				
+				);
+            ?>		
 	</div>
 	
 	</div>

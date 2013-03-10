@@ -2,7 +2,6 @@
 
 class FileForm extends CFormModel
 {
-	public $image;
     public $file_title;
     public $file_type_id;
     public $file_content;
@@ -16,15 +15,14 @@ class FileForm extends CFormModel
 	public function rules()
     {
         return array(
-            array('image', 'file', 'allowEmpty'=>true,
+        array('file_url', 'file', 'allowEmpty'=>true,
             'types'=>'jpg, jpeg, gif, png',
             'maxSize'=>1024 * 1024 * 1, // 1MB
             'tooLarge'=>'上传文件超过 1MB，无法上传。',
         ),
-        array('file_title','safe'),
-        array('file_content','safe'),
-        array('file_type_id','safe'),
-        array('file_url', 'safe')
+        array('file_title','required','message'=>'请填写文件名'),
+        array('file_content','required','message'=>'请填写文件描述'),
+        array('file_url,file_title,file_content,file_type_id', 'safe')
         );
     }
 

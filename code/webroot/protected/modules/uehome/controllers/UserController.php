@@ -184,7 +184,7 @@ $connection = Yii::app()->db;
             $model->attributes = $_POST['UserForm'];
             if ( $model->validate() )
             {
-                $model->update();
+                $flag=$model->update();
             }
         }
         else
@@ -198,7 +198,7 @@ $connection = Yii::app()->db;
         {
         	$citys=City::getAllCity($model->user_province_id);
         }
-        $data=compact('model','province','citys');
+        $data=compact('model','province','citys','flag');
 		$this->render ( 'detail',$data);
 	}
 	public function actionCompany() {

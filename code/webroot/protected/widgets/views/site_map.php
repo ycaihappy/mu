@@ -66,9 +66,11 @@ foreach ($category as $category_id =>$category_name)
     <td width="109" valign="middle" align="left" class="line1"><div class="tab2"><span class="tab2font">服务中心</span></div></td>
     <td width="881" class="line2">
         <ul>
-                    <li><a href="<?php echo Yii::app()->controller->createUrl('/supply/list',array('type'=>1))?>" title="供应">抵押</a></li>
-                    <li><a href="<?php echo Yii::app()->controller->createUrl('/supply/list',array('type'=>2))?>" title="求购">贷款</a></li>
-                    <li><a href="<?php echo Yii::app()->controller->createUrl('/supply/list',array('type'=>2))?>" title="求购">担保</a></li>
+                    <li><a href="<?php echo Yii::app()->controller->createUrl('/supply/list',array('type'=>1))?>">仓储物流</a></li>
+                    <li><a href="<?php echo Yii::app()->controller->createUrl('/supply/list',array('type'=>2))?>">采购配送</a></li>
+                    <li><a href="<?php echo Yii::app()->controller->createUrl('/supply/list',array('type'=>2))?>">质检调配</a></li>
+                    <li><a href="<?php echo Yii::app()->controller->createUrl('/supply/list',array('type'=>2))?>">金融担保</a></li>
+                    <li><a href="<?php echo Yii::app()->controller->createUrl('/supply/list',array('type'=>2))?>">求职招聘</a></li>
         </ul>
     </td>
   </tr>

@@ -534,8 +534,11 @@ $connection = Yii::app()->db;
 	}
     public function actionCertDel()
     {
-        $model = FileModel::model()->find("file_id=:file_id", array('file_id'=>$_REQUEST['ids']));
-        $model->delete();
+        $connection = Yii::app()->db;
+        $sql = 'delete from mu_file where file_id='.$_REQUEST['ids']; 
+        $detail= $connection->createCommand($sql)->execute();
+       # $model = FileModel::model()->find("file_id=:file_id", array('file_id'=>$_REQUEST['ids']));
+       # $model->delete();
         echo json_encode(array('status'=>1,'data'=>array()));
     }
 	public function actionCert() {

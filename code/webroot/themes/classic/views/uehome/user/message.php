@@ -40,7 +40,7 @@
 				<p class="btn-group">
 					<a class="cmp-btn all">全选</a>
 					<a class="cmp-btn cancel">取消</a>
-					<a class="cmp-btn delete" data-api="index.php?r=">删除</a>
+					<a class="cmp-btn delete" data-api="<?php echo Yii::app()->controller->createUrl('/uehome/user/messagedel');?>">删除</a>
 				</p>
 			</td>
 		

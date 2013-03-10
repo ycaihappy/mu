@@ -414,23 +414,26 @@ $.extend(MU.mods,{
 		});
 	},
 	JQuot : function () {
-		var self = $(this);
+		var self = $(this),api = $('#chart').data('api');
 		$('#chart').css({width:250,height:150});
-		$.getAsset('script',['js/highcharts.js'],function(){
-			 var chart = new Highcharts.Chart({
+		var loadChart = function (params) {
+			var p = $.param (params);
+			api = api.indexOf('?') == -1 ? api + '?' + p : api + '&' + p;
+			$.getJSON(api,function (re) {
+				var chart = new Highcharts.Chart({
                 chart: {
                     renderTo: 'chart',
                     type: 'line'
                 },
                 title: {
-                    text: '行情走势图'
+                    text: re.text
                 },
                 xAxis: {
-                    categories: ['Jan','Feb','Mar']
+                    categories: re.xAxis
                 },
                 yAxis: {
                     title: {
-                        text: '价格'
+                        text: re.yAxis
                     }
                 },
                 tooltip: {
@@ -441,25 +444,15 @@ $.extend(MU.mods,{
                 credits: {
                     enabled: false
                 },
-                series: [
-					{
-						name : 'a',
-						data : [2,3,4]
-					},
-					{
-						name : 'b',
-						data : [1,2,3]
-					},
-					{
-						name : 'c',
-						data : [5,7,8]
-					}
-					
-				],
+                series: re.series,
                 exporting: {
                     enabled: false
                 }
             });
+			});
+		}
+		$.getAsset('script',['js/highcharts.js'],function(){
+			 loadChart({cid:1});
 		});
 	},
 	JXhSlist : function (){
@@ -508,7 +501,15 @@ $.extend(MU.mods,{
 	},
 	JMessageCreate : function () {
 		var self = $(this),reveriver = self.find('input[name=receiver]');
-		
+		 reveriver.autocomplete({
+			source: reveriver.data('api'),
+			minLength: 1,
+			select: function( event, ui ) {
+				
+				reveriver.val(ui.item.value);
+				
+			}
+		});
 		
 	}
 });

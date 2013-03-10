@@ -1,5 +1,5 @@
 	<div class="m-breadcrumb">
-		<p><b class="crumb"></b>会员中心<i></i>现货列表</p>
+		<p><b class="crumb"></b>会员中心<i></i>供求列表</p>
 	</div>
 	<!--m-table-list-->
 	<div class="m-table-list" id="J_Supply_List">

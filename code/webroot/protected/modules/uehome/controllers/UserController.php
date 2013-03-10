@@ -45,6 +45,10 @@ class UserController extends Controller {
 	public function actionIndex() {
 		$this->render ( 'index' );
 	}
+    public function actionJob()
+    {
+        $this->render ( 'job' );
+    }
     public function actionMessageAdd()
     {
         $model = new MessageForm();
@@ -528,24 +532,22 @@ $connection = Yii::app()->db;
         if(isset($_POST['FileForm']))
         {
             $model->attributes=$_POST['FileForm'];
-
-            $model->image=CUploadedFile::getInstance($model,'image');
-            if (is_object($model->image) && get_class($model->image) === 'CUploadedFile')
+            if ( $model->validate())
             {
-                $filename = md5(uniqid());
-                $uploadfile= 'uploads/'. $filename . '.' . $model->image->extensionName;
-                $model->image->saveAs($uploadfile);
-                $model->file_url= 'uploads/' . $filename . '.' . $model->image->extensionName;
+                $model_image=CUploadedFile::getInstance($model,'file_url');
+                if (is_object($model_image) && get_class($model_image) === 'CUploadedFile')
+                {
+                    $filename = md5(uniqid());
+                    $uploadfile= 'images/enterprise/'.Yii::app()->user->getId().'/'.$filename . '.' . $model_image->extensionName;
+                    $model_image->saveAs($uploadfile);
+                    $model->file_url= 'images/enterprise/'.Yii::app()->user->getId().'/'. $filename . '.' . $model_image->extensionName;
+                }
+                $model->save();
+                $this->redirect( array('user/cert') );
             }
-            $model->save();
-            $this->redirect( array('user/cert') );
         }
-        else
-        {
-            $category = Term::getTermsListByGroupId(18);
-            $this->render ('cert_add', array('model'=>$model,'category'=>$category));
-        }
-
+        $category = Term::getTermsListByGroupId(18);
+        $this->render ('cert_add', array('model'=>$model,'category'=>$category));
 	}
     public function actionRegister()
     {

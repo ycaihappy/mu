@@ -53,7 +53,14 @@ class UserController extends Controller {
         $sql = 'select * from mu_user where user_name like "%'.$keyword.'%"';
         $detail= $connection->createCommand($sql)->queryAll();
 
-        echo json_encode($detail);
+        foreach ($detail as $u)
+        {
+            $b['id'] = $u['user_id'];
+            $b['lable'] = $u['user_name'];
+            $b['value'] = $u['user_name'];
+            $a[] = $b;
+        }
+        echo json_encode($a);
 
     }
     public function actionJob()

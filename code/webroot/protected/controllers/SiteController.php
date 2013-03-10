@@ -33,6 +33,7 @@ class SiteController extends Controller
 	}
     public function actionMap()
     {
+        $this->layout = '//layouts/ajax_main';
         $this->render('map');
     }
 

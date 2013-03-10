@@ -19,7 +19,7 @@ if ( !empty($error))
 <?php
 }
 ?>
-    <div class="m-form" id="J_User_Suppy">
+    <div class="m-form" id="J_Message_Create">
 
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'message-form',
@@ -31,7 +31,7 @@ if ( !empty($error))
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
         <?php echo $form->hiddenField($model, 'msg_to_user_id');?>
 		<tr>
-            <td class="label">收件人：</td><td><?php echo $form->textField($model, 'msg_to_user_name', array('class'=>'cmp-input'));?><span class="msg">不能包含“.,、/”等特殊字符</span>
+            <td class="label">收件人：</td><td><?php echo $form->textField($model, 'msg_to_user_name', array('class'=>'cmp-input','data-api'=>'index.php?r=/uehome/user/autolist'));?><span class="msg">不能包含“.,、/”等特殊字符</span>
             </td>
 		</tr>
 		<tr>

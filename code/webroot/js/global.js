@@ -500,7 +500,8 @@ $.extend(MU.mods,{
 		}).triggerHandler('frame');
 	},
 	JMessageCreate : function () {
-		var self = $(this),reveriver = self.find('input[name=receiver]');
+		var self = $(this),reveriver = $('#MessageForm_msg_to_user_name');
+		
 		 reveriver.autocomplete({
 			source: reveriver.data('api'),
 			minLength: 1,

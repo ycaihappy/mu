@@ -294,15 +294,16 @@ $connection = Yii::app()->db;
             $model->art_id    = $article->art_id;
             $model->art_title = $article->art_title;
             $model->art_content= $article->art_content;
+            $model->art_intro  = $article->art_intro;
         }
         if (isset($_POST['NewsForm']))
         {
             $model->attributes = $_POST['NewsForm'];
             if ( $model->validate() )
             {
-               empty($model->art_id) ? $model->draft() : $model->update();
+                empty($model->art_id) ? $model->draft() : $model->update();
+                $this->actionNlist();
             }
-            $this->actionNlist();
         }
 		$this->render ( 'news', array('model'=>$model) );
 	}

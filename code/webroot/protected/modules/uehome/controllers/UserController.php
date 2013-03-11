@@ -42,8 +42,15 @@ class UserController extends Controller {
         ),
 			   );
 	}*/
-	public function actionIndex() {
-		$this->render ( 'index' );
+    public function actionIndex() {
+        $user = User::model()->findByPk(Yii::app()->user->getID());
+        $enterprise = Enterprise::model()->find("ent_user_id=:ent_user_id", array('ent_user_id'=>yii::app()->user->getID()));
+        $model = new FileForm;
+        $cert_list = $model->glist();
+        $business_type = Term::model()->getTermsByGroupId(5);
+        $ent_type = Term::getTermsByGroupId(4);
+        $category = Term::getTermsListByGroupId(18);
+		$this->render ( 'index', array('user'=>$user,'enterprise'=>$enterprise,'cert_list'=>$cert_list,'ent_type'=>$ent_type,'business_type'=>$business_type,'category'=>$category));
 	}
     public function actionAutolist()
     {

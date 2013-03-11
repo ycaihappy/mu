@@ -1,6 +1,6 @@
 <?php
 
-class SupplyController extends Controller
+class SupplyController extends BasicAccessController
 {
 	public $layout='//layouts/supply_main';
 	/**

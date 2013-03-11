@@ -17,6 +17,15 @@ class WebUser extends CWebUser
         $this->setState('__userInfo', $identity->getUser());
         parent::login($identity, $duration);
     }
+	/**
+	 * @param string $value the URL that the user should be redirected to after login.
+	 */
+	public function setReturnUrl($value)
+	{
+		if(strpos($value,'/')===0)
+			$value=Yii::app()->request->getHostInfo().$value;
+		$this->setState('__returnUrl',$value);
+	}
 }
 
 ?>

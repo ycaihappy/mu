@@ -1,6 +1,6 @@
 <?php
 
-class ProductController extends Controller
+class ProductController extends BasicAccessController
 {
 	public $layout = '//layouts/product_main';
 	/**

@@ -73,7 +73,14 @@ return array(
 	'components'=>array(
 		'user'=>array(
 			'class'=>'WebUser',
-			'loginUrl'=>'/index.php?r=uehome/user/login',
+			'loginUrl'=> array('uehome/user/login'),
+		),
+		'session'=>array(
+			'class'=>'CHttpSession',
+			'cookieParams' => array(
+	         'domain' => '.mushw.com',
+	      ),
+			
 		),
 //		'user'=>array(
 			// enable cookie-based authentication
@@ -99,6 +106,7 @@ return array(
             'urlSuffix'=>'.html',
             'showScriptName'=>false,
 			'rules'=>array(
+				'<_a:\w+>'=>'site/<_a>',
 				'news/view/<art_id:\d+>'=>'news/view',
 				'news/list/<subcategory_id:\d+>'=>'news/list',
 				'supply/view/<supply_id:\d+>'=>'supply/view',
@@ -164,9 +172,9 @@ return array(
 		),
 		'searcher'=>array(
             'class'=>'CSolrComponent',
-            'host'=>'61.163.6.93',
+            'host'=>'192.168.219.103',
             'port'=>8080,
-            'indexPath'=>'/solr/core1'
+            'indexPath'=>'/solr-keyword/core1/'
         ),
 		
 	#	'log'=>array(

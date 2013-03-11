@@ -1181,4 +1181,4 @@ div.errorMessage{color:red;font-style:italic;}
 .m-info .pic .item{width:150px;text-align:center;float:left;}
 .m-info .pic p{display:block;text-align:center;}
 .m-info .pic li{margin:0 auto;width:80%}
-.m-info .edit{position:absolute;bottom:5px;right:5px;}
+.m-info .edit{position:absolute;top:5px;right:5px;}

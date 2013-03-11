@@ -1159,4 +1159,26 @@ div.errorMessage{color:red;font-style:italic;}
 .m-info table{border-bottom:1px dotted #ccc;margin-bottom:20px;}
 .m-info .label{font-weight:bold;}
 .m-info td{padding:5px;}
-.m-info .info{border:1px solid #ccc;width:600px;padding:5px;line-height:25px;}
+.m-info .info {
+  border: 1px solid #CCCCCC;
+  display: inline-block;
+  line-height: 25px;
+  margin-top: 7px;
+  padding: 5px;
+  vertical-align: top;
+  width: 600px;
+}
+.m-info li{line-height:30px;margin-bottom:10px;}
+.m-info .item{display:inline;margin-right:50px;}
+.m-info ul{border-bottom:1px dotted #ccc;padding-bottom:20px;margin-top:20px;position:relative;}
+.m-info .item label {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 10px;
+  width: 65px;
+}
+.m-info .pic{border:0;overflow:hidden}
+.m-info .pic .item{width:150px;text-align:center;float:left;}
+.m-info .pic p{display:block;text-align:center;}
+.m-info .pic li{margin:0 auto;width:80%}
+.m-info .edit{position:absolute;bottom:5px;right:5px;}

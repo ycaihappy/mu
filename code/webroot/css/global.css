@@ -135,7 +135,9 @@ padding-right: 1px;
 .grid-210{width:210px;float:left}
 .grid-660{width:660px;float:left;}
 .grid-690{width:690px;float:left;margin-right:10px;}
+.grid-720{width:720px;float:left;margin-right:10px;}
 .grid-250{width:250px;float:left;}
+.grid-230{width:230px;float:left;}
 .grid-260{width:260px;float:left;}
 .grid-960{width:960px;}
 .lastdiv{border:0;}
@@ -1159,4 +1161,125 @@ div.errorMessage{color:red;font-style:italic;}
 .m-info table{border-bottom:1px dotted #ccc;margin-bottom:20px;}
 .m-info .label{font-weight:bold;}
 .m-info td{padding:5px;}
-.m-info .info{border:1px solid #ccc;width:600px;padding:5px;line-height:25px;}
+.m-info .info {
+  border: 1px solid #CCCCCC;
+  display: inline-block;
+  line-height: 25px;
+  margin-top: 7px;
+  padding: 5px;
+  vertical-align: top;
+  width: 600px;
+}
+.m-info li{line-height:30px;margin-bottom:10px;}
+.m-info .item{display:inline;margin-right:50px;}
+.m-info ul{border-bottom:1px dotted #ccc;padding-bottom:20px;margin-top:20px;position:relative;}
+.m-info .item label {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 10px;
+  width: 65px;
+}
+.m-info .pic{border:0;overflow:hidden}
+.m-info .pic .item{width:150px;text-align:center;float:left;}
+.m-info .pic p{display:block;text-align:center;}
+.m-info .pic li{margin:0 auto;width:80%}
+.m-info .edit{position:absolute;top:5px;right:5px;}
+
+
+.m-service .hd,.m-contact .hd{background:#3E91E1;height:5px;}
+.m-service .ad{margin-top:5px;margin-bottom:10px}
+.servicesListTitle01 {
+  background: url("imgs/servicesClassify.gif") no-repeat scroll left top #FFFFFF;
+  height: 50px;
+}
+.m-contact .bd{margin-top:10px;}
+.contact {
+  border: 1px solid #A5BCDB;
+  padding-bottom: 35px;
+  margin-top:10px;
+}
+.contact p {
+  line-height: 1.6em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  text-indent: 2em;
+  width: 225px;
+}
+.servicesListTable td p {
+  line-height: 1.4em;
+  margin: 0;
+  padding: 0;
+  margin-bottom:10px;
+  text-indent: 2em;
+}
+.servicesListTable td h4 a {
+  color: #1F5A82;
+  font-weight:bold;
+}
+.servicesList table td {
+  padding-bottom: 5px;
+}
+.contactTitles {
+  background: url("imgs/shortPanel.gif") repeat scroll 0 0 transparent;
+  height: 21px;
+  padding-top: 4px;
+  text-indent: 18px;
+}
+.contactTitles h2{font-weight:bold;font-size:14px;}
+.logo-side-title { 
+  position:absolute;
+  height: 33px;
+  width: 122px;
+  left:204px;
+  top:35px;
+}
+.m-service .link{margin:10px 0}
+#p_contact .grid-720{margin-left:10px;margin-right:0}
+
+.m-contact .leftMenu h3 {
+
+  background: url("imgs/menu00.gif") repeat-x scroll 0 0 transparent;
+  border-color: #D8EFF7 #D8EFF7 -moz-use-text-color;
+  border-style: solid solid none;
+  border-width: 1px 1px medium;
+  color: #215D95;
+  cursor: pointer;
+  font: bold 14px/100% Arial,Helvetica,sans-serif;
+  height: 22px;
+  margin: 0;
+  padding-left: 18px;
+  padding-right: 15px;
+  padding-top: 10px;
+  text-indent: 20px;
+}
+.m-contact .leftMenu div {
+  background: none repeat scroll 0 0 #F0F7FB;
+  border: 1px solid #D2F1FC;
+}
+.contactStyle td {
+  padding-bottom: 8px;
+}
+.contactStyle td p {
+  color: #666666;
+  margin-bottom: 5px;
+}
+.contactStyle td h3 {
+  color: #215D95;
+  font-size: 12px;
+  margin-bottom: 5px;
+  margin-top: 8px;
+  font-weight:bold;
+}
+.m-contact .ad{margin-bottom:20px}
+.m-contact .leftMenu div ul {
+  margin: 5px auto;
+  width: 178px;
+  font-size:14px;
+}
+.m-contact .leftMenu div li {
+  background: url("../images/topToolsBG.gif") no-repeat scroll 0 -97px transparent;
+  margin-bottom: 4px;
+  margin-top: 5px;
+  padding-left: 12px;
+}

@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-10 09:15:57
+# Date/time:                    2013-03-13 00:01:56
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -1202,7 +1202,7 @@ CREATE TABLE IF NOT EXISTS `mu_friend_link` (
 DELETE FROM `mu_friend_link`;
 /*!40000 ALTER TABLE `mu_friend_link` DISABLE KEYS */;
 INSERT INTO `mu_friend_link` (`flink_id`, `flink_name`, `flink_user_id`, `flink_url`, `flink_order`, `flink_status`, `flink_create_date`) VALUES
-	(1, '百度科技', 3, 'http://www.baidu.com', 0, 2, '2013-02-25 00:17:38'),
+	(1, '百度科技', 3, 'http://www.baidu.com', 0, 1, '2013-02-25 00:17:38'),
 	(2, 'google科技', 3, 'http://www.google.com', 0, 1, '2013-02-25 00:17:38'),
 	(4, '中国钢铁网', 0, 'http://www.steelcn.com', 0, 1, '2013-03-05 23:32:44');
 /*!40000 ALTER TABLE `mu_friend_link` ENABLE KEYS */;
@@ -1241,7 +1241,7 @@ CREATE TABLE IF NOT EXISTS `mu_image_library` (
 DELETE FROM `mu_image_library`;
 /*!40000 ALTER TABLE `mu_image_library` DISABLE KEYS */;
 INSERT INTO `mu_image_library` (`image_id`, `image_title`, `image_thumb_src`, `image_src`, `image_status`, `image_used_type`, `image_added_by`, `image_added_time`) VALUES
-	(24, '钼板坯', 'thumb_83_1362672707_6505.jpg', '83_1362672707_6505.jpg', 33, 83, 1, '2013-03-08 00:11:47'),
+	(24, '钼板坯', 'thumb_83_1362672707_6505.jpg', '83_1362672707_6505.jpg', 2, 83, 1, '2013-03-08 00:11:47'),
 	(25, '钼精矿', 'thumb_28_1362673115_6912.jpg', '28_1362673115_6912.jpg', 1, 31, 1, '2013-03-08 00:18:35'),
 	(26, '钼铁', 'thumb_57_1362673162_6959.jpg', '57_1362673162_6959.jpg', 1, 57, 1, '2013-03-08 00:19:22'),
 	(27, '氧化钼', 'thumb_72_1362673193_6990.jpg', '72_1362673193_6990.jpg', 1, 72, 1, '2013-03-08 00:19:53'),
@@ -1693,16 +1693,16 @@ INSERT INTO `mu_product` (`product_id`, `last_modified`, `product_user_id`, `pro
 	(122, NULL, 3, '钼铁，钼矿', 'TZM', 280, 3, 31, 589, '49', 2, '51', 3, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
 	(123, NULL, 3, '钼铁，钼矿', '钼板', 330, 3, 31, 575, '49', 2, '51', 4, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
 	(124, NULL, 3, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 601, 3, 31, 627, '49', 2, '51', 3, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
-	(125, NULL, 3, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 1000, 3, 31, 436, '49', 2, '51', 3, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
+	(125, '2013-03-10 22:09:01', 3, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 1000, 3, 31, 436, '49', 1, '51', 3, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
 	(126, NULL, 3, '钼铁，钼矿', '钼丝网', 114, 3, 31, 498, '49', 1, '51', 6, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
-	(127, NULL, 3, '钼铁，钼矿', '钼丝网', 118, 3, 31, 339, '49', 2, '51', 4, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
+	(127, '2013-03-10 22:08:24', 3, '钼铁，钼矿', '钼丝网', 118, 3, 31, 339, '49', 1, '51', 4, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
 	(128, NULL, 3, '钼铁，钼矿', '钼板', 673, 3, 31, 162, '49', 1, '51', 6, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(129, NULL, 3, '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', 791, 3, 31, 46, '49', 1, '51', 4, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(130, NULL, 3, '钼铁，钼矿', '钼盒', 499, 3, 31, 905, '49', 1, '51', 3, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(131, NULL, 3, '钼铁，钼矿', '钨粉，钨条，钨铁，钨钼合金粉，钨锭', 155, 3, 31, 657, '49', 1, '51', 4, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(132, NULL, 3, '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', 794, 3, 31, 996, '49', 1, '51', 6, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
-	(133, NULL, 3, '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', 283, 3, 31, 641, '49', 2, '51', 6, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
-	(134, NULL, 3, '钼铁，钼矿', '钼片', 133, 3, 31, 610, '49', 2, '51', 4, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
+	(133, '2013-03-10 22:10:18', 3, '钼铁，钼矿', '银靶，锡靶，钼靶，钼靶，钽靶，钨靶，铌靶', 283, 3, 31, 641, '49', 2, '51', 6, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
+	(134, '2013-03-10 22:10:18', 3, '钼铁，钼矿', '钼片', 133, 3, 31, 610, '49', 2, '51', 4, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
 	(135, NULL, 3, '钼铁，钼矿', '钼盒', 356, 3, 31, 301, '49', 2, '51', 6, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
 	(136, NULL, 3, '钼铁，钼矿', '钼杆/钼棒', 855, 3, 31, 931, '49', 1, '51', 4, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(137, NULL, 3, '钼铁，钼矿', '钼网', 809, 3, 31, 956, '49', 2, '51', 6, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
@@ -1718,11 +1718,11 @@ INSERT INTO `mu_product` (`product_id`, `last_modified`, `product_user_id`, `pro
 	(147, NULL, 3, '钼铁，钼矿', '工业炉用钼制品', 726, 3, 31, 805, '49', 1, '51', 3, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(148, NULL, 3, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 168, 3, 31, 140, '49', 1, '51', 6, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(149, NULL, 3, '钼铁，钼矿', '钼丝网', 992, 3, 31, 436, '49', 1, '51', 6, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
-	(150, NULL, 3, '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', 806, 3, 31, 459, '49', 1, '51', 4, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
+	(150, '2013-03-10 22:11:19', 3, '钼铁，钼矿', '进口金属钼、钼棒、钼带、钼粉、钼条、钼合金', 806, 3, 31, 459, '49', 1, '51', 4, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
 	(151, NULL, 3, '钼铁，钼矿', '钼盒', 112, 3, 31, 96, '49', 1, '51', 3, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
-	(152, NULL, 3, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 930, 3, 31, 281, '49', 1, '51', 4, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
+	(152, '2013-03-10 22:11:19', 3, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 930, 3, 31, 281, '49', 1, '51', 4, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
 	(153, NULL, 3, '钼铁，钼矿', '钼片', 810, 3, 31, 871, '49', 1, '51', 3, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
-	(154, NULL, 3, '钼铁，钼矿', '钼网', 407, 3, 31, 276, '49', 1, '51', 4, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
+	(154, '2013-03-10 22:11:19', 3, '钼铁，钼矿', '钼网', 407, 3, 31, 276, '49', 1, '51', 4, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', 'ueelife'),
 	(155, NULL, 3, '钼铁，钼矿', '钼片', 158, 3, 31, 598, '49', 1, '51', 3, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(156, NULL, 3, '钼铁，钼矿', '钼坩埚', 392, 3, 31, 547, '49', 1, '51', 6, NULL, '深圳龙华大浪石光工业区', 1, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
 	(157, NULL, 3, '钼铁，钼矿', '钛,钛合金钨钼等稀有金属', 422, 3, 31, 661, '49', 1, '51', 3, NULL, '深圳龙华大浪石光工业区', 0, '2013-02-28 00:28:16', 'http://www.zhuzao.com/UploadFile/Baikeuppic/1230873708.jpg', NULL),
@@ -1847,11 +1847,14 @@ CREATE TABLE IF NOT EXISTS `mu_relative_re_price` (
   `re_added_time` datetime DEFAULT NULL COMMENT '添加时间',
   `re_updated_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`re_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='相关稀土矿价格表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='相关稀土矿价格表';
 
-# Dumping data for table mu.mu_relative_re_price: ~0 rows (approximately)
+# Dumping data for table mu.mu_relative_re_price: ~2 rows (approximately)
 DELETE FROM `mu_relative_re_price`;
 /*!40000 ALTER TABLE `mu_relative_re_price` DISABLE KEYS */;
+INSERT INTO `mu_relative_re_price` (`re_id`, `re_name`, `re_fallup`, `re_margin`, `re_market`, `re_price`, `re_status`, `re_added_time`, `re_updated_time`) VALUES
+	(1, '钨矿', 95, 20, '浙江有色', 120000, 1, NULL, '2013-03-10 10:06:14'),
+	(2, '钨矿', 94, 20, '浙江有色', 120000, 1, '2013-03-10 10:03:30', NULL);
 /*!40000 ALTER TABLE `mu_relative_re_price` ENABLE KEYS */;
 
 
@@ -1886,7 +1889,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_item` (
   PRIMARY KEY (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_right_item: 104 rows
+# Dumping data for table mu.mu_right_item: 107 rows
 DELETE FROM `mu_right_item`;
 /*!40000 ALTER TABLE `mu_right_item` DISABLE KEYS */;
 INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`, `data`) VALUES
@@ -1993,7 +1996,10 @@ INSERT INTO `mu_right_item` (`name`, `type`, `zh_name`, `description`, `bizrule`
 	('admin-UserChangeUserStatus', 0, NULL, NULL, NULL, 'N;'),
 	('admin-ProductGetChildrenTerm', 0, NULL, NULL, NULL, 'N;'),
 	('admin-UserGetCity', 0, NULL, NULL, NULL, 'N;'),
-	('admin-ProductGetCity', 0, NULL, NULL, NULL, 'N;');
+	('admin-ProductGetCity', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SystemManageRelativeRePrice', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SystemUpdateRelativeRePrice', 0, NULL, NULL, NULL, 'N;'),
+	('admin-SiteManageSiteDescription', 0, NULL, NULL, NULL, 'N;');
 /*!40000 ALTER TABLE `mu_right_item` ENABLE KEYS */;
 
 
@@ -2005,7 +2011,7 @@ CREATE TABLE IF NOT EXISTS `mu_right_itemchildren` (
   PRIMARY KEY (`parent`,`child`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_right_itemchildren: 114 rows
+# Dumping data for table mu.mu_right_itemchildren: 117 rows
 DELETE FROM `mu_right_itemchildren`;
 /*!40000 ALTER TABLE `mu_right_itemchildren` DISABLE KEYS */;
 INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
@@ -2081,10 +2087,13 @@ INSERT INTO `mu_right_itemchildren` (`parent`, `child`) VALUES
 	('siteIndex', 'admin-SiteLogin'),
 	('siteIndex', 'admin-SiteLogout'),
 	('siteIndex', 'admin-SitePage'),
+	('siteIndex', 'admin-SystemManageRelativeRePrice'),
+	('siteIndex', 'admin-SystemUpdateRelativeRePrice'),
 	('siteSetting', 'admin-SiteChangeFLinkStatus'),
 	('siteSetting', 'admin-SiteFrontPage'),
 	('siteSetting', 'admin-SiteManageBasicSiteInfo'),
 	('siteSetting', 'admin-SiteManageFLink'),
+	('siteSetting', 'admin-SiteManageSiteDescription'),
 	('siteSetting', 'admin-SiteUpdateFLink'),
 	('smsSetting', 'admin-SiteManageSMSSetting'),
 	('smtpSetting', 'admin-SiteManageSiteEmailSetting'),
@@ -2406,7 +2415,7 @@ INSERT INTO `mu_supply` (`supply_id`, `supply_name`, `supply_user_id`, `supply_t
 	(123, '深圳废钼条回收', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '长期供应钼铁60%，欢迎来电', '深圳龙华大浪石光工业区', 3, 1, '18666666', 3, 205, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(124, '采购钼丝，钼针，钼板，钼铁', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '深圳废钼条回收', '深圳龙华大浪石光工业区', 3, 1, '18666666', 3, 664, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(125, '长期供应钼铁60%，欢迎来电', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '长期钼铁出售', '深圳龙华大浪石光工业区', 4, 1, '18666666', 3, 18, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
-	(126, '求购废钼催化剂', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '长期钼铁出售', '深圳龙华大浪石光工业区', 6, 1, '18666666', 3, 652, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
+	(126, '求购废钼催化剂', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '长期钼铁出售', '深圳龙华大浪石光工业区', 6, 1, '18666666', 3, 652, '0000-00-00 00:00:00', 'ueelife', 1, NULL, '2013-03-07 11:38:57'),
 	(127, '求购废钼催化剂', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '长期钼铁出售', '深圳龙华大浪石光工业区', 3, 1, '18666666', 3, 283, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(128, '采购钼丝，钼针，钼板，钼铁', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '保密现金回收钼铁', '深圳龙华大浪石光工业区', 4, 1, '18666666', 3, 849, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(129, '保密现金回收钼铁', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '长期钼铁出售', '深圳龙华大浪石光工业区', 3, 1, '18666666', 3, 380, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
@@ -2425,9 +2434,9 @@ INSERT INTO `mu_supply` (`supply_id`, `supply_name`, `supply_user_id`, `supply_t
 	(142, '深圳废钼条回收', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '长期供应钼铁60%，欢迎来电', '深圳龙华大浪石光工业区', 4, 1, '18666666', 3, 847, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(143, '采购钼丝，钼针，钼板，钼铁', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '钼铁钼棒回收钼片钼块回收钼渣回收上海钼丝废钼回收', '深圳龙华大浪石光工业区', 4, 1, '18666666', 3, 788, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(144, '长期出售钼酸铵', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '长期供应钼铁60%，欢迎来电', '深圳龙华大浪石光工业区', 6, 1, '18666666', 3, 695, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
-	(145, '长期供应钼铁', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '长期供应钼铁', '深圳龙华大浪石光工业区', 3, 1, '18666666', 3, 408, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
-	(146, '深圳废钼条回收', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '深圳废钼条回收', '深圳龙华大浪石光工业区', 4, 1, '18666666', 3, 357, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
-	(147, '供应钼铁', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '采购钼丝，钼针，钼板，钼铁', '深圳龙华大浪石光工业区', 6, 1, '18666666', 3, 52, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
+	(145, '长期供应钼铁', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '长期供应钼铁', '深圳龙华大浪石光工业区', 3, 1, '18666666', 3, 408, '0000-00-00 00:00:00', 'ueelife', 1, NULL, '2013-03-07 11:38:57'),
+	(146, '深圳废钼条回收', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '深圳废钼条回收', '深圳龙华大浪石光工业区', 4, 2, '18666666', 3, 357, '0000-00-00 00:00:00', 'ueelife', 1, NULL, '2013-03-07 11:38:57'),
+	(147, '供应钼铁', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '采购钼丝，钼针，钼板，钼铁', '深圳龙华大浪石光工业区', 6, 1, '18666666', 3, 52, '0000-00-00 00:00:00', 'ueelife', 1, NULL, '2013-03-07 11:38:57'),
 	(148, '求购废钼催化剂', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '长期供应钼铁60%', '深圳龙华大浪石光工业区', 6, 1, '18666666', 3, 694, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(149, '求购废钼催化剂', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '求购废钼催化剂', '深圳龙华大浪石光工业区', 4, 1, '18666666', 3, 76, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(150, '采购钼丝，钼针，钼板，钼铁', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '保密现金回收钼铁', '深圳龙华大浪石光工业区', 4, 1, '18666666', 3, 691, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
@@ -2439,9 +2448,9 @@ INSERT INTO `mu_supply` (`supply_id`, `supply_name`, `supply_user_id`, `supply_t
 	(156, '我公司长期大量求购废钼丝', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '采购钼丝，钼针，钼板，钼铁', '深圳龙华大浪石光工业区', 3, 1, '18666666', 3, 40, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(157, '我公司长期大量求购废钼丝', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '钼铁钼棒回收钼片钼块回收钼渣回收上海钼丝废钼回收', '深圳龙华大浪石光工业区', 4, 1, '18666666', 3, 234, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(158, '长期钼铁出售', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '深圳废钼条回收', '深圳龙华大浪石光工业区', 6, 1, '18666666', 3, 93, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
-	(159, '采购钼丝，钼针，钼板，钼铁', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '深圳废钼条回收', '深圳龙华大浪石光工业区', 6, 1, '18666666', 3, 342, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
+	(159, '采购钼丝，钼针，钼板，钼铁', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '深圳废钼条回收', '深圳龙华大浪石光工业区', 6, 2, '18666666', 3, 342, '0000-00-00 00:00:00', 'ueelife', 1, NULL, '2013-03-07 11:38:57'),
 	(160, '长期出售钼酸铵', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '求购废钼催化剂', '深圳龙华大浪石光工业区', 4, 1, '18666666', 3, 245, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
-	(161, '深圳废钼条回收', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '供应钼铁', '深圳龙华大浪石光工业区', 6, 1, '18666666', 3, 828, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
+	(161, '深圳废钼条回收', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '供应钼铁', '深圳龙华大浪石光工业区', 6, 2, '18666666', 3, 828, '0000-00-00 00:00:00', 'ueelife', 1, NULL, '2013-03-07 11:38:57'),
 	(162, '长期供应钼铁', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '采购钼丝，钼针，钼板，钼铁', '深圳龙华大浪石光工业区', 6, 1, '18666666', 3, 108, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(163, '长期供应钼铁60%，欢迎来电', 3, 19, '钼铁，钼矿', 57, '49', '0', '李先生', '长期钼铁出售', '深圳龙华大浪石光工业区', 4, 1, '18666666', 3, 500, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
 	(164, '长期供应钼铁60%', 3, 18, '钼铁，钼矿', 57, '49', '0', '李先生', '采购钼丝，钼针，钼板，钼铁', '深圳龙华大浪石光工业区', 6, 1, '18666666', 3, 801, '0000-00-00 00:00:00', '1', 1, NULL, '2013-03-07 11:38:57'),
@@ -2500,9 +2509,9 @@ CREATE TABLE IF NOT EXISTS `mu_term` (
   `term_order` int(4) DEFAULT '0',
   `term_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`term_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=98 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_term: 93 rows
+# Dumping data for table mu.mu_term: 96 rows
 DELETE FROM `mu_term`;
 /*!40000 ALTER TABLE `mu_term` DISABLE KEYS */;
 INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES
@@ -2598,7 +2607,14 @@ INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `t
 	(90, 0, '总经理', '', 3, 0, NULL),
 	(91, 0, '副总经理', '', 3, 0, NULL),
 	(92, 0, '业务经理', '', 3, 0, NULL),
-	(93, 0, '销售总监', '', 3, 0, NULL);
+	(93, 0, '销售总监', '', 3, 0, NULL),
+	(94, 0, '涨', '', 19, 0, NULL),
+	(95, 0, '跌', '', 19, 0, NULL),
+	(96, 0, '平', '', 19, 0, NULL),
+	(98, 0, '展会', '', 10, 0, NULL),
+	(99, 98, '国际展会', '', 10, 0, NULL),
+	(100, 98, '国内展会', '', 10, 0, NULL),
+	(101, 16, '原料行情', '', 10, 0, NULL);
 /*!40000 ALTER TABLE `mu_term` ENABLE KEYS */;
 
 
@@ -2609,9 +2625,9 @@ CREATE TABLE IF NOT EXISTS `mu_term_group` (
   `group_name` varchar(100) DEFAULT NULL,
   `group_desc` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_term_group: 18 rows
+# Dumping data for table mu.mu_term_group: 19 rows
 DELETE FROM `mu_term_group`;
 /*!40000 ALTER TABLE `mu_term_group` DISABLE KEYS */;
 INSERT INTO `mu_term_group` (`group_id`, `group_name`, `group_desc`) VALUES
@@ -2632,7 +2648,8 @@ INSERT INTO `mu_term_group` (`group_id`, `group_name`, `group_desc`) VALUES
 	(15, '邮件模板类型', ''),
 	(16, '钼品质', ''),
 	(17, '含水量', ''),
-	(18, '企业资质图片类型', '');
+	(18, '企业资质图片类型', ''),
+	(19, '稀土涨跌标识', '');
 /*!40000 ALTER TABLE `mu_term_group` ENABLE KEYS */;
 
 
@@ -2761,7 +2778,7 @@ DELETE FROM `mu_user_enterprise`;
 /*!40000 ALTER TABLE `mu_user_enterprise` DISABLE KEYS */;
 INSERT INTO `mu_user_enterprise` (`ent_id`, `ent_user_id`, `ent_name`, `ent_type`, `ent_website`, `ent_business_model`, `ent_tax`, `ent_zipcode`, `ent_introduce`, `ent_location`, `ent_city`, `ent_status`, `ent_chief`, `ent_create_time`, `ent_chief_postion`, `ent_business_scope`, `ent_registered_capital`, `ent_recommend`, `ent_logo`, `ent_image`, `ent_update_time`, `ent_check_by`) VALUES
 	(45, 3, '镇江市金广铁合金有限公司(钼贸易型企业)', 4, 'http://www.mushw.com', 6, NULL, '51800', '<p>\r\n	企业是从事生产、流通、服务等经济活动，以生产或服务满足社会需要，实行自主经营、独立核算、依法设立的一种盈利性的经济组织。企业主要指独立的盈利性组织。在中国计划经济时期，&ldquo;企业&rdquo;是与&ldquo;事业单位&rdquo;平行使用的常用词语。《辞海》1979年版中，&ldquo;企业&rdquo;的解释为：&ldquo;从事生产、流通或服务活动的独立核算经济单位&rdquo;；&ldquo;事业单位&rdquo;的解释为：&ldquo;受国家机关领导，不实行经济核算的单位&rdquo;。在20世纪后期中国大陆改革开放与现代化建设及信息技术领域新概念大量涌入的背景下，&ldquo;企业&rdquo;一词的用法有所变化，并不限于商业性或盈利组织</p>\r\n', '深圳', 189, 1, '李总', '2013-01-31 00:00:00', 8, '网络，安全，建站', 500, 1, 'image', NULL, '2013-01-31 00:00:00', 'ueelife'),
-	(111, 101, '平顶山矿业集团', 0, NULL, NULL, NULL, NULL, NULL, '河南省平顶山市多少好', 41, 0, 'hellyboy', '2013-03-08 22:39:09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+	(111, 101, '平顶山矿业集团', 0, NULL, NULL, NULL, NULL, NULL, '河南省平顶山市多少好', 41, 2, 'hellyboy', '2013-03-08 22:39:09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ueelife');
 /*!40000 ALTER TABLE `mu_user_enterprise` ENABLE KEYS */;
 
 
@@ -2799,17 +2816,6 @@ CREATE TABLE `mu_view_recommend` (
 	`recommend_status` INT(11) NULL DEFAULT NULL,
 	`recommend_time` DATETIME NULL DEFAULT NULL
 ) ENGINE=MyISAM;
-
-
-# Dumping structure for trigger mu.tg_product_update_solr
-DROP TRIGGER IF EXISTS `tg_product_update_solr`;
-SET SESSION SQL_MODE='STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-DELIMITER //
-CREATE TRIGGER `tg_product_update_solr` BEFORE UPDATE ON `mu_product` FOR EACH ROW BEGIN
-	set new.last_modified=now();
-END//
-DELIMITER ;
-SET SESSION SQL_MODE=@OLD_SQL_MODE;
 
 
 # Dumping structure for view mu.mu_view_recommend

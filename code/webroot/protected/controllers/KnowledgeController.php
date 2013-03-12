@@ -66,8 +66,6 @@ class KnowledgeController extends Controller
 				$news->art_source=$this->createUrl('/news/view',array('art_id'=>$news->art_id));
 			}
 		}
-		
-		
 		$data=compact('newses','pager','categoryName');
 
 

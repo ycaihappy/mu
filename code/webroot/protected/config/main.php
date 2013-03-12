@@ -106,6 +106,8 @@ return array(
             'urlSuffix'=>'.html',
             'showScriptName'=>false,
 			'rules'=>array(
+				'exhibition/view/<art_id:\d+>'=>'exhibition/view',
+				'exhibition/list/<subcategory_id:\d+>'=>'exhibition/list',
 				'about/<_a:\w+>'=>'about/<_a>',
 				'<_a:\w+>'=>'site/<_a>',
 				'news/view/<art_id:\d+>'=>'news/view',

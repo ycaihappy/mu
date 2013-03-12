@@ -9,7 +9,7 @@
 <?php echo CHtml::dropDownList( 'sum_product_zone','',$city);?>
 <?php echo CHtml::dropDownList( 'sum_product_type','',$category);?>
 					</p>
-					<div class="chart" id="chart">
+					<div class="chart" id="chart" data-api="chart.php">
 						<img src="images/b.png" />
 					</div>
 					</div>

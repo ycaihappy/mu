@@ -1,7 +1,7 @@
     <div class="m-breadcrumb">
         <p><b class="crumb"></b>会员中心<i></i>发布现货信息</p>
     </div>
-    <div class="m-form" id="J_User_Suppy">
+    <div class="m-form" id="J_User_Suppy" data-select-img-api="index.php?r=uehome/user/getImagesFromLibary">
 	
 <?php $form = $this->beginWidget('CActiveForm', array(
 	
@@ -70,7 +70,7 @@
 			<td class="label">现货描述：</td><td><?php echo $form->textArea($model,'product_content',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
 		</tr>
 		<tr>
-			<td class="label">现货附图：</td><td><img src="<?php echo $model->product_image_src?'/images/commonProductsImages/thumb/thumb_'.$model->product_image_src:'/images/thumb.gif'?>" class="thumb" id="image_thumb"><button type="button" class="btn-modify btn-select">选择图片</button>
+			<td class="label">现货附图：</td><td><img src="<?php echo $model->product_image_src?'/images/commonProductsImages/thumb/thumb_'.$model->product_image_src:'/images/thumb.gif'?>" class="thumb" id="image_thumb"><button type="button" class="btn-modify btn-select" >选择图片</button>
 			
 			<input type="hidden" name="ProductForm[product_image_src]" value="<?php echo $model->product_image_src?>" id="image_src"/></td>
 		</tr>

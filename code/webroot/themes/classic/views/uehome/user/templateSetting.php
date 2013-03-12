@@ -4,7 +4,7 @@
 
 	<div class="m-form" id="J_Shop_Setting">
 	
-	<form enctype="multipart/form-data" method="post" action="">
+	<form enctype="multipart/form-data" method="post" action="" data-upload-api="index.php?r=uehome/user/uploadTemplateImage">
 <table width="100%" cellspacing="1" cellpadding="7" border="0"  class="table-field">
 <tbody><tr>
 <td bgcolor="#f3f3f3">菜单栏目</td>

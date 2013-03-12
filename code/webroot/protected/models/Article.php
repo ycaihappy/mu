@@ -77,6 +77,36 @@ class Article extends CActiveRecord
                 'order'=>'art_post_date desc',
                 'limit'=>5
             ),
+            'knowledgeWorldList'=>array(
+                'condition'=>'art_subcategory_id=63 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>5
+            ),
+            'knowledgeChinaList'=>array(
+                'condition'=>'art_subcategory_id=64 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>5
+            ),
+            'knowledgeMakeList'=>array(
+                'condition'=>'art_subcategory_id=65 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>5
+            ),
+            'knowledgeUseList'=>array(
+                'condition'=>'art_subcategory_id=66 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>5
+            ),
+            'knowledgeProductList'=>array(
+                'condition'=>'art_subcategory_id=67 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>5
+            ),
+            'knowledgeAppList'=>array(
+                'condition'=>'art_subcategory_id=68 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>5
+            ),
             'topNews'=>array(
                 'condition'=>'art_category_id=17 and art_status=1',
                 'order'=>'art_post_date desc',

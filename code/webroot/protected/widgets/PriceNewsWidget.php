@@ -5,8 +5,8 @@ class PriceNewsWidget extends CWidget
     public $top_mu_news;
     public function init()
     {
-    	$this->top_news = Article::model()->topNews()->findAll();
-    	$this->top_mu_news = Article::model()->topMuNews()->findAll();
+    	$this->top_news = Article::model()->PriceMarketList()->findAll();
+    	$this->top_mu_news = Article::model()->PriceAnalyList()->findAll();
     }
 
     public function run()

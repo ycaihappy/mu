@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>联系我们</title>
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="/css/global.css">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
 
@@ -60,7 +60,7 @@
 	</div>
 	
 	<div class="grid-720">
-		<div class="ad"><img src="images/contactAdv.jpg" width="720" /></div>
+		<div class="ad"><img src="/images/contactAdv.jpg" width="720" /></div>
 		<?php echo $content;?>
 	</div>
 	<div class="clearfix"></div>

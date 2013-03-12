@@ -1,20 +1,22 @@
 		<div class="m-supply-mt">
 				<div class="hd">
-					<h5>钼材料</h5>
+					<h5>知识榜</h5>
 					<a class="ad"><img src="images/191x100.gif" width="191" height="100" /></a>
 				</div>
 				<div class="bd">
 					<ul>
-						<li class="top"><em>01</em><a>钼材料钼材料钼材料钼材料</a></li>
-						<li class="top"><em>02</em><a>钼材料钼材料钼材料钼材料</a></li>
-						<li class="top"><em>03</em><a>钼材料钼材料钼材料钼材料</a></li>
-						<li><em>04</em><a>钼材料钼材料钼材料钼材料</a></li>
-						<li><em>05</em><a>钼材料钼材料钼材料钼材料</a></li>
-						<li><em>06</em><a>钼材料钼材料钼材料钼材料</a></li>
-						<li><em>07</em><a>钼材料钼材料钼材料钼材料</a></li>
-						<li><em>08</em><a>钼材料钼材料钼材料钼材料</a></li>
-						<li><em>09</em><a>钼材料钼材料钼材料钼材料</a></li>
-						<li><em>10</em><a>钼材料钼材料钼材料钼材料</a></li>
+            <?php
+                    if ($topRanking):
+						 for ($i=0;$i<count($topRanking);$i++):
+                             $class = ($i<3) ? 'top':'';
+  					?>
+                        <li class="<?php echo $class;?>">
+                        <em><?php echo $i+1;?></em><a target="_blank" href="<?php echo $topRanking[$i]->art_source?>"><?php echo $topRanking[$i]->art_title;?></a></li>
+                        </li>
+                       <?php 
+                       endfor;
+                     endif;
+                    ?>
 					</ul>
 					<a class="ad"><img src="images/193x60.gif" width="191" height="60" /></a>
 				</div>
@@ -23,8 +25,8 @@
 						<a class="ad"><img src="images/73x62_1.gif" width="73" height="62" /></a>
 						<p>
 							<i></i>
-							<a>原材料采购信息</a>
-							<span>气质功国，美丽，大方。</span>
+                            <a><?php echo $mu_product[0]->art_title;?></a>
+                            <span><?php echo $mu_product[0]->art_tags;?></span>
 						</p>
 					</div>
 					<div class="item">
@@ -32,8 +34,8 @@
 						<a class="ad"><img src="images/73x62_2.gif" width="73" height="62" /></a>
 						<p>
 							<i></i>
-							<a>原材料采购信息</a>
-							<span>气质功国，美丽，大方。</span>
+                            <a><?php echo $mu_product[1]->art_title;?></a>
+                            <span><?php echo $mu_product[1]->art_tags;?></span>
 						</p>
 					</div>
 					

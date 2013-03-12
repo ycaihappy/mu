@@ -248,6 +248,25 @@ class SiteController extends AdminController {
 			$this->render ( 'basicSiteInfo', array ('model' => $basicSiteInfoModel ) );
 		}
 	}
+	public function actionManageSiteDescription() {
+		$siteDescriptionModel = new SiteDescription ();
+		if (isset ( $_POST ['SiteDescription'] )) {
+			$siteDescriptionModel->attributes = $_POST ['SiteDescription'];
+		
+			if ($siteDescriptionModel->validate ()) {
+				$siteDescriptionModel->save ();
+			} 
+			else {
+				var_dump($model->getErrors());
+			}
+		} 
+		if(!Yii::app()->request->isPostRequest)
+		{
+			$siteDescriptionModel = $siteDescriptionModel->LoadData ();
+		}
+		$this->render ( 'basicSiteDescription', array ('model' => $siteDescriptionModel ) );
+		
+	}
 	public function actionSendTestEmail()
 	{
 		$result=array();

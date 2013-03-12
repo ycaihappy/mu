@@ -1,7 +1,7 @@
 		<div class="m-hq-news" id="J_Hq_news">
                 <h1>
-                    <a class="on" href="#">钼市预报</a> <a href="#" class="">
-                        专家观点</a> <!--<a href="http://gc.steelcn.com" class="">钢厂调价</a> -->
+                    <a class="on" href="#">市场评论</a> <a href="#" class="">
+                        预测分析</a> <!--<a href="http://gc.steelcn.com" class="">钢厂调价</a> -->
                 </h1>
                 <div class="ck-news" style="display: block;">
                     <div class="con">

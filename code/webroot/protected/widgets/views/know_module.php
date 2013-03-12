@@ -9,7 +9,7 @@
 		</div>
 		
 		<div class="mod">
-                <div class="title-bar ui-til4"><h2><a href="http://money.163.com/">国内标准</a></h2>
+                <div class="title-bar ui-til4"><h2><a href="#">国内标准</a></h2>
                   <!--  <span class="more link">
                         <a href="http://money.163.com/stock/">股票</a> <span class="cLGray">|</span>
                         <a href="http://biz.163.com/">商业</a> <span class="cLGray">|</span>
@@ -18,18 +18,18 @@
                         <a href="http://money.163.com/fund/">基金</a></span>-->
                 </div>
 	<div class="mod-list main-list news-date-list">
-	<h3 class="bigsize"><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data01[0]['art_id']));?>" target="_blank"><?php echo $data01[0]['art_title'] ?></h3>
+	<h3 class="bigsize"><a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data01[0]['art_id']));?>" target="_blank"><?php echo $data01[0]['art_title'] ?></h3>
 	<ul class="mod-list main-list">
    			<?php for($index=1;$index<count($data01);$index++):
 						?>
-                            <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data01[$index]['art_id']))?>" target="_blank"><?php echo $data01[$index]['art_title'] ?></a></li>
+                            <li><a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data01[$index]['art_id']))?>" target="_blank"><?php echo $data01[$index]['art_title'] ?></a></li>
 					<?php endfor;?>			
 	</ul>
 	 </div>
                </div>
 			   <div class="mod">
                 <div class="title-bar ui-til4">
-                    <h2><a href="http://money.163.com/stock/">国际标准</a></h2>
+                    <h2><a href="#">国际标准</a></h2>
                     <!--<span class="more link">
                         <a href="http://money.163.com/ipo/">新股</a> <span class="cLGray">|</span>
                         <a href="http://money.163.com/yanbao">研报</a> <span class="cLGray">|</span>
@@ -39,11 +39,11 @@
                     </span>-->
                 </div>
                 <div class="mod-list main-list news-date-list">
-                     <h3 class="bigsize"><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data02[0]['art_id']));?>" target="_blank"><?php echo $data02[0]['art_title'] ?></a></h3>
+                     <h3 class="bigsize"><a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data02[0]['art_id']));?>" target="_blank"><?php echo $data02[0]['art_title'] ?></a></h3>
                      <ul class="mod-list main-list">
    			<?php for($index=1;$index<count($data02);$index++):
 						?>
-                            <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data02[$index]['art_id']))?>" target="_blank"><?php echo $data02[$index]['art_title'] ?></a></li>
+                            <li><a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data02[$index]['art_id']))?>" target="_blank"><?php echo $data02[$index]['art_title'] ?></a></li>
 					<?php endfor;?>			
                      </ul>
                     
@@ -53,7 +53,7 @@
 			
 			 <div class="mod">
                 <div class="title-bar ui-til4">
-                    <h2><a href="http://money.163.com/stock/">钼应用</a></h2>
+                    <h2><a href="#">钼应用</a></h2>
                     <!--<span class="more link">
                         <a href="http://money.163.com/ipo/">新股</a> <span class="cLGray">|</span>
                         <a href="http://money.163.com/yanbao">研报</a> <span class="cLGray">|</span>

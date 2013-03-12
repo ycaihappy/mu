@@ -1,15 +1,12 @@
 <?php
 class KnowModuleWidget extends CWidget
 {
-    public $list;
-    public $pager;
-    public function init()
-    {
-        $this->list = Supply::model()->topsupplyIndex()->findAll();
-    }
 
     public function run()
     {
-        $this->render('know_module',array('data'=>$this->list));
+    	$KnowledgeList01 = Article::model()->knowledgeWorldList()->findAll();
+    	$KnowledgeList02 = Article::model()->knowledgeChinaList()->findAll();
+    	$KnowledgeList03 = Article::model()->knowledgeUseList()->findAll();
+        $this->render('know_module',array('data01'=>$KnowledgeList01,'data02'=>$KnowledgeList02,'data03'=>$KnowledgeList03));
     }
 }

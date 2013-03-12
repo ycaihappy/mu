@@ -1,15 +1,20 @@
 <?php
 class KnowMuWidget extends CWidget
 {
-    public $list;
-    public $pager;
-    public function init()
-    {
-        $this->list = Supply::model()->topsupplyIndex()->findAll();
-    }
 
     public function run()
     {
-        $this->render('know_mu',array('data'=>$this->list));
+		$topRanking=Article::model()->topRankingKnowledge()->findAll();
+		if($topRanking)
+		{
+			foreach ($topRanking as &$news)
+			{//用其他字段封装链接
+				$news->art_title=CStringHelper::truncate_utf8_string($news->art_title, 20);
+				$news->art_source=$this->getController()->createUrl('/news/view',array('art_id'=>$news->art_id));
+			}
+		}
+    	$mu_product = Article::model()->knowledgeProductList()->findAll();
+		$data=compact('topRanking','mu_product');
+		$this->render('know_mu',$data);
     }
 }

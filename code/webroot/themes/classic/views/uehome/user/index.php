@@ -14,12 +14,24 @@
 			<a class="edit" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/detail');?>">[编辑]</a>
 		</ul>
 		<ul>
-		
-		
+			<li>
+            <div class="item"><label>企业名称：</label><?php echo $enterprise->ent_name;?></div><div class="item"><label>联络人：</label><?php echo $enterprise->ent_chief;?></div>
+			</li>
+			<li>
+            <div class="item"><label>公司类型：</label><?php echo $ent_type[$enterprise->ent_type];?></div><div class="item"><label>业务类型：</label><?php echo $business_type[$enterprise->ent_business_model];?></div>
+			</li>
+			<li>
+            <div class="item"><label>注册资金：</label><?php echo $enterprise->ent_registered_capital."万元";?></div><div class="item"><label>网址：</label><?php echo $enterprise->ent_website;?></div>
+			</li>
+			<li>
+            <div class="item"><label>地址：</label><?php echo $enterprise->ent_location;?></div><div class="item"><label>传真：</label><?php echo $enterprise->ent_tax;?></div>
+			</li>
 			<li>
 				<div class="item">
 				<label>公司简介：</label>
-					
+					<div class="info">
+<?php echo $enterprise->ent_introduce;?>
+				</div>
 				</div>
 			</li>
             <a class="edit" href="<?php echo Yii::app()->controller->createUrl('/uehome/user/company');?>">[编辑]</a>

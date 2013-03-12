@@ -39,13 +39,14 @@ class buildCommand extends CConsoleCommand{
               ' 钼铁的牌号及其用途'
             );
             
-            for($i=250;$i<450;$i++)           
+            for($i=650;$i<750;$i++)           
             {
                 $article = new Article();
                 
                 $article->art_id = $i+1;
                 $article->art_title = trim($title[array_rand($title)]);
                 $article->art_status=1;
+                $article->art_click_count=0;
                 $article->art_content="　钼精矿市场：今日40-45%钼精矿主流报价1540-1570元/吨度附近，47%及以上品位1560-1580元/吨度，价格暂时持稳，行情仍有继续向上运行迹象。行情短期利好，之前部分商家场外观望，近期开始逐步参与市场。栾川某商家表示，前期矿商停产较多，贸易商多以低库存场外等待行情好转。虽然近期钼精矿价格开始有所好转，但是上调的步伐依然较慢。与成本相比，盈利空间较小。期待后期继续上行。
                     
                     　　钼铁市场：钼铁价格暂时保持平稳，市场主流报价10.7-11万元/吨（现款-承兑）。当前，在行情利好带动下，有商家报价呈现虚高状况，整体现款报价期间10.6-10.8万元/吨为主，承兑10.9-11.1万元/吨左右。市场需求尚无完全释放，高价成交偏少。月底部分钢厂招标会逐步启动，钼铁厂家有继续挺价迹象。从近期的钢厂招标来看，钢厂60钼铁的承兑招标价格10.4-10.6万元/吨较为常见，后期有提升空间。
@@ -55,6 +56,7 @@ class buildCommand extends CConsoleCommand{
                     　　周初外盘钼市部分产品价格仍有上调迹象，欧洲钼铁、氧化钼等都有一定涨幅；美国市场稍显平稳，价格暂稳波动。其次，欧亚将钼氧化物进口关税从5%降至零，这有利增加外部市场对该产品的需求，降低钼铁合金的生产成本，提高外部市场行业竞争力。国内行情运行平稳，主要钼产品价格继续保持在相对高位。同时，市场部分商家报价仍有抬高迹象，加之年底逼近，后期钢厂招标或有新的改观。";
                 $article->art_source="lizhili";
                 $article->art_category_id = 20;
+                $article->art_subcategory_id = rand(63,68);
                 $article->art_recommend = rand(0,1);
                 $article->art_user_id = 1;
                 $article->art_check_by = "lizhili";
@@ -78,8 +80,10 @@ class buildCommand extends CConsoleCommand{
              '2012年12月国际钼铁价格走势图',
              '2011年4月份钼系产品月报告',
             );
+
+            $category= array(36,37,58,59,60,61,62,101);
             
-            for($i=450;$i<600;$i++)           
+            for($i=850;$i<1000;$i++)           
             {
                 $article = new Article();
                 
@@ -95,6 +99,7 @@ class buildCommand extends CConsoleCommand{
                     　　周初外盘钼市部分产品价格仍有上调迹象，欧洲钼铁、氧化钼等都有一定涨幅；美国市场稍显平稳，价格暂稳波动。其次，欧亚将钼氧化物进口关税从5%降至零，这有利增加外部市场对该产品的需求，降低钼铁合金的生产成本，提高外部市场行业竞争力。国内行情运行平稳，主要钼产品价格继续保持在相对高位。同时，市场部分商家报价仍有抬高迹象，加之年底逼近，后期钢厂招标或有新的改观。";
                 $article->art_source="lizhili";
                 $article->art_category_id = 16;
+                $article->art_subcategory_id = $category[array_rand($category)];
                 $article->art_recommend = rand(0,1);
                 $article->art_user_id = 1;
                 $article->art_check_by = "lizhili";
@@ -122,7 +127,7 @@ class buildCommand extends CConsoleCommand{
              '  2012年我国新增铁、锰、镍、钨、钼矿资源储量',
              '  有色金属行业:钓鱼岛争端升温,战争金属上火,',
             );
-            for($i=600;$i<650;$i++)
+            for($i=650;$i<900;$i++)
             {
                 $article = new Article();
                 $article->art_id = $i+1;

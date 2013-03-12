@@ -108,6 +108,41 @@ class Article extends CActiveRecord
                 'order'=>'art_post_date desc',
                 'limit'=>5
             ),
+            'PriceMarketList'=>array(
+                'condition'=>'art_subcategory_id=60 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>8
+            ),
+            'PriceAnalyList'=>array(
+                'condition'=>'art_subcategory_id=61 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>8
+            ),
+            'PriceWorldList'=>array(
+                'condition'=>'art_subcategory_id=37 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>8
+            ),
+            'PriceChinaList'=>array(
+                'condition'=>'art_subcategory_id=36 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>8
+            ),
+            'PriceMaterialList'=>array(
+                'condition'=>'art_subcategory_id=101 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>8
+            ),
+            'PriceSummaryList'=>array(
+                'condition'=>'art_subcategory_id=59 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>8
+            ),
+            'PriceTrendList'=>array(
+                'condition'=>'art_subcategory_id=62 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>8
+            ),
             'topNews'=>array(
                 'condition'=>'art_category_id=17 and art_status=1',
                 'order'=>'art_post_date desc',

@@ -52,6 +52,28 @@ class CacheStrategy{
 		}
 		return $content;
 	}
+	function getData($key)
+	{
+		if($this->openCache)
+		{
+			return Yii::app()->cache->get($key);
+		}
+		return false;
+	}
+	function setData($key,$value)
+	{
+		if(!$this->openCache)
+		{
+			return;
+		}
+		if(!is_numeric($expire)||empty($expire))
+		{
+			$expire=self::ONE_DAY_EXPIRE;
+		}
+		Yii::app()->cache->set($key,$value,$expire);
+		
+	}
+	
 }
 class CCacheHelper  {
 
@@ -85,7 +107,7 @@ class CCacheHelper  {
 	}
 	public static function getAdvertisement($position)
 	{
-		$allAdvertisement=Yii::app()->cache->get('advertisement');
+		$allAdvertisement=CacheStrategy::getInstance(CacheStrategy::ONE_DAY_EXPIRE)->getData('advertisement');
 		if(!$allAdvertisement)
 		{
 			$advCriteria=new CDbCriteria();
@@ -99,7 +121,7 @@ class CCacheHelper  {
 				foreach ($advs as $adv) {
 					$allAdvertisement[$adv->ad_no][]=$adv;
 				}
-				Yii::app()->cache->set('advertisement',$allAdvertisement,CacheStrategy::ONE_DAY_EXPIRE);
+				CacheStrategy::getInstance(CacheStrategy::ONE_DAY_EXPIRE)->setData('advertisement',$allAdvertisement);
 			}
 			
 		}

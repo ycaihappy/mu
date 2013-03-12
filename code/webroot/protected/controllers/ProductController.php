@@ -123,28 +123,34 @@ class ProductController extends BasicAccessController
 		$pager=new CPagination();
 		$pager->pageSize=48;
 		$pager->pageVar='page';
-		$result= Yii::app()->searcher->get($query,0,50,$params);
-		$response=$result->response;
-		$pager->setItemCount($response->numFound);
-		$pager->params=$_REQUEST;
-		$products=array();
-		if($response->numFound>0)
+		try{
+			$result= Yii::app()->searcher->get($query,0,50,$params);
+			$response=$result->response;
+			$pager->setItemCount($response->numFound);
+			$pager->params=$_REQUEST;
+			$products=array();
+			if($response->numFound>0)
+			{
+				$products=array();
+				foreach ($response->docs as $doc)
+				{
+					$products[]=$doc->product_id;
+				}
+				$productCriteria=new CDbCriteria();
+				$productCriteria->select='product_id,product_mu_content,product_water_content,product_city_id,product_name,product_price,product_quanity,product_join_date';
+				$productCriteria->with=array('user.enterprise'=>array('select'=>'ent_name'),
+				'type'=>array('select'=>'term_name'),
+				'unit'=>array('select'=>'term_name'),
+				'city'=>array('select'=>'city_name'),
+				);
+				$productCriteria->addInCondition('product_id',$products);
+				$products=Product::model()->findAll($productCriteria);
+				
+			}
+		}
+		catch (CException $ex)
 		{
 			$products=array();
-			foreach ($response->docs as $doc)
-			{
-				$products[]=$doc->product_id;
-			}
-			$productCriteria=new CDbCriteria();
-			$productCriteria->select='product_id,product_mu_content,product_water_content,product_city_id,product_name,product_price,product_quanity,product_join_date';
-			$productCriteria->with=array('user.enterprise'=>array('select'=>'ent_name'),
-			'type'=>array('select'=>'term_name'),
-			'unit'=>array('select'=>'term_name'),
-			'city'=>array('select'=>'city_name'),
-			);
-			$productCriteria->addInCondition('product_id',$products);
-			$products=Product::model()->findAll($productCriteria);
-			
 		}
 		$muCategory=Term::getTermsByGroupId(14,true,null,'全部');
 		$allProvince=City::getMuRelCity(2);

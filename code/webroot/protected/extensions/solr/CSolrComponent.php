@@ -62,10 +62,10 @@ class CSolrComponent extends CApplicationComponent{
             throw new CException('No server or index selected.');
         else 
             $this->_solr = new Apache_Solr_Service($this->host, $this->port, $this->indexPath);
-        if (!$this->_solr->ping()){
+        /*if (!$this->_solr->ping()){
             echo "$this->host, $this->port, $this->indexPath";
             throw new CException('Solr service not responding.');
-        }
+        }*/
     }
     
     /**
@@ -145,7 +145,16 @@ class CSolrComponent extends CApplicationComponent{
     * 
     */
     public function get($query, $offset = 0, $limit = 30, $additionalParameters=array())      {
-      $response = $this->_solr->search($query, $offset, $limit, $additionalParameters);
+      try{
+      	$response = $this->_solr->search($query, $offset, $limit, $additionalParameters);
+      }catch (Exception $e)
+      {
+      	throw new CException('搜索引擎异常: '.$e->getMessage());
+      }
+      if(empty($response))
+      {
+      		throw new CException('搜索引擎异常: '.$e->getMessage());
+      }
       return($response);
     }
 }

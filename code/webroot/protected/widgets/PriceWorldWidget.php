@@ -4,7 +4,7 @@ class PriceWorldWidget extends CWidget
     public $top_news;
     public function init()
     {
-    	$this->top_news = Article::model()->topNews()->findAll();
+    	$this->top_news = Article::model()->PriceWorldList()->findAll();
     }
 
     public function run()

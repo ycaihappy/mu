@@ -58,7 +58,7 @@
 						</tr>
 						<tr>
 							<td></td>
-							<td><div class="reg-btns"><button tabindex="5" class="btn-reg act-one">确定</button>
+							<td><div class="reg-btns"><button tabindex="5" class="btn-reg act-one" data-api="index.php?r=sms/check">确定</button>
 							</div></td>
 						</tr>
 					</table>
@@ -134,7 +134,7 @@
 						</tr>
 						<tr>
 							<td></td>
-							<td><div class="reg-btns"><button tabindex="5" class="btn-reg prev">上一步</button> <button tabindex="5" class="btn-reg save">同意条款并注册</button>
+							<td><div class="reg-btns"><button tabindex="5" class="btn-reg prev">上一步</button> <button tabindex="5" class="btn-reg save" data-api="index.php?r=uehome/user/registeruser">同意条款并注册</button>
 							<p><a>《钼市网服务条款》</a></p>
 							</div></td>
 						</tr>

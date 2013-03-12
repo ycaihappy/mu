@@ -5,7 +5,7 @@ class PriceChinaWidget extends CWidget
     public $type;
     public function init()
     {
-    	$this->top_news = Article::model()->topNews()->findAll();
+    	$this->top_news = Article::model()->PriceChinaList()->findAll();
 
         if ( $this->type == 2)
         {

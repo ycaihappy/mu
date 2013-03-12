@@ -41,7 +41,7 @@
 					<a class="cmp-btn all">全选</a>
 					<a class="cmp-btn cancel">取消</a>
 					<a class="cmp-btn delete" data-api="index.php?r=/uehome/user/productdel">删除</a>
-					<a class="cmp-btn special">设置特价</a>
+					<a class="cmp-btn special" data-api="index.php?r=uehome/user/productSpecial">设置特价</a>
 				</p>
 			</td>
 		

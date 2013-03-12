@@ -1,7 +1,7 @@
     		<div class="m-breadcrumb">
 	<p><b class="crumb"></b>会员中心<i></i>发布供求信息</p>
 </div>
-    <div class="m-form" id="J_User_Suppy">
+    <div class="m-form" id="J_User_Suppy" data-select-img-api="index.php?r=uehome/user/getImagesFromLibary">
 
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'supply-form',

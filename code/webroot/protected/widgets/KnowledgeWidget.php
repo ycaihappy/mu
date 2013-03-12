@@ -1,14 +1,13 @@
 <?php
 class KnowledgeWidget extends CWidget
 {
-	private $KnowledgeList=array();
-    public function init()
-    {
-    	$this->KnowledgeList = Article::model()->knowledgeList()->findAll();
-    }
 
     public function run()
     {
-        $this->render('knowledge',array('data'=>$this->KnowledgeList));
+    	$KnowledgeList01 = Article::model()->knowledgeWorldList()->findAll();
+    	$KnowledgeList02 = Article::model()->knowledgeChinaList()->findAll();
+    	$KnowledgeList03 = Article::model()->knowledgeMakeList()->findAll();
+    	$KnowledgeList04 = Article::model()->knowledgeUseList()->findAll();
+        $this->render('knowledge',array('data01'=>$KnowledgeList01,'data02'=>$KnowledgeList02,'data03'=>$KnowledgeList03,'data04'=>$KnowledgeList04));
     }
 }

@@ -16,7 +16,7 @@ class ExhibitionController extends Controller {
 			$categoryName=$allTerm[$exCategoryId]->term_name;
 		}
 		else {
-			$categoryName=$allTerm[20]->term_name;
+			$categoryName=$allTerm[98]->term_name;
 		}
 		$exCriteria->order='art_post_date desc';
 		$count = Article::model()->count($exCriteria);//
@@ -35,6 +35,10 @@ class ExhibitionController extends Controller {
 		$data=compact('exhibitions','pager','categoryName');
 		$this->render('list',$data);
 	}
+	public function actionView()
+    {
+        $this->render('view');
+    }
 
 }
 

@@ -38,7 +38,11 @@ endif;?>
 		<td><?php echo $form->textField($model,'art_tags',array('class'=>'cmp-input')); ?>	
 		<?php echo $form->error($model,'art_tags'); ?></td>
 </tr>
-
+<tr>
+<td class="label">简介：</td>
+		<td><?php echo $form->textArea($model,'art_summary',array('style'=>'width:352px;height:71px')); ?>	
+		<?php echo $form->error($model,'art_summary'); ?></td>
+</tr>
 <tr>
 <td class="label">内容：</td>
 		<td>

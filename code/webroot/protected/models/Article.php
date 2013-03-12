@@ -54,6 +54,7 @@ class Article extends CActiveRecord
             array('art_id, art_category_id,art_subcategory_id, art_status, art_user_id, art_recommend', 'numerical', 'integerOnly'=>true,'message'=>'必须是填写数字'),
             array('art_title, art_source', 'length', 'max'=>128),
             array('art_img', 'length', 'max'=>218),
+            array('art_summary', 'length', 'max'=>255),
             array('art_tags, art_check_by', 'length', 'max'=>45),
             array('art_subcategory_id','required','message'=>'请选择文章分类'),
             array('art_status','required','message'=>'请选择状态'),
@@ -176,6 +177,18 @@ class Article extends CActiveRecord
                 'order'=>'art_post_date desc',
             	'offset'=>5,
                 'limit'=>12
+            ),
+            'internalExhibitions'=>array(//展会列表也--国内展会
+            	'select'=>'art_id,art_title',
+                'condition'=>'art_category_id=98 and art_subcategory_id=99 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>10
+            ),
+            'internationalExhibitions'=>array(//展会列表也--国际展会
+            	'select'=>'art_id,art_title',
+                'condition'=>'art_category_id=98 and art_subcategory_id=100 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>10
             ),
         );
     }

@@ -17,7 +17,7 @@
                     ?>
                             <li>
                             	<span><?php echo date('m月d日',strtotime($exhibition->art_post_date))?></span>
-                                <a target="_blank" href="<?php echo $exhibition->art_source?>"><?php echo $exhibition->art_title?></a>
+                                <a target="_blank" href="<?php echo $this->createUrl('/exhibition/view',array('art_id'=>$exhibition->art_id))?>"><?php echo $exhibition->art_title?></a>
                             </li>
                    <?php endforeach;
                    endif;?>     

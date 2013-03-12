@@ -9,7 +9,12 @@ class ExhibitionRecommendWidget extends CWidget
     	switch ($this->type)
     	{
     		case 1:
-    			$this->exhibitions = Article::model()->recommdExhibitions()->findAll();
+    			$artCriteria=new CDbCriteria();
+				$artCriteria->select='art_id,art_title';
+				$artCriteria->join='inner join mu_recommend b on t.art_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=23 and b.recommend_position=102';
+				$artCriteria->condition='art_status=1';
+				$artCriteria->limit=10;
+				$this->exhibitions=Article::model()->findAll($artCriteria);
     			$this->title='推荐展会';  
     			break;
     		case 2:
@@ -26,6 +31,6 @@ class ExhibitionRecommendWidget extends CWidget
 
     public function run()
     {
-        $this->render('news_recommend',array('data'=>$this->exhibitions,'title'=>$this->title));
+        $this->render('exhibition_recommend',array('data'=>$this->exhibitions,'title'=>$this->title));
     }
 }

@@ -19,7 +19,7 @@
 	
 	<table border="0" cellpadding="0" cellspacing="0" class="table-list" width="100%">
 		<tr class="repeatbg">
-			<th width="30">选择</th><th width="70">发信人</th><th width="280">主题</th><th width="156">公司名称</th><th width="50">联系人</th><th width="80">时间</th><th>操作</th>
+			<th width="30">选择</th><th width="70">收信人</th><th width="280">主题</th><th width="156">公司名称</th><th width="50">联系人</th><th width="80">时间</th><th>操作</th>
 		</tr>
                 <?php for($index=0;$index<count($data);$index++):
                     $class = ($index%2 == 0) ? "" : "class='even'";

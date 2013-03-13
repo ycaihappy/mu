@@ -1,6 +1,18 @@
 <div class="m-breadcrumb">
     <p><b class="crumb"></b>会员中心<i></i>企业资质</p>
 </div>
+<?php
+if ( Yii::app()->user->hasFlash('success'))
+{
+?>
+	<div class="hd">		
+		<div class="block-error">
+        <p><?php  echo Yii::app()->user->getFlash('success');?> </p>
+		</div>
+	</div>
+<?php
+}
+?>
     <div class="m-table-list" id="J_Supply_List">
 	
 	<div class="hd">

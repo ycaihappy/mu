@@ -42,6 +42,55 @@ class UserController extends Controller {
         ),
 			   );
 	}*/
+    public function actionOnline()
+    {
+        $this->render ( 'online');
+    }
+    public function actionFlink()
+    {
+        $criteria=new CDbCriteria;
+        $criteria->order='flink_id DESC';
+        $criteria->addCondition("flink_user_id=".yii::app()->user->getID());
+
+        $count=FriendLink::model()->count($criteria);
+
+        $pager=new CPagination($count);
+        $pager->pageSize=15;
+        $pager->applyLimit($criteria);
+        $list=FriendLink::model()->findAll($criteria);
+
+		$this->render ( 'flink', array('data'=>$list,'pager'=>$pager));
+    }
+    public function actionFlinkadd()
+    {
+        $model = new FlinkForm();
+        if (isset($_POST['FlinkForm']))
+        {
+            $model->attributes = $_POST['FlinkForm'];
+            if ( $model->validate() )
+            {
+                $model->draft();
+                $this->actionFlink();
+            }
+            
+        }
+        $this->render ( 'flink_add', array('model'=>$model));
+    }
+    public function actionFlinkdel()
+    {
+    if ( strstr($_REQUEST['ids'],',') )
+        {
+            $criteria=new CDbCriteria;
+            $criteria->addCondition("flink_id in(".$_REQUEST['ids'].")");
+            FriendLink::model()->deleteAll($criteria);
+        }
+        else
+        {
+            $model = FriendLink::model()->find("flink_id=:flink_id", array('flink_id'=>$_REQUEST['ids']));
+            $model->delete();
+        }
+        echo json_encode(array('status'=>1,'data'=>array()));
+    }
     public function actionIndex() {
         $user = User::model()->findByPk(Yii::app()->user->getID());
         $enterprise = Enterprise::model()->find("ent_user_id=:ent_user_id", array('ent_user_id'=>yii::app()->user->getID()));
@@ -139,8 +188,9 @@ $connection = Yii::app()->db;
         {
             $limit = 'limit 0,15';
         }
+$user_id =yii::app()->user->getID();
         $sql = 'select * from mu_message,mu_user_enterprise,mu_user 
-            where (msg_to_user_id=3) AND (msg_from_user_id=ent_user_id) and msg_to_user_id=user_id
+            where (msg_to_user_id='.$user_id.' or msg_from_user_id='.$user_id.') AND (msg_from_user_id=ent_user_id) and msg_to_user_id=user_id
             ORDER BY msg_id DESC '.$limit;
 
         $list= $connection->createCommand($sql)->queryAll();

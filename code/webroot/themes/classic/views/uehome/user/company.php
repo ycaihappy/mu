@@ -20,6 +20,16 @@ if ( !empty($error))
 </div>
 <?php
 }
+elseif ( Yii::app()->user->hasFlash('success'))
+{
+?>
+	<div class="hd">		
+		<div class="block-error">
+        <p><?php  echo Yii::app()->user->getFlash('success');?> </p>
+		</div>
+	</div>
+<?php
+}
 ?>
     <div class="m-form">
 	

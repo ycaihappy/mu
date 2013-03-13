@@ -70,6 +70,7 @@ class UserController extends Controller {
             if ( $model->validate() )
             {
                 $model->draft();
+                Yii::app()->user->setFlash('success','添加友情链接成功!');
                 $this->actionFlink();
             }
             
@@ -145,6 +146,7 @@ class UserController extends Controller {
             if ( $model->validate() )
             {
                 $model->draft();
+                Yii::app()->user->setFlash('success','站内短信发送成功!');
                 $this->actionMessage();
             }
             
@@ -264,6 +266,7 @@ $user_id =yii::app()->user->getID();
             if ( $model->validate() )
             {
                 $flag=$model->update();
+                Yii::app()->user->setFlash('success','修改用户信息成功!');
             }
         }
         else
@@ -289,6 +292,7 @@ $user_id =yii::app()->user->getID();
             {
                 $model->update();
             }
+            Yii::app()->user->setFlash('success','修改企业信息成功!');
         }
         else
         {
@@ -359,6 +363,8 @@ $user_id =yii::app()->user->getID();
             if ( $model->validate() )
             {
                 empty($model->art_id) ? $model->draft() : $model->update();
+                $message = empty($model->art_id) ? '添加企业新闻成功' : '更新企业新闻成功';
+                Yii::app()->user->setFlash('success',$message);
                 $this->actionNlist();
             }
         }
@@ -449,6 +455,8 @@ $user_id =yii::app()->user->getID();
             if ( $model->validate() )
             {
                 empty($model->supply_id) ? $model->draft() : $model->update();
+                $message = empty($model->supply_id) ? '添加供求成功' : '更新供求成功';
+                Yii::app()->user->setFlash('success',$message);
                 $this->actionSlist();
 
             }
@@ -502,6 +510,8 @@ $user_id =yii::app()->user->getID();
             if ( $model->validate() )
             {
                 empty($model->product_id) ? $model->draft() : $model->update();
+                $message = empty($model->product_id) ? '添加现货成功' : '更新现货成功';
+                Yii::app()->user->setFlash('success',$message);
                 $this->actionGlist();
             }
         }
@@ -622,6 +632,7 @@ $user_id =yii::app()->user->getID();
                     $model->file_url= 'images/enterprise/'.Yii::app()->user->getId().'/'. $filename . '.' . $model_image->extensionName;
                 }
                 $model->save();
+                Yii::app()->user->setFlash('success','添加企业资质成功!');
                 $this->redirect( array('user/cert') );
             }
         }

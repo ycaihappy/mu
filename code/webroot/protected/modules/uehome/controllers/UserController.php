@@ -42,6 +42,10 @@ class UserController extends Controller {
         ),
 			   );
 	}*/
+    public function actionOnline()
+    {
+        $this->render ( 'online');
+    }
     public function actionFlink()
     {
         $criteria=new CDbCriteria;

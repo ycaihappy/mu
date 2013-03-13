@@ -40,7 +40,7 @@ $data = array(
 */
 
 /*chart data*/
-/*
+
 $data = array(
 	'text'=>'行情走势图',
 	'xAxis'=>array('Jan','Feb','Mar','aa','yy'),
@@ -60,8 +60,8 @@ $data = array(
 		)
 	)
 );
-*/
 
+/*
 //站内信autocomplete
 $data = array(
 	array(
@@ -80,7 +80,7 @@ $data = array(
 		'value'=>'3333'
 	)
 );
-
+*/
 echo json_encode($data);
 
 ?>

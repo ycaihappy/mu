@@ -34,8 +34,6 @@ class MessageForm extends CFormModel {
 				array('fromTelephone','required','message'=>'联系电话不能为空'),
 			));
 		}
-		echo '<pre>';
-		var_dump($rules);
 		return $rules;
 	}
 }

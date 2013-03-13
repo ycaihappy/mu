@@ -38,7 +38,15 @@ if ( !empty($error))
 			<td class="label">主题：</td><td><?php echo $form->textField($model, 'msg_subject', array('class'=>'cmp-input'));?></td>
 		</tr>
 		<tr>
-			<td class="label">内容：</td><td><?php echo $form->textArea($model,'msg_content',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
+			<td class="label">内容：</td><td>
+			<?php 
+			$this->widget('application.extensions.xheditor.JXHEditor', array(
+				    'model' => $model,
+				    'attribute' => 'msg_content',
+				    'htmlOptions'=>array('class'=>'xheditor-mini','cols'=>80,'rows'=>20,'style'=>'width: 600px; height: 400px;'),
+				));
+			//echo $form->textArea($model,'msg_content',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); 
+			?></td>
 		</tr>
 		<tr>
 <?php 

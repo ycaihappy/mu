@@ -90,7 +90,7 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'supply_address'); ?></td>
 </tr>
 <tr>
-<td class="label">地址：</td>
+<td class="label">电话：</td>
 		<td><?php echo $form->textField($model,'supply_phone'); ?>
 		<?php echo $form->error($model,'supply_phone'); ?></td>
 </tr>
@@ -98,7 +98,11 @@ $this->breadcrumbs=array(
 <tr>
 <td class="label">描述：</td>
 		<td>
-		<?php echo $form->textArea($model,'supply_content',array('cols'=>50,'rows'=>8));?>
+		<?php $this->widget('application.extensions.xheditor.JXHEditor', array(
+				    'model' => $model,
+				    'attribute' => 'supply_content',
+				    'htmlOptions'=>array('class'=>'xheditor-mfull','cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 400px;'),
+				));?>
 		<?php echo $form->error($model,'supply_content'); ?></td>
 </tr>
 <tr>

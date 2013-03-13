@@ -38,7 +38,12 @@ if ( !empty($error))
 		</tr>
 		<tr>
 			<td class="label">详细内容：</td><td><?php
-$this->widget('application.extensions.ckeditor.CKEditor',array(
+			$this->widget('application.extensions.xheditor.JXHEditor', array(
+				    'model' => $model,
+				    'attribute' => 'art_content',
+				    'htmlOptions'=>array('class'=>'xheditor-mini','cols'=>80,'rows'=>20,'style'=>'width: 600px; height: 400px;'),
+				));
+/*$this->widget('application.extensions.ckeditor.CKEditor',array(
 
     "model"=>$model,
 
@@ -51,7 +56,9 @@ $this->widget('application.extensions.ckeditor.CKEditor',array(
     'editorTemplate'=>'basic',
 
 
-));?></td>
+));
+*/
+?></td>
 		</tr>
 		<tr>
 			<td></td><td><button type="submit" class="btn-save">发布/保存</button></td>

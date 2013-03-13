@@ -23,6 +23,7 @@ return array(
 		'application.components.*',
 		'application.widgets.*',
 		'application.extensions.ckeditor.*',
+		'application.extensions.xheditor.*',
 	    'application.extensions.yii-mail.*', 
 		'application.extensions.solr.*',
 	),

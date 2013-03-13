@@ -72,7 +72,15 @@ if ( !empty($error))
 		</tr>		
 		
 		<tr>
-			<td class="label">公司介绍：</td><td><?php echo $form->textArea($model,'ent_introduce',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
+			<td class="label">公司介绍：</td><td>
+			<?php 
+			$this->widget('application.extensions.xheditor.JXHEditor', array(
+				    'model' => $model,
+				    'attribute' => 'ent_introduce',
+				    'htmlOptions'=>array('class'=>'xheditor-mini','cols'=>80,'rows'=>20,'style'=>'width: 600px; height: 400px;'),
+				));
+			//echo $form->textArea($model,'ent_introduce',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); 
+			?></td>
 		</tr>
 		<tr>
 			<td colspan="2"><h3 class="b-title">其他信息</h3></td>

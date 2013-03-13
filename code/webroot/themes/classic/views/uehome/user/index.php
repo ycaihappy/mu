@@ -30,7 +30,9 @@
 				<div class="item">
 				<label>公司简介：</label>
 					<div class="info">
-<?php echo $enterprise->ent_introduce;?>
+<?php 
+echo $enterprise->ent_introduce;
+?>
 				</div>
 				</div>
 			</li>

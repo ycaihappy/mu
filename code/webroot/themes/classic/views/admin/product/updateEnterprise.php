@@ -65,7 +65,7 @@ $this->breadcrumbs=array(
 <td class="label">公司介绍：</td>
 		<td>
 		<?php 
-		$this->widget('application.extensions.ckeditor.CKEditor',array( 
+		/*$this->widget('application.extensions.ckeditor.CKEditor',array( 
 				    
 		"model"=>$model,
 
@@ -78,7 +78,12 @@ $this->breadcrumbs=array(
 		'editorTemplate'=>'advanced',
 		
 		) 
-);
+);*/
+		$this->widget('application.extensions.xheditor.JXHEditor', array(
+				    'model' => $model,
+				    'attribute' => 'ent_introduce',
+				    'htmlOptions'=>array('class'=>'xheditor-mfull','cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 400px;'),
+				));
 
 ?>
 <?php echo $form->error($model,'ent_introduce'); ?>

@@ -72,7 +72,15 @@
         </td>
 		</tr>
 		<tr>
-        <td class="label">信息描述：</td><td><?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
+        <td class="label">信息描述：</td><td><?php 
+        $this->widget('application.extensions.xheditor.JXHEditor', array(
+				    'model' => $model,
+				    'attribute' => 'description',
+				    'htmlOptions'=>array('class'=>'xheditor-mini','cols'=>80,'rows'=>20,'style'=>'width: 600px; height: 400px;'),
+				));
+        //echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); 
+        
+        ?></td>
 		</tr>
 		<tr>
 			<td class="label">信息附图：</td><td><img src="<?php echo $model->image?'/images/commonProductsImages/thumb/thumb_'.$model->image:'/images/thumb.gif'?>" class="thumb" id="image_thumb"><button type="button" class="btn-modify btn-select">选择图片</button>

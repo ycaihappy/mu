@@ -86,7 +86,13 @@ $this->breadcrumbs=array(
 <tr>
 <td class="label">描述：</td>
 		<td>
-		<?php echo $form->textArea($model,'product_content',array('cols'=>50,'rows'=>8));?>
+		<?php 
+				$this->widget('application.extensions.xheditor.JXHEditor', array(
+				    'model' => $model,
+				    'attribute' => 'product_content',
+				    'htmlOptions'=>array('class'=>'xheditor-mfull','cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 400px;'),
+				));
+		?>
 		<?php echo $form->error($model,'product_content'); ?></td>
 </tr>
 <tr>

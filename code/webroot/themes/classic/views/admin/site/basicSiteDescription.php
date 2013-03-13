@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 
-<table border="0" cellpadding="0" cellspacing="0" class="table-field">
+<table border="0" cellpadding="0" cellspacing="0" class="table-field" style="width:70%;height:400px;">
 <tr>
 
 		<td>
@@ -25,41 +25,56 @@ $this->breadcrumbs=array(
 		  	</ul>
 		<div id="basicDescription">
 				<?php 
-				$this->widget('application.extensions.ckeditor.CKEditor',array( 
+				/*$this->widget('application.extensions.ckeditor.CKEditor',array( 
 					"model"=>$model,
 					"attribute"=>'basicDescription',
 					"height"=>'400px',    
 					"width"=>'600px',    
 					'editorTemplate'=>'advanced',
 					) 
-				);
+				);*/
+				$this->widget('application.extensions.xheditor.JXHEditor', array(
+				    'model' => $model,
+				    'attribute' => 'basicDescription',
+				    'htmlOptions'=>array('class'=>'xheditor-mfull','cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 400px;'),
+				));
 
 				?>
 				<?php echo $form->error($model,'basicDescription'); ?>
 		</div>
 		<div id="agrementDescription">
 				<?php 
-				$this->widget('application.extensions.ckeditor.CKEditor',array( 
+				/*$this->widget('application.extensions.ckeditor.CKEditor',array( 
 					"model"=>$model,
 					"attribute"=>'agrementDescription',
 					"height"=>'400px',    
 					"width"=>'600px',    
 					'editorTemplate'=>'advanced',
 					) 
-				);
+				);*/
+				$this->widget('application.extensions.xheditor.JXHEditor', array(
+				    'model' => $model,
+				    'attribute' => 'agrementDescription',
+				    'htmlOptions'=>array('class'=>'xheditor-mfull','cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 500px;'),
+				));
 				?>
 				<?php echo $form->error($model,'agrementDescription'); ?>
 		</div>
 		<div id="copyrightDescription">
 				<?php 
-				$this->widget('application.extensions.ckeditor.CKEditor',array( 
+				/*$this->widget('application.extensions.ckeditor.CKEditor',array( 
 					"model"=>$model,
 					"attribute"=>'copyrightDescription',
 					"height"=>'400px',    
 					"width"=>'600px',    
 					'editorTemplate'=>'advanced',
 					) 
-				);
+				);*/
+				$this->widget('application.extensions.xheditor.JXHEditor', array(
+				    'model' => $model,
+				    'attribute' => 'copyrightDescription',
+				    'htmlOptions'=>array('class'=>'xheditor-mfull','cols'=>200,'rows'=>15,'style'=>'width: 100%; height: 400px;'),
+				));
 				?>
 				<?php echo $form->error($model,'copyrightDescription'); ?>
 		</div>

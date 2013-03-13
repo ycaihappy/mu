@@ -67,7 +67,15 @@
             </td>
 		</tr>
 		<tr>
-			<td class="label">现货描述：</td><td><?php echo $form->textArea($model,'product_content',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
+			<td class="label">现货描述：</td><td>
+			<?php 
+			$this->widget('application.extensions.xheditor.JXHEditor', array(
+				    'model' => $model,
+				    'attribute' => 'product_content',
+				    'htmlOptions'=>array('class'=>'xheditor-mini','cols'=>80,'rows'=>20,'style'=>'width: 600px; height: 400px;'),
+				));
+			//echo $form->textArea($model,'product_content',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); 
+			?></td>
 		</tr>
 		<tr>
 			<td class="label">现货附图：</td><td><img src="<?php echo $model->product_image_src?'/images/commonProductsImages/thumb/thumb_'.$model->product_image_src:'/images/thumb.gif'?>" class="thumb" id="image_thumb"><button type="button" class="btn-modify btn-select" >选择图片</button>

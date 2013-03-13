@@ -56,6 +56,21 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'companyName'); ?></td>
 </tr>
 <tr>
+<td class="label">地址：</td>
+		<td><?php echo $form->textField($model,'location',array('style'=>'width:300px')); ?>
+		<?php echo $form->error($model,'location'); ?></td>
+</tr>
+<tr>
+<td class="label">邮编：</td>
+		<td><?php echo $form->textField($model,'zipcode'); ?>
+		<?php echo $form->error($model,'zipcode'); ?></td>
+</tr>
+<tr>
+<td class="label">传真：</td>
+		<td><?php echo $form->textField($model,'fax'); ?>
+		<?php echo $form->error($model,'fax'); ?></td>
+</tr>
+<tr>
 <td class="label">客服热线：</td>
 		<td><?php echo $form->textField($model,'csHotline1'); ?>
 		<?php echo $form->error($model,'csHotline1'); ?></td>
@@ -105,29 +120,7 @@ $this->breadcrumbs=array(
 		<td><?php echo $form->textField($model,'csEmail'); ?>
 		<?php echo $form->error($model,'csEmail'); ?></td>
 </tr>
-<tr>
-<td class="label">网站描述：</td>
-		<td>
-				<?php 
-		$this->widget('application.extensions.ckeditor.CKEditor',array( 
-				    
-		"model"=>$model,
 
-		"attribute"=>'siteDescription',
-
-		"height"=>'400px',
-				    
-		"width"=>'600px',       
-				    
-		'editorTemplate'=>'advanced',
-		
-		) 
-);
-
-?>
-<?php echo $form->error($model,'ent_introduce'); ?>
-		</td>
-</tr>
 
 <tr>
 <td align='right' colspan=2><?php echo CHtml::submitButton('保存'); ?></td>

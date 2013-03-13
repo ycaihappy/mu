@@ -65,6 +65,18 @@ class Article extends CActiveRecord
             array('art_id, art_title, art_source, art_category_id, art_content, art_status, art_tags, art_user_id, art_check_by, art_post_date, art_modified_date, art_recommend', 'safe', 'on'=>'search'),
         );
     }
+    public function beforeSave()
+    {
+    	
+    	if($this->isNewRecord)
+    	{
+    		$this->art_post_date=date('Y-m-d H:i:s');
+    	}
+    	else {
+    		$this->art_modified_date=date('Y-m-d H:i:s');
+    	}
+    	return parent::beforeSave();
+    }
     public function scopes()
     {
         return array(
@@ -225,6 +237,12 @@ class Article extends CActiveRecord
                 'order'=>'art_post_date desc',
                 'limit'=>10
             ),
+            'service'=>array(//目前展示的7项服务
+            	'select'=>'art_id,art_title,art_summary,art_subcategory_id',
+                'condition'=>'art_category_id=103  and art_status=1',
+                'limit'=>7
+            ),
+            
         );
     }
 

@@ -7,6 +7,7 @@ class BasicSiteInfo extends CJsonModel {
 	public $siteMetaDescription;
 	public $siteLogo;
 	public $siteUrl;
+	public $location;
 	public $siteIcpCode;
 	//-----contact method
 	public $companyName;
@@ -16,6 +17,7 @@ class BasicSiteInfo extends CJsonModel {
 	public $csHotline4;//customer service hot line
 	public $advisoryHotline;//咨询热线
 	public $fax;
+	public $zipcode;
 	public $sellHotline;
 	public $qq;
 	public $siteMsgNum;
@@ -30,7 +32,9 @@ class BasicSiteInfo extends CJsonModel {
 			array('siteName, siteMetaTitle,siteMetaKeyword,siteMetaDescription, siteLogo, companyName,csEmail', 'required','message'=>'信息不能留空'),
 			array('siteName','length','max'=>128),
 			array('siteMetaTitle','length','max'=>255),
+			array('location','length','max'=>255),
 			array('siteMetaDescription','length','max'=>255),
+			array('zipcode','length','max'=>10),
 			array('siteMetaTitle','length','max'=>255),
 			array('siteMsgNum,csEmail','email','message'=>'邮箱格式不正确'),
 			array('qq','numerical','message'=>'输入了除数字意外的字符'),

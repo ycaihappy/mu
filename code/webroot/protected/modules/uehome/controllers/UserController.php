@@ -188,8 +188,9 @@ $connection = Yii::app()->db;
         {
             $limit = 'limit 0,15';
         }
+$user_id =yii::app()->user->getID();
         $sql = 'select * from mu_message,mu_user_enterprise,mu_user 
-            where (msg_to_user_id=3) AND (msg_from_user_id=ent_user_id) and msg_to_user_id=user_id
+            where (msg_to_user_id='.$user_id.' or msg_from_user_id='.$user_id.') AND (msg_from_user_id=ent_user_id) and msg_to_user_id=user_id
             ORDER BY msg_id DESC '.$limit;
 
         $list= $connection->createCommand($sql)->queryAll();

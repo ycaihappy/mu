@@ -269,7 +269,6 @@ class YiiBase
 
 		if(class_exists($alias,false) || interface_exists($alias,false))
 			return self::$_imports[$alias]=$alias;
-
 		if(($pos=strrpos($alias,'\\'))!==false) // a class name in PHP 5.3 namespace format
 		{
 			$namespace=str_replace('\\','.',ltrim(substr($alias,0,$pos),'\\'));
@@ -305,7 +304,6 @@ class YiiBase
 
 		if($isClass && (class_exists($className,false) || interface_exists($className,false)))
 			return self::$_imports[$alias]=$className;
-
 		if(($path=self::getPathOfAlias($alias))!==false)
 		{
 			if($isClass)

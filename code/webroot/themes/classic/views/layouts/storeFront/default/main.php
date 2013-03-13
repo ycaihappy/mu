@@ -23,7 +23,6 @@ $this->widget('FrontHeader');
 		?>
     </div>
     <div id="content">
-		<script src='<{$config.weburl}>/api/ad.php?id=46&catid=<{$smarty.get.id}>&sname=<{$sname}>'></script>
     	<?php echo $content;?>
     </div>
 </div>
@@ -31,18 +30,5 @@ $this->widget('FrontHeader');
 <div id="bottom">
 <?php $this->widget('FrontBottom');?>
 </div>
-<script>
-function myAddPanel()
-{
-	var title="<{$config.company}>";
-	var url="<{$config.weburl}>";
-	var desc="<{$config.company}>";
-	
-	if ((typeof window.sidebar == 'object') && (typeof window.sidebar.addPanel == 'function'))
-		window.sidebar.addPanel(title,url,desc);
-	else
-		window.external.AddFavorite(url,title);
-}
-</script>
 </body>
 </html>

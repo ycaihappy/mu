@@ -102,7 +102,7 @@ return array(
 //     	),
 		// uncomment the following to enable URLs in path-format
 		
-		/*'urlManager'=>array(
+		'urlManager'=>array(
 			'urlFormat'=>'path',
             'urlSuffix'=>'.html',
             'showScriptName'=>false,
@@ -123,7 +123,7 @@ return array(
 				'http://uehome.mushw.com/<_a:\w+>'=>'uehome/user/<_a>',
 				'http://<username:\w+>.mushw.com/<_a:\w+>'=>'storeFront/default/<_a>'
 			),
-		),*/
+		),
 		
             /*
 		'db'=>array(
@@ -176,9 +176,9 @@ return array(
 		),
 		'searcher'=>array(
             'class'=>'CSolrComponent',
-            'host'=>'61.163.6.93',
+            'host'=>'192.168.219.103',
             'port'=>8080,
-            'indexPath'=>'/solr/core1/'
+            'indexPath'=>'/solr-keyword/core1/'
         ),
 		
 	#	'log'=>array(

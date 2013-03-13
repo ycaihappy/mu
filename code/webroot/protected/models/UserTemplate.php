@@ -41,11 +41,11 @@ class UserTemplate extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('temp_status, temp_order, temp_amount', 'numerical', 'integerOnly'=>true),
+			array('temp_id,temp_status, temp_order, temp_amount', 'numerical', 'integerOnly'=>true),
 			array('temp_name, temp_dir', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('temp_id, temp_name, temp_status, temp_order, temp_dir, temp_amount, temp_added_date, temp_updated_date', 'safe', 'on'=>'search'),
+			array('temp_id, temp_name, temp_status, temp_order, temp_dir, temp_amount, temp_added_date, temp_updated_date', 'safe'),
 		);
 	}
 

@@ -3,12 +3,18 @@
 	</div>
 	<!--m-table-list-->
 	<div class="m-table-list" id="J_Supply_List">
-	
-	<!--<div class="hd">		
+<?php
+if (Yii::app()->user->hasFlash('success')){
+?>
+	<div class="hd">		
 		<div class="block-error">
-			<p>企业名称必须填写！</p>
+        <p><?php  echo Yii::app()->user->getFlash('success');?> </p>
 		</div>
-	</div>-->
+	</div>
+<?php
+}
+?>
+
 	<div class="repeatbg search">
                 <a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/flinkadd');?>" class="cmp-btn">添加友情链接</a> 
 		</div>

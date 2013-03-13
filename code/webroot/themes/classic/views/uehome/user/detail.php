@@ -1,7 +1,34 @@
  <div class="m-breadcrumb">
 	<p><b class="crumb"></b>会员中心<i></i>个人资料</p>
 </div>
-
+<?php
+$error = $model->getErrors();
+if ( !empty($error))
+{
+?>
+<div class="block-error">
+<?php
+    foreach ($error as $one_error)
+    {
+?>
+    <p><?php echo $one_error[0];?></p>
+<?php
+    }
+?>
+</div>
+<?php
+}
+elseif ( Yii::app()->user->hasFlash('success'))
+{
+?>
+	<div class="hd">		
+		<div class="block-error">
+        <p><?php  echo Yii::app()->user->getFlash('success');?> </p>
+		</div>
+	</div>
+<?php
+}
+?>
     <div class="m-form">
 	
 <?php $form = $this->beginWidget('CActiveForm', array(

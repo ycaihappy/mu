@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
 		'validateOnSubmit'=>true,
 	),
 )); ?>
-<?php if($model->isNewRecord) echo $form->hiddenField($model,'temp_id');?>
+<?php if(!$model->isNewRecord) echo $form->hiddenField($model,'temp_id');?>
 
 
 <table border="0" cellpadding="0" cellspacing="0" class="table-field">
@@ -21,6 +21,7 @@ $this->breadcrumbs=array(
 <td class="label">模板名称：</td>
 		<td><?php echo $form->textField($model,'temp_name',array('class'=>'cmp-input')); ?>
 		<?php echo $form->error($model,'temp_name');?>
+		
 		</td>
 </tr>
 <tr>

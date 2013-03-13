@@ -25,7 +25,7 @@ class MessageForm extends CFormModel {
 			array('verifyCode', 'required','message'=>'验证码不能为空'),
 			array('verifyCode', 'captcha','message'=>'验证码输入不正确', 'allowEmpty'=>!extension_loaded('gd')), 
 		);
-		if(!$guest)
+		#if($guest)
 		{
 			$rules+=array(
 				array('fromCompany','required'),
@@ -34,6 +34,8 @@ class MessageForm extends CFormModel {
 				array('fromTelephone','required'),
 			);
 		}
+		echo '<pre>';
+		var_dump($rules);
 		return $rules;
 	}
 }

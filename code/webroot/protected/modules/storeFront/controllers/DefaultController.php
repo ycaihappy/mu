@@ -102,6 +102,7 @@ class DefaultController extends Controller
 					{//没有模板
 						$this->redirect(array('/site/index'));
 					}
+					$this->layout='//layouts/storeFront/'.$user->user_template.'/main';
 				}
 
 			}
@@ -112,7 +113,7 @@ class DefaultController extends Controller
 	}
 	public function actionIndex()
 	{
-		$img='images/enterprise/'.$this->company->ent_image;
+		$img='/images/enterprise/'.$this->company->ent_image;
 		$content=CStringHelper::truncate_utf8_string($this->company->ent_introduce, 300);
 	$productCriteria=new CDbCriteria();
 		$productCriteria->select='product_name,product_type_id,product_city_id,product_price,product_join_date';
@@ -140,12 +141,12 @@ class DefaultController extends Controller
 	{
 		//可以在此处添加根据用户选择的不同模板的路径
 		$template=$this->user->user_template;
-		return $this->getModule() ? $this->getModule()->getId()."/{$template}/".$this->getId() : $this->getId();
+		return $this->getModule() ? $this->getModule()->getId().'/'.$this->getId()."/{$template}" : $this->getId();
 	}
 	public function actionCompanyProfile()
 	{
-		$img='images/enterprise/'.$this->company->ent_image;
-		$content=htmlspecialchars($this->company->ent_introduce);
+		$img='/images/enterprise/'.$this->company->ent_image;
+		$content=$this->company->ent_introduce;
 		$company=$this->company;
 		$authenticate=0;
 		$data=compact('company','img','content','authenticate');

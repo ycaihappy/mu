@@ -2,14 +2,22 @@
 	<div class="m-breadcrumb">
 		<p><b class="crumb"></b>会员中心<i></i>站内信</p>
 	</div>
+
+<?php
+if ( Yii::app()->user->hasFlash('success'))
+{
+?>
+	<div class="hd">		
+		<div class="block-error">
+        <p><?php  echo Yii::app()->user->getFlash('success');?> </p>
+		</div>
+	</div>
+<?php
+}
+?>
 	<!--m-table-list-->
 	<div class="m-table-list" id="J_Supply_List">
 	
-	<!--<div class="hd">		
-		<div class="block-error">
-			<p>企业名称必须填写！</p>
-		</div>
-	</div>-->
 	<div class="repeatbg search">
 
        <?php #echo CHtml::dropDownList('msg_type',1, array('发送','接收'));?>

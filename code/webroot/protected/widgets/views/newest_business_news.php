@@ -1,10 +1,6 @@
-              <div class="title-bar ui-til4"><h2><a href="http://money.163.com/">财经</a></h2>
+              <div class="title-bar ui-til4"><h2><a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>43))?>">财经</a></h2>
                     <span class="more link">
-                        <a href="http://money.163.com/stock/">股票</a> <span class="cLGray">|</span>
-                        <a href="http://biz.163.com/">商业</a> <span class="cLGray">|</span>
-                        <a href="http://money.163.com/licai/">理财</a> <span class="cLGray">|</span>
-                        <a href="http://money.163.com/finance/">金融</a> <span class="cLGray">|</span>
-                        <a href="http://money.163.com/fund/">基金</a></span>
+                        <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>43))?>">更多</a></span>
                 </div>
 	<div class="mod-list main-list news-date-list">
 	<h3 class="bigsize">

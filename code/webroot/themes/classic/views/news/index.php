@@ -52,7 +52,7 @@
 		<!--right-->
 		
 		<div class="m-banner">
-			<img src="images/960x100.gif" width="960" height="100" />
+			<img src="/images/960x100.gif" width="960" height="100" />
 		</div>
 		
 		<div class="clearfix"></div>

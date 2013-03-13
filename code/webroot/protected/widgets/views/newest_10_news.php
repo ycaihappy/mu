@@ -1,6 +1,5 @@
 <div class="hd">
-	<span class="on"><a href="">新闻</a></span>			
-	<a href="" class="more">更多</a>
+	<span class="on"><a href="">最新新闻</a></span>	
 </div>
 <div class="bd">
 	<ul class="current">

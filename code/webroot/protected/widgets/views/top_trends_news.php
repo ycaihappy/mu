@@ -1,12 +1,12 @@
 <h2>
 	<span>
-	 <a target="_blank" href="/domestic.html">更多</a>
+	 <a target="_blank" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>42))?>">更多</a>
 	</span>
-	<a target="_blank" href="hangye.html">行业动态</a>
+	<a target="_blank" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>42))?>">行业动态</a>
 </h2>
 	<div class="n2top">
-         <a href="http://news.steelcn.com/a/104/20130125/6198023364473A.html">
-         	<img src="http://img.cache.steelcn.com/uploadfiles/images/2013/01/25110044982.jpg">
+         <a href="<?php echo $this->getController()->createUrl('/news/view',array('art_id'=>$trendsOne->art_id))?>">
+         	<img src="<?php echo $trendsOne->art_img?>">
          </a>
          <h4>
          	<a target="_blank" href="<?php echo $trendsOne->art_source?>"><?php echo $trendsOne->art_title?></a>

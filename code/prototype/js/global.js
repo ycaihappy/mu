@@ -99,7 +99,7 @@ $.extend(MU.mods,{
 			if( o.hasClass('act-one')) {
 				 $.ajax({  
 					type:"post",  
-					url:'index.php?r=sms/check',  
+					url:o.data('api'),
 					dataType:"json",
 					async : false,
 					data : o.closest('form').serializeArray(),
@@ -127,7 +127,7 @@ $.extend(MU.mods,{
 			
 				 $.ajax({  
 					type:"post", 
-					url:'index.php?r=uehome/user/registeruser',  
+					url:o.data('api'),  
 					dataType:"json",
 					async : false,
 					data : o.closest('form').serializeArray(),
@@ -240,7 +240,7 @@ $.extend(MU.mods,{
 						'multi'    : false,
 						'fileTypeExts' : '*.gif; *.jpg; *.png',
 						'swf'      : 'css/uploadify.swf',
-						'uploader' : 'index.php?r=uehome/user/uploadTemplateImage',
+						'uploader' : self.find('form').data('upload-api'),
 
 						 'onUploadSuccess' : function(file, data, response) {
 							//alert('文件 ' + file.name + ' 上传成功！' + data);
@@ -290,7 +290,7 @@ $.extend(MU.mods,{
 				var box = this.getBox(),html = [],objbox = this;
 				box.find('.bd').html('<img src="css/process-working.gif" />');
 				
-				$.getJSON('index.php?r=uehome/user/getImagesFromLibary&category_id='+cid+'&page=' + page,function(re){
+				$.getJSON(self.data('select-img-api') + '&category_id='+cid+'&page=' + page,function(re){
 					if(re.imageCount == 0){
 						html.push('<p>暂无数据</p>');
 					}
@@ -389,7 +389,7 @@ $.extend(MU.mods,{
 				var arr = chks.filter(':checked').map(function(){
 					return this.value;
 				}).get().join(',');
-				$.getJSON('index.php?r=uehome/user/productSpecial&ids=' + arr,function(re){
+				$.getJSON(o.data('api') + '&ids=' + arr,function(re){
 					if(re.status == 1){
 						location.reload();
 					}

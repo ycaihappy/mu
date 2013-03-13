@@ -23,7 +23,7 @@ a:active{text-decoration:underline;}
 .cmp-dropdown li a{display:block;padding:2px}
 .cmp-dropdown li a:hover{background:#f7f5f5}
 .cmp-dropdown.hover{border:1px solid #ccc}
-
+.ui-tabs .ui-tabs-hide{display:none}
 
 .ui-page-size {font-size:12px;font-family:'arial';margin-bottom:10px;text-align:right}
 .ui-page-num a{border:1px solid #ddd;padding:3px 6px;display:inline-block;margin-right:5px}

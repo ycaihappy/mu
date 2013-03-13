@@ -16,7 +16,8 @@ class MessageForm extends CFormModel {
 	{
 		$guest=Yii::app()->user->isGuest;
 		$rules=array(
-			array('sub,content','required'),
+			array('content','required','message'=>'内容不能为空'),
+			array('sub','required','message'=>'标题不能为空'),
 			array('sub','length','max'=>'218'),
 			array('fromEmail','email'),
 			array('fromCompany','length','max'=>128),
@@ -25,14 +26,13 @@ class MessageForm extends CFormModel {
 			array('verifyCode', 'required','message'=>'验证码不能为空'),
 			array('verifyCode', 'captcha','message'=>'验证码输入不正确', 'allowEmpty'=>!extension_loaded('gd')), 
 		);
-		#if($guest)
+		if($guest)
 		{
-			$rules+=array(
-				array('fromCompany','required'),
-				array('fromEmail','required'),
-				array('fromContact','required'),
-				array('fromTelephone','required'),
-			);
+			$rules=array_merge($rules,array(
+				array('fromCompany','required','message'=>'企业名称不能为空'),
+				array('fromContact','required','message'=>'联系人不能为空'),
+				array('fromTelephone','required','message'=>'联系电话不能为空'),
+			));
 		}
 		echo '<pre>';
 		var_dump($rules);

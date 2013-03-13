@@ -134,7 +134,7 @@
         </td>
       </tr>
       <tr>
-        <td  class="text_label" >邮箱*：</td>
+        <td  class="text_label" >邮箱：</td>
         <td>
         <?php echo $form->textField($model,'fromEmail',array('style'=>'width:400px;'));?>
         <?php echo $form->error($model,'fromEmail'); ?>

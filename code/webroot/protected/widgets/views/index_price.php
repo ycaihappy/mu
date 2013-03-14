@@ -31,7 +31,7 @@
 					</div>
 					<ul>
 			<?php for($index=0;$index<count($data02);$index++):?>
-                    <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data02[$index]['art_id']));?>" title="<?php echo $data02[$index]['art_title'] ?>" target="_blank"><?php echo $data02$index]['art_title']; ?></a><em><?php echo date("m-d",strtotime($data02[$index]['art_post_date']));?></em></li>
+                    <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data02[$index]['art_id']));?>" title="<?php echo $data02[$index]['art_title']; ?>" target="_blank"><?php echo $data02[$index]['art_title']; ?></a><em><?php echo date("m-d",strtotime($data02[$index]['art_post_date']));?></em></li>
 			<?php endfor;?>			
 					</ul>
 					<div class="clearfix"></div>

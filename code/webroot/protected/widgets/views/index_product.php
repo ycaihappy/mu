@@ -30,21 +30,13 @@
 				
 					<div class="cg-area ui-m-border">
 						<div class="ui-purple-hd">
-								<h6>采购中心</h6>
-								
+								<h6>推荐企业</h6>
 						</div>
 						<div class="ulist">
 							<ul>
-							<li><a href="">沈阳地震主播淡2222</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
+	            		<?php for($index=0;$index<count($data);$index++):?>
+                               <li><a href="<?php echo Yii::app()->controller->createUrl('/storeFront/default/index',array('username'=>$data[$index]['user']['user_name']));?>"><?php $data[$index]['ent_name'];?></a></li>
+				    	<?php endfor;?>			
 						</ul>
 						</div>
 					</div>

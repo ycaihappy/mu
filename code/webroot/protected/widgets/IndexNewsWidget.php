@@ -5,8 +5,8 @@ class IndexNewsWidget extends CWidget
     public $top_mu_news;
     public function init()
     {
-    	$this->top_news = Article::model()->topNews()->findAll();
-    	$this->top_mu_news = Article::model()->topMuNews()->findAll();
+    	$this->top_news = Article::model()->topTrendsNews()->findAll();
+    	$this->top_mu_news = Article::model()->topHotSpotNews()->findAll();
     }
 
     public function run()

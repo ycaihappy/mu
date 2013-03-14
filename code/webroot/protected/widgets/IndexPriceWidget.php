@@ -1,16 +1,13 @@
 <?php
 class IndexPriceWidget extends CWidget
 {
-	private $recentlyPriceList=array();
-    public function init()
-    {
-    	$this->recentlyPriceList=Article::model()->recentlyprice()->findAll();
-    }
 
     public function run()
     {
+    	$price01 = Article::model()->PriceMaterialList()->findAll();
+    	$price02 = Article::model()->PriceSummaryList()->findAll();
         $city  = City::getCityList();
         $category = Term::model()->getTermsListByGroupId(14);
-        $this->render('index_price',array('data'=>$this->recentlyPriceList, 'city'=>$city,'category'=>$category));
+        $this->render('index_price',array('data01'=>$price01, 'data02'=>$price02,'city'=>$city,'category'=>$category));
     }
 }

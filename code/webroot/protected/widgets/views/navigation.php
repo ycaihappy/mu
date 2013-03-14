@@ -2,7 +2,8 @@
         <div class="bd">
             <div class="nav-con on">
 
-            <strong><a href="<?php echo $this->getController()->createUrl('/site/index')?>">首页</a></strong>
+            <strong><a href="<?php echo $this->getController()->createUrl('/site/index')?>">首页</a><i class="sp"></i>
+			<b></b></strong>
 
             <p>
 	            <a href="<?php echo $this->getController()->createUrl('/product/index')?>">现货通</a>
@@ -14,7 +15,8 @@
             </div>
             <div class="nav-con">
 
-            <strong><a href="<?php echo $this->getController()->createUrl('/news/index')?>">新闻资讯</a></strong>
+            <strong><a href="<?php echo $this->getController()->createUrl('/news/index')?>">新闻资讯</a><i class="sp"></i>
+			<b></b></strong>
 
             <p>
             <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>40))?>">本网视点</a>
@@ -26,7 +28,8 @@
             </div>
             <div class="nav-con">
 
-            <strong><a href="<?php echo $this->getController()->createUrl('/product/index')?>">现货供求</a></strong><p>
+            <strong><a href="<?php echo $this->getController()->createUrl('/product/index')?>">现货供求</a><i class="sp"></i>
+			<b></b></strong><p>
             <a href="<?php echo $this->getController()->createUrl('/product/index')?>">钼现货</a>
             <a href="<?php echo $this->getController()->createUrl('/supply/list',array('type'=>1))?>">钼供应</a>
             <a href="<?php echo $this->getController()->createUrl('/product/list',array('type'=>1))?>">钼特价</a>
@@ -36,7 +39,8 @@
             <b></b>
             </div>
             <div class="nav-con">
-           <strong><a href="<?php echo $this->getController()->createUrl('/price/index')?>">价格行情</a></strong>
+           <strong><a href="<?php echo $this->getController()->createUrl('/price/index')?>">价格行情</a><i class="sp"></i>
+			<b></b></strong>
            <p>
             <a href="">当日价</a><a href="">现货价</a><a href="">钼行情</a><a href="">钼走势</a>
             
@@ -47,7 +51,8 @@
             </div>
             <div class="nav-con">
 
-           <strong><a href="<?php echo $this->getController()->createUrl('/knowledge/index')?>">钼百科</a></strong><p>
+           <strong><a href="<?php echo $this->getController()->createUrl('/knowledge/index')?>">钼百科</a><i class="sp"></i>
+			<b></b></strong><p>
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>66))?>">钼用途</a>
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>65))?>">生产工艺</a>
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>63))?>">国际标准</a>

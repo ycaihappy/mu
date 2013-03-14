@@ -44,7 +44,12 @@ $.extend(MU.mods,{
 	},
 	JNav : function(){
 		var self = $(this);
-		
+		self.find('.nav-con').on('mouseenter',function() {
+			$(this).find('p').stop(false,true).fadeIn('fast');
+			$(this).addClass('on').siblings().removeClass('on');
+		}).mouseleave(function(){
+			$(this).find('p').stop(false,true).fadeOut('fast');
+		});
 		
 	},
 	JIndexAd : function (){

@@ -156,7 +156,7 @@ padding-right: 1px;
 }
 .m-nav .bd p a:hover{background:#f3f3f3;}
 .m-nav .nav-con{float:left;line-height:40px;}
-.m-nav .nav-con strong{display:inline-block;color:#fff;position:relative;padding:0 50px;}
+.m-nav .nav-con strong{display:inline-block;color:#fff;position:relative;padding:0 40px;}
 .m-nav strong a{color:#fff;font-weight:bold;font-size:14px;}
 .m-nav .sp{position:absolute;width:4px;height:33px;right:0px;background:url(imgs/v2/nav_split.png) no-repeat;display:inline-block;top:3px;}
 .m-nav b{

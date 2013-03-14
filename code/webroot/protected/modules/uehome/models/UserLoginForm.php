@@ -21,19 +21,23 @@ class UserLoginForm extends CFormModel
 	 */
 	public function rules()
 	{
-		return array(
+		$rules=array(
 			// username and password are required
 			array('username, password', 'required','message'=>'用户名不能为空'),
 			array('password', 'required','message'=>'密码不能为空'),
 			// rememberMe needs to be a boolean
-			array('verifyCode', 'required','message'=>'验证码不能为空'),
 			array('rememberMe', 'boolean'),
-			array('verifyCode', 'captcha','message'=>'验证码输入不正确', 'allowEmpty'=>!extension_loaded('gd')), 
 			
 			// password needs to be authenticated
 			array('password', 'authenticate'),
 			
 		);
+		if(!Yii::app()->request->isAjaxRequest)
+		{
+			$rules=array_merge($rules,array(array('verifyCode', 'captcha','message'=>'验证码输入不正确', 'allowEmpty'=>!extension_loaded('gd'))
+			,array('verifyCode', 'required','message'=>'验证码不能为空')));
+		}
+		return $rules;
 	}
 
 	/**

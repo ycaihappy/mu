@@ -2,8 +2,8 @@
 			<div class="bd">
 				<form name="qklogin">
 				<ul>
-					<li><label>用户名：</label><div class="fields"><input type="text" name="username" /></div></li>
-					<li><label>密码：</label><div class="fields"><input type="password" name="password"  /></div></li>
+					<li><label>用户名：</label><div class="fields"><input type="text" name="UserForm[username]" /></div></li>
+					<li><label>密码：</label><div class="fields"><input type="password" name="UserForm[password]"  /></div></li>
 					<li><div class="btn"><input type="submit" name="submit" value="登 录" class="btn-red" /></div></li>
 					
 				</ul>
@@ -11,7 +11,6 @@
 			</div>
 			<div class="ft">
 				<div class="line"></div>
-
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>651))?>" class="btn-purple">仓储金融</a>
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>653))?>" class="btn-purple">动产质押</a>
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple">仓单质押</a>

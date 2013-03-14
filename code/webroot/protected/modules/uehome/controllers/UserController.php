@@ -649,6 +649,10 @@ $user_id =yii::app()->user->getID();
         // display the login form
         $this->render ( 'register', $data);
     }
+    public function actionAjaxLogin()
+    {
+    	
+    }
 	public function actionLogin() {
 		$this->layout = '//layouts/ajax_main';
 		$model = new UserLoginForm ();
@@ -667,7 +671,13 @@ $user_id =yii::app()->user->getID();
 			$model->attributes = $_POST ['UserLoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if ($model->validate () && $model->login ())
+			{
+				if(Yii::app()->request->isAjaxRequest)
+				{
+					
+				}
 				$this->redirect(Yii::app()->user->returnUrl);
+			}
 		}
 		// display the login form
 		$this->render ( 'login', array ('model' => $model ) );

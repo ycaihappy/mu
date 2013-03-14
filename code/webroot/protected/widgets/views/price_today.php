@@ -15,7 +15,11 @@
             </th>
 <?php }?>
             </tr>
-<?php foreach ($data as $key=>$price_value){?>
+<?php 
+$i=0;
+foreach ($data as $key=>$price_value){
+    if ( $i>6) continue;
+    ?>
         <tr>
             <td style="text-align: left; width: 28%">
 <?php echo $category[$key];?>
@@ -28,7 +32,7 @@
 
             </tr>
         
-<?php }?>
+<?php $i++;}?>
 
         
     </tbody></table>

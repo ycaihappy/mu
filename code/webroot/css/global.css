@@ -1341,7 +1341,7 @@ div.errorMessage{color:red;font-style:italic;}
 .m-qk-login .btn{text-align:right}
 .m-qk-login .btn-red{margin-right:10px;}
 .m-qk-login .ft{border-top:1px solid #fafafa;padding:10px 0 0 10px;overflow:hidden;}
-.m-qk-login .ft .btn-purple{margin-bottom:7px;margin-right:10px;float:left;}
+.m-qk-login .ft .btn-purple{margin-bottom:7px;margin-right:10px;float:left;position:relative;}
 
 .ui-m-btn{text-align:center;display:inline-block;height:25px;line-height:25px;border:0;}
 .btn-purple-large{background:url(imgs/v2/btn_purple_large.png) no-repeat;width:92px;}
@@ -1428,3 +1428,9 @@ div.errorMessage{color:red;font-style:italic;}
 .mod-news .list li{line-height:20px;}
 
 .m-bt-ad .first{margin-right:25px;}
+
+.btn-purple i{vertical-align:middle; margin-right:7px;}
+.ico-1{background:url(imgs/v2/ico_1.png) no-repeat;display:inline-block;width:20px;height:21px;}
+.ico-2{background:url(imgs/v2/ico_2.png) no-repeat;display:inline-block;width:23px;height:23px; }
+.ico-3{background:url(imgs/v2/ico_3.png) no-repeat;display:inline-block;width:30px;height:15px;}
+.ico-4{background:url(imgs/v2/ico_4.png) no-repeat;display:inline-block;width:22px;height:19px; }

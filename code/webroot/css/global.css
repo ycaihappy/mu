@@ -142,7 +142,7 @@ padding-right: 1px;
 .grid-260{width:260px;float:left;}
 .grid-960{width:960px;}
 .lastdiv{border:0;}
-.m-nav{margin-top: 25px;margin-bottom:15px;background:url(imgs/v2/menu_bg.png) repeat-x;height:40px;border-radius:3px 3px 0px 0}
+.m-nav{margin-top: 25px;background:url(imgs/v2/menu_bg.png) repeat-x;height:40px;border-radius:3px 3px 0px 0}
 .m-nav .bd{position:relative;}
 .m-nav .bd p {
   background: url(imgs/v2/menu_sub_bg.png) repeat-x;  border: 1px solid #cbcbcd;  border-radius:5px;  top:40px;  display: none;  left: 0;  width:957px;  line-height: 35px;  position: absolute;
@@ -156,7 +156,7 @@ padding-right: 1px;
 }
 .m-nav .bd p a:hover{background:#f3f3f3;}
 .m-nav .nav-con{float:left;line-height:40px;}
-.m-nav .nav-con strong{display:inline-block;color:#fff;position:relative;padding:0 50px;}
+.m-nav .nav-con strong{display:inline-block;color:#fff;position:relative;padding:0 40px;}
 .m-nav strong a{color:#fff;font-weight:bold;font-size:14px;}
 .m-nav .sp{position:absolute;width:4px;height:33px;right:0px;background:url(imgs/v2/nav_split.png) no-repeat;display:inline-block;top:3px;}
 .m-nav b{
@@ -1343,7 +1343,11 @@ div.errorMessage{color:red;font-style:italic;}
 .btn-purple-small{background:url(imgs/v2/tn_purple_small.png) no-repeat;width:52px;}
 
 .ui-m-tab .hd span{height:32px;text-align:center;line-height:32px;font-weight:bold;float:left;width:88px;}
-.ui-m-tab .hd{background:url(imgs/v2/title_g_bg.png) repeat-x;overflow:hidden;line-height:35px;}
+.ui-m-tab .hd {
+  background: url("imgs/v2/title_g_bg.png") repeat-x scroll 0 0 #E2E2E4;
+  line-height: 35px;
+  overflow: hidden;
+}
 .ui-m-tab .hd span a{color:#333;}
 .ui-m-tab .hd span.on{background:url(imgs/v2/tab_blue_bg.png) no-repeat;}
 .ui-m-tab .hd span.on a{color:#fff;}

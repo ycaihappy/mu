@@ -44,7 +44,7 @@
                 <?php $this->widget('IndexModuleWidget',array('type'=>6));?>
             </div>
     </div>
-
+ </div>
 
 	<div class="layout-area">
 	

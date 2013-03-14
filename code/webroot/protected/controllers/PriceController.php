@@ -53,15 +53,15 @@ class PriceController extends BasicAccessController
             'yAxis'=>'价格',
             'series'=>array(
                 array(
-                    'name'=>'a',
+                    'name'=>'河南',
                     'data'=>array(1,2,3,8,4,1)
                 ),
                 array(
-                    'name'=>'b',
+                    'name'=>'陕西',
                     'data'=>array(1,2,3,7,9,1)
                 ),
                 array(
-                    'name'=>'c',
+                    'name'=>'黑龙江',
                     'data'=>array(1,2,3,9,8,7)
                 )
             )

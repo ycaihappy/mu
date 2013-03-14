@@ -18,7 +18,7 @@
 						<a href="<?php echo Yii::app()->controller->createUrl('price/index');?>" class="more">更多&gt;&gt;</a>
 					</div>
 					<ul>
-			<?php for($index=0;$index<count($data01);$index++):?>
+			<?php for($index=0;$index<6;$index++):?>
                     <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data01[$index]['art_id']));?>" title="<?php echo $data01[$index]['art_title'] ?>" target="_blank"><?php echo $data01[$index]['art_title']; ?></a><em><?php echo date("m-d",strtotime($data01[$index]['art_post_date']));?></em></li>
 			<?php endfor;?>			
 					</ul>
@@ -30,7 +30,7 @@
 						<a href="<?php echo Yii::app()->controller->createUrl('price/index');?>" class="more">更多&gt;&gt;</a>
 					</div>
 					<ul>
-			<?php for($index=0;$index<count($data02);$index++):?>
+			<?php for($index=0;$index<6;$index++):?>
                     <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data02[$index]['art_id']));?>" title="<?php echo $data02[$index]['art_title']; ?>" target="_blank"><?php echo $data02[$index]['art_title']; ?></a><em><?php echo date("m-d",strtotime($data02[$index]['art_post_date']));?></em></li>
 			<?php endfor;?>			
 					</ul>

@@ -1,7 +1,6 @@
 <?php
-class IndexModulesWidget extends CWidget
+class IndexModuleWidget extends CWidget
 {
-
     public function run()
     {
         $this->render('index_module');

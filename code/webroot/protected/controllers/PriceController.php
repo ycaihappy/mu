@@ -25,21 +25,45 @@ class PriceController extends BasicAccessController
 
     public function actionChart()
     {
+        $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : 1;
+        $title = ($type == 1)? '钼精矿' : '钼酸铵';
+        #$product_type = rand(75,89);
+        $product_type = rand(31,32);
+    
+    #    $connection = Yii::app()->db;
+    #    $sql = 'select * from mu_price_summary where sum_year='.date('Y').' and sum_product_type='.$product_type;
+    #    $price_sum = $connection->createCommand($sql)->queryAll();
+    #    foreach ($price_sum as $price)
+    #    {
+    #        $month_array[] = $price->sum_month;
+    #        if ( isset($area_array[$price->sum_product_zone]) )
+    #        $area_array[$price->sum_product_zone] += array($price->sum_price);
+    #        else
+    #        $area_array[$price->sum_product_zone] = array($price->sum_price);
+    #    }
+
+#        foreach ($area_array as $area=>$price_data)
+#        {
+#            $build[] = array('name'=>$area,'data'=>$price_data);
+#        }
+#
         $data = array(
-            'categorys'=>array( 'one','two','three' ),
+            'text'=>$title,
+            'xAxis'=> array('Jan','Nov'),
+            'yAxis'=>'价格',
             'series'=>array(
                 array(
-                    'data' => array(1,2,3),
-                    'name' =>'name1'
+                    'name'=>'a',
+                    'data'=>array(1,2,3,8,4,1)
                 ),
                 array(
-                    'data' => array(1,2,3),
-                    'name' =>'name1'
+                    'name'=>'b',
+                    'data'=>array(1,2,3,7,9,1)
                 ),
                 array(
-                    'data' => array(1,2,3),
-                    'name' =>'name1'
-                ),
+                    'name'=>'c',
+                    'data'=>array(1,2,3,9,8,7)
+                )
             )
         );
         

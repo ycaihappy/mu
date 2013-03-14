@@ -170,7 +170,7 @@ padding-right: 1px;
 	z-index:1;
 }
 .m-nav .nav-con.on b,.m-nav .nav-con:hover b{display:block;}
-.m-nav .nav-con:hover p{}
+
 
 
 
@@ -1427,3 +1427,8 @@ div.errorMessage{color:red;font-style:italic;}
 .ico-2{background:url(imgs/v2/ico_2.png) no-repeat;width:23px;height:23px; }
 .ico-3{background:url(imgs/v2/ico_3.png) no-repeat;width:30px;height:15px;}
 .ico-4{background:url(imgs/v2/ico_4.png) no-repeat;width:22px;height:19px; }
+
+.ui-gallery{width:625px;position:relative;height:77px;overflow:hidden;margin:10px;}
+.ui-gallery ul{width:1000px;}
+.ui-gallery li a{width:116px;height:70px;}
+.ui-gallery li{border:1px solid #ccc;padding:1px;width:118px;height:72px;float:left;margin-right:5px;}

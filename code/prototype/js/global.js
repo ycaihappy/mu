@@ -608,5 +608,9 @@ $.extend(MU.mods,{
 		$.getAsset('script',['js/highcharts.js'],function(){
 			 loadChart({cid:1});
 		});
+	},
+	JImgScroller : function () {
+		var self = $(this);
+		var s = new MU.Tool.ImgScroller({'el':self,duration : 80});
 	}
 });

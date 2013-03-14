@@ -1,10 +1,10 @@
-		<div class="m-qk-login">
+		<div class="m-qk-login" id="J_QkLogin">
 			<div class="bd">
 				<form name="qklogin" action="<?php echo $this->getController()->createUrl('/uehome/user/ajaxLogin')?>">
 				<ul>
 					<li><label>用户名：</label><div class="fields"><input type="text" name="UserForm[username]" /></div></li>
 					<li><label>密码：</label><div class="fields"><input type="password" name="UserForm[password]"  /></div></li>
-					<li><div class="btn"><input type="submit" name="submit" value="登 录" class="btn-red" /></div></li>
+					<li><div class="btn"><button type="button" class="btn-red">登 录</button></div></li>
 					
 				</ul>
 				</form>

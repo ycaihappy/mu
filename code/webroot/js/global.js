@@ -42,6 +42,20 @@ $.extend(MU.mods,{
 			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings().hide();
 		});
 	},
+	JQkLogin : function () {
+		var self = $(this),form = self.find('form');
+		
+		self.find('.btn-red').on('click',function(e){
+			
+			$.post(form.attr('action'),form.serializeArray(),function(re){
+				if(re.status == 1){
+					location.reload();
+				}else{
+					alert(re.msg);
+				}
+			},'json');
+		});
+	},
 	JNav : function(){
 		var self = $(this);
 		self.find('.nav-con').on('mouseenter',function() {

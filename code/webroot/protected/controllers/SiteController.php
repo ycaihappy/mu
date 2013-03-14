@@ -2,6 +2,7 @@
 
 class SiteController extends Controller
 {
+    public $layout = '//layouts/ajax_main';
 	/**
 	 * Declares class-based actions.
 	 */

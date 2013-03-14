@@ -5,9 +5,9 @@
 					<span class=""><a href="">最新求购</a></span>
 				</div>
 				<div class="links">
-					<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/goods');?>" class="ui-m-btn btn-purple-large">发布现货</a>
+					<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/goods');?>" class="ui-m-btn btn-purple-medium">发布现货</a>
 					<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/supply');?>" class="ui-m-btn btn-purple-medium">发布求购</a>
-					<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/supply');?>" class="ui-m-btn btn-purple-small">发布供应</a>
+					<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/supply');?>" class="ui-m-btn btn-purple-medium">发布供应</a>
 				</div>
 					
 				

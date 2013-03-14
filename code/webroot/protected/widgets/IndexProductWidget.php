@@ -7,7 +7,7 @@ class IndexProductWidget extends CWidget
 	public function init()
 	{
 
-		switch ($this->type)
+		/*switch ($this->type)
 		{
 			case 'special':
 				$this->newlist = Product::model()->topSpecial()->findAll();
@@ -55,12 +55,17 @@ class IndexProductWidget extends CWidget
 				$this->newlist = $recProducts;
 				 
 				break;
-		}
+		}*/
+		
+		
+		
 	}
 
 	public function run()
     {
         $recommedEnt = Enterprise::model()->with(array('user'=>array('select'=>'user_name')))->recommedEnt()->findAll();
-		$this->render('index_product',array('type'=>$this->type, 'data'=>$this->newlist,'proTypes'=>$this->proTypes,'ent'=>$recommedEnt));
+		$allProvince=City::getProvice('所有省份');
+		$allBigType=Term::getTermsByGroupId(14,true);
+        $this->render('index_product',array('allProvince'=>$allProvince,'allBigType'=>$allBigType,'type'=>$this->type, 'data'=>$this->newlist,'proTypes'=>$this->proTypes,'ent'=>$recommedEnt));
 	}
 }

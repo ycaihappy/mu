@@ -5,7 +5,11 @@
 				<div class="area-one">
 				
 					<div class="qk-search">
-						<p><a>发布供求</a> | <a>发布资源</a> | <a>发布物流</a> | <a>发布招聘</a>  </p>
+						<p>
+						<a href="<?php echo $this->getController()->createUrl('/uehome/user/supply')?>">发布供应</a> | 
+						<a href="<?php echo $this->getController()->createUrl('/uehome/user/supply')?>">发布求购</a> | 
+						<a href="<?php echo $this->getController()->createUrl('/uehome/user/goods')?>">发布现货</a> 
+						</p>
 						<form>
 							<div>
 								<span>选择品种</span><select></select><select></select><span>交货地</span><input type="text" /><span>生产厂家</span><input type="text" />

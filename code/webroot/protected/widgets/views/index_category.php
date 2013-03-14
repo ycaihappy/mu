@@ -9,8 +9,8 @@
 						foreach ($data as $key=>$category):
 				?>
 					<dl>
-						<dt><a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key))?>">钼金矿</a></dt>
-						<?php foreach ($category as $subCategory):?>
+						<dt><a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key))?>"><?php echo $category['title']?></a></dt>
+						<?php foreach ($category['sub'] as $subCategory):?>
 						<dd><a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key,'smallType'=>$subCategory->term_id))?>"><?php echo $subCategory->term_name?></a></dd>
 						<?php endforeach;?>
 					</dl>

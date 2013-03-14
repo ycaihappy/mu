@@ -1,4 +1,4 @@
-		<divdiv class="m-news-focus">
+		<div class="m-news-focus">
 		
 		<div class="area" id="jjsc">
 		<div class="title-bar ui-til1"><h2><a><img width="140" height="30" alt="钼百科" src="#"></a></h2>

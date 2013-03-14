@@ -10,7 +10,12 @@ class IndexCategoryWidget extends CWidget
     	{
     		foreach ($caetories as $category)
     		{
-    			$layerCategory[$category->term_parent_id][]=$category;
+    			if($category->term_parent_id==0)
+    			{
+    				$layerCategory[$category->term_id]['title']=$category->term_name;
+    			}
+    			if($category->term_parent_id>0)
+    				$layerCategory[$category->term_parent_id]['sub'][]=$category;
     		}
     	}
         $this->render('index_category',array('data'=>$layerCategory));

@@ -1,46 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php $this->widget("CommonHeaderWidget");?>
+<body>
 
-	<div class="layout-area">
-        <?php $this->widget("BannerWidget");?>
-        <?php $this->widget("NewsTopWidget");?>
-        <?php $this->widget("FunctionBlockWidget"); ?>
+<div id="p_index" class="pg-layout">
 
-		<div class="clearfix"></div>
-	</div>
-	<div class="layout-area">
-        <?php $this->widget("TabListWidget", array('type'=>'supply'));?>
-        <?php $this->widget("ProductTopWidget", array('type'=>'product'));?>
-        
+<?php $this->widget('TopWidget');?>
 
-		<div class="clearfix"></div>
-	</div>
-	<div class="layout-area">
-		<div class="m-banner">
-			<img src="images/banner.jpg" width="960" height="100" />
-		</div>
-		<!--<div class="col-left">
-        <?php //$this->widget("RecommedWidget",array('type'=>1));?>
-		</div>
-        <div class="col-right">		
-        <?php //$this->widget("PriceWidget");?>
-        <div class="m-mid-ad"><a href=""><img src="images/ad6.jpg" /></a></div>
-        <?php #$this->widget("CaseWidget");?>
-        <?php #$this->widget("KnowledgeWidget");?>
-		</div>-->
+<div class="layout head">
+    <?php $this->widget('SearchWidget');?>
+    <?php $this->widget('NavigationWidget');?>
+</div>
 
-		<div class="col-left">
-         <?php $this->widget("ProductTopWidget", array('type'=>'special'));?>
-	     <?php $this->widget("RecommedWidget",array('type'=>1));?>		
-		</div>
-        <div class="col-right">		
-            <?php $this->widget("PriceWidget");?>
-
-			<div class="m-mid-ad"><a href=""><img src="images/ad6.jpg" /></a></div>
-            <?php $this->widget("KnowledgeWidget");?>
-		</div>
-		<div class="clearfix"></div>
-		<div class="clearfix"></div>
-	</div>
+<div class="layout main">
 
     <div class="layout-area">
-        <?php $this->widget("BottomBannerWidget");?>
+        <?php $this->widget('IndexNewsWidget');?>
+        <?php $this->widget('IndexAdsWidget');?>
+        <?php $this->widget('IndexLoginWidget');?>
+
+        <div class="clearfix"></div>
     </div>
+    <div class="layout-area">
+        <?php $this->widget('IndexSupplyWidget');?>
+        <?php $this->widget('IndexCategoryWidget');?>
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="layout-area">
+        <?php $this->widget('IndexPriceWidget');?>
+    </div>
+
+    <div class="layout-area">
+
+    <div class="m-b2c ui-m-tab ui-m-border" id="J_Data_Center_2">
+
+            <?php $this->widget('IndexProductWidget');?>
+            <div class="area-two">
+
+                <?php $this->widget('IndexModuleWidget');?>
+                <?php $this->widget('IndexModuleWidget');?>
+                <?php $this->widget('IndexModuleWidget');?>
+                <?php $this->widget('IndexModuleWidget');?>
+                <?php $this->widget('IndexModuleWidget');?>
+                <?php $this->widget('IndexModuleWidget');?>
+            </div>
+    </div>
+
+
+	<div class="layout-area">
+	
+		<div class="m-bt-ad">
+			<a class="first"><img src="images/bottom_ad_440x60.png" width="440" height="60" /></a>
+			<a><img src="images/bottom_ad_490x59.png" width="490" height="59" /></a>
+		</div>		
+		
+	</div>
+	
+	
+	<div class="layout-area">
+            <?php $this->widget("FriendLinkWidget");?>
+	</div>
+	
+	<div class="layout-area">
+        <?php $this->widget("FooterWidget");?>
+	</div>
+</div>
+
+</div>
+
+<?php $this->widget("CommonFooterWidget");?>
+</body>
+</html>

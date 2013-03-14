@@ -1384,12 +1384,11 @@ div.errorMessage{color:red;font-style:italic;}
   background: url("imgs/v2/ico_dotted.png") no-repeat scroll left center transparent;
   float: left;
   line-height: 25px;
-  margin-right: 23px;
   padding-left: 10px;
   position: relative;
-  width: 324px;
+  width: 315px;
 }
-.m-data-center .list{margin-bottom:10px}
+.m-data-center .list li em{float:right;color:#ccc;}
 .m-data-center .stat-area .more{font-size:12px;color:#0d2ab4}
 .m-data-center .hd{margin-bottom:10px;}
 .price-area{width:295px;float:left;}

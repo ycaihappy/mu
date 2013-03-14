@@ -1373,6 +1373,7 @@ div.errorMessage{color:red;font-style:italic;}
 
 .ui-purple-hd{position:relative;;background:url(imgs/v2/title_purple_bg.png) repeat-x;height:26px;line-height:26px;padding-left:10px;}
 .ui-purple-hd h6{font-weight:bold;color:#333;display:inline}
+.ui-purple-hd .more{font-size:12px}
 
 .m-category{float:left;width:215px;}
 .m-category .bd{padding:10px;padding-bottom:0}

@@ -54,7 +54,7 @@ a:hover {color:#d443a7;}
 
 #mPro {padding:0px;margin-top:0px;}
 #mPro .now {padding:5px 25px 5px 25px;background-color:#ffffff;color:#1a498e;border-bottom:1px solid #295690;}
-#mPro li a:link, #mPro li a:visited {padding:5px 25px 5px 25px;background-color:#7e8c97;color:#eef2f7;border-bottom: 1px solid #295690; margin:0px;}
+#mPro li{padding:5px 25px 5px 25px;background-color:#7e8c97;color:#eef2f7;border-bottom: 1px solid #295690; margin:0px;}
 #mPro li a:hover {padding:5px 25px 5px 25px;background-color:#bfd7e3;color:#FF0000;border-bottom:1px solid #b2a47f; margin:0px;}
 #mPro div.r {margin:0px;padding:5px;background-color:#7e8c97;}
 #mPro div.r a:link, #mPro div.r a:visited {color:#eef2f7;}

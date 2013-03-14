@@ -80,7 +80,7 @@
         <td colspan="2" class="guide_ba"><span>在线留言</span></td>
       </tr>
       <tr>
-        <td colspan="2" align="left">
+        <td colspan="2" align="left" style="color:#999999">
 	        <li>请认真填写发信人信息和邮件内容，以便收信人看到后能及时与您联系，切勿发送垃圾信息。</li>
 	        <li>此信息将发往客户邮箱和站内留言里，请经常登录我们的网站及时查看回复信息。</li>
             <?php if(!$uid):?>

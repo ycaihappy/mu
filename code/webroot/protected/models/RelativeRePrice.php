@@ -66,6 +66,16 @@ class RelativeRePrice extends CActiveRecord
 			'status'=>array(self::BELONGS_TO,'Term','re_status'),
 		);
 	}
+	public function scopes()
+	{
+		return  array(
+			'recentlyRePrice'=>array(
+				'condition'=>'re_status=1',
+				'limit'=>12,
+				'order'=>'re_added_time desc',
+			),
+		);
+	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)

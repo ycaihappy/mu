@@ -1,21 +1,23 @@
 				<div class="mod-news ui-m-border">
 					<div class="ui-purple-hd">
-						<h6>标题</h6>
-						<a class="more">更多&gt;&gt;</a>
+						<h6><?php echo $title?></h6>
+						<a href="<?php echo $more?>" class="more">更多&gt;&gt;</a>
 					</div>
 					<div class="bd">
 						<div class="pic">
-							<a><img src="images/new_pic_101x72.png" width="101" height="72" /></a>
-							<p>沈阳地震主播淡定沈阳地震主播淡定</p>
+							<a href="<?php echo $one->art_id?>"><img src="<?php echo $one->art_img?>" width="101" height="72" /></a>
+							<p><a href="<?php echo $one->art_id?>"><?php echo $one->art_title?></a></p>
 						</div>
 						<div class="list">
-							<ul>							
-							<li><a href="">沈阳地震主播淡定沈阳地震</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震</a></li>
-							<li><a href="">沈阳地震主播淡定沈阳地震</a></li>
+							<ul>	
+							<?php
+							if($data):
+									foreach ($data as $art):
+							?>						
+							<li><a href="<?php echo $art->art_id?>"><?php echo $art->art_title?></a></li>
+							<?php endforeach;
+								endif;
+							?>
 							</ul>
 						</div>
 					</div>

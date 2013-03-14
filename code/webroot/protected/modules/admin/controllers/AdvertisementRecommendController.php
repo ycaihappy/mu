@@ -264,6 +264,26 @@ class AdvertisementRecommendController extends AdminController {
 		}
 		$this->redirect(array('manageAdvertisement','page'=>Yii::app()->request->getParam('page',1)));
 	}
+	public function actionDeleteRecommend()
+	{
+		$recommendIds=@$_REQUEST['recommend_id'];
+		if($recommendIds && is_array($recommendIds))
+		{
+			$deleteCreteria=new CDbCriteria();
+			$deleteCreteria->addInCondition('recommend_id', $recommendIds);
+			$delrows=Recommend::model()->deleteAll($deleteCreteria);
+			if($delrows>0)
+			{
+				echo '删除成功！';
+			}
+			else {
+				echo '删除失败！';
+			}
+		}
+		else {
+			echo '删除失败！';
+		}
+	}
 
 
 }

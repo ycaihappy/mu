@@ -2,7 +2,6 @@
 <html lang="en">
 <?php $this->widget("CommonHeaderWidget");?>
 <body>
-
 <div id="p_index" class="pg-layout">
 
 <?php $this->widget('TopWidget');?>
@@ -38,12 +37,12 @@
             <?php $this->widget('IndexProductWidget');?>
             <div class="area-two">
 
-                <?php $this->widget('IndexModuleWidget');?>
-                <?php $this->widget('IndexModuleWidget');?>
-                <?php $this->widget('IndexModuleWidget');?>
-                <?php $this->widget('IndexModuleWidget');?>
-                <?php $this->widget('IndexModuleWidget');?>
-                <?php $this->widget('IndexModuleWidget');?>
+                <?php $this->widget('IndexModuleWidget',array('type'=>1));?>
+                <?php $this->widget('IndexModuleWidget',array('type'=>2));?>
+                <?php $this->widget('IndexModuleWidget',array('type'=>3));?>
+                <?php $this->widget('IndexModuleWidget',array('type'=>4));?>
+                <?php $this->widget('IndexModuleWidget',array('type'=>5));?>
+                <?php $this->widget('IndexModuleWidget',array('type'=>6));?>
             </div>
     </div>
 
@@ -51,8 +50,8 @@
 	<div class="layout-area">
 	
 		<div class="m-bt-ad">
-			<a class="first"><img src="images/bottom_ad_440x60.png" width="440" height="60" /></a>
-			<a><img src="images/bottom_ad_490x59.png" width="490" height="59" /></a>
+			<a class="first"><img src="/images/bottom_ad_440x60.png" width="440" height="60" /></a>
+			<a><img src="/images/bottom_ad_490x59.png" width="490" height="59" /></a>
 		</div>		
 		
 	</div>

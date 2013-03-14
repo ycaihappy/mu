@@ -39,24 +39,19 @@
 			</div>
 			<div class="price-area">
 				<div class="ui-purple-hd  ui-m-border">
-						<h6>大宗商品价格表</h6>
+						<h6>相关稀土资源价格表</h6>
 						
 				</div>
 				<div class="bd">
 					<table cellspacing="0" cellpadding="0" width="100%">
 						<tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
-						<tr><td>bb</td><td>189</td><td>-</td><td>香港</td></tr>
+						<?php if($rePrice):
+								foreach ($rePrice as $price):
+						?>
+						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td></tr>
+						<?php endforeach;
+							endif;
+						?>
 					</table>
 				</div>
 			</div>

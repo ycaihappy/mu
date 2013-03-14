@@ -27,6 +27,8 @@ $this->breadcrumbs=array(
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
+<form id="recommendForm" action='' method='post'>
+
 <?php 
 	$this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$dataProvider,
@@ -74,3 +76,41 @@ $this->breadcrumbs=array(
     ),
 ));
 ?>
+<div>
+<?php 
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'button3',
+			'caption'=>'删除',
+		'value'=>'asd',
+		'onclick'=>'js:function(){
+		var selectedProducts=$("#yw0 .select-on-check:checked");
+			if(selectedProducts.size()<1)
+			{
+				alert("请选择要删除的推荐信息！");
+			}
+			else
+			{
+				if(confirm("确定删除选中的推荐信息"))
+				{
+					var url="'.$this->createUrl('deleteRecommend').'";
+					$("#recommendForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("yw0");
+							},
+						}
+					);
+				}
+			}
+			return false;
+		}',
+		)
+);
+$cs = Yii::app()->getClientScript();
+$cs->registerScriptFile('/js/jquery.form.js');
+?>
+</div>
+</form>

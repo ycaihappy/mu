@@ -12,7 +12,19 @@
 						</p>
 						<form>
 							<div>
-								<span>选择品种</span><select></select><select></select><span>交货地</span><input type="text" /><span>生产厂家</span><input type="text" />
+								<span>选择品种</span>
+								<?php echo CHtml::dropDownList('bigType', 0, $allBigType,array(
+									'ajax'=>array(
+					                    'type'=>'GET',
+					                    'url'=>$this->getController()->createUrl('getChildrenTerms'),
+					                    'update'=>'#smallType',
+					                    'data'=>array('group_id'=>"14",'parent_id'=>'js:this.value')
+					                )
+                				))?>
+                				<?php echo CHtml::dropDownList('smallType', 0, array(),array('empty'=>'全部'))?>
+								<span>存货地</span><?php echo CHtml::dropDownList('province', 0, $allProvince)?>
+								<span>生产厂家</span>
+								<input name="enterprise" type="text" />
 							</div>
 							<div>
 								<span>厚度\口径</span><input type="text" />~<input type="text" /><span>宽度</span><input type="text" />~<input type="text" /><span>长度</span><input type="text" />

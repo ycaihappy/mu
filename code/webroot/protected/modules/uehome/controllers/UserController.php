@@ -649,6 +649,29 @@ $user_id =yii::app()->user->getID();
         // display the login form
         $this->render ( 'register', $data);
     }
+    public function actionAjaxLogin()
+    {
+    	$this->layout = '//layouts/ajax_main';
+		$model = new UserLoginForm ();
+		$result=array('status'=>0,'msg'=>'');
+    	if (isset ( $_POST ['UserLoginForm'] )) {
+			$model->attributes = $_POST ['UserLoginForm'];
+			// validate user input and redirect to the previous page if valid
+			if ($model->validate () && $model->login ())
+			{
+				$result['status']=1;
+				$result['msg']=Yii::app()->user->getName();
+			}
+			else {
+				$result['msg']='用户名和密码错误！';
+			}
+		}
+		else {
+			$result['msg']='非法请求！';
+		}
+		echo json_encode($result);
+		Yii::app ()->end ();
+    }
 	public function actionLogin() {
 		$this->layout = '//layouts/ajax_main';
 		$model = new UserLoginForm ();
@@ -667,7 +690,13 @@ $user_id =yii::app()->user->getID();
 			$model->attributes = $_POST ['UserLoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if ($model->validate () && $model->login ())
+			{
+				if(Yii::app()->request->isAjaxRequest)
+				{
+					
+				}
 				$this->redirect(Yii::app()->user->returnUrl);
+			}
 		}
 		// display the login form
 		$this->render ( 'login', array ('model' => $model ) );

@@ -37,6 +37,7 @@ class UehomeModule extends CWebModule
 						'user/register',
 						'user/getCity',
 						'user/registeruser',
+						'user/ajaxLogin',
 			);
 			if(Yii::app()->user->isGuest && !in_array($route,$publicPages))
 				Yii::app()->user->loginRequired();

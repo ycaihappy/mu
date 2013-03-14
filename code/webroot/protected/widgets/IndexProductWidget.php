@@ -59,7 +59,8 @@ class IndexProductWidget extends CWidget
 	}
 
 	public function run()
-	{
-		$this->render('index_product',array('type'=>$this->type, 'data'=>$this->newlist,'proTypes'=>$this->proTypes));
+    {
+        $recommedEnt = Enterprise::model()->with(array('user'=>array('select'=>'user_name')))->recommedEnt()->findAll();
+		$this->render('index_product',array('type'=>$this->type, 'data'=>$this->newlist,'proTypes'=>$this->proTypes,'ent'=>$recommedEnt));
 	}
 }

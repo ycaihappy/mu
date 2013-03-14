@@ -142,7 +142,7 @@ padding-right: 1px;
 .grid-260{width:260px;float:left;}
 .grid-960{width:960px;}
 .lastdiv{border:0;}
-.m-nav{margin-top: 25px;margin-bottom:15px;background:url(imgs/v2/menu_bg.png) repeat-x;height:40px;border-radius:3px 3px 0px 0}
+.m-nav{margin-top: 25px;background:url(imgs/v2/menu_bg.png) repeat-x;height:40px;border-radius:3px 3px 0px 0}
 .m-nav .bd{position:relative;}
 .m-nav .bd p {
   background: url(imgs/v2/menu_sub_bg.png) repeat-x;  border: 1px solid #cbcbcd;  border-radius:5px;  top:40px;  display: none;  left: 0;  width:957px;  line-height: 35px;  position: absolute;

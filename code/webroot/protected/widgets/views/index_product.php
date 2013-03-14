@@ -16,7 +16,7 @@
 								<?php echo CHtml::dropDownList('bigType', 0, $allBigType,array(
 									'ajax'=>array(
 					                    'type'=>'GET',
-					                    'url'=>CController::createUrl('getChildrenTerms'),
+					                    'url'=>$this->getController()->createUrl('getChildrenTerms'),
 					                    'update'=>'#smallType',
 					                    'data'=>array('group_id'=>"14",'parent_id'=>'js:this.value')
 					                )

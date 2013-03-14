@@ -35,8 +35,7 @@
             <a href="<?php echo $this->getController()->createUrl('/product/list',array('type'=>1))?>">钼特价</a>
             <a href="<?php echo $this->getController()->createUrl('/supply/list',array('type'=>2))?>">钼求购</a>
             </p>
-            <i class="sp"></i>
-            <b></b>
+          
             </div>
             <div class="nav-con">
            <strong><a href="<?php echo $this->getController()->createUrl('/price/index')?>">价格行情</a><i class="sp"></i>
@@ -45,8 +44,7 @@
             <a href="">当日价</a><a href="">现货价</a><a href="">钼行情</a><a href="">钼走势</a>
             
             </p>
-            <i class="sp"></i>
-            <b></b>
+           
 
             </div>
             <div class="nav-con">
@@ -60,11 +58,11 @@
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>67))?>">钼产品</a>
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>68))?>">钼应用</a>
             </p>
-            <i class="sp"></i>
-            <b></b>
+           
             </div>
             <div class="nav-con">
-           <strong><a href="<?php echo $this->getController()->createUrl('/service/index')?>">钼服务</a></strong>
+           <strong><a href="<?php echo $this->getController()->createUrl('/service/index')?>">钼服务</a><i class="sp"></i>
+			<b></b></strong>
            <p>
            <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>651))?>">仓储金融</a>
            <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>">仓单质押（现货通）</a>
@@ -74,8 +72,7 @@
            <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>656))?>">前置现货通</a>
            <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>656))?>">质检服务</a>
            </p>
-            <i class="sp"></i>
-            <b></b>
+           
             </div>
            
 

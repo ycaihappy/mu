@@ -281,6 +281,50 @@ MU.Tool.Swimming.prototype = {
 	
 }
 
+MU.Tool.ImgScroller = function(options){
+	this.el = options.el || null;
+	this.duration = options.duration || 50;
+	this.timer = null;
+	this.init();
+}
+MU.Tool.ImgScroller.prototype = {
+	init : function (){
+
+		if(!this.el) return;
+		var _el = this.el,_this = this;
+		var w = _el.find('li').length * (_el.find('li:first').width() + 24);
+		_el.find('ul').css({'position':'absolute','width': w + 'px'});
+		if(w - 24 <= _el.width()){
+			return;
+		}
+		this.el.find('ul').mouseover(function(){
+			_this.pause();
+		}).mouseout(function(){
+			_this.start();
+		});
+		this.start();
+	},
+	start : function(){
+		var _this = this;
+		_this.pause();
+		_this.timer = setInterval(function(){
+			_this.move();
+		},_this.duration);
+		
+	},
+	pause : function(){
+		clearInterval(this.timer);
+	},
+	move : function(){
+		var _this = this,box = _this.el.find('ul'),left = box.position().left;
+		box.css('left',(left-=3) + 'px');
+		if(Math.abs(left) > box.find('li:first').width() + 5){
+			box.find('li:first').insertAfter(box.find('li:last'));
+			box.css('left','0px');
+		}
+	}
+}
+
 MU.Tool.Hiking = function(options){
 	this.el = options.el || null;
 	this.count = options.count || 4;

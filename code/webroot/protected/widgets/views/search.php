@@ -18,8 +18,8 @@
 				<input autocomplete="off" autofocus="true" accesskey="s" name="keyword" id="q" value=<?php echo Yii::app()->request->getParam('keyword')?>>
 				<s></s>
 			  </div>
-			  <button type="submit">搜 索</button>			 
+			  <button type="submit" class="btn-search">搜 索</button>			 
 			 </form>
 		 </div>
-		<div class="clearfix"></div>
 	</div>
+	<div class="clearfix"></div>

@@ -1343,7 +1343,11 @@ div.errorMessage{color:red;font-style:italic;}
 .btn-purple-small{background:url(imgs/v2/tn_purple_small.png) no-repeat;width:52px;}
 
 .ui-m-tab .hd span{height:32px;text-align:center;line-height:32px;font-weight:bold;float:left;width:88px;}
-.ui-m-tab .hd{background:url(imgs/v2/title_g_bg.png) repeat-x;overflow:hidden;line-height:35px;}
+.ui-m-tab .hd {
+  background: url("imgs/v2/title_g_bg.png") repeat-x scroll 0 0 #E2E2E4;
+  line-height: 35px;
+  overflow: hidden;
+}
 .ui-m-tab .hd span a{color:#333;}
 .ui-m-tab .hd span.on{background:url(imgs/v2/tab_blue_bg.png) no-repeat;}
 .ui-m-tab .hd span.on a{color:#fff;}

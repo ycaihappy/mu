@@ -14,7 +14,7 @@ $.extend(MU.mods,{
 	},
 	JSearchForm : function () {
 		var self = $(this);
-		if($('#q').val() !=""){
+		/*if($('#q').val() !=""){
 			$(this).parent().addClass('search-status-focus');
 		}
 		$('#q').focusin(function(){
@@ -25,7 +25,7 @@ $.extend(MU.mods,{
 			}
 		}).keydown(function(){
 			$(this).parent().addClass('search-status-focus');
-		});
+		});*/
 		
 		self.find('input[name=type]').val(self.find('.switchable-nav li.selected').data('type'));
 		
@@ -33,6 +33,19 @@ $.extend(MU.mods,{
 			$(this).addClass('selected').siblings().removeClass('selected');
 			self.find('input[name=type]').val($(this).data('type'));
 		});
+	},
+	JNewTabList : function () {
+		var self = $(this);
+		self.find('.hd span').mouseover(function(){
+			$(this).addClass('on').siblings().removeClass('on');
+			var index = $(this).parent().find('span').index($(this));
+			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings().hide();
+		});
+	},
+	JNav : function(){
+		var self = $(this);
+		
+		
 	},
 	JIndexAd : function (){
 		var self = $(this);
@@ -515,5 +528,80 @@ $.extend(MU.mods,{
 			}
 		});
 		
+	},
+	JDataCenter : function () {
+		var self = $(this),api = $('#chart1').data('api'),api2 = $('#chart2').data('api');
+		$('#chart1,#chart2').css({width:301,height:185});
+		var loadChart = function (params) {
+			var p = $.param (params);
+			api = api.indexOf('?') == -1 ? api + '?' + p : api + '&' + p;
+			$.getJSON(api,function (re) {
+				var chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'chart1',
+                    type: 'line'
+                },
+                title: {
+                    text: re.text
+                },
+                xAxis: {
+                    categories: re.xAxis
+                },
+                yAxis: {
+                    title: {
+                        text: re.yAxis
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '' +  this.series.name + ': ' + this.y + '';
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                series: re.series,
+                exporting: {
+                    enabled: false
+                }
+            });
+
+			});
+			$.getJSON(api2,function (re) {
+				var chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'chart2',
+                    type: 'line'
+                },
+                title: {
+                    text: re.text
+                },
+                xAxis: {
+                    categories: re.xAxis
+                },
+                yAxis: {
+                    title: {
+                        text: re.yAxis
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '' +  this.series.name + ': ' + this.y + '';
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                series: re.series,
+                exporting: {
+                    enabled: false
+                }
+            });
+
+			});
+		}
+		$.getAsset('script',['js/highcharts.js'],function(){
+			 loadChart({cid:1});
+		});
 	}
 });

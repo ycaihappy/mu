@@ -5,43 +5,27 @@
 					<span class=""><a href="">最新求购</a></span>
 				</div>
 				<div class="links">
-					<a class="ui-m-btn btn-purple-large">发布现货</a>
-					<a class="ui-m-btn btn-purple-medium">发布现货</a>
-					<a class="ui-m-btn btn-purple-small">发布</a>
+					<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/goods');?>" class="ui-m-btn btn-purple-large">发布现货</a>
+					<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/supply');?>" class="ui-m-btn btn-purple-medium">发布求购</a>
+					<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/supply');?>" class="ui-m-btn btn-purple-small">发布供应</a>
 				</div>
 					
 				
 			</div>
 			<div class="bd">
 				<ul class="on">
-					<li class="b"><a href="">毛新宇谈毛泽东激动:国共抗日本质不同</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-				<li class="b"><a href="">毛新宇谈毛泽东激动:国共抗日本质不同</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>					
+                <?php for($index=0;$index<16;$index++):
+                    $class = ($index == 0) ? 'class="b"' : '';
+                ?>
+                    <li <?php echo $class;?>><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data02[$index]['supply_id']));?>"><?php echo $data02[$index]['supply_name'];?></a><em><?php echo date("Y-m-d",strtotime($data02[$index]['supply_join_date']));?></em></li>
+	            <?php endfor;?>			   
 				</ul>
 				<ul >
-					<li class="b"><a href="">毛新宇谈毛泽东222222222</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>
-					<li><a href="" target="_blank">沈阳地震主播淡定沈阳地震主播淡定</a><em>2013-05-05</em></li>			
+                <?php for($index=0;$index<16;$index++):
+                    $class = ($index == 0) ? 'class="b"' : '';
+                ?>
+                    <li <?php echo $class;?>><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data01[$index]['supply_id']));?>"><?php echo $data01[$index]['supply_name'];?></a><em><?php echo date("Y-m-d",strtotime($data01[$index]['supply_join_date']));?></em></li>
+	            <?php endfor;?>			   
 				</ul>
 				
 			</div>

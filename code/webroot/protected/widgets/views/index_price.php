@@ -1,6 +1,6 @@
 	<div class="m-data-center ui-m-tab ui-m-border" id="J_Data_Center">
 		<div class="hd">				
-			<span class="on"><a href="">数据中心</a></span>
+			<span class="on"><a href="">行情中心</a></span>
 		</div>
 		<div class="bd">
 			<div class="chart-area">
@@ -14,31 +14,25 @@
 			<div class="stat-area">
 				<div class="list">
 					<div class="ui-purple-hd">
-						<h6>原料统计</h6>
-						<a class="more">更多&gt;&gt;</a>
+						<h6>原料行情</h6>
+						<a href="<?php echo Yii::app()->controller->createUrl('price/index');?>" class="more">更多&gt;&gt;</a>
 					</div>
 					<ul>
-					<li><a href="">沈阳地震主播淡2222</a></li>
-					<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
+			<?php for($index=0;$index<count($data01);$index++):?>
+                    <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data01[$index]['art_id']));?>" title="<?php echo $data01[$index]['art_title'] ?>" target="_blank"><?php echo $data01[$index]['art_title']; ?></a><em><?php echo date("m-d",strtotime($data01[$index]['art_post_date']));?></em></li>
+			<?php endfor;?>			
 					</ul>
 					<div class="clearfix"></div>
 				</div>
 				<div class="list">
 					<div class="ui-purple-hd">
-						<h6>原料统计</h6>
-						<a class="more">更多&gt;&gt;</a>
+						<h6>价格汇总</h6>
+						<a href="<?php echo Yii::app()->controller->createUrl('price/index');?>" class="more">更多&gt;&gt;</a>
 					</div>
 					<ul>
-					<li><a href="">沈阳地震主播淡2222</a></li>
-					<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
-					<li><a href="">沈阳地震主播淡定沈阳地震主播淡定</a></li>
+			<?php for($index=0;$index<count($data02);$index++):?>
+                    <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data02[$index]['art_id']));?>" title="<?php echo $data02[$index]['art_title'] ?>" target="_blank"><?php echo $data02$index]['art_title']; ?></a><em><?php echo date("m-d",strtotime($data02[$index]['art_post_date']));?></em></li>
+			<?php endfor;?>			
 					</ul>
 					<div class="clearfix"></div>
 				</div>

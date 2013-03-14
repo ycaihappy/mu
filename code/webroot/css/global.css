@@ -116,8 +116,8 @@ margin: 0 auto;
 width: 960px;
 }
 
-.head{margin-top:30px;position:relative;}
-
+.head{position:relative;}
+#p_index .head{margin-top:20px;}
 
 .m-top{height:33px;background:url(imgs/v2/top_nav_bg.png) repeat-x;text-align:right;line-height:33px;}
 .m-top a{font-size:12px;}

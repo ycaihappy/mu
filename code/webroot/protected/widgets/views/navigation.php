@@ -43,11 +43,6 @@
             <a href="">钼用途</a><a href="">钼国际</a><a href="">钼治炼</a><a href="">钼化工</a></p>
            
             </div>
-             <div class="nav-con">
-           <strong><a href="h">钼展会</a>
-            <b></b></strong><p>
-            <a href="">钼用途</a><a href="">钼国际</a><a href="">钼治炼</a><a href="">钼化工</a></p>
-         
-            </div>
+          
         </div>
     </div>

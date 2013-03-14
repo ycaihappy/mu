@@ -12,6 +12,7 @@
 			</ul>
 		 </div>
 		 <div class="search-box">
+		 <span>产品</span>
 			<form method='post' name="search" action="<?php echo $this->getController()->createUrl('product/index')?>" >
 			 
 			  <div class="search-panel-fields">       

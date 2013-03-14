@@ -36,7 +36,6 @@
 
             <?php $this->widget('IndexProductWidget');?>
             <div class="area-two">
-
                 <?php $this->widget('IndexModuleWidget',array('type'=>1));?>
                 <?php $this->widget('IndexModuleWidget',array('type'=>2));?>
                 <?php $this->widget('IndexModuleWidget',array('type'=>3));?>

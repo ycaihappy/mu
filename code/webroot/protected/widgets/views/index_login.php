@@ -11,10 +11,11 @@
 			</div>
 			<div class="ft">
 				<div class="line"></div>
-				<a href="" class="btn-purple">金融</a>
-				<a href="" class="btn-purple">金融</a>
-				<a href="" class="btn-purple">金融</a>
-				<a href="" class="btn-purple">金融</a>
-				
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>651))?>" class="btn-purple">仓储金融</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>653))?>" class="btn-purple">动产质押</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple">仓单质押</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>655))?>" class="btn-purple">配送</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>656))?>" class="btn-purple">前置现货通</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>657))?>" class="btn-purple">质检</a>
 			</div>
 		</div>

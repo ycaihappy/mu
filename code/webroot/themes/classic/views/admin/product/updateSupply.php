@@ -111,6 +111,10 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'supply_status'); ?></td>
 </tr>
 <tr>
+		<td class="label">信息附图：</td><td><img src="<?php echo $model->supply_image_src?'/images/commonProductsImages/thumb/thumb_'.$model->supply_image_src:'/images/thumb.gif'?>" class="thumb" id="image_thumb">
+			<input type="hidden" name="Supply[supply_image_src]" value="<?php echo $model->supply_image_src?>" id="image_src"/></td>
+</tr>
+<tr>
 <td class="label">审核人：</td>
 		<td>
 		<input name="Supply[supply_check_by]" type=text class='cmp-input' value="<?php echo $model->supply_check_by?$model->supply_check_by:Yii::app()->admin->getName();?>"/>		

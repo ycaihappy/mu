@@ -101,6 +101,10 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'product_status'); ?></td>
 </tr>
 <tr>
+		<td class="label">信息附图：</td><td><img src="<?php echo $model->product_image_src?'/images/commonProductsImages/thumb/thumb_'.$model->product_image_src:'/images/thumb.gif'?>" class="thumb" id="image_thumb">
+			<input type="hidden" name="Product[product_image_src]" value="<?php echo $model->product_image_src?>" id="image_src"/></td>
+</tr>
+<tr>
 <td class="label">审核人：</td>
 		<td>
 		<input name="Product[product_check_by'" type=text class='cmp-input' value="<?php echo $model->product_check_by?$model->product_check_by:Yii::app()->admin->getName();?>"/>		

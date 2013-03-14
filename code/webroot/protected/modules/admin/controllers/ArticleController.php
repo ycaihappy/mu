@@ -344,7 +344,7 @@ class ArticleController extends AdminController {
 				$im = imagecreatefromjpeg($uploadedImg);
 				else if ($imagetype == 'png')
 				$im = imagecreatefrompng($uploadedImg);
-				$thumbImg='thumb_'.$newimg;
+				$thumbImg=$newimg;
 				CThumb::resizeImage (
 				$im,100, 100,
 				'images/commonProductsImages/thumb/'.$thumbImg, $model->image_src->getExtensionName() );

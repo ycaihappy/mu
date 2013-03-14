@@ -1432,7 +1432,7 @@ div.errorMessage{color:red;font-style:italic;}
 .ico-3{background:url(imgs/v2/ico_3.png) no-repeat;width:30px;height:15px;}
 .ico-4{background:url(imgs/v2/ico_4.png) no-repeat;width:22px;height:19px; }
 
-.ui-gallery{width:625px;position:relative;height:77px;overflow:hidden;margin:10px;}
+.ui-gallery{width:625px;position:relative;height:125px;overflow:hidden;margin:10px;}
 .ui-gallery ul{width:1000px;}
-.ui-gallery li a{width:116px;height:70px;}
-.ui-gallery li{border:1px solid #ccc;padding:1px;width:118px;height:72px;float:left;margin-right:5px;}
+.ui-gallery li a{width:116px;height:116px;}
+.ui-gallery li{border:1px solid #ccc;padding:1px;width:118px;height:118px;float:left;margin-right:5px;}

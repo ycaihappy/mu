@@ -7,8 +7,8 @@ a:hover{color:#f27B04;text-decoration:underline;}
 
 .clearfix {clear:both}
 .clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden; zoom:1}
-.layout-area:after,.hd:after,.bd:after,.ft:after{content:"";display:table;clear:both;}
-.layout-area,.hd,.bd,.ft{*zoom:1}
+.layout-area:after,.hd:after,.bd:after,.ft:after,.layout:after{content:"";display:table;clear:both;}
+.layout-area,.hd,.bd,.ft,.layout{*zoom:1}
 
 .loading{background:url(img/nloading.gif) no-repeat center}
 .disabled {cursor: not-allowed}
@@ -977,6 +977,7 @@ padding: 0 20px;
 .m-suppy-list{}
 .m-suppy-list .left_table {
   border-collapse: collapse;
+  margin-bottom:10px;
 }
 
 

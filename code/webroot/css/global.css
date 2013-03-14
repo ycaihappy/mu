@@ -117,7 +117,7 @@ width: 960px;
 }
 
 .head{position:relative;}
-#p_index .head{margin-top:20px;}
+#p_index .head,#p_hq_index .head,#p_news_index .head,#p_xh_index .head{margin-top:20px;}
 
 .m-top{height:33px;background:url(imgs/v2/top_nav_bg.png) repeat-x;text-align:right;line-height:33px;}
 .m-top a{font-size:12px;}
@@ -318,7 +318,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
   background-position: -123px -40px;
 }
 
-.m-banner{margin-bottom:30px;}
+
 
 .m-rcm{float:left;margin-right:20px;margin-top:20px;}
 .m-rcm li{padding:10px 0 10px 3px;border-bottom:1px dashed #DCDDDD;overflow:hidden;height:20px;}

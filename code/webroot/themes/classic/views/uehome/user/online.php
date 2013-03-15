@@ -13,7 +13,7 @@ if ( Yii::app()->user->hasFlash('success'))
 <?php
 }
 ?>
-	<div class="m-form m-qq-set" id="J_AddQQ">
+	<div class="m-form m-qq-set" id="J_AddQQ" del-api="index.php?r=uehome/user/onlinedel">
 	
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'online-form',

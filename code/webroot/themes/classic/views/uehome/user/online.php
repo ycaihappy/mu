@@ -33,8 +33,9 @@ if ( Yii::app()->user->hasFlash('success'))
             $flag = ($i==$total-1) ? '-' : '+';
             $hidden_value = isset($model->contact_id[$i]) ? $model->contact_id[$i] : '';
 ?>
-   <?php echo $form->hiddenField($model, 'contact_id[]',array('value'=>$hidden_value));?>
+  
         <li>
+		 <?php echo $form->hiddenField($model, 'contact_id[]',array('value'=>$hidden_value));?>
         <label >名称：</label><?php echo $form->textField($model, 'contact_name[]', array('class'=>'cmp-input','value'=>$model->contact_name[$i]));?><label>QQ号码：</label><?php echo $form->textField($model, 'contact_value[]', array('class'=>'cmp-input','value'=>$model->contact_value[$i]));?><span class="<?php echo $class;?>"><?php echo $flag;?></span>
 		</li>
 <?php

@@ -112,3 +112,4 @@ padding-bottom:10px;padding-right:10px;padding-top:10px;text-align:right; width:
 .com_intro{ text-indent:2em;}
 .com_intro p{margin-top:5px;}
 </style>
+<link rel="stylesheet" href="/css/global.css">

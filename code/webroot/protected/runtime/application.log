@@ -1,0 +1,26 @@
+2013/03/15 10:29:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '851' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `mu_article` (`art_click_count`, `art_id`, `art_title`, `art_status`, `art_content`, `art_source`, `art_category_id`, `art_subcategory_id`, `art_recommend`, `art_user_id`, `art_check_by`, `art_tags`, `art_post_date`, `art_modified_date`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13).
+2013/03/15 10:29:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '851' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `mu_article` (`art_click_count`, `art_id`, `art_title`, `art_status`, `art_content`, `art_source`, `art_category_id`, `art_subcategory_id`, `art_recommend`, `art_user_id`, `art_check_by`, `art_tags`, `art_post_date`, `art_modified_date`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13)' in D:\www\mu\code\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\www\mu\code\framework\db\ar\CActiveRecord.php(1015): CDbCommand->execute()
+#1 D:\www\mu\code\framework\db\ar\CActiveRecord.php(792): CActiveRecord->insert(NULL)
+#2 D:\www\mu\code\webroot\protected\commands\shell\buildCommand.php(109): CActiveRecord->save()
+#3 D:\www\mu\code\framework\console\CConsoleCommandRunner.php(68): buildCommand->run(Array)
+#4 D:\www\mu\code\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 D:\www\mu\code\framework\base\CApplication.php(162): CConsoleApplication->processRequest()
+#6 D:\www\mu\code\framework\yiic.php(34): CApplication->run()
+#7 D:\www\mu\code\webroot\protected\yiic.php(7): require_once('D:\www\mu\code\...')
+#8 {main}
+---
+2013/03/15 10:30:49 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '851' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `mu_article` (`art_click_count`, `art_id`, `art_title`, `art_status`, `art_content`, `art_source`, `art_category_id`, `art_subcategory_id`, `art_recommend`, `art_user_id`, `art_check_by`, `art_tags`, `art_post_date`, `art_modified_date`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13).
+2013/03/15 10:30:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '851' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `mu_article` (`art_click_count`, `art_id`, `art_title`, `art_status`, `art_content`, `art_source`, `art_category_id`, `art_subcategory_id`, `art_recommend`, `art_user_id`, `art_check_by`, `art_tags`, `art_post_date`, `art_modified_date`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13)' in D:\www\mu\code\framework\db\CDbCommand.php:354
+Stack trace:
+#0 D:\www\mu\code\framework\db\ar\CActiveRecord.php(1015): CDbCommand->execute()
+#1 D:\www\mu\code\framework\db\ar\CActiveRecord.php(792): CActiveRecord->insert(NULL)
+#2 D:\www\mu\code\webroot\protected\commands\shell\buildCommand.php(109): CActiveRecord->save()
+#3 D:\www\mu\code\framework\console\CConsoleCommandRunner.php(68): buildCommand->run(Array)
+#4 D:\www\mu\code\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#5 D:\www\mu\code\framework\base\CApplication.php(162): CConsoleApplication->processRequest()
+#6 D:\www\mu\code\framework\yiic.php(34): CApplication->run()
+#7 D:\www\mu\code\webroot\protected\yiic.php(7): require_once('D:\www\mu\code\...')
+#8 {main}
+---

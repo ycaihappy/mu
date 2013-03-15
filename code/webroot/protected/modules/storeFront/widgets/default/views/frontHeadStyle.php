@@ -95,3 +95,4 @@ ul.yiiPager .hidden a{color:#F2F2F2}
 #mPro a:hover{text-decoration:underline;}
 .com_intro .STYLE1{color:#000;font-weight:bold}
 </style>
+<link rel="stylesheet" href="/css/global.css">

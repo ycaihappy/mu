@@ -30,5 +30,7 @@ $this->widget('FrontHeader');
 <div id="bottom">
 <?php $this->widget('FrontBottom');?>
 </div>
+<?php $this->widget('FrontQQOnline');?>
+<?php $this->widget('CommonFooterWidget');?>
 </body>
 </html>

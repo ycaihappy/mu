@@ -29,5 +29,7 @@ $this->widget('storeFront.widgets.temp3.FrontHeader');
 <?php $this->widget('storeFront.widgets.temp3.FrontBottom');?>
 </div>
 </div>
+<?php $this->widget('storeFront.widgets.temp3.FrontQQOnline');?>
+<?php $this->widget('CommonFooterWidget');?>
 </body>
 </html>

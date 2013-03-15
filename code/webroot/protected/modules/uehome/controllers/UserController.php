@@ -54,6 +54,10 @@ class UserController extends Controller {
     }
     public function actionOnlineDel()
     {
+        $model = OnlineSupport::model()->find("online_id=:online_id", array('online_id'=>$_REQUEST['ids']));
+        $model->delete();
+        Yii::app()->user->setFlash('success','');
+        echo json_encode(array('status'=>1,'data'=>array()));
     }
     public function actionOnline()
     {

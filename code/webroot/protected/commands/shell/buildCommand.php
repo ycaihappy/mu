@@ -39,7 +39,7 @@ class buildCommand extends CConsoleCommand{
               ' 钼铁的牌号及其用途'
             );
             
-            for($i=650;$i<750;$i++)           
+            for($i=1000;$i<1200;$i++)           
             {
                 $article = new Article();
                 

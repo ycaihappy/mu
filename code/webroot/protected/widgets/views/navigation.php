@@ -41,8 +41,11 @@
            <strong><a href="<?php echo $this->getController()->createUrl('/price/index')?>">价格行情</a><i class="sp"></i>
 			<b></b></strong>
            <p>
-            <a href="">当日价</a><a href="">现货价</a><a href="">钼行情</a><a href="">钼走势</a>
-            
+            <a href="<?php echo $this->getController()->createUrl('/price/list',array('subcategory_id'=>36))?>">国内行情</a>
+            <a href="<?php echo $this->getController()->createUrl('/price/list',array('subcategory_id'=>37))?>">国际行情</a>
+            <a href="<?php echo $this->getController()->createUrl('/price/list',array('subcategory_id'=>101))?>">原料行情</a>
+            <a href="<?php echo $this->getController()->createUrl('/price/list',array('subcategory_id'=>60))?>">市场评论</a>
+            <a href="<?php echo $this->getController()->createUrl('/price/list',array('subcategory_id'=>61))?>">预测分析</a>
             </p>
            
 

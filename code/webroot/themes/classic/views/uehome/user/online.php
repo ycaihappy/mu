@@ -13,7 +13,7 @@ if ( Yii::app()->user->hasFlash('success'))
 <?php
 }
 ?>
-	<div class="m-form m-qq-set" id="J_AddQQ" data-del-api="index.php?r=uehome/user/onlinedel">
+    <div class="m-form m-qq-set" id="J_AddQQ" data-del-api="<?php echo Yii::app()->controller->createUrl('/uehome/user/onlinedel');?>">
 	
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'online-form',
@@ -29,8 +29,8 @@ if ( Yii::app()->user->hasFlash('success'))
         $total = count($model->contact_name);
         for($i=0;$i<$total;$i++)
         {
-            $class = ($i==$total-1) ? 'act remove' : 'act add';
-            $flag = ($i==$total-1) ? '-' : '+';
+            $class = ($i!=0) ? 'act remove' : 'act add';
+            $flag = ($i!=0) ? '-' : '+';
             $hidden_value = isset($model->contact_id[$i]) ? $model->contact_id[$i] : '';
 ?>
   

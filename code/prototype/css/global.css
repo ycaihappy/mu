@@ -116,8 +116,8 @@ margin: 0 auto;
 width: 960px;
 }
 
-.head{margin-top:30px;position:relative;}
-
+.head{position:relative;}
+#p_index .head,#p_hq_index .head,#p_news_index .head,#p_xh_index .head{margin-top:20px;}
 
 .m-top{height:33px;background:url(imgs/v2/top_nav_bg.png) repeat-x;text-align:right;line-height:33px;}
 .m-top a{font-size:12px;}
@@ -142,7 +142,7 @@ padding-right: 1px;
 .grid-260{width:260px;float:left;}
 .grid-960{width:960px;}
 .lastdiv{border:0;}
-.m-nav{margin-top: 25px;margin-bottom:15px;background:url(imgs/v2/menu_bg.png) repeat-x;height:40px;border-radius:3px 3px 0px 0}
+.m-nav{margin-top: 25px;background:url(imgs/v2/menu_bg.png) repeat-x;height:40px;border-radius:3px 3px 0px 0}
 .m-nav .bd{position:relative;}
 .m-nav .bd p {
   background: url(imgs/v2/menu_sub_bg.png) repeat-x;  border: 1px solid #cbcbcd;  border-radius:5px;  top:40px;  display: none;  left: 0;  width:957px;  line-height: 35px;  position: absolute;
@@ -165,9 +165,9 @@ padding-right: 1px;
 	height:9px;
 	position:absolute;
 	left:45%;
-	bottom:0px;
+	bottom:1px;
 	display:none;
-	z-index:1;
+	z-index:3;
 }
 .m-nav .nav-con.on b,.m-nav .nav-con:hover b{display:block;}
 
@@ -318,7 +318,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
   background-position: -123px -40px;
 }
 
-.m-banner{margin-bottom:30px;}
+
 
 .m-rcm{float:left;margin-right:20px;margin-top:20px;}
 .m-rcm li{padding:10px 0 10px 3px;border-bottom:1px dashed #DCDDDD;overflow:hidden;height:20px;}
@@ -1145,7 +1145,7 @@ padding: 0 20px;
 .m-gyxx .gy06 {  text-align: right;  width: 42px;}
 .m-gyxx h2 a {  color: #004098;  font-size: 12px;  font-weight: normal;}
 .m-gyxx h2 em {  display: none;}
-div.errorMessage{color:red;font-style:italic;}
+div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .map1 {
   background: url("imgs/map_05.jpg") no-repeat scroll 0 0 transparent;
   position:absolute;
@@ -1432,7 +1432,26 @@ div.errorMessage{color:red;font-style:italic;}
 .ico-3{background:url(imgs/v2/ico_3.png) no-repeat;width:30px;height:15px;}
 .ico-4{background:url(imgs/v2/ico_4.png) no-repeat;width:22px;height:19px; }
 
-.ui-gallery{width:625px;position:relative;height:77px;overflow:hidden;margin:10px;}
+.ui-gallery{width:625px;position:relative;height:125px;overflow:hidden;margin:10px;}
 .ui-gallery ul{width:1000px;}
-.ui-gallery li a{width:116px;height:70px;}
-.ui-gallery li{border:1px solid #ccc;padding:1px;width:118px;height:72px;float:left;margin-right:5px;}
+.ui-gallery li a{width:116px;height:116px;}
+.ui-gallery li{border:1px solid #ccc;padding:1px;width:118px;height:118px;float:left;margin-right:5px;}
+
+
+/* QQ*/
+
+.QQbox{ z-index:99; right: 0px; top: 145px; position: fixed; font-size:12px;}
+.QQbox .press{ right: 0; border: none; cursor: pointer;width: 26px; height: 136px;position: absolute; font-size:12px;}
+.QQbox .Qlist{ left: 0; width: 170px; background: url(siderIM_bg.gif) padding:5px; font-size:12px;display:none;}
+.QQbox .Qlist .b{ float: right; height: 6px; width: 170px; font-size: 1px;  font-size:12px;}
+.QQbox .Qlist .infobox{ text-align:center; background:#bdc5cb; background-image:url(imgs/siderIM_infobox.gif); background-repeat:no-repeat;  padding:5px; line-height:14px; color:#000; font-weight:700; font-size:12px;}
+.QQbox .Qlist .t{ background:url(imgs/siderIM_title.gif); height:34px; font-size:12px;}
+.QQbox .Qlist .b{ background:url(imgs/siderIM_bottom.gif); height:9px; overflow:hidden;  font-size:12px;}
+.QQbox .Qlist .con{ background: url(imgs/siderIM_bg.gif); width: 100%; padding: 10px 10px 10px 20px; font-size:12px;}
+.QQbox .Qlist .con h2{ height: 22px; font: bold 12px/22px "宋体"; background: url(imgs/siderIM_bg.gif) repeat-y -163px 0; border: 1px solid #3a708d; text-align: center; color:#fff; font-size:12px;}
+.QQbox .Qlist .con ul li{ padding: 5px 5px 0px 2px;  font-size:12px; list-style:none;}
+.QQbox .qqdiv{background:url(imgs/qq_1.gif) no-repeat;width:26px;height:136px;}
+.QQbox.on .qqdiv{display:none}
+.QQbox.on .Qlist{display:block}
+
+/*QQ END*/

@@ -42,6 +42,20 @@ $.extend(MU.mods,{
 			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings().hide();
 		});
 	},
+	JQkLogin : function () {
+		var self = $(this),form = self.find('form');
+		
+		self.find('.btn-red').on('click',function(e){
+			
+			$.post(form.attr('action'),form.serializeArray(),function(re){
+				if(re.status == 1){
+					location.reload();
+				}else{
+					alert(re.msg);
+				}
+			},'json');
+		});
+	},
 	JNav : function(){
 		var self = $(this);
 		self.find('.nav-con').on('mouseenter',function() {
@@ -49,6 +63,12 @@ $.extend(MU.mods,{
 			$(this).addClass('on').siblings().removeClass('on');
 		}).mouseleave(function(){
 			$(this).find('p').stop(false,true).fadeOut('fast');
+		});
+		var pos = [0,50,200,350,420,330];
+		self.find('.nav-con').each(function(i){
+			var left = $(this).position().left,o = $(this);
+			$('<a>').css({display:'inline-block',width:pos[i]}).prependTo(o.find('p'));
+			
 		});
 		
 	},
@@ -612,5 +632,16 @@ $.extend(MU.mods,{
 	JImgScroller : function () {
 		var self = $(this);
 		var s = new MU.Tool.ImgScroller({'el':self,duration : 80});
+	},
+	JQQBox : function () {
+		var self = $(this);
+		self.on({
+			mouseenter : function (){
+				$(this).addClass('on');
+			},
+			mouseleave : function () {
+				$(this).removeClass('on');
+			}
+		});
 	}
 });

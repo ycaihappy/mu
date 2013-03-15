@@ -83,7 +83,7 @@
         ?></td>
 		</tr>
 		<tr>
-			<td class="label">信息附图：</td><td><img src="<?php echo $model->image?'/images/commonProductsImages/thumb/thumb_'.$model->image:'/images/thumb.gif'?>" class="thumb" id="image_thumb"><button type="button" class="btn-modify btn-select">选择图片</button>
+			<td class="label">信息附图：</td><td><img src="<?php echo $model->image?'/images/commonProductsImages/thumb/'.$model->image:'/images/thumb.gif'?>" class="thumb" id="image_thumb"><button type="button" class="btn-modify btn-select">选择图片</button>
 			<input type="hidden" name="SupplyForm[image]" value="<?php echo $model->image?>" id="image_src"/></td>
 		</tr>
 		<tr>

@@ -3,7 +3,7 @@
 # Server version:               5.1.28-rc-community
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-15 02:31:39
+# Date/time:                    2013-03-15 09:54:29
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -71,9 +71,9 @@ CREATE TABLE IF NOT EXISTS `mu_article` (
   `art_modified_date` datetime DEFAULT NULL COMMENT '''修改时间''',
   `art_recommend` tinyint(4) DEFAULT NULL COMMENT '文章推荐',
   PRIMARY KEY (`art_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=658 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_article: 657 rows
+# Dumping data for table mu.mu_article: 807 rows
 DELETE FROM `mu_article`;
 /*!40000 ALTER TABLE `mu_article` DISABLE KEYS */;
 INSERT INTO `mu_article` (`art_id`, `art_title`, `art_source`, `art_click_count`, `art_category_id`, `art_subcategory_id`, `art_summary`, `art_content`, `art_status`, `art_tags`, `art_user_id`, `art_check_by`, `art_post_date`, `art_img`, `art_modified_date`, `art_recommend`) VALUES
@@ -1396,7 +1396,7 @@ CREATE TABLE IF NOT EXISTS `mu_image_library` (
   PRIMARY KEY (`image_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COMMENT='图片库';
 
-# Dumping data for table mu.mu_image_library: ~5 rows (approximately)
+# Dumping data for table mu.mu_image_library: ~17 rows (approximately)
 DELETE FROM `mu_image_library`;
 /*!40000 ALTER TABLE `mu_image_library` DISABLE KEYS */;
 INSERT INTO `mu_image_library` (`image_id`, `image_title`, `image_thumb_src`, `image_src`, `image_status`, `image_used_type`, `image_added_by`, `image_added_time`) VALUES
@@ -1734,9 +1734,9 @@ CREATE TABLE IF NOT EXISTS `mu_product` (
   `product_check_by` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   KEY `product_user_id` (`product_user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=208 DEFAULT CHARSET=utf8 COMMENT='现货';
+) ENGINE=MyISAM AUTO_INCREMENT=213 DEFAULT CHARSET=utf8 COMMENT='现货';
 
-# Dumping data for table mu.mu_product: 206 rows
+# Dumping data for table mu.mu_product: 211 rows
 DELETE FROM `mu_product`;
 /*!40000 ALTER TABLE `mu_product` DISABLE KEYS */;
 INSERT INTO `mu_product` (`product_id`, `last_modified`, `product_user_id`, `product_keyword`, `product_name`, `product_quanity`, `product_unit`, `product_type_id`, `product_price`, `product_mu_content`, `product_status`, `product_water_content`, `product_city_id`, `product_content`, `product_location`, `product_special`, `product_join_date`, `product_image_src`, `product_check_by`) VALUES
@@ -1964,9 +1964,9 @@ CREATE TABLE IF NOT EXISTS `mu_recommend` (
   `recommend_status` int(4) DEFAULT NULL,
   `recommend_time` datetime DEFAULT NULL,
   PRIMARY KEY (`recommend_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=108 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_recommend: 100 rows
+# Dumping data for table mu.mu_recommend: 105 rows
 DELETE FROM `mu_recommend`;
 /*!40000 ALTER TABLE `mu_recommend` DISABLE KEYS */;
 INSERT INTO `mu_recommend` (`recommend_id`, `recommend_object_id`, `recommend_type`, `recommend_position`, `recommend_status`, `recommend_time`) VALUES
@@ -2772,9 +2772,9 @@ CREATE TABLE IF NOT EXISTS `mu_term` (
   `term_order` int(4) DEFAULT '0',
   `term_create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`term_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=117 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=118 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_term: 115 rows
+# Dumping data for table mu.mu_term: 116 rows
 DELETE FROM `mu_term`;
 /*!40000 ALTER TABLE `mu_term` DISABLE KEYS */;
 INSERT INTO `mu_term` (`term_id`, `term_parent_id`, `term_name`, `term_slug`, `term_group_id`, `term_order`, `term_create_time`) VALUES

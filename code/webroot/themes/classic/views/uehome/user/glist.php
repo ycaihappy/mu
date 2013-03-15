@@ -31,20 +31,29 @@ if ( Yii::app()->user->hasFlash('success'))
 	
 	<table border="0" cellpadding="0" cellspacing="0" class="table-list" width="100%">
 		<tr class="repeatbg">
-			<th width="30">选择</th><th width="40">状态</th><th width="314">标题</th><th width="107">品类</th><th width="106">品位</th><th width="106">存货地</th><th width="106">添加时间</th><th width="85">操作</th>
+			<th width="30">选择</th><th width="80">状态</th><th width="314">标题</th><th width="107">品类</th><th width="106">品位</th><th width="106">存货地</th><th width="106">添加时间</th><th width="85">操作</th>
 		</tr>
                     <?php for($index=0;$index<count($data);$index++):
                     $class = ($index%2 == 0) ? "" : "class='even'";?>
         <tr>         
         			<td><input type="checkbox" value="<?php echo $data[$index]['product_id'];?>" /></td>            
-                    <td><?php echo $status[$data[$index]['product_status']];?></td>
+                    <td>
+<?php
+if ( $data[$index]['product_special'] == 1)
+{
+?>
+                    <img src="/images/sale.gif" title="特价" />
+<?php
+}
+?>
+                    <?php echo $status[$data[$index]['product_status']];?></td>
                     <td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/goods',array('product_id'=>$data[$index]['product_id'],'update'=>1));?>"><?php echo $data[$index]['product_name'];?></a></td>
 
                     <td><?php echo $data[$index]->type?$data[$index]->type->term_name:'未指定';?></td>
 					<td><?php echo $data[$index]['product_mu_content']?></td>
                     <td><?php echo $data[$index]->city?$data[$index]->city->city_name:'未指定'?></td>
                     <td><?php echo date('Y-m-d',strtotime($data[$index]['product_join_date']));?></td>                      
-		<td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/goods',array('product_id'=>$data[$index]['product_id'],'update'=>1));?>" class="ico-edit">编辑</a><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/productdel',array('ids'=>$data[$index]['product_id']));?>" class="ico-del">删除</a> <img src="/images/sale.gif" title="特价" /></td>
+		<td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/goods',array('product_id'=>$data[$index]['product_id'],'update'=>1));?>" class="ico-edit">编辑</a><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/productdel',array('ids'=>$data[$index]['product_id']));?>" class="ico-del">删除</a> </td>
                     </tr>
 		<?php endfor;?>			   
 		<tr>

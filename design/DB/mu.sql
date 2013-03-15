@@ -3,7 +3,7 @@
 # Server version:               5.5.8
 # Server OS:                    Win32
 # HeidiSQL version:             6.0.0.3603
-# Date/time:                    2013-03-15 11:39:32
+# Date/time:                    2013-03-15 16:10:42
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -71,9 +71,9 @@ CREATE TABLE IF NOT EXISTS `mu_article` (
   `art_modified_date` datetime DEFAULT NULL COMMENT '''修改时间''',
   `art_recommend` tinyint(4) DEFAULT NULL COMMENT '文章推荐',
   PRIMARY KEY (`art_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1202 DEFAULT CHARSET=utf8;
 
-# Dumping data for table mu.mu_article: 807 rows
+# Dumping data for table mu.mu_article: 1,008 rows
 DELETE FROM `mu_article`;
 /*!40000 ALTER TABLE `mu_article` DISABLE KEYS */;
 INSERT INTO `mu_article` (`art_id`, `art_title`, `art_source`, `art_click_count`, `art_category_id`, `art_subcategory_id`, `art_summary`, `art_content`, `art_status`, `art_tags`, `art_user_id`, `art_check_by`, `art_post_date`, `art_img`, `art_modified_date`, `art_recommend`) VALUES
@@ -1667,6 +1667,25 @@ INSERT INTO `mu_message_template` (`msg_template_id`, `msg_template_name`, `msg_
 	(1, '金牌会员行情模板', 'goldMemberPrice', 38, '', '<p>\r\n	当前行情如下：{$price}</p>\r\n', '2013-02-28 11:06:44', '2013-02-28 14:33:49'),
 	(2, '注册手机验证码模板', 'registerMobileVerify', 38, '', '<p>\r\n	当前的验证码为：{$verifyCode}</p>\r\n', '2013-02-28 14:27:47', NULL);
 /*!40000 ALTER TABLE `mu_message_template` ENABLE KEYS */;
+
+
+# Dumping structure for table mu.mu_online_support
+DROP TABLE IF EXISTS `mu_online_support`;
+CREATE TABLE IF NOT EXISTS `mu_online_support` (
+  `online_id` int(10) NOT NULL AUTO_INCREMENT,
+  `online_ent_id` int(10) NOT NULL DEFAULT '0' COMMENT '所属企业',
+  `online_name` varchar(50) NOT NULL,
+  `online_type` int(11) NOT NULL DEFAULT '0' COMMENT '目前只支持QQ',
+  `online_num` varchar(50) NOT NULL COMMENT '号码',
+  `online_added_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`online_id`),
+  KEY `online_ent_id` (`online_ent_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员旺铺的在线QQ客服表';
+
+# Dumping data for table mu.mu_online_support: ~0 rows (approximately)
+DELETE FROM `mu_online_support`;
+/*!40000 ALTER TABLE `mu_online_support` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mu_online_support` ENABLE KEYS */;
 
 
 # Dumping structure for table mu.mu_point_rule

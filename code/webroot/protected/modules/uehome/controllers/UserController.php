@@ -42,6 +42,16 @@ class UserController extends Controller {
         ),
 			   );
 	}*/
+    public function actionFindPwd()
+    {
+        $this->layout = '//layouts/ajax_main';
+        $this->render ( 'find_pwd');
+    }
+    public function actionFindPwdSucc()
+    {
+        $this->layout = '//layouts/ajax_main';
+        $this->render ( 'find_pwd_succ');
+    }
     public function actionOnline()
     {
         $this->render ( 'online');

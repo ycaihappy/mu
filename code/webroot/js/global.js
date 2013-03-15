@@ -652,7 +652,12 @@ $.extend(MU.mods,{
 			if($(this).hasClass('add')){
 				li.clone().insertBefore(self.find('.btn')).find('.act').attr('class','act remove').text('-').siblings('input').val('');
 			}else{
-				$.getJSON(self.data('del-api') + '&ids=' + li.find('input[type=hidden]').val(),function(){
+				var hval = li.find('input[type=hidden]').val();
+				if(hval == "") {
+					li.remove();
+					return;
+				}
+				$.getJSON(self.data('del-api') + '&ids=' + hval,function(){
 					li.remove();
 				});
 				

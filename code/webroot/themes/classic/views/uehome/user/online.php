@@ -1,51 +1,61 @@
-    		<div class="m-breadcrumb">
-	<p><b class="crumb"></b>会员中心<i></i>企业旺铺<i></i>添加友情链接</p>
-</div>
+	<div class="m-breadcrumb">
+	<p><b class="crumb"></b>会员中心<i></i>在线客服管理</p>
+    </div>
 <?php
-$error = $model->getErrors();
-if ( !empty($error))
+if ( Yii::app()->user->hasFlash('success'))
 {
 ?>
-<div class="block-error">
-<?php
-    foreach ($error as $one_error)
-    {
-?>
-    <p><?php echo $one_error[0];?></p>
-<?php
-    }
-?>
-</div>
+	<div class="hd">		
+		<div class="block-error">
+        <p><?php  echo Yii::app()->user->getFlash('success');?> </p>
+		</div>
+	</div>
 <?php
 }
 ?>
-    <div class="m-form" id="J_Message_Create">
-
+	<div class="m-form m-qq-set" id="J_AddQQ">
+	
 <?php $form = $this->beginWidget('CActiveForm', array(
-    'id'=>'flink-form',
+    'id'=>'online-form',
     'enableClientValidation'=>true,
     'clientOptions'=>array(
         'validateOnSubmit'=>true,
     ),
 ));?>
-	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
-		<tr>
-            <td class="label">链接标题：</td><td><?php echo $form->textField($model, 'flink_name', array('class'=>'cmp-input'));?></td>
-		</tr>
-		<tr>
-			<td class="label">链接URL：</td><td><?php echo $form->textField($model, 'flink_url', array('class'=>'cmp-input'));?></td>
-		</tr>
-		<tr>
-			<td></td><td><button type="submit" class="btn-save">发布/保存</button></td>
-		</tr>
-		
-	</table>
+	<ul>
+<?php
+    if ( !empty($model->contact_name) )
+    {
+        $total = count($model->contact_name);
+        for($i=0;$i<$total;$i++)
+        {
+            $class = ($i==$total-1) ? 'act remove' : 'act add';
+            $flag = ($i==$total-1) ? '-' : '+';
+            $hidden_value = isset($model->contact_id[$i]) ? $model->contact_id[$i] : '';
+?>
+   <?php echo $form->hiddenField($model, 'contact_id[]',array('value'=>$hidden_value));?>
+        <li>
+        <label >名称：</label><?php echo $form->textField($model, 'contact_name[]', array('class'=>'cmp-input','value'=>$model->contact_name[$i]));?><label>QQ号码：</label><?php echo $form->textField($model, 'contact_value[]', array('class'=>'cmp-input','value'=>$model->contact_value[$i]));?><span class="<?php echo $class;?>"><?php echo $flag;?></span>
+		</li>
+<?php
+        }
+    }
+    else
+    {
+?>
+		<li>
+			<label >名称：</label><?php echo $form->textField($model, 'contact_name[]', array('class'=>'cmp-input'));?><label>QQ号码：</label><?php echo $form->textField($model, 'contact_value[]', array('class'=>'cmp-input'));?><span class="act add">+</span>
+		</li>
+		<li>
+			<label >名称：</label><?php echo $form->textField($model, 'contact_name[]', array('class'=>'cmp-input'));?><label>QQ号码：</label><?php echo $form->textField($model, 'contact_value[]', array('class'=>'cmp-input'));?><span class="act remove">-</span>
+		</li>
+<?php
+    }
+?>
+		<li class="btn">
+			<button type="submit" class="btn-save">保存</button>
+		</li>		
+	
+	</ul>
 <?php $this->endWidget();?>
 </div>
-<?php 
-$cs=Yii::app()->getClientScript();
-$cs->registerCssFile('css/ui-lightness/jquery-ui-1.10.1.custom.min.css');
-Yii::app()->getClientScript()->registerCoreScript('jquery');
-Yii::app()->getClientScript()->registerCoreScript('jquery.ui');
-
-?>

@@ -1,6 +1,7 @@
 <?php
 class WebUser extends CWebUser
 {
+	private $_entId;
     public function __get($name)
     {
         if ($this->hasState('__userInfo')) {
@@ -15,6 +16,7 @@ class WebUser extends CWebUser
 
     public function login($identity, $duration=0) {
         $this->setState('__userInfo', $identity->getUser());
+        $this->setState('__entId', $identity->getEntId());
         parent::login($identity, $duration);
     }
 	/**
@@ -26,6 +28,11 @@ class WebUser extends CWebUser
 			$value=Yii::app()->request->getHostInfo().$value;
 		$this->setState('__returnUrl',$value);
 	}
+	public function getEntId()
+	{
+		return $this->getState('__entId');
+	}
+	
 }
 
 ?>

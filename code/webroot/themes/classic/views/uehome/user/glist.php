@@ -44,7 +44,7 @@ if ( Yii::app()->user->hasFlash('success'))
 					<td><?php echo $data[$index]['product_mu_content']?></td>
                     <td><?php echo $data[$index]->city?$data[$index]->city->city_name:'未指定'?></td>
                     <td><?php echo date('Y-m-d',strtotime($data[$index]['product_join_date']));?></td>                      
-		<td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/goods',array('product_id'=>$data[$index]['product_id'],'update'=>1));?>" class="ico-edit">编辑</a><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/productdel',array('ids'=>$data[$index]['product_id']));?>" class="ico-del">删除</a> <img src="images/sale.gif" title="特价" /</td>
+		<td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/goods',array('product_id'=>$data[$index]['product_id'],'update'=>1));?>" class="ico-edit">编辑</a><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/productdel',array('ids'=>$data[$index]['product_id']));?>" class="ico-del">删除</a> <img src="/images/sale.gif" title="特价" /></td>
                     </tr>
 		<?php endfor;?>			   
 		<tr>

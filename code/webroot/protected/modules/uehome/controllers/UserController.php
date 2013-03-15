@@ -707,10 +707,7 @@ $user_id =yii::app()->user->getID();
 			// validate user input and redirect to the previous page if valid
 			if ($model->validate () && $model->login ())
 			{
-				if(Yii::app()->request->isAjaxRequest)
-				{
-					
-				}
+				
 				$this->redirect(Yii::app()->user->returnUrl);
 			}
 		}

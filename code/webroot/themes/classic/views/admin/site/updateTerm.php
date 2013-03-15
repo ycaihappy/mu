@@ -50,7 +50,7 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'term_order'); ?></td>
 <tr>
 <tr><td colspan='2' align='right'>
-		<?php echo CHtml::submitButton('保存',array('class'=>'btn-blue')); ?></td>
+		<?php echo CHtml::submitButton('保存',array('class'=>'btn-a')); ?></td>
 </tr>
 </table>
 <?php $this->endWidget(); ?>

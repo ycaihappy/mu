@@ -60,7 +60,7 @@ $this->breadcrumbs=array(
 </tr>
 
 <tr>
-<td align='right' colspan=2><?php echo CHtml::submitButton('保存'); ?></td>
+<td align='right' colspan=2><?php echo CHtml::submitButton('保存',array('class'=>'btn-a')); ?></td>
 </tr>
 </table>
 <?php $this->endWidget(); ?>

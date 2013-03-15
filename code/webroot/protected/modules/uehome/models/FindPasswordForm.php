@@ -2,7 +2,7 @@
 class FindPasswordForm extends CFormModel
 {
 	public $email;
-
+    public $verifyCode;
 	/**
 	 * Declares the validation rules.
 	 */
@@ -11,6 +11,8 @@ class FindPasswordForm extends CFormModel
         return array(
             array('email','required','message'=>'email不允许为空'),
             array('email','email','message'=>'email格式不正确'),
+            array('verifyCode', 'captcha','message'=>'验证码输入不正确', 'allowEmpty'=>!extension_loaded('gd')),
+			array('verifyCode', 'required','message'=>'验证码不能为空')
         );
     }
 

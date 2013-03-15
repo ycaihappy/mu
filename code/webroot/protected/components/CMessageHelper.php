@@ -15,10 +15,10 @@ class CMessageHelper  {
 		}
 		return $contentVars;
 	}
-	public static function getVars($cotent)
+	public static function getVars($content)
 	{
 		$matches=array();
-		if($cotent)
+		if($content)
 		{
 			preg_match_all('/\{\$([\w]+)\}/', $content, $matches);
 		}
@@ -57,9 +57,34 @@ class CMessageHelper  {
 		$result=self::sendSms($mobileNo, $smsContent[0], $uid, $pwd);
 		return $result;
 	}
-	public static function sendRegisterEmail($toEmail)
+	public static function sendFindPasswordEmail($toEmail,$newPwd)
 	{
-		
+		$emailSetting=new SiteEmailSetting();
+		$emailSetting->LoadData();
+		$result=self::setTemplateVarValue(array($newPwd),false,'findpassword');
+		return self::sendEmail($emailSetting->sendorEmail,$result['subject'],$toEmail,$result['content']);
+	}
+	public static function sendEmail($fromEmail,$subject,$toEmail,$body)
+	{
+		$message = new YiiMailMessage;
+	    $message->From = $fromEmail;    // 送信人  
+	    $message->addTo($toEmail);               // 收信人  
+	    $message->setSubject($subject);  
+	    $message->message->setBody(  
+	        $body, // 传递到模板文件中的参数  
+	        'text/html',                 // 邮件格式  
+	        'utf-8'                      // 邮件编码  
+	        );  
+	      
+	    $result['status']=1;
+	    if(Yii::app()->mail->send($message)){  
+	        $result['message']='测试邮件发送成功！';
+	    } 
+	    else {
+	    	$result['status']=0;
+	    	$result['message']='测试邮件发送失败！请检查邮件配置是否正确';
+	    }
+	    return $result;
 	}
 	public static function setPriceSms($mobileNos)
 	{

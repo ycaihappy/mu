@@ -115,13 +115,16 @@ endif;?>
         <?php echo $form->error($model,'art_check_by'); ?></td>
 </tr>
 <tr>
-<td align='right' colspan=2><?php echo CHtml::submitButton('保存'); ?></td>
+<td align='right' colspan=2><?php echo CHtml::submitButton('保存',array('class'=>'btn-a')); ?></td>
+
 </tr>
 </table>
+<br>
+<br>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
 <?php 
-Yii::app()->getClientScript()->registerScriptFile('js/jquery.uploadPreview.js');
+Yii::app()->getClientScript()->registerScriptFile('/js/jquery.uploadPreview.js');
 $previewScript=<<<PREVIEW
 $("#Article_art_img").uploadPreview({ width:400, height: 280, imgDiv: "#imgDiv", imgType: ["bmp", "gif", "png", "jpg"] });
 PREVIEW;

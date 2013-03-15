@@ -31,14 +31,17 @@
             <div class="field-group">
                 <label for="reset-email">邮箱/手机号</label>
                 <?php echo $form->textField($model, 'email', array('class'=>'f-text'));?>
+                <?php echo $form->error($model,'email'); ?>
             </div>
-            
+           
+		<?php if(CCaptcha::checkRequirements()): ?>
         <div class="field-group captcha">
             <label for="captcha">验证码</label>
-            <input type="text" id="captcha" class="f-text" name="captcha" autocomplete="off">
-            <img height="30px" width="60px" class="signup-captcha-img" id="signup-captcha-img" src="/account/captcha">
-            <a tabindex="-1" class="captcha-refresh inline-link" href="javascript:void(0)">看不清楚？换一张</a>
+             <?php echo $form->textField($model, 'verifyCode', array('class'=>'f-text'));?>
+            <?php $this->widget('CCaptcha',array('showRefreshButton'=>false,'clickableImage'=>true,'imageOptions'=>array('alt'=>'点击换图','title'=>'点击换图','style'=>'cursor:pointer;vertical-align:middle'))); ?>
+            <?php echo $form->error($model,'verifyCode'); ?>
         </div>
+        <?php endif;?>
 		<div class="field-group">
                 <input type="submit" class="form-button" value="找回密码">
             </div>

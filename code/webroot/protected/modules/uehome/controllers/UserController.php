@@ -45,7 +45,38 @@ class UserController extends Controller {
     public function actionFindPwd()
     {
         $this->layout = '//layouts/ajax_main';
-        $this->render ( 'find_pwd');
+        $model=new FindPasswordForm();
+        if(isset($_POST['FindPasswordForm']))
+        {
+        	$model->attributes=$_POST['FindPasswordForm'];
+        	$error='';
+        	if($model->validate())
+        	{
+        		$user=User::model()->find('user_email=:email',array(':email'=>$model->email));
+        		if($user)//判断邮箱是否存在
+        		{
+        			$newPwd=CStringHelper::generatePassword(6);
+        			$user->user_pwd=md5($newPwd);
+        			if($user->save())//将新密码加密保存入数据库
+        			{
+        				$result=CMessageHelper::sendFindPasswordEmail($model->email, $newPwd);
+        				if($result['status']==1)
+        				{
+        					$this->redirect(array('/uehome/user/findPwdSucc','email'=>$model->email));
+        				}
+        				$error=$result['message'];
+        			}
+        			else {
+        				$error='产生新密码失败！';
+        			}
+        			
+        		}
+        		else {
+        			$error='邮箱对应的账户不存在！';
+        		}
+        	}
+        }
+        $this->render ( 'find_pwd',array('model'=>$model));
     }
     public function actionFindPwdSucc()
     {

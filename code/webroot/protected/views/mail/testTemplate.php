@@ -1,0 +1,1 @@
+email:<?php echo $email?>,password:<?php echo $password?>

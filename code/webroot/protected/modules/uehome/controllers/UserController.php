@@ -52,9 +52,32 @@ class UserController extends Controller {
         $this->layout = '//layouts/ajax_main';
         $this->render ( 'find_pwd_succ');
     }
+    public function actionOnlineDel()
+    {
+    }
     public function actionOnline()
     {
-        $this->render ( 'online');
+        $model = new OnlineForm();
+        if (isset($_POST['OnlineForm']))
+        {
+            $model->attributes = $_POST['OnlineForm'];
+            if ( $model->validate() )
+            {
+                $model->draft();
+                Yii::app()->user->setFlash('success','更新在线服务成功!');
+            }
+        }
+        else
+        {
+            $online_list = OnlineSupport::model()->findAll();
+            foreach ( $online_list as $online_one)
+            {
+                $model->contact_name[] = $online_one->online_name;
+                $model->contact_value[]= $online_one->online_num;
+                $model->contact_id[]= $online_one->online_id;
+            }
+        }
+        $this->render ( 'online',array('model'=>$model));
     }
     public function actionFlink()
     {

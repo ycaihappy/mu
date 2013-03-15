@@ -1436,3 +1436,22 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .ui-gallery ul{width:1000px;}
 .ui-gallery li a{width:116px;height:116px;}
 .ui-gallery li{border:1px solid #ccc;padding:1px;width:118px;height:118px;float:left;margin-right:5px;}
+
+
+/* QQ*/
+
+.QQbox{ z-index:99; right: 0px; top: 145px; position: fixed; font-size:12px;}
+.QQbox .press{ right: 0; border: none; cursor: pointer;width: 26px; height: 136px;position: absolute; font-size:12px;}
+.QQbox .Qlist{ left: 0; width: 170px; background: url(siderIM_bg.gif) padding:5px; font-size:12px;display:none;}
+.QQbox .Qlist .b{ float: right; height: 6px; width: 170px; font-size: 1px;  font-size:12px;}
+.QQbox .Qlist .infobox{ text-align:center; background:#bdc5cb; background-image:url(imgs/siderIM_infobox.gif); background-repeat:no-repeat;  padding:5px; line-height:14px; color:#000; font-weight:700; font-size:12px;}
+.QQbox .Qlist .t{ background:url(imgs/siderIM_title.gif); height:34px; font-size:12px;}
+.QQbox .Qlist .b{ background:url(imgs/siderIM_bottom.gif); height:9px; overflow:hidden;  font-size:12px;}
+.QQbox .Qlist .con{ background: url(imgs/siderIM_bg.gif); width: 100%; padding: 10px 10px 10px 20px; font-size:12px;}
+.QQbox .Qlist .con h2{ height: 22px; font: bold 12px/22px "宋体"; background: url(imgs/siderIM_bg.gif) repeat-y -163px 0; border: 1px solid #3a708d; text-align: center; color:#fff; font-size:12px;}
+.QQbox .Qlist .con ul li{ padding: 5px 5px 0px 2px;  font-size:12px; list-style:none;}
+.QQbox .qqdiv{background:url(imgs/qq_1.gif) no-repeat;width:26px;height:136px;}
+.QQbox.on .qqdiv{display:none}
+.QQbox.on .Qlist{display:block}
+
+/*QQ END*/

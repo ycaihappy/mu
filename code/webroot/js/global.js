@@ -632,5 +632,16 @@ $.extend(MU.mods,{
 	JImgScroller : function () {
 		var self = $(this);
 		var s = new MU.Tool.ImgScroller({'el':self,duration : 80});
+	},
+	JQQBox : function () {
+		var self = $(this);
+		self.on({
+			mouseenter : function (){
+				$(this).addClass('on');
+			},
+			mouseleave : function () {
+				$(this).removeClass('on');
+			}
+		});
 	}
 });

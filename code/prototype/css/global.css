@@ -1534,3 +1534,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
   vertical-align: top;
 }
 /*forget password*/
+
+.m-qq-set li{padding:10px;}
+.m-qq-set .cmp-input{margin-right:10px;}
+.m-qq-set .act{font-size:14px;font-weight:bold;cursor:pointer;}

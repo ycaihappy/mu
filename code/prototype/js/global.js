@@ -643,5 +643,17 @@ $.extend(MU.mods,{
 				$(this).removeClass('on');
 			}
 		});
+	},
+	JAddQQ : function () {
+		var self = $(this);
+
+		self.find('ul').on('click','.act',function () {
+			var li = $(this).closest('li');
+			if($(this).hasClass('add')){
+				li.clone().insertBefore(self.find('.btn')).find('.act').attr('class','act remove').text('-').siblings('input').val('');
+			}else{
+				li.remove();
+			}
+		});
 	}
 });

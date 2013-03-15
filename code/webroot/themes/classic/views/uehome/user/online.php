@@ -13,7 +13,7 @@ if ( Yii::app()->user->hasFlash('success'))
 <?php
 }
 ?>
-	<div class="m-form m-qq-set" id="J_AddQQ">
+    <div class="m-form m-qq-set" id="J_AddQQ" data-del-api="<?php echo Yii::app()->controller->createUrl('/uehome/user/onlinedel');?>">
 	
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'online-form',
@@ -29,12 +29,13 @@ if ( Yii::app()->user->hasFlash('success'))
         $total = count($model->contact_name);
         for($i=0;$i<$total;$i++)
         {
-            $class = ($i==$total-1) ? 'act remove' : 'act add';
-            $flag = ($i==$total-1) ? '-' : '+';
+            $class = ($i!=0) ? 'act remove' : 'act add';
+            $flag = ($i!=0) ? '-' : '+';
             $hidden_value = isset($model->contact_id[$i]) ? $model->contact_id[$i] : '';
 ?>
-   <?php echo $form->hiddenField($model, 'contact_id[]',array('value'=>$hidden_value));?>
+  
         <li>
+		 <?php echo $form->hiddenField($model, 'contact_id[]',array('value'=>$hidden_value));?>
         <label >名称：</label><?php echo $form->textField($model, 'contact_name[]', array('class'=>'cmp-input','value'=>$model->contact_name[$i]));?><label>QQ号码：</label><?php echo $form->textField($model, 'contact_value[]', array('class'=>'cmp-input','value'=>$model->contact_value[$i]));?><span class="<?php echo $class;?>"><?php echo $flag;?></span>
 		</li>
 <?php

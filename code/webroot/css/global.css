@@ -1325,7 +1325,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-new-hx .bd ul{display:none}
 .m-new-hx .bd ul.on{display:block}
 .btn-purple{width:89px;height:27px;border:0;display:inline-block;color:#333726;line-height:27px;background:url(imgs/v2/btn_purple.png) no-repeat;text-align:center;}
-.btn-red{background:url(imgs/v2/btn_red.png) no-repeat;display:inline-block;width:81px;height:26px;color:#fff;border:0;font-weight:bold;}
+.btn-red{background:url(imgs/v2/btn_red.png) no-repeat;display:inline-block;width:81px;height:26px;line-height:26px;color:#fff;border:0;font-weight:bold;}
 .m-qk-login{width:215px;border:1px solid #dfdfe1;float:left;background:url(imgs/v2/qk_login_bg.png) repeat-x bottom;}
 .m-qk-login .bd{padding:8px 0;border-bottom:border:1px solid #dedee0;padding-bottom:5px;}
 .m-qk-login .bd label{font-weight:bold;width:60px;text-align:right;float:left;}

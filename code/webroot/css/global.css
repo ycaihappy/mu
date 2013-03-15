@@ -1455,3 +1455,82 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .QQbox.on .Qlist{display:block}
 
 /*QQ END*/
+
+/*forget password*/
+.m-reset{height:600px;font-size:14px;}
+.m-reset .notice strong {
+  color: #CC0000;
+}
+.m-reset .notice p {
+  margin-bottom: 15px;
+}
+.m-reset .notice {
+  background: none repeat scroll 0 0 #FFFFEB;
+  border: 1px solid #EEEED6;
+  margin: 30px 80px;
+  padding: 10px;
+  text-align: center;
+}
+.m-reset .mainbox h2 {
+  background: url("imgs/content-title-bg.png") repeat-x scroll center top transparent;
+  border-bottom: 1px solid #E5E5E5;
+  font-size: 30px;
+  font-family:'微软雅黑';
+  padding: 15px 0 9px 20px;
+  margin-bottom:30px;
+}
+.m-reset .field-group {
+  margin: 0 auto 8px;
+  overflow: hidden;
+  padding: 3px 10px 3px 110px;
+  position: relative;
+}
+.m-reset  .field-group {
+  margin-bottom: 0;
+  padding: 10px 0 10px 90px;
+}
+.small-form-button, .form-button ,.link-button{
+  background: none repeat scroll 0 0 #35AECC;
+  border: 1px solid #35AECC;
+  border-radius: 3px 3px 3px 3px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  line-height: 20px;
+  padding: 5px 15px;
+  text-shadow: 1px 1px #35AECC;
+}
+.common-form .f-text, .field-group .f-text, .small-field-group .f-text {
+  border: 1px solid #ccc;
+  height: 20px;
+  line-height: 20px;
+  padding: 5px;
+  vertical-align: top;
+  width: 220px;
+}
+.field-group label {
+  color: #333333;
+  font-size: 14px;
+  left: 0;
+  padding-top: 2px;
+  position: absolute;
+  text-align: right;
+  width: 100px;
+}
+.common-form .captcha img {
+  border: 1px solid #ccc;
+  height: 30px;
+  display:inline-block;
+  vertical-align: top;
+}
+.field-group label {
+  width: 80px;
+}
+.common-form a.inline-link {
+  font-size: 12px;
+  line-height: 32px;
+  margin: 0 0 0 4px;
+  vertical-align: top;
+}
+/*forget password*/

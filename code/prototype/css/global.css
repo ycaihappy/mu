@@ -1457,7 +1457,20 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 /*QQ END*/
 
 /*forget password*/
-.m-reset{height:600px;}
+.m-reset{height:600px;font-size:14px;}
+.m-reset .notice strong {
+  color: #CC0000;
+}
+.m-reset .notice p {
+  margin-bottom: 15px;
+}
+.m-reset .notice {
+  background: none repeat scroll 0 0 #FFFFEB;
+  border: 1px solid #EEEED6;
+  margin: 30px 80px;
+  padding: 10px;
+  text-align: center;
+}
 .m-reset .mainbox h2 {
   background: url("imgs/content-title-bg.png") repeat-x scroll center top transparent;
   border-bottom: 1px solid #E5E5E5;
@@ -1476,7 +1489,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
   margin-bottom: 0;
   padding: 10px 0 10px 90px;
 }
-.small-form-button, .form-button {
+.small-form-button, .form-button ,.link-button{
   background: none repeat scroll 0 0 #35AECC;
   border: 1px solid #35AECC;
   border-radius: 3px 3px 3px 3px;

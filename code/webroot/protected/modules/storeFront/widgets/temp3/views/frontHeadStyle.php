@@ -96,3 +96,4 @@ a:hover {color:#d443a7;}
 .content{margin:0px;background-image: url(<?php echo $imgurl ?>main_info_bg.jpg) ;background-repeat:repeat-x;background-position:left top;}
 .com_contact{background-color:#FFFFFF;}
 </style>
+<link rel="stylesheet" href="/css/global.css">

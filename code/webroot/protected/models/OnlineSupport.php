@@ -59,6 +59,22 @@ class OnlineSupport extends CActiveRecord
 		return array(
 		);
 	}
+	public function scopes()
+	{
+		return array(
+			'getOwnOnline'=>array(
+				'select'=>'online_name,online_num',
+			),
+		);
+	}
+	public function getOwnOnline($entId)
+	{
+		$ownOnlineCriteria=new CDbCriteria();
+		$ownOnlineCriteria->addCondition('online_ent_id=:entId');
+		$ownOnlineCriteria->params[':entId']=$entId;
+		$this->getDbCriteria()->mergeWith($ownOnlineCriteria);
+		return $this;
+	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)

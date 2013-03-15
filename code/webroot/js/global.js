@@ -640,7 +640,7 @@ $.extend(MU.mods,{
 				$(this).addClass('on');
 			},
 			mouseleave : function () {
-				$(this).removeClass('on');
+				$(this).removeClass('on');				
 			}
 		});
 	},
@@ -652,7 +652,10 @@ $.extend(MU.mods,{
 			if($(this).hasClass('add')){
 				li.clone().insertBefore(self.find('.btn')).find('.act').attr('class','act remove').text('-').siblings('input').val('');
 			}else{
-				li.remove();
+				$.getJSON(self.data('del-api') + '&ids=' + li.find('input[type=hidden]').val(),function(){
+					li.remove();
+				});
+				
 			}
 		});
 	}

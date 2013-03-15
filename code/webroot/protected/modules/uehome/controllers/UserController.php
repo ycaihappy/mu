@@ -42,6 +42,16 @@ class UserController extends Controller {
         ),
 			   );
 	}*/
+    public function actionFindPwd()
+    {
+        $this->layout = '//layouts/ajax_main';
+        $this->render ( 'find_pwd');
+    }
+    public function actionFindPwdSucc()
+    {
+        $this->layout = '//layouts/ajax_main';
+        $this->render ( 'find_pwd_succ');
+    }
     public function actionOnline()
     {
         $this->render ( 'online');
@@ -168,6 +178,7 @@ class UserController extends Controller {
             $model = Message::model()->find("msg_id=:msg_id", array('msg_id'=>$_REQUEST['ids']));
             $model->delete();
         }
+        Yii::app()->user->setFlash('success','站内短信删除成功!');
         echo json_encode(array('status'=>1,'data'=>array()));
     }
     public function actionMessage()
@@ -374,6 +385,7 @@ $user_id =yii::app()->user->getID();
     {
         $model = UserArticle::model()->find("art_id=:art_id", array('art_id'=>$_REQUEST['ids']));
         $model->delete();
+        Yii::app()->user->setFlash('success','企业新闻删除成功');
         echo json_encode(array('status'=>1,'data'=>array()));
     }
     public function actionSupplyDel()
@@ -389,6 +401,7 @@ $user_id =yii::app()->user->getID();
             $model = Supply::model()->find("supply_id=:supply_id", array('supply_id'=>$_REQUEST['ids']));
             $model->delete();
         }
+        Yii::app()->user->setFlash('success','供求删除成功');
         echo json_encode(array('status'=>1,'data'=>array()));
     }
     public function actionProductSpecial()
@@ -409,6 +422,7 @@ $user_id =yii::app()->user->getID();
             $model->product_special = 1;
             $model->save();
         }
+        Yii::app()->user->setFlash('success','设置产品特价成功');
         echo json_encode(array('status'=>1,'data'=>array()));
     }
     public function actionProductDel()
@@ -424,6 +438,7 @@ $user_id =yii::app()->user->getID();
             $model = Product::model()->find("product_id=:product_id", array('product_id'=>$_REQUEST['ids']));
             $model->delete();
         }
+        Yii::app()->user->setFlash('success','产品删除成功');
         echo json_encode(array('status'=>1,'data'=>array()));
     }
 	public function actionSupply() {
@@ -606,7 +621,8 @@ $user_id =yii::app()->user->getID();
         $sql = 'delete from mu_file where file_id='.$_REQUEST['ids']; 
         $detail= $connection->createCommand($sql)->execute();
        # $model = FileModel::model()->find("file_id=:file_id", array('file_id'=>$_REQUEST['ids']));
-       # $model->delete();
+        # $model->delete();
+        Yii::app()->user->setFlash('success','企业资质删除成功');
         echo json_encode(array('status'=>1,'data'=>array()));
     }
 	public function actionCert() {

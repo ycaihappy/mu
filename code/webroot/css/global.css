@@ -1145,7 +1145,7 @@ padding: 0 20px;
 .m-gyxx .gy06 {  text-align: right;  width: 42px;}
 .m-gyxx h2 a {  color: #004098;  font-size: 12px;  font-weight: normal;}
 .m-gyxx h2 em {  display: none;}
-div.errorMessage{color:red;font-style:italic;}
+div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .map1 {
   background: url("imgs/map_05.jpg") no-repeat scroll 0 0 transparent;
   position:absolute;

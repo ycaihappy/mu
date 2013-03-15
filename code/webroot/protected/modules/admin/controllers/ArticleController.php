@@ -56,6 +56,7 @@ class ArticleController extends AdminController {
 
 		$articleCriteria->select='art_id,art_title,art_post_date,art_check_by,art_img';
 		$articleCriteria->with=array('category'=>array('select'=>'term_name'),'subcategory'=>array('select'=>'term_name'),'createUser'=>array('select'=>'user_name'),'status'=>array('select'=>'term_name'));
+		$articleCriteria->order='art_id desc';
 		$articleDataProvider=new CActiveDataProvider('Article',array(
 			'criteria'=>$articleCriteria,
 			'pagination'=>array('pageSize'=>10,'pageVar'=>'page','params'=>array('Article[art_title]'=>$model->art_title,

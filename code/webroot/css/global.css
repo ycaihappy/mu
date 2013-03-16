@@ -815,11 +815,11 @@ padding: 0 20px;
 .xh-col-r{width:705px; float:left;}
 .chooseBox { background:#fcfcfc; border:1px solid #e6e6e6;}
 .chooseBox .getParam {padding:4px 0px 4px 0px; border-bottom:1px solid #e6e6e6; overflow:hidden;}
-.chooseBox .getParam a {color:#36c;font-style:normal;}
+.chooseBox .getParam a {color:#000;font-style:normal;}
 .chooseBox .getParam a:hover { text-decoration:underline; color:#F03;}
 .chooseBox .getParam .dateTitle{ width:60px; float:left; text-align:right; font-weight:bold;padding-right:8px;}
 .getParam .getBox .chooseDate {width: 555px;overflow:hidden; float:left;}
-.getParam .getBox .chooseDate a.selected{background-color:#FFEEA9;font-weight:bold;color:#D83F03;}
+.getParam .getBox .chooseDate a.selected{color:#ee5006;}
 .getParam .getBox .chooseDate dl dd{ margin-bottom:3px;word-break: break-all;word-wrap:break-word;}
 .getParam .getBox .chooseDate .collspan{height:18px;overflow:hidden;}
 .chooseBox .getParam dl dd i {
@@ -838,13 +838,13 @@ padding: 0 20px;
 .chooseShow .youSce{ float:left; margin-right: 14px; padding-top: 4px;}
 .chooseShow span em { background:url(imgs/gtxhzykIco.png) no-repeat 0 -23px;cursor:pointer; width:13px; height:14px;display:block; position: absolute;right: 4px; top: 7px; }
 .chooseBox .getParam .moreShow{padding-left:60px;_padding-left:62px;}
-.chooseBox .headTitle{background-color:#f5f7f9;width:53px;font-weight:bold;}
-.chooseBox .headspan{background:url(/content/images/zykSearch0919.png) no-repeat right center;width:7px;}
+.chooseBox .headTitle{background:url(imgs/xh_search_c_bg.gif) repeat-x top #d6d6d6;width:53px;font-weight:bold;}
+.chooseBox .headspan,.searchForm .headSpan{background:url(imgs/xh_search_arrow.gif) no-repeat left center;width:10px;}
 
 .searchForm { padding:0px; border:1px solid #e6e6e6; margin-bottom:4px; position:relative;  overflow:hidden;}
 .searchForm .searchBt{ width:54px; height:20px; background:url(imgs/gtxhzykIco.png) no-repeat 0 -120px; text-align:center; line-height:20px; position:absolute; top:11px; right:20px;}
-.searchForm .sfHead{background-color:#f5f7f9;width:53px;font-weight:bold;height:45px;}
-.searchForm .headSpan{background:url(imgs/zykSearch0919.png) no-repeat right center;width:7px;}
+.searchForm .sfHead{background:url(imgs/xh_search_c_bg.gif) repeat-x bottom #d6d6d6;width:53px;font-weight:bold;height:45px;}
+
 .searchForm .sfInputBox label{ margin:0 3px;}
 .searchForm .searchBt a{ color:#FFF;}
 .searchDateList {margin-top: 4px;}

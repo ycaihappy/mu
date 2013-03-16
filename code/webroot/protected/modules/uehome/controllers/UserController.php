@@ -81,7 +81,14 @@ class UserController extends Controller {
     public function actionFindPwdSucc()
     {
         $this->layout = '//layouts/ajax_main';
-        $this->render ( 'find_pwd_succ');
+        $email=$_GET['email'];
+        $mailServer='';
+        if(preg_match('/[\w]+@([\w]+)\.[\.\w]+/i',$email,$matches))
+        {
+        	$mailServer="mail.{$matches[1]}.com";
+        }
+        $data=compact('email','mailServer');
+        $this->render ( 'find_pwd_succ',$data);
     }
     public function actionOnlineDel()
     {

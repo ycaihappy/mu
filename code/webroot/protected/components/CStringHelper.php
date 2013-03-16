@@ -56,7 +56,7 @@ class CStringHelper extends CController
 	}
 	public static function generatePassword( $length = 6 ) {
 		// 密码字符集，可任意添加你需要的字符
-		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_ []{}<>~`+=,.;:/?|';
+		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_ []{}<>~+=?|';
 
 		$password = '';
 		for ( $i = 0; $i < $length; $i++ )

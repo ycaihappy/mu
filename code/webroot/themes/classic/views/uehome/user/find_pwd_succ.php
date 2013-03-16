@@ -25,10 +25,14 @@
         <h2>找回密码</h2>
 			
 			<div class="notice">
-            <p>操作成功！请到 <strong>54545@qq.com</strong> 查阅来钼市网的邮件，点击邮件中的链接重设您的密码。</p>
+			<?php if($mailServer):?>
+            <p>操作成功！请到 <strong><?php echo $email ?></strong> 查阅来自钼市网的邮件，并重设您的密码。</p>
             
-                <a target="_blank" href="http://mail.qq.com/" class="link-button">去邮箱收信</a></div>
-		 
+                <a target="_blank" href="http://<?php echo $mailServer?>/" class="link-button">去邮箱收信</a></div>
+		 	<?php else:?>
+			 <p>操作失败！你的邮箱 <strong><?php echo $email ?></strong> 格式不正确，为非法请求。</p>
+          
+			<?php endif;?>
             </div>
 	</div>
 	

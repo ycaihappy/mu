@@ -25,7 +25,7 @@ class UserIdentity extends CUserIdentity
 		$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		$criteria=new CDbCriteria;
 		$criteria->select='user_id,user_pwd,user_name,user_status';  // 只选择 'title' 列
-		$criteria->condition='user_name=:username';
+		$criteria->condition='user_name=:username and user_type=1';
 		$criteria->with=array('enterprise'=>array('select'=>'ent_id,ent_status'));
 		$criteria->params=array(':username'=>$this->username);
 		$user=User::model()->find($criteria);

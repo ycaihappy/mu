@@ -112,7 +112,6 @@ div.srbacLoading * {
   opacity: .2;
 }
 div.errorMessage{
-	font-style:italic;
 	color:red;
 }
 .m-home h1{font-size:14px;font-weight:bold;color:#2b86a1;margin-bottom:20px;}

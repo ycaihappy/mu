@@ -117,7 +117,7 @@ width: 960px;
 }
 
 .head{position:relative;}
-#p_index .head,#p_hq_index .head,#p_news_index .head,#p_xh_index .head{margin-top:20px;}
+#p_index .head,#p_hq_index .head,#p_news_index .head,#p_xh_index .head,#p_login .head,#p_register .head{margin-top:20px;}
 
 .m-top{height:33px;background:url(imgs/v2/top_nav_bg.png) repeat-x;text-align:right;line-height:33px;}
 .m-top a{font-size:12px;}

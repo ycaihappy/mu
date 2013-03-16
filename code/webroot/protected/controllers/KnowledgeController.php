@@ -71,7 +71,7 @@ class KnowledgeController extends Controller
 			}
 		}
 		$data=compact('newses','pager','categoryName');
-		$this->getController()->siteConfig->siteMetaTitle=$categoryName;
+		$this->siteConfig->siteMetaTitle=$categoryName;
 		$this->render('list',$data);
 	}
 }

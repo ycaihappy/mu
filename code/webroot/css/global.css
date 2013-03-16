@@ -886,7 +886,7 @@ padding: 0 20px;
 .specialRow a{color:#FF5A00;}
 .specialRow a:visited{color:#FF5A00;}
 
-.search-Date-show{border: 1px solid #ccc;}
+.search-Date-show{border: 1px solid #ccc;border-right:0;border-bottom:0}
 .sds-size-0,.sds-size-1,.sds-size-2,.sds-size-3,.sds-size-4,.sds-size-5,.sds-size-6,.sds-size-7,.sds-size-8,.sds-size-9{display:inline-block;float:left;text-align: center;overflow:hidden;}
 .sds-size-0{width:245px;padding-left:3px;}
 .sds-date-list li .sds-size-0 {text-align:left;padding-left:3px;}

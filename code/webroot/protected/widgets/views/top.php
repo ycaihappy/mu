@@ -17,7 +17,20 @@
 		<span>|</span>
 		<a href="<?php echo Yii::app()->controller->createUrl('about/contact');?>">联系我们</a>
 		<span>|</span>
-		<a href="">收藏本站</a>
+		<a href="#" onclick="addfavorite();">收藏本站</a>
 	</p>
 	</div>
 </div>
+<script>
+function addfavorite()
+{
+    if (document.all)
+    {
+        window.external.addFavorite('http://www.mushw.com:81','收藏夹');
+    }
+    else if (window.sidebar)
+    {
+        window.sidebar.addPanel('钼市网', 'http://www.mushw.com:81', "");
+    }
+} 
+</script>

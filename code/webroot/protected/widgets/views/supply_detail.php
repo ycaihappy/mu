@@ -6,7 +6,7 @@
             	<ul>
                 	<li>
                     	<span>供应</span>
-                        <em><?php echo $supply['supply_content'];?></em>
+                        <em><?php echo $supply['supply_name'];?></em>
                    	</li>
                 	<li>
                     	<span>发布公司</span>

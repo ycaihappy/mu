@@ -1,6 +1,6 @@
     <div class="m-nav" id="J_Nav">
         <div class="bd">
-            <div class="nav-con on">
+            <div class="nav-con <?php echo $controller=='site'?'on':'' ?>">
 
             <strong><a href="<?php echo $this->getController()->createUrl('/site/index')?>">首页</a><i class="sp"></i>
 			<b></b></strong>
@@ -13,7 +13,7 @@
             </p>
            
             </div>
-            <div class="nav-con">
+            <div class="nav-con <?php echo $controller=='news'?'on':'' ?>">
 
             <strong><a href="<?php echo $this->getController()->createUrl('/news/index')?>">新闻资讯</a><i class="sp"></i>
 			<b></b></strong>
@@ -26,7 +26,7 @@
             </p>
            
             </div>
-            <div class="nav-con">
+            <div class="nav-con <?php echo in_array($controller,array('product','supply'))?'on':'' ?>">
 
             <strong><a href="<?php echo $this->getController()->createUrl('/product/index')?>">现货供求</a><i class="sp"></i>
 			<b></b></strong><p>
@@ -37,7 +37,7 @@
             </p>
           
             </div>
-            <div class="nav-con">
+            <div class="nav-con <?php echo $controller=='price'?'on':'' ?>">
            <strong><a href="<?php echo $this->getController()->createUrl('/price/index')?>">价格行情</a><i class="sp"></i>
 			<b></b></strong>
            <p>
@@ -50,7 +50,7 @@
            
 
             </div>
-            <div class="nav-con">
+            <div class="nav-con <?php echo $controller=='knowledge'?'on':'' ?>">
 
            <strong><a href="<?php echo $this->getController()->createUrl('/knowledge/index')?>">钼百科</a><i class="sp"></i>
 			<b></b></strong><p>
@@ -63,7 +63,7 @@
             </p>
            
             </div>
-            <div class="nav-con">
+            <div class="nav-con <?php echo $controller=='site'?'on':'' ?>">
            <strong><a href="<?php echo $this->getController()->createUrl('/service/index')?>">钼服务</a><i class="sp"></i>
 			<b></b></strong>
            <p>

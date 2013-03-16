@@ -12,26 +12,7 @@
 <div class="layout head">
 	<?php $this->widget('SearchWidget');?>
 	<!--news nav-->
-	
-	
-	<div class="m-news-nav">
-		<div class="nav">
-		<ul>
-                	<li class="bgnone"><a href="<?php $this->createUrl('/site/index')?>" title="首页">首页</a></li>
-                    <li><a href="<?php echo $this->createUrl('/news/index')?>" title="钼市网新闻中心">新闻中心</a></li>
-                    <li><a href="<?php echo $this->createUrl('/price/index')?>" title="钼市网行情资讯">行情资讯</a></li>
-                    <li><a href="<?php echo $this->createUrl('/supply/index')?>" title="钼市网供求">供应求购</a></li>
-                    <li><a href="<?php echo $this->createUrl('/knowledge/list')?>" title="钼市网钼百科">钼百科</a></li>
-                    <li><a href="<?php echo $this->createUrl('/service/index')?>" title="钼服务">钼服务</a></li>
-                    <li><a href="<?php echo $this->createUrl('/product/index',array('bigType'=>28))?>" title="钼服务">钼初级</a></li>
-                    <li><a href="<?php echo $this->createUrl('/product/index',array('bigType'=>29))?>" title="钼化工">钼化工</a></li>
-                    <li><a href="<?php echo $this->createUrl('/product/index',array('bigType'=>30))?>" title="钼制品">钼制品</a></li>
-                    <li><a href="<?php echo $this->createUrl('/product/index',array('bigType'=>56))?>" title="钼制品">钼终极</a></li>
-                </ul>
-		</div>
-	</div>
-	
-	
+	<?php $this->widget('NavigationWidget');?>
 	
 	<!--news nav-->
 	

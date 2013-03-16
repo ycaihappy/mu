@@ -7,6 +7,7 @@ class NavigationWidget extends CWidget
 
     public function run()
     {
-        $this->render('navigation',array('name'=>'lizhli'));
+    	$controller=$this->getController()->getId();
+        $this->render('navigation',array('controller'=>$controller));
     }
 }

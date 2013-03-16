@@ -33,6 +33,7 @@ class ExhibitionController extends Controller {
 			}
 		}
 		$data=compact('exhibitions','pager','categoryName');
+		$this->getController()->siteConfig->siteMetaTitle=$categoryName;
 		$this->render('list',$data);
 	}
 	public function actionView()

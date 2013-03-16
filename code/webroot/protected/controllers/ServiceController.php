@@ -33,6 +33,9 @@ class ServiceController extends Controller {
 		{
 			$this->redirect(array('/service/index'));
 		}
+		$this->siteConfig->siteMetaTitle=$service->art_title;
+        $this->siteConfig->siteMetaKeyword=$service->art_tags;
+        $this->siteConfig->siteMetaDescription=$service->art_summary;
 		$data=compact('service');
 		$this->render('view',$data);
 	}

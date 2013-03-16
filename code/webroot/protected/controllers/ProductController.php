@@ -121,7 +121,7 @@ class ProductController extends BasicAccessController
 		}
 		$query=$query?$query:'*:*';
 		$pager=new CPagination();
-		$pager->pageSize=48;
+		$pager->pageSize=10;
 		$pager->pageVar='page';
 		try{
 			$result= Yii::app()->searcher->get($query,0,50,$params);

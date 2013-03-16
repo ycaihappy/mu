@@ -21,6 +21,7 @@ class NewsController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
+		$this->siteConfig->siteMetaTitle='新闻中心';
 		$this->render('index');
 	}
 
@@ -46,6 +47,7 @@ class NewsController extends Controller
 	}
 	public function actionList()
 	{
+		
 		$newsCategoryId=(int)@$_REQUEST['subcategory_id'];
 		if($newsCategoryId)
 		{
@@ -69,6 +71,7 @@ class NewsController extends Controller
 			$allTerm=CCacheHelper::getAllTerm();
 			$categoryName=$allTerm[$newsCategoryId]->term_name;
 			$data=compact('newses','pager','categoryName');
+			$this->siteConfig->siteMetaTitle=$categoryName;
 		}
 		else {
 			$this->redirect(array('index'));

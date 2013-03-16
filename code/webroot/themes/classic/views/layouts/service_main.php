@@ -11,7 +11,7 @@
 
 <div class="layout head">
 	<div class="m-logo">
-		<a target="_self" href="" class="logo"><img title="mushw.com - 钼市网" alt="zzz" src="/images/logo.jpg"></a>
+		<a target="_self" href="<?php echo $this->createUrl('/site/index')?>" class="logo"><img title="mushw.com - 钼市网" alt="zzz" src="/images/logo.jpg"></a>
 	</div>
 	<div class="logo-side-title"><img src="/images/service_title.gif" /></div>
 	

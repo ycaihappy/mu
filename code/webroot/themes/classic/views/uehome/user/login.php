@@ -68,7 +68,7 @@
 					<?php endif;?>
 					<tr>
 						<td></td>
-                        <td><div class="login-btns"><button tabindex="5" class="btn-login" type="submit">登录</button><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/register');?>" class="btn-reg">注册</a><br /><a href="<?php echo $this->getController()->createUrl('/uehome/user/findPwd')?>" class="forget">找回密码?</a></div></td>
+                        <td><div class="login-btns"><button tabindex="5" class="btn-login" type="submit">登录</button><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/register');?>" class="btn-reg">注册</a><br /><a href="<?php echo $this->createUrl('/uehome/user/findPwd')?>" class="forget">找回密码?</a></div></td>
 					</tr>
 				</table>
 				<?php $this->endWidget(); ?>

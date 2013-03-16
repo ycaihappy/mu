@@ -12,21 +12,7 @@
 	<?php $this->widget('SearchWidget');?>
 	<!--news nav-->
 	
-	
-	<div class="m-news-nav">
-		<div class="nav">
-		<ul>
-                <li class="bgnone"><a href="<?php echo $this->createUrl('knowledge/list');?>" title="首页">钼百科</a></li>
-                <li> <a href="<?php echo $this->createUrl('knowledge/list',array('subcategory_id'=>66));?>">钼用途</a></li>
-		        <li><a href="<?php echo $this->createUrl('knowledge/list',array('subcategory_id'=>63));?>">国际标准</a></li>
-		        <li><a href="<?php echo $this->createUrl('knowledge/list',array('subcategory_id'=>64));?>">国内标准</a></li>
-		        <li><a href="<?php echo $this->createUrl('knowledge/list',array('subcategory_id'=>65));?>">生产工艺</a></li>
-		        <li> <a href="<?php echo $this->createUrl('knowledge/list',array('subcategory_id'=>67));?>">钼产品</a></li>
-		        <li> <a href="<?php echo $this->createUrl('knowledge/list',array('subcategory_id'=>68));?>">钼应用</a></li>
-
-                </ul>
-		</div>
-	</div>
+	<?php $this->widget('NavigationWidget');?>
 	
 	
 	

@@ -11,6 +11,9 @@ class ProductDetailWidget extends CWidget
         $product_detail = Product::model()->findByPk($_GET['product_id']);
         $ent_info = User::model()->with(array('enterprise'=>array('select'=>'*')))->find('user_id=:user_id', array('user_id'=>$product_detail->product_user_id));
         $city = City::getCityList();
+        $this->getController()->siteConfig->siteMetaTitle=$product_detail->product_name;
+        $this->getController()->siteConfig->siteMetaKeyword=$product_detail->product_keyword;
+        $this->getController()->siteConfig->siteMetaDescription=$product_detail->product_keyword;
         $this->render('product_detail',array('product_detail'=>$product_detail,'ent_info'=>$ent_info, 'city'=>$city));
     }
 }

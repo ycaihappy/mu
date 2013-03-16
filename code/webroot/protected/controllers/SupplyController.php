@@ -42,6 +42,7 @@ class SupplyController extends BasicAccessController
                 $pager->applyLimit($criteria);
                 $list=Supply::model()->findAll($criteria);
                 $title='供应';
+                $this->siteConfig->siteMetaTitle='钼供应';
                 break;
             case '2':
                 $criteria=new CDbCriteria;
@@ -56,6 +57,7 @@ class SupplyController extends BasicAccessController
                 $pager->applyLimit($criteria);
                 $list=Supply::model()->findAll($criteria);
                 $title='求购';
+                $this->siteConfig->siteMetaTitle='钼求购';
                 break;
             }
             $supply_type= Term::model()->getTermsByGroupId(11);

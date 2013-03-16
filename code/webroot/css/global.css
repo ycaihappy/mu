@@ -1189,8 +1189,8 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
   margin: 0 5px 0 7px;
   text-align: left;
 }
-.page, ul.yiiPager li{display:inline}
-
+.page, ul.yiiPager li{display:;}
+.searchDateList div#fenye{float:right;};
 .m-info table{border-bottom:1px dotted #ccc;margin-bottom:20px;}
 .m-info .label{font-weight:bold;}
 .m-info td{padding:5px;}

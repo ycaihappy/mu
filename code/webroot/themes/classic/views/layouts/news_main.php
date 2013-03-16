@@ -10,22 +10,7 @@
 
 <div class="layout head">
 	<?php $this->widget('SearchWidget');?>
-		<div class="m-news-nav">
-		<div class="nav">
-		<ul>
-			<li><a href="<?php echo $this->createUrl('site/index')?>">首页</a></li>
-			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>41))?>">社会热点</a></li>
-			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>40))?>">本网视点</a></li>
-			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>47))?>">区域新闻</a></li>
-			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>42))?>">行业动态</a></li>
-			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>35))?>">国内新闻</a></li>
-			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>34))?>">国际新闻</a></li>
-			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>48))?>">分析评论</a></li>
-			<li><a href="<?php echo $this->createUrl('list',array('subcategory_id'=>49))?>">网站动态</a></li>
-			
-		</ul>
-		</div>
-	</div>
+	<?php $this->widget('NavigationWidget');?>
 </div>
 
 <div class="layout main">

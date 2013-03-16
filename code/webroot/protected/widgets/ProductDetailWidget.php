@@ -14,6 +14,7 @@ class ProductDetailWidget extends CWidget
         $this->getController()->siteConfig->siteMetaTitle=$product_detail->product_name;
         $this->getController()->siteConfig->siteMetaKeyword=$product_detail->product_keyword;
         $this->getController()->siteConfig->siteMetaDescription=$product_detail->product_keyword;
+        Product::model()->updateCounters(array('product_view_count'=>1),'product_id='.(int)$_GET['product_id']);
         $this->render('product_detail',array('product_detail'=>$product_detail,'ent_info'=>$ent_info, 'city'=>$city));
     }
 }

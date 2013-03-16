@@ -1,6 +1,7 @@
     		<div class="m-breadcrumb">
 	<p><b class="crumb"></b>会员中心<i></i>个人资料<i></i>修改密码</p>
 </div>
+<?php $this->renderPartial('updateTip'); ?>
     <div class="m-form">
 	
 <?php $form = $this->beginWidget('CActiveForm', array(

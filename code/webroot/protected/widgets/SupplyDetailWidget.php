@@ -14,6 +14,8 @@ class SupplyDetailWidget extends CWidget
         $this->getController()->siteConfig->siteMetaTitle=$supply_detail->supply_name;
         $this->getController()->siteConfig->siteMetaKeyword=$supply_detail->supply_keyword;
         $this->getController()->siteConfig->siteMetaDescription=$supply_detail->supply_keyword;
+
+         Supply::model()->updateCounters(array('supply_view_count'=>1),'supply_id='.(int)$_GET['supply_id']);
         $this->render('supply_detail',array('supply'=>$supply_detail,'user_info'=>$user_info,'category'=>$category, 'city'=>$city));
     }
 }

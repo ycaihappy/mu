@@ -19,7 +19,8 @@ a:hover{color:#f27B04;text-decoration:underline;}
 .info_warining li{line-height:20px;color:#c00}
 .block-error{padding:5px;border:1px solid #D91111;background:#FCFBE5;margin-bottom:20px;}
 .block-error p{font-weight:bold;line-height:20px;color:#c00}
-
+.block-success{padding:5px;border:1px solid green;background:#FCFBE5;margin-bottom:20px;}
+.block-success p{font-weight:bold;line-height:20px;color:green}
 
 .cmp-dropdown{display:inline-block;position:relative;border:1px solid #e9e9e9;padding:3px 7px;z-index:1000}
 .cmp-dropdown b{font-weight:normal;cursor:default}

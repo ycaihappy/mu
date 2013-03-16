@@ -900,14 +900,16 @@ padding: 0 20px;
 .sds-size-7{width:51px;}
 .sds-size-8{width:58px;}
 .sds-size-9{width:65px;}
-.sds-top h4,.searchDateList th{background: url(imgs/gtxhzykX.png) repeat-x scroll 0 -111px transparent;color: #993300;height:27px;text-align:center}
+.sds-top h4,.searchDateList th{background: url("imgs/xh_grey_bg.gif") repeat-x scroll 0 0 #E2E2E4;color: #000;height:33px;text-align:center;border:1px solid #ccc;border-left:0;border-top:0;font-weight:bold;}
 .searchDateList td{padding:7px 5px;}
 .sds-top h4 span{height:22px;padding-top:3px;}
 .sds-date-list li span{padding:5px 0;color:#033;}
 .sds-date-list li{overflow:hidden;border-bottom: 1px solid #ccc;vertical-align: bottom;}
-.searchDateList tr.odd{background:rgb(245, 239, 234)}
-.sds-date-list .no-border{border-bottom: 1px solid #fff;}
+.searchDateList tr.odd{background:#f1f1f1}
+.searchDateList tr.hover{background:#e0ebff}
 
+.sds-date-list .no-border{border-bottom: 1px solid #fff;}
+.searchDateList td{border:1px solid #ccc;border-left:0;border-top:0;}
 .pager-bar-container{font-size:12px;line-height:22px;height:22px;font-weight:bold;}
 .pager-bar-container a{color:Blue;cursor:pointer;margin-left:5px;text-decoration:none;font-weight:bold;}
 .pager-bar-container a:hover{color:Red;text-decoration:underline;}

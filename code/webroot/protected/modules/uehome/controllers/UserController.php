@@ -203,7 +203,7 @@ class UserController extends Controller {
         $keyword = isset($_REQUEST['term']) ? $_REQUEST['term'] : '';
 
         $connection = Yii::app()->db;
-        $sql = 'select * from mu_user where user_name like "%'.$keyword.'%" where user_type != 0';
+        $sql = 'select * from mu_user where user_name like "%'.$keyword.'%" and user_type != 0';
         $detail= $connection->createCommand($sql)->queryAll();
 
         foreach ($detail as $u)

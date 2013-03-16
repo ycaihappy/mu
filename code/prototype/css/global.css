@@ -1550,3 +1550,39 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-qq-set li{padding:10px;}
 .m-qq-set .cmp-input{margin-right:10px;}
 .m-qq-set .act{font-size:14px;font-weight:bold;cursor:pointer;}
+
+.m-shop-tpl .type_item {
+  float: left;
+  margin-right: 25px;
+  width: 340px;
+  margin-bottom:20px
+}
+.m-shop-tpl .type_preview {
+  border: 4px solid #FFFFFF;
+  float: left;
+  height: 140px;
+  margin-right: 22px;
+  width: 127px;
+}
+.m-shop-tpl .type_info {
+  overflow: hidden;
+}
+.m-shop-tpl h3 {
+  color: #6C6F79;
+  font-size: 12px;
+  font-weight: bold;
+}
+.m-shop-tpl .type_info p {
+  line-height: 18px;
+  padding-top: 10px;
+}
+.m-shop-tpl a:link, .m-shop-tpl a:visited{
+  color: #2BAFE0;
+  outline: medium none;
+  text-decoration: none;
+}
+.m-shop-tpl a:hover{color:orange}
+
+.m-shop-tpl .cur .type_preview {
+  border-color: #50B2E7;
+}

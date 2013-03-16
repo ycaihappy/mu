@@ -43,7 +43,7 @@ class FriendLink extends CActiveRecord
 			array('flink_id, flink_user_id, flink_status', 'numerical', 'integerOnly'=>true),
 			array('flink_name', 'length', 'max'=>128),
 			array('flink_url', 'length', 'max'=>512),
-			array('flink_url', 'url','message'=>'不正确的链接地址格式'),
+			array('flink_url', 'length','max'=>128),
 			array('flink_create_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

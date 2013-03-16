@@ -48,7 +48,7 @@ endif;?>
 		<td>
 		
 		<?php 
-		/*$this->widget('application.extensions.ckeditor.CKEditor',array( 
+		$this->widget('application.extensions.ckeditor.CKEditor',array( 
 				    
 		"model"=>$model,
 
@@ -61,12 +61,12 @@ endif;?>
 		'editorTemplate'=>'advanced',
 		
 		) 
-);*/
-		$this->widget('application.extensions.xheditor.JXHEditor', array(
+);
+		/*$this->widget('application.extensions.xheditor.JXHEditor', array(
 				    'model' => $model,
 				    'attribute' => 'art_content',
-				    'htmlOptions'=>array('class'=>'xheditor-mfull','cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 400px;'),
-				));
+				    'htmlOptions'=>array('class'=>'xheditor-min','cols'=>80,'rows'=>20,'style'=>'width: 100%; height: 400px;'),
+				));*/
 
 ?>
 		<?php echo $form->error($model,'art_content'); ?></td>

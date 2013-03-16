@@ -6,7 +6,7 @@
 				<ul>
 					<li><label>用户名：</label><div class="fields"><input type="text" name="UserLoginForm[username]" /></div></li>
 					<li><label>密码：</label><div class="fields"><input type="password" name="UserLoginForm[password]"  /></div></li>
-					<li><div class="btn"><a href="#" class="forget">找回密码?</a> <button type="button" class="btn-red">登 录</button></div></li>
+					<li><div class="btn"><a href="<?php echo $this->getController()->createUrl('/uehome/user/findPwd')?>" class="forget">找回密码?</a> <button type="button" class="btn-red">登 录</button></div></li>
 					
 				</ul>
 				</form>

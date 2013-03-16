@@ -815,11 +815,11 @@ padding: 0 20px;
 .xh-col-r{width:705px; float:left;}
 .chooseBox { background:#fcfcfc; border:1px solid #e6e6e6;}
 .chooseBox .getParam {padding:4px 0px 4px 0px; border-bottom:1px solid #e6e6e6; overflow:hidden;}
-.chooseBox .getParam a {color:#36c;font-style:normal;}
+.chooseBox .getParam a {color:#000;font-style:normal;}
 .chooseBox .getParam a:hover { text-decoration:underline; color:#F03;}
 .chooseBox .getParam .dateTitle{ width:60px; float:left; text-align:right; font-weight:bold;padding-right:8px;}
 .getParam .getBox .chooseDate {width: 555px;overflow:hidden; float:left;}
-.getParam .getBox .chooseDate a.selected{background-color:#FFEEA9;font-weight:bold;color:#D83F03;}
+.getParam .getBox .chooseDate a.selected{color:#ee5006;}
 .getParam .getBox .chooseDate dl dd{ margin-bottom:3px;word-break: break-all;word-wrap:break-word;}
 .getParam .getBox .chooseDate .collspan{height:18px;overflow:hidden;}
 .chooseBox .getParam dl dd i {
@@ -838,13 +838,13 @@ padding: 0 20px;
 .chooseShow .youSce{ float:left; margin-right: 14px; padding-top: 4px;}
 .chooseShow span em { background:url(imgs/gtxhzykIco.png) no-repeat 0 -23px;cursor:pointer; width:13px; height:14px;display:block; position: absolute;right: 4px; top: 7px; }
 .chooseBox .getParam .moreShow{padding-left:60px;_padding-left:62px;}
-.chooseBox .headTitle{background-color:#f5f7f9;width:53px;font-weight:bold;}
-.chooseBox .headspan{background:url(/content/images/zykSearch0919.png) no-repeat right center;width:7px;}
+.chooseBox .headTitle{background:url(imgs/xh_search_c_bg.gif) repeat-x top #d6d6d6;width:53px;font-weight:bold;}
+.chooseBox .headspan,.searchForm .headSpan{background:url(imgs/xh_search_arrow.gif) no-repeat left center;width:10px;}
 
 .searchForm { padding:0px; border:1px solid #e6e6e6; margin-bottom:4px; position:relative;  overflow:hidden;}
 .searchForm .searchBt{ width:54px; height:20px; background:url(imgs/gtxhzykIco.png) no-repeat 0 -120px; text-align:center; line-height:20px; position:absolute; top:11px; right:20px;}
-.searchForm .sfHead{background-color:#f5f7f9;width:53px;font-weight:bold;height:45px;}
-.searchForm .headSpan{background:url(imgs/zykSearch0919.png) no-repeat right center;width:7px;}
+.searchForm .sfHead{background:url(imgs/xh_search_c_bg.gif) repeat-x bottom #d6d6d6;width:53px;font-weight:bold;height:45px;}
+
 .searchForm .sfInputBox label{ margin:0 3px;}
 .searchForm .searchBt a{ color:#FFF;}
 .searchDateList {margin-top: 4px;}
@@ -886,7 +886,7 @@ padding: 0 20px;
 .specialRow a{color:#FF5A00;}
 .specialRow a:visited{color:#FF5A00;}
 
-.search-Date-show{border: 1px solid #ccc;}
+.search-Date-show{border: 1px solid #ccc;border-right:0;border-bottom:0}
 .sds-size-0,.sds-size-1,.sds-size-2,.sds-size-3,.sds-size-4,.sds-size-5,.sds-size-6,.sds-size-7,.sds-size-8,.sds-size-9{display:inline-block;float:left;text-align: center;overflow:hidden;}
 .sds-size-0{width:245px;padding-left:3px;}
 .sds-date-list li .sds-size-0 {text-align:left;padding-left:3px;}
@@ -900,14 +900,16 @@ padding: 0 20px;
 .sds-size-7{width:51px;}
 .sds-size-8{width:58px;}
 .sds-size-9{width:65px;}
-.sds-top h4,.searchDateList th{background: url(imgs/gtxhzykX.png) repeat-x scroll 0 -111px transparent;color: #993300;height:27px;text-align:center}
+.sds-top h4,.searchDateList th{background: url("imgs/xh_grey_bg.gif") repeat-x scroll 0 0 #E2E2E4;color: #000;height:33px;text-align:center;border:1px solid #ccc;border-left:0;border-top:0;font-weight:bold;}
 .searchDateList td{padding:7px 5px;}
 .sds-top h4 span{height:22px;padding-top:3px;}
 .sds-date-list li span{padding:5px 0;color:#033;}
 .sds-date-list li{overflow:hidden;border-bottom: 1px solid #ccc;vertical-align: bottom;}
-.searchDateList tr.odd{background:rgb(245, 239, 234)}
-.sds-date-list .no-border{border-bottom: 1px solid #fff;}
+.searchDateList tr.odd{background:#f1f1f1}
+.searchDateList tr.hover{background:#e0ebff}
 
+.sds-date-list .no-border{border-bottom: 1px solid #fff;}
+.searchDateList td{border:1px solid #ccc;border-left:0;border-top:0;}
 .pager-bar-container{font-size:12px;line-height:22px;height:22px;font-weight:bold;}
 .pager-bar-container a{color:Blue;cursor:pointer;margin-left:5px;text-decoration:none;font-weight:bold;}
 .pager-bar-container a:hover{color:Red;text-decoration:underline;}

@@ -498,7 +498,7 @@ $.extend(MU.mods,{
 	},
 	JXhSlist : function (){
 		var self = $(this);
-		$('.search-Date-show').find('tr:odd').addClass('odd');
+		$('.search-Date-show').find('tr').hover(function(){$(this).addClass('hover');},function(){$(this).removeClass('hover')}).filter(':odd').addClass('odd');
 	},
 	JQgxx : function(){
 		var $outer = $('#jq_animate_loop');

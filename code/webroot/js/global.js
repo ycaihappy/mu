@@ -663,5 +663,15 @@ $.extend(MU.mods,{
 				
 			}
 		});
+	},
+	JShopTpl : function () {
+		var self = $(this);
+		self.find('.btn').on('click',function(){
+			if($(this).hasClass('preview')){
+				$('<img>').attr('src',$(this).closest('.type_item').find('.type_preview').data('big')).dialog({width:'auto',height:'auto',title:'预览',close : function(){
+					$(this).dialog('destroy');
+				}});
+			}
+		});
 	}
 });

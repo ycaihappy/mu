@@ -17,6 +17,7 @@ class WebUser extends CWebUser
     public function login($identity, $duration=0) {
         $this->setState('__userInfo', $identity->getUser());
         $this->setState('__entId', $identity->getEntId());
+        $this->setState('__userStatus', $identity->getUserStatus());
         parent::login($identity, $duration);
     }
 	/**
@@ -31,6 +32,10 @@ class WebUser extends CWebUser
 	public function getEntId()
 	{
 		return $this->getState('__entId');
+	}
+	public function getUserStatus()
+	{
+		return $this->getState('__userStatus');
 	}
 	
 }

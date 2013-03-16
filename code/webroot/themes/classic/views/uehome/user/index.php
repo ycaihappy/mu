@@ -18,10 +18,18 @@
             <div class="item"><label>企业名称：</label><?php echo $enterprise->ent_name;?></div><div class="item"><label>联络人：</label><?php echo $enterprise->ent_chief;?></div>
 			</li>
 			<li>
-            <div class="item"><label>公司类型：</label><?php echo $ent_type[$enterprise->ent_type];?></div><div class="item"><label>业务类型：</label><?php echo $business_type[$enterprise->ent_business_model];?></div>
+            <div class="item"><label>公司类型：</label><?php echo isset($ent_type[$enterprise->ent_type])?$ent_type[$enterprise->ent_type]:'未指定';?></div>
+            <div class="item"><label>业务类型：</label><?php echo isset($business_type[$enterprise->ent_business_model])?$business_type[$enterprise->ent_business_model]:'未指定';?></div>
 			</li>
 			<li>
-            <div class="item"><label>注册资金：</label><?php echo $enterprise->ent_registered_capital."万元";?></div><div class="item"><label>网址：</label><?php echo $enterprise->ent_website;?></div>
+            <div class="item"><label>注册资金：</label><?php echo $enterprise->ent_registered_capital."万元";?></div><div class="item">
+            
+            <?php if($user->user_status==1 && $user->user_open_template && $user->user_template && $enterprise->ent_status==1): ?>
+            	<label>旺铺地址：</label><a target="_blank" href="<?php echo $this->createUrl('/storeFront/default/index',array('username'=>$user->user_name))?>"><?php echo Yii::app()->request->getHostInfo().$this->createUrl('/storeFront/default/index',array('username'=>$user->user_name))?></a>
+            	<?php else:?>
+            	<label>网址：</label><a target="_blank" href="<?php echo $enterprise->ent_website;?>"><?php echo $enterprise->ent_website;?></a>
+            <?php endif;?>
+            </div>
 			</li>
 			<li>
             <div class="item"><label>地址：</label><?php echo $enterprise->ent_location;?></div><div class="item"><label>传真：</label><?php echo $enterprise->ent_tax;?></div>

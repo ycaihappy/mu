@@ -19,13 +19,14 @@ class UserIdentity extends CUserIdentity
 	public $_id;
 	public $entId;
 	public $username;
+	public $userStatus;//1为正常，2为未通过，3为待审核
 	public function authenticate()
 	{
 		$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		$criteria=new CDbCriteria;
-		$criteria->select='user_id,user_pwd,user_name';  // 只选择 'title' 列
+		$criteria->select='user_id,user_pwd,user_name,user_status';  // 只选择 'title' 列
 		$criteria->condition='user_name=:username';
-		$criteria->with=array('enterprise'=>array('select'=>'ent_id'));
+		$criteria->with=array('enterprise'=>array('select'=>'ent_id,ent_status'));
 		$criteria->params=array(':username'=>$this->username);
 		$user=User::model()->find($criteria);
 		if ($user)
@@ -39,6 +40,17 @@ class UserIdentity extends CUserIdentity
 				$this->_id=$user->user_id;
 				$this->username=$user->user_name;
 				$this->entId=$user->enterprise->ent_id;
+				if($user->user_status==1 && $user->enterprise->ent_status==1)
+				{
+					$this->userStatus=1;
+				}
+				elseif($user->user_status==33 && $user->enterprise->ent_status==33)
+				{
+					$this->userStatus=3; 
+				}
+				else {
+					$this->userStatus=2;
+				}
 			}
 			else
 			{
@@ -76,5 +88,9 @@ class UserIdentity extends CUserIdentity
 	public function setUser(CActiveRecord $user)
 	{
 		$this->user=$user->attributes;
+	}
+	public function getUserStatus()
+	{
+		return $this->userStatus;
 	}
 }

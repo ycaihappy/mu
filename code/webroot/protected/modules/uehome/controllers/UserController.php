@@ -24,6 +24,27 @@ class UserController extends Controller {
 		)
 						);
 	}
+	public function beforeAction($action)
+	{
+		if(Yii::app()->user->getUserStatus()!=1)
+		{
+			$allowedAction=array('user/index','user/refused','user/company','user/detail','user/password','user/logout');
+			$allowedAction=array_merge($this->getModule()->allowedAction,$allowedAction);
+			$requestAction=$this->getId().'/'.$action->getId();
+			if(!in_array($requestAction,$allowedAction))
+			{
+				$this->redirect(array('user/refused'));
+			}
+		}
+		return true;
+		
+	}
+	public function actionRefused()
+	{
+		$status=Yii::app()->user->getUserStatus();
+		$data=compact('status');
+		$this->render('refused',$data);
+	}
 	/*public function filters()
     {
         return array(

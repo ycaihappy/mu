@@ -14,6 +14,11 @@
             </style>
        
         <div id="RightAdList">  
+		<div class="ui-m-tab">
+		<div class="hd">			
+				<span class="on"><a href="">推荐企业</a></span>
+			</div>
+		</div>
         <?php if($advEnt):
         		foreach ($advEnt as $ent):
         ?>       
@@ -24,8 +29,7 @@
                     <p><a href="<?php echo $ent->ent_id?>" target="_blank"><?php echo $ent->ent_business_scope?>，电话：<?php echo $ent->user->user_telephone?>，<?php echo $ent->user->user_mobile_no?>  <?php echo $ent->user->user_first_name ?> 地址：<?php echo $ent->ent_location?></a></p>
                     <p><a class="webSite" href="<?php echo $ent->ent_id?>" target="_blank"><?php echo $ent->ent_website?></a></p>
                 </div>
-            </div>
-            <div class="txtadBt"></div>
+            </div>           
         </div>
         <?php endforeach;
         endif;

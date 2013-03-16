@@ -864,14 +864,15 @@ padding: 0 20px;
 .sdTop .btBox a{ font-size:14px; font-weight:bold;line-height:33px; color:#333; font-family:"Microsoft YaHei",Tahoma, Geneva, sans-serif,"宋体"; }
 .sdTop .btBox a:hover{ color:#666;}
 .sdTop .btBox{ width:244px; overflow:hidden; padding-bottom:7px;}
-.txtAd { padding-right:1px; margin-top:5px;}
-.txtAd .txtadHd{ border:1px solid #fc9; border-bottom:none; padding:10px; padding-bottom:0px;}
+.txtAd { padding-right:1px; margin-bottom:5px;}
+.txtAd .txtadHd{ border:1px solid #e0e0e2; padding:10px;background:url(imgs/xh_r_bg.gif) repeat-x top #eaeaea}
 .txtAd .txtadBt{ height:16px;background:url(imgs/gtxhzykIco.png) no-repeat 0px -92px;}
 .txtAd .phone{background:url(imgs/phone.gif) no-repeat}
 .txtAd .txtadHd h2 { margin-bottom:4px;}
-.txtAd .txtadHd h2 strong ,.txtAd .txtadHd a{ color:#a64905; line-height:18px;}
+.txtAd .txtadHd h2 strong{font-weight:bold}
+.txtAd .txtadHd h2 strong ,.txtAd .txtadHd a{ color:#000; line-height:18px;}
 .txtAd .txtadHd a:hover{color:#06c;}
-.txtadHd .txtadCt p .webSite{ color:#630;}
+.txtadHd .txtadCt p .webSite{ color:#000;}
 .txtadHd .txtadCt{height:74px;overflow:hidden;}
 
 

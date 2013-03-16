@@ -117,7 +117,7 @@ width: 960px;
 }
 
 .head{position:relative;}
-#p_index .head,#p_hq_index .head,#p_news_index .head,#p_xh_index .head{margin-top:20px;}
+#p_index .head,#p_hq_index .head,#p_news_index .head,#p_xh_index .head,#p_login .head,#p_register .head{margin-top:20px;}
 
 .m-top{height:33px;background:url(imgs/v2/top_nav_bg.png) repeat-x;text-align:right;line-height:33px;}
 .m-top a{font-size:12px;}
@@ -1336,7 +1336,8 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-qk-login .btn-red{margin-right:10px;}
 .m-qk-login .ft{border-top:1px solid #fafafa;padding:10px 0 0 10px;overflow:hidden;}
 .m-qk-login .ft .btn-purple{margin-bottom:7px;margin-right:10px;float:left;position:relative;}
-
+.forget{color:#3366CC}
+.login-btns .forget{margin-top:3px;display:inline-block;}
 .ui-m-btn{text-align:center;display:inline-block;height:25px;line-height:25px;border:0;}
 .btn-purple-large{background:url(imgs/v2/btn_purple_large.png) no-repeat;width:92px;}
 .btn-purple-medium{background:url(imgs/v2/btn_purple_medium.png) no-repeat;width:71px;}

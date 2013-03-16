@@ -57,8 +57,9 @@ $this->breadcrumbs=array(
 </tr>
 
 <tr>
-<td class="label">品质：</td>
-		<td><?php echo $form->textField($model,'supply_mu_content'); ?></td>
+<td class="label">品阶：</td>
+		<td><?php echo $form->textField($model,'supply_mu_content'); ?>
+		<?php echo $form->error($model,'supply_mu_content'); ?></td>
 </tr>
 <tr id="water_content_tr" style="display:<?php if(!$model->hasWaterContent()) echo 'none'?>">
 <td class="label" >含水量：</td>

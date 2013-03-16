@@ -61,9 +61,15 @@ class Product extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('product_id,product_user_id,product_quanity, product_type_id, product_status,product_unit,product_city_id, product_special', 'numerical', 'integerOnly'=>true),
-			array('product_name, product_unit', 'length', 'max'=>45),
-			array('product_price', 'length', 'max'=>10),
-			array('product_type_id','required'),
+			array('product_name', 'length', 'max'=>128),
+			array('product_unit', 'required', 'message'=>'请选择单位！'),
+			array('product_quanity', 'numerical', 'message'=>'请填写数量！'),
+			array('product_city_id', 'required', 'message'=>'请选择地区！'),
+			array('product_name', 'required','message'=>'名称不能为空'),
+			array('product_price', 'numerical', 'message'=>'价格必须为数字'),
+			array('product_price', 'required', 'message'=>'价格必须填写！'),
+			array('product_type_id','required','message'=>'品类不能为空'),
+			array('product_mu_content', 'required','message'=>'品阶不能为空'),
 			array('product_location', 'length', 'max'=>100),
 			array('product_join_date', 'safe'),
 			array('product_mu_content,product_water_content','length','max'=>50),

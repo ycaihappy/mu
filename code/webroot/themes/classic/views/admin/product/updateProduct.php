@@ -45,8 +45,9 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'product_type_id'); ?></td>
 </tr>
 <tr>
-<td class="label">品质：</td>
+<td class="label">品阶：</td>
 		<td><?php echo $form->textField($model,'product_mu_content'); ?>
+		<?php echo $form->error($model,'product_mu_content'); ?>
 		</td>
 </tr>
 <tr id="water_content_tr" style="display:<?php if(!$model->hasWaterContent()) echo 'none'?>">
@@ -68,7 +69,7 @@ $this->breadcrumbs=array(
 <tr>
 <td class="label">单价：</td>
 		<td><?php echo $form->textField($model,'product_price',array('class'=>'cmp-input')); ?>元/<?php echo $form->dropDownList($model,'product_unit',$unit); ?>
-		<?php echo $form->error($model,'product_price'); ?></td>
+		<?php echo $form->error($model,'product_price'); ?><?php echo $form->error($model,'product_unit'); ?></td>
 </tr>
 <tr>
 <td class="label">地点：</td>
@@ -87,6 +88,14 @@ $this->breadcrumbs=array(
 <td class="label">描述：</td>
 		<td>
 		<?php 
+			/*$this->widget('application.extensions.ckeditor.CKEditor',array( 
+					"model"=>$model,
+					"attribute"=>'product_content',
+					"height"=>'400px',    
+					"width"=>'600px',    
+					'editorTemplate'=>'advanced',
+					) 
+				);*/
 				$this->widget('application.extensions.xheditor.JXHEditor', array(
 				    'model' => $model,
 				    'attribute' => 'product_content',
@@ -116,6 +125,8 @@ $this->breadcrumbs=array(
 </table>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+<br/>
+<br/>
 <br/>
 <?php 
 Yii::app()->clientScript->registerScript('Product#displayWaterConent','

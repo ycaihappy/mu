@@ -1,5 +1,5 @@
 	<div class="m-logo clearfix">
-		<a target="_self" href="" class="logo"><img title="xxx.com - xxxx" alt="zzz" src="images/logo.jpg"></a>
+		<a target="_self" href="<?php echo Yii::app()->controller->createUrl('/site/index');?>" class="logo"><img title="钼市网 - 会员中心" alt="钼市网 - 会员中心" src="/images/logo.jpg"></a>
 	</div>
 	<div class="m-user-top">
 	

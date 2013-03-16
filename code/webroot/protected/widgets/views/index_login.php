@@ -12,6 +12,15 @@
 				</form>
 			</div>
 			<?php endif;?>
+<?php if (Yii::app()->user->getID()):?>
+			<div class="bd">
+				<ul>
+                    <li><a href="<?php echo $this->getController()->createUrl('/uehome/user/message');?>">我的站内短信</a></li>
+					<li><a href="<?php echo $this->getController()->createUrl('/uehome/user/glist');?>">我的现货</a></li>
+					<li><a href="<?php echo $this->getController()->createUrl('/uehome/user/slist');?>">我的供求</a></li>
+				</ul>
+			</div>
+<?php endif;?>
 			<div class="ft">
 				<div class="line"></div>
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>651))?>" class="btn-purple"><i class="ico-2"></i>仓储现货</a>

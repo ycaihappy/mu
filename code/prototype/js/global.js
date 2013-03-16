@@ -498,7 +498,7 @@ $.extend(MU.mods,{
 	},
 	JXhSlist : function (){
 		var self = $(this);
-		$('.search-Date-show').find('tr:odd').addClass('odd');
+		$('.search-Date-show').find('tr').hover(function(){$(this).addClass('hover');},function(){$(this).removeClass('hover')}).filter(':odd').addClass('odd');
 	},
 	JQgxx : function(){
 		var $outer = $('#jq_animate_loop');
@@ -640,7 +640,7 @@ $.extend(MU.mods,{
 				$(this).addClass('on');
 			},
 			mouseleave : function () {
-				$(this).removeClass('on');
+				$(this).removeClass('on');				
 			}
 		});
 	},
@@ -652,7 +652,15 @@ $.extend(MU.mods,{
 			if($(this).hasClass('add')){
 				li.clone().insertBefore(self.find('.btn')).find('.act').attr('class','act remove').text('-').siblings('input').val('');
 			}else{
-				li.remove();
+				var hval = li.find('input[type=hidden]').val();
+				if(hval == "") {
+					li.remove();
+					return;
+				}
+				$.getJSON(self.data('del-api') + '&ids=' + hval,function(){
+					li.remove();
+				});
+				
 			}
 		});
 	}

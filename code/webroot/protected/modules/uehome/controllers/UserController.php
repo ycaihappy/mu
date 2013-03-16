@@ -908,15 +908,15 @@ $user_id =yii::app()->user->getID();
 				
 				if($storeFrontConfig && $storeFrontConfig->setting_config_data)
 				{
-					$storeFrontConfig=unserialize($storeFrontConfig->setting_config_data);
-					Yii::app()->fileCache->set(Yii::app()->user->getId(),$storeFrontConfig->setting_config_data,2000);
+					$storeFrontConfig=serialize($storeFrontConfig->setting_config_data);
+					Yii::app()->fileCache->set(Yii::app()->user->getId(),$storeFrontConfig,2000);
+					$storeFrontConfig=unserialize($storeFrontConfig);
 				}
 				else {
 					$storeFrontConfig=require 'protected/config/storeFrontDefault.php';
 				}
 			}
-			else
-			{
+			else {
 				$storeFrontConfig=unserialize($storeFrontConfig);
 			}
 		}

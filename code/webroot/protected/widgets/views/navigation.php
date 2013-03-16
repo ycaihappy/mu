@@ -55,9 +55,9 @@
            <strong><a href="<?php echo $this->getController()->createUrl('/knowledge/index')?>">钼百科</a><i class="sp"></i>
 			<b></b></strong><p>
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>66))?>">钼用途</a>
-           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>65))?>">生产工艺</a>
-           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>63))?>">国际标准</a>
-           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>64))?>">国内标准</a>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>65))?>">钼生产工艺</a>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>63))?>">钼国际标准</a>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>64))?>">钼国内标准</a>
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>67))?>">钼产品</a>
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>68))?>">钼应用</a>
             </p>

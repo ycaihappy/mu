@@ -72,7 +72,7 @@ class DefaultController extends Controller
 			if($storeFrontConfig && $storeFrontConfig->setting_config_data)
 			{
 				$this->storeFrontConfig=unserialize($storeFrontConfig->setting_config_data);
-				Yii::app()->fileCache->set($this->user->user_id,$storeFrontConfig->setting_config_data,$this->configCacheExpire);
+				Yii::app()->fileCache->set($this->user->user_id,$storeFrontConfig,$this->configCacheExpire);
 			}
 			else {
 				$this->storeFrontConfig=require 'protected/config/storeFrontDefault.php';

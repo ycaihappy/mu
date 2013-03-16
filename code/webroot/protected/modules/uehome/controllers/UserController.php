@@ -132,7 +132,7 @@ class UserController extends Controller {
         }
         else
         {
-            $online_list = OnlineSupport::model()->findAll();
+            $online_list = OnlineSupport::model()->findAll('online_ent_id=:online_ent_id', array(':online_ent_id'=>Yii::app()->user->getEntId()));
             foreach ( $online_list as $online_one)
             {
                 $model->contact_name[] = $online_one->online_name;

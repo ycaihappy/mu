@@ -4,6 +4,7 @@ class IndexLoginWidget extends CWidget
 
     public function run()
     {
-        $this->render('index_login');
+        $user = User::model()->findbyPk(Yii::app()->user->getID());
+        $this->render('index_login',array('user_name'=>$user->user_name));
     }
 }

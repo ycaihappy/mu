@@ -1334,12 +1334,19 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-qk-login .bd{padding:8px 0;border-bottom:border:1px solid #dedee0;padding-bottom:5px;}
 .m-qk-login .bd label{font-weight:bold;width:60px;text-align:right;float:left;}
 .m-qk-login .bd .fields{width:150px;float:left;}
-.m-qk-login .bd .fields input{border:1px solid #e0dfe4;height:25px;width:145px;}
+.m-qk-login .bd .fields input{border:1px solid #e0dfe4;height:25px;width:145px;font-size:14px;line-height:25px;}
 .m-qk-login .bd li{line-height:35px;}
 .m-qk-login .btn{text-align:right}
 .m-qk-login .btn-red{margin-right:10px;}
 .m-qk-login .ft{border-top:1px solid #fafafa;padding:10px 0 0 10px;overflow:hidden;}
 .m-qk-login .ft .btn-purple{margin-bottom:7px;margin-right:10px;float:left;position:relative;}
+.m-qk-login .logined{padding-top:0;}
+.m-qk-login .logined li{width:50%;float:left;}
+.m-qk-login .logined li i{margin:0 5px;margin-left:10px;display:inline-block;width:24px;height:22px;vertical-align:middle;background-repeat:no-repeat;background-position:left center;}
+.link-msg{background:url(imgs/link_msg.gif);}
+.link-shop{background:url(imgs/link_shop.gif)}
+.link-member{background:url(imgs/link_member.gif)}
+.link-product{background:url(imgs/link_product.gif)}
 .forget{color:#3366CC}
 .login-btns .forget{margin-top:3px;display:inline-block;}
 .ui-m-btn{text-align:center;display:inline-block;height:25px;line-height:25px;border:0;}

@@ -17,7 +17,19 @@
 				<h4><img src="images/welcome.jpg" /></h4>
 				<ul>
                     <li><i class="link-msg"></i><a href="<?php echo $this->getController()->createUrl('/uehome/user/message');?>">站内短信</a></li>
-					<li><i class="link-shop"></i><a href="<?php echo $this->getController()->createUrl('/uehome/user/message');?>">我的旺铺</a></li>
+<?php if (Yii::app()->user->getUserStatus() == 1)
+{
+?>
+					<li><i class="link-shop"></i><a href="<?php echo $this->getController()->createUrl('/storeFront/default/index',array('username'=>$user_name));?>">我的旺铺</a></li>
+<?php
+}
+else
+{
+?>
+					<li><i class="link-shop"></i><a href="<?php echo $this->getController()->createUrl('/uehome/user/index');?>">会员中心</a></li>
+<?php 
+}
+?>
 					<li><i class="link-member"></i><a href="<?php echo $this->getController()->createUrl('/uehome/user/glist');?>">我的现货</a></li>
 					<li><i class="link-product"></i><a href="<?php echo $this->getController()->createUrl('/uehome/user/slist');?>">我的供求</a></li>
 				</ul>

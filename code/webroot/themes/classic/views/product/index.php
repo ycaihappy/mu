@@ -170,7 +170,7 @@
 							'prevPageLabel'=>'上一页',
 							'nextPageLabel'=>'下一页',
 							'pages'=>$pager,
-							'maxButtonCount'=>7,
+							'maxButtonCount'=>6,
 							)
 				
 				);

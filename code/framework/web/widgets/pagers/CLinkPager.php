@@ -151,8 +151,9 @@ class CLinkPager extends CBasePager
 		$currentPage=$this->getCurrentPage(false); // currentPage is calculated in getPageRange()
 		$buttons=array();
 
+		if($this->maxButtonCount<$pageCount)
 		// first page
-		$buttons[]=$this->createPageButton($this->firstPageLabel,0,$this->firstPageCssClass,$currentPage<=0,false);
+			$buttons[]=$this->createPageButton($this->firstPageLabel,0,$this->firstPageCssClass,$currentPage<=0,false);
 
 		// prev page
 		if(($page=$currentPage-1)<0)
@@ -169,7 +170,8 @@ class CLinkPager extends CBasePager
 		$buttons[]=$this->createPageButton($this->nextPageLabel,$page,$this->nextPageCssClass,$currentPage>=$pageCount-1,false);
 
 		// last page
-		$buttons[]=$this->createPageButton($this->lastPageLabel,$pageCount-1,$this->lastPageCssClass,$currentPage>=$pageCount-1,false);
+		if($this->maxButtonCount<$pageCount)
+			$buttons[]=$this->createPageButton($this->lastPageLabel,$pageCount-1,$this->lastPageCssClass,$currentPage>=$pageCount-1,false);
 
 		return $buttons;
 	}

@@ -4,10 +4,10 @@
 	<div class="m-search" id="J_SearchForm">
 		<div class="search-triggers">
 			<ul class="switchable-nav">
-			  <li class="selected" data-type="1"><a href="javascript:void(0);">现货</a></li>
-			  <li data-type="2"><a href="<?php echo $this->getController()->createUrl('/news/index')?>">新闻</a></li>
-			  <li data-type="3"><a href="<?php echo $this->getController()->createUrl('/price/index')?>">行情</a></li>
-			  <li data-type="4"><a href="<?php echo $this->getController()->createUrl('/supply/index')?>">供求</a></li>
+			  <li class="selected" data-type="1"><a href="javascript:void(0);">现货</a>|</li>
+			  <li data-type="2"><a href="<?php echo $this->getController()->createUrl('/news/index')?>">新闻</a>|</li>
+			  <li data-type="3"><a href="<?php echo $this->getController()->createUrl('/price/index')?>">行情</a>|</li>
+			  <li data-type="4"><a href="<?php echo $this->getController()->createUrl('/supply/index')?>">供求</a>|</li>
 			  <li data-type="5"><a href="<?php echo $this->getController()->createUrl('/knowledge/index')?>">钼百科</a></li>
 			</ul>
 		 </div>

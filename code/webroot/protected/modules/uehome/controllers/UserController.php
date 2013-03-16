@@ -132,7 +132,7 @@ class UserController extends Controller {
         }
         else
         {
-            $online_list = OnlineSupport::model()->findAll();
+            $online_list = OnlineSupport::model()->findAll('online_ent_id=:online_ent_id', array(':online_ent_id'=>Yii::app()->user->getEntId()));
             foreach ( $online_list as $online_one)
             {
                 $model->contact_name[] = $online_one->online_name;
@@ -203,7 +203,7 @@ class UserController extends Controller {
         $keyword = isset($_REQUEST['term']) ? $_REQUEST['term'] : '';
 
         $connection = Yii::app()->db;
-        $sql = 'select * from mu_user where user_name like "%'.$keyword.'%"';
+        $sql = 'select * from mu_user where user_name like "%'.$keyword.'%" and user_type != 0';
         $detail= $connection->createCommand($sql)->queryAll();
 
         foreach ($detail as $u)

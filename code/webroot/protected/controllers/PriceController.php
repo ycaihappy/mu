@@ -20,6 +20,7 @@ class PriceController extends BasicAccessController
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
+		$this->siteConfig->siteMetaTitle='行情中心';
 		$this->render('index');
 	}
 
@@ -108,6 +109,7 @@ class PriceController extends BasicAccessController
 			$allTerm=CCacheHelper::getAllTerm();
 			$categoryName=$allTerm[$newsCategoryId]->term_name;
 			$data=compact('newses','pager','categoryName');
+			$this->siteConfig->siteMetaTitle=$categoryName;
 		}
 		else {
 			$this->redirect(array('index'));

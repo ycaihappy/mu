@@ -44,6 +44,7 @@ class ProductController extends BasicAccessController
                 $pager=new CPagination($count);
                 $pager->pageSize=15;
                 $pager->applyLimit($criteria);
+                $this->siteConfig->siteMetaTitle='钼特价';
                 $list=Product::model()->findAll($criteria);
                 break;
             }

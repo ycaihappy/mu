@@ -10,10 +10,10 @@ case 2:
     break;
 }
 ?>
-        <div class="m-rcm-list">
-			
-			<dl class="last">
-            <dt><strong><?php echo $title;?></strong></dt>
+        <div class="m-rcm-list ui-m-tab ui-m-border">
+			   <div class="hd"><span class="on"><a href="javascript:;"><?php echo $title;?></a></span></div>
+			<dl class="">
+         
 			  <dd>				
 				<ul>
 			<?php for($index=0;$index<count($data);$index++):

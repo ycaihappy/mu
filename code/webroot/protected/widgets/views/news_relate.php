@@ -1,7 +1,8 @@
-		<div class="m-rel-news">
-		<div class="hd"></div>
-		<div class="bd">
-			<h4><a target="_blank" href="news_list.html">相关新闻</a></h4>
+		<div class="m-rel-news ui-m-tab ui-m-border">
+		<div class="hd">
+			<span class="on"><a target="_blank" href="news_list.html">相关新闻</a></span>
+		</div>
+		<div class="bd">			
 		<ul>
 	<?php for($index=0;$index<count($data);$index++):
 						?>

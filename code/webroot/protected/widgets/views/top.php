@@ -15,7 +15,7 @@
 		<span>|</span>
         <a href="<?php echo Yii::app()->controller->createUrl('site/map');?>">网站地图</a>
 		<span>|</span>
-		<a href="">联系客服</a>
+		<a href="<?php echo Yii::app()->controller->createUrl('about/contact');?>">联系我们</a>
 		<span>|</span>
 		<a href="">收藏本站</a>
 	</p>

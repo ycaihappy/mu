@@ -18,8 +18,9 @@
             <div class="item"><label>企业名称：</label><?php echo $enterprise->ent_name;?></div><div class="item"><label>联络人：</label><?php echo $enterprise->ent_chief;?></div>
 			</li>
 			<li>
-            <div class="item"><label>公司类型：</label><?php echo isset($ent_type[$enterprise->ent_type])?$ent_type[$enterprise->ent_type]:'未指定';?></div>
-            <div class="item"><label>业务类型：</label><?php echo isset($business_type[$enterprise->ent_business_model])?$business_type[$enterprise->ent_business_model]:'未指定';?></div>
+
+            <div class="item"><label>公司类型：</label><?php echo ($enterprise->ent_type !=0)? $ent_type[$enterprise->ent_type] : "不限";?></div><div class="item"><label>业务类型：</label><?php echo ($enterprise->ent_business_model) ? $business_type[$enterprise->ent_business_model] : "不限";?></div>
+
 			</li>
 			<li>
             <div class="item"><label>注册资金：</label><?php echo $enterprise->ent_registered_capital."万元";?></div><div class="item">

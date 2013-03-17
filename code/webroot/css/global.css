@@ -172,7 +172,7 @@ padding-right: 1px;
 }
 .m-nav .nav-con.on b,.m-nav .nav-con:hover b{display:block;}
 .m-nav .nav-con.on p{z-index:3}
-.showed{height:70px;}
+.showed{height:80px;}
 .showed .on p{display:block;}
 
 
@@ -220,7 +220,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .col-left{float:left;width:358px;margin-right:20px;overflow:hidden;}
 .col-right{float:left;width:584px;overflow:hidden;}
 
-.layout-area{margin-top:20px;width:1000px;overflow:hidden;}
+.layout-area{margin-bottom:10px;margin-top:5px;width:1000px;overflow:hidden;}
 .layout-area .m-tab-list{margin-right:20px}
 .layout-area .col-right{float:left}
 .layout-area .layout-right{float:left;width:740px;}
@@ -579,10 +579,10 @@ padding: 0 20px;
 .m-user-top{position:absolute;right:0;top:10px;font-size:12px;}
 
 
-.m-breadcrumb{margin-bottom:20px;margin-top:10px}
+.m-breadcrumb,.breadcrumba{margin-bottom:5px;margin-top:10px}
 .m-breadcrumb .crumb{background:url(imgs/ico-crumb-1.png) no-repeat;width:8px;height:9px;display:inline-block;margin-right:10px;}
 .m-breadcrumb i{background:url(imgs/ico-crumb-arr.png) no-repeat;width:11px;height:10px;display:inline-block;margin:0px 10px;}
-.m-breadcrumb p{padding-bottom:10px;border-bottom:1px solid #ccc;}
+.m-breadcrumb p{padding-bottom:10px;}
 
 .table-field{width:100%}
 .thumb{width:120px;height:120px;margin-right:20px;}

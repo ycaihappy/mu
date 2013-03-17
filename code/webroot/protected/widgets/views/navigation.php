@@ -1,5 +1,3 @@
-<?php
-?>
    <div class="m-nav showed" id="J_Nav">
         <div class="bd">
             <div class="nav-con <?php echo $controller=='site'?'on':'' ?>">
@@ -65,7 +63,7 @@
             </p>
            
             </div>
-            <div class="nav-con <?php echo $controller=='site'?'on':'' ?>">
+            <div class="nav-con <?php echo $controller=='service'?'on':'' ?>">
            <strong><a href="<?php echo $this->getController()->createUrl('/service/index')?>">钼服务</a><i class="sp"></i>
 			<b></b></strong>
            <p>

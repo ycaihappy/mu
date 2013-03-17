@@ -452,17 +452,21 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 }
 .m-rcm-list dt strong{font-weight:bold;padding-left:10px;}
 /*m-article-rcm*/
-
+.m-article-detail{margin-bottom:10px}
+.m-article-detail .bd{padding:10px}
 .m-article-detail h1{padding-bottom: 16px;font-family: '微软雅黑';font-size: 22px;text-align:center}
 .m-article-detail .color-a-0 a {color: #2D96E9;}
 .m-article-detail .tit-bar span {z-index: 2;}
 .m-article-detail .color-a-0 {padding-right: 7px;}
 .m-article-detail div.tit-bar.clearfix.tit-bar {color: #666666;text-align:center}
-.m-article-detail .line{border-bottom: 1px dotted #dbdbdb;margin:10px 0px;}
-.m-article-detail .content p,.m-article-detail .content {padding-bottom: 29px;font-size: 16px;line-height: 28px;}
+.m-article-detail .line{border-bottom: 1px solid #dbdbdb;margin:10px 0px;}
+.m-article-detail .content p,.m-article-detail .content {padding-bottom: 29px;font-size: 16px;line-height: 28px;font-size:12px;}
 .m-article-detail .article-time{margin:0 20px;}
 .m-article-detail .bor-tit b{font-weight:bold;color:#c00;font-size:14px;}
-
+.m-article-detail .ft{background:url(imgs/news_bt_bg.gif) repeat-x left bottom;padding:0px 10px 20px 10px;}
+.m-article-detail .ft li{width:48%;float:left;line-height:30px;}
+.m-article-detail .ft li span{font-weight:bold;color:#e74f00;margin:0 10px;font-size:14px}
+.banner_new2{margin-bottom:15px}
 
 /*m-supplier-detail*/
 .m-supplier-detail{ border: 1px solid #C5C5C5;position: relative;}
@@ -1311,7 +1315,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
   margin-top: 5px;
   padding-left: 12px;
 }
-#bdshare{margin-bottom:20px;}
+
 .ui-m-border{border:1px solid #dedee0}
 .m-new-hx{width:255px;float:left;margin-right:10px;}
 .m-new-hx .bd{border:1px solid #dedee0;padding:10px;}

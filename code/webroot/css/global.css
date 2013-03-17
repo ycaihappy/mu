@@ -1103,20 +1103,20 @@ padding: 0 20px;
 #pic_box li:hover img,#pic_box li.selected img{border:2px solid orange}
 #pic_box .ft .page{float:right;}
 
+.bt-repeat{background:url(imgs/bt_repeatbg.gif) repeat-x left bottom;}
 
-.m-tjxx {  border: 1px solid #C5C5C5;}
-.m-tjxx h2 {  background: none repeat scroll 0 0 #EDEDED;  color: #3E3E3E;  font-size: 12px;  line-height: 23px;  padding: 0 10px;}
-
-.m-tjxx h2 span {  float: right;}
-.m-tjxx h2 a {  color: #979797;  font-weight: normal;}
-
-.m-tjxx ul { line-height: 32px;  margin: 5px 15px;  overflow: hidden;}
-.m-tjxx li {  border-bottom: 1px solid #E9E9E9;  color: #807C7C;  font-size: 0;  height: 32px;  overflow: hidden;}
-.m-tjxx .tj01 {  width: 72px;}
+.m-tjxx { ;margin-bottom:10px}
+.m-tjxx ul { line-height: 32px;  overflow: hidden;}
+.m-tjxx li {  border-bottom: 1px dotted #E9E9E9;  color: #807C7C;  font-size: 0;  overflow: hidden;padding:5px 0px;}
+.m-tjxx li.last{border:0;}
+.m-tjxx .tj01 {  width: 115px;padding-left:5px;}
 .m-tjxx .tj02 {  text-align: center;  width: 65px;}
 .m-tjxx .tj03 {  text-align: center;  width: 70px;}
 .m-tjxx .tj04 {  text-align: right;  width: 48px;}
-.m-tjxx li span {  display: block;  float: left;  font-size: 12px;  margin: 0;  overflow: hidden;}
+.m-tjxx .header{font-weight:bold;background:#f3f3f5}
+.m-tjxx li span {  display: block;  float: left;  font-size: 12px;  margin: 0;  overflow: hidden;line-height:20px;}
+.m-tjxx .hd a{color:#0824c3;font-size:12px;}
+.m-tjxx .ft{height:10px;}
 
 .m-gc-ad{margin:10px 0px;}
 .cgal {  border: 1px solid #C5C5C5;}
@@ -1363,7 +1363,9 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .ui-m-tab .hd span a{color:#333;}
 .ui-m-tab .hd span.on{background:url(imgs/v2/tab_blue_bg.png) no-repeat;}
 .ui-m-tab .hd span.on a{color:#fff;}
-
+.ui-m-tab .hd .more{float:right;color:#0824C3;font-size:12px}
+.ui-m-tab .ui-tab-3 span.on{background:url(imgs/tab_3_on.gif) no-repeat;width:85px;color:#086bbc}
+.ui-m-tab .ui-tab-3 span.on a{color:#086bbc}
 .ui-m-tab2 .hd span{height:25px;text-align:center;line-height:25px;font-weight:bold;float:left;width:88px;color:#333;margin-right:10px;background:url(imgs/ui_tab2_btn_n.gif) no-repeat;}
 .ui-m-tab2 .hd {  background: url("imgs/ui_tab2_bg.gif") repeat-x scroll 0 0 #E2E2E4;  line-height: 30px; height:30px; overflow: hidden;}
 .ui-m-tab2 .hd span a{color:#333;}
@@ -1593,3 +1595,6 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-shop-tpl .cur .type_preview {
   border-color: #50B2E7;
 }
+
+.m-tjqy .bd{padding:10px}
+.m-tjqy .bd li{line-height:25px;background:url(imgs/v2/orange_arrow.png) no-repeat left center;padding-left:10px;}

@@ -1103,20 +1103,20 @@ padding: 0 20px;
 #pic_box li:hover img,#pic_box li.selected img{border:2px solid orange}
 #pic_box .ft .page{float:right;}
 
+.bt-repeat{background:url(imgs/bt_repeatbg.gif) repeat-x left bottom;}
 
 .m-tjxx {  border: 1px solid #C5C5C5;}
-.m-tjxx h2 {  background: none repeat scroll 0 0 #EDEDED;  color: #3E3E3E;  font-size: 12px;  line-height: 23px;  padding: 0 10px;}
-
-.m-tjxx h2 span {  float: right;}
-.m-tjxx h2 a {  color: #979797;  font-weight: normal;}
-
-.m-tjxx ul { line-height: 32px;  margin: 5px 15px;  overflow: hidden;}
-.m-tjxx li {  border-bottom: 1px solid #E9E9E9;  color: #807C7C;  font-size: 0;  height: 32px;  overflow: hidden;}
-.m-tjxx .tj01 {  width: 72px;}
+.m-tjxx ul { line-height: 32px;  overflow: hidden;}
+.m-tjxx li {  border-bottom: 1px solid #E9E9E9;  color: #807C7C;  font-size: 0;  overflow: hidden;padding:3px 0;}
+.m-tjxx li.last{border:0;}
+.m-tjxx .tj01 {  width: 115px;padding-left:5px;}
 .m-tjxx .tj02 {  text-align: center;  width: 65px;}
 .m-tjxx .tj03 {  text-align: center;  width: 70px;}
 .m-tjxx .tj04 {  text-align: right;  width: 48px;}
-.m-tjxx li span {  display: block;  float: left;  font-size: 12px;  margin: 0;  overflow: hidden;}
+.m-tjxx .header{font-weight:bold;background:#f3f3f5}
+.m-tjxx li span {  display: block;  float: left;  font-size: 12px;  margin: 0;  overflow: hidden;line-height:20px;}
+.m-tjxx .hd a{color:#0824c3;font-size:12px;}
+.m-tjxx .ft{height:10px;}
 
 .m-gc-ad{margin:10px 0px;}
 .cgal {  border: 1px solid #C5C5C5;}

@@ -2,13 +2,13 @@
     <div class="sellinfo clearfix">
         <div class="fl">
             <div class="img">
-            <span><img src="<?php echo $product_detail['product_image_src'];?>"></span>
+            <span><img src="<?php echo '/images/commonProductsImages/'.$product_detail['product_image_src'];?>"></span>
              
             </div>
 
         </div>
         <div class="fr">
-        <a title="" href="/tjbhgg/supply-3983588.html"><h1><?php echo $product_detail['product_name'];?></h1></a>
+        <h1><?php echo $product_detail['product_name'];?></h1>
             
         <p>产品价格：<span class="orange"><?php echo $product_detail['product_price'];?></span></p>
         <p>数量：<span><?php echo $product_detail['product_quanity'];?></span><?php echo $product_detail->unit->term_name?></p>

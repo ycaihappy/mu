@@ -24,3 +24,9 @@ Stack trace:
 #7 D:\www\mu\code\webroot\protected\yiic.php(7): require_once('D:\www\mu\code\...')
 #8 {main}
 ---
+2013/03/18 01:20:25 [error] [php] Undefined variable: prodeses (D:\mu_project\code\webroot\protected\commands\shell\buildCommand.php:389)
+Stack trace:
+#0 D:\mu_project\code\framework\base\CApplication.php(162): CConsoleApplication->processRequest()
+#1 D:\mu_project\code\framework\yiic.php(34): CConsoleApplication->run()
+#2 D:\mu_project\code\webroot\protected\yiic.php(7): require_once()
+

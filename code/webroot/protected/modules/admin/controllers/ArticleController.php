@@ -99,7 +99,7 @@ class ArticleController extends AdminController {
 				$newimg = $model->art_category_id.'_'.time().'_'.rand(1, 9999).'.'.$model->art_img->extensionName;
 				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
 				$uploadedImg='images/article/'.$newimg;
-				$model->art_img->saveAs($uploadedImg);
+				/*$model->art_img->saveAs($uploadedImg);
 				$im = null;
 				$imagetype = strtolower($model->art_img->getExtensionName());
 				if($imagetype == 'gif')
@@ -107,10 +107,17 @@ class ArticleController extends AdminController {
 				else if ($imagetype == 'jpg')
 				$im = imagecreatefromjpeg($uploadedImg);
 				else if ($imagetype == 'png')
-				$im = imagecreatefrompng($uploadedImg);
-				CThumb::resizeImage (
+				$im = imagecreatefrompng($uploadedImg);*/
+				$image=Yii::app()->image->load($model->art_img->getTempName());
+				$image->resize(600,600);
+				$image->save($uploadedImg);
+				$image=Yii::app()->image->load($uploadedImg);
+				$image->resize(400,280);
+				$thumbImg='images/article/thumb/'.$newimg;
+				$image->save($thumbImg);
+				/*CThumb::resizeImage (
 				$im,400, 280,
-				'images/article/thumb/'.$newimg, $model->art_img->getExtensionName() );
+				'images/article/thumb/'.$newimg, $model->art_img->getExtensionName() );*/
 				$model->art_img = $newimg;
 			}
 			else {

@@ -4,67 +4,25 @@ class IndexProductWidget extends CWidget
 	public $type;
 	public $newlist=array();
 	public $proTypes=array();
-	public function init()
-	{
-
-		/*switch ($this->type)
-		{
-			case 'special':
-				$this->newlist = Product::model()->topSpecial()->findAll();
-				break;
-			case 'product':
-				try{
-					//现货分类统计
-					$params['fl']='product_id';
-					$params['facet']='on';
-					$params['facet.field']='product_type_id';
-					$query='*:*';
-					$result= Yii::app()->searcher->get($query,0,1,$params);
-					$facetTypes=(array)$result->facet_counts->facet_fields->product_type_id;
-					 
-					if ($facetTypes)
-					{
-						$typesCache=CCacheHelper::getMuCategory();
-						foreach ($facetTypes as $type=>$num)
-						{
-							$this->proTypes[$type]=array('name'=>$typesCache[$type]->term_name,'num'=>$num);
-						}
-					}
-					$this->proTypes=array_slice($this->proTypes,0,8);
-				}
-				catch (CException $ex)
-				{
-					$this->newlist=array();
-					$this->proTypes=array();
-				}
-				//推荐现货
-				$recProCriteria=new CDbCriteria();
-				$recProCriteria->select='product_id,product_name';
-				$recProCriteria->join='inner join mu_recommend b on t.product_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=22 and b.recommend_position=54';
-				$recProCriteria->condition='product_status=1';
-				$recProCriteria->limit=10;
-				$recProducts=Product::model()->findAll($recProCriteria);
-				if($recProducts)
-				{
-					foreach ($recProducts as &$product)
-					{//用其他字段封装链接
-						$product->product_name=CStringHelper::truncate_utf8_string($product->product_name, 20);
-						$product->product_keyword=$this->getController()->createUrl('/product/view',array('product_id'=>$product->product_id));
-					}
-				}
-				$this->newlist = $recProducts;
-				 
-				break;
-		}*/
-		
-		
-		
-	}
 
 	public function run()
     {
     	//搜索表单
-        $recommedEnt = Enterprise::model()->with(array('user'=>array('select'=>'user_name')))->recommedEnt()->findAll();
+		$entCriteria=new CDbCriteria();
+		$entCriteria->select='ent_name,ent_website,ent_business_scope,ent_location';
+		$entCriteria->join='inner join mu_recommend b on t.ent_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=24 and b.recommend_position=53';
+		$entCriteria->condition='ent_status=1';
+		$entCriteria->with=array('user'=>array('select'=>'user_telephone,user_mobile_no,user_first_name'));
+		$entCriteria->limit=10;
+		$advEnt=Enterprise::model()->findAll($entCriteria);
+		if($advEnt)
+		{
+			foreach ($advEnt as &$ent)
+			{
+				$ent->ent_id=$ent->ent_website?$ent->ent_website:$this->getController()->createUrl('/storeFront/default/default',array('username'=>$ent->user->user_name));
+			}
+		}
+
 		$allProvince=City::getProvice('所有省份');
 		$allBigType=Term::getTermsByGroupId(14,true);
 		//分类过滤
@@ -95,6 +53,6 @@ class IndexProductWidget extends CWidget
     	$recProductCriteria->order='product_id';
     	$recProductCriteria->limit=20;
     	$recProducts=Product::model()->findAll($recProductCriteria);
-        $this->render('index_product',array('recProducts'=>$recProducts,'layerCategory'=>$layerCategory,'allProvince'=>$allProvince,'allBigType'=>$allBigType,'type'=>$this->type, 'data'=>$this->newlist,'proTypes'=>$this->proTypes,'ent'=>$recommedEnt));
+        $this->render('index_product',array('recProducts'=>$recProducts,'layerCategory'=>$layerCategory,'allProvince'=>$allProvince,'allBigType'=>$allBigType,'type'=>$this->type, 'data'=>$this->newlist,'proTypes'=>$this->proTypes,'ent'=>$advEnt));
 	}
 }

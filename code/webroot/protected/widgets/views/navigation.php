@@ -1,4 +1,6 @@
-    <div class="m-nav showed" id="J_Nav">
+<?php
+?>
+   <div class="m-nav showed" id="J_Nav">
         <div class="bd">
             <div class="nav-con <?php echo $controller=='site'?'on':'' ?>">
 

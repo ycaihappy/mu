@@ -69,7 +69,7 @@
 						<div class="ulist">
 							<ul>
 	            		<?php foreach($ent as $ent_info){?>
-                               <li><a href="<?php echo $ent_info->ent_id;?>"><?php echo $ent_info->ent_name;?></a></li>
+                               <li><a target="_blank" href="<?php echo $ent_info->ent_id;?>"><?php echo $ent_info->ent_name;?></a></li>
 				    	<?php }?>			
 						</ul>
 						</div>

@@ -331,15 +331,14 @@ $user_id =yii::app()->user->getID();
         $u_model->user_province_id = $_REQUEST['user_province_id'];
         $u_model->user_city_id     = $_REQUEST['user_city_id'];
         $u_model->user_subscribe   = isset($_REQUEST['newsletter']) ? $_REQUEST['newsletter'] : 0;
-        $u_model->user_type = $_REQUEST['user_type'];
+        $u_model->user_type =2;
         $u_model->user_mobile_no = $_REQUEST['mobile_number'];
-        $u_model->user_status = 1;
+        $u_model->user_status = 33;
         $u_model->user_join_date = date("Y-m-d");
 
         $u_model->save();
 
-        if ( $_REQUEST['user_type'] == 1)
-        {
+        
             $e_model = new Enterprise();
             $e_model->ent_user_id=$u_model->primaryKey;
             $e_model->ent_name   = $_REQUEST['company_name'];
@@ -348,8 +347,9 @@ $user_id =yii::app()->user->getID();
             $e_model->ent_chief= $_REQUEST['nickname'];
             $e_model->ent_create_time = date("Y-m-d H:i:s");
             $e_model->ent_city  = $_REQUEST['user_city_id'];
+            $e_model->ent_status = 33;
             $e_model->save();
-        }
+        
 
         echo json_encode(array('status'=>1,'data'=>array()));
 

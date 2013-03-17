@@ -62,6 +62,13 @@ $this->breadcrumbs=array(
 		</td>
 </tr>
 <tr>
+<td class="label">手机号码：</td>
+		<td>
+		<?php echo $form->textField($model,'user_telephone');?>
+		<?php echo $form->error($model,'user_telephone'); ?>
+		</td>
+</tr>
+<tr>
 <td class="label">地点：</td>
 		<td><?php echo $form->dropDownList($model,'user_province_id',$allProvince,array(
 			'ajax'=>array(

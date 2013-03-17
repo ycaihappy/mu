@@ -51,13 +51,13 @@
             </div>
 			</div>			
 			<div class="ui-m-tab2">
-				<div class="hd ui-m-border"><span class="on">产品说明</span><span>联系我们</span></div>
+				<div class="hd ui-m-border"><span class="on">产品说明</span><span>关于我们</span></div>
 				<div class="bd ui-m-border">
 					<ul class="content">
 <?php echo $supply['supply_content'];?>
 					</ul>
 					<ul class="content hide">
-						内容内容内容内容11
+<?php echo $user_info['enterprise']['ent_introduce'];?>
 					</ul>
 				</div>
 				<div class="ft">

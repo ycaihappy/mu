@@ -38,14 +38,26 @@
  
         </div>
     </div>
-
-    <div class="title clearfix">
-        <h2>详细描述</h2>
+	<div class="ui-m-tab2 ui-m-border">
+    <div class="hd">
+        <span class="on">详细描述</span>
     </div>
-
-    <div class="proInfo"><ul><li>品位:<?php echo $product_detail['product_mu_content'];?></li><li>含水量:<?php echo $product_detail['product_water_content'];?></li><li>仓库:<?php echo $city[$product_detail['product_city_id']];?></li></ul></div>
-    <div class="info">
+	<div class="bd">
+		<div class="info">
 		
-    <p><?php echo $product_detail['product_keyword'];?></p>
-		
+			<p>钼铁，钼矿</p>
+		</div>
+		<div class="proInfo">
+			<table width="97%">
+				<tr>
+					<td>品位:<?php echo $product_detail['product_mu_content'];?></td><td>含水量:<?php echo $product_detail['product_water_content'];?></td>
+				</tr>
+				<tr>
+					<td>仓库:<?php echo $city[$product_detail['product_city_id']];?></td>
+					<td><?php echo $product_detail['product_keyword'];?></td>
+				</tr>
+			</table>
+		</div>
+	   
+	</div>
 	</div>

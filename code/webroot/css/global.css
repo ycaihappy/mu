@@ -406,38 +406,45 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 
 /*m-detail */
-.m-detail .sellinfo .fr p.btn a.btn_lx {background: none repeat scroll 0 0 #eee;border: 1px solid #E1E1E1;}
+.m-detail .sellinfo .fr p.btn a.btn_lx {background:url(imgs/btn_xj.gif) no-repeat;width:115px;height:35px;display:block;text-indent:-9999px;border:0}
 .m-detail .sellinfo .fr p.btn a, .m-detail a.btn_free, .m-detail .vipinfo .btn a {border: 1px solid #C3C3C3;color: #333333;font: bold 14px/31px "微软雅黑";text-align: center;}
 .m-detail .sellinfo .fr p.btn a, .m-detail a.btn_free, .m-detail .vipinfo .btn a {display: inline-block;height: 31px;margin-right: 10px;width: 100px;}
-.m-detail a.btn_lx {background: none repeat scroll 0 0 #E24800 !important;border-color: #B70F0F !important;border-radius: 3px 3px 3px 3px;color: #FFFFFF !important;}
+
 .m-detail .sellinfo .fr p.btn, .vipinfo {float: left;padding-top: 30px;}
 .m-detail  img{display: block;height: 275px;overflow: hidden;width: 275px;}
 .m-detail .img{width:300px;height:300px;}
 .m-detail .sellinfo .fl {overflow: hidden;width: 300px;	float:left;}
+.m-detail .sellinfo .fl img{border:1px solid #ccc;padding:1px;}
 .m-detail .sellinfo p{line-height:30px;display:block}
 .m-detail .sellinfo {padding-bottom:20px;border-bottom:1px solid #ccc}
 .m-detail .title {margin:20px 0px;}
-.m-detail .orange{color: #FF6600; font: bold 16px/30px Arial,Helvetica,sans-serif;}
+.m-detail .orange{color: #da040c; font: bold 16px/30px Arial,Helvetica,sans-serif;}
 .m-detail .title strong, .m-detail .title h2 {float: left;font-size: 14px;font-weight: bold;}
 .m-detail .btn_phone {background: none repeat scroll 0 0 #1B81DC !important;border-color: #0060B1 !important;border-radius: 3px;color: #fff !important;}
-.m-detail .info{padding: 10px 0;line-height: 26px;}
-.m-detail .proInfo {background-color: #F6F6F6;display: block;line-height: 2;overflow: hidden;padding: 10px 0;width: 100%;}
-.m-detail .proInfo li {display: block;float: left;padding-left: 10px;width: 235px;}
-.m-detail h1{font-size:16px;font-weight:bold;margin-bottom:10px;}
+.m-detail .info{padding: 10px;line-height: 26px;}
+.m-detail .proInfo table{background: #F6F6F6;overflow: hidden;padding: 10px 0;margin:10px;border-left:1px solid #DEDEE0;border-bottom:1px solid #DEDEE0;}
+.m-detail .proInfo td {padding: 10px;border-right:1px solid #DEDEE0;border-top:1px solid #DEDEE0}
+.m-detail h1{font-size:14px;font-weight:bold;margin-bottom:10px;}
 .m-detail .fl{float:left;margin-right:10px;}
 .m-detail .fr{float:left;}
+.m-detail .ui-m-tab2{border-top:3px solid #006ab6}
 /*m-detail */
 
 /*m-refinfo*/
 .m-refinfo dt{background:#f3f3f3;line-height:30px;font-size:14px;}
 .m-refinfo dl{border:1px solid #ccc;margin-bottom:10px;}
 .m-refinfo dl.last{border:1px solid #ccc}
-.m-refinfo dd{padding:10px;line-height:20px;}
+.m-refinfo .bd{padding:10px;line-height:20px;}
 .m-refinfo  li{line-height:22px;}
 .m-refinfo  li a{color:#26709A}
 .m-refinfo dt strong{font-weight:bold;padding-left:10px;}
 .m-refinfo .input{border: 1px solid #ddd;color: #333;padding:3px;}
 .m-refinfo .btn{background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(254, 254, 254)), to(rgb(237, 237, 237)));background-image: -webkit-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -moz-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -o-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: -ms-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background-image: linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));background:#f7f7f7\9   border: 1px solid #003366;border:1px solid #ccc;padding:3px 5px;}
+
+.m-refinfo .ui-m-tab{margin-bottom:10px}
+.m-refinfo h6{font-weight:bold}
+
+
 /*m-refinfo*/
 
 /*m-rcm-list*/

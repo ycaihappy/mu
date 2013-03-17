@@ -2,7 +2,7 @@
     <div class="sellinfo clearfix">
         <div class="fl">
             <div class="img">
-                <span><img alt=""></span>
+            <span><img src="<?php echo $product_detail['product_image_src'];?>"></span>
              
             </div>
 
@@ -11,10 +11,8 @@
         <a title="" href="/tjbhgg/supply-3983588.html"><h1><?php echo $product_detail['product_name'];?></h1></a>
             
         <p>产品价格：<span class="orange"><?php echo $product_detail['product_price'];?></span></p>
-        <p>最小起订：<span><?php echo $product_detail['product_quanity'];?></span><?php echo $product_detail->unit->term_name?></p>
-          <p>供货总量：<span></span><?php echo $product_detail['product_unit'];?></p>
-	      <p>发&nbsp;货&nbsp;期：3天</p>
-          
+        <p>数量：<span><?php echo $product_detail['product_quanity'];?></span><?php echo $product_detail->unit->term_name?></p>
+          <p>有效期：<span></span><?php echo ($product_detail['product_status'] == 1) ? "有效" : "无效";?></p>
             <p>
             所&nbsp;在&nbsp;地：<?php echo $product_detail['product_location'];?></p>
             <p>
@@ -38,14 +36,26 @@
  
         </div>
     </div>
-
-    <div class="title clearfix">
-        <h2>详细描述</h2>
+	<div class="ui-m-tab2 ui-m-border">
+    <div class="hd">
+        <span class="on">详细描述</span>
     </div>
-
-    <div class="proInfo"><ul><li>品位:<?php echo $product_detail['product_mu_content'];?></li><li>含水量:<?php echo $product_detail['product_water_content'];?></li><li>仓库:<?php echo $city[$product_detail['product_city_id']];?></li></ul></div>
-    <div class="info">
+	<div class="bd">
+		<div class="info">
 		
-    <p><?php echo $product_detail['product_keyword'];?></p>
-		
+        <p><?php echo $product_detail['product_content'];?></p>
+		</div>
+		<div class="proInfo">
+			<table width="97%">
+				<tr>
+					<td>品位:<?php echo $product_detail['product_mu_content'];?></td><td>含水量:<?php echo $product_detail['product_water_content'];?></td>
+				</tr>
+				<tr>
+					<td>仓库:<?php echo $city[$product_detail['product_city_id']];?></td>
+					<td><?php echo $product_detail['product_keyword'];?></td>
+				</tr>
+			</table>
+		</div>
+	   
+	</div>
 	</div>

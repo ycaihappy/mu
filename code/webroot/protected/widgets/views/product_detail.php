@@ -2,7 +2,7 @@
     <div class="sellinfo clearfix">
         <div class="fl">
             <div class="img">
-                <span><img alt=""></span>
+            <span><img src="<?php echo $product_detail['product_image_src'];?>"></span>
              
             </div>
 
@@ -11,10 +11,8 @@
         <a title="" href="/tjbhgg/supply-3983588.html"><h1><?php echo $product_detail['product_name'];?></h1></a>
             
         <p>产品价格：<span class="orange"><?php echo $product_detail['product_price'];?></span></p>
-        <p>最小起订：<span><?php echo $product_detail['product_quanity'];?></span><?php echo $product_detail->unit->term_name?></p>
-          <p>供货总量：<span></span><?php echo $product_detail['product_unit'];?></p>
-	      <p>发&nbsp;货&nbsp;期：3天</p>
-          
+        <p>数量：<span><?php echo $product_detail['product_quanity'];?></span><?php echo $product_detail->unit->term_name?></p>
+          <p>有效期：<span></span><?php echo ($product_detail['product_status'] == 1) ? "有效" : "无效";?></p>
             <p>
             所&nbsp;在&nbsp;地：<?php echo $product_detail['product_location'];?></p>
             <p>
@@ -45,7 +43,7 @@
 	<div class="bd">
 		<div class="info">
 		
-			<p>钼铁，钼矿</p>
+        <p><?php echo $product_detail['product_content'];?></p>
 		</div>
 		<div class="proInfo">
 			<table width="97%">

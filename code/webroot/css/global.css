@@ -427,6 +427,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-detail h1{font-size:14px;font-weight:bold;margin-bottom:10px;}
 .m-detail .fl{float:left;margin-right:10px;}
 .m-detail .fr{float:left;}
+.m-detail .ui-m-tab2{border-top:3px solid #006ab6}
 /*m-detail */
 
 /*m-refinfo*/

@@ -13,6 +13,17 @@ class WebUser extends CWebUser
 
         return parent::__get($name);
     }
+    public function __set($name, $value)
+    {
+    	if ($this->hasState('__userInfo')) {
+            $user=$this->getState('__userInfo',array());
+            $user['user_template']=$value;
+            $this->setState('__userInfo',$user);
+            return;
+        }
+
+        return parent::__set($name, $value);
+    }
 
     public function login($identity, $duration=0) {
         $this->setState('__userInfo', $identity->getUser());

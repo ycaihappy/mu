@@ -2,7 +2,7 @@
 
 $class_user = $class_password = $class_company = $class_cert = $class_news = $class_message = '';
 $class_supply = $class_goods = $class_template = $class_slist = $class_glist = $class_nlist = '';
-$class_flink = $class_online = '';
+$class_flink = $class_shop_template = $class_online = '';
 switch (Yii::app()->controller->action->id)
 {
 case 'detail':
@@ -47,6 +47,9 @@ case 'flink':
 case 'online':
     $class_online= "on";
     break;
+case 'shopTemplate':
+    $class_shop_template= "on";
+    break;    
 }
 ?>
 
@@ -83,6 +86,7 @@ case 'online':
 	<h3><a>旺铺管理</a></h3>
 	<ul>
     <li class="<?php echo $class_template;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/templateSetting');?>" >主页设置</a></li>
+    <li class="<?php echo $class_shop_template;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/shopTemplate');?>" >旺铺模板选择</a></li>
     <li class="<?php echo $class_flink;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/flink');?>" >友情链接</a></li>
     <li class="<?php echo $class_online;?>"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/online');?>" >在线客服</a></li>
 	</ul>

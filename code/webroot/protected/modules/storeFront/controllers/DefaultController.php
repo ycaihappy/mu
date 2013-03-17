@@ -101,6 +101,14 @@ class DefaultController extends Controller
 					{//没有模板
 						$this->redirect(array('/site/index'));
 					}
+					//预览效果
+					if($preview=@$_REQUEST['preview'] )
+					{
+						if(Yii::app()->user->getId()==$user->user_id)
+						{
+							$user->user_template=$preview;
+						}
+					}
 					$this->layout='//layouts/storeFront/'.$user->user_template.'/main';
 				}
 
@@ -114,7 +122,7 @@ class DefaultController extends Controller
 	{
 		$img='/images/enterprise/'.$this->company->ent_image;
 		$content=CStringHelper::truncate_utf8_string($this->company->ent_introduce, 300);
-	$productCriteria=new CDbCriteria();
+		$productCriteria=new CDbCriteria();
 		$productCriteria->select='product_name,product_type_id,product_city_id,product_price,product_join_date';
 		$productCriteria->with=array('unit'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name'));
 		$productCriteria->condition='product_status=1 and product_special=0 and product_user_id='.$this->user->user_id;

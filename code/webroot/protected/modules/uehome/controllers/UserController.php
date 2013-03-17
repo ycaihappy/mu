@@ -923,4 +923,29 @@ $user_id =yii::app()->user->getID();
 		$data=compact('storeFrontConfig');
 		$this->render('templateSetting',$data);
 	}
+	public function actionShopTemplate()
+	{
+		$templates=CCacheHelper::getShopTemplate();
+		if($templateId=(int)@$_GET['temp_id'] )
+		{
+			if($templateDir=@$templates[$templateId]->temp_dir)
+			{
+				$updateRows=User::model()->updateByPk(Yii::app()->user->getId(), array('user_template'=>$templateDir));
+				if($updateRows)
+				{
+					Yii::app()->user->user_template=$templateDir;
+					Yii::app()->user->setFlash('validateSuccess','模板选择成功！');
+				}
+				else {
+					Yii::app()->user->setFlash('validateError','模板选择失败！');
+				}
+			}
+			else{
+				Yii::app()->user->setFlash('validateError','模板选择失败！');
+			}
+		}
+		$userTemplate=Yii::app()->user->user_template;
+		$data=compact('templates','userTemplate');
+		$this->render('shop_template',$data);
+	}
 }

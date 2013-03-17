@@ -105,6 +105,15 @@ class CCacheHelper  {
 		$muCategory=CacheStrategy::getInstance(CacheStrategy::FIVE_MINITS_EXPIRE)->getCacheDataForDb('muCategory',$categoryCriteria,'Term','term_id');
 		return $muCategory;
 	}
+	public static function getShopTemplate()
+	{
+		$templateCriteria=new CDbCriteria();
+		$templateCriteria->select='temp_id,temp_name,temp_dir';
+		$templateCriteria->condition='temp_status=1';
+		$templateCriteria->order='temp_order asc';
+		$templates=CacheStrategy::getInstance(CacheStrategy::ONE_DAY_EXPIRE)->getCacheDataForDb('shopTemplate',$templateCriteria,'UserTemplate','temp_id');
+		return $templates;
+	}
 	public static function getAdvertisement($position)
 	{
 		$allAdvertisement=CacheStrategy::getInstance(CacheStrategy::ONE_DAY_EXPIRE)->getData('advertisement');

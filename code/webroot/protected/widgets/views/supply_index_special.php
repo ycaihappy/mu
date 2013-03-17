@@ -33,3 +33,30 @@
 	</div>
 	<div class="ft bt-repeat"></div>
 </div>
+
+
+<div class="m-tjqy ui-m-tab ui-m-border">
+	<div class="hd">		
+			<span class="on"><a href="">推荐企业</a></span>
+		</div>
+	<div class="bd">
+				<ul class="on">
+		                            <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=42">2012年1-12月国际钼铁价格走势图</a></li>
+					                            <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=43">2012年12月国内钼铁价格走势图</a></li>
+					                            <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=44">2012年1-12月国内钼铁价格走势图</a></li>
+					                            <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=45">2012年1-12月国际钼铁价格走势图</a></li>
+					                            <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=46">2012年12月国内钼铁价格走势图</a></li>
+					                            <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=47">2012年12月国内氧化钼价格走势图</a></li>
+								
+				</ul>
+				<ul>
+                                    <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=15">2012年1-12月国际氧化钼价格走势图</a></li>
+                                                <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=32">2012年1-12月国际氧化钼价格走势图</a></li>
+                                                <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=31">2012年1-12月份我国钼铁进口对比图</a></li>
+                                                <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=30">2012年1-12月国际氧化钼价格走势图</a></li>
+                                                <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=24">2012年1-12月份我国钼铁出口对比图</a></li>
+                                                <li><a target="_blank" href="/index.php?r=news/view&amp;art_id=23">2012年12月国际钼铁价格走势图</a></li>
+                    			
+				</ul>
+			</div>
+</div>

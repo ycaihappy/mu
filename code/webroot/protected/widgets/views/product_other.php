@@ -2,30 +2,31 @@
 $image_coin = ($data['enterprise']['ent_recommend'] == 1) ? 'golden.gif' : 'silver.gif';
 ?>
 <div class="m-refinfo">
-			<dl>
-			  <dt><strong>会员信息</strong></dt>
-			  <dd>
-				<ul>
-				<li style="text-align:center;overflow:hidden;">
+	
+			<div class="ui-m-tab ui-m-border">
+			  <div class="hd"><span class="on">会员信息</span></div>
+			  <div class="bd">
+				<h6><?php echo $data['enterprise']['ent_name'];?></h6>				
+				<div class="info">
                 <img src="images/<?php echo $image_coin;?>" style="float:left;margin-right:10px;"/>
-                    <p style="float:left;line-height:20px;"><?php echo $data['enterprise']['ent_name'];?><br />
+                    <p style="float:left;line-height:20px;width:60%">类型：
 <?php echo  $business_model[$data['enterprise']['ent_business_model']];?><br />
-                    (<?php echo $citylist[$data['enterprise']['ent_city']];?>)<br />
+                    所在地：(<?php echo $citylist[$data['enterprise']['ent_city']];?>)
 					</p>
-			   </li>
-				
-				</ul>
-			  </dd>
-			</dl>
-			<dl>
-            <dt><strong>企业介绍</strong></dt>
-			  <dd>				
+			   </div>
+			  </div>
+			</div>
+			<div class="ui-m-tab ui-m-border">
+			<div class="hd"><span class="on">企业介绍</span></div>	
+          
+			  <div class="bd">				
 <?php echo $data['enterprise']['ent_introduce'];?>
-			  </dd>
-			</dl>
-			<dl>
-			  <dt><strong>联系信息</strong></dt>
-			  <dd>				
+			  </div>
+			</div>
+			<div class="ui-m-tab ui-m-border">
+			<div class="hd"><span class="on">联系信息</span></div>	
+
+			  <div class="bd">				
 				<ul>
                 <li>联 系 人:<?php echo $data['enterprise']['ent_chief'];?></li>
                 <li>联系电话:<?php echo $data['user_telephone'];?></li>
@@ -34,7 +35,7 @@ $image_coin = ($data['enterprise']['ent_recommend'] == 1) ? 'golden.gif' : 'silv
                   <li>传    真:<?php echo $data['enterprise']['ent_tax'];?></li>
                   <li>地   址:<?php echo $data['enterprise']['ent_location'];?></li>
 				</ul>
-			  </dd>
-			</dl>
+			  </div>
+			</div>
 
 		</div>

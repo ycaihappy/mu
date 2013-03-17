@@ -9,11 +9,11 @@ class IndexProductWidget extends CWidget
     {
     	//搜索表单
 		$entCriteria=new CDbCriteria();
-		$entCriteria->select='ent_name,ent_website,ent_business_scope,ent_location';
-		$entCriteria->join='inner join mu_recommend b on t.ent_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=24 and b.recommend_position=53';
+		$entCriteria->select='ent_name';
+		$entCriteria->join='inner join mu_recommend b on t.ent_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=24 and b.recommend_position=119';
 		$entCriteria->condition='ent_status=1';
 		$entCriteria->with=array('user'=>array('select'=>'user_name'));
-		$entCriteria->limit=10;
+		$entCriteria->limit=13;
 		$advEnt=Enterprise::model()->findAll($entCriteria);
 		if($advEnt)
 		{

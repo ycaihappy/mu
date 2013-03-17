@@ -60,6 +60,8 @@ class User extends CActiveRecord
 			array('user_open_template', 'boolean'),
 			array('user_nickname, user_point', 'length', 'max'=>20),
 			array('user_mobile_no,user_telephone', 'length', 'max'=>30),
+			array('user_mobile_no', 'CMobileValidator'),
+			array('user_telephone', 'CPhoneValidator'),
 			//array('comfirmPwd','compare','compareAttribute'=>'user_pwd'),
 			array('user_join_date, user_confirm_date,user_status, user_last_login_date', 'safe'),
 			// The following rule is used by search().

@@ -586,7 +586,7 @@ class UserController extends AdminController
 		'role'=>array('select'=>'name'),
 		'type'=>array('select'=>'group_name,group_logo'),
 		);
-		$userCriteria->order='user_join_date desc';
+		$userCriteria->order='user_id desc';
 		if($userType==1)
 		{
 			$userCriteria->addCondition('user_type<>0');

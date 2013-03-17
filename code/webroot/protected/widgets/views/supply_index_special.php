@@ -36,7 +36,7 @@
 
 
 <div class="m-tjqy ui-m-tab ui-m-border">
-	<div class="hd">		
+	<div class="hd ui-tab-3">		
 			<span class="on"><a href="">推荐企业</a></span><a class="more" >更多&gt;&gt;</a>
 		</div>
 	<div class="bd">

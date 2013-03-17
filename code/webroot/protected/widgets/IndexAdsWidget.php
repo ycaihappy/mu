@@ -4,6 +4,8 @@ class IndexAdsWidget extends CWidget
 
     public function run()
     {
-        $this->render('index_ads');
+    	$advs=CCacheHelper::getAdvertisement(121);
+    	$data=compact('advs');
+        $this->render('index_ads',$data);
     }
 }

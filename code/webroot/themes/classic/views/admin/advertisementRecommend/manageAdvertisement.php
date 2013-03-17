@@ -13,7 +13,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			'caption'=>'添加广告',
 		'value'=>'asd',
 		'onclick'=>'js:function(){
-			window.href.location="'.$this->createUrl('updateAdvertisement').'";
+			window.location.href="'.$this->createUrl('updateAdvertisement').'";
 			return false;
 		}',
 		)
@@ -64,7 +64,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
         ),  // display the 'name' attribute of the 'category' relation
         array(
         	'name'=>'所属人',
-        	'value'=>'$data->user->enterprise?$data->user->enterprise->ent_name:"未指定"',
+        	'value'=>'$data->user?$data->user->enterprise->ent_name:"钼市网"',
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'位置',

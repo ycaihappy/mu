@@ -25,7 +25,10 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$adv1=CCacheHelper::getAdvertisement(11);
+		$adv2=CCacheHelper::getAdvertisement(122);
+		$data=compact('adv1','adv2');
+		$this->render('index',$data);
 	}
     public function actionMap()
     {

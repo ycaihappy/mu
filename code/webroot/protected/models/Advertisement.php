@@ -45,7 +45,6 @@ class Advertisement extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ad_id', 'required'),
 			array('ad_id, ad_user_id, ad_type, ad_no, ad_status, ad_click_num', 'numerical', 'integerOnly'=>true),
 			array('ad_link', 'length', 'max'=>256),
 			array('ad_title', 'length', 'max'=>128),
@@ -53,10 +52,15 @@ class Advertisement extends CActiveRecord
 			array('ad_media_src', 'length', 'max'=>128),
 			array('ad_media_src', 'length', 'max'=>128),
 			array('ad_start_date, ad_end_date, ad_create_time', 'safe'),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('ad_id, ad_user_id, ad_type, ad_no, ad_link, ad_status, ad_click_num, ad_start_date, ad_end_date, ad_price, ad_media_src, ad_create_time', 'safe', 'on'=>'search'),
 		);
+	}
+	public function beforeSave()
+	{
+		if($this->isNewRecord)
+		{
+			$this->ad_create_time=date('Y-m-d H:i:s');
+		}
+		return parent::beforeSave();
 	}
 
 	/**

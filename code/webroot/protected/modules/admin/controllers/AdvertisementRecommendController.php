@@ -38,7 +38,7 @@ class AdvertisementRecommendController extends AdminController {
 		{
 			$advertisementCriteria->addSearchCondition('enterprise.ent_name',$adEnterprise,true);
 		}
-		
+
 		$advertisementCriteria->with=array('user.enterprise'=>array('select'=>'ent_name'),
 											'type'=>array('select'=>'term_name'),
 											'position'=>array('select'=>'term_name'),
@@ -52,8 +52,8 @@ class AdvertisementRecommendController extends AdminController {
 							'Advertisement[ad_type]'=>$model->ad_type,
 							'Advertisement[ad_title]'=>$model->ad_title,
 							'Advertisement[ad_status]'=>$model->ad_status,
-						),
-				),
+		),
+		),
 			'sort'=>array('defaultOrder'=> array('ad_create_time'=>CSort::SORT_DESC), ),
 		));
 		$adStatus=Term::getTermsByGroupId(1);
@@ -65,7 +65,7 @@ class AdvertisementRecommendController extends AdminController {
 		'adStatus'=>$adStatus,
 		'adPosition'=>$adPosition,
 		));
-		
+
 	}
 	public function actionUpdateAdvertisement()
 	{
@@ -78,35 +78,34 @@ class AdvertisementRecommendController extends AdminController {
 			if($model->ad_media_src)
 			{
 				$newimg = 'advertisement_'.$model->ad_user_id.'_'.time().'_'.rand(1, 9999).'.'.$model->ad_media_src->extensionName;
-		        //根据时间戳重命名文件名,extensionName是获取文件的扩展名
-		        $model->ad_media_src->saveAs('images/advertisement/'.$newimg);
-		        $model->ad_media_src = 'images/advertisement/'.$newimg;
+				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
+				$model->ad_media_src->saveAs('images/advertisement/'.$newimg);
+				$model->ad_media_src = $newimg;
 			}
 			else {
-					$model->ad_media_src=$_POST['ad_media_src_hidden'];
-				
+				$model->ad_media_src=$_POST['ad_media_src_hidden'];
+
 			}
 			if($model->save())
 			{
 				$this->redirect(array('manageAdvertisement'));
 			}
 		}
-		else
-		{
-			if($adId=$_GET['ad_id'])
-				$model=$model->findByPk($adId);
-			$adPosition=Term::getTermsByGroupId(7);
-			$adStatus=Term::getTermsByGroupId(1);
-			$adType=Term::getTermsByGroupId(6);
-			$this->render('updateAdvertisement',array(
+		if($adId=(int)@$_GET['ad_id']){
+			$model=$model->findByPk($adId);
+		}
+		$adPosition=Term::getTermsByGroupId(7);
+		$adStatus=Term::getTermsByGroupId(1);
+		$adType=Term::getTermsByGroupId(6);
+		$this->render('updateAdvertisement',array(
 			'adPosition'=>$adPosition,
 			'adStatus'=>$adStatus,
 			'adType'=>$adType,
 			'model'=>$model,
-			));
-		}
+		));
+
 	}
-	
+
 	public function actionManageRecommend()
 	{
 		$model=new Recommend();
@@ -118,17 +117,17 @@ class AdvertisementRecommendController extends AdminController {
 		if($model->recommend_type)
 		{
 			$recommendCriteria->compare('recommend_type', '='.$model->recommend_type);
-			
+				
 		}
 		if($model->recommend_position)
 		{
 			$recommendCriteria->compare('recommend_position', '='.$model->recommend_position);
-			
+				
 		}
 		if($model->recommend_status)
 		{
 			$recommendCriteria->compare('recommend_status', '='.$model->recommend_status);
-			
+				
 		}
 		if($model->recommend_id)
 		{
@@ -146,7 +145,7 @@ class AdvertisementRecommendController extends AdminController {
 						'Recommend[recommend_position]'=>$model->recommend_position,
 						'Recommend[recommend_title]'=>$model->recommend_id,
 						'Recommend[recommend_status]'=>$model->recommend_status,
-					),
+		),
 		),
 		)
 		);
@@ -227,7 +226,7 @@ class AdvertisementRecommendController extends AdminController {
 					}
 				}
 				if(!$error)
-					$resultMsg='推荐成功！';
+				$resultMsg='推荐成功！';
 			}
 			echo $resultMsg;
 		}

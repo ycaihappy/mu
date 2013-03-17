@@ -24,7 +24,7 @@ endif;?>
 <table border="0" cellpadding="0" cellspacing="0" class="table-field">
 <tr>
 <td class="label">所属公司：</td>
-		<td><input type=text disabled value="<?php echo $model->user->enterprise->ent_name;?>" />
+		<td><input type=text disabled value="<?php echo $model->user?$model->user->enterprise->ent_name:'钼市网';?>" />
 		
 		<?php echo $form->error($model,'art_title'); ?></td>
 </tr>
@@ -69,7 +69,7 @@ endif;?>
 		<td>
 		<?php 
 		$this->widget('zii.widgets.jui.CJuiDatePicker', array(
-			    'name'=>'ad_start_date',
+			    'name'=>'Advertisement[ad_start_date]',
 			    'options'=>array(
 			        'showAnim'=>'fold',
 			    ),
@@ -82,7 +82,7 @@ endif;?>
 		);?>
 <?php echo $form->error($model,'ad_start_date'); ?> - <?php 
 		$this->widget('zii.widgets.jui.CJuiDatePicker', array(
-			    'name'=>'ad_end_date',
+			    'name'=>'Advertisement[ad_end_date]',
 			    'options'=>array(
 			        'showAnim'=>'fold',
 			    ),
@@ -110,7 +110,7 @@ endif;?>
 		</td>
 </tr>
 <tr>
-<td align='right' colspan=2><?php echo CHtml::submitButton('保存'); ?></td>
+<td align='right' colspan=2><?php echo CHtml::submitButton('保存',array('class'=>'btn-a')); ?></td>
 </tr>
 </table>
 <?php $this->endWidget(); ?>

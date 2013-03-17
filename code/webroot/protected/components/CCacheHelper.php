@@ -129,9 +129,9 @@ class CCacheHelper  {
 		{
 			$advCriteria=new CDbCriteria();
 			$advCriteria->select='ad_id,ad_link,ad_media_src,ad_no';
-			$advCriteria->condition='ad_status=1';
 			$advCriteria->compare('ad_start_date', '<='.date('Y-m-d'));
 			$advCriteria->compare('ad_end_date', '>='.date('Y-m-d'));
+			$advCriteria->condition='ad_status=1';
 			$advs=Advertisement::model()->findAll($advCriteria);
 			if($advs)
 			{

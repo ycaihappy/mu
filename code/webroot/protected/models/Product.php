@@ -71,7 +71,7 @@ class Product extends CActiveRecord
 			array('product_type_id','required','message'=>'品类不能为空'),
 			array('product_mu_content', 'required','message'=>'品阶不能为空'),
 			array('product_location', 'length', 'max'=>100),
-			array('product_join_date', 'safe'),
+			array('product_join_date,product_content', 'safe'),
 			array('product_mu_content,product_water_content','length','max'=>50),
 		);
 	}

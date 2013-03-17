@@ -49,8 +49,12 @@
 	<div class="layout-area">
 	
 		<div class="m-bt-ad">
-			<a class="first"><img src="/images/bottom_ad_440x60.png" width="440" height="60" /></a>
-			<a><img src="/images/bottom_ad_490x59.png" width="490" height="59" /></a>
+		<?php if($adv1):?>
+			<a href="<?php echo $adv1[0]->ad_link?>" class="first"><img src="<?php echo '/images/advertisement/'.$adv1[0]->ad_media_src?>" width="440" height="60" /></a>
+		<?php endif;?>
+		<?php if($adv2):?>
+			<a href="<?php echo $adv2[0]->ad_link?>"><img src="<?php echo '/images/advertisement/'.$adv2[0]->ad_media_src?>" width="490" height="59" /></a>
+		<?php endif;?>
 		</div>		
 		
 	</div>

@@ -80,6 +80,7 @@ class User extends CActiveRecord
 			'role'=>array(self::MANY_MANY,'AuthItem','mu_right_assignment(userid,itemname)'),
 			'enterprise'=>array(self::HAS_ONE,'Enterprise','ent_user_id'),
 			'city'=>array(self::BELONGS_TO,'City','user_city_id'),
+			'type'=>array(self::BELONGS_TO,'UserGroup','user_type'),
 			
 		);
 	}

@@ -581,9 +581,19 @@ class UserController extends AdminController
 		$model->user_name=@$_REQUEST['User']['user_name'];
 		$userCriteria=new CDbCriteria();
 		$userCriteria->select='user_id,user_name,user_first_name,user_nickname,user_email,user_join_date,user_last_login_date';
-		$userCriteria->with=array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name'));
+		$userCriteria->with=array('enterprise'=>array('select'=>'ent_name'),
+		'status'=>array('select'=>'term_name'),
+		'role'=>array('select'=>'name'),
+		'type'=>array('select'=>'group_name,group_logo'),
+		);
 		$userCriteria->order='user_join_date desc';
-		$userCriteria->addCondition('user_type=:user_type');
+		if($userType==1)
+		{
+			$userCriteria->addCondition('user_type<>0');
+		}
+		else {
+			$userCriteria->addCondition('user_type=:user_type');
+		}
 		$userCriteria->params[':user_type']=$userType;
 		if($model->user_status)
 		{
@@ -675,11 +685,13 @@ class UserController extends AdminController
 				$allCity=City::getAllCity($model->user_province_id);
 			}
 			$userStatus=Term::getTermsByGroupId(1);
+			$userType=UserGroup::getUserGroup();
 			$userTemplate=UserTemplate::getAllTemplate();
 			$this->render('updateUser',
 			array('model'=>$model,
 			'userStatus'=>$userStatus,
 			'allCity'=>$allCity,
+			'userType'=>$userType,
 			'allProvince'=>$allProvince,
 			'userTemplate'=>$userTemplate,
 			));

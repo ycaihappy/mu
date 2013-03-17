@@ -119,8 +119,8 @@ class CCacheHelper  {
 		$groupCriteria=new CDbCriteria();
 		$groupCriteria->select='group_id,group_name,group_logo';
 		$groupCriteria->condition='group_status=1';
-		$templates=CacheStrategy::getInstance(CacheStrategy::ONE_DAY_EXPIRE)->getCacheDataForDb('userGroup',$templateCriteria,'UserGroup','group_id');
-		return $templates;
+		$groups=CacheStrategy::getInstance(CacheStrategy::ONE_DAY_EXPIRE)->getCacheDataForDb('userGroup',$groupCriteria,'UserGroup','group_id');
+		return $groups;
 	}
 	public static function getAdvertisement($position)
 	{

@@ -85,7 +85,7 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">会员等级：</td>
-		<td><?php echo $form->dropDownList($model,'user_type',$userTemplate,array('empty'=>'选择会员等级')); ?>
+		<td><?php echo $form->dropDownList($model,'user_type',$userType,array('empty'=>'选择会员等级')); ?>
 		<?php echo $form->error($model,'user_type'); ?></td>
 </tr>
 <tr>

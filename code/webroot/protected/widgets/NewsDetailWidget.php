@@ -11,7 +11,7 @@ class NewsDetailWidget extends CWidget
         $pre_art = Article::model()->findByPk((int)$_GET['art_id']-1);
         $next_art = Article::model()->findByPk((int)$_GET['art_id']+1);
         //set title for seo
-        $this->getController()->siteConfig->siteMetaTitle=$art_detail->art_title;
+        $this->getController()->siteConfig->siteMetaTitle=$art_detail->art_title.'-'.$this->getController()->siteConfig->siteMetaTitle;
         $this->getController()->siteConfig->siteMetaKeyword=$art_detail->art_tags;
         $this->getController()->siteConfig->siteMetaDescription=$art_detail->art_summary;
         //update counter

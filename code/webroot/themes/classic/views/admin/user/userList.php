@@ -22,8 +22,9 @@
         	'value'=>'$data->user_first_name',
         ),  // display the 'name' attribute of the 'category' relation
         array(
-        	'name'=>'角色',
-        	'value'=>'$data->user_type',
+        	'name'=>'等级',
+        	'type'=>'html',
+        	'value'=>'$data->type? CHtml::image("/images/mushw/".$data->type->group_logo,$data->type->group_name,array("width"=>30)).$data->type->group_name:"未分配"',
         ),
         array(
         	'name'=>'昵称',

@@ -53,9 +53,12 @@
 			<div class="ui-m-tab2">
 				<div class="hd ui-m-border"><span class="on">产品说明</span><span>联系我们</span></div>
 				<div class="bd ui-m-border">
-					<div class="content">
+					<ul class="content">
 <?php echo $supply['supply_content'];?>
-					</div>
+					</ul>
+					<ul class="content hide">
+						内容内容内容内容11
+					</ul>
 				</div>
 				<div class="ft">
 					<div class="ui-m-warn">

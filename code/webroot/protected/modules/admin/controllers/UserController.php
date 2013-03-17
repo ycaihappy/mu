@@ -1084,5 +1084,102 @@ class UserController extends AdminController
 		$this->redirect(array('manageUser','page'=>Yii::app()->request->getParam('page',1)));
 
 	}
+	public function actionManageUserGroup()
+	{
+		$groupCriteria=new CDbCriteria();
+		$groupCriteria->select='group_id,group_name,group_logo,group_added_time';
+		$groupCriteria->with=array('status'=>array('term_name'));
+		$groupDataProvider=new CActiveDataProvider('UserGroup',array(
+			'criteria'=>$groupCriteria,
+		));
+		$this->render('manageUserGroup',array(
+		'dataProvider'=>$groupDataProvider,
+		));
+	}
+	public function actionUpdateUserGroup()
+	{
+		$model=new UserGroup();
+		if(isset($_POST['UserGroup']))
+		{
+			$model->attributes=$_POST['UserGroup'];
+			if($model->group_id)$model->setIsNewRecord(false);
+			$model->group_logo=CUploadedFile::getInstance($model,'group_logo');
+			if($model->group_logo)
+			{
+				
+				$newimg = 'ug_'.time().'_'.rand(1, 9999).'.'.$model->group_logo->extensionName;
+				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
+				$uploadedImg='images/mushw/'.$newimg;
+				$image=Yii::app()->image->load($model->group_logo->getTempName());
+				$image->resize(60,60);
+				$image->save($uploadedImg);
+				$image=Yii::app()->image->load($uploadedImg);
+				$image->resize(16,16);
+				$thumbLogo='images/mushw/thumb/'.$newimg;
+				$image->save($thumbLogo);
+				
+				/*$model->art_img->saveAs($uploadedImg);
+				$im = null;
+				$imagetype = strtolower($model->group_logo->getExtensionName());
+				if($imagetype == 'gif')
+				$im = imagecreatefromgif($uploadedImg);
+				else if ($imagetype == 'jpg')
+				$im = imagecreatefromjpeg($uploadedImg);
+				else if ($imagetype == 'png')
+				$im = imagecreatefrompng($uploadedImg);*/
+				/*CThumb::resizeImage (
+				$im,400, 280,
+				'images/article/thumb/'.$newimg, $model->art_img->getExtensionName() );*/
+				$model->group_logo = $newimg;
+			}
+			else {
+				$model->group_logo=@$_REQUEST['group_logo_hidden'];
+			}
+			if($model->save())
+			{
+				$this->redirect(array('manageUserGroup','page'=>Yii::app()->admin->getState('page')));
+			}
+		}
+		if($groupId=(int)@$_GET['group_id'])
+		{
+			$model=UserGroup::model()->findByPk($groupId);
+		}
+		$groupStatus=Term::getTermsByGroupId(1);
+		$data=compact('model','groupStatus');
+		$this->render('updateUserGroup',$data);
+	}
+	public function actionChangeUserGroupStatus()
+	{
+		$toStatus=@$_REQUEST['toStatus'];
+		$groupId=@$_REQUEST['group_id'];
+		if(!$groupId && in_array($toStatus,array(1,2)))
+		{
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				echo '请求参数不正确！';
+				exit;
+			}
+			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的会员组信息，以及改变的状态');
+			$this->redirect(array('manageUserGroup'));
+
+		}
+		$updateStatusCriteria=new CDbCriteria();
+		$updateStatusCriteria->addInCondition('group_id', $groupId);
+		$updateRows=UserGroup::model()->updateAll(array('group_status'=>$toStatus),$updateStatusCriteria);
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			echo $updateRows>0?'更新成功！':'更新失败！';
+			exit;
+		}
+		if($updateRows>0)
+		{
+			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
+		}
+		else {
+			Yii::app()->admin->setFlash('changeStatusError','更新异常');
+		}
+		$this->redirect(array('manageUserGroup','page'=>Yii::app()->request->getParam('page',1)));
+
+	}
 
 }

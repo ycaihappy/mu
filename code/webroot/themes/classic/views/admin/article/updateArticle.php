@@ -106,7 +106,7 @@ endif;?>
 <td class="label">创建时间：</td>
 		<td>
 		<input name="Article[art_post_date]" disabled type=text class='cmp-input' value="<?php echo $model->art_post_date?$model->art_post_date:date('Y-m-d H:i:s');?>"/>		
-        <?php echo $form->error($model,'art_post_date'); ?></td>
+       </td>
 </tr>
 <tr>
 <td class="label">审核人：</td>

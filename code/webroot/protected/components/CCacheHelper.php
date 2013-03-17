@@ -114,6 +114,14 @@ class CCacheHelper  {
 		$templates=CacheStrategy::getInstance(CacheStrategy::ONE_DAY_EXPIRE)->getCacheDataForDb('shopTemplate',$templateCriteria,'UserTemplate','temp_id');
 		return $templates;
 	}
+	public static function getUserGroup()
+	{
+		$groupCriteria=new CDbCriteria();
+		$groupCriteria->select='group_id,group_name,group_logo';
+		$groupCriteria->condition='group_status=1';
+		$templates=CacheStrategy::getInstance(CacheStrategy::ONE_DAY_EXPIRE)->getCacheDataForDb('userGroup',$templateCriteria,'UserGroup','group_id');
+		return $templates;
+	}
 	public static function getAdvertisement($position)
 	{
 		$allAdvertisement=CacheStrategy::getInstance(CacheStrategy::ONE_DAY_EXPIRE)->getData('advertisement');

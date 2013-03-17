@@ -84,6 +84,11 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'user_template'); ?></td>
 </tr>
 <tr>
+<td class="label">会员等级：</td>
+		<td><?php echo $form->dropDownList($model,'user_type',$userTemplate,array('empty'=>'选择会员等级')); ?>
+		<?php echo $form->error($model,'user_type'); ?></td>
+</tr>
+<tr>
 <td class="label">是否订阅：</td>
 		<td><?php echo $form->checkBox($model,'user_subscribe',array('value'=>1)); ?>
 		<?php echo $form->error($model,'user_subscribe'); ?></td>

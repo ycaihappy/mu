@@ -26,6 +26,7 @@ return array(
 		'application.extensions.xheditor.*',
 	    'application.extensions.yii-mail.*', 
 		'application.extensions.solr.*',
+		'application.extensions.image.*',
 	),
 
 	'modules'=>array(
@@ -179,6 +180,10 @@ return array(
             'host'=>'61.163.6.93',
             'port'=>8080,
             'indexPath'=>'/solr/core1/'
+        ),
+        'image'=>array(
+        	'class'=>'application.extensions.image.CImageComponent',
+        	'driver'=>'GD',
         ),
 		
 	#	'log'=>array(

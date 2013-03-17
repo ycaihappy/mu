@@ -68,9 +68,9 @@
 						</div>
 						<div class="ulist">
 							<ul>
-	            		<?php for($index=0;$index<count($data);$index++):?>
-                               <li><a href="<?php echo Yii::app()->controller->createUrl('/storeFront/default/index',array('username'=>$data[$index]['user']['user_name']));?>"><?php $data[$index]['ent_name'];?></a></li>
-				    	<?php endfor;?>			
+	            		<?php foreach($ent as $ent_info){?>
+                               <li><a href="<?php echo $ent_info->ent_id;?>"><?php echo $ent_info->ent_name;?></a></li>
+				    	<?php }?>			
 						</ul>
 						</div>
 					</div>

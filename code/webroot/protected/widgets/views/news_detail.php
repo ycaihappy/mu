@@ -4,7 +4,7 @@
             <h1><?php echo $art_detail['art_title'];?></h1>
                   <div class="tit-bar clearfix">
 					
-                    <span class="color-a-0"></span><span class="bor-tit"></span><span class="color-a-1" >来源：<a target="_blank" href=""><?php echo $art_detail['art_source'];?></a></span><span class="infoMblog"><span class="color-a-2" bosszone="jgmblog"></span></span><span class="article-time">发布日期：<?php echo $art_detail['art_post_date'];?></span><span class="bor-tit">访问量：<b>300</b></span>
+                  <span class="color-a-0"></span><span class="bor-tit"></span><span class="color-a-1" >来源：<a target="_blank" href=""><?php echo $art_detail['art_source'];?></a></span><span class="infoMblog"><span class="color-a-2" bosszone="jgmblog"></span></span><span class="article-time">发布日期：<?php echo $art_detail['art_post_date'];?></span><span class="bor-tit">访问量：<b><?php echo $art_detail['art_click_count'];?></b></span>
 
 					</div>
                  
@@ -36,8 +36,8 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
 				<div class="ft">
 				<div class="line"></div>
 				<ul>
-					<li><span>上一篇</span><a>标题标题标题标题标题标题</a></li>
-					<li><span>下一篇</span><a>标题标题标题标题标题标题</a></li>
+                <li><span>上一篇</span><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$pre_art['art_id']));?>"><?php echo $pre_art['art_title'];?></a></li>
+                <li><span>下一篇</span><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$next_art['art_id']));?>"><?php echo $next_art['art_title'];?></a></li>
 				</ul>
 				</div>
 		</div>

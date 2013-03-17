@@ -1,6 +1,6 @@
 
-        <div class="m-article-detail">
-			<div>
+        <div class="m-article-detail ui-m-border">
+			<div class="bd">
             <h1><?php echo $art_detail['art_title'];?></h1>
                   <div class="tit-bar clearfix">
 					
@@ -13,6 +13,7 @@
 <?php echo $art_detail['art_content'];?>                      
 
                     </div>
+				<div class="share-box">
                 <!-- Baidu Button BEGIN -->
 <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
 <span class="bds_more">分享到：</span>
@@ -30,4 +31,13 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
 </script>
 <!-- Baidu Button END -->
                 </div>
+				
+				</div>
+				<div class="ft">
+				<div class="line"></div>
+				<ul>
+					<li><span>上一篇</span><a>标题标题标题标题标题标题</a></li>
+					<li><span>下一篇</span><a>标题标题标题标题标题标题</a></li>
+				</ul>
+				</div>
 		</div>

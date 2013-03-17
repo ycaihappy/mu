@@ -1,7 +1,7 @@
 		<div class="m-supplier-detail">
 			<div class="ui-m-tab">
             <div class="hd ui-m-border">
-                <span class="on">供求产品信息</span><em>发布于 2013/1/28 11:41:01</em>
+            <span class="on">供求产品信息</span><em>发布于 <?php echo date("Y/m/d H:i:s", strtotime($supply['supply_join_date']));?></em>
             </div>
             <div class="bd ui-m-border">
             	<ul>
@@ -54,7 +54,7 @@
 				<div class="hd ui-m-border"><span class="on">产品说明</span><span>联系我们</span></div>
 				<div class="bd ui-m-border">
 					<div class="content">
-						内容内容内容内容
+<?php echo $supply['supply_content'];?>
 					</div>
 				</div>
 				<div class="ft">

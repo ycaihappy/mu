@@ -35,6 +35,10 @@
 </div>
 
 
+<?php
+            if ( !empty($supply_category_list) ) 
+            {
+?>
 <div class="m-tjqy ui-m-tab ui-m-border">
 	<div class="hd ui-tab-3">		
 			<span class="on"><a href="">同品类供求</a></span><a class="more" >更多&gt;&gt;</a>
@@ -52,3 +56,6 @@
 				</ul>
 			</div>
 </div>
+<?php
+            }
+?>

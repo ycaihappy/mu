@@ -62,7 +62,9 @@ $.extend(MU.mods,{
 			$(this).find('p').stop(false,true).fadeIn('fast');
 			$(this).addClass('on').siblings().removeClass('on');
 		}).mouseleave(function(){
-			$(this).find('p').stop(false,true).fadeOut('fast');
+			if(!self.hasClass('showed')){
+				$(this).find('p').stop(false,true).fadeOut('fast');
+			}
 		});
 		var pos = [0,50,200,350,420,330];
 		self.find('.nav-con').each(function(i){

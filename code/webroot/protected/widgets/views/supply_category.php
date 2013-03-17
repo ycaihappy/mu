@@ -1,9 +1,8 @@
-		<div class="m-supplier-detail">
-			<div class="ui-m-tab">
-            <div class="hd ui-m-border">
-                <span class="on">供求产品信息</span><em>发布于 2013/1/28 11:41:01</em>
+		<div class="m-supplier-detail" id="contentInfo">
+            <div class="msg_time">
+                <span></span>发布于 2013/1/28 11:41:01
             </div>
-            <div class="bd ui-m-border">
+            <div id="com_info" class="cmp_info">
             	<ul>
                 	<li>
                     	<span>供应</span>
@@ -23,45 +22,35 @@
 <?php echo $category[$supply['supply_category_id']];?>
 
                     </li>
-                    <li>
+                    <li class="ci_li">
                     	<span>品位</span>
 <?php echo $supply['supply_mu_content'];?> 
                     </li>
-                    <li>
+                    <li class="ci_li">
                     	<span>含水量</span>
 <?php echo $supply['supply_water_content'];?>
                     </li>
-                    <li>
+                    <li class="ci_li">
                     	<span>交货地</span>
 <?php echo $city[$supply['supply_city_id']];?>
                     </li>
-                    <li>
+                    <li class="ci_li">
                     	<span>关键字</span>
 <?php echo $supply['supply_keyword'];?>
                     </li>
-                    <li>
+                    <li class="ci_li">
                     	<span>联系电话</span>
                         <em><?php echo $supply['supply_phone'];?></em>
                     </li>
-                    <li>
+                    <li class="ci_li">
                     	<span>价格</span>
 <?php echo $supply['supply_price'];?>
                     </li>
                 </ul>
             </div>
-			</div>			
-			<div class="ui-m-tab2">
-				<div class="hd ui-m-border"><span class="on">产品说明</span><span>联系我们</span></div>
-				<div class="bd ui-m-border">
-					<div class="content">
-						内容内容内容内容
-					</div>
-				</div>
-				<div class="ft">
-					<div class="ui-m-warn">
-						<i class="ico-warn"></i><strong>免责声明</strong><span>此信息由第三方企业自行发布，内容的真实性、准确性请用户自行核实，如产生任何纠纷本网不承担责任。</span>
-					</div>
-				</div>
-			</div>
-			
+           
+            <div class="am_note">
+                现货
+            </div>
+            <p class="art_note">·联系我时，请注明您是在钼市网上看到了我的采购信息</p>
       </div>

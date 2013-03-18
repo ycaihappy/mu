@@ -59,7 +59,7 @@ elseif ( Yii::app()->user->hasFlash('success'))
         </td>
 		</tr>
 		<tr>
-        <td class="label">性别：</td><td><?php echo $form->radioButtonList($model, 'user_sex',array(1=>'男',2=>'女'));?>
+        <td class="label">性别：</td><td><?php echo $form->radioButtonList($model, 'user_sex',array(1=>'男',2=>'女'),array('template'=>'<span class="radio">{input}{label}</span>','separator'=>''));?>
         <?php echo $form->error($model,'user_sex'); ?>
         </td>
 		</tr>

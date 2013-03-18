@@ -6,10 +6,16 @@ class PriceController extends BasicAccessController
 	/**
 	 * Declares class-based actions.
 	 */
+    public $adv;
 	public function actions()
 	{
 		return array(
 		);
+	}
+	public function init()
+	{
+		$this->adv=CCacheHelper::getAdvertisement(130);//行情中心头部横幅
+		parent::init();
 	}
 
 	/**
@@ -21,7 +27,10 @@ class PriceController extends BasicAccessController
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->siteConfig->siteMetaTitle='行情中心';
-		$this->render('index');
+		$adv=CCacheHelper::getAdvertisement(131);//中部横幅
+		$adv1=CCacheHelper::getAdvertisement(132);//左底
+		$data=compact('adv','adv1');
+		$this->render('index',$data);
 	}
 
     public function actionChart()

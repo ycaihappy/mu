@@ -47,13 +47,18 @@ class SystemController extends AdminController {
 			$model->attributes=$_REQUEST['RelativeRePrice'];
 		}
 		$model->re_status=(int)@$_REQUEST['RelativeRePrice']['re_status'];
+		$model->re_type=(int)@$_REQUEST['RelativeRePrice']['re_type'];
 		$model->re_name=@$_REQUEST['RelativeRePrice']['re_name'];
 		$reCriteria=new CDbCriteria();
-		$reCriteria->with=array('status'=>array('select'=>'term_name'),'fallup'=>array('select'=>'term_name'));
+		$reCriteria->with=array('status'=>array('select'=>'term_name'),'type'=>array('select'=>'term_name'),'fallup'=>array('select'=>'term_name'));
 		$reCriteria->order='re_added_time desc';
 		if($model->re_status)
 		{
 			$reCriteria->compare('re_status', $model->re_status);
+		}
+		if($model->re_type)
+		{
+			$reCriteria->compare('re_type', $model->re_type);
 		}
 		if($model->re_name)
 		{
@@ -68,11 +73,13 @@ class SystemController extends AdminController {
 					'params'=>array(
 						'RelativeRePrice[re_status]'=>$model->re_status,
 						'RelativeRePrice[re_name]'=>$model->re_name,	
+						'RelativeRePrice[re_type]'=>$model->re_type,
 					),
 					
 		)));
 		$allReStatus=Term::getTermsByGroupId(1);
-		$data=compact('dataProvider','allReStatus','model');
+		$allReTypes=Term::getTermsByGroupId(20);
+		$data=compact('dataProvider','allReStatus','model','allReTypes');
 		$this->render('manageRelativeRePrice',$data);
 	}
 	public function actionUpdateRelativeRePrice()
@@ -95,7 +102,8 @@ class SystemController extends AdminController {
 		}
 		$allStatus=Term::getTermsByGroupId(1);
 		$allFallUp=Term::getTermsByGroupId(19);
-		$data=compact('allStatus','model','allFallUp');
+		$allReTypes=Term::getTermsByGroupId(20);
+		$data=compact('allStatus','model','allFallUp','allReTypes');
 		$this->render('updateRelativeRePrice',$data);
 	}
 }

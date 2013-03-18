@@ -1,4 +1,4 @@
-		<div class="ad"><img src="images/serBanner.jpg" width="700" height="211" /></div>
+		<div class="ad"><img src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>" width="700" height="211" /></div>
 		<div class="service-hd ui-m-border">
 			<span></span>
 		</div>

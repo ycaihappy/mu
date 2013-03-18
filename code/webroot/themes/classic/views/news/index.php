@@ -31,7 +31,9 @@
 		<div class="m-news-slider">
 		<div class="area-sub">
 			<div>
-				<a href="http://g.163.com/a?CID=19585&amp;Values=842817231&amp;Redirect=http://go.163.com/2013/0131/xijiu/shipin.html"><img width="560" height="30" src="http://img1.126.net/channel4/013486/xijiu56030_0124.jpg"></a>
+			<?php if($adv):?>
+				<a href="<?php echo $adv[0]->ad_link?>"><img width="560" height="30" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
+			<?php endif;?>
 			</div>
 		</div>
 	
@@ -61,7 +63,9 @@
 		<!--right-->
 		
 		<div class="m-banner">
-			<img src="/images/960x100.gif" width="960" height="100" />
+			<?php if($adv1):?>
+				<a href="<?php echo $adv1[0]->ad_link?>"><img width="960" height="100" src="<?php echo '/images/advertisement/'.$adv1[0]->ad_media_src?>"></a>
+			<?php endif;?>
 		</div>
 		
 		<div class="clearfix"></div>

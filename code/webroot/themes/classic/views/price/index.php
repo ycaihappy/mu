@@ -26,7 +26,10 @@
 	  <?php  $this->widget("PriceChinaWidget",array('type'=>2));?>
 	   <?php  #$this->widget("PriceChinaWidget",array('type'=>3));?>
 	
-	<div class="m-price-ad"><a href="" target="_blank"><img width="290" height="85" src="images/xinahuotong_288_85.png"></a></div>
+	<div class="m-price-ad">
+	<a href="<?php echo $adv1[0]->ad_link?>" target="_blank">
+	<img width="290" height="85" src="<?php echo '/images/advertisement/'.$adv1[0]->ad_media_src?>">
+	</a></div>
 	 
 	<!--module 2-->
 	</div>
@@ -34,7 +37,7 @@
      <?php $this->widget("PriceBodyWidget", array('type'=>1));?>
 
 	<div class="m-banner">
-			<img src="images/960x100.gif" width="700" height="80" />
+			<img src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>" width="700" height="80" />
 		</div>
      <?php $this->widget("PriceBodyWidget", array('type'=>2));?>
 	

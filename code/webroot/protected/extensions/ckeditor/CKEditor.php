@@ -23,7 +23,9 @@ class CKEditor extends CInputWidget{
         'uk','vi',*/'zh','zh-cn'
     );
     
-    private $options=array();
+    private $options=array(
+    	'filebrowserImageUploadUrl'=>'/images/article/',
+    );
     private $allowedEditorTemplates=array('full','basic','advanced');
     private $editorTemplate='basic';
 

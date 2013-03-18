@@ -17,7 +17,8 @@ class ServiceController extends Controller {
 			}
 		}
 		$this->siteConfig->siteMetaTitle='客户服务';
-		$data=compact('subCatService');
+		$adv=CCacheHelper::getAdvertisement(133);//左底
+		$data=compact('subCatService','adv');
 		$this->render('index',$data);
 	}
 	public function actionView()

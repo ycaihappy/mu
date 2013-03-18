@@ -1,4 +1,4 @@
-<div class="hd">
+<div class="hd ui-tab-3">
 	<span class="on"><a href="">最新新闻</a></span>	
 </div>
 <div class="bd">

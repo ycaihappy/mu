@@ -5,7 +5,7 @@ $.extend(MU.mods,{
 		$('div.m-tab-list,div.m-quot,div.m-case,div.m-nous,div.ui-m-tab,div.ui-m-tab2,div.m-new-hx').find('.hd span').mouseover(function(){
 			$(this).addClass('on').siblings().removeClass('on');
 			var index = $(this).parent().find('span').index($(this));
-			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings().hide();
+			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings('ul').hide();
 		});
 	},
 	lazyloadImage : function(){

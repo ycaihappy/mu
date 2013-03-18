@@ -498,8 +498,8 @@ padding: 0 20px;
 .m-supplier-detail .hd em{float:right;margin-right:10px}
 .m-supplier-detail ul{overflow:auto}
 .m-supplier-detail .bd li {border-bottom: 1px solid #DEDEE0;float: left;height: 35px;line-height: 35px; width: 100%;}
-.m-supplier-detail .bd span {background: none repeat scroll 0 0 #ececec;color: #333;display: inline-block;height: 35px;margin-right: 15px;text-align: center;width: 106px;}
-.m-supplier-detail .bd em {font-style: normal;margin-right: 5px;}
+.m-supplier-detail .ui-m-tab .bd span {background: none repeat scroll 0 0 #ececec;color: #333;display: inline-block;height: 35px;margin-right: 15px;text-align: center;width: 106px;}
+.m-supplier-detail .ui-m-tab  .bd em {font-style: normal;margin-right: 5px;}
 .m-supplier-detail .ui-m-tab2{border-top:3px solid #006ab6;margin-top:10px;}
 .m-supplier-detail .content{padding:5px}
 .m-supplier-detail .ui-m-warn{margin-top:10px;}
@@ -631,21 +631,26 @@ padding: 0 20px;
 
 /*m-topnews*/
 .m-topnews {float: left;width: 384px;	margin-right:15px;}
-.m-topnews .topnews {border: 1px solid #DAE2E9;height: 110px;padding: 0 12px;}
+.m-topnews .topnews {border: 1px solid #DAE2E9;padding: 0 12px;background:url(imgs/top_repeatbg_26.gif) repeat-x left top;padding:20px 10px 10px 10px;margin-bottom:10px}
 .m-topnews .topnews h4 {height: 38px;line-height: 38px;overflow: hidden;text-align: center;}
-.m-topnews .topnews h4 a {color: #CC040D;font-family: '微软雅黑';font-size: 20px;	font-weight:bold;}
+.m-topnews .topnews h4 a {color: #CC040D;font-family: '微软雅黑';font-size: 14px;	font-weight:bold;}
 .m-topnews .topnews p {height: 66px;line-height: 22px;overflow: hidden;}
-.m-topnews .news {border-bottom: 1px solid #DAE2E9;margin: 0 10px;}
+.m-topnews .news {border-bottom: 1px solid #DAE2E9;margin-bottom:10px}
 .m-topnews .news h4 {height: 44px;line-height: 44px;overflow: hidden;text-align: center;	font-weight:bold;	 font-family: '微软雅黑';}
 .m-topnews .news h4 a {color: #4C6DAA;font-size: 18px;}
-.m-topnews .news li {background: url(imgs/list-ico.png) no-repeat left 5px;height: 29px;overflow: hidden;padding-left: 10px;}
-.m-topnews .news li a {font-size: 14px;	color:#333;}
-.m-topnews .news h5 a, .news h4.h501 a {color: #4C6DAA;font-size: 14px;}
+.m-topnews .bd li {
+  background: url("imgs/v2/orange_arrow.png") no-repeat scroll left center transparent;
+  line-height: 25px;
+  padding-left: 10px;
+}
+.m-topnews .news li a {font-size: 12px;	color:#333;}
+.m-topnews .news h5 a, .news h4.h501 a {  color: #CF0001;font-weight:bold;  font-size: 14px;}
 .m-topnews .news h5, .news h4.h501 {line-height: 32px;text-align: center;}
 .m-topnews .news h4.h501 {color: #4C6DAA;	position:relative;}
 .m-topnews .news p {color: #5A5959;height: 48px;line-height: 22px;margin-bottom: 10px;overflow: hidden;}
 .m-topnews .no_border { border: medium none;}
-.m-topnews .news h5 .red,.news h4.h501 .red{background:rgb(175, 7, 7);color:#fff;font-size:12px;padding:2px;font-weight:normal;font-family:arial;}
+.m-topnews .news h5 .red,.news h4.h501 .red{background:rgb(175, 7, 7);color:#fff;font-size:12px;padding:2px;font-weight:normal;font-family:arial;display:none;}
+.m-topnews .news .bd{padding:10px}
 /*m-topnews*/
 
 .widget-slide-2 {background: none repeat scroll 0 0 #F3F3F3;height: 280px;margin-bottom: 10px;overflow: hidden;width: 560px;}
@@ -672,9 +677,22 @@ padding: 0 20px;
 .m-news-two .n2top {  height: 94px;  margin: 16px 16px 0;}
 .m-news-two .n2top img {  float: left;  height: 94px;  margin-right: 10px;  width: 94px;}
 .m-news-two .n2top h4 {  height: 24px;  line-height: 24px;  overflow: hidden;}
-.m-news-two .n2top h4 a {  color: #1F4995;  font-size: 14px;}
+.m-news-two .n2top h4 a {
+  color: #C70000;
+  font-size: 14px;
+  font-weight: bold;
+}
 .m-news-two .n2top p {  color: #5A5959;  height: 66px;  line-height: 22px;  overflow: hidden;}
-.m-news-two .m2_ul li {  background: url("imgs/main.png") no-repeat scroll 0 -120px transparent;  height: 29px;  overflow: hidden;  padding-left: 16px;}
+
+.m-news-two  .bd li {
+  background: url("imgs/v2/ico_dotted.png") no-repeat scroll left center transparent;
+  float: left;
+  line-height: 25px;
+  margin-right: 23px;
+  padding-left: 10px;
+  position: relative;
+  width: 324px;
+}
 .m-news-two .m2_ul li a {  font-size: 12px;}
 .m-news-two .m2_ul {  line-height: 29px;  margin: 8px 15px;}
 /*m-news-two*/
@@ -693,13 +711,17 @@ padding: 0 20px;
 .m-news-rank .title-bar h2 {  float: left;  font-weight: bold;  line-height: 29px;}
 .m-news-rank .wgt-tab .bd {  overflow: hidden;}
 .m-news-rank .display-control .current {  display: block;}
-.m-news-rank .rankList li {  border-bottom: 1px solid #D3D3D3;  display: inline-block;  float: left;  height: 35px;  line-height: 35px;  overflow: hidden;  width: 320px;}
-.m-news-rank .rankList li span.ranknum {  background-color: #CACACA;  border-radius: 10px;  color: #fff;  float: left;  font-family: "Arial";  font-weight: bold;  height: 20px;  line-height: 20px;  margin-top: 7px;  text-align: center;  width: 20px;}
-.m-news-rank .rankList li span.front {  background-color: #930000;}
+.m-news-rank .rankList li {  border-bottom: 1px dotted #D3D3D3;  display: inline-block;  float: left;  height: 35px;  line-height: 35px;  overflow: hidden;  width: 320px;}
+.m-news-rank .rankList li span.ranknum {  background:url(imgs/rank_num_n.gif) no-repeat left center; color: #fff;  float: left;  font-family: "Arial";  font-weight: bold;  height: 14px;  line-height: 14px;  margin-top: 7px;  text-align: center;  width: 14px;}
+.m-news-rank .rankList li span.front {  background-image:url(imgs/rank_num_top.gif);}
 .m-news-rank .rankList li a {  color: #333; float: left;  padding-left: 10px;}
 .m-news-rank .newsList li .more {  color: #930000;  font-family: "Arial";  font-style: italic;  padding-right: 3px;}
 .m-news-rank .rankList li.last {  border: medium none;}
+.m-news-rank .bd{padding:5px}
 /*m-news-rank */
+
+
+
 
 .m-register .hd{background:#f6fafb;height:95px;position:relative;}
 .m-register .bt{height:7px;background:url(imgs/reg_hd_bg.png) repeat-x;position:absolute;bottom:0px;left:0;width:100%}
@@ -785,14 +807,21 @@ padding: 0 20px;
 .m-news-focus .ui-til1 .more .current, .m-news-focus .ui-til1 .more a:hover {  background: none repeat scroll 0 0 #373737;  border-radius: 13px 13px 13px 13px;  border-right: 0 none;  color: #F1F1F1;  position: relative;  text-decoration: none;}
 .m-news-focus .ui-til1 .more a {  border-right: 1px solid #ddd;  color: #252525;  font-size: 14px;  padding: 0 15px;}
 .m-news-focus .ui-til4 {  padding: 5px 0 4px;}
-
+.m-news-focus .ui-m-tab .bd{padding:5px}
 .m-news-focus .ui-til2 h2, .ui-til4 h2 {  float: left;  font-family: "Microsoft YaHei","微软雅黑";  font-size: 16px;  height: 29px;  line-height: 29px;  overflow: hidden;}
 .m-news-focus .title-bar .more {  float: right;  line-height: 29px;}
 .m-news-focus .more a, .more a:visited {  color: #888;  font-size:12px;}
 .m-news-focus .cLGray {  color: #ddd;}
 .m-news-focus h3.bigsize {  font-family: "Microsoft YaHei","微软雅黑","宋体";  font-size: 16px;  font-weight: bold;  height: 24px;  line-height: 24px;  margin: 10px 0 6px;  overflow: hidden;}
-.m-news-focus .main-list li { background:url("imgs/list-ico.png") no-repeat scroll left center transparent;clear: both;  font-size: 14px;  height: 28px;  line-height: 28px;  padding-left: 9px;}
-.m-news-focus .mod{width:310px;float:left;margin-right:10px;}
+.m-news-focus .bd li {
+  background: url("imgs/v2/ico_dotted.png") no-repeat scroll left center transparent;
+  float: left;
+  line-height: 25px;
+  padding-left: 10px;
+  position: relative;
+
+}
+.m-news-focus .mod{width:312px;float:left;margin-right:10px;}
 .m-news-focus .fB {    font-weight: bold;}
 #p_news_index .layout-left{width:700px;}
 #p_news_index .m-banner{margin:0;}
@@ -1401,7 +1430,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .ui-m-tab .hd span.on{background:url(imgs/v2/tab_blue_bg.png) no-repeat;}
 .ui-m-tab .hd span.on a{color:#fff;}
 .ui-m-tab .hd .more{float:right;color:#0824C3;font-size:12px}
-.ui-m-tab .ui-tab-3 span.on{background:url(imgs/tab_3_on.gif) no-repeat;width:85px;color:#086bbc}
+.ui-m-tab .ui-tab-3 span.on{background:url(imgs/tab_3_on.gif) no-repeat;width:85px;color:#086bbc;line-height:28px}
 .ui-m-tab .ui-tab-3 span.on a{color:#086bbc}
 .ui-m-tab2 .hd span{height:25px;text-align:center;line-height:25px;font-weight:bold;float:left;width:88px;color:#333;margin-right:10px;background:url(imgs/ui_tab2_btn_n.gif) no-repeat;}
 .ui-m-tab2 .hd {  background: url("imgs/ui_tab2_bg.gif") repeat-x scroll 0 0 #E2E2E4;  line-height: 30px; height:30px; overflow: hidden;}

@@ -58,7 +58,7 @@ endif;?>
 				    
 		"width"=>'400px',       
 				    
-		'editorTemplate'=>'advanced',
+		'editorTemplate'=>'full',
 		
 		) 
 );

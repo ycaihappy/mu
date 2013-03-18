@@ -1,11 +1,12 @@
-              <div class="title-bar ui-til4"><h2><a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>43))?>">财经</a></h2>
-                    <span class="more link">
-                        <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>43))?>">更多</a></span>
-                </div>
-	<div class="mod-list main-list news-date-list">
-	<h3 class="bigsize">
+ <div class="ui-m-tab ui-m-border">
+		<div class="hd ui-tab-3">
+				<span class="on"><a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>43))?>">财经</a></span>
+                  <a class="more" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>43))?>">更多</a>
+        </div>
+	<div class="bd">
+	<!--<h3 class="bigsize">
 	<a href="<?php echo $businessOne->art_source?>"><?php echo $businessOne->art_title?></a>
-	</h3>
+	</h3>-->
 	<ul class="mod-list main-list">
 		<?php 
 		if ($businessNews):
@@ -16,3 +17,4 @@
 		?> 
 	</ul>
 	 </div>
+</div>

@@ -76,6 +76,11 @@ class RelativeRePrice extends CActiveRecord
 				'limit'=>12,
 				'order'=>'re_added_time desc',
 			),
+			'recentlyOtherPrice'=>array(
+				'condition'=>'re_status=1',
+				'limit'=>12,
+				'order'=>'re_added_time desc',
+			),
 		);
 	}
 

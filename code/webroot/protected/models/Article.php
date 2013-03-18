@@ -198,7 +198,7 @@ class Article extends CActiveRecord
             	'select'=>'art_id,art_title',
                 'condition'=>'art_category_id=17 and art_subcategory_id=41 and art_status=1',
                 'order'=>'art_post_date desc',
-                'limit'=>12
+                'limit'=>4
             ),
             'topTrendsNews'=>array(//新闻首页--行业动态
             	'select'=>'art_id,art_title,art_img',
@@ -222,7 +222,7 @@ class Article extends CActiveRecord
                 'condition'=>'art_category_id=17 and art_status=1',
                 'order'=>'art_post_date desc',
             	'offset'=>5,
-                'limit'=>12
+                'limit'=>9
             ),
             'internalExhibitions'=>array(//展会列表也--国内展会
             	'select'=>'art_id,art_title',

@@ -22,7 +22,10 @@ class NewsController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->siteConfig->siteMetaTitle='新闻中心';
-		$this->render('index');
+		$adv=CCacheHelper::getAdvertisement(129);//新闻中心幻灯片上
+		$adv1=CCacheHelper::getAdvertisement(128);//新闻中心中部
+		$data=compact('adv','adv1');
+		$this->render('index',$data);
 	}
 
 	public function actionView()

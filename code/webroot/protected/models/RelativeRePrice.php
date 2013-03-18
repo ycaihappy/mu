@@ -47,6 +47,7 @@ class RelativeRePrice extends CActiveRecord
 			array('re_name', 'length', 'max'=>50),
 			array('re_market', 'length', 'max'=>128),
 			array('re_price', 'length', 'max'=>10),
+			array('re_type', 'required', 'message'=>'选择价格类型！'),
 			array('re_added_time, re_updated_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -64,6 +65,7 @@ class RelativeRePrice extends CActiveRecord
 		return array(
 			'fallup'=>array(self::BELONGS_TO,'Term','re_fallup'),
 			'status'=>array(self::BELONGS_TO,'Term','re_status'),
+			'type'=>array(self::BELONGS_TO,'Term','re_type'),
 		);
 	}
 	public function scopes()

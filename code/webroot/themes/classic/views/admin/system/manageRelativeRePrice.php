@@ -27,6 +27,8 @@ $this->widget('zii.widgets.jui.CJuiButton',
 <div style="float:right;">
 <div>
 <label>状态：</label>
+<?php echo $form->dropDownList($model,'re_type',$allReTypes);?>
+<label>状态：</label>
 <?php echo $form->dropDownList($model,'re_status',$allReStatus);?>
 <label>品名：</label>
 <?php echo $form->textField($model,'re_name',array('class'=>'cmp-input'));?>
@@ -67,6 +69,11 @@ $this->widget('zii.widgets.jui.CJuiButton',
         	'htmlOptions'=>array('align'=>'center'),
         ),
         array(
+        	'name'=>'资源类型',
+        	'value'=>'$data->type?$data->type->term_name:"未指定"',
+        	'htmlOptions'=>array('align'=>'center'),
+        ),
+        array(
         	'name'=>'状态',
         	'value'=>'$data->status->term_name',
         	'htmlOptions'=>array('align'=>'center'),
@@ -86,3 +93,5 @@ $this->widget('zii.widgets.jui.CJuiButton',
     ),
 ));
 ?>
+<br>
+<br>

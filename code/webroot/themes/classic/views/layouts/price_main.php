@@ -15,7 +15,7 @@
 	<!--news nav-->
 	
 		<div class="m-banner">
-			<img src="images/960x100.gif" width="960" height="80" />
+			<img src="<?php echo '/images/advertisement/'.$this->adv[0]->ad_media_src?>" width="960" height="80" />
 		</div>
 	
 </div>

@@ -29,7 +29,7 @@
 	
 	<div class="m-login" id="J_Login">
 		
-		<div class="img"><img src="images/login_img.png" /></div>
+		<div class="img"><img src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>" /></div>
 		<div class="login-box">
 			<div class="hd clearfix">
 				<!--<span class="on"><a href="javascript:;">会员登录</a></span>-->

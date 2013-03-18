@@ -777,6 +777,7 @@ $user_id =yii::app()->user->getID();
 	public function actionLogin() {
 		$this->layout = '//layouts/ajax_main';
 		$model = new UserLoginForm ();
+		$adv=CCacheHelper::getAdvertisement(127);//会员中心登录主体图片
 		
 		if (! Yii::app ()->user->isGuest)
 			$this->redirect ( array ('index' ) );
@@ -797,8 +798,9 @@ $user_id =yii::app()->user->getID();
 				$this->redirect(Yii::app()->user->returnUrl);
 			}
 		}
+		$data=compact('adv','model');
 		// display the login form
-		$this->render ( 'login', array ('model' => $model ) );
+		$this->render ( 'login', $data );
 	}
 	public function actionLogout() {
 		Yii::app ()->user->logout ( false );

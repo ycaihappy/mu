@@ -21,7 +21,11 @@ $this->breadcrumbs=array(
 		<?php if($model->re_id): echo $form->hiddenField($model,'re_id');endif;?>
 		<?php echo $form->error($model,'re_name'); ?></td>
 </tr>
-
+<tr>
+<td class="label">资源类型：</td>
+		<td><?php echo $form->dropDownList($model,'re_type',$allReTypes,array('class'=>'cmp-input')); ?>
+		</td>
+</tr>
 <tr>
 <td class="label">所属市场*：</td>
 		<td><?php echo $form->textField($model,'re_market',array('class'=>'cmp-input')); ?>

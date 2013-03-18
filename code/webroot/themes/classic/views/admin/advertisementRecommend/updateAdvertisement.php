@@ -100,7 +100,7 @@ endif;?>
 		<td>
 		<?php echo CHtml::activeFileField($model,'ad_media_src'); ?>
 		<div id="imgDiv">
-			<?php if($model->ad_media_src) echo CHtml::image('/images/advertisement/'.$model->ad_media_src,'',array('height'=>150))?>
+			<?php if($model->ad_media_src) echo CHtml::image('/images/advertisement/'.$model->ad_media_src,'')?>
         </div>
         <?php if(!$model->isNewRecord):?>
        	
@@ -113,6 +113,8 @@ endif;?>
 <td align='right' colspan=2><?php echo CHtml::submitButton('保存',array('class'=>'btn-a')); ?></td>
 </tr>
 </table>
+<br>
+<br>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
 <?php 

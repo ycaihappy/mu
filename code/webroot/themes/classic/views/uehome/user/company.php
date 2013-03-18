@@ -35,12 +35,13 @@ elseif ( Yii::app()->user->hasFlash('success'))
 	
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'enterprise-form',
-#    'enableClientValidation'=>true,
-#    'clientOptions'=>array(
-#        'validateOnSubmit'=>true,
-#    ),
-    'htmlOptions' => array('enctype' => 'multipart/form-data'),
     'enableAjaxValidation' => false,
+    'htmlOptions' => array('enctype' => 'multipart/form-data'),
+    'enableClientValidation'=>true,
+    'clientOptions'=>array(
+        'validateOnSubmit'=>true,
+    ),
+
 ));?>
 	<table border="0" cellpadding="0" cellspacing="0" class="table-field">
 		<tr>
@@ -83,7 +84,7 @@ elseif ( Yii::app()->user->hasFlash('success'))
 			<td class="label">邮编：</td><td><?php echo $form->textField($model, 'ent_zipcode', array('class'=>'cmp-input'));?></td>
 		</tr>		
 		<tr>
-        <td class="label">企业logo：</td><td><?php echo CHtml::activeFileField($model, 'ent_logo'); ?>
+        <td class="label">企业logo：</td><td><input type="file" name="ent_logo">
 			<p>(图片大小不要超过200K，格式GIF,JPG,PNG图片宽度最大为220像素效果最佳！)</p>
 			
                 <br /><img src="<?php echo $model->ent_logo;?>" class="thumb"></td>

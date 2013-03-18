@@ -186,7 +186,7 @@ class Article extends CActiveRecord
             	'select'=>'art_id,art_title,art_click_count',
                 'condition'=>'art_category_id=20 and art_status=1',
                 'order'=>'art_click_count desc,art_post_date desc',
-                'limit'=>10
+                'limit'=>11
             ),
             'topViewPointNews'=>array(//新闻首页--本网视点
             	'select'=>'art_id,art_title',
@@ -198,13 +198,13 @@ class Article extends CActiveRecord
             	'select'=>'art_id,art_title',
                 'condition'=>'art_category_id=17 and art_subcategory_id=41 and art_status=1',
                 'order'=>'art_post_date desc',
-                'limit'=>4
+                'limit'=>6
             ),
             'topTrendsNews'=>array(//新闻首页--行业动态
             	'select'=>'art_id,art_title,art_img',
                 'condition'=>'art_category_id=17 and art_subcategory_id=42 and art_status=1',
                 'order'=>'art_post_date desc',
-                'limit'=>9
+                'limit'=>11
             ),
             'topStockNews'=>array(//新闻首页--股票
             	'select'=>'art_id,art_title',

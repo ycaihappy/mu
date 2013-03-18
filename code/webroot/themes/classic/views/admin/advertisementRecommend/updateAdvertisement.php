@@ -100,7 +100,7 @@ endif;?>
 		<td>
 		<?php echo CHtml::activeFileField($model,'ad_media_src'); ?>
 		<div id="imgDiv">
-			<?php if($model->ad_media_src) echo CHtml::image($model->ad_media_src,'',array('height'=>150))?>
+			<?php if($model->ad_media_src) echo CHtml::image('/images/advertisement/'.$model->ad_media_src,'',array('height'=>150))?>
         </div>
         <?php if(!$model->isNewRecord):?>
        	

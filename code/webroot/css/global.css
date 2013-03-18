@@ -466,7 +466,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 }
 .m-rcm-list dt strong{font-weight:bold;padding-left:10px;}
 /*m-article-rcm*/
-.m-article-detail{margin-bottom:10px}
+.m-article-detail{margin-bottom:10px;position:relative;}
 .m-article-detail .bd{padding:10px}
 .m-article-detail h1{padding-bottom: 16px;font-family: '微软雅黑';font-size: 22px;text-align:center}
 .m-article-detail .color-a-0 a {color: #2D96E9;}

@@ -2,7 +2,7 @@ $.extend(MU.mods,{
     body : function(){
 		var self = $(this);			
 			//MU.mods.lazyloadImage.call(self);
-		$('div.m-tab-list,div.m-quot,div.m-case,div.m-nous').find('.hd span').mouseover(function(){
+		$('div.m-tab-list,div.m-quot,div.m-case,div.m-nous,div.ui-m-tab,div.ui-m-tab2,div.m-new-hx').find('.hd span').mouseover(function(){
 			$(this).addClass('on').siblings().removeClass('on');
 			var index = $(this).parent().find('span').index($(this));
 			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings().hide();
@@ -36,11 +36,11 @@ $.extend(MU.mods,{
 	},
 	JNewTabList : function () {
 		var self = $(this);
-		self.find('.hd span').mouseover(function(){
+		/*self.find('.hd span').mouseover(function(){
 			$(this).addClass('on').siblings().removeClass('on');
 			var index = $(this).parent().find('span').index($(this));
 			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings().hide();
-		});
+		});*/
 	},
 	JQkLogin : function () {
 		var self = $(this),form = self.find('form');
@@ -62,7 +62,9 @@ $.extend(MU.mods,{
 			$(this).find('p').stop(false,true).fadeIn('fast');
 			$(this).addClass('on').siblings().removeClass('on');
 		}).mouseleave(function(){
-			$(this).find('p').stop(false,true).fadeOut('fast');
+			if(!self.hasClass('showed')){
+				$(this).find('p').stop(false,true).fadeOut('fast');
+			}
 		});
 		var pos = [0,50,200,350,420,330];
 		self.find('.nav-con').each(function(i){

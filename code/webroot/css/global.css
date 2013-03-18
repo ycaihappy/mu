@@ -142,6 +142,10 @@ padding-right: 1px;
 .grid-230{width:230px;float:left;}
 .grid-260{width:260px;float:left;}
 .grid-960{width:960px;}
+.grid-700,.grid-254{float:left}
+.grid-700{width:700px;margin-right:5px}
+.grid-254{width:254px}
+.grid-680{width:680px;margin-left:10px;float:right}
 .lastdiv{border:0;}
 .m-nav{margin-top: 25px;background:url(imgs/v2/menu_bg.png) repeat-x;height:40px;border-radius:3px 3px 0px 0}
 .m-nav .bd{position:relative;}
@@ -470,7 +474,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-article-detail .color-a-0 {padding-right: 7px;}
 .m-article-detail div.tit-bar.clearfix.tit-bar {color: #666666;text-align:center}
 .m-article-detail .line{border-bottom: 1px solid #dbdbdb;margin:10px 0px;}
-.m-article-detail .content p,.m-article-detail .content {padding-bottom: 29px;font-size: 16px;line-height: 28px;font-size:14px;}
+.m-article-detail .content {padding-bottom: 29px;font-size: 16px;line-height: 28px;font-size:14px;}
 .m-article-detail .article-time{margin:0 20px;}
 .m-article-detail .bor-tit b{font-weight:bold;color:#c00;font-size:14px;}
 .m-article-detail .ft{background:url(imgs/news_bt_bg.gif) repeat-x left bottom;padding:0px 10px 20px 10px;}
@@ -1230,27 +1234,52 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-info .pic li{margin:0 auto;width:80%}
 .m-info .edit{position:absolute;top:5px;right:5px;}
 
+.ui-m-crumb p {
+  background: url("imgs/v2/menu_sub_bg.png") repeat-x scroll 0 0 transparent;
+  border: 1px solid #CBCBCD;
+  border-radius: 0 0 5px 5px;
+  line-height: 35px;
+  padding-left:10px
+}
+.ui-m-crumb em{margin:0 10px}
+.ui-m-crumb a{color:#042cbf}
 
-.m-service .hd,.m-contact .hd{background:#3E91E1;height:5px;}
+.m-service .hd, .m-contact .hd {
+  background: none repeat scroll 0 0 #024270;
+  height: 10px;
+}
 .m-service .ad{margin-top:5px;margin-bottom:10px}
-.servicesListTitle01 {
-  background: url("imgs/servicesClassify.gif") no-repeat scroll left top #FFFFFF;
-  height: 50px;
-}
+.service-hd { 
+	background:url(imgs/service_tab_bg.gif) repeat-x;height:32px;position:relative;}
+.service-hd  span{position:absolute;width:150px;height:46px;background:url(imgs/service_tab.gif) no-repeat;left:0;top:0;display:inline-block;}
+.servicesListTable tr{background:url(imgs/bt_repeatbg.gif) repeat-x left bottom;}
+.servicesListTable td{padding:20px 10px;}
+.servicesListTable h4{color:#0b3977;font-size:14px;margin-bottom:10px}
+.service-menu{margin-bottom:10px}
+.service-menu li{height:44px;line-height:44px;text-align:center;position:relative;border-bottom:1px dotted #ccc;}
+.service-menu li.last{border-bottom:0}
+.service-menu li a{color:#06437c;font-weight:bold;font-size:14px}
+.service-menu li.on{border:1px solid #06437c;background:url(imgs/menu_bg_44.gif) repeat-x}
+.service-menu li.on a{color:#dd6a0f}
+.service-menu li .arrow{display:none;position:absolute;width:11px;height:19px;background:url(imgs/service_arrow.gif) no-repeat; top:12px;right:-11px}
+.service-menu li.on .arrow{display:block;}
+.m-service-detail .cont{margin-top:10px}
+.m-service-detail .m-article-detail h1{font-size:18px;margin-top:20px}
+.m-service-detail .m-article-detail .line{margin-bottom:0}
+.m-service-detail .m-article-detail .content{padding:5px;font-size:12px}
+.m-service-detail div.tit-bar.clearfix.tit-bar{text-align:right}
+.service-menu .ft{height:33px;background:url(imgs/bt_bg_33.gif) repeat-x left bottom;}
+.service-menu .hd{height:20px;background:#fff;}
 .m-contact .bd{margin-top:10px;}
-.contact {
-  border: 1px solid #A5BCDB;
-  padding-bottom: 35px;
-  margin-top:10px;
+.contact { 
+  background:url(imgs/serbg.jpg) no-repeat;
+  width:252px;
+  height:243px;
 }
-.contact p {
-  line-height: 1.6em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5px;
-  text-indent: 2em;
-  width: 225px;
+.contact .bd {
+	color:#1b6298;padding:70px 0px 10px 10px;
 }
+.contact .bd p{margin-bottom:10px}
 .servicesListTable td p {
   line-height: 1.4em;
   margin: 0;

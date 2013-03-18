@@ -13,21 +13,20 @@
 	<div class="m-logo">
 		<a target="_self" href="<?php echo $this->createUrl('/site/index')?>" class="logo"><img title="mushw.com - 钼市网" alt="zzz" src="/images/logo.jpg"></a>
 	</div>
-	<div class="logo-side-title"><img src="/images/service_title.gif" /></div>
-	
-
 </div>
 
 <div class="layout main">
 	<div class="m-service">
 	<div class="hd"></div>
 	<div class="bd">
-	
-	<div class="grid-720">
+	<div class="ui-m-crumb">
+		<p>你当前位置：<a>钼服务</a><em>&gt;</em><span>客户服务</span></p>
+	</div>
+	<div class="grid-700">
 		
 <?php echo $content?>
 	</div>
-	<div class="grid-230">
+	<div class="grid-254">
 	
 <?php $this->widget('ServiceContact');?>
 </div>

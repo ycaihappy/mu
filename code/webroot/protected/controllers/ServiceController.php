@@ -21,9 +21,10 @@ class ServiceController extends Controller {
 		$this->render('index',$data);
 	}
 	public function actionView()
-	{
-		$artId=(int)Yii::app()->request->getParam('art_id');
-		$service=new Article();
+    {
+        $this->layout = '//layouts/ajax_main';
+        $artId=(int)Yii::app()->request->getParam('art_id');
+        $service=new Article();
 		if($artId)
 		{
 			$service=$service->findByPk($artId);

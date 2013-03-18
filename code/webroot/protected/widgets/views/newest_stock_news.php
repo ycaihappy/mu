@@ -1,10 +1,10 @@
- <div class="title-bar ui-til4">
-      <h2><a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>44))?>">股票</a></h2>
-      <span class="more link">
+ <div class="ui-m-tab ui-m-border">
+		<div class="hd ui-tab-3">
+				<span class="on"><a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>44))?>">股票</a></span>
+                  <a class="more" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>44))?>">更多</a>
+        </div>
+	<div class="bd">
 
-                        <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>44))?>">更多</a>
-     </span>
-</div>
 <div class="mod-list main-list news-date-list">
     <h3 class="bigsize">
 		<a href="<?php echo $stockOne->art_source?>"><?php echo $stockOne->art_title?></a>
@@ -18,5 +18,5 @@
 		endif;
 		?> 
 	</ul>
-                    
+	 </div>
 </div>

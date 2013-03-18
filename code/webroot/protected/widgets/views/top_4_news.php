@@ -4,7 +4,12 @@
 	<?php echo $headNews->art_content;?>
 	</p>
 </div>
-<div class="news">
+
+<div class="news ui-m-tab ui-m-border">
+<div class="hd">
+	<span class="on">主推新闻</span>
+</div>
+<div class="bd">
 <h4>
 <a target="_blank" href="<?php echo $topOne->art_source?>"><?php echo $topOne->art_title?></a>
 </h4>
@@ -18,4 +23,5 @@ if ($top4News):
 endif;
 ?> 
 </ul>
+</div>
 </div>

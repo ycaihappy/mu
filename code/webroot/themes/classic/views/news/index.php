@@ -6,16 +6,25 @@
 	<div class="layout-area">
 		
 		<!--left-->
-		<div class="m-topnews">
-            
+		<div class="m-topnews">          
             
      	<?php  $this->widget('Top4NewsWidget');?>
-        <div class="news">
-		<?php $this->widget('ViewpointNewsWidget');?>	
+        <div class="news ui-m-tab ui-m-border">
+			<div class="hd">
+				<span class="on">本网视点</span>
+			</div>
+			<div class="bd">
+			<?php $this->widget('ViewpointNewsWidget');?>	
+			</div>
         </div>
-        <div class="news no_border">
+        <div class="news ui-m-tab ui-m-border">
+			<div class="hd">
+				<span class="on">热点新闻</span>
+			</div>
+			<div class="bd">
 			<?php $this->widget('TopHotSpotNewsWidget');?>
-        </div>
+			</div>
+		</div>
         </div>
 		<!--left-->
 		<!--right-->
@@ -34,7 +43,7 @@
 		<div class="col-l">
 		<!--module 1-->
 		
-			<div class="m-news-two">
+			<div class="m-news-two ui-m-tab ui-m-border">
 				<?php $this->widget('TopTrendsNewsWidget');?>
             </div>
 			
@@ -59,19 +68,13 @@
 	</div>
 	<div class="layout-area">
 		
-		<div class="layout-left">
+		
 		<!--module-->
 		
 		
 		<div class="m-news-focus">
 		
-		<div id="jjsc" class="area">
-		<div class="title-bar ui-til1"><h2><a><img width="140" height="30" src="http://img3.cache.netease.com/cnews/temp/img/economy-market.png" alt="经济.市场"></a></h2>
-        <div class="links right">
-           
-        </div>
-    </div>
-		</div>
+	
 		
 		<div class="mod">
   <?php $this->widget('NewestBusinessNewsWidget')?>
@@ -80,15 +83,13 @@
                <?php $this->widget('NewestStockNewsWidget');?>
             </div>
 		
-		
-		
 		</div>
 		
 		
 		<!--module-->
-		</div>
 		
-		<div class="m-tab-list newest-list right">
+		
+		<div class=" mod ui-m-tab right ui-m-border">
 			<?php $this->widget('Newest10NewsWidget');?>
 		</div>
 		<div class="clearfix"></div>

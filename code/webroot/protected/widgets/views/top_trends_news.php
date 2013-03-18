@@ -1,9 +1,8 @@
-<h2>
-	<span>
-	 <a target="_blank" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>42))?>">更多</a>
-	</span>
-	<a target="_blank" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>42))?>">行业动态</a>
-</h2>
+<div class="hd ui-tab-3">
+	<span class="on"><a target="_blank" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>42))?>">行业动态</a></span>
+	<a target="_blank" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>42))?>" class="more">更多</a>
+</div>
+<div class="bd">
 	<div class="n2top">
          <a href="<?php echo $this->getController()->createUrl('/news/view',array('art_id'=>$trendsOne->art_id))?>">
          	<img src="<?php echo $trendsOne->art_img?>">
@@ -22,3 +21,4 @@
 	endif;
 	?>
 </ul>
+</div>

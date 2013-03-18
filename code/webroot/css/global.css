@@ -480,6 +480,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-article-detail .ft{background:url(imgs/news_bt_bg.gif) repeat-x left bottom;padding:0px 10px 20px 10px;}
 .m-article-detail .ft li{width:48%;float:left;line-height:30px;}
 .m-article-detail .ft li span{font-weight:bold;color:#e74f00;margin:0 10px;font-size:14px}
+.m-article-detail .content p{text-indent:2em;}
 .banner_new2{margin-bottom:15px}
 
 .ui-m-warn{border:1px solid #c01213;background:#ffebec;padding:5px 10px;}

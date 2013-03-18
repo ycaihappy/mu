@@ -57,9 +57,9 @@
 					</ul>
 					<ul class="hide">
 					<table cellspacing="0" cellpadding="0" width="100%">
-						<tr><th>品种2</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
-						<?php if($rePrice):
-								foreach ($rePrice as $price):
+						<tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
+						<?php if($otherPrice):
+								foreach ($otherPrice as $price):
 						?>
 						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td></tr>
 						<?php endforeach;

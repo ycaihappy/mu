@@ -819,13 +819,14 @@ padding: 0 20px;
 .m-news-focus h3.bigsize {  font-family: "Microsoft YaHei","微软雅黑","宋体";  font-size: 16px;  font-weight: bold;  height: 24px;  line-height: 24px;  margin: 10px 0 6px;  overflow: hidden;}
 .m-news-focus .bd li {
   background: url("imgs/v2/ico_dotted.png") no-repeat scroll left center transparent;
-  float: left;
   line-height: 25px;
-  padding-left: 10px;
+  text-indent: 10px;
   position: relative;
 
+
 }
-.m-news-focus .mod{width:312px;float:left;margin-right:10px;}
+.m-news-focus .mod{width:312px;float:left;margin-right:10px;display:inline}
+.m-news-focus .right{margin:0}
 .m-news-focus .fB {    font-weight: bold;}
 #p_news_index .layout-left{width:700px;}
 #p_news_index .m-banner{margin:0;}

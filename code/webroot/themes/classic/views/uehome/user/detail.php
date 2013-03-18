@@ -59,6 +59,11 @@ elseif ( Yii::app()->user->hasFlash('success'))
         </td>
 		</tr>
 		<tr>
+        <td class="label">性别：</td><td><?php echo $form->radioButtonList($model, 'user_sex',array(1=>'男',2=>'女'));?>
+        <?php echo $form->error($model,'user_sex'); ?>
+        </td>
+		</tr>
+		<tr>
         <td class="label">昵称：</td><td><?php echo $form->textField($model, 'user_nickname',array('class'=>'cmp-input','value'=>$model->user_nickname));?>
         <?php echo $form->error($model,'user_nickname'); ?>
         </td>

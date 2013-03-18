@@ -30,42 +30,40 @@ class PriceController extends BasicAccessController
         $title = ($type == 1)? '钼精矿' : '钼酸铵';
         #$product_type = rand(75,89);
         $product_type = rand(31,32);
-    
-    #    $connection = Yii::app()->db;
-    #    $sql = 'select * from mu_price_summary where sum_year='.date('Y').' and sum_product_type='.$product_type;
-    #    $price_sum = $connection->createCommand($sql)->queryAll();
-    #    foreach ($price_sum as $price)
-    #    {
-    #        $month_array[] = $price->sum_month;
-    #        if ( isset($area_array[$price->sum_product_zone]) )
-    #        $area_array[$price->sum_product_zone] += array($price->sum_price);
-    #        else
-    #        $area_array[$price->sum_product_zone] = array($price->sum_price);
-    #    }
+        $select_month = array(date('m')-2,date('n')-1,date('n'));
 
-#        foreach ($area_array as $area=>$price_data)
-#        {
-#            $build[] = array('name'=>$area,'data'=>$price_data);
-#        }
-#
+        $creteria=new CDbCriteria();
+        $creteria->condition="city_mu=1 and city_level=2";
+        $creteria->limit =3;
+        $city_three=City::model()->findAll($creteria);
+        foreach ($city_three as $city_one)
+        {
+            $sum_city[$city_one->city_id] = array('name'=>$city_one->city_name);
+            $select_city[$city_one->city_name] = $city_one->city_id;
+        }
+
+    
+        $connection = Yii::app()->db;
+        $sql = 'select sum_year,sum_product_zone,sum_month,sum(sum_price)/12 as price from mu_price_summary where sum_year='.date('Y').' and sum_product_type ='.$product_type.' and sum_month in ('.implode(',',$select_month).') and sum_product_zone in ('.implode(',',$select_city).') group by sum_year,sum_month,sum_product_zone order by sum_product_zone,sum_month';
+        $price_sum = $connection->createCommand($sql)->queryAll();
+        foreach ($select_city as $city_name=>$city_id)
+        {
+            $data = array();
+            foreach ($price_sum as $price_one)
+            {
+                if ( $price_one['sum_product_zone'] == $city_id)
+                {
+                    $data[] = (int)$price_one['price'];
+                }
+            }
+            $build[] = array('name'=>$city_name,'data'=>$data);
+        }
+
         $data = array(
             'text'=>$title,
-            'xAxis'=> array('Jan','Nov'),
+            'xAxis'=> $select_month,
             'yAxis'=>'价格',
-            'series'=>array(
-                array(
-                    'name'=>'河南',
-                    'data'=>array(1,2,3,8,4,1)
-                ),
-                array(
-                    'name'=>'陕西',
-                    'data'=>array(1,2,3,7,9,1)
-                ),
-                array(
-                    'name'=>'黑龙江',
-                    'data'=>array(1,2,3,9,8,7)
-                )
-            )
+            'series'=>$build
         );
         
         echo json_encode($data);

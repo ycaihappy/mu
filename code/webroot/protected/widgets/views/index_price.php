@@ -37,7 +37,7 @@
 					<div class="clearfix"></div>
 				</div>
 			</div>
-			<div class="price-area">
+<div class="price-area">
 				<div class="ui-purple-hd  ui-m-border">
 						<h6>相关稀土资源价格表</h6>
 						

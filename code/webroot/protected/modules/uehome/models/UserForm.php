@@ -5,6 +5,7 @@ class UserForm extends CFormModel
     public $user_province_id;
     public $user_city_id;
     public $user_name;
+    public $user_sex;
     public $user_email;
     public $user_nickname;
     public $user_mobile_no;
@@ -23,6 +24,7 @@ class UserForm extends CFormModel
             //array('user_nickname', 'required'),		
             array('user_email', 'required','message'=>'邮箱必须填写！'),	
             array('user_email', 'email','message'=>'邮箱的格式不正确！'),	
+            array('user_sex', 'required','message'=>'请选择性别！'),	
             array('user_mobile_no', 'required','message'=>'手机号码必须填写！'),	
             array('user_telephone','CPhoneValidator','message'=>'电话号码格式不正确！'),	
             array('user_mobile_no','CMobileValidator','message'=>'手机号码格式不正确！'),	
@@ -49,6 +51,7 @@ class UserForm extends CFormModel
         user_nickname=:user_nickname,
         user_mobile_no=:user_mobile_no,
         user_email=:user_email,
+        user_sex=:user_sex,
         user_telephone=:user_telephone,
         user_subscribe=:user_subscribe,
         user_province_id=:user_province_id
@@ -63,6 +66,7 @@ class UserForm extends CFormModel
         $commd->bindValue(":user_mobile_no", $this->user_mobile_no, PDO::PARAM_STR);
         $commd->bindValue(":user_telephone", $this->user_telephone, PDO::PARAM_STR);
         $commd->bindValue(":user_email", $this->user_email, PDO::PARAM_STR);
+        $commd->bindValue(":user_sex", $this->user_sex, PDO::PARAM_STR);
         $commd->bindValue(":user_subscribe", $this->user_subscribe, PDO::PARAM_STR);
         $commd->bindValue(":user_id", yii::app()->user->getID(), PDO::PARAM_STR);
 

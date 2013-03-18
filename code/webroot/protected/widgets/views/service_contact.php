@@ -8,4 +8,3 @@
 <div class="link ui-m-border">
 	<a href="<?php echo $this->getController()->createUrl('/service/index')?>"><img width="252" height="97" src="/images/ser01.jpg"></a>
 </div>
-

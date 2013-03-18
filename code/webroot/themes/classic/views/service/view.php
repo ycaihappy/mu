@@ -20,7 +20,7 @@
 	<div class="hd"></div>
 	<div class="bd">
 	<div class="ui-m-crumb">
-		<p>你当前位置：<a>钼服务</a><em>&gt;</em><span>客户服务</span></p>
+		<p>你当前位置：<a href="<?php echo $this->createUrl('/service/index')?>">钼服务</a><em>&gt;</em><span><?php echo $service['art_title'];?></span></p>
 	</div>
 	<div class="cont">
 	<div class="grid-254">
@@ -29,12 +29,40 @@
 		<div class="hd"></div>
 		<div class="bd">
 			<ul>
-				<li class="on"><a href="">仓单质押</a><i class="arrow"></i></li>
-				<li><a href="">仓单质押</a><i class="arrow"></i></li>
-				<li><a href="">仓单质押</a><i class="arrow"></i></li>
-				<li><a href="">仓单质押</a><i class="arrow"></i></li>
-				<li><a href="">仓单质押</a><i class="arrow"></i></li>
-				<li class="last"><a href="">仓单质押</a><i class="arrow"></i></li>
+			<?php 
+			$class1=$class2=$class3=$class4=$class5=$class6=$class7='';
+			switch ($service['art_id'])
+			{
+				case 651:
+					$class1='on';
+					break;
+				case 652:
+					$class2='on';
+					break;
+				case 653:
+					$class3='on';
+					break;
+				case 654:
+					$class4='on';
+					break;
+				case 655:
+					$class5='on';
+					break;
+				case 656:
+					$class6='on';
+					break;
+				case 657:
+					$class7='on';
+					break;
+			}
+			?>
+				<li class="<?php echo $class1?>"><a href="<?php echo $this->createUrl('/service/view',array('art_id'=>651))?>">仓储金融服务</a><i class="arrow"></i></li>
+				<li class="<?php echo $class2?>"><a href="<?php echo $this->createUrl('/service/view',array('art_id'=>652))?>">仓单质押(现货通)</a><i class="arrow"></i></li>
+				<li class="<?php echo $class3?>"><a href="<?php echo $this->createUrl('/service/view',array('art_id'=>653))?>">动产质押逐笔控制服务</a><i class="arrow"></i></li>
+				<li class="<?php echo $class4?>"><a href="<?php echo $this->createUrl('/service/view',array('art_id'=>654))?>">动产质押总量控制服务</a><i class="arrow"></i></li>
+				<li class="<?php echo $class5?>"><a href="<?php echo $this->createUrl('/service/view',array('art_id'=>655))?>">配送服务</a><i class="arrow"></i></li>
+				<li class="<?php echo $class6?>"><a href="<?php echo $this->createUrl('/service/view',array('art_id'=>656))?>">前置现货通</a><i class="arrow"></i></li>
+				<li class="last <?php echo $class7?>"><a href="<?php echo $this->createUrl('/service/view',array('art_id'=>657))?>">质检服务</a><i class="arrow"></i></li>
 			</ul>
 		</div>
 		<div class="ft"></div>

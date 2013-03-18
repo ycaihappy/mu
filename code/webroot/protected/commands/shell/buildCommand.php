@@ -27,7 +27,7 @@ class buildCommand extends CConsoleCommand{
                         $smp->sum_year = $year_one;
                         $smp->sum_month = $month_one;
                         $smp->sum_day  = $day_one;
-                        $smp->sum_product_type = $mu_product[rand(0,1)];
+                        $smp->sum_product_type = $mu_product[array_rand($mu_product)];
                         $smp->sum_product_zone = $area[array_rand($area)];
                         $smp->sum_add_date = date("Y-m-d");
                         $smp->save();

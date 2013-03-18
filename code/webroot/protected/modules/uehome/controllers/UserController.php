@@ -387,17 +387,18 @@ $user_id =yii::app()->user->getID();
             $model->attributes = $_POST['Enterprise'];
             if ( $model->validate() )
             {
-               # $model_image=CUploadedFile::getInstance($model,'ent_logo');
-               # if (is_object($model_image) && get_class($model_image) === 'CUploadedFile')
-               # {
-               #     $filename = md5(uniqid());
-               #     $uploadfile= 'images/enterprise/'.Yii::app()->user->getId().'/'.$filename . '.' . $model_image->extensionName;
-               #     $model_image->saveAs($uploadfile);
-               #     $model->ent_logo= 'images/enterprise/'.Yii::app()->user->getId().'/'. $filename . '.' . $model_image->extensionName;
-               # }
+                #$model_image=CUploadedFile::getInstance($model,'ent_logo');
+                $model_image=CUploadedFile::getInstanceByName('ent_logo');
+                if (is_object($model_image) && get_class($model_image) === 'CUploadedFile')
+                {
+                    $filename = md5(uniqid());
+                    $uploadfile= 'images/enterprise/'.Yii::app()->user->getId().'/'.$filename . '.' . $model_image->extensionName;
+                    $model_image->saveAs($uploadfile);
+                    $model->ent_logo= 'images/enterprise/'.Yii::app()->user->getId().'/'. $filename . '.' . $model_image->extensionName;
+                }
                 $model->update();
             }
-    Yii::app()->user->setFlash('success','修改企业信息成功!');
+            Yii::app()->user->setFlash('success','修改企业信息成功!');
         }
         else
         {

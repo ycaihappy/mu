@@ -1,5 +1,6 @@
-        <div class="title-bar ui-til2">
-            <h2><a href="http://news.163.com/rank/">行情排行榜</a></h2>
+       <div class="ui-m-tab ui-m-border">
+		<div class="hd ui-tab-3">
+            <span class="on"><a href="#">行情排行榜</a></span>
             
         </div>
         <div class="bd">
@@ -21,4 +22,5 @@
                 </div>
               
             </div>
+        </div>
         </div>

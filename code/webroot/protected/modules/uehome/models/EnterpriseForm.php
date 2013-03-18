@@ -51,7 +51,7 @@ class EnterpriseForm extends CFormModel
 
 	public function update()
 	{
-        $addsql = "update mu_user_enterprise set ent_logo=:ent_logo,ent_name=:ent_name,ent_type=:ent_type,ent_business_model=:ent_business_model,
+        $addsql = "update mu_user_enterprise set ent_logo=:ent_logo,ent_image=:ent_image,ent_name=:ent_name,ent_type=:ent_type,ent_business_model=:ent_business_model,
             ent_city=:ent_city,ent_business_scope=:ent_business_scope,ent_zipcode=:ent_zipcode,ent_website=:ent_website,ent_location=:ent_location,
             ent_introduce=:ent_introduce,ent_registered_capital=:ent_registered_capital,ent_chief=:ent_chief
             where ent_user_id=:ent_user_id";
@@ -61,6 +61,7 @@ class EnterpriseForm extends CFormModel
 
         $commd->bindValue(":ent_name", $this->ent_name, PDO::PARAM_STR);
         $commd->bindValue(":ent_logo", $this->ent_logo, PDO::PARAM_STR);
+        $commd->bindValue(":ent_image", $this->ent_logo, PDO::PARAM_STR);
         $commd->bindValue(":ent_type", $this->ent_type, PDO::PARAM_STR);
         $commd->bindValue(":ent_city", $this->ent_city, PDO::PARAM_STR);
         $commd->bindValue(":ent_business_scope", $this->ent_business_scope, PDO::PARAM_STR);

@@ -56,6 +56,7 @@ class User extends CActiveRecord
 			array('user_name, user_first_name, user_last_name', 'length', 'max'=>50),
 			array('user_pwd', 'length', 'max'=>40),
 			array('user_email', 'length', 'max'=>100),
+			array('user_sex', 'numberic'),
 			array('user_template', 'length', 'max'=>128),
 			array('user_open_template', 'boolean'),
 			array('user_nickname, user_point', 'length', 'max'=>20),
@@ -66,7 +67,7 @@ class User extends CActiveRecord
 			array('user_join_date, user_confirm_date,user_status, user_last_login_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('user_id, user_name, user_pwd, user_email, user_nickname, user_type, user_mobile_no, user_first_name, user_last_name, user_status, user_province_id, user_city_id, user_subscribe, user_point, user_join_date, user_confirm_date, user_last_login_date', 'safe', ),
+			array('user_id, user_name, user_pwd, user_email, user_sex, user_nickname, user_type, user_mobile_no, user_first_name, user_last_name, user_status, user_province_id, user_city_id, user_subscribe, user_point, user_join_date, user_confirm_date, user_last_login_date', 'safe', ),
 		);
 	}
 
@@ -97,6 +98,7 @@ class User extends CActiveRecord
 			'user_name' => 'User Name',
 			'user_pwd' => 'User Pwd',
 			'user_email' => 'User Email',
+			'user_sex' => 'User Sex',
 			'user_nickname' => 'User Nickname',
 			'user_type' => 'User Type',
 			'user_mobile_no' => 'User Mobile No',
@@ -128,6 +130,7 @@ class User extends CActiveRecord
 		$criteria->compare('user_name',$this->user_name,true);
 		$criteria->compare('user_pwd',$this->user_pwd,true);
 		$criteria->compare('user_email',$this->user_email,true);
+		$criteria->compare('user_sex',$this->user_sex,true);
 		$criteria->compare('user_nickname',$this->user_nickname,true);
 		$criteria->compare('user_type',$this->user_type);
 		$criteria->compare('user_mobile_no',$this->user_mobile_no,true);

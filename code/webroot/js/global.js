@@ -7,6 +7,12 @@ $.extend(MU.mods,{
 			var index = $(this).parent().find('span').index($(this));
 			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings('ul').hide();
 		});
+		
+		$('.ui-purple-hd span').mouseover(function(){
+			$(this).addClass('on').siblings().removeClass('on');
+			var index = $(this).parent().find('span').index($(this));
+			$(this).closest('.ui-purple-hd').siblings('.bd').find('ul').eq(index).show().siblings('ul').hide();
+		});
 	},
 	lazyloadImage : function(){
 		$(this).find('img').lazyload({ effect: "fadeIn", threshold: 200, failurelimit: 20 });

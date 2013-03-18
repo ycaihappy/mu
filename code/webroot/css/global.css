@@ -1465,7 +1465,12 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .ui-purple-hd{position:relative;;background:url(imgs/v2/title_purple_bg.png) repeat-x;height:26px;line-height:26px;padding-left:10px;}
 .ui-purple-hd h6{font-weight:bold;color:#333;display:inline;float:left;}
 .ui-purple-hd .more{font-size:12px;float:right}
+.ui-purple-hd span{width:88px;display:inline-block;text-align:center;border-right:1px solid #ccc}
+.ui-purple-hd span.on{font-weight:bold;background:#F7F7F9}
 
+.ui-m-tab4{padding:0}
+.ui-m-tab4 .hd span{text-align:center;color:#333;border-right:1px solid #ccc;background:none!important;}
+.ui-m-tab4 .hd span.on{font-weight:bold}
 .m-category{float:left;width:215px;}
 .m-category .bd{padding:10px;padding-bottom:0}
 .m-category dt{font-weight:bold;margin-bottom:3px;}

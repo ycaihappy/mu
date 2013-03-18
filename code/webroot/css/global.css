@@ -145,6 +145,7 @@ padding-right: 1px;
 .grid-700,.grid-254{float:left}
 .grid-700{width:700px;margin-right:5px}
 .grid-254{width:254px}
+.grid-680{width:680px;margin-left:10px;float:right}
 .lastdiv{border:0;}
 .m-nav{margin-top: 25px;background:url(imgs/v2/menu_bg.png) repeat-x;height:40px;border-radius:3px 3px 0px 0}
 .m-nav .bd{position:relative;}
@@ -473,7 +474,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-article-detail .color-a-0 {padding-right: 7px;}
 .m-article-detail div.tit-bar.clearfix.tit-bar {color: #666666;text-align:center}
 .m-article-detail .line{border-bottom: 1px solid #dbdbdb;margin:10px 0px;}
-.m-article-detail .content p,.m-article-detail .content {padding-bottom: 29px;font-size: 16px;line-height: 28px;font-size:14px;}
+.m-article-detail .content {padding-bottom: 29px;font-size: 16px;line-height: 28px;font-size:14px;}
 .m-article-detail .article-time{margin:0 20px;}
 .m-article-detail .bor-tit b{font-weight:bold;color:#c00;font-size:14px;}
 .m-article-detail .ft{background:url(imgs/news_bt_bg.gif) repeat-x left bottom;padding:0px 10px 20px 10px;}
@@ -1254,7 +1255,21 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .servicesListTable tr{background:url(imgs/bt_repeatbg.gif) repeat-x left bottom;}
 .servicesListTable td{padding:20px 10px;}
 .servicesListTable h4{color:#0b3977;font-size:14px;margin-bottom:10px}
-
+.service-menu{margin-bottom:10px}
+.service-menu li{height:44px;line-height:44px;text-align:center;position:relative;border-bottom:1px dotted #ccc;}
+.service-menu li.last{border-bottom:0}
+.service-menu li a{color:#06437c;font-weight:bold;font-size:14px}
+.service-menu li.on{border:1px solid #06437c;background:url(imgs/menu_bg_44.gif) repeat-x}
+.service-menu li.on a{color:#dd6a0f}
+.service-menu li .arrow{display:none;position:absolute;width:11px;height:19px;background:url(imgs/service_arrow.gif) no-repeat; top:12px;right:-11px}
+.service-menu li.on .arrow{display:block;}
+.m-service-detail .cont{margin-top:10px}
+.m-service-detail .m-article-detail h1{font-size:18px;margin-top:20px}
+.m-service-detail .m-article-detail .line{margin-bottom:0}
+.m-service-detail .m-article-detail .content{padding:5px;font-size:12px}
+.m-service-detail div.tit-bar.clearfix.tit-bar{text-align:right}
+.service-menu .ft{height:33px;background:url(imgs/bt_bg_33.gif) repeat-x left bottom;}
+.service-menu .hd{height:20px;background:#fff;}
 .m-contact .bd{margin-top:10px;}
 .contact { 
   background:url(imgs/serbg.jpg) no-repeat;

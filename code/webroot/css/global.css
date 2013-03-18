@@ -1268,6 +1268,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-service-detail .m-article-detail .line{margin-bottom:0}
 .m-service-detail .m-article-detail .content{padding:5px;font-size:12px}
 .m-service-detail div.tit-bar.clearfix.tit-bar{text-align:right}
+.m-service-detail .link{margin:10px 0}
 .service-menu .ft{height:33px;background:url(imgs/bt_bg_33.gif) repeat-x left bottom;}
 .service-menu .hd{height:20px;background:#fff;}
 .m-contact .bd{margin-top:10px;}

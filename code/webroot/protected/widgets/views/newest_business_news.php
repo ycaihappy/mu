@@ -4,9 +4,9 @@
                   <a class="more" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>43))?>">更多</a>
         </div>
 	<div class="bd">
-	<h3 class="bigsize">
+	<!--<h3 class="bigsize">
 	<a href="<?php echo $businessOne->art_source?>"><?php echo $businessOne->art_title?></a>
-	</h3>
+	</h3>-->
 	<ul class="mod-list main-list">
 		<?php 
 		if ($businessNews):

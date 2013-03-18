@@ -6,9 +6,9 @@
 	<div class="bd">
 
 <div class="mod-list main-list news-date-list">
-    <h3 class="bigsize">
+   <!-- <h3 class="bigsize">
 		<a href="<?php echo $stockOne->art_source?>"><?php echo $stockOne->art_title?></a>
-	</h3>
+	</h3>-->
 	<ul class="mod-list main-list">
 		<?php 
 		if ($stockNews):

@@ -114,6 +114,10 @@ class User extends CActiveRecord
 			'user_last_login_date' => 'User Last Login Date',
 		);
 	}
+	public static function  getSexName($sex)
+	{
+		return $sex==1?'先生':'女士';
+	}
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

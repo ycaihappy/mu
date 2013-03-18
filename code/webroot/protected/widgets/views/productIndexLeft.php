@@ -26,7 +26,7 @@
             <div class="txtadHd">
                 <h2><strong><a href="<?php echo $ent->ent_id?>" target="_blank"><?php echo $ent->ent_name?></a></strong></h2>
                 <div class="txtadCt">
-                    <p><a href="<?php echo $ent->ent_id?>" target="_blank">主营：<?php echo $ent->ent_business_scope?><br>电话：<?php echo $ent->user->user_telephone?>，<?php echo $ent->user->user_mobile_no?>  <?php echo $ent->user->user_first_name ?> <br>地址：<?php echo $ent->ent_location?></a></p>
+                    <p><a href="<?php echo $ent->ent_id?>" target="_blank">主营：<?php echo $ent->ent_business_scope?><br>电话：<?php echo $ent->user->user_first_name ?>(<?php echo User::getSexName($ent->user->user_sex)?>)<br><?php echo $ent->user->user_telephone?><?php echo $ent->user->user_mobile_no?'/'.$ent->user->user_mobile_no:''?> <br>地址：<?php echo $ent->ent_location?></a></p>
                     <p><a class="webSite" href="<?php echo $ent->ent_id?>" target="_blank"><?php echo $ent->ent_website?></a></p>
                 </div>
             </div>           

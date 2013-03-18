@@ -1113,14 +1113,15 @@ padding: 0 20px;
 }
 .m-news-list ul {
   line-height: 36px;
-  margin: 15px 50px;
+  margin: 15px 20px;
 }
 
 .m-news-list li {
-  background: url("imgs/main.png") no-repeat scroll 0 -120px transparent;
+  background: url("imgs/ico_new_list.gif") no-repeat left center;
   height: 36px;
   overflow: hidden;
   padding-left: 20px;
+  border-bottom:1px solid #ededed
 }
 .m-news-list li span{
 	float:right;
@@ -1691,3 +1692,4 @@ ul.yiiPager .selected a{color:#fff!important}
 .m-form .radio label{
 	display:inline;
 }
+.breadcrumbs{margin:10px 0}

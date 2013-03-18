@@ -72,12 +72,12 @@ class RelativeRePrice extends CActiveRecord
 	{
 		return  array(
 			'recentlyRePrice'=>array(
-				'condition'=>'re_status=1',
+				'condition'=>'re_status=1 and re_type=134',
 				'limit'=>12,
 				'order'=>'re_added_time desc',
 			),
 			'recentlyOtherPrice'=>array(
-				'condition'=>'re_status=1',
+				'condition'=>'re_status=1 and re_type=135',
 				'limit'=>12,
 				'order'=>'re_added_time desc',
 			),

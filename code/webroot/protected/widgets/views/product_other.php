@@ -23,10 +23,11 @@ $image_coin = ($data['enterprise']['ent_recommend'] == 1) ? 'golden.gif' : 'silv
 <?php echo $data['enterprise']['ent_introduce'];?>
 			  </div>
 			</div>
-			<div class="ui-m-tab ui-m-border">
+			<div class="lxxx ui-m-tab ui-m-border">
 			<div class="hd"><span class="on">联系信息</span></div>	
 
-			  <div class="bd">				
+			  <div class="bd">
+				<span class="kf"><img src="images/kf.jpg" /></span>
 				<ul>
                 <li>联 系 人:<?php echo $data['enterprise']['ent_chief'];?></li>
                 <li>联系电话:<?php echo $data['user_telephone'];?></li>

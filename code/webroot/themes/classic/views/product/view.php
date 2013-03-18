@@ -3,10 +3,10 @@
 
 	<div class="layout-area">
 	
-	<div class="layout-left">
+	<div class="grid-254">
 	    <?php $this->widget("ProductOtherWidget");?>
 	</div>
-	<div class="layout-right">
+	<div class="grid-680 aleft">
 	    <?php $this->widget("ProductDetailWidget");?>
 	</div>
 		

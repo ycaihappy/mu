@@ -32,6 +32,11 @@ class PriceController extends BasicAccessController
 		$data=compact('adv','adv1');
 		$this->render('index',$data);
 	}
+    public function actionQuery()
+    {
+        $data = array();
+        $this->render('query',$data);
+    }
 
     public function actionChart()
     {

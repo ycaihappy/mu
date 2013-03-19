@@ -2,7 +2,7 @@
 
 <a target="_blank" href="<?php echo $viewpointOne->art_source?>"><?php echo $viewpointOne->art_title?></a></h4>
 <p>
-    &#12288;钼精矿市场：今日40-45%钼精矿主流报价1540-1570元/吨度附近，47%及以上品位1560-1580元/吨度，价格暂时持稳，行...    </p>
+&#12288;<?php echo $viewpointOne->art_content;?>    </p>
     
 <ul>
 <?php 

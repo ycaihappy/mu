@@ -1,7 +1,7 @@
 <div class="layout main">
 
 	<div class="layout-area">
-    <div class="m-chart" id="J_ChartMap" data-api="<?php echo Yii::app()->controller->createUrl('price/chart');?> ">
+    <div class="m-chart" id="J_ChartMap" data-api="<?php echo Yii::app()->controller->createUrl('price/chart');?>">
     <div>
 	<form id="form1" action="" method="post">
         <table width="23%" cellspacing="2" cellpadding="0" style="float: left;">

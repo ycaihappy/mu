@@ -1,8 +1,12 @@
 		<div class="grid-690">
-<div class="m-suppy-list">
+<div class="m-suppy-list ui-m-tab ui-m-border">
 			
-
-   	  <h2 class="art_gyxx"><span class="on"><a href=""><?php echo $title?>信息</a><i></i></span></h2>
+	<div class="hd">
+		<span class="on">
+			<a href=""><?php echo $title?>信息</a>
+		</span>
+	</div>
+   	 
         <table width="100%" cellspacing="0" cellpadding="0" border="0" class="left_table">    
             
                     <tbody><tr>

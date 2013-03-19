@@ -77,7 +77,7 @@
 			<b></b></strong>
            <p>
            <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>651))?>">仓储金融</a>
-           <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>">仓单质押（现货通）</a>
+           <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>">仓单质押(现货通)</a>
            <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>653))?>">动产质押逐笔控制</a>
            <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>654))?>">动产质押总量控制</a>
            <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>655))?>">配送服务</a>

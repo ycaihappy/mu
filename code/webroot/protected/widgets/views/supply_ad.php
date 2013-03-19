@@ -1,9 +1,13 @@
 		<div class="m-supply-ad" id="J_IndexAd">
 			<div class="pic">
-				<a href=""><img src="images/290x287_1.gif" /></a>
-				<a href=""><img src="images/290x287_2.gif" /></a>
-				<a href=""><img src="images/290x287_1.gif" /></a>
-				<a href=""><img src="images/290x287_2.gif" /></a>
+			<?php if($adv):
+						foreach($adv as $ad):
+				?>
+				<a href="<?php echo $ad->ad_link?>"><img src="<?php echo '/images/advertisement/'.$ad->ad_media_src?>" /></a>
+				<?php 
+						endforeach;
+						endif;
+				?>
 				
 			</div>
 			<div class="btns"><a href="javascript:void(0)"></a><a href="javascript:void(0)"></a><a href="javascript:void(0)"></a><a href="javascript:void(0)" class="on"></a></div>

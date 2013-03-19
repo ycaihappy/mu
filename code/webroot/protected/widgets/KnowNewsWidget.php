@@ -7,6 +7,7 @@ class KnowNewsWidget extends CWidget
     	$KnowledgeList02 = Article::model()->knowledgeAppList()->findAll();
     	$KnowledgeList03 = Article::model()->knowledgeMakeList()->findAll();
     	$KnowledgeList04 = Article::model()->knowledgeUseList()->findAll();
-        $this->render('know_news',array('data01'=>$KnowledgeList01,'data02'=>$KnowledgeList02,'data03'=>$KnowledgeList03,'data04'=>$KnowledgeList04));
+    	$adv1=CCacheHelper::getAdvertisement(142);
+        $this->render('know_news',array('adv1'=>$adv1,'data01'=>$KnowledgeList01,'data02'=>$KnowledgeList02,'data03'=>$KnowledgeList03,'data04'=>$KnowledgeList04));
     }
 }

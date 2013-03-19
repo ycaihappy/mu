@@ -38,7 +38,8 @@ class ServiceController extends Controller {
 		$this->siteConfig->siteMetaTitle=$service->art_title;
         $this->siteConfig->siteMetaKeyword=$service->art_tags;
         $this->siteConfig->siteMetaDescription=$service->art_summary;
-		$data=compact('service');
+        $adv1=CCacheHelper::getAdvertisement(139);
+		$data=compact('service','adv1');
 		$this->render('view',$data);
 	}
 }

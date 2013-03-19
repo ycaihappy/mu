@@ -11,6 +11,7 @@ class SupplyAdWidget extends CWidget
 
     public function run()
     {
-        $this->render('supply_ad',array('data'=>$this->top_news,'mu_news'=>$this->top_mu_news));
+    	$adv=CCacheHelper::getAdvertisement(137);//百科头部横幅
+        $this->render('supply_ad',array('data'=>$this->top_news,'mu_news'=>$this->top_mu_news,'adv'=>$adv));
     }
 }

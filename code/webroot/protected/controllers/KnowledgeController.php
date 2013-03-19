@@ -6,10 +6,16 @@ class KnowledgeController extends Controller
 	/**
 	 * Declares class-based actions.
 	 */
+	public $adv;
 	public function actions()
 	{
 		return array(
 		);
+	}
+	public function init()
+	{
+		$this->adv=CCacheHelper::getAdvertisement(136);//百科头部横幅
+		parent::init();
 	}
 
 	/**
@@ -20,7 +26,9 @@ class KnowledgeController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$adv1=CCacheHelper::getAdvertisement(138);//百科中部横幅
+		$data=compact('adv1');
+		$this->render('index',$data);
 	}
     public function actionView()
     {

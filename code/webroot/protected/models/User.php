@@ -56,7 +56,7 @@ class User extends CActiveRecord
 			array('user_name, user_first_name, user_last_name', 'length', 'max'=>50),
 			array('user_pwd', 'length', 'max'=>40),
 			array('user_email', 'length', 'max'=>100),
-			array('user_sex', 'numberic'),
+			array('user_sex', 'numerical'),
 			array('user_template', 'length', 'max'=>128),
 			array('user_open_template', 'boolean'),
 			array('user_nickname, user_point', 'length', 'max'=>20),

@@ -1,7 +1,9 @@
 		<div class="m-supply-mt">
 				<div class="hd">
 					<h5>知识榜</h5>
-					<a class="ad"><img src="images/191x100.gif" width="191" height="100" /></a>
+					<?php if($adv1):?>
+					<a href="<?php echo $adv1[0]->ad_link?>" class="ad"><img src="<?php echo '/images/advertisement/'.$adv1[0]->ad_media_src?>" width="191" height="100" /></a>
+					<?php endif;?>
 				</div>
 				<div class="bd">
 					<ul>
@@ -18,7 +20,9 @@
                      endif;
                     ?>
 					</ul>
-					<a class="ad"><img src="images/193x60.gif" width="191" height="60" /></a>
+					<?php if($adv2):?>
+					<a href="<?php echo $adv2[0]->ad_link?>" class="ad"><img src="<?php echo '/images/advertisement/'.$adv2[0]->ad_media_src?>" width="191" height="60"  /></a>
+					<?php endif;?>
 				</div>
 				<div class="ft">
 					<div class="item">						

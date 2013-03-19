@@ -5,7 +5,7 @@
     
 			</div>
 			<div class="ad">
-				<a><img src="images/410x58.gif" /></a>
+				<a><img src="<?php echo '/images/advertisement/'.$adv1[0]->ad_media_src?>" /></a>
 			</div>
 			<div class="news">
 				<div class="img"><a><img src="images/108x112_1.gif" width="108" height="112" /></a></div>

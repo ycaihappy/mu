@@ -14,7 +14,9 @@ class KnowMuWidget extends CWidget
 			}
 		}
     	$mu_product = Article::model()->knowledgeProductList()->findAll();
-		$data=compact('topRanking','mu_product');
+    	$adv1=CCacheHelper::getAdvertisement(140);
+    	$adv2=CCacheHelper::getAdvertisement(141);
+		$data=compact('topRanking','mu_product','adv1','adv2');
 		$this->render('know_mu',$data);
     }
 }

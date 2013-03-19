@@ -1714,3 +1714,5 @@ ul.yiiPager .selected a{color:#fff!important}
 .m-chart{margin-top:10px}
 .m-chart table{background:#f3f3f3}
 .m-chart table td{padding:5px;}
+.m-chart .city{width:165px;}
+.m-chart .city label{margin-right:10px;margin-bottom:10px;display:inline-block;}

@@ -5,7 +5,13 @@ $.extend(MU.mods,{
 		$('div.m-tab-list,div.m-quot,div.m-case,div.m-nous,div.ui-m-tab,div.ui-m-tab2,div.m-new-hx').find('.hd span').mouseover(function(){
 			$(this).addClass('on').siblings().removeClass('on');
 			var index = $(this).parent().find('span').index($(this));
-			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings().hide();
+			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings('ul').hide();
+		});
+		
+		$('.ui-purple-hd span').mouseover(function(){
+			$(this).addClass('on').siblings().removeClass('on');
+			var index = $(this).parent().find('span').index($(this));
+			$(this).closest('.ui-purple-hd').siblings('.bd').find('ul').eq(index).show().siblings('ul').hide();
 		});
 	},
 	lazyloadImage : function(){
@@ -633,7 +639,7 @@ $.extend(MU.mods,{
 	},
 	JImgScroller : function () {
 		var self = $(this);
-		var s = new MU.Tool.ImgScroller({'el':self,duration : 80});
+		var s = new MU.Tool.ImgScroller({'el':self,duration : 80,direction : self.data('type')});
 	},
 	JQQBox : function () {
 		var self = $(this);

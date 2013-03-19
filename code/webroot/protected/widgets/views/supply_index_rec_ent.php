@@ -1,5 +1,8 @@
-<div class="cgal">
-	<h2>推荐供应商信息</h2>
+<div class="cgal ui-m-tab ui-m-border">
+	<div class="hd">
+		<span class="on">推荐供应商信息</span>
+	</div>
+	<div class="bd">
 	<ul>
 		<?php if($data):
 				foreach ($data as $ent):
@@ -10,4 +13,5 @@
 			endif;
 		?>
 	</ul>
+	<div 
 </div>

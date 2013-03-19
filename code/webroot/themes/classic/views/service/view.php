@@ -21,9 +21,9 @@
 	<div class="m-service-detail">
 	<div class="hd"></div>
 	<div class="bd">
-	<div class="ui-m-crumb">
+	<!--<div class="ui-m-crumb">
 		<p>你当前位置：<a href="<?php echo $this->createUrl('/service/index')?>">钼服务</a><em>&gt;</em><span><?php echo $service['art_title'];?></span></p>
-	</div>
+	</div>-->
 	<div class="cont">
 	<div class="grid-254">
 	
@@ -85,7 +85,7 @@
 			<div>
                   <div class="tit-bar clearfix">
 					<div class="ll">
-                    <span class="color-a-0"></span><span class="bor-tit"></span><span class="color-a-1" ><a target="_blank" href=""><?php echo $service['art_source'];?></a></span><span class="infoMblog"><span class="color-a-2"></span></span><span class="article-time">发布时间：<?php echo $service['art_post_date'];?></span><span class="bor-tit"></span></div>
+                    <span class="color-a-0"></span><span class="bor-tit"></span><span class="color-a-1" ><a target="_blank" href=""><?php echo $service['art_source'];?></a></span><span class="infoMblog"><span class="color-a-2"></span></span><span class="article-time" style="display:none">发布时间：<?php echo $service['art_post_date'];?></span><span class="bor-tit"></span></div>
 
 					</div>
                  

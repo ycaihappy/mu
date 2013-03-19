@@ -16,10 +16,14 @@ $title = $type ? '推荐供求' : '推荐供应商';
         endif;
         if ( $advEnt && $type)
         {
+            $i = 0;
         		foreach ($advEnt as $ent):
+                    if ($i > 8) continue;
         ?>
     <li><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$ent->supply_id));?>"><?php echo $ent->supply_name;?></a></li>
-<?php endforeach; }?>
+<?php 
+                    $i++;
+endforeach; }?>
 			</ul>
 		</div>
        </div>

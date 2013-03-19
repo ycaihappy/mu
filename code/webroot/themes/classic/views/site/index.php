@@ -35,7 +35,11 @@
     <div class="m-b2c ui-m-tab ui-m-border" id="J_Data_Center_2">
 
             <?php $this->widget('IndexProductWidget');?>
-            <div class="area-two">
+           
+    </div>
+ </div>
+ <div class="layout-area">
+  <div class="area-two">
                 <?php $this->widget('IndexModuleWidget',array('type'=>1));?>
                 <?php $this->widget('IndexModuleWidget',array('type'=>2));?>
                 <?php $this->widget('IndexModuleWidget',array('type'=>3));?>
@@ -43,9 +47,7 @@
                 <?php $this->widget('IndexModuleWidget',array('type'=>5));?>
                 <?php $this->widget('IndexModuleWidget',array('type'=>6));?>
             </div>
-    </div>
  </div>
-
 	<div class="layout-area">
 	
 		<div class="m-bt-ad">

@@ -72,8 +72,14 @@
 </div>
 	
 	<div class="grid-680">
-		
+	<div class="service-ad">
+		<a href="#"><img src="images/service_680x60.jpg" /></a>
+	</div>
  <div class="m-article-detail">
+			<div class="hd">
+				<span class="image"><img src="images/cc2.jpg" /></span>
+				<h6 class="bigcolmfont">仓储服务</h6>
+			</div>
 			<div>
             <h1><?php echo $service['art_title'];?></h1>
                   <div class="tit-bar clearfix">
@@ -88,7 +94,7 @@
 
                     </div>
 
-                </div>
+             </div>
 		</div>
 		
 		

@@ -36,20 +36,39 @@ class PriceController extends BasicAccessController
     {
         $creteria=new CDbCriteria();
         $creteria->condition="city_mu=1 and city_level=2";
-        $creteria->limit =3;
         $city_mu=City::model()->findAll($creteria);
 
-        $data = array();
+        $category = Term::model()->getTermsListByGroupId(14);
+
+        $data = array('city_mu'=>$city_mu,'category'=>$category);
         $this->render('query',$data);
     }
 
     public function actionChart()
     {
+     #   $start_date = isset($_REQUEST['start_date']) ? $_REQUEST['start_date'] : date("Y-m-d");
+     #   $end_date = isset($_REQUEST['end_date']) ? $_REQUEST['end_date'] : date("Y-m-d");
         $category = Term::model()->find("term_id=:term_id", array(':term_id'=>$_REQUEST['type']));
         $title = $category->term_name;
-        $product_type = $_REQUEST['type'];
-        $select_month = array(date('m')-2,date('n')-1,date('n'));
+        $product_type = isset($_REQUEST['type']) ? $_REQUEST['type'] : 31;
+        $select_year  = isset($_REQUEST['year']) ? $_REQUEST['year'] : date('Y');
 
+        if ( $select_year < date('Y') )
+            $select_month = array(1,2,3,4,5,6,7,8,9,10,11,12);
+        else{
+            for($i=1;$i<date('m')+1;$i++)
+            {
+                $select_month[] = $i;
+            }
+        }
+
+        if  ( isset($_REQUEST['city']) ) 
+        {
+            foreach ($_REQUEST['city'] as $p_city_id)
+            {
+                $select_city[] = $p_city_id;
+            }
+        }
         $creteria=new CDbCriteria();
         $creteria->condition="city_mu=1 and city_level=2";
         $creteria->limit =3;
@@ -62,7 +81,7 @@ class PriceController extends BasicAccessController
 
         $connection = Yii::app()->db;
         $sql = 'select sum_year,sum_product_zone,sum_month,sum(sum_price)/12 as price from mu_price_summary
-            where sum_year='.date('Y').' 
+            where sum_year='.$select_year.' 
             and sum_product_type ='.$product_type.' 
             and sum_month in ('.implode(',',$select_month).') 
             and sum_product_zone in ('.implode(',',$select_city).') 

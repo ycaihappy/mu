@@ -10,9 +10,11 @@
 <?php $this->widget('TopWidget');?>
 
 <div class="layout head">
-	<div class="m-logo">
-		<a target="_self" href="<?php echo $this->createUrl('/site/index')?>" class="logo"><img title="mushw.com - 钼市网" alt="zzz" src="/images/logo.jpg"></a>
+<div class="m-logo">
+		<a class="logo" href="/index.php?r=site/index" target="_self"><img src="/images/logo.jpg" alt="zzz" title="xxx.com - xxxx"></a>
 	</div>
+	<div class="clearfix"></div>
+	<?php $this->widget('NavigationWidget');?>
 </div>
 
 <div class="layout main">

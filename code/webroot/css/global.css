@@ -368,7 +368,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-link .hd span{background:#fff;margin-left: 5px;font-weight:bold;float:left;display:inline;margin-right:10px;line-height:30px;}
 .m-link .hd p{display:inline;margin-left:20px}
 .m-link .hd em{color:#084186}
-.m-link .link-list{float:left;display:inline;line-height:30px;}
+.m-link .link-list{float:left;display:inline;line-height:30px;width:90%;}
 .m-link .link-list a{margin:5px 10px 0}
 .m-link .link-list a:hover{#f00;}
 

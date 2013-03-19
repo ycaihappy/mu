@@ -684,13 +684,13 @@ $.extend(MU.mods,{
 	},
 	JChartMap : function () {
 		var self = $(this),api = self.data('api');
-		$('#container').css({width:710,height:450});
+		$('#container').css({width:710,height:500});
 		var loadChart = function (params) {	
 			$.post(api,params,function (re) {
-				alert(typeof Highcharts);
+
 				var chart = new Highcharts.Chart({
 					chart: {
-						renderTo: 'chart1',
+						renderTo: 'container',
 						type: 'line'
 					},
 					title: {
@@ -721,9 +721,9 @@ $.extend(MU.mods,{
 			},'json');
 			
 		}
-		//$.getAsset('script',['js/highcharts.js'],function(){
+		$.getAsset('script',['js/highcharts.js'],function(){
 				
-		//});
+		});
 		self.find('.datepicker').datepicker({dateFormat : 'yy-mm-dd'});
 		self.find('.btn-red').on('click',function(){
 			//$.getAsset('script',['js/highcharts.js'],function(){

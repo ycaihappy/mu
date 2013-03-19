@@ -10,7 +10,7 @@
 <?php $this->widget('TopWidget');?>
 <div class="layout head">
 <div class="m-logo">
-		<a class="logo" href="/index.php?r=site/index" target="_self"><img src="/images/logo.jpg" alt="zzz" title="xxx.com - xxxx"></a>
+		<a class="logo" href="<?php echo $this->createUrl('/site/index')?>" target="_self"><img src="/images/logo.jpg" alt="钼市网" title="mospot.com - 钼市网"></a>
 	</div>
 	<div class="clearfix"></div>
 	<?php $this->widget('NavigationWidget');?>

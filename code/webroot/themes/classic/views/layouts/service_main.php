@@ -10,9 +10,7 @@
 <?php $this->widget('TopWidget');?>
 
 <div class="layout head">
-	<div class="m-logo">
-		<a target="_self" href="<?php echo $this->createUrl('/site/index')?>" class="logo"><img title="mushw.com - 钼市网" alt="zzz" src="/images/logo.jpg"></a>
-	</div>
+	<?php $this->widget('NavigationWidget');?>
 </div>
 
 <div class="layout main">

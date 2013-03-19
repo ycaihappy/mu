@@ -72,7 +72,7 @@ $.extend(MU.mods,{
 				$(this).find('p').stop(false,true).fadeOut('fast');
 			}
 		});
-		var pos = [0,50,200,350,420,330];
+		var pos = [0,0,50,50,100,0];
 		self.find('.nav-con').each(function(i){
 			var left = $(this).position().left,o = $(this);
 			$('<a>').css({display:'inline-block',width:pos[i]}).prependTo(o.find('p'));
@@ -681,5 +681,57 @@ $.extend(MU.mods,{
 				}});
 			}
 		});
+	},
+	JChartMap : function () {
+		var self = $(this),api = self.data('api');
+		$('#container').css({width:710,height:500});
+		var loadChart = function (params) {	
+			$.post(api,params,function (re) {
+
+				var chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'container',
+						type: 'line'
+					},
+					title: {
+						text: re.text
+					},
+					xAxis: {
+						categories: re.xAxis
+					},
+					yAxis: {
+						title: {
+							text: re.yAxis
+						}
+					},
+					tooltip: {
+						formatter: function () {
+							return '' +  this.series.name + ': ' + this.y + '';
+						}
+					},
+					credits: {
+						enabled: false
+					},
+					series: re.series,
+					exporting: {
+						enabled: false
+					}
+				});
+
+			},'json');
+			
+		}
+		$.getAsset('script',['js/highcharts.js'],function(){
+				
+		});
+		self.find('.datepicker').datepicker({dateFormat : 'yy-mm-dd'});
+		self.find('.btn-red').on('click',function(){
+			//$.getAsset('script',['js/highcharts.js'],function(){
+				loadChart(self.find('form').serializeArray());
+			//});
+		});
+		
+		
+		
 	}
 });

@@ -14,6 +14,7 @@
 	
 	<?php $this->widget('NavigationWidget');?>
 	
+
 	
 	
 	<!--news nav-->
@@ -22,6 +23,7 @@
 			<img src="<?php echo '/images/advertisement/'.$this->adv[0]->ad_media_src?>" width="960" height="80" />
 		</div>
 	
+
 </div>
 
 <div class="layout main">

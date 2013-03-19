@@ -32,13 +32,22 @@ class PriceController extends BasicAccessController
 		$data=compact('adv','adv1');
 		$this->render('index',$data);
 	}
+    public function actionQuery()
+    {
+        $creteria=new CDbCriteria();
+        $creteria->condition="city_mu=1 and city_level=2";
+        $creteria->limit =3;
+        $city_mu=City::model()->findAll($creteria);
+
+        $data = array();
+        $this->render('query',$data);
+    }
 
     public function actionChart()
     {
-        $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : 1;
-        $title = ($type == 1)? '钼精矿' : '钼酸铵';
-        #$product_type = rand(75,89);
-        $product_type = rand(31,32);
+        $category = Term::model()->find("term_id=:term_id", array(':term_id'=>$_REQUEST['type']));
+        $title = $category->term_name;
+        $product_type = $_REQUEST['type'];
         $select_month = array(date('m')-2,date('n')-1,date('n'));
 
         $creteria=new CDbCriteria();
@@ -51,9 +60,13 @@ class PriceController extends BasicAccessController
             $select_city[$city_one->city_name] = $city_one->city_id;
         }
 
-    
         $connection = Yii::app()->db;
-        $sql = 'select sum_year,sum_product_zone,sum_month,sum(sum_price)/12 as price from mu_price_summary where sum_year='.date('Y').' and sum_product_type ='.$product_type.' and sum_month in ('.implode(',',$select_month).') and sum_product_zone in ('.implode(',',$select_city).') group by sum_year,sum_month,sum_product_zone order by sum_product_zone,sum_month';
+        $sql = 'select sum_year,sum_product_zone,sum_month,sum(sum_price)/12 as price from mu_price_summary
+            where sum_year='.date('Y').' 
+            and sum_product_type ='.$product_type.' 
+            and sum_month in ('.implode(',',$select_month).') 
+            and sum_product_zone in ('.implode(',',$select_city).') 
+            group by sum_year,sum_month,sum_product_zone order by sum_product_zone,sum_month';
         $price_sum = $connection->createCommand($sql)->queryAll();
         foreach ($select_city as $city_name=>$city_id)
         {

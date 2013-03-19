@@ -4,10 +4,10 @@
 		</div>
 		<div class="bd">
 			<div class="chart-area">
-					<div class="chart" id="chart1" data-api="<?php echo Yii::app()->controller->createUrl('price/chart',array('type'=>1));?>">
+					<div class="chart" id="chart1" data-api="<?php echo Yii::app()->controller->createUrl('price/chart',array('type'=>31));?>">
 						<img src="images/b.png" />
 					</div>
-					<div class="chart" id="chart2" data-api="<?php echo Yii::app()->controller->createUrl('price/chart',array('type'=>2));?>">
+					<div class="chart" id="chart2" data-api="<?php echo Yii::app()->controller->createUrl('price/chart',array('type'=>32));?>">
 						<img src="images/b.png" />
 					</div>
 			</div>

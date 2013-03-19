@@ -22,8 +22,6 @@
 	<div class="layout-area">
 		<?php echo $content;?>
 	</div>
-
-	
 	
 	<div class="layout-area">
 	<?php $this->widget("FriendLinkWidget");?>

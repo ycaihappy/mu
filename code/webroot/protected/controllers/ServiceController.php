@@ -23,7 +23,7 @@ class ServiceController extends Controller {
 	}
 	public function actionView()
     {
-        $this->layout = '//layouts/ajax_main';
+        $this->layout = "//layouts/ajax_main";
         $artId=(int)Yii::app()->request->getParam('art_id');
         $service=new Article();
 		if($artId)

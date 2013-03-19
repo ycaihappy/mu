@@ -1521,7 +1521,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .qk-search table{border-left:1px solid #999;border-top:1px solid #999;}
 .m-b2c .area-one{margin-bottom:10px;}
 .mod-news{width:312px;float:left;margin-right:10px;margin-bottom:10px;display:inline}
-.mod-news .pic{float:left;width:101px;margin-right:10px;}
+.mod-news .pic{float:left;width:101px;margin:10px;}
 .mod-news .pic a{width:101px;height:72px;display:block;}
 .mod-news .pic p{margin-top:10px;}
 .mod-news .list{float:left;width:180px;}

@@ -8,8 +8,11 @@
 <div id="p_service" class="pg-layout">
 
 <?php $this->widget('TopWidget');?>
-
 <div class="layout head">
+<div class="m-logo">
+		<a class="logo" href="/index.php?r=site/index" target="_self"><img src="/images/logo.jpg" alt="zzz" title="xxx.com - xxxx"></a>
+	</div>
+	<div class="clearfix"></div>
 	<?php $this->widget('NavigationWidget');?>
 </div>
 

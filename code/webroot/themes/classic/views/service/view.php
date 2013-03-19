@@ -80,7 +80,7 @@
  <div class="m-article-detail">
 			<div class="hd">
 				<span class="image"><img src="images/cc2.jpg" /></span>
-				<h6 class="bigcolmfont">仓储服务</h6>
+                <h6 class="bigcolmfont"><?php echo $service['art_title'];?></h6>
 			</div>
 			<div>
             <h1><?php echo $service['art_title'];?></h1>

@@ -72,7 +72,7 @@ $.extend(MU.mods,{
 				$(this).find('p').stop(false,true).fadeOut('fast');
 			}
 		});
-		var pos = [0,50,200,350,420,330];
+		var pos = [0,0,50,50,100,0];
 		self.find('.nav-con').each(function(i){
 			var left = $(this).position().left,o = $(this);
 			$('<a>').css({display:'inline-block',width:pos[i]}).prependTo(o.find('p'));

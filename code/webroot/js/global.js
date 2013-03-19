@@ -639,7 +639,7 @@ $.extend(MU.mods,{
 	},
 	JImgScroller : function () {
 		var self = $(this);
-		var s = new MU.Tool.ImgScroller({'el':self,duration : 80});
+		var s = new MU.Tool.ImgScroller({'el':self,duration : 80,direction : self.data('type')});
 	},
 	JQQBox : function () {
 		var self = $(this);

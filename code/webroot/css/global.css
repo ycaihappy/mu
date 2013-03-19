@@ -364,11 +364,12 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-brand a{display:inline-block;margin-right:5px;margin-bottom:5px;}
 
 .m-link{border:1px solid #ccc;overflow:hidden;padding:1px;padding-bottom:10px;width:956px;}
-.m-link .hd{background:url(imgs/link_bg.jpg) repeat-x;height:23px;line-height:23px;}
-.m-link .hd span{background:#fff;margin-left: 5px;padding: 2px 5px;font-weight:bold;}
+
+.m-link .hd span{background:#fff;margin-left: 5px;font-weight:bold;float:left;display:inline;margin-right:10px;line-height:30px;}
 .m-link .hd p{display:inline;margin-left:20px}
 .m-link .hd em{color:#084186}
-.m-link .link-list a{margin:5px 10px 0;float:left}
+.m-link .link-list{float:left;display:inline;line-height:30px;}
+.m-link .link-list a{margin:5px 10px 0}
 .m-link .link-list a:hover{#f00;}
 
 
@@ -1693,3 +1694,5 @@ ul.yiiPager .selected a{color:#fff!important}
 	display:inline;
 }
 .breadcrumbs{margin:10px 0}
+.m-b2c .cg-area{height:347px;overflow:hidden;}
+.ulist{position:relative;height:347px;overflow:hidden;}

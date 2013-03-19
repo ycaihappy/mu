@@ -285,6 +285,7 @@ MU.Tool.ImgScroller = function(options){
 	this.el = options.el || null;
 	this.duration = options.duration || 50;
 	this.timer = null;
+	this.direction = options.direction || 'horizontal';//vertical
 	this.init();
 }
 MU.Tool.ImgScroller.prototype = {
@@ -292,10 +293,18 @@ MU.Tool.ImgScroller.prototype = {
 
 		if(!this.el) return;
 		var _el = this.el,_this = this;
-		var w = _el.find('li').length * (_el.find('li:first').width() + 24);
-		_el.find('ul').css({'position':'absolute','width': w + 'px'});
-		if(w - 24 <= _el.width()){
-			return;
+		if ( _this.direction == 'horizontal' ) {
+			var w = _el.find('li').length * (_el.find('li:first').width() + 24);
+			_el.find('ul').css({'position':'absolute','width': w + 'px'});
+			if(w - 24 <= _el.width()){
+				return;
+			}
+		}else{
+			var h = _el.find('li').length * (_el.find('li:first').height());
+			_el.find('ul').css({'position':'absolute','height': w + 'px'});
+			if(h <= _el.height()){
+				return;
+			}
 		}
 		this.el.find('ul').mouseover(function(){
 			_this.pause();
@@ -316,11 +325,19 @@ MU.Tool.ImgScroller.prototype = {
 		clearInterval(this.timer);
 	},
 	move : function(){
-		var _this = this,box = _this.el.find('ul'),left = box.position().left;
-		box.css('left',(left-=3) + 'px');
-		if(Math.abs(left) > box.find('li:first').width() + 5){
-			box.find('li:first').insertAfter(box.find('li:last'));
-			box.css('left','0px');
+		var _this = this,box = _this.el.find('ul'),left = box.position().left,top = box.position().top;
+		if ( _this.direction == 'horizontal' ) {
+			box.css('left',(left-=3) + 'px');
+			if(Math.abs(left) > box.find('li:first').width() + 5){
+				box.find('li:first').insertAfter(box.find('li:last'));
+				box.css('left','0px');
+			}
+		}else{
+			box.css('top',(top-=3) + 'px');
+			if(Math.abs(top) > box.find('li:first').height()){
+				box.find('li:first').insertAfter(box.find('li:last'));
+				box.css('top','0px');
+			}
 		}
 	}
 }

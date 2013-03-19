@@ -149,7 +149,7 @@ class ProductController extends BasicAccessController
 				
 			}
 		}
-		catch (CException $ex)
+		catch (Exception $ex)
 		{
 			$products=array();
 		}

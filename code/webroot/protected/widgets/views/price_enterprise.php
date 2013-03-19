@@ -4,9 +4,13 @@
                 <div class="jxs-con">
                     <div>
                         <ul>
-			<?php for($index=0;$index<count($data);$index++):?>
-                            <li><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('/storeFront/default/index',array('username'=>$data[$index]['user']['user_name']));?>"><?php echo $data[$index]['ent_name'];?></a></li>
-					<?php endfor;?>			
+        <?php if($advEnt):
+        		foreach ($advEnt as $ent):
+        ?>       
+        <li><a target="_blank" href="<?php echo $ent->ent_id;?>"><?php echo $ent->ent_name;?></a></li>
+        <?php endforeach;
+        endif;
+?>
 						</ul>
                         <div class="clear">
                         </div>

@@ -684,6 +684,7 @@ $.extend(MU.mods,{
 	},
 	JChartMap : function () {
 		var self = $(this),api = self.data('api');
+		self.find('form').attr('autocomplete','off');
 		$('#container').css({width:710,height:500});
 		var loadChart = function (params) {	
 			$.post(api,params,function (re) {

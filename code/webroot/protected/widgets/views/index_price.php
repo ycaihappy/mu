@@ -39,7 +39,7 @@
 			</div>
 <div class="price-area">
 				<div class="ui-purple-hd  ui-m-tab4 ui-m-border">
-						<span class="on">稀土资源</span><span>其他</span>
+						<span class="on">稀土资源</span><span>黄金</span>
 						
 				</div>
 				<div class="bd">

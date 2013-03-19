@@ -22,7 +22,7 @@
                         </label>
                         <ul id="indexZjgdInfo">
    			<?php for($index=1;$index<count($mu_news)-1;$index++):?>
-        <li><span><?php echo date("m-d",strtotime($mu_news[$index]['art_post_date']));?></span><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$mu_news[$index]['art_id']));?>" title="<?php echo $mu_news[$index]['art_title'] ?>" target="_blank"><?php echo $mu_news[$index]['art_title']; ?></a></li>
+        <li><span><?php echo date("m-d",strtotime($mu_news[$index]['art_post_date']));?></span>  <a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$mu_news[$index]['art_id']));?>" title="<?php echo $mu_news[$index]['art_title'] ?>" target="_blank"><?php echo $mu_news[$index]['art_title']; ?></a><em></em></li>
 			<?php endfor;?>			
                         </ul>
                     </div>

@@ -26,7 +26,7 @@
 	<div class="grid-254">
 	
 	<div class="service-menu ui-m-border">
-		<div class="hd"></div>
+
 		<div class="bd">
 			<ul>
 			<?php 
@@ -65,7 +65,7 @@
 				<li class="last <?php echo $class7?>"><a href="<?php echo $this->createUrl('/service/view',array('art_id'=>657))?>">质检服务</a><i class="arrow"></i></li>
 			</ul>
 		</div>
-		<div class="ft"></div>
+	
 	</div>
 	
 <?php $this->widget('ServiceContact');?>

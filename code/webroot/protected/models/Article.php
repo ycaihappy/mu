@@ -168,7 +168,7 @@ class Article extends CActiveRecord
             	'select'=>'art_id,art_title',
                 'condition'=>'art_category_id=17 and art_status=1',
                 'order'=>'art_post_date desc',
-                'limit'=>4
+                'limit'=>6
             ),
             'topRankingNews'=>array(//新闻首页--新闻排行
             	'select'=>'art_id,art_title,art_click_count',
@@ -189,10 +189,10 @@ class Article extends CActiveRecord
                 'limit'=>11
             ),
             'topViewPointNews'=>array(//新闻首页--本网视点
-            	'select'=>'art_id,art_title',
+            	'select'=>'art_id,art_title,art_content',
                 'condition'=>'art_category_id=17 and art_subcategory_id=40 and art_status=1',
                 'order'=>'art_post_date desc',
-                'limit'=>4
+                'limit'=>6
             ),
             'topHotSpotNews'=>array(//新闻首页--热点新闻
             	'select'=>'art_id,art_title',

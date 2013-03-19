@@ -681,5 +681,57 @@ $.extend(MU.mods,{
 				}});
 			}
 		});
+	},
+	JChartMap : function () {
+		var self = $(this),api = self.data('api');
+		$('#container').css({width:710,height:500});
+		var loadChart = function (params) {	
+			$.post(api,params,function (re) {
+
+				var chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'container',
+						type: 'line'
+					},
+					title: {
+						text: re.text
+					},
+					xAxis: {
+						categories: re.xAxis
+					},
+					yAxis: {
+						title: {
+							text: re.yAxis
+						}
+					},
+					tooltip: {
+						formatter: function () {
+							return '' +  this.series.name + ': ' + this.y + '';
+						}
+					},
+					credits: {
+						enabled: false
+					},
+					series: re.series,
+					exporting: {
+						enabled: false
+					}
+				});
+
+			},'json');
+			
+		}
+		$.getAsset('script',['js/highcharts.js'],function(){
+				
+		});
+		self.find('.datepicker').datepicker({dateFormat : 'yy-mm-dd'});
+		self.find('.btn-red').on('click',function(){
+			//$.getAsset('script',['js/highcharts.js'],function(){
+				loadChart(self.find('form').serializeArray());
+			//});
+		});
+		
+		
+		
 	}
 });

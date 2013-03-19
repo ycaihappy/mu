@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>chart index</title>
+	<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.1.custom.min.css">
     <link rel="stylesheet" href="css/global.css">	
 	<link rel="shortcut icon" type="image/png" href="/img/favicon.png">
 
@@ -122,17 +123,18 @@
 
 	
 	<div class="layout-area">
-		<div class="m-chart">
-		<form id="form1" action="" method="post">
+		<div class="m-chart" id="J_ChartMap" data-api="index.php">
+		
 
     <div>
-        <table width="22%" cellspacing="2" cellpadding="0" style="float: left;">
+	<form id="form1" action="" method="post">
+        <table width="23%" cellspacing="2" cellpadding="0" style="float: left;">
             <tbody><tr>
                 <td>
                     起始日
                 </td>
                 <td>
-                    <input type="text" id="txtBeginDate" value="2013-02-26" name="txtBeginDate">
+                    <input type="text"  value="" name="txtBeginDate" class="datepicker cmp-input" />
                 </td>
             </tr>
             <tr>
@@ -140,7 +142,7 @@
                     截止日
                 </td>
                 <td>
-                    <input type="text" id="txtEndDate" value="2013-03-20" name="txtEndDate">
+                    <input type="text"  value="" name="txtEndDate" class="datepicker cmp-input" />
                 </td>
             </tr>
             <tr>
@@ -148,7 +150,7 @@
                     品种
                 </td>
                 <td>
-                    <select id="ddlType" onchange="javascript:setTimeout('__doPostBack(\'ddlType\',\'\')', 0)" name="ddlType">
+                    <select name="ddlType">
 	<option value="高线" selected="selected">高线</option>
 	<option value="螺纹钢">螺纹钢</option>
 	<option value="冷轧板卷">冷轧板卷</option>
@@ -282,19 +284,20 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <input type="button" onclick="" value=" 搜索 ">
+                <td colspan="2" align="center">
+                    <input type="button" onclick="" value=" 搜索 " class="btn-red">
                     
                 </td>
             </tr>
         </tbody></table>
+		 </form>
         <div style="float: right; width: 75%; margin-right: 5px;">
             <div id="container">
                 
             </div>
         </div>
     </div>
-    </form>
+   
 	</div>
 		
 </div>
@@ -354,6 +357,7 @@
 <!--qq online-->
 
 <script src="js/jquery.1.8.min.js"></script>
+<script src="js/jquery.ui.js"></script>
 <script src="js/config.js"></script>
 <script src="js/global.js"></script>
 <script src="js/init.js"></script>

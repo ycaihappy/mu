@@ -636,10 +636,20 @@ padding: 0 20px;
 
 /*m-topnews*/
 .m-topnews {float: left;width: 384px;	margin-right:15px;}
-.m-topnews .topnews {border: 1px solid #DAE2E9;padding: 0 12px;background:url(imgs/top_repeatbg_26.gif) repeat-x left top;padding:20px 10px 10px 10px;margin-bottom:10px}
+.m-topnews .topnews {
+  background: url("imgs/top_repeatbg_26.gif") repeat-x scroll left top transparent;
+  border: 1px solid #DAE2E9;
+  margin-bottom: 10px;
+  padding: 11px 10px 10px;
+}
 .m-topnews .topnews h4 {height: 38px;line-height: 38px;overflow: hidden;text-align: center;}
 .m-topnews .topnews h4 a {color: #CC040D;font-family: '微软雅黑';font-size: 14px;	font-weight:bold;}
-.m-topnews .topnews p {height: 66px;line-height: 22px;overflow: hidden;}
+.m-topnews .topnews p {height: 66px;line-height: 22px;overflow: hidden;color:#5A5959}
+.m-topnews .topnews li {
+  background: url("imgs/v2/orange_arrow.png") no-repeat scroll left center transparent;
+  line-height: 25px;
+  text-indent: 10px;
+}
 .m-topnews .news {border-bottom: 1px solid #DAE2E9;margin-bottom:10px}
 .m-topnews .news h4 {height: 44px;line-height: 44px;overflow: hidden;text-align: center;	font-weight:bold;	 font-family: '微软雅黑';}
 .m-topnews .news h4 a {color: #4C6DAA;font-size: 18px;}

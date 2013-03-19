@@ -3,14 +3,15 @@
    <p>
 	<?php echo $headNews->art_content;?>
 	</p>
+	<ul>
+	<?php 
+	if ($top4News):
+	 foreach ($top4News as $news):?>
+	 <li><a target="_blank" href="<?php echo $news->art_source?>"><?php echo $news->art_title?></a></li>
+	<?php endforeach;
+	endif;
+	?>        
+	</ul>
 </div>
-<ul>
-<?php 
-if ($top4News):
- foreach ($top4News as $news):?>
- <li><a target="_blank" href="<?php echo $news->art_source?>"><?php echo $news->art_title?></a></li>
-<?php endforeach;
-endif;
-?>        
-</ul>
+
 

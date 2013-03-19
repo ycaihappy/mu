@@ -30,10 +30,12 @@ if ( $type == 3)
 <?php 				endforeach;}?>
 <?php if ( $type == 2)
 {
+    $i =0;
 				foreach ($data as $supply):
+                    if ($i > 12) continue;
             ?>			
 <li><span><?php echo date("m-d",strtotime($supply->supply_join_date));?></span><a href="<?php echo $this->getController()->createUrl('supply/view',array('supply_id'=>$supply->supply_id))?>" title="<?php echo $supply->supply_name; ?>" target="_blank"><?php echo $supply->supply_name; ?></a></li>
-<?php 				endforeach;}?>
+<?php 	$i++;			endforeach;}?>
         </ul>
     </div>
 

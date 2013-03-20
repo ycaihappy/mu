@@ -611,6 +611,10 @@ padding: 0 20px;
 .m-user-top{position:absolute;right:5px;top:10px;font-size:12px;color:#fff}
 .m-user-top a{color:#fff}
 
+#p_user_index .m-form{border-left:1px solid #dfdfdf;border-top:1px solid #dfdfdf}
+#p_user_index .m-form  td{border-right:1px solid #dfdfdf;border-bottom:1px solid #dfdfdf}
+#p_user_index .m-form  .label{background:#f6f6f8}
+
 .m-breadcrumb,.breadcrumba{margin-bottom:5px;margin-top:10px}
 .m-breadcrumb .crumb{background:url(imgs/ico-crumb-1.png) no-repeat;width:8px;height:9px;display:inline-block;margin-right:10px;}
 .m-breadcrumb i{background:url(imgs/ico-crumb-arr.png) no-repeat;width:11px;height:10px;display:inline-block;margin:0px 10px;}

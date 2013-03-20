@@ -13,7 +13,7 @@
 				<div class="img"><a><img src="images/baike1.jpg" width="128" height="110" /></a></div>
 				<div class="list">
 					<ul>       
-	<?php for($index=0;$index<count($data01);$index++):
+	<?php for($index=0;$index<5;$index++):
 						?>
                             <li><a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data01[$index]['art_id']));?>" target="_blank"><?php echo $data01[$index]['art_title']; ?></a></li>
 					<?php endfor;?>			
@@ -24,7 +24,7 @@
 				<div class="img"><a><img src="images/baike2.jpg" width="128" height="110" /></a></div>
 				<div class="list">
 					<ul>       
-	<?php for($index=0;$index<count($data02);$index++):
+	<?php for($index=0;$index<5;$index++):
 						?>
                             <li><a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data02[$index]['art_id']));?>" target="_blank"><?php echo $data02[$index]['art_title']; ?></a></li>
 					<?php endfor;?>			
@@ -35,7 +35,7 @@
 				<div class="img"><a><img src="images/baike3.jpg" width="128" height="110" /></a></div>
 				<div class="list">
 					<ul>       
-	<?php for($index=0;$index<count($data03);$index++):
+	<?php for($index=0;$index<5;$index++):
 						?>
                             <li><a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data03[$index]['art_id']));?>" target="_blank"><?php echo $data03[$index]['art_title']; ?></a></li>
 					<?php endfor;?>			

@@ -19,7 +19,7 @@
                      endif;
                     ?>
 					</ul>
-					<a class="ad"><img src="images/193x60.gif" width="191" height="60" /></a>
+					
 				</div>
 				<div class="ft">
 					<div class="item">						

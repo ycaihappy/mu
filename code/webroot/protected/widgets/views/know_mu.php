@@ -1,11 +1,10 @@
-		<div class="m-supply-mt">
-				<div class="hd">
-					<h5>知识榜</h5>
-					<?php if($adv1):?>
-					<a href="<?php echo $adv1[0]->ad_link?>" class="ad"><img src="<?php echo '/images/advertisement/'.$adv1[0]->ad_media_src?>" width="191" height="100" /></a>
-					<?php endif;?>
+		<div class="m-supply-mt ui-m-tab ui-m-border">
+				<div class="hd ui-tab-3">
+					<span class="on">知识榜</span>
+					
 				</div>
 				<div class="bd">
+				<a class="ad"><img src="images/191x100.gif" width="191" height="100" /></a>
 					<ul>
             <?php
                     if ($topRanking):
@@ -20,9 +19,7 @@
                      endif;
                     ?>
 					</ul>
-					<?php if($adv2):?>
-					<a href="<?php echo $adv2[0]->ad_link?>" class="ad"><img src="<?php echo '/images/advertisement/'.$adv2[0]->ad_media_src?>" width="191" height="60"  /></a>
-					<?php endif;?>
+					<a class="ad"><img src="images/193x60.gif" width="191" height="60" /></a>
 				</div>
 				<div class="ft">
 					<div class="item">						

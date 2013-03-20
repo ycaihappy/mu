@@ -1,15 +1,16 @@
 			<div class="hd">			
 				<span class="on"><a href="">现货中心</a></span>
+				<p class="links">
+						<a class="ui-m-btn btn-purple-medium" href="<?php echo $this->getController()->createUrl('/uehome/user/supply')?>">发布供应</a>
+						<a class="ui-m-btn btn-purple-medium" href="<?php echo $this->getController()->createUrl('/uehome/user/supply')?>">发布求购</a>
+						<a class="ui-m-btn btn-purple-medium" href="<?php echo $this->getController()->createUrl('/uehome/user/goods')?>">发布现货</a>
+						</p>
 			</div>
 			<div class="bd">		
 				
 				
 					<div class="qk-search">
-						<p>
-						<a href="<?php echo $this->getController()->createUrl('/uehome/user/supply')?>">发布供应</a> | 
-						<a href="<?php echo $this->getController()->createUrl('/uehome/user/supply')?>">发布求购</a> | 
-						<a href="<?php echo $this->getController()->createUrl('/uehome/user/goods')?>">发布现货</a> 
-						</p>
+						
 						<form method='post' action="<?php echo $this->getController()->createUrl('/product/index') ?>">
 							<div>
 								<span>选择品种</span>

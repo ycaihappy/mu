@@ -528,6 +528,7 @@ padding: 0 20px;
 .m-left-panel li a{font-size:12px;color:#343434;display:block;background:url(imgs/menu-ico-n.png) no-repeat 20px center;padding-left:30px;}
 .m-left-panel li a:hover{background:#fff;color:#2596d8}
 .m-left-panel li{line-height:30px;height:30px;position:relative;background:#f6f6f6}
+.m-left-panel li.on{background:#fff}
 .m-left-panel li.on a,.m-left-panel li:hover a{color:#2596d8;}
 
 .cmp-btn{background:url(imgs/btn_bg_1.gif) repeat-x bottom #fff;text-align:center;color:#000;height:20px;line-height:20px;display:inline-block;padding:0 10px;cursor:pointer;border:0;border-right:1px solid #676767;border-bottom:1px solid #676767}
@@ -1297,13 +1298,17 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
   vertical-align: top;
   width: 600px;
 }
-.m-info li{line-height:30px;margin-bottom:10px;}
+.m-info{border:1px solid #dfdfdf;padding:5px}
+.m-info li{line-height:30px;}
 .m-info .item{display:inline;margin-right:50px;}
 .m-info ul{border-bottom:1px dotted #ccc;padding-bottom:20px;margin-top:20px;position:relative;}
 .m-info .item label {
   display: inline-block;
   font-weight: bold;
   margin-right: 10px;
+  padding-left:10px;
+  background:#dfdfdf;
+  text-align:right;
   width: 65px;
 }
 .m-info .pic{border:0;overflow:hidden}

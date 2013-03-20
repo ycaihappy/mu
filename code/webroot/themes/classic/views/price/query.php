@@ -30,7 +30,7 @@
                     品种
                 </td>
                 <td>
-                    <select name="sum_type">
+                    <select name="type">
 <?php
 $i = 0;
 foreach ($category as $id=>$name)

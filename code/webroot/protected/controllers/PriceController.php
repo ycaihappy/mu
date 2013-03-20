@@ -66,17 +66,21 @@ class PriceController extends BasicAccessController
         {
             foreach ($_REQUEST['city'] as $p_city_id)
             {
-                $select_city[] = $p_city_id;
+                $city_info = City::model()->find("city_id=:city_id",array(':city_id'=>$p_city_id));
+                $select_city[$city_info->city_name] = $p_city_id;
             }
         }
-        $creteria=new CDbCriteria();
-        $creteria->condition="city_mu=1 and city_level=2";
-        $creteria->limit =3;
-        $city_three=City::model()->findAll($creteria);
-        foreach ($city_three as $city_one)
+        else
         {
-            $sum_city[$city_one->city_id] = array('name'=>$city_one->city_name);
-            $select_city[$city_one->city_name] = $city_one->city_id;
+            $creteria=new CDbCriteria();
+            $creteria->condition="city_mu=1 and city_level=2";
+            $creteria->limit =3;
+            $city_three=City::model()->findAll($creteria);
+            foreach ($city_three as $city_one)
+            {
+                $sum_city[$city_one->city_id] = array('name'=>$city_one->city_name);
+                $select_city[$city_one->city_name] = $city_one->city_id;
+            }
         }
 
         $connection = Yii::app()->db;

@@ -1372,6 +1372,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
   background:url(imgs/serbg.jpg) no-repeat;
   width:252px;
   height:243px;
+  margin-bottom:10px;
 }
 .contact .bd {
 	color:#1b6298;padding:70px 0px 10px 10px;

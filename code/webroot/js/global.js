@@ -719,7 +719,7 @@ $.extend(MU.mods,{
 			
 		}
 		$.getAsset('script',['js/highcharts.js'],function(){
-				
+			loadChart(self.find('form').serializeArray());	
 		});
 		self.find('.datepicker').datepicker({dateFormat : 'yy-mm-dd'});
 		self.find('.btn-red').on('click',function(){

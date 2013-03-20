@@ -9,13 +9,17 @@
 						foreach ($data as $key=>$category):
 				?>
 					<dl>
-						<dt><a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key))?>"><?php echo $category['title']?></a></dt>
+						<strong><a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key))?>"><?php echo $category['title']?></a>:</strong>
 						<?php foreach ($category['sub'] as $subCategory):?>
-						<dd><a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key,'smallType'=>$subCategory->term_id))?>"><?php echo $subCategory->term_name?></a></dd>
+						<a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key,'smallType'=>$subCategory->term_id))?>"><?php echo $subCategory->term_name?></a>
 						<?php endforeach;?>
 					</dl>
 					<?php endforeach;
 					endif;
 					?>
 				</div>
+				
+		</div>
+		<div class="ft">
+			<a><img src="images/index-car-ad.jpg" width="288" style="margin-top:12px" /></a>
 		</div>

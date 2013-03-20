@@ -21,7 +21,12 @@
         <div class="clearfix"></div>
     </div>
     <div class="layout-area">
-        <?php $this->widget('IndexSupplyWidget');?>
+	 <div class="m-b2c ui-m-tab ui-m-border" id="J_Data_Center_2">
+
+            <?php $this->widget('IndexProductWidget');?>
+           
+    </div>
+      
         <?php $this->widget('IndexCategoryWidget');?>
 
         <div class="clearfix"></div>
@@ -32,11 +37,8 @@
 
     <div class="layout-area">
 
-    <div class="m-b2c ui-m-tab ui-m-border" id="J_Data_Center_2">
-
-            <?php $this->widget('IndexProductWidget');?>
-           
-    </div>
+     <?php $this->widget('IndexSupplyWidget');?>
+	
  </div>
  <div class="layout-area">
   <div class="area-two">

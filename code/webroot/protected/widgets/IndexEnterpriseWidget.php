@@ -1,9 +1,6 @@
 <?php
-class IndexProductWidget extends CWidget
+class IndexEnterpriseWidget extends CWidget
 {
-	public $type;
-	public $newlist=array();
-	public $proTypes=array();
 
 	public function run()
     {

@@ -521,11 +521,14 @@ padding: 0 20px;
 
 .m-main-frame{ bottom: 0;left:140px;float:left;overflow: hidden;right: 0;top: 83px;z-index: 4;padding:20px;}
 .m-left-panel{left:0;top: 83px;width: 138px;float:left;height:auto;bottom:0;border:1px solid #d5e5f5;margin-right:20px;background:url(imgs/menu_top_bg.png) repeat-x left top;}
-.m-left-panel h3{font-size:14px;background:url(imgs/ico-1.png) no-repeat 10px center;padding-left:30px;margin:10px 0px;font-weight:bold;}
-.m-left-panel h3.on{background-image:url(imgs/ico-2.png);}
-.m-left-panel li a{font-size:12px;color:#2f7cb0;display:block;background:url(imgs/menu-ico-n.png) no-repeat 20px center;padding-left:30px;}
-.m-left-panel li{line-height:30px;height:30px;position:relative;}
-.m-left-panel li.on a,.m-left-panel li:hover a{color:#fe5900;}
+/*.m-left-panel h3{font-size:14px;background:url(imgs/ico-1.png) no-repeat 10px center;padding-left:30px;margin:10px 0px;font-weight:bold;}*/
+.m-left-panel h3{background:url("imgs/blue_repeatbg.gif") repeat-x scroll 0 0 transparent;display:block;height:34px;line-height:34px;}
+.m-left-panel h3 a{background:url(imgs/ico-1.png) no-repeat left center;text-indent:10px;font-weight:bold;color:#fff;font-size:14px;padding-left:20px;margin-left:10px}
+.m-left-panel h3.on a{background-image:url(imgs/ico-2.png)}
+.m-left-panel li a{font-size:12px;color:#343434;display:block;background:url(imgs/menu-ico-n.png) no-repeat 20px center;padding-left:30px;}
+.m-left-panel li a:hover{background:#fff;color:#2596d8}
+.m-left-panel li{line-height:30px;height:30px;position:relative;background:#f6f6f6}
+.m-left-panel li.on a,.m-left-panel li:hover a{color:#2596d8;}
 
 .cmp-btn{background:url(imgs/btn_bg_1.gif) repeat-x bottom #fff;text-align:center;color:#000;height:20px;line-height:20px;display:inline-block;padding:0 10px;cursor:pointer;border:0;border-right:1px solid #676767;border-bottom:1px solid #676767}
 
@@ -591,9 +594,15 @@ padding: 0 20px;
 
 
 .m-menubar{margin:30px 0px 15px 0px;border-bottom:2px solid #3f88cd;}
-.m-menubar span{display:inline-block;width:100px;text-align:center;background:url(imgs/tab_bg.png) repeat-x;height:27px;line-height:27px;color:#000;font-weight:bold;font-size:14px;border:1px solid #b7cfe9;border-bottom:0}
-.m-menubar span.on{background:url(imgs/tab_on_bg.png);}
+.m-menubar span{display:inline-block;width:100px;text-align:center;height:40px;line-height:40px;color:#fff;font-weight:bold;font-size:14px;}
+
 .m-menubar span.on a{color:#fff}
+.m-menubar .bar{
+  background: url("imgs/v2/menu_bg.png") repeat-x scroll 0 0 transparent;
+  border-radius: 3px 3px 0 0;
+  height: 40px;
+  margin-top: 15px;
+}
 
 .m-user-top{position:absolute;right:0;top:10px;font-size:12px;}
 
@@ -1731,3 +1740,4 @@ ul.yiiPager .selected a{color:#fff!important}
 .m-chart table td{padding:5px;}
 .m-chart .city{width:165px;}
 .m-chart .city label{margin-right:10px;margin-bottom:10px;display:inline-block;}
+

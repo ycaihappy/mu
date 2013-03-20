@@ -12,8 +12,11 @@ case 3:
     break;
 }
 ?>
-    <div class="m-hq-dq">
-    <h1><a href="#"><?php echo $title;?></a></h1>
+    <div class="m-hq-dq ui-m-tab ui-m-border">
+	<div class="hd">
+        <span class="on"><?php echo $title;?></span>
+	</div>
+<div class="bd">
         <ul id="gjhqInfo">
         
 <?php if ($type == 1)
@@ -38,4 +41,4 @@ if ( $type == 3)
 <?php 	$i++;			endforeach;}?>
         </ul>
     </div>
-
+</div>

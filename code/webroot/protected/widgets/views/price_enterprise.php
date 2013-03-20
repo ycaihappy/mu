@@ -1,6 +1,10 @@
-	<div class="m-jxs">
-                <h1>
-                    <a class="bt" href="javascript:;">推荐经销商</a></h1>
+	<div class="m-jxs ui-m-tab ui-m-border">
+	 <div class="hd">
+		<span class="on"><a  href="#">推荐经销商</a></span>
+ 
+	</div>
+				
+              
                 <div class="jxs-con">
                     <div>
                         <ul>
@@ -16,4 +20,4 @@
                         </div>
                     </div>
                 </div>
-            </div>
+ </div>

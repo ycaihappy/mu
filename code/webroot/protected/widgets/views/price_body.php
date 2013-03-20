@@ -9,8 +9,12 @@ else
     $hq_sub_name = '<a href="#">栾川</a>｜<a href="#">黑龙江</a>｜<a href="#">沈阳</a>';
 $hq_sub_name = '';
 ?>
-<div class="m-hq-box" id="J_Hq_Box_<?php echo $class;?>">
-                <h1><a class="bt" href="#"><?php echo $hq_name;?></a><span class="fb"><?php echo $hq_sub_name;?></span></h1>
+<div class="m-hq-box ui-m-tab ui-m-border" id="J_Hq_Box_<?php echo $class;?>">
+                
+				<div class="hd">
+					<span class="on"><?php echo $hq_name;?></span>
+				</div>
+				
                 <div class="hq-con">
                     <div class="jg">
                        <!-- <h2> 钼价格</h2> -->

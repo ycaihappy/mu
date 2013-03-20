@@ -1,6 +1,9 @@
-		<div class="m-jrbj">
-            <h1>
-                <a href="#">今日报价</a></h1>
+		<div class="m-jrbj ui-m-tab ui-m-border">
+		  <div class="hd">
+				<span class="on">今日报价</span>
+ 
+		</div>
+         <div class="bd">
             
     <table width="93%" cellspacing="0" cellpadding="0" style=" line-height:29px;">
         
@@ -37,5 +40,5 @@ foreach ($data as $key=>$price_value){
         
     </tbody></table>
  
-
-        </div>
+ </div>
+</div>

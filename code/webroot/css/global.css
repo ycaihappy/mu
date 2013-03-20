@@ -1029,9 +1029,14 @@ padding: 0 20px;
 
 .m-hq-dq {  border: 1px solid #DEDEDE;  margin-bottom: 10px;  padding-bottom: 12px;}
 .m-hq-dq h1 a {  color: red; }
-.m-hq-dq ul {  margin: 0 15px;}
+.m-hq-dq ul {  margin: 0 5px;}
 .m-hq-dq h1 {  background: url("imgs/sidebar_bg.png") no-repeat scroll 0 0 transparent;  border-bottom: 1px solid #DEDEDE;  color: red;  height: 30px;  line-height: 30px;  margin-bottom: 10px;  padding-left: 25px;  text-align: left;   font-size:14px;  font-weight:bold;}
-.m-hq-dq ul li {  background: url("imgs/dot.png") no-repeat scroll left center transparent;  height: 25px;  line-height: 25px;  overflow: hidden;  padding-left: 10px;  text-align: left;}
+/*.m-hq-dq ul li {  background: url("imgs/dot.png") no-repeat scroll left center transparent;  height: 25px;  line-height: 25px;  overflow: hidden;  padding-left: 10px;  text-align: left;}*/
+.m-hq-dq ul li {
+  background: url("imgs/v2/orange_arrow.png") no-repeat scroll left center transparent;
+  height: 25px;  line-height: 25px;  overflow: hidden; 
+  text-indent: 10px;
+}
 .m-hq-dq ul li span {  color: #808080;  float: right;}
 .m-hq-dq h2.ico-close {background: url("imgs/sidebar_bg01.png") no-repeat scroll 0 0 transparent;
   cursor: pointer;}
@@ -1039,7 +1044,7 @@ padding: 0 20px;
 .m-hq-dq p .dqd a {  color: red;  font-weight: bold;  text-decoration: none;}
 .m-hq-dq p a, .m-hq-dq p span {  display: inline-block;  height: 25px;  line-height: 25px;  overflow: hidden;  text-align: center;  text-decoration: none;  width: 59px;}
 
-.m-hq-news {background: none repeat scroll 0 0 #FFFFFF;  float: left;  height: 210px;  padding-top: 5px;  position: relative;  width: 345px;  margin-right:10px;}
+.m-hq-news {background: none repeat scroll 0 0 #fff;  float: left;   padding-top: 5px;  position: relative;  width: 345px;  margin-right:10px;}
 .m-hq-news h1 {background: url("imgs/news_bg.png") no-repeat scroll left top transparent;  height: 34px;  text-align: left;}
 .m-hq-news h1 a {background: url("imgs/zjgd_bg.png") no-repeat scroll 0 0 transparent;  display: inline-block;  height: 34px;  line-height: 28px;  text-align: center;  width: 77px;  font-weight:bold;  font-size:14px;}
 .m-hq-news h1 a.on {background: url("imgs/gsyb_bg.png") no-repeat scroll 0 0 transparent;  color: #FFFFFF;}
@@ -1048,7 +1053,8 @@ padding: 0 20px;
 .m-hq-news .con h2 {color: red;  font-size: 16px;  text-align: center;}
 .m-hq-news .con h2 a {color: red;font-weight:bold}
 .m-hq-news .con span.article2 {  color: #A0A0A0;  display: block;  height: 40px;  line-height: 21px;  margin-bottom: 5px;  overflow: hidden;  text-indent: 2em;}
-.m-hq-news .con ul li {  background: url("imgs/dot.png") no-repeat scroll left center transparent;  height: 24px;  line-height: 24px;  padding-left: 10px;}
+.m-hq-news .con ul{padding:5px}
+.m-hq-news .con ul li {  background:url("imgs/v2/ico_dotted.png") no-repeat scroll left center transparent;  height: 24px;  line-height: 24px; overflow:hidden; text-indent: 10px;}
 
 
 .m-jrbj h1 a {  background: url("imgs/jrbj_bg.png") no-repeat scroll 0 0 transparent;  color: #FFFFFF;  display: block;  height: 28px;  line-height: 28px;  text-align: center;  width: 92px;  font-weight:bold}
@@ -1068,7 +1074,7 @@ padding: 0 20px;
 .m-hq-box .jg {  background: url("imgs/line.png") no-repeat scroll right center transparent;  float: left;  padding: 8px;  width: 330px;}
 .m-hq-box .jg h2 {  color: red;  font-size: 12px;  height: 27px;  line-height: 27px;  text-align: left;}
 .m-hq-box h1 a.bt {  color: #fff;  display: inline-block;  text-align: center;  width: 134px;  font-weight:bold;  font-size:14px;}
-.m-hq-box .hq-con ul li {  background: url("imgs/dot.png") no-repeat scroll left center transparent;  height: 23px;  line-height: 23px;  overflow: hidden;  padding-left: 10px;  text-align: left;}
+.m-hq-box .hq-con ul li {  background: url("imgs/v2/ico_dotted.png") no-repeat scroll left center transparent;  height: 23px;  line-height: 23px;  overflow: hidden;  padding-left: 10px;  text-align: left;}
 .m-hq-box .fp h2 a {  display: inline-block;  font-size: 12px;  height: 27px;  line-height: 22px;  margin: 0 21px;  text-align: center;  width: 67px;font-weight:bold;}
 .m-hq-box .on {  background: url("imgs/fp_bg.png") no-repeat scroll 0 0 transparent;  color: red;}
 .m-hq-box .fp {  float: right;  overflow: hidden;  padding: 10px;  width: 327px;}
@@ -1078,8 +1084,15 @@ padding: 0 20px;
 .m-jxs h1 {  background: url("imgs/gcjxs_bg.png") no-repeat scroll 0 0 #fbfbfb;  border-bottom: 1px solid #DADADA;  height: 27px;  line-height: 27px;  text-align: left;}
 .m-jxs h1 a.bt {  color: red;  display: inline-block;  text-align: center;  width: 134px;  font-weight:bold;  font-size:14px}
 .m-jxs .jxs-con {  margin: 0 auto;  padding:10px;}
-.m-jxs .jxs-con ul li {  height: 23px;  line-height: 23px;  overflow: hidden; float: left;  margin-right: 50px;  overflow: hidden;  text-align: left;  width: 170px;}
-
+.m-jxs .jxs-con ul li {
+  float: left;
+  height: 23px;
+  line-height: 23px;
+  margin-right: 35px;
+  overflow: hidden;
+  text-align: left;
+  width: 191px;
+}
 
 
 .m-suppy-list{}

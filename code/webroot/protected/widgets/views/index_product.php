@@ -2,7 +2,7 @@
 				<span class="on"><a href="">现货中心</a></span>
 			</div>
 			<div class="bd">		
-				<div class="area-one">
+				
 				
 					<div class="qk-search">
 						<p>
@@ -74,5 +74,5 @@
 						</ul>
 						</div>
 					</div>
-				<div class="clearfix"></div>
+
 			</div>

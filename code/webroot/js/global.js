@@ -75,7 +75,7 @@ $.extend(MU.mods,{
 		var pos = [0,0,50,50,100,0];
 		self.find('.nav-con').each(function(i){
 			var left = $(this).position().left,o = $(this);
-			$('<a>').css({display:'inline-block',width:pos[i]}).prependTo(o.find('p'));
+			//$('<a>').css({display:'inline-block',width:pos[i]}).prependTo(o.find('p'));
 			
 		});
 		

@@ -157,10 +157,10 @@ padding-right: 1px;
   text-align:center;
   line-height:35px;
   font-size:12px;
-  margin-left:10px;
 
 }
 .m-nav .bd p a:hover{background:#f3f3f3;}
+.m-nav .bd p em{margin:0 4px;}
 .m-nav .nav-con{float:left;line-height:40px;}
 .m-nav .nav-con strong{display:inline-block;color:#fff;position:relative;padding:0 40px;}
 .m-nav strong a{color:#fff;font-weight:bold;font-size:14px;}

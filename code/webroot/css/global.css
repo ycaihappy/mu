@@ -1498,6 +1498,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .ui-m-tab .hd span.on{background:url(imgs/v2/tab_blue_bg.png) no-repeat;}
 .ui-m-tab .hd span.on a{color:#fff;}
 .ui-m-tab .hd .more{float:right;color:#0824C3;font-size:12px}
+.ui-m-tab .hd .links{float:right;margin-right:10px}
 .ui-m-tab .ui-tab-3 span.on{background:url(imgs/tab_3_on.gif) no-repeat;width:85px;color:#086bbc;line-height:28px}
 .ui-m-tab .ui-tab-3 span.on a{color:#086bbc}
 .ui-m-tab2 .hd span{height:25px;text-align:center;line-height:25px;font-weight:bold;float:left;width:88px;color:#333;margin-right:10px;background:url(imgs/ui_tab2_btn_n.gif) no-repeat;}

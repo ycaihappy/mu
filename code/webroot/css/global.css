@@ -729,7 +729,7 @@ padding: 0 20px;
 .m-news-rank .rankList li {  border-bottom: 1px dotted #D3D3D3;  display: inline-block;  float: left;  height: 35px;  line-height: 35px;  overflow: hidden;  width: 320px;}
 .m-news-rank .rankList li span.ranknum {  background:url(imgs/rank_num_n.gif) no-repeat left center; color: #fff;  float: left;  font-family: "Arial";  font-weight: bold;  height: 14px;  line-height: 14px;  margin-top: 7px;  text-align: center;  width: 14px;}
 .m-news-rank .rankList li span.front {  background-image:url(imgs/rank_num_top.gif);}
-.m-news-rank .rankList li a {  color: #333; float: left;  padding-left: 10px;}
+.m-news-rank .rankList li a {  color: #333; float: left;  text-indent: 10px;}
 .m-news-rank .newsList li .more {  color: #930000;  font-family: "Arial";  font-style: italic;  padding-right: 3px;}
 .m-news-rank .rankList li.last {  border: medium none;}
 .m-news-rank .bd{padding:5px}
@@ -875,10 +875,25 @@ padding: 0 20px;
 .m-supply-mt .hd h5{font-size:14px;font-weight:bold;}
 .m-supply-mt .hd .ad{margin:15px 0 5px 0;display:block;}
 .m-supply-mt .hd span{font-size:14px}
-.m-supply-mt .bd em{color:#b2b2b2;font-weight:bold;margin-right:5px;}
-.m-supply-mt .bd .top em{color:#03496b}
+
+.m-supply-mt .bd  li em{
+  background: url("imgs/rank_num_n.gif") no-repeat scroll left center transparent;
+  color: #fff;
+  margin-right:5px;
+  float: left;
+  font-family: "Arial";
+  font-weight: bold;
+  height: 14px;
+  line-height: 14px;
+  margin-top: 7px;
+  text-align: center;
+  width: 14px;
+}
+.m-supply-mt .bd .top em{background-image:url("imgs/rank_num_top.gif")}
+.m-supply-mt .bd li{line-height:30px;border-bottom:1px dotted #D3D3D3}
 .m-supply-mt .bd{margin-bottom:10px;}
-.m-supply-mt .bd li{margin-bottom:10px;}
+.m-supply-mt .bd li a{text-indent:10px}
+.m-supply-mt .ft{padding:10px}
 .m-supply-mt .ft .ad{width:73px;height:62px;float:left;}
 .m-supply-mt .ft .item{overflow:hidden;margin-bottom:10px;_zoom:1}
 .m-supply-mt .ft p{margin-left:80px;padding:5px;background:white;border:1px solid #ccc;position:relative;}

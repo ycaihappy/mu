@@ -1506,19 +1506,18 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .ui-m-tab2 .hd span.on{background:url(imgs/ui_tab2_btn_o.gif) no-repeat;color:#fff;}
 .ui-m-tab2 .hd span.on a{color:#fff;}
 
-.m-large-tab{width:733px;float:left;margin-right:7px;}
+.m-large-tab{width:667px;float:left;margin-right:7px;}
 .m-large-tab .hd .tab{float:left;}
 .m-large-tab .hd .links{float:right;margin-right:10px;}
 .m-large-tab .bd{padding:10px 8px 8px 10px;overflow:hidden;}
 .m-large-tab .bd li {
   background: url("imgs/v2/ico_dotted.png") no-repeat scroll left center transparent;
   float: left;
-
   line-height: 25px;
-  margin-right: 23px;
+  margin-right: 16px;
   padding-left: 10px;
   position: relative;
-  width: 324px;
+  width: 298px;
 }
 .m-large-tab .bd li a{float:left;}
 .m-large-tab .bd ul{display:none;}
@@ -1534,7 +1533,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .ui-m-tab4{padding:0}
 .ui-m-tab4 .hd span{text-align:center;color:#333;border-right:1px solid #ccc;background:none!important;}
 .ui-m-tab4 .hd span.on{font-weight:bold}
-.m-category{float:left;width:215px;}
+.m-category{float:left;width:287px;}
 .m-category .bd{padding:10px;padding-bottom:0}
 .m-category dt{font-weight:bold;margin-bottom:3px;}
 .m-category dd{float:left;margin-right:20px;}
@@ -1570,7 +1569,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
   text-indent: 10px;
 
 }
-.m-b2c{width:960px;}
+.m-b2c{width:660px;float:left;display:inline;margin-right:10px}
 .m-b2c .bd{padding:5px;_padding-right:0px;}
 .qk-search{width:640px;float:left;background:#f7f7f9;margin-right:10px;padding:5px;display:inline}
 
@@ -1757,7 +1756,7 @@ ul.yiiPager .selected a{color:#fff!important}
 .breadcrumbs{margin:10px 0}
 .m-b2c .cg-area{height:347px;overflow:hidden;}
 
-.ulist{position:relative;height:347px;overflow:hidden;}
+.ulist{position:relative;height:292px;overflow:hidden;}
 .m-article-detail .hd{margin-top:10px;padding-top:20px;border-top:3px solid #05436A}
 .m-article-detail .image{display:inline;float:left;width:101px;border:1px solid #ccc;margin-right:10px;padding:3px;}
 .m-article-detail .bigcolmfont{float:left;text-indent:10px;font-size:14px;font-weight:bold;background:url(imgs/jr7.jpg) no-repeat left center;}

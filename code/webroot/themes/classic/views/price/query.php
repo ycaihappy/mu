@@ -4,7 +4,7 @@
     <div class="m-chart" id="J_ChartMap" data-api="<?php echo Yii::app()->controller->createUrl('price/chart');?>">
     <div>
 	<form id="form1" action="" method="post">
-        <table width="23%" cellspacing="2" cellpadding="0" style="float: left;">
+        <table width="25%" cellspacing="2" cellpadding="0" style="float: left;">
             <tbody>
             <!--
             <tr>
@@ -72,7 +72,7 @@ foreach ($city_mu as $city)
             </tr>
         </tbody></table>
 		 </form>
-        <div style="float: right; width: 75%; margin-right: 5px;">
+        <div style="float: left; width: 70%; margin-left: 10px;">
             <div id="container">
                 
             </div>

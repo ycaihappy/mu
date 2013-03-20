@@ -887,7 +887,7 @@ padding: 0 20px;
 /*m-supply-mt*/
 
 .m-supply-mt{}
-.m-supply-mt .bd {padding:5px 8px 10px;}
+.m-supply-mt .bd {padding:5px 8px 0px;}
 .m-supply-mt .hd h5{font-size:14px;font-weight:bold;}
 .m-supply-mt .hd .ad{margin:15px 0 5px 0;display:block;}
 .m-supply-mt .hd span{font-size:14px}
@@ -909,7 +909,7 @@ padding: 0 20px;
 .m-supply-mt .bd li{line-height:30px;border-bottom:1px dotted #D3D3D3}
 .m-supply-mt .bd{margin-bottom:10px;}
 .m-supply-mt .bd li a{text-indent:10px}
-.m-supply-mt .ft{padding:10px}
+.m-supply-mt .ft{padding:10px;padding-top:0}
 .m-supply-mt .ft .ad{width:73px;height:62px;float:left;}
 .m-supply-mt .ft .item{overflow:hidden;margin-bottom:10px;_zoom:1}
 .m-supply-mt .ft p{margin-left:80px;padding:5px;background:white;border:1px solid #ccc;position:relative;}

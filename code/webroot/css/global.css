@@ -824,19 +824,17 @@ padding: 0 20px;
 .m-news-focus .title-bar .more {  float: right;  line-height: 29px;}
 .m-news-focus .more a, .more a:visited {  color: #888;  font-size:12px;}
 .m-news-focus .cLGray {  color: #ddd;}
-.m-news-focus h3.bigsize {  font-family: "Microsoft YaHei","微软雅黑","宋体";  font-size: 16px;  font-weight: bold;  height: 24px;  line-height: 24px;  margin: 10px 0 6px;  overflow: hidden;}
-.m-news-focus .bd li {
-  background: url("imgs/v2/ico_dotted.png") no-repeat scroll left center transparent;
-  line-height: 25px;
-  text-indent: 10px;
-  position: relative;
+.m-news-focus h3.bigsize {  font-weight: bold;  height: 24px;  line-height: 24px;text-indent:10px; }
+.m-news-focus .bd li {  background: url("imgs/v2/ico_dotted.png") no-repeat scroll left center transparent;  line-height: 25px;  text-indent: 10px;  position: relative;}
+.m-news-focus .mod{width:312px;float:left;margin-right:10px;display:inline;_width:310px;margin-bottom:10px}
+.m-news-focus .inner{width:960px;overflow:hidden;}
 
-
-}
-.m-news-focus .mod{width:312px;float:left;margin-right:10px;display:inline;_width:310px;}
-.know .mod{width:312px;}
+.know .mod{width:307px;margin-left:8px;margin-right:0}
+.know .mod .hd{background-image:url(imgs/bk_repeatbg.gif);height:26px;line-height:bold;}
+.know .mod .hd span.on{background:none;color:#0a79ca;height:26px;line-height:26px;}
+.know .mod .hd span.on a{color:#0a79ca;background:url(imgs/baike_ico_arrow.gif) no-repeat left center;padding-left:15px;}
 .m-news-focus .right{margin:0}
-.m-news-focus .fB {    font-weight: bold;}
+.m-news-focus .fB {font-weight: bold;}
 #p_news_index .layout-left{width:700px;}
 #p_news_index .m-banner{margin:0;}
 

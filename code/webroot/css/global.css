@@ -593,7 +593,7 @@ padding: 0 20px;
 .m-login .btn-reg{background:url(imgs/login_btn_g.gif) no-repeat;}
 
 
-.m-menubar{margin:30px 0px 15px 0px;border-bottom:2px solid #3f88cd;}
+.m-menubar{margin:0px 0px 15px 0px;border-bottom:2px solid #3f88cd;}
 .m-menubar span{display:inline-block;width:100px;text-align:center;height:40px;line-height:40px;color:#fff;font-weight:bold;font-size:14px;}
 
 .m-menubar span.on a{color:#fff}
@@ -601,11 +601,15 @@ padding: 0 20px;
   background: url("imgs/v2/menu_bg.png") repeat-x scroll 0 0 transparent;
   border-radius: 3px 3px 0 0;
   height: 40px;
-  margin-top: 15px;
+
 }
 
-.m-user-top{position:absolute;right:0;top:10px;font-size:12px;}
+.member-top{height:68px;background:url(imgs/member_repeatbg_68.gif) repeat-x left top #057fd5;}
+.member-top .m-logo{height:68px;width:auto;}
+.member-top .m-logo .logo{margin:10px 0px 0px 10px;display:block;}
 
+.m-user-top{position:absolute;right:5px;top:10px;font-size:12px;color:#fff}
+.m-user-top a{color:#fff}
 
 .m-breadcrumb,.breadcrumba{margin-bottom:5px;margin-top:10px}
 .m-breadcrumb .crumb{background:url(imgs/ico-crumb-1.png) no-repeat;width:8px;height:9px;display:inline-block;margin-right:10px;}

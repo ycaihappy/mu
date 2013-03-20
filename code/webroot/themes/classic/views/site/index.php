@@ -24,6 +24,7 @@
 	 <div class="m-b2c ui-m-tab ui-m-border" id="J_Data_Center_2">
 
             <?php $this->widget('IndexProductWidget');?>
+            <?php $this->widget('IndexEnterpriseWidget');?>
            
     </div>
       

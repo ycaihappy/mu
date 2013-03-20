@@ -1,8 +1,8 @@
 		<div class="m-large-tab ui-m-tab ui-m-border" id="J_New_Tab_List">
 			<div class="hd">
 				<div class="tab">
-					<span class="on"><a href="">最新供求</a></span>
-					<span class=""><a href="">最新求购</a></span>
+					<span class="on"><a href="<?php echo $this->getController()->createUrl('/supply/index')?>">最新供求</a></span>
+					<span class="<?php echo $this->getController()->createUrl('/supply/index')?>"><a href="">最新求购</a></span>
 				</div>
 				<div class="links">
 					<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/goods');?>" class="ui-m-btn btn-purple-medium">发布现货</a>

@@ -8,11 +8,11 @@
 					<ul>
             <?php
                     if ($topRanking):
-						 for ($i=0;$i<count($topRanking);$i++):
+						 for ($i=0;$i<8;$i++):
                              $class = ($i<3) ? 'top':'';
   					?>
                         <li class="<?php echo $class;?>">
-                        <em><?php echo $i+1;?></em><a target="_blank" href="<?php echo $topRanking[$i]->art_source?>"><?php echo $topRanking[$i]->art_title;?></a></li>
+                        <em><?php echo $i+1;?></em><a target="_blank" href="<?php echo $topRanking[$i]->art_source?>"><?php echo substr($topRanking[$i]->art_title,0,40);?></a></li>
                         </li>
                        <?php 
                        endfor;

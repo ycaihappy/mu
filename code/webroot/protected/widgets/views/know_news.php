@@ -4,11 +4,13 @@
             <p>[导读]<?php echo substr($data04[0]['art_content'],0,250)."...";?></p>
     
 			</div>
-			<div class="ad">
-				<a><img src="<?php echo '/images/advertisement/'.$adv1[0]->ad_media_src?>" /></a>
+			<div class="ui-m-tab ui-m-border">
+			<div class="hd">
+				<span class="on">钼专题</span>
 			</div>
+			<div class="bd">
 			<div class="news">
-				<div class="img"><a><img src="images/108x112_1.gif" width="108" height="112" /></a></div>
+				<div class="img"><a><img src="images/baike1.jpg" width="128" height="110" /></a></div>
 				<div class="list">
 					<ul>       
 	<?php for($index=0;$index<count($data01);$index++):
@@ -19,7 +21,7 @@
 				</div>
 			</div>
 			<div class="news">
-				<div class="img"><a><img src="images/108x112_2.gif" width="108" height="112" /></a></div>
+				<div class="img"><a><img src="images/baike2.jpg" width="128" height="110" /></a></div>
 				<div class="list">
 					<ul>       
 	<?php for($index=0;$index<count($data02);$index++):
@@ -30,7 +32,7 @@
 				</div>
 			</div>
 			<div class="news last">
-				<div class="img"><a><img src="images/108x112_3.gif" width="108" height="112" /></a></div>
+				<div class="img"><a><img src="images/baike3.jpg" width="128" height="110" /></a></div>
 				<div class="list">
 					<ul>       
 	<?php for($index=0;$index<count($data03);$index++):
@@ -39,5 +41,7 @@
 					<?php endfor;?>			
 				</ul>
 				</div>
+			</div>
+			</div>
 			</div>
 		</div>

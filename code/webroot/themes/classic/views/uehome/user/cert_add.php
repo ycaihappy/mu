@@ -43,7 +43,7 @@ if ( !empty($error))
 			<td class="label">文件描述：</td><td><?php echo $form->textArea($model,'file_content',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); ?></td>
 		</tr>
 		<tr>
-        <td class="label">图片上传：</td><td><?php echo CHtml::activeFileField($model, 'file_url'); ?>
+        <td class="label">图片上传：</td><td><?php echo CHtml::activeFileField($model, 'file_url',array('class'=>'image-preview')); ?>
 			<p>(图片大小不要超过200K，格式GIF,JPG,PNG图片宽度最大为220像素效果最佳！)</p>
 			
                 <br /><img src="<?php echo $model->file_url;?>" class="thumb"></td>

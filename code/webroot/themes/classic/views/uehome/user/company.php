@@ -31,7 +31,7 @@ elseif ( Yii::app()->user->hasFlash('success'))
 <?php
 }
 ?>
-    <div class="m-form">
+    <div class="m-form" id="J_Cert_Add">
 	
 <?php $form = $this->beginWidget('CActiveForm', array(
     'id'=>'enterprise-form',
@@ -84,7 +84,7 @@ elseif ( Yii::app()->user->hasFlash('success'))
 			<td class="label">邮编：</td><td><?php echo $form->textField($model, 'ent_zipcode', array('class'=>'cmp-input'));?></td>
 		</tr>		
 		<tr>
-        <td class="label">企业logo：</td><td><input type="file" name="ent_logo">
+        <td class="label">企业logo：</td><td><input type="file" name="ent_logo" class="image-preview" />
 			<p>(图片大小不要超过200K，格式GIF,JPG,PNG图片宽度最大为220像素效果最佳！)</p>
 			
                 <br /><img src="<?php echo $model->ent_logo;?>" class="thumb"></td>
@@ -125,3 +125,9 @@ elseif ( Yii::app()->user->hasFlash('success'))
 	</table>
 <?php $this->endWidget();?>
 	</div>
+<?php 
+
+Yii::app()->getClientScript()->registerScriptFile('js/jquery.1.8.min.js');
+Yii::app()->getClientScript()->registerScriptFile('js/jquery.uploadPreview.js');
+
+?>

@@ -402,7 +402,7 @@ $.extend(MU.mods,{
 	},
 	JCertAdd : function (){
 		var self = $(this);
-		$("#FileForm_image").uploadPreview({ width: 200, height: 200, imgDiv: ".thumb", imgType: ["bmp", "gif", "png", "jpg"] });
+		$(".image-preview").uploadPreview({ width: 200, height: 200, imgDiv: ".thumb", imgType: ["bmp", "gif", "png", "jpg"] });
 
 	},
 	JSupplyList : function () {

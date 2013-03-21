@@ -129,6 +129,9 @@ $.extend(MU.mods,{
 	JRegister : function () {
 		var self = $(this),cname = self.find('.c-name');
 		self.find('form').attr('autocomplete','off');
+		/*window.onbeforeunload = function() { 
+			return 'a';
+		}*/
 		self.find('.user-type').click(function () {
 			if ( $(this).val() == 1) {
 				self.find('.for-company').show();

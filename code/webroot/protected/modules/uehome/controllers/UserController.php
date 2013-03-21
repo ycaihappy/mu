@@ -310,6 +310,11 @@ $user_id =yii::app()->user->getID();
         {
             $error['email'] = '邮箱格式不正确';
         }
+        $email_exist = User::model()->find('user_email=:user_email',array('user_email'=>$_REQUEST['email']));
+        if ( !empty($email_exist->user_id) )
+        {
+            $error['email'] = '邮箱已经被注册';
+        }
         if ( $_REQUEST['pwd'] != $_REQUEST['repwd'])
         {
             $error['repwd'] = '密码不一致';
@@ -317,6 +322,11 @@ $user_id =yii::app()->user->getID();
         if ( strlen($_REQUEST['pwd']) < 6)
         {
             $error['pwd'] = '密码至少6位';
+        }
+        $nickname_exist = User::model()->find('user_nickname=:user_nickname',array('user_nickname'=>$_REQUEST['nickname']));
+        if ( !empty($nickname_exist->user_id) )
+        {
+            $error['nickname'] = '昵称已经被注册';
         }
         if (!empty($error))
         {
@@ -326,6 +336,7 @@ $user_id =yii::app()->user->getID();
         $u_model = new User();
         $u_model->user_name  = $_REQUEST['user_name'];
         $u_model->user_email = $_REQUEST['email'];
+        $u_model->user_sex   = 1;
         $u_model->user_pwd   = md5($_REQUEST['pwd']);
         $u_model->user_nickname = $_REQUEST['nickname'];
         $u_model->user_province_id = $_REQUEST['user_province_id'];
@@ -335,7 +346,6 @@ $user_id =yii::app()->user->getID();
         $u_model->user_mobile_no = $_REQUEST['mobile_number'];
         $u_model->user_status = 33;
         $u_model->user_join_date = date("Y-m-d");
-
         $u_model->save();
 
         

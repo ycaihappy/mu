@@ -429,7 +429,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-detail .orange{color: #da040c; font: bold 16px/30px Arial,Helvetica,sans-serif;}
 .m-detail .title strong, .m-detail .title h2 {float: left;font-size: 14px;font-weight: bold;}
 .m-detail .btn_phone {background: none repeat scroll 0 0 #1B81DC !important;border-color: #0060B1 !important;border-radius: 3px;color: #fff !important;}
-.m-detail .info{padding: 10px;line-height: 26px;}
+.m-detail .info{padding: 10px;line-height: 26px;overflow:hidden;}
 .m-detail .proInfo table{background: #F6F6F6;overflow: hidden;padding: 10px 0;margin:10px;border-left:1px solid #DEDEE0;border-bottom:1px solid #DEDEE0;}
 .m-detail .proInfo td {padding: 10px;border-right:1px solid #DEDEE0;border-top:1px solid #DEDEE0}
 .m-detail h1{font-size:14px;font-weight:bold;margin-bottom:10px;}

@@ -17,7 +17,7 @@
 </div>
 
 <div class="layout main">
-
+<div class="layout-area">
 	<div class="grid-700">
 		
 <?php echo $content?>
@@ -28,7 +28,7 @@
 </div>
 	</div>
 	
-	</div>
+	
 		
 	<div class="layout-area">
 		<?php $this->widget("FooterWidget");?>

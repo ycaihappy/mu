@@ -18,6 +18,7 @@ class IndexCategoryWidget extends CWidget
     				$layerCategory[$category->term_parent_id]['sub'][]=$category;
     		}
     	}
-        $this->render('index_category',array('data'=>$layerCategory));
+    	$adv=CCacheHelper::getAdvertisement(144);
+        $this->render('index_category',array('data'=>$layerCategory,'adv'=>$adv));
     }
 }

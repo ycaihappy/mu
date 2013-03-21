@@ -20,7 +20,9 @@ class SupplyController extends BasicAccessController
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$adv=CCacheHelper::getAdvertisement(145);//左侧中部
+		$data=compact('adv');
+		$this->render('index',$data);
 	}
 
     public function actionList()
@@ -64,7 +66,8 @@ class SupplyController extends BasicAccessController
             $city  = City::getAllCity();
             $category = Term::model()->getTermsByGroupId(14);
         }
-        $this->render('list',array('data'=>$list,'title'=>$title,'category'=>$category,'city'=>$city,'supply_type'=>$supply_type,'pager'=>$pager));
+       	$adv=CCacheHelper::getAdvertisement(146);//左侧中部
+        $this->render('list',array('data'=>$list,'adv'=>$adv,'title'=>$title,'category'=>$category,'city'=>$city,'supply_type'=>$supply_type,'pager'=>$pager));
     }
 
 	public function actionView()

@@ -3,7 +3,9 @@
             <ul>
             	<?php 
             	if($data):
+            		$index=0;
             		foreach ($data as $supply):
+            			if($index==10) break;
             	?>
             	<li>
             		<span class="gy01">
@@ -18,6 +20,7 @@
             		<span class="gy06"><?php echo date('m/d',strtotime($supply->supply_join_date))?></span>
             	</li>
             	<?php 
+            			$index++;
             		endforeach;
             	endif;
             	?>

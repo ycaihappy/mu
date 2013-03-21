@@ -21,5 +21,10 @@
 				
 		</div>
 		<div class="ft">
-			<a><img src="images/index-car-ad.jpg" width="288" style="margin-top:12px" /></a>
+		<?php if($adv):?>
+		<a target="_blank" href="<?php echo $adv[0]->ad_link?>">
+		
+		<img width="288" style="margin-top:12px" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
+		<?php endif;?>
+		
 		</div>

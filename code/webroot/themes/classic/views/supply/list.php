@@ -57,7 +57,13 @@
             <?php $this->widget('SupplyIndexSpecialWidget');?>
 		<!--module end-->
 		<!--module start-->
-		<div class="m-gc-ad"><a target="_blank" href="http://xh.steelcn.com/new.aspx"><img width="260" height="85" src="images/xinahuotong_288_85.png"></a></div>
+		<div class="m-gc-ad">
+		<?php if($adv):?>
+		<a target="_blank" href="<?php echo $adv[0]->ad_link?>">
+		
+		<img width="260" height="85" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
+		<?php endif;?>
+		</div>
 		<!--module end-->
 		
 		<!--module start-->

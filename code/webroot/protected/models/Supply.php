@@ -99,7 +99,7 @@ class Supply extends CActiveRecord
 					'with'=>array('user.enterprise'=>array('ent_name'),'city'=>array('select'=>'city_name'),'category'=>array('select'=>'term_name')),
 					'condition'=>'supply_status=1 and supply_type=18',
 					'order'=>'supply_join_date desc',
-					'limit'=>25
+					'limit'=>10
 				),
 			'topbuyIndex'=>array(
 					'select'=>'supply_id,supply_name,supply_contractor,supply_mu_content,supply_phone,supply_join_date',

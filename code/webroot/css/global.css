@@ -363,7 +363,7 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 .m-brand a{display:inline-block;margin-right:5px;margin-bottom:5px;}
 
-.m-link{border:1px solid #ccc;overflow:hidden;padding:1px;padding-bottom:10px;width:956px;}
+.m-link{border:1px solid #ccc;overflow:hidden;padding:1px;padding-bottom:1px;width:956px;}
 
 .m-link .hd span{background:#fff;margin-left: 5px;font-weight:bold;float:left;display:inline;margin-right:10px;line-height:30px;}
 .m-link .hd p{display:inline;margin-left:20px}

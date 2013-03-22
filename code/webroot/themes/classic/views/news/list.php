@@ -19,7 +19,7 @@
                     		foreach ($newses as $news):
                     ?>
                             <li>
-                            	<span><?php echo date('m月d日 H:i',strtotime($news->art_post_date))?></span>
+                            	<span><?php echo date('m月d日',strtotime($news->art_post_date))?></span>
                                 <a target="_blank" href="<?php echo $news->art_source?>"><?php echo $news->art_title?></a>
                             </li>
                    <?php endforeach;

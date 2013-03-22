@@ -141,35 +141,47 @@ $.extend(MU.mods,{
 				cname.text(cname.data('text'));
 			}
 		});
+		
+		self.find(':input[validate]').blur(function (){
+			$.PValidate($(this));
+		});
+		
+		
 		self.find('.btn-reg').click(function(e){
 			e.preventDefault();
 			var cur = self.data('step'), o = $(this),isok = false;
-			
+			if(!$.PValidate(o.closest('form'))){
+					return;
+			}
 			if( o.hasClass('act-one')) {
-				 $.ajax({  
-					type:"post",  
-					url:o.data('api'),
-					dataType:"json",
-					async : false,
-					data : o.closest('form').serializeArray(),
-					success: function(re) { 
-						self.find('.err-msg').remove();
-						if(re.status == 0){
-							for(var i in re.data){
-								
-								$(':input[name='+i+']').parent().append('<p class="err-msg">'+re.data[i]+'</p>');
+			
+				
+					 $.ajax({  
+						type:"post",  
+						url:o.data('api'),
+						dataType:"json",
+						async : false,
+						data : o.closest('form').serializeArray(),
+						success: function(re) { 
+							self.find('.err-msg').remove();
+							if(re.status == 0){
+								for(var i in re.data){
+									
+									$(':input[name='+i+']').parent().append('<p class="err-msg">'+re.data[i]+'</p>');
+								}
+								isok = false;
+							}else{
+								isok = true;
 							}
+						},
+						failure : function (){
 							isok = false;
-						}else{
-							isok = true;
 						}
-					},
-					failure : function (){
-						isok = false;
-					}
-				});
+					});				
+				
 				if(false === isok) return;
 				self.find('.step-2').find('input[name=mobile_number]').val(self.find('.step-1').find('input[name=mobile_number]').val());
+				
 			}
 			
 			if( o.hasClass('save')) {

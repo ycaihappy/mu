@@ -12,7 +12,7 @@ a:hover{color:#f27B04;text-decoration:underline;}
 
 .loading{background:url(img/nloading.gif) no-repeat center}
 .disabled {cursor: not-allowed}
-.err-msg{color:#f00;margin-left:5px;}
+.err-msg{color:#f00;margin-top:2px!important}
 .info_warining{padding:5px;border:1px solid #D91111;background:#FCFBE5;margin-bottom:20px;}
 .info_success{padding:5px;border:1px solid #D91111;background:#FCFBE5;margin-bottom:20px;}
 .info_warining p{font-weight:bold;margin-bottom:10px;}

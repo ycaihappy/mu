@@ -50,11 +50,11 @@
 					<table width="100%">
 						<tr>
 							<td align="right"><label>手机号：</label></td>
-							<td><div class="field"><input type="text" name="mobile_number" ><button class="btn-modify send-sms" type="button" data-api="index.php?r=sms/send">发送验证码</button></div></td>
-						</tr>
+							<td><div class="field"><input type="text" name="mobile_number" validate="require|请输入手机号 len[11]|手机号必须为11位 num|手机号必须为数字" /><button class="btn-modify send-sms" type="button" data-api="index.php?r=sms/send">发送验证码</button></div></td>
+						</tr>					
 						<tr>
 							<td align="right"><label>请输入验证码：</label></td>
-							<td><div class="field"><input type="text" name="validate_code" ></div></td>
+							<td><div class="field"><input type="text" name="validate_code" validate="require|请输入验证码" /></div></td>
 						</tr>
 						<tr>
 							<td></td>
@@ -76,7 +76,7 @@
 						</tr>-->
 						<tr class="for-company ">
 							<td align="right"><label>企业名称：</label></td>
-							<td><div class="field"><input type="text" name="company_name" /></div></td>
+							<td><div class="field"><input type="text" name="company_name" validate="require|请输入企业名称" /></div></td>
 						</tr>
 						<tr class="for-company ">
 							<td align="right"><label>企业类型：</label></td>
@@ -84,15 +84,15 @@
 						</tr>
 							<tr>
 							<td align="right"><label>用户名：</label></td>
-							<td><div class="field"><input type="text" name="user_name" ></div></td>
+							<td><div class="field"><input type="text" name="user_name" validate="require|请输入用户名" /></div></td>
 						</tr>					
 						<tr>
 							<td align="right"><label>邮箱：</label></td>
-							<td><div class="field"><input type="text" name="email" ></div></td>
+							<td><div class="field"><input type="text" name="email" validate="require|请输入邮箱 email|请输入正确邮箱" /></div></td>
 						</tr>
 						<tr>
 							<td align="right"><label>密码：</label></td>
-							<td><div class="field"><input type="password" name="pwd" /></div>
+							<td><div class="field"><input type="password" name="pwd" validate="require|请输入密码 gt[5]|密码至少6位" /></div>
 							<div class="pw-strength pw-weak">
                                 <div class="pw-bar"></div>
                                 <div class="pw-letter"><span>弱</span><span>中</span><span>强</span></div>
@@ -101,11 +101,11 @@
 						</tr>
 						<tr>
 							<td align="right"><label>确认密码：</label></td>
-							<td><div class="field"><input type="password" name="repwd" /></div></td>
+							<td><div class="field"><input type="password" name="repwd" validate="require|请输入确认密码 gt[5]|密码至少6位 eq[pwd]|输入的密码不一致" /></div></td>
 						</tr>
 						<tr>
 							<td align="right"><label class="c-name" data-text="昵称：" data-c-text="称呼：">昵称：</label></td>
-							<td><div class="field"><input type="text" name="nickname" /></div></td>
+							<td><div class="field"><input type="text" name="nickname" validate="require|请输入昵称 reg[[^\d]]|昵称不能为全数字" /></div></td>
 						</tr>
 						<tr class="for-company ">
 							<td align="right"><label>职务：</label></td>
@@ -179,13 +179,6 @@
 
 
 </div>
-
-
-
-
-<script src="js/jquery.1.8.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/global.js"></script>
-<script src="js/init.js"></script>
+<?php $this->widget("CommonFooterWidget");?>
 </body>
 </html>

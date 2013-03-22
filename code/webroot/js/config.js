@@ -735,7 +735,6 @@ $.extend({
 					return /^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i.test(value);
 				break;
 				case 'eq' :
-					console.log($(':input[name=' +limit +']').val());
 					return value == $(':input[name=' +limit +']').val();
 				break;
 				case 'gt' :

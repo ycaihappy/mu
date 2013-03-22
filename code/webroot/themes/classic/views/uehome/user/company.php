@@ -95,7 +95,7 @@ elseif ( Yii::app()->user->hasFlash('success'))
 			$this->widget('application.extensions.xheditor.JXHEditor', array(
 				    'model' => $model,
 				    'attribute' => 'ent_introduce',
-				    'htmlOptions'=>array('class'=>'xheditor-mini','cols'=>80,'rows'=>20,'style'=>'width: 600px; height: 400px;'),
+				    'htmlOptions'=>array('class'=>'xheditor-mini','cols'=>80,'rows'=>10,'style'=>'width: 650px;'),
 				));
 			//echo $form->textArea($model,'ent_introduce',array('rows'=>6, 'cols'=>50,'class'=>'cmp-text')); 
 			?></td>

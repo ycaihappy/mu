@@ -1,5 +1,9 @@
-<div class="m-gyxx">
-        	<h2><a href="<?php echo $this->getController()->createUrl('supply/list',array('type'=>1))?>">更多</a><em>供应信息</em></h2>
+<div class="m-gyxx ui-m-tab ui-m-border">
+<div class="hd ui-tab-105">
+		<span class="on">供应信息</span>
+		<a class="more" href="<?php echo $this->getController()->createUrl('supply/list',array('type'=>1))?>">更多</a>
+	</div>
+        	
             <ul>
             	<?php 
             	if($data):

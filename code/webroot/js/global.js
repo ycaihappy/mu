@@ -750,8 +750,8 @@ $.extend(MU.mods,{
 		var self = $(this);
 		self.find('.btn_sc').click(function(){
 			if (document.all)
-			{
-				window.external.addFavorite(location.href,'收藏夹');
+			{ 
+				window.external.addFavorite(location.href,document.title);
 			}
 			else if (window.sidebar)
 			{

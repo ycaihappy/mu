@@ -41,10 +41,6 @@
         <span class="on">详细描述</span>
     </div>
 	<div class="bd">
-		<div class="info">
-		
-        <p><?php echo $product_detail['product_content'];?></p>
-		</div>
 		<div class="proInfo">
 			<table width="97%">
 				<tr>
@@ -56,6 +52,11 @@
 				</tr>
 			</table>
 		</div>
+		<div class="info">
+		
+        <p><?php echo $product_detail['product_content'];?></p>
+		</div>
+		
 	   
 	</div>
 	</div>

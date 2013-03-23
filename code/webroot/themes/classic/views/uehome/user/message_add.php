@@ -53,7 +53,7 @@ if ( !empty($error))
 if ( $view)
 {
 ?>
-    <td></td><td><button type="button" class="btn-save"><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/message');?>">返回</a></button></td>
+    <td></td><td><a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/message');?>"><button type="button" class="btn-save">返回</button></a></td>
 <?php
 }
 else

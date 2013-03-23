@@ -466,12 +466,10 @@ $.extend(MU.mods,{
 			}
 		});
 		
-		$('#product_status').change(function(){
+		$('#product_status,#supply_status,#msg_type').change(function(){
 			$(this).closest('form').submit();
 		});
-		$('#supply_status').change(function(){
-			$(this).closest('form').submit();
-		});
+	
 	},
 	JQuot : function () {
 		var self = $(this),api = $('#chart').data('api');

@@ -19,10 +19,11 @@ if ( Yii::app()->user->hasFlash('success'))
 	<div class="m-table-list" id="J_Supply_List">
 	
 	<div class="repeatbg search">
-
+		<form>
+		<input type="hidden" value="uehome/user/message" name="r">
        <?php echo CHtml::dropDownList('msg_type',@$_REQUEST['msg_type'], array(0=>'不限',1=>'收件箱',2=>'发件箱'));?>
                 <a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/messageadd');?>" class="cmp-btn">发送站内信</a> 
-			
+		</form>	
 		</div>
 	
 	<table border="0" cellpadding="0" cellspacing="0" class="table-list" width="100%">

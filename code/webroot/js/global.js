@@ -745,5 +745,19 @@ $.extend(MU.mods,{
 		
 		
 		
+	},
+	JPrdDetail : function () {
+		var self = $(this);
+		self.find('.btn_sc').click(function(){
+			if (document.all)
+			{
+				window.external.addFavorite(location.href,'收藏夹');
+			}
+			else if (window.sidebar)
+			{
+				window.sidebar.addPanel(document.title, location.href, "");
+			}
+		});
+	
 	}
 });

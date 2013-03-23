@@ -414,7 +414,8 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 
 
 /*m-detail */
-.m-detail .sellinfo .fr p.btn a.btn_lx {background:url(imgs/btn_xj.gif) no-repeat;width:115px;height:35px;display:block;text-indent:-9999px;border:0}
+.m-detail .sellinfo .fr p.btn a.btn_lx,.m-detail .sellinfo .fr p.btn a.btn_sc {background:url(imgs/btn_xj.gif) no-repeat;width:115px;height:35px;text-indent:-9999px;border:0}
+.m-detail .sellinfo .fr p.btn a.btn_sc{background-image:url(imgs/btn_sc.gif)}
 .m-detail .sellinfo .fr p.btn a, .m-detail a.btn_free, .m-detail .vipinfo .btn a {border: 1px solid #C3C3C3;color: #333333;font: bold 14px/31px "微软雅黑";text-align: center;}
 .m-detail .sellinfo .fr p.btn a, .m-detail a.btn_free, .m-detail .vipinfo .btn a {display: inline-block;height: 31px;margin-right: 10px;width: 100px;}
 

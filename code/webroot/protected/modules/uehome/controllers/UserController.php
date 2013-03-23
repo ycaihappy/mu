@@ -278,7 +278,16 @@ class UserController extends Controller {
     #    $criteria->addCondition('t.msg_from_user_id=ent.ent_user_id');
     #    $list = Message::model()->findAll($criteria);
 
-$connection = Yii::app()->db;
+        $user_id =yii::app()->user->getID();
+        $msg_type = @$_REQUEST['msg_type'];
+        if ( $msg_type  == 0)
+            $condition = '(msg_to_user_id='.$user_id.' or msg_from_user_id='.$user_id.')';
+        elseif ($msg_type == 1)
+            $condition = 'msg_from_user_id='.$user_id;
+        else
+            $condition = 'msg_to_user_id='.$user_id;
+
+        $connection = Yii::app()->db;
         if ( isset($_REQUEST['page']) )
         {
             $limit ='limit '.(15*($_REQUEST['page']-1)).','.(15*$_REQUEST['page']);
@@ -287,9 +296,9 @@ $connection = Yii::app()->db;
         {
             $limit = 'limit 0,15';
         }
-$user_id =yii::app()->user->getID();
+        
         $sql = 'select * from mu_message,mu_user_enterprise,mu_user 
-            where (msg_to_user_id='.$user_id.' or msg_from_user_id='.$user_id.') AND (msg_from_user_id=ent_user_id) and msg_to_user_id=user_id
+            where '.$condition.' AND (msg_from_user_id=ent_user_id) and msg_to_user_id=user_id
             ORDER BY msg_id DESC '.$limit;
 
         $list= $connection->createCommand($sql)->queryAll();

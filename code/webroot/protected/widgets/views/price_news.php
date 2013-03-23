@@ -11,7 +11,7 @@
                         </label>
                         <ul id="indexGsrbInfo">
 			<?php for($index=1;$index<count($data)-1;$index++):?>
-        <li><span><?php echo date("m-d",strtotime($data[$index]['art_post_date']));?></span> <a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" title="<?php echo $data[$index]['art_title'] ?>" target="_blank"><?php echo $data[$index]['art_title']; ?></a></li>
+        <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" title="<?php echo $data[$index]['art_title'] ?>" target="_blank"><?php echo $data[$index]['art_title']; ?></a><span><?php echo date("m-d",strtotime($data[$index]['art_post_date']));?></span></li>
 			<?php endfor;?>			
                         </ul>
                     </div>

@@ -20,7 +20,7 @@ if ( Yii::app()->user->hasFlash('success'))
 	
 	<div class="repeatbg search">
 
-       <?php #echo CHtml::dropDownList('msg_type',1, array('发送','接收'));?>
+       <?php echo CHtml::dropDownList('msg_type',@$_REQUEST['msg_type'], array(0=>'不限',1=>'收件箱',2=>'发件箱'));?>
                 <a href="<?php echo Yii::app()->controller->createUrl('/uehome/user/messageadd');?>" class="cmp-btn">发送站内信</a> 
 			
 		</div>

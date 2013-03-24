@@ -4,7 +4,9 @@
             <ul>
 				<li><span>公司名称</span>：<?php echo $company->ent_name?></li>
 				<li><span>联系电话</span>：<?php echo $user->user_telephone?></li>
-				<li><span>联系人</span>：<?php echo $user->user_first_name?>&nbsp;<?php echo $user->user_mobile_no?></li>
+				<li><span>联系人</span>：<?php echo $user->user_first_name."({$user->user_sex})"?></li>
+				<li><span>手机</span>：<?php echo $user->user_mobile_no?></li>
+				<li><span>电话</span>：<?php echo $user->user_telephone?></li>
 				<li><span>网址</span>：<?php echo $company->ent_website?></li>
 				<li><span>地址</span>：<?php echo $company->ent_location?></li>
 				<li><span>邮箱</span>：<?php echo $user->user_email?></li>

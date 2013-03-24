@@ -267,7 +267,7 @@ class Article extends CActiveRecord
     {
         return array(
             'art_id' => 'Art',
-            'art_title' => 'Art Title',
+            'art_title' => '请输入标题关键字',
             'art_source' => 'Art Source',
             'art_category_id' => 'Art Category',
             'art_content' => 'Art Content',

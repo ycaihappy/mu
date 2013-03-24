@@ -48,8 +48,15 @@ foreach ($artCategory as $categoryId=>$category) {
 <label>小分类：</label>
 <?php echo $form->dropDownList($model,'art_subcategory_id',$artSubcategory);?>
 <label>标题：</label>
-<?php echo $form->textField($model,'art_title',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo $form->textField($model,'art_title',array('class'=>'ui-corner-all'));?>
+<?php 	$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'search',
+		'caption'=>'搜索',
+		'buttonType'=>'submit',
+		'cssFile'=>'jquery.ui.css',
+		)
+);?>
 </div>
 </div>
 <br style='float:clear;'/>

@@ -466,12 +466,10 @@ $.extend(MU.mods,{
 			}
 		});
 		
-		$('#product_status').change(function(){
+		$('#product_status,#supply_status,#msg_type').change(function(){
 			$(this).closest('form').submit();
 		});
-		$('#supply_status').change(function(){
-			$(this).closest('form').submit();
-		});
+	
 	},
 	JQuot : function () {
 		var self = $(this),api = $('#chart').data('api');
@@ -745,5 +743,19 @@ $.extend(MU.mods,{
 		
 		
 		
+	},
+	JPrdDetail : function () {
+		var self = $(this);
+		self.find('.btn_sc').click(function(){
+			if (document.all)
+			{ 
+				window.external.addFavorite(location.href,document.title);
+			}
+			else if (window.sidebar)
+			{
+				window.sidebar.addPanel(document.title, location.href, "");
+			}
+		});
+	
 	}
 });

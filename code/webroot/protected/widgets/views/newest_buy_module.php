@@ -1,5 +1,8 @@
-<div class="m-qgxx" id="J_Qgxx">
-        	<h2><a href="<?php echo $this->getController()->createUrl('supply/list',array('type'=>2))?>">更多</a><em>最新求购信息</em></h2>
+<div class="m-qgxx ui-m-tab ui-m-border" id="J_Qgxx">
+	<div class="hd ui-tab-105">
+		<span class="on">最新求购信息</span>
+		<a class="more" href="<?php echo $this->getController()->createUrl('supply/list',array('type'=>2))?>">更多</a>
+	</div>
             <div class="qgxx_main">
                 <div id="nihao" class="halftransp"></div>
             	<dl id="jq_animate_loop" style="padding-top: 0px;">

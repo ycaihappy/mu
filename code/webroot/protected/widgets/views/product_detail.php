@@ -1,4 +1,4 @@
-	<div class="m-detail">
+	<div class="m-detail" id="J_Prd_Detail">
     <div class="sellinfo clearfix">
         <div class="fl">
             <div class="img">
@@ -19,7 +19,7 @@
             添加日期：<span><?php echo date("Y-m-d H:i:s",strtotime($product_detail['product_join_date']));?></span></p>
  
             <p class="btn">
-            <a title="立即询价" class="btn_lx" href="<?php echo Yii::app()->controller->createUrl('/storeFront/default/mail',array('username'=>$ent_info['user_name']));?>">立即询价</a></p>
+            <a title="立即询价" class="btn_lx" href="<?php echo Yii::app()->controller->createUrl('/storeFront/default/mail',array('username'=>$ent_info['user_name']));?>">立即询价</a><a title="点击收藏" class="btn_sc" href="javascript:;">点击收藏</a></p>
             <div class="vipinfo">
               <!--  <ul>
                     <li class="btn"><a title="查看联系电话" class="btn_phone" href="#">查看联系电话</a>
@@ -41,10 +41,6 @@
         <span class="on">详细描述</span>
     </div>
 	<div class="bd">
-		<div class="info">
-		
-        <p><?php echo $product_detail['product_content'];?></p>
-		</div>
 		<div class="proInfo">
 			<table width="97%">
 				<tr>
@@ -56,6 +52,11 @@
 				</tr>
 			</table>
 		</div>
+		<div class="info">
+		
+        <p><?php echo $product_detail['product_content'];?></p>
+		</div>
+		
 	   
 	</div>
 	</div>

@@ -268,16 +268,16 @@ class Article extends CActiveRecord
         return array(
             'art_id' => 'Art',
             'art_title' => '请输入标题关键字',
-            'art_source' => 'Art Source',
-            'art_category_id' => 'Art Category',
-            'art_content' => 'Art Content',
-            'art_status' => 'Art Status',
-            'art_tags' => 'Art Tags',
-            'art_user_id' => 'Art User',
-            'art_check_by' => 'Art Check By',
-            'art_post_date' => 'Art Post Date',
-            'art_modified_date' => 'Art Modified Date',
-            'art_recommend' => 'Art Recommend',
+            'art_source' => '文章来源',
+            'art_category_id' => '所属类型',
+            'art_content' => '文章内容',
+            'art_status' => '文章状态',
+            'art_tags' => '关键词',
+            'art_user_id' => '文章创建人',
+            'art_check_by' => '审核人',
+            'art_post_date' => '创建时间',
+            'art_modified_date' => '最近修改时间',
+            'art_recommend' => '是否推荐',
         );
     }
 

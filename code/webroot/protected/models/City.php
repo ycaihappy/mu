@@ -49,6 +49,14 @@ class City extends CActiveRecord
 		array('city_id, city_name, city_parent, city_level, city_order, city_open', 'safe', 'on'=>'search'),
 		);
 	}
+	public static function getCityName($cityId)
+	{
+		if(!self::$cityCache)
+		{
+			self::$cityCache=CCacheHelper::getAllCity();
+		}
+		return isset(self::$cityCache[$cityId])?self::$cityCache[$cityId]->city_name:'该地区已删除';
+	}
     public static function getCityList()
     {
 		if(!self::$cityCache)
@@ -202,11 +210,11 @@ class City extends CActiveRecord
 	{
 		return array(
 			'city_id' => 'City',
-			'city_name' => 'City Name',
-			'city_parent' => 'City Parent',
-			'city_level' => 'City Level',
-			'city_order' => 'City Order',
-			'city_open' => 'City Open',
+			'city_name' => '地区名称',
+			'city_parent' => '父级地区',
+			'city_level' => '地区级别',
+			'city_order' => '排序',
+			'city_open' => '是否启用',
 		);
 	}
 

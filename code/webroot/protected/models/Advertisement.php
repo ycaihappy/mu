@@ -85,17 +85,17 @@ class Advertisement extends CActiveRecord
 	{
 		return array(
 			'ad_id' => 'Ad',
-			'ad_user_id' => 'Ad User',
-			'ad_type' => 'Ad Type',
-			'ad_no' => 'Ad No',
-			'ad_link' => 'Ad Link',
-			'ad_status' => 'Ad Status',
-			'ad_click_num' => 'Ad Click Num',
-			'ad_start_date' => 'Ad Start Date',
-			'ad_end_date' => 'Ad End Date',
-			'ad_price' => 'Ad Price',
-			'ad_media_src' => 'Ad Media Src',
-			'ad_create_time' => 'Ad Create Time',
+			'ad_user_id' => '广告所属用户',
+			'ad_type' => '媒体类型',
+			'ad_no' => '广告位置',
+			'ad_link' => '广告链接',
+			'ad_status' => '状态',
+			'ad_click_num' => '点击数',
+			'ad_start_date' => '起效时间',
+			'ad_end_date' => '终止时间',
+			'ad_price' => '广告价格',
+			'ad_media_src' => '媒体源',
+			'ad_create_time' => '创建时间',
 		);
 	}
 

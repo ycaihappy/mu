@@ -10,27 +10,33 @@ class buildCommand extends CConsoleCommand{
             $year = array(2012,2011,2013);
             $month = array(1,2,3,4,5,6,7,8,9,10,11,12);
             $day   = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29);
-            $area = arraY(3,5,6);
+            $area = arraY(3,5,6,7,14,15,16,27);
             $mu_product = array(31,32,57,73,77,78,80,81,82,83,84,85,86.87,88,89);
 
             
-            foreach ( $year as $year_one)
+            foreach ( $area as $area_zone)
             {
-                foreach ($month as $month_one)
+                foreach ( $mu_product as $product_type)
                 {
-                    foreach ($day as $day_one)
+                    foreach ( $year as $year_one)
                     {
-                        $smp = new PriceSummary();
-                        #$smp->sum_id    = $i+1;
-                        $smp->sum_unit  = 3;
-                        $smp->sum_price = rand(50, 100);
-                        $smp->sum_year = $year_one;
-                        $smp->sum_month = $month_one;
-                        $smp->sum_day  = $day_one;
-                        $smp->sum_product_type = $mu_product[array_rand($mu_product)];
-                        $smp->sum_product_zone = $area[array_rand($area)];
-                        $smp->sum_add_date = date("Y-m-d");
-                        $smp->save();
+                        foreach ($month as $month_one)
+                        {
+                            foreach ($day as $day_one)
+                            {
+                                $smp = new PriceSummary();
+                                #$smp->sum_id    = $i+1;
+                                $smp->sum_unit  = 3;
+                                $smp->sum_price = rand(1800, 1830);
+                                $smp->sum_year = $year_one;
+                                $smp->sum_month = $month_one;
+                                $smp->sum_day  = $day_one;
+                                $smp->sum_product_type = $product_type;
+                                $smp->sum_product_zone = $area_zone;
+                                $smp->sum_add_date = date("Y-m-d");
+                                $smp->save();
+                            }
+                        }
                     }
                 }
             }

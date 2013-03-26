@@ -84,7 +84,7 @@ class PriceController extends BasicAccessController
         }
 
         $connection = Yii::app()->db;
-        $sql = 'select sum_year,sum_product_zone,sum_month,sum(sum_price)/12 as price from mu_price_summary
+        $sql = 'select sum_year,sum_product_zone,sum_month,sum(sum_price)/29 as price from mu_price_summary
             where sum_year='.$select_year.' 
             and sum_product_type ='.$product_type.' 
             and sum_month in ('.implode(',',$select_month).') 

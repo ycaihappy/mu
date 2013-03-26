@@ -7,7 +7,7 @@
 					<div class="chart" id="chart1" data-api="<?php echo Yii::app()->controller->createUrl('price/chart',array('type'=>31));?>">
 						<img src="images/b.png" />
 					</div>
-					<div class="chart" id="chart2" data-api="<?php echo Yii::app()->controller->createUrl('price/chart',array('type'=>32));?>">
+					<div class="chart" id="chart2" data-api="<?php echo Yii::app()->controller->createUrl('price/chart',array('type'=>57));?>">
 						<img src="images/b.png" />
 					</div>
 			</div>

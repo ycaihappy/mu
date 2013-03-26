@@ -69,7 +69,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'单价',
-        	'value'=>'$data->sum_price."/".$data->unit->term_name ',
+        	'value'=>'$data->sum_price."/".($data->unit?$data->unit->term_name) ',
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'地区',

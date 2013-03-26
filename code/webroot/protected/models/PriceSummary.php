@@ -42,13 +42,14 @@ class PriceSummary extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('sum_unit, sum_product_type, sum_product_zone', 'numerical', 'integerOnly'=>true),
-			array('sum_price', 'length', 'max'=>15),
-			array('sum_year, sum_month, sum_day', 'length', 'max'=>45),
+			array('sum_unit, sum_product_type, sum_product_zone', 'numerical', 'integerOnly'=>true,'message'=>'必须为数字类型'),
+			array('sum_year, sum_month, sum_day', 'required', 'message'=>'年月日必须填写完整'),
 			array('sum_add_date', 'safe'),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('sum_id, sum_unit, sum_price, sum_year, sum_month, sum_day, sum_product_type, sum_product_zone, sum_add_date', 'safe', 'on'=>'search'),
+			array('sum_unit', 'required','message'=>'单位必须填写'),
+			array('sum_product_type', 'required','message'=>'所属类型必须填写'),
+			array('sum_price', 'required','message'=>'价格必须填写'),
+			array('sum_price', 'numerical','message'=>'价格必须是数字'),
+			array('sum_id, sum_unit, sum_price, sum_year, sum_month, sum_day, sum_product_type, sum_product_zone, sum_add_date', 'safe'),
 		);
 	}
 

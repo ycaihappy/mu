@@ -69,7 +69,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'单价',
-        	'value'=>'$data->sum_price."/".($data->unit?$data->unit->term_name) ',
+        	'value'=>'$data->sum_price."/".($data->unit?$data->unit->term_name:"") ',
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'地区',
@@ -95,7 +95,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 <input type="hidden" name="page" value="<?php echo Yii::app()->request->getParam('page',1);?>"/>
 <?php 
 
-$this->widget('zii.widgets.jui.CJuiButton',
+/*$this->widget('zii.widgets.jui.CJuiButton',
 	array(
 		'name'=>'button3',
 			'caption'=>'删除',
@@ -125,7 +125,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			return false;
 		}',
 		)
-);
+);*/
 ?>
 </DIV>
 </form>

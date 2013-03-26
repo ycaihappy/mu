@@ -189,7 +189,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 			{
 				if(confirm("确定删除选中的'.$alertTitle.'信息"))
 				{
-					var url="'.Yii::app()->controller->createUrl('changeNewsStatus',array('toStatus'=>33)).'";
+					var url="'.Yii::app()->controller->createUrl('deleteArticle',array('toStatus'=>33)).'";
 					$("#articleForm").ajaxSubmit(
 						{
 							url:url,

@@ -99,15 +99,7 @@ class ArticleController extends AdminController {
 				$newimg = $model->art_category_id.'_'.time().'_'.rand(1, 9999).'.'.$model->art_img->extensionName;
 				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
 				$uploadedImg='images/article/'.$newimg;
-				/*$model->art_img->saveAs($uploadedImg);
-				$im = null;
-				$imagetype = strtolower($model->art_img->getExtensionName());
-				if($imagetype == 'gif')
-				$im = imagecreatefromgif($uploadedImg);
-				else if ($imagetype == 'jpg')
-				$im = imagecreatefromjpeg($uploadedImg);
-				else if ($imagetype == 'png')
-				$im = imagecreatefrompng($uploadedImg);*/
+
 				$image=Yii::app()->image->load($model->art_img->getTempName());
 				$image->resize(600,600);
 				$image->save($uploadedImg);
@@ -115,9 +107,6 @@ class ArticleController extends AdminController {
 				$image->resize(400,280);
 				$thumbImg='images/article/thumb/'.$newimg;
 				$image->save($thumbImg);
-				/*CThumb::resizeImage (
-				$im,400, 280,
-				'images/article/thumb/'.$newimg, $model->art_img->getExtensionName() );*/
 				$model->art_img = $newimg;
 			}
 			else {
@@ -158,7 +147,33 @@ class ArticleController extends AdminController {
 	{
 		$this->_actionChangeArticleStatus('managePrice');
 	}
-	private function _actionChangeArticleStatus($redirectAction)
+	public function actionDeleteArticle()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			$artId=@$_REQUEST['art_id'];
+			if(!$artId )
+			{
+				if(Yii::app()->request->isAjaxRequest)
+				{
+					echo '请选择要删除的文章';
+					exit;
+				}
+			}
+			$deleteCriteria=new CDbCriteria();
+			$deleteCriteria->addInCondition('art_id', $artId);
+			$deleteeRows=Article::model()->deleteAll($deleteCriteria);
+			if($deleteeRows>0)
+			{
+				echo '删除成功！';
+			}
+			else {
+				echo '删除失败！';
+			}
+			exit;
+		}
+	}
+	private function _actionChangeArticleStatus()
 	{
 		$toStatus=@$_REQUEST['toStatus'];
 		$artId=@$_REQUEST['art_id'];
@@ -170,7 +185,7 @@ class ArticleController extends AdminController {
 				exit;
 			}
 			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的文章信息，以及改变的状态');
-			$this->redirect(array($redirectAction));
+			$this->redirect(array('manageNews'));
 
 		}
 		$updateStatusCriteria=new CDbCriteria();
@@ -264,7 +279,7 @@ class ArticleController extends AdminController {
 	{
 		if(!Yii::app()->request->isPostRequest)
 		{//保存标题
-				
+
 		}
 		else {//展示需要修改标题的图片
 			$imageNeedUpdatesCriteria=new CDbCriteria();
@@ -380,7 +395,7 @@ class ArticleController extends AdminController {
 		$imageStatus=Term::getTermsByGroupId(1);
 		$imageUsedType=Term::getMuCategory();
 		$this->render('updateImageLibary',array('model'=>$model,'imageStatus'=>$imageStatus,'imageUsedType'=>$imageUsedType));
-		 
+			
 	}
 	public function actionChangeImageLibaryStatus()
 	{

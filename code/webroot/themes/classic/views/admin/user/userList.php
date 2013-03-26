@@ -24,7 +24,7 @@
         array(
         	'name'=>'等级',
         	'type'=>'html',
-        	'value'=>'$data->type? CHtml::image("/images/mushw/".$data->type->group_logo,$data->type->group_name,array("width"=>30)).$data->type->group_name:"未分配"',
+        	'value'=>'$data->type?CHtml::image("/images/mushw/".$data->type->group_logo,$data->type->group_name,array("width"=>30)).$data->type->group_name:"未分配"',
         ),
         array(
         	'name'=>'昵称',
@@ -33,13 +33,13 @@
         
        array(
         	'name'=>'所属企业',
-        	'value'=>'$data->enterprise->ent_name',
+        	'value'=>'$data->enterprise?$data->enterprise->ent_name:"未填写"',
         	'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
        
        array(
         	'name'=>'状态',
-        	'value'=>'$data->status->term_name',
+        	'value'=>'$data->status?$data->status->term_name:"未指定"',
        		'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
        

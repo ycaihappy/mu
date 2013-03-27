@@ -5,7 +5,7 @@ $.extend(MU.mods,{
 		$('div.m-tab-list,div.m-quot,div.m-case,div.m-nous,div.ui-m-tab,div.ui-m-tab2,div.m-new-hx').find('.hd span').mouseover(function(){
 			$(this).addClass('on').siblings().removeClass('on');
 			var index = $(this).parent().find('span').index($(this));
-			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings('ul').hide();
+			$(this).closest('.hd').siblings('.bd').find('>ul').eq(index).show().siblings('ul').hide();
 		});
 		
 		$('.ui-purple-hd span').mouseover(function(){
@@ -72,10 +72,10 @@ $.extend(MU.mods,{
 				$(this).find('p').stop(false,true).fadeOut('fast');
 			}
 		});
-		var pos = [0,50,200,350,420,330];
+		var pos = [0,0,50,50,100,0];
 		self.find('.nav-con').each(function(i){
 			var left = $(this).position().left,o = $(this);
-			$('<a>').css({display:'inline-block',width:pos[i]}).prependTo(o.find('p'));
+			//$('<a>').css({display:'inline-block',width:pos[i]}).prependTo(o.find('p'));
 			
 		});
 		
@@ -129,6 +129,9 @@ $.extend(MU.mods,{
 	JRegister : function () {
 		var self = $(this),cname = self.find('.c-name');
 		self.find('form').attr('autocomplete','off');
+		/*window.onbeforeunload = function() { 
+			return 'a';
+		}*/
 		self.find('.user-type').click(function () {
 			if ( $(this).val() == 1) {
 				self.find('.for-company').show();
@@ -138,35 +141,47 @@ $.extend(MU.mods,{
 				cname.text(cname.data('text'));
 			}
 		});
+		
+		self.find(':input[validate]').blur(function (){
+			$.PValidate($(this));
+		});
+		
+		
 		self.find('.btn-reg').click(function(e){
 			e.preventDefault();
 			var cur = self.data('step'), o = $(this),isok = false;
-			
+			if(!$.PValidate(o.closest('form'))){
+					return;
+			}
 			if( o.hasClass('act-one')) {
-				 $.ajax({  
-					type:"post",  
-					url:o.data('api'),
-					dataType:"json",
-					async : false,
-					data : o.closest('form').serializeArray(),
-					success: function(re) { 
-						self.find('.err-msg').remove();
-						if(re.status == 0){
-							for(var i in re.data){
-								
-								$(':input[name='+i+']').parent().append('<p class="err-msg">'+re.data[i]+'</p>');
+			
+				
+					 $.ajax({  
+						type:"post",  
+						url:o.data('api'),
+						dataType:"json",
+						async : false,
+						data : o.closest('form').serializeArray(),
+						success: function(re) { 
+							self.find('.err-msg').remove();
+							if(re.status == 0){
+								for(var i in re.data){
+									
+									$(':input[name='+i+']').parent().append('<p class="err-msg">'+re.data[i]+'</p>');
+								}
+								isok = false;
+							}else{
+								isok = true;
 							}
+						},
+						failure : function (){
 							isok = false;
-						}else{
-							isok = true;
 						}
-					},
-					failure : function (){
-						isok = false;
-					}
-				});
+					});				
+				
 				if(false === isok) return;
 				self.find('.step-2').find('input[name=mobile_number]').val(self.find('.step-1').find('input[name=mobile_number]').val());
+				
 			}
 			
 			if( o.hasClass('save')) {
@@ -239,11 +254,7 @@ $.extend(MU.mods,{
 	},
 	JHqNews : function (){
 		var self = $(this);
-		self.find('h1 a').mouseover(function(){
-			$(this).addClass('on').siblings().removeClass('on');
-			var index = $(this).parent().find('a').index($(this));
-			self.find('.ck-news').eq(index).show().siblings('.ck-news').hide();
-		});
+		
 	},
 	JHqBox : function(){
 		var self = $(this);
@@ -406,7 +417,7 @@ $.extend(MU.mods,{
 	},
 	JCertAdd : function (){
 		var self = $(this);
-		$("#FileForm_image").uploadPreview({ width: 200, height: 200, imgDiv: ".thumb", imgType: ["bmp", "gif", "png", "jpg"] });
+		$(".image-preview").uploadPreview({ width: 200, height: 200, imgDiv: ".thumb", imgType: ["bmp", "gif", "png", "jpg"] });
 
 	},
 	JSupplyList : function () {
@@ -455,12 +466,10 @@ $.extend(MU.mods,{
 			}
 		});
 		
-		$('#product_status').change(function(){
+		$('#product_status,#supply_status,#msg_type').change(function(){
 			$(this).closest('form').submit();
 		});
-		$('#supply_status').change(function(){
-			$(this).closest('form').submit();
-		});
+	
 	},
 	JQuot : function () {
 		var self = $(this),api = $('#chart').data('api');
@@ -684,6 +693,7 @@ $.extend(MU.mods,{
 	},
 	JChartMap : function () {
 		var self = $(this),api = self.data('api');
+		self.find('form').attr('autocomplete','off');
 		$('#container').css({width:710,height:500});
 		var loadChart = function (params) {	
 			$.post(api,params,function (re) {
@@ -722,7 +732,7 @@ $.extend(MU.mods,{
 			
 		}
 		$.getAsset('script',['js/highcharts.js'],function(){
-				
+			loadChart(self.find('form').serializeArray());	
 		});
 		self.find('.datepicker').datepicker({dateFormat : 'yy-mm-dd'});
 		self.find('.btn-red').on('click',function(){
@@ -733,5 +743,19 @@ $.extend(MU.mods,{
 		
 		
 		
+	},
+	JPrdDetail : function () {
+		var self = $(this);
+		self.find('.btn_sc').click(function(){
+			if (document.all)
+			{ 
+				window.external.addFavorite(location.href,document.title);
+			}
+			else if (window.sidebar)
+			{
+				window.sidebar.addPanel(document.title, location.href, "");
+			}
+		});
+	
 	}
 });

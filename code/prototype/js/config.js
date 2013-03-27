@@ -676,7 +676,6 @@ $.oParam = function () {
 	});
 	return o;
 }
-
 $.extend({
 	getAsset : function ( type, urls, callback ) {
 		var head = document.head || document.getElementsByTagName( "head" )[0], readys = 0,doc = document;				
@@ -716,7 +715,51 @@ $.extend({
 		}
 		
 		
+	},
+	PValidate : function (el) {
+		var elements = el.is('form') ? el.find(':input[validate]') : el,ok = true;
+		var check = function (type,value){
+			var type = type.match(/(\w+)(\[(.+)\]$)?/);
+			var limit = type[3];
+			switch(type[1]){
+				case 'require' :
+					return value.replace(/^\s+|\s+$/,'') != '';
+				break;
+				case 'num' :
+					return /^\d+$/.test(value);
+				break;
+				case 'len' :
+					return value.length == limit;
+				break;
+				case 'email' :
+					return /^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i.test(value);
+				break;
+				case 'eq' :
+					return value == $(':input[name=' +limit +']').val();
+				break;
+				case 'gt' :
+					return value.length > limit;
+				break;
+				case 'reg':
+					return new RegExp(limit).test(value);
+				break;
+			}
+		}
+		elements.each(function () {
+			var arr = $(this).attr('validate').split(/\s/);
+			$(this).siblings('.err-msg').remove();
+			for(var i = 0,len =arr.length;i< len; i++){
+				var a = arr[i].split('|'),b = $(this);
+				if(!check(a[0],b.val())){
+					b.parent().append('<p class="err-msg">'+a[1]+'</p>');
+					ok = false;
+					break;
+				}
+			}
+		});
+		return !!ok;
 	}
+	
 });
 
 
@@ -994,3 +1037,4 @@ jQuery.cookie = function (key, value, options) {
         return build();
     }
 })(jQuery);
+

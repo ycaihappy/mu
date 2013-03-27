@@ -1,7 +1,7 @@
-			<div class="m-suppy-list">
+			<div class="m-suppy-list ui-m-tab">
 			
 
-   	  <h2 class="art_gyxx"><span class="on"><a href="">供应信息</a><i></i></span></h2>
+   	  <div class="hd ui-m-border"><span class="on"><a href="#">供应信息</a></span></div>
         <table width="100%" cellspacing="0" cellpadding="0" border="0" class="left_table">    
             
                     <tbody><tr>

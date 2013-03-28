@@ -234,7 +234,7 @@ $.extend(MU.mods,{
 				
 				if(re.status == 0){
 					for(var i in re.data){
-						$(':input[name='+i+']').parent().append('<span class="err-msg">'+re.data[i]+'</span>');
+						$(':input[name='+i+']').parent().append('<p class="err-msg">'+re.data[i]+'</p>');
 					}
 					o.text('发送验证码').removeClass('disabled');
 					return;

@@ -757,5 +757,20 @@ $.extend(MU.mods,{
 			}
 		});
 	
+	},
+	JFilter : function () {
+		var self = $(this);
+		self.find('.toggle').click(function(){
+			var o = $(this);
+			if(o.hasClass('expand')){
+				o.parent().find('.more').slideUp('fast',function(){
+					o.attr('class','toggle collapse');
+				});
+			}else{
+				o.parent().find('.more').slideDown('fast',function(){
+					o.attr('class','toggle expand');
+				});
+			}
+		});
 	}
 });

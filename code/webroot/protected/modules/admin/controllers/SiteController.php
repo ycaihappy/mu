@@ -103,6 +103,15 @@ class SiteController extends AdminController {
 	
 	}
 	public function actionManageCity() {
+		
+		if(Yii::app()->request->isPostRequest || isset($_GET['City']))
+		{
+			Yii::app()->admin->setState('cityQueryForm',$_REQUEST['City']);
+		}
+		else {
+			$_REQUEST['City']=Yii::app()->admin->getState('cityQueryForm');
+		}
+		
 		$model = new City ();
 		if (isset ( $_REQUEST ['City'] )) {
 			$model->attributes = $_REQUEST ['City'];
@@ -187,6 +196,13 @@ class SiteController extends AdminController {
 	}
 	public function actionManageTerm() {
 		
+		if(Yii::app()->request->isPostRequest || isset($_GET['Term']))
+		{
+			Yii::app()->admin->setState('termQueryForm',$_REQUEST['Term']);
+		}
+		else {
+			$_REQUEST['Term']=Yii::app()->admin->getState('termQueryForm');
+		}
 		$model = new Term ();
 		if (isset ( $_REQUEST ['Term'] )) {
 			$model->attributes = $_REQUEST ['Term'];

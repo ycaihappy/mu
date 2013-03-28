@@ -18,6 +18,14 @@ class ProductController extends AdminController {
 	}
 	private function _manageProduct($isSpecial=0)
 	{
+		
+		if(Yii::app()->request->isPostRequest || isset($_GET['Product']))
+		{
+			Yii::app()->admin->setState('productQueryForm',$_REQUEST['Product']);
+		}
+		else {
+			$_REQUEST['Product']=Yii::app()->admin->getState('productQueryForm');
+		}
 		$model=new Product();
 		$productTypeId=@$_REQUEST['Product']['product_type_id'];
 		$model->product_type_id=$productTypeId;
@@ -28,7 +36,7 @@ class ProductController extends AdminController {
 		$productName=@$_REQUEST['Product']['product_name'];
 		$model->product_name=$productName;
 		$productCriteria=new CDbCriteria();
-		$productCriteria->order='product_join_date desc';
+		$productCriteria->order='find_in_set(product_status,\'33,1,2\'),product_join_date desc';
 		$productCriteria->select='product_id,product_name,product_quanity,product_city_id,product_join_date';
 		$productCriteria->addCondition('product_special='.$isSpecial);
 		if($productTypeId)
@@ -241,6 +249,13 @@ class ProductController extends AdminController {
 	}
 	private function _manageSupply($type=18)
 	{
+		if(Yii::app()->request->isPostRequest || isset($_GET['Supply']))
+		{
+			Yii::app()->admin->setState('supplyQueryForm',$_REQUEST['Supply']);
+		}
+		else {
+			$_REQUEST['Supply']=Yii::app()->admin->getState('supplyQueryForm');
+		}
 		$model=new Supply();
 		$supplyCategoryId=@$_REQUEST['Supply']['supply_category_id'];
 		$model->supply_category_id=$supplyCategoryId;
@@ -276,7 +291,7 @@ class ProductController extends AdminController {
 		'status'=>array('select'=>'term_name'),
 		'category'=>array('select'=>'term_name'),
 		'unit'=>array('select'=>'term_name'));
-		$supplyCriteria->order='supply_join_date desc';
+		$supplyCriteria->order='find_in_set(supply_status,\'33,1,2\'),supply_join_date desc';
 		$dataProvider=new CActiveDataProvider('Supply',array(
 			'criteria'=>$supplyCriteria,
 			'pagination'=>array(
@@ -370,15 +385,22 @@ class ProductController extends AdminController {
 	}
 	public function actionManageEnterprise()
 	{
+		if(Yii::app()->request->isPostRequest || isset($_GET['Enterprise']))
+		{
+			Yii::app()->admin->setState('enterpriseQueryForm',$_REQUEST['Enterprise']);
+		}
+		else {
+			$_REQUEST['Enterprise']=Yii::app()->admin->getState('enterpriseQueryForm');
+		}
 		$model=new Enterprise();
 		$entCriteria=new CDbCriteria();
-		$entType=@$_POST['Enterprise']['ent_type'];
+		$entType=@$_REQUEST['Enterprise']['ent_type'];
 		$model->ent_type=$entType;
-		$entBusiness=@$_POST['Enterprise']['ent_business_model'];
+		$entBusiness=@$_REQUEST['Enterprise']['ent_business_model'];
 		$model->ent_business_model=$entBusiness;
-		$entStatus=@$_POST['Enterprise']['ent_status'];
+		$entStatus=@$_REQUEST['Enterprise']['ent_status'];
 		$model->ent_status=$entStatus;
-		$entName=@$_POST['Enterprise']['ent_name'];
+		$entName=@$_REQUEST['Enterprise']['ent_name'];
 		$model->ent_name=$entName;
 		if($entType)
 		{
@@ -395,7 +417,7 @@ class ProductController extends AdminController {
 			$entCriteria->addSearchCondition('ent_name', $entName,true,'AND',true);
 		}
 		$entCriteria->select='ent_name,ent_create_time,ent_city';
-		$entCriteria->order='ent_create_time desc';
+		$entCriteria->order='find_in_set(ent_status,\'33,1,2\'),ent_create_time desc';
 		$entCriteria->with=array(
 		'user'=>array('select'=>'user_id,user_name'),
 		'business'=>array('select'=>'term_name'),
@@ -434,6 +456,58 @@ class ProductController extends AdminController {
 		'businessModel'=>$businessModel,
 		'rePosition'=>$rePosition,
 		'model'=>$model));
+	}
+	public function actionDeleteProduct()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			$productId=@$_REQUEST['product_id'];
+			if(!$productId )
+			{
+				if(Yii::app()->request->isAjaxRequest)
+				{
+					echo '请选择要删除的现货特价信息';
+					exit;
+				}
+			}
+			$deleteCriteria=new CDbCriteria();
+			$deleteCriteria->addInCondition('product_id', $productId);
+			$deleteeRows=Product::model()->deleteAll($deleteCriteria);
+			if($deleteeRows>0)
+			{
+				echo '删除成功！';
+			}
+			else {
+				echo '删除失败！';
+			}
+			exit;
+		}
+	}
+	public function actionDeleteSupply()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			$supplyId=@$_REQUEST['supply_id'];
+			if(!$supplyId )
+			{
+				if(Yii::app()->request->isAjaxRequest)
+				{
+					echo '请选择要删除的供求信息';
+					exit;
+				}
+			}
+			$deleteCriteria=new CDbCriteria();
+			$deleteCriteria->addInCondition('supply_id', $supplyId);
+			$deleteeRows=Supply::model()->deleteAll($deleteCriteria);
+			if($deleteeRows>0)
+			{
+				echo '删除成功！';
+			}
+			else {
+				echo '删除失败！';
+			}
+			exit;
+		}
 	}
 	public function actionChangeEnterpriseStatus()
 	{
@@ -482,8 +556,6 @@ class ProductController extends AdminController {
 		}
 		$entId=@$_REQUEST['ent_id'];
 		$this->_loadEnterprise($entId,$model);
-
-
 	}
 	private function _loadEnterprise($entId,$enterprise)
 	{

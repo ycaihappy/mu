@@ -1,7 +1,9 @@
 <?php
+$categoryId=@$_REQUEST['Article']['art_category_id']?@$_REQUEST['Article']['art_category_id']:17;
 $this->breadcrumbs=array(
 	'新闻行情管理'=>array('manageNews'),
-	'文章管理',
+	'文章管理'=>array('manageNews','Article[art_category_id]'=>17),
+	 $artCategory[$categoryId].'管理',
 );
 ?>
 <div class='changeSuccess'><?php echo Yii::app()->admin->getFlash('changeStatus');?></div>
@@ -9,7 +11,19 @@ $this->breadcrumbs=array(
 
 <div>
 <?php 
-foreach ($artCategory as $categoryId=>$category) {
+
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'addArticle'.$categoryId,
+			'caption'=>'添加'.$artCategory[$categoryId],
+		'value'=>'asd',
+		'cssFile'=>'jquery.ui.css',
+		'onclick'=>'js:function(){
+		    window.location.href="'.Yii::app()->controller->createUrl("updateArticle",array('parentId'=>$categoryId)).'";
+		}',
+		)
+);
+/*foreach ($artCategory as $categoryId=>$category) {
 	if($categoryId==0)
 	continue;
 	$this->widget('zii.widgets.jui.CJuiButton',
@@ -23,7 +37,7 @@ foreach ($artCategory as $categoryId=>$category) {
 		}',
 		)
 );
-}
+}*/
 ?>
 </div>
 <?php $form=$this->beginWidget('CActiveForm', array(

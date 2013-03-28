@@ -46,28 +46,6 @@ return array(
 		),
 		'uehome',
 		'storeFront',
-		/*'srbac' => array(
-		        'userclass'=>'User',
-		        'userid'=>'user_id',
-		        'username'=>'user_name',
-		        'debug'=>true,
-		        'pageSize'=>10,
-		        'superUser' =>'Authority',
-		        'css'=>'srbac.css',
-		        'layout'=>'application.views.layouts.main',
-		        'notAuthorizedView'=>'srbac.views.authitem.unauthorized',
-		        'alwaysAllowed'=>array('SiteLogin','SiteLogout','SiteIndex','SiteAdmin','SiteError', 'SiteContact'),
-		        'userActions'=>array('Show','View','List'),
-		        'listBoxNumberOfLines' => 15,
-		        'imagesPath' => 'srbac.images',
-		        'imagesPack'=>'noia',
-		        'iconText'=>true,
-		        'header'=>'srbac.views.authitem.header',
-		        'footer'=>'srbac.views.authitem.footer',
-		        'showHeader'=>true,
-		        'showFooter'=>true,
-		        'alwaysAllowedPath'=>'srbac.components',
-		    ),*/
 		
 	),
 
@@ -164,6 +142,11 @@ return array(
 		'fileCache'=>array(
 				'class'=>'CFileCache',
 				'cachePath'=>'cache/storeFrontConfigCache',
+				'directoryLevel'=>2,
+			),
+		'widgetFileCache'=>array(
+				'class'=>'CFileCache',
+				'cachePath'=>'cache/widget',
 				'directoryLevel'=>2,
 			),
 		'clientScript'=>array(

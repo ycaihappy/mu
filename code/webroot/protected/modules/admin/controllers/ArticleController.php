@@ -28,6 +28,13 @@ class ArticleController extends AdminController {
 			}
 			exit;
 		}
+		if(Yii::app()->request->isPostRequest || isset($_GET['Article']))
+		{
+			Yii::app()->admin->setState('articleQueryForm',$_REQUEST['Article']);
+		}
+		else {
+			$_REQUEST['Article']=Yii::app()->admin->getState('articleQueryForm');
+		}
 		$model=new Article();
 		$articleTitle=@$_REQUEST['Article']['art_title'];
 		$model->art_title=$articleTitle;
@@ -35,6 +42,7 @@ class ArticleController extends AdminController {
 		$model->art_status=$articleStatus;
 		$model->art_category_id=@$_REQUEST['Article']['art_category_id'];
 		$model->art_subcategory_id=@$_REQUEST['Article']['art_subcategory_id'];
+		
 		$articleCriteria=new CDbCriteria();
 		if($articleStatus)
 		{
@@ -56,7 +64,7 @@ class ArticleController extends AdminController {
 
 		$articleCriteria->select='art_id,art_title,art_post_date,art_check_by,art_img';
 		$articleCriteria->with=array('category'=>array('select'=>'term_name'),'subcategory'=>array('select'=>'term_name'),'createUser'=>array('select'=>'user_name'),'status'=>array('select'=>'term_name'));
-		$articleCriteria->order='art_id desc';
+		$articleCriteria->order='find_in_set(art_status,\'33,1,2\'),art_id desc';
 		$articleDataProvider=new CActiveDataProvider('Article',array(
 			'criteria'=>$articleCriteria,
 			'pagination'=>array('pageSize'=>10,'pageVar'=>'page','params'=>array('Article[art_title]'=>$model->art_title,
@@ -123,20 +131,23 @@ class ArticleController extends AdminController {
 			{
 				$model=Article::model()->with(array('createUser'=>array('select'=>'user_name')))->findByPk($artId);
 			}
-			//else {
-			//	$artCategoryId=in_array((int)$_GET['type'],array(17,16))?(int)$_GET['type']:17;
-			//	$model->art_category_id=$artCategoryId;
-			//}
 		}
 		$parentId=@$_REQUEST['parentId']?@$_REQUEST['parentId']:$model->art_category_id;
+		
 		if($parentId)
 		{
 			$model->art_category_id=$parentId;
+			$artCategory=Term::getTermsByGroupId(10,true);
+			$curCategory=@$artCategory[$parentId];
 			$artStatus=Term::getTermsByGroupId(1,false,null,'',false);
 			$artSubCategory=Term::getTermsByGroupId(10,false,$parentId,'',false);
 			$this->render('updateArticle',array('model'=>$model,
 			'artStatus'=>$artStatus,
+			'curCategory'=>$curCategory,
 			'artSubCategory'=>$artSubCategory,));
+		}
+		else {
+			$this->redirect(array('manageNews'));
 		}
 	}
 	public function actionChangeNewsStatus()
@@ -214,6 +225,13 @@ class ArticleController extends AdminController {
 	}
 	public function actionManageImageLibary()
 	{
+		if(Yii::app()->request->isPostRequest || isset($_GET['ImageLibrary']))
+		{
+			Yii::app()->admin->setState('imgLibQueryForm',$_REQUEST['ImageLibrary']);
+		}
+		else {
+			$_REQUEST['ImageLibrary']=Yii::app()->admin->getState('imgLibQueryForm');
+		}
 		$model=new ImageLibrary();
 		$imageTitle=@$_REQUEST['ImageLibrary']['image_title'];
 		$model->image_title=$imageTitle;
@@ -454,6 +472,14 @@ class ArticleController extends AdminController {
 	}
 	public function actionManagePriceSummary()
 	{
+		
+		if(Yii::app()->request->isPostRequest || isset($_GET['PriceSummary']))
+		{
+			Yii::app()->admin->setState('priceSummaryQueryForm',$_REQUEST['PriceSummary']);
+		}
+		else {
+			$_REQUEST['PriceSummary']=Yii::app()->admin->getState('priceSummaryQueryForm');
+		}
 		$model=new PriceSummary();
 		$model->sum_year=@$_REQUEST['PriceSummary']['sum_year'];
 		$model->sum_month=@$_REQUEST['PriceSummary']['sum_month'];

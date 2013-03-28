@@ -14,7 +14,7 @@ class SmsController extends Controller
 	public function actionSend()
 	{
         $smscode = new SmsCode();
-        if(preg_match("/^13[0-9]{1}[0-9]{8}$|15[0189]{1}[0-9]{8}$|189[0-9]{8}$/",$_REQUEST['mobile_number'])){   
+        if(preg_match("/^13[0-9]{1}[0-9]{8}$|15[016589]{1}[0-9]{8}$|189[0-9]{8}$/",$_REQUEST['mobile_number'])){   
             $smscode->mobile_no  = $_REQUEST['mobile_number'];
             $smscode->sms_code   = '123456';
             $smscode->sms_status = 0;

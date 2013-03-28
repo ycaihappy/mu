@@ -6,25 +6,25 @@
 	<form id="form1" action="" method="post">
         <table width="25%" cellspacing="2" cellpadding="0" style="float: left;">
             <tbody>
-            <!--
             <tr>
                 <td>
-                    起始日
+                    起始年月
                 </td>
                 <td>
-                    <input type="text"  value="" name="txtBeginDate" class="datepicker cmp-input" />
+                <select name="year"><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option></select>年<?php echo CHtml::dropDownList('month',date('n'),array(1,2,3,4,5,6,7,8,9,10,11,12));?>月
                 </td>
             </tr>
             <tr>
                 <td>
-                    截止日
+                    截止年月
                 </td>
                 <td>
-                    <input type="text"  value="" name="txtEndDate" class="datepicker cmp-input" />
+                   <select name="to_year"><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option></select>年<?php echo CHtml::dropDownList('to_month',date('n'),array(1,2,3,4,5,6,7,8,9,10,11,12));?>月
                 </td>
-            </tr>-->
-            <tr>
+            </tr>
+            <!--<tr>
             <td>请选择年份</td><td><select name="year"><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option></select></td>
+            </tr>-->
             <tr>
                 <td>
                     品种

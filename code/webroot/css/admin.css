@@ -58,10 +58,10 @@ a:active{text-decoration:underline;}
 .m-left-panel h3{font-size:16px;font-family: '微软雅黑';background:url(imgs/ico-1.png) no-repeat 10px center;padding-left:30px;margin:10px 0px;}
 
 .m-left-panel li a{font-size:14px;color:#707070;display:block;background:url(imgs/menu-ico-n.png) no-repeat 20px center;padding-left:30px;}
-.m-left-panel li{line-height:30px;height:30px;position:relative;}
-.m-left-panel li:hover{background:rgb(84, 164, 255);}
-.m-left-panel li.on{background:#0078ff;}
-.m-left-panel li.on a,.m-left-panel li:hover a{color:#fff;background:url(imgs/menu-ico-h.png) no-repeat 90% center;}
+.m-left-panel li{line-height:30px;position:relative;}
+.m-left-panel li a:hover{color:#fff;background:url(imgs/menu-ico-h.png) no-repeat 90% center #54a4ff}
+.m-left-panel li ul li a{padding-left:45px;background-position:30px center;}
+.m-left-panel li.on a{background:#0078ff;color:#fff}
 
 .m-left-panel .treeview li{height:auto;line-height:14px}
 .m-left-panel .treeview li a{font-size:12px;background:none;padding-left:0px;display:inline;}

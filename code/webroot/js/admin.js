@@ -1,12 +1,16 @@
 $.extend(MU.mods,{
    
 	JLeftPanel : function (){
-		var self = $(this);
-		if (self.find('.treeview-gray').length == 0) {			
-			self.find('li').click(function(){
-				$(this).addClass('on').siblings().removeClass('on');
-			});
-		}
+		var self = $(this);	
+	
+		self.find('li a').click(function(e){
+			if ($(this).next().is('ul')){
+				e.preventDefault();
+				$(this).next().slideToggle('fast');
+			}
+			//$(this).addClass('on').siblings().removeClass('on');
+		});
+		
 		
 	},
 	JRoleList : function () {

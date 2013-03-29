@@ -45,7 +45,27 @@ case 4:
 		)); 
 break;
 case 5:
-	$this->widget('system.web.widgets.CTreeView',array(
+$html=<<<tree
+<ul>
+	<li>
+		<a href="/index.php?r=admin/product/manageProduct" target="mainFrame">现货管理</a>
+		<ul>
+			<li class="on"><a href="/index.php?r=admin/product/manageProduct" target="mainFrame">现货管理</a></li>
+			<li><a href="/index.php?r=admin/product/manageSpecial" target="mainFrame">特价管理</a></li>
+			<li><a href="/index.php?r=admin/product/manageSupply" target="mainFrame">供应管理</a></li>
+			<li><a href="/index.php?r=admin/product/manageBuy" target="mainFrame">求购管理</a></li>
+			<li><a href="/index.php?r=admin/product/manageEnterprise" target="mainFrame">企业库管理</a></li>
+		</ul>
+	</li>
+	<li><a href="/index.php?r=admin/product/manageSpecial" target="mainFrame">特价管理</a></li>
+	<li><a href="/index.php?r=admin/product/manageSupply" target="mainFrame">供应管理</a></li>
+	<li><a href="/index.php?r=admin/product/manageBuy" target="mainFrame">求购管理</a></li>
+	<li><a href="/index.php?r=admin/product/manageEnterprise" target="mainFrame">企业库管理</a></li>
+</ul>
+tree;
+echo $html;
+
+	/*$this->widget('system.web.widgets.CTreeView',array(
 	 	'animated' => 'normal',
 		'htmlOptions'=>array('class'=>'treeview-gray'),
 		'data'=>array(

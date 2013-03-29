@@ -46,81 +46,9 @@ class PriceController extends BasicAccessController
 
     public function actionChart()
     {
-     #   $start_date = isset($_REQUEST['start_date']) ? $_REQUEST['start_date'] : date("Y-m-d");
-     #   $end_date = isset($_REQUEST['end_date']) ? $_REQUEST['end_date'] : date("Y-m-d");
-        if ( $_REQUEST['year'] == $_REQUEST['to_year'] )
-        {
-            if ( $_REQUEST['month'] == $_REQUEST['to_month'] )
-            {
-                if ($_REQUEST['month'] == date('n')-1 )
-                    $month_day = date('d');
-                else
-                    $month_day = date("t",strtotime($_REQUEST['year'].$_REQUEST['month']));
-                for($i=1;$i<$month_day;$i++)
-                {
-                    $select_day[] = $i;
-                    $select_month_name[] = $_REQUEST['month']."-".$i;
-                }
-                $select_month  = array($_REQUEST['month']+1);
-
-
-                $total_day = count($select_day);
-            }
-            else
-            {
-                for($i=$_REQUEST['month']; $i< $_REQUEST['to_month']+1; $i++)
-                    $select_month[] = $i+1;
-            }
-            $select_year = array($_REQUEST['year']);
-        }
-        else
-        {
-            for($m=$_REQUEST['year'];$m<=$_REQUEST['to_year'];$m++)
-            {
-                $select_year[] = $m;
-                if ($m == $_REQUEST['year'])
-                {
-                    for($i=$_REQUEST['month']; $i< 12; $i++)
-                    {
-                        $select_month[] = $i+1;
-                        $select_month_name[] = $m."-".($i+1);
-                    }
-                }
-                elseif ( $m == $_REQUEST['to_year'] )
-                {
-                    for($j=1;$j<=$_REQUEST['to_month'];$j++)
-                    {
-                        $select_month[] = $j;
-                        $select_month_name[] = $m."-".($j);
-                    }
-                }
-                else
-                {
-                    for($k=1;$k<13;$k++)
-                    {
-                        $select_month[] = $k;
-
-                        $select_month_name[] = $m."-".($k);
-                    }
-                }
-
-                $total_month = count($select_month);
-            }
-
-        }
         $category = Term::model()->find("term_id=:term_id", array(':term_id'=>$_REQUEST['type']));
         $title = $category->term_name;
         $product_type = isset($_REQUEST['type']) ? $_REQUEST['type'] : 31;
-#        $select_year  = isset($_REQUEST['year']) ? $_REQUEST['year'] : date('Y');
-#
-#        if ( $select_year < date('Y') )
-#            $select_month = array(1,2,3,4,5,6,7,8,9,10,11,12);
-#        else{
-#            for($i=1;$i<date('m')+1;$i++)
-#            {
-#                $select_month[] = $i;
-#            }
-#        }
 
         if  ( isset($_REQUEST['city']) ) 
         {
@@ -143,27 +71,110 @@ class PriceController extends BasicAccessController
             }
         }
 
+        if ( $_REQUEST['year'] == $_REQUEST['to_year'] )
+        {/*{{{*/
+            $select_year = array($_REQUEST['year']);
+            $day_sql = '';
+            if ( $_REQUEST['month'] == $_REQUEST['to_month'] )
+            {
+                if ($_REQUEST['month'] == date('n')-1 )
+                    $month_day = date('d');
+                else
+                    $month_day = date("t",strtotime($_REQUEST['year'].$_REQUEST['month']));
+                for($i=1;$i<$month_day;$i++)
+                {
+                    $select_day[] = $i;
+                    $select_month_name[] = $_REQUEST['month']."-".$i;
+                }
+                $select_month  = array($_REQUEST['month']+1);
+
+                $total_day = count($select_day);
+                if ( isset($_REQUEST['day']) )
+                {
+                    $select_day = $select_month_name =array();
+                    for($n=$_REQUEST['day']; $n>$_REQUEST['day']-5; $n--)
+                    {
+                        $select_day[] = $n;
+                        $select_month_name[] = $n;
+                    }
+                    $day_sql = 'and sum_day in ('.implode(',',$select_day).')';
+                }
+                else
+                {
+                    $day_sql = 'and sum_day in ('.implode(',',$select_day).')';
+                }
+                
+                $sql = 'select sum_year,sum_product_zone,sum_month,sum_price as price from mu_price_summary
+                    where sum_year in ('.implode(',',$select_year).') 
+                    and sum_product_type ='.$product_type.' 
+                    and sum_month in ('.implode(',',$select_month).') '.$day_sql.'
+                    and sum_product_zone in ('.implode(',',$select_city).') 
+                    order by sum_product_zone,sum_month';
+            }
+            else
+            {
+                $select_month = array();
+                for($j=$_REQUEST['month']; $j< $_REQUEST['to_month']+1; $j++)
+                {
+                    $select_month[] = $j+1;
+                    $select_month_name[] = $j;
+                }
+                $sql = 'select sum_year,sum_product_zone,sum_month,sum_price as price from mu_price_summary
+                    where sum_year in ('.implode(',',$select_year).') 
+                    and sum_product_type ='.$product_type.' 
+                    and sum_month in ('.implode(',',$select_month).')
+                    and sum_product_zone in ('.implode(',',$select_city).') 
+                    group by sum_year,sum_month,sum_product_zone order by sum_product_zone,sum_month';
+            }
+        }/*}}}*/
+        else
+        {/*{{{*/
+            $sub_sql = "";
+            for($m=$_REQUEST['year'];$m<=$_REQUEST['to_year'];$m++)
+            {
+                $select_year[] = $m;
+                if ($m == $_REQUEST['year'])
+                {
+                    for($i=$_REQUEST['month']; $i< 12; $i++)
+                    {
+                        $select_month[] = $i+1;
+                        $select_month_name[] = $m."-".($i+1);
+                    }
+                    $sub_sql = "(sum_year =".$m." and sum_month in(".implode(',',$select_month).") and sum_product_zone in (".implode(',',$select_city).") ) or ";
+                }
+                elseif ( $m == $_REQUEST['to_year'] )
+                {
+                    $select_month = array();
+                    for($j=1;$j<=$_REQUEST['to_month'];$j++)
+                    {
+                        $select_month[] = $j;
+                        $select_month_name[] = $m."-".($j);
+                    }
+                    $sub_sql .= "(sum_year =".$m." and sum_month in(".implode(',',$select_month).") and sum_product_zone in (".implode(',',$select_city).") ) ";
+                }
+                else
+                {
+                    $select_month = array();
+                    for($k=1;$k<13;$k++)
+                    {
+                        $select_month[] = $k;
+
+                        $select_month_name[] = $m."-".($k);
+                    }
+                    $sub_sql .= "(sum_year =".$m." and sum_month in(".implode(',',$select_month).") and sum_product_zone in (".implode(',',$select_city).") ) or ";
+                }
+
+                $total_month = count($select_month);
+            }
+
+            $sql='select sum_year,sum_product_zone,sum_month,sum_day,(sum_price) as price from mu_price_summary
+                where '.$sub_sql.'
+                and sum_product_type = '.$product_type.'
+                group by sum_year,sum_month,sum_product_zone 
+                order by sum_product_zone,sum_month';
+        }/*}}}*/
+        
         $connection = Yii::app()->db;
-        $sql = 'select sum_year,sum_product_zone,sum_month,sum(sum_price)/'.$total_month.' as price from mu_price_summary
-            where sum_year in ('.implode(',',$select_year).') 
-            and sum_month in ('.implode(',',$select_month).') 
-            and sum_product_type ='.$product_type.' 
-            and sum_product_zone in ('.implode(',',$select_city).') 
-            group by sum_year,sum_month,sum_product_zone order by sum_product_zone,sum_month';
-       # $sql='select sum_year,sum_product_zone,sum_month,sum_day,(sum_price) as price from mu_price_summary
-       #     where (sum_year =2013 and sum_month in(1,2,3) and sum_product_zone in (6,16) )
-       #     or (sum_year=2012 and sum_month in (2,3,4,5,6,7,8,9,10,11) and sum_product_zone in (6,16) )
-       #     and sum_product_type =89 
-       #     #            and sum_product_zone in (6,16) 
-       #     #                        group by sum_year,sum_month,sum_product_zone 
-       #     #                                    order by sum_product_zone,sum_month';
-#        $sql1 = 'select sum_year,sum_product_zone,sum_month,sum_price as price from mu_price_summary
-#            where sum_year in ('.implode(',',$select_year).') 
-#            and sum_product_type ='.$product_type.' 
-#            and sum_month in ('.implode(',',$select_month).') 
-#            and sum_day in ('.implode(',',$select_day).') 
-#            and sum_product_zone in ('.implode(',',$select_city).') 
-#            order by sum_product_zone,sum_month';
         $price_sum = $connection->createCommand($sql)->queryAll();
         foreach ($select_city as $city_name=>$city_id)
         {

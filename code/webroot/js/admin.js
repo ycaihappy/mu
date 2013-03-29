@@ -2,9 +2,11 @@ $.extend(MU.mods,{
    
 	JLeftPanel : function (){
 		var self = $(this);
-		self.find('li').click(function(){
-			$(this).addClass('on').siblings().removeClass('on');
-		});
+		if (self.find('.treeview-gray').length == 0) {			
+			self.find('li').click(function(){
+				$(this).addClass('on').siblings().removeClass('on');
+			});
+		}
 		
 	},
 	JRoleList : function () {

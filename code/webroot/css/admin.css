@@ -1,6 +1,6 @@
 html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}
 
-body{font-size:12px;-webkit-text-size-adjust: none;color:#666666}
+body{font-size:12px;-webkit-text-size-adjust: none;color:#666}
 a:link, a:hover, input:focus{outline:0 none}
 a{text-decoration:none;color:#000}
 a:hover{color:#F27B04}
@@ -53,16 +53,22 @@ a:active{text-decoration:underline;}
 .m-nav i{padding:0 10px;font-style:normal;}
 .m-nav a{color:#2f799e}
 .m-nav a:hover,.m-nav a.on{color:#ff7654}
+
 .m-left-panel{position:absolute;left:0;top: 83px;width: 200px;height:auto;background:#f0f0f0;bottom:0;background:url(imgs/menu-repeat-y.png) repeat-y right top;border-right:1px solid #cbdde7}
 .m-left-panel h3{font-size:16px;font-family: '微软雅黑';background:url(imgs/ico-1.png) no-repeat 10px center;padding-left:30px;margin:10px 0px;}
 
 .m-left-panel li a{font-size:14px;color:#707070;display:block;background:url(imgs/menu-ico-n.png) no-repeat 20px center;padding-left:30px;}
 .m-left-panel li{line-height:30px;height:30px;position:relative;}
-
 .m-left-panel li:hover{background:rgb(84, 164, 255);}
 .m-left-panel li.on{background:#0078ff;}
 .m-left-panel li.on a,.m-left-panel li:hover a{color:#fff;background:url(imgs/menu-ico-h.png) no-repeat 90% center;}
 
+
+.m-left-panel .treeview li a{font-size:12px;background:none;padding-left:0px;display:inline;}
+.m-left-panel .treeview li{height:auto;line-height:10px}
+.m-left-panel .treeview li:hover{background:url(images/treeview-default-line.gif) 0 0 no-repeat transparent}
+.m-left-panel .treeview li:hover a{color:#000;background:none;}
+.m-left-panel .treeview ul{background:none}
 
 
 .m-form td{padding:5px;}

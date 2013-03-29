@@ -14,6 +14,7 @@ class EnterpriseForm extends CFormModel
 	public $ent_registered_capital;
 	public $ent_chief;
 	public $ent_logo;
+	public $ent_image;
 
 	/**
 	 * Declares the validation rules.
@@ -22,6 +23,11 @@ class EnterpriseForm extends CFormModel
     {
         return array(
         array('ent_logo', 'file', 'allowEmpty'=>true,
+            'types'=>'jpg, jpeg, gif, png',
+            'maxSize'=>1024 * 1024 * 1, // 1MB
+            'tooLarge'=>'上传文件超过 1MB，无法上传。',
+        ),
+        array('ent_image', 'file', 'allowEmpty'=>true,
             'types'=>'jpg, jpeg, gif, png',
             'maxSize'=>1024 * 1024 * 1, // 1MB
             'tooLarge'=>'上传文件超过 1MB，无法上传。',

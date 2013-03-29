@@ -90,6 +90,12 @@ elseif ( Yii::app()->user->hasFlash('success'))
                 <br /><img src="<?php echo $model->ent_logo;?>" class="thumb"></td>
 		</tr>
 		<tr>
+        <td class="label">企业形象图：</td><td><input type="file" name="ent_image" class="image-preview" />
+			<p>(图片大小不要超过200K，格式GIF,JPG,PNG图片宽度最大为220像素效果最佳！)</p>
+			
+                <br /><img src="<?php echo $model->ent_image;?>" class="thumb"></td>
+		</tr>
+		<tr>
 			<td class="label">公司介绍：</td><td>
 			<?php 
 			$this->widget('application.extensions.xheditor.JXHEditor', array(

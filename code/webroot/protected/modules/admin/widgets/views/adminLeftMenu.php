@@ -48,19 +48,21 @@ case 5:
 $html=<<<tree
 <ul>
 	<li>
-		<a href="/index.php?r=admin/product/manageProduct" target="mainFrame">现货管理</a>
+		<a href="{$this->getController()->createUrl('article/manageNews')}" target="mainFrame">文章管理</a>
 		<ul>
-			<li class="on"><a href="/index.php?r=admin/product/manageProduct" target="mainFrame">现货管理</a></li>
-			<li><a href="/index.php?r=admin/product/manageSpecial" target="mainFrame">特价管理</a></li>
-			<li><a href="/index.php?r=admin/product/manageSupply" target="mainFrame">供应管理</a></li>
-			<li><a href="/index.php?r=admin/product/manageBuy" target="mainFrame">求购管理</a></li>
-			<li><a href="/index.php?r=admin/product/manageEnterprise" target="mainFrame">企业库管理</a></li>
+tree;
+foreach ($articleType as $key=>$name)
+{
+$url=$this->getController()->createUrl('article/manageNews',array('Article[art_category_id]'=>$key));
+$html.=<<<tree
+			<li><a href="{$url}" target="mainFrame">{$name}管理</a></li>
+tree;
+}
+$html.=<<<tree
 		</ul>
 	</li>
-	<li><a href="/index.php?r=admin/product/manageSpecial" target="mainFrame">特价管理</a></li>
-	<li><a href="/index.php?r=admin/product/manageSupply" target="mainFrame">供应管理</a></li>
-	<li><a href="/index.php?r=admin/product/manageBuy" target="mainFrame">求购管理</a></li>
-	<li><a href="/index.php?r=admin/product/manageEnterprise" target="mainFrame">企业库管理</a></li>
+	<li><a href="{$this->getController()->createUrl('article/manageImageLibary')}" target="mainFrame">图库管理</a></li>
+	<li><a href="{$this->getController()->createUrl('article/managePriceSummary')}" target="mainFrame">行情走势数据</a></li>
 </ul>
 tree;
 echo $html;

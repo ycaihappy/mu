@@ -7,7 +7,9 @@ class AdminLeftMenu extends CWidget {
 		
 	}
 	public function run(){
-		$this->render('adminLeftMenu');
+		$articleType=Term::getTermsByGroupId(10,true,null,'',false);
+		$data=compact('articleType');
+		$this->render('adminLeftMenu',$data);
 	}
 
 }

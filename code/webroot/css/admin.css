@@ -63,9 +63,8 @@ a:active{text-decoration:underline;}
 .m-left-panel li.on{background:#0078ff;}
 .m-left-panel li.on a,.m-left-panel li:hover a{color:#fff;background:url(imgs/menu-ico-h.png) no-repeat 90% center;}
 
-
+.m-left-panel .treeview li{height:auto;line-height:14px}
 .m-left-panel .treeview li a{font-size:12px;background:none;padding-left:0px;display:inline;}
-.m-left-panel .treeview li{height:auto;line-height:10px}
 .m-left-panel .treeview li:hover{background:url(images/treeview-default-line.gif) 0 0 no-repeat transparent}
 .m-left-panel .treeview li:hover a{color:#000;background:none;}
 .m-left-panel .treeview ul{background:none}

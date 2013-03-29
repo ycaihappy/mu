@@ -50,7 +50,7 @@ position: relative;
 }
 
 .search-panel-fields input {
-background: none repeat scroll 0 0 #FFFFFF;
+background: none repeat scroll 0 0 #fff;
 border: 0 none;
 font-size: 14px;
 height: 29px;
@@ -155,6 +155,10 @@ padding-right: 1px;
 .grid-680{width:680px;margin-left:10px;float:right}
 .gird-960{width:960px}
 .lastdiv{border:0;}
+
+.alignR{float:right}
+
+
 .m-nav{margin-top: 15px;background:url(imgs/v2/menu_bg.png) repeat-x;height:40px;border-radius:3px 3px 0px 0}
 .m-nav .bd{position:relative;}
 .m-nav .bd p {
@@ -1834,7 +1838,7 @@ ul.yiiPager .selected a{color:#fff!important}
   background-image: url("imgs/ico_je-12x12.gif");
 }
 
-.m-ep-list{width:745px;float:left;}
+.m-ep-list{width:740px;float:left;}
 .m-ep-list .bd{padding:2px 5px;}
 .m-ep-list .sub-title{background:#f4f4f6;overflow:hidden;line-height:30px;}
 .m-ep-list .sub-title .l{float:left;margin-left:10px}

@@ -59,6 +59,7 @@ class PriceController extends BasicAccessController
                 for($i=1;$i<$month_day;$i++)
                 {
                     $select_day[] = $i;
+                    $select_month_name[] = $_REQUEST['month']."-".$i;
                 }
                 $select_month  = array($_REQUEST['month']+1);
 
@@ -80,18 +81,29 @@ class PriceController extends BasicAccessController
                 if ($m == $_REQUEST['year'])
                 {
                     for($i=$_REQUEST['month']; $i< 12; $i++)
+                    {
                         $select_month[] = $i+1;
+                        $select_month_name[] = $m."-".($i+1);
+                    }
                 }
                 elseif ( $m == $_REQUEST['to_year'] )
                 {
                     for($j=1;$j<=$_REQUEST['to_month'];$j++)
+                    {
                         $select_month[] = $j;
+                        $select_month_name[] = $m."-".($j);
+                    }
                 }
                 else
                 {
                     for($k=1;$k<13;$k++)
+                    {
                         $select_month[] = $k;
+
+                        $select_month_name[] = $m."-".($k);
+                    }
                 }
+
                 $total_month = count($select_month);
             }
 
@@ -168,7 +180,7 @@ class PriceController extends BasicAccessController
 
         $data = array(
             'text'=>$title,
-            'xAxis'=> $select_month,
+            'xAxis'=> $select_month_name,
             'yAxis'=>'价格',
             'series'=>$build
         );

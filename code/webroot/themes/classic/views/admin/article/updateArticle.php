@@ -2,6 +2,7 @@
 $this->breadcrumbs=array(
 	'新闻行情管理'=>array('manageNews'),
 	'文章管理'=>array('manageNews'),
+	$curCategory.'管理'=>array('manageNews'),
 	'添加/修改',
 );
 ?>

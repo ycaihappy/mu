@@ -11,7 +11,6 @@
         <?php $this->widget('SearchWidget');?>
         <?php $this->widget('NavigationWidget');?>
     </div>
-    
     <div class="layout main">
     
         <?php echo $content;?>
@@ -25,7 +24,7 @@
     	</div>
     
     </div>
-    
+    <?php $this->endCache();?>
 </div>
 
 <?php $this->widget("CommonFooterWidget");?>

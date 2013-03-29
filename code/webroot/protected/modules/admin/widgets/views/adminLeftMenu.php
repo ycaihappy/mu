@@ -45,7 +45,34 @@ case 4:
 		)); 
 break;
 case 5:
- $this->widget('zii.widgets.CMenu',array(
+	$this->widget('system.web.widgets.CTreeView',array(
+	 	'animated' => 'normal',
+		'htmlOptions'=>array('class'=>'treeview-gray'),
+		'data'=>array(
+			array(
+				'text'=>'文章管理',
+			 	'expanded' => false,
+				'children'=>array(
+					array('text'=>'<a target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageNews',array('Article[art_category_id]'=>17)).'" >新闻管理</a>'),
+					array('text'=>'<a  target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageNews',array('Article[art_category_id]'=>16)).'" >行情管理</a>'),
+					array('text'=>'<a  target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageNews',array('Article[art_category_id]'=>20)).'" >百科管理</a>'),
+					array('text'=>'<a  target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageNews',array('Article[art_category_id]'=>98)).'" >展会管理</a>'),
+					array('text'=>'<a  target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageNews',array('Article[art_category_id]'=>103)).'" >服务管理</a>'),
+				),
+			),
+			array(
+				'hasChildren'=>false,
+				'text'=>'<a target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageImageLibary').'">图库管理</a>',
+			),
+			array(
+				'hasChildren'=>false,
+				'text'=>'<a target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/managePriceSummary').'">行情走势数据</a>',
+				'children'=>array(),
+			),
+			
+		),
+	));
+ /*$this->widget('zii.widgets.CMenu',array(
 			'activeCssClass'=>'on',
 			'items'=>array(
 				array('label'=>'文章管理', 'url'=>array('article/manageNews'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
@@ -53,7 +80,7 @@ case 5:
 				array('label'=>'图库管理', 'url'=>array('article/manageImageLibary'),'linkOptions'=>array('target'=>'mainFrame')),
 				array('label'=>'行情走势数据', 'url'=>array('article/managePriceSummary'),'linkOptions'=>array('target'=>'mainFrame')),
 				),
-		)); 
+		)); */
 		break;
 case 6:
  $this->widget('zii.widgets.CMenu',array(

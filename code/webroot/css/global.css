@@ -1850,7 +1850,7 @@ ul.yiiPager .selected a{color:#fff!important}
 .m-ep-list .img-info{width:120px;float:left;margin-right:17px;display:inline}
 .m-ep-list .bd  li{position:relative;overflow:hidden;padding:10px;background:url(imgs/dot_repeatbg.gif) repeat-x left bottom;padding-top:30px}
 .m-ep-list .img-info a{display:block;}
-.m-ep-list .img-info a img{width:120px;height:120px;}
+.m-ep-list .img-info a img{width:120px;height:120px;display:block;}
 .m-ep-list .info{width:310px;float:left;display:inline;margin-right:10px}
 .m-ep-list .info strong{margin-top:20px;display:block}
 .m-ep-list .info strong a{font-size:16px;color:#018ce7;font-weight:bold}

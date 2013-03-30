@@ -9,8 +9,16 @@
 		<div class="m-filter" id="J_Filter">
 			<div class="hd">
 				<span>当前过滤条件：</span>
-				<a>钼铁<i></i></a>
-				<a class="delall" href="#">清除全部</a>
+				<?php if($selectParams):
+					foreach ($selectParams as $key=>$params):
+					$excUrl=CStringHelper::getExculedUrl(array($key,'page'),'index');
+				?>
+				<a href="<?php echo $excUrl ?>"><?php echo $params['name'] ?><i></i></a>
+				<?php endforeach;
+				$cleanUrl=CStringHelper::getExculedUrl(array('bus_model','ent_city','user_type','page'),'index');
+				?>
+				<a class="delall" href="<?php echo $cleanUrl?>">清除全部</a>
+				<?php endif;?>
 			</div>
 			<div class="bd">
 				<div class="tag-items">
@@ -177,7 +185,7 @@
 		</div>
 	</div>
 	<!--right start-->
-	<?php $this->widget("EnterpriseListRec");?>
+	<?php $this->widget("EnterpriseListRecWidget");?>
 	<!--right end-->
 	</div>
 	

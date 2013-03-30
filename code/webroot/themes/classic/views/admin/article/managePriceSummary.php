@@ -29,16 +29,34 @@ $this->widget('zii.widgets.jui.CJuiButton',
 )); ?>
 <div style="float:right;">
 <div>
-<label>年：</label>
-<?php echo $form->numberField($model,'sum_year');?>
-<label>月：</label>
-<?php echo $form->numberField($model,'sum_month',array('class'=>'cmp-input'));?>
-<label>日：</label>
-<?php echo $form->numberField($model,'sum_day',array('class'=>'cmp-input'));?>
+<label>时间范围：</label>
+<?php echo $form->numberField($model,'sum_year',array('style'=>'width:60px'));?>
+ -
+<?php echo $form->numberField($model,'sum_month',array('style'=>'width:40px'));?>
+ -
+<?php echo $form->numberField($model,'sum_day',array('style'=>'width:40px'));?>
+<label>  至   </label>
+<?php echo $form->numberField($model,'sum_id',array('style'=>'width:60px'));?>
+ -
+<?php echo $form->numberField($model,'sum_unit',array('style'=>'width:40px'));?>
+ -
+<?php echo $form->numberField($model,'sum_price',array('style'=>'width:40px'));?>
 <label>品类：</label>
-<?php echo $form->dropDownList($model,'sum_product_type',$allCategory,array('class'=>'cmp-input','empty'=>'不限品类'));?>
+<?php $this->widget('CCategoryLinkageWidget',array(
+	'parentCategory'=>$parentCategory,
+	'model'=>$model,
+	'attribute'=>'sum_product_type',
+	'form'=>$form,
+	'ajaxRoute'=>'product/getChildrenTerm'
+));?>
 <label>地区：</label>
-<?php echo $form->dropDownList($model,'sum_product_zone',$allCity,array('class'=>'cmp-input'));?>
+<?php $this->widget('CCityLinkageWidget',array(
+	'parentCity'=>$parentCity,
+	'model'=>$model,
+	'attribute'=>'sum_product_zone',
+	'form'=>$form,
+	'ajaxRoute'=>'product/getCity'
+));?>
 <?php echo CHtml::submitButton('搜索'); ?>
 </div>
 </div>

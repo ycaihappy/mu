@@ -57,7 +57,7 @@ class Supply extends CActiveRecord
 			array('supply_price', 'numerical', 'message'=>'价格必须为数字！'),
 			array('supply_city_id', 'required', 'message'=>'请选择所在地！'),
 			array('supply_category_id', 'required', 'message'=>'请选择品类！'),
-			array('supply_phone', 'CPhoneValidator','message'=>'名称必须填写！'),
+			array('supply_phone', 'CPhoneValidator','message'=>'电话号码格式不正确！'),
 			array('supply_name', 'required','message'=>'名称必须填写！'),
 			array('supply_mu_content', 'required','message'=>'品阶不能为空！'),
 			array('supply_price', 'numerical', 'message'=>'价格必须为数字！'),

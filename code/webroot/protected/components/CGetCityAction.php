@@ -4,7 +4,7 @@
 
 class CGetCityAction extends CAction {
 	
-	public $emptySelect='不限';
+	public $emptySelect='';
 	
 	public function run()
 	{
@@ -13,7 +13,7 @@ class CGetCityAction extends CAction {
 			$province=(int)@$_REQUEST['province_id'];
 			if($province )
 			{
-				$citysOption=City::getAllCity($province);
+				$citysOption=City::getAllCity($province,$this->emptySelect?true:false,$this->emptySelect);
 				foreach ( $citysOption as $value => $name ) {
 					echo CHtml::tag ( 'option', array ('value' => $value ), CHtml::encode ( $name ), true );
 				}

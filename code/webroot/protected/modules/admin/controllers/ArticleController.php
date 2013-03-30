@@ -42,7 +42,7 @@ class ArticleController extends AdminController {
 		$model->art_status=$articleStatus;
 		$model->art_category_id=@$_REQUEST['Article']['art_category_id'];
 		$model->art_subcategory_id=@$_REQUEST['Article']['art_subcategory_id'];
-		
+
 		$articleCriteria=new CDbCriteria();
 		if($articleStatus)
 		{
@@ -133,7 +133,7 @@ class ArticleController extends AdminController {
 			}
 		}
 		$parentId=@$_REQUEST['parentId']?@$_REQUEST['parentId']:$model->art_category_id;
-		
+
 		if($parentId)
 		{
 			$model->art_category_id=$parentId;
@@ -472,42 +472,74 @@ class ArticleController extends AdminController {
 	}
 	public function actionManagePriceSummary()
 	{
-		
-		if(Yii::app()->request->isPostRequest || isset($_GET['PriceSummary']))
-		{
-			Yii::app()->admin->setState('priceSummaryQueryForm',$_REQUEST['PriceSummary']);
-		}
-		else {
-			$_REQUEST['PriceSummary']=Yii::app()->admin->getState('priceSummaryQueryForm');
-		}
+		CQueryRequestHelper::registerLastQueryForm(array('PriceSummary','parentCategory','parentCity'));
 		$model=new PriceSummary();
-		$model->sum_year=@$_REQUEST['PriceSummary']['sum_year'];
-		$model->sum_month=@$_REQUEST['PriceSummary']['sum_month'];
-		$model->sum_day=@$_REQUEST['PriceSummary']['sum_day'];
+		
+		//start time
+		$model->sum_year=(int)@$_REQUEST['PriceSummary']['sum_year'];
+		$model->sum_month=(int)@$_REQUEST['PriceSummary']['sum_month'];
+		$model->sum_day=(int)@$_REQUEST['PriceSummary']['sum_day'];
+		$beginDate=implode('-',array($model->sum_year,$model->sum_month,$model->sum_day));
+		
+		//end time
+		$model->sum_id=(int)@$_REQUEST['PriceSummary']['sum_id'];
+		$model->sum_unit=(int)@$_REQUEST['PriceSummary']['sum_unit'];
+		$model->sum_price=(int)@$_REQUEST['PriceSummary']['sum_price'];
+		$endDate=implode('-',array($model->sum_id,$model->sum_unit,$model->sum_price));
+		
 		$model->sum_product_type=@$_REQUEST['PriceSummary']['sum_product_type'];
 		$model->sum_product_zone=@$_REQUEST['PriceSummary']['sum_product_zone'];
 
+		$parentCategory=@$_REQUEST['parentCategory'];
+
+		$parentCity=@$_REQUEST['parentCity'];
+
 		$sumCriteria=new CDbCriteria();
-		if($model->sum_year)
+		
+		$sumCriteria->order='sum_id desc';
+		
+		if($model->sum_year && $model->sum_id)
 		{
-			$sumCriteria->compare('sum_year', '='.$model->sum_year);
-			if($model->sum_month)
+			$sumCriteria->addBetweenCondition('sum_alias_date', $beginDate, $endDate);
+		}
+		elseif($model->sum_year && !$model->sum_id)
+		{
+			$sumCriteria->compare('sum_alias_date', '>='.date('Y-m-d',strtotime($beginDate)));
+		}
+		elseif(!$model->sum_year && $model->sum_id)
+		{
+			$sumCriteria->compare('sum_alias_date', '<='.date('Y-m-d',strtotime($endDate)));
+		}
+		else {
+			$sumCriteria->compare('sum_alias_date', '='.date('Y-m-d'));
+		}
+		if($parentCategory)
+		{
+			if($model->sum_product_type)
 			{
-				$sumCriteria->compare('sum_month', '='.$model->sum_month);
-				if($model->sum_day)
+				$sumCriteria->compare('sum_product_type', '='.$model->sum_product_type);
+			}else {
+				$subCategories=Term::getTermsByGroupId(14,false,$parentCategory,'',false);
+				if($subCategories)
 				{
-					$sumCriteria->compare('sum_day', '='.$model->sum_day);
+					$sumCriteria->addInCondition('sum_product_type', array_keys($subCategories));
 				}
 			}
 		}
-		if($model->sum_product_type)
+		if($parentCity)
 		{
-			$sumCriteria->compare('sum_product_type', '='.$model->sum_product_type);
+			if($model->sum_product_zone)
+			{
+				$sumCriteria->compare('sum_product_zone', '='.$model->sum_product_zone);
+			}else {
+				$subCities=City::getAllCity($parentCity);
+				if($subCities)
+				{
+					$sumCriteria->addInCondition('sum_product_zone', array_keys($subCities));
+				}
+			}
 		}
-		if($model->sum_product_zone)
-		{
-			$sumCriteria->compare('sum_product_zone', '='.$model->sum_product_zone);
-		}
+
 		$sumCriteria->with=array('unit'=>array('select'=>'term_name'));
 		$dataProvider=new CActiveDataProvider('PriceSummary',array(
 			'criteria'=>$sumCriteria,
@@ -515,8 +547,13 @@ class ArticleController extends AdminController {
 					'params'=>array('PriceSummary[sum_year]'=>$model->sum_year,
 									'PriceSummary[sum_month]'=>$model->sum_month,
 									'PriceSummary[sum_day]'=>$model->sum_day,
+									'PriceSummary[sum_id]'=>$model->sum_id,
+									'PriceSummary[sum_unit]'=>$model->sum_unit,
+									'PriceSummary[sum_price]'=>$model->sum_price,
 									'PriceSummary[sum_product_type]'=>$model->sum_product_type,
 									'PriceSummary[sum_product_zone]'=>$model->sum_product_zone,
+									'parentCategory'=>$parentCategory,
+									'parentCity'=>$parentCity,
 		),),
 		));
 		$priceSummary=$dataProvider->data;
@@ -534,9 +571,14 @@ class ArticleController extends AdminController {
 			$model->sum_month=date('m');
 			$model->sum_day=date('d');
 		}
-		$allCity=City::getAllCity();
-		$allCategory=Term::getMuCategory();
-		$this->render('managePriceSummary',array('model'=>$model,'dataProvider'=>$dataProvider,'allCity'=>$allCity,'allCategory'=>$allCategory));
+		if(!$model->sum_id)
+		{
+			$model->sum_id=date('Y');
+			$model->sum_unit=date('m');
+			$model->sum_price=date('d',strtotime("+1 days"));
+		}
+		$data=compact('parentCity','parentCategory','model','dataProvider');
+		$this->render('managePriceSummary',$data);
 	}
 	public function actionUpdatePriceSummary()
 	{
@@ -555,14 +597,13 @@ class ArticleController extends AdminController {
 			if($sumId=(int)@$_GET['sum_id'])
 			{
 				$model=$model->findByPk($sumId);
-
 			}
 		}
 		if($model->isNewRecord)
 		{
 			$model->sum_year=date('Y');
-			$model->sum_month=date('m');
-			$model->sum_day=date('d');
+			$model->sum_month=(int)date('m');
+			$model->sum_day=(int)date('d');
 		}
 		$allCity=City::getAllCity();
 		$allCategory=Term::getMuCategory();

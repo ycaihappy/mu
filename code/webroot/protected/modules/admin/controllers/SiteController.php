@@ -98,19 +98,13 @@ class SiteController extends AdminController {
 		if (isset ( $_GET ['city_id'] )) {
 			$model = $model->findByPk ( $_GET ['city_id'] );
 		}
-		$allCity = City::getAllCity ();
+		$allCity = City::getProvice();
 		$this->render ( 'updateCity', array ('model' => $model, 'allCity' => $allCity ) );
 	
 	}
 	public function actionManageCity() {
 		
-		if(Yii::app()->request->isPostRequest || isset($_GET['City']))
-		{
-			Yii::app()->admin->setState('cityQueryForm',$_REQUEST['City']);
-		}
-		else {
-			$_REQUEST['City']=Yii::app()->admin->getState('cityQueryForm');
-		}
+		CQueryRequestHelper::registerLastQueryForm(array('City'));
 		
 		$model = new City ();
 		if (isset ( $_REQUEST ['City'] )) {
@@ -119,7 +113,6 @@ class SiteController extends AdminController {
 		
 		$criteriaCity = new CDbCriteria ();
 		if ($model->city_parent) {
-			
 			$criteriaCity->addCondition ( 'city_parent=:parent' );
 			$criteriaCity->params [':parent'] = $model->city_parent;
 		}
@@ -158,7 +151,7 @@ class SiteController extends AdminController {
 				}
 			}
 		}
-		$allCity = City::getAllCity ();
+		$allCity = City::getProvice();
 		$this->render ( 'manageCity', array ('dataProvider' => $dataProvider, 'model' => $model,'allCity'=>$allCity ) );
 	
 	}

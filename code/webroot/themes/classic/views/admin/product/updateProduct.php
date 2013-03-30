@@ -88,14 +88,6 @@ $this->breadcrumbs=array(
 <td class="label">描述：</td>
 		<td>
 		<?php 
-			/*$this->widget('application.extensions.ckeditor.CKEditor',array( 
-					"model"=>$model,
-					"attribute"=>'product_content',
-					"height"=>'400px',    
-					"width"=>'600px',    
-					'editorTemplate'=>'advanced',
-					) 
-				);*/
 				$this->widget('application.extensions.xheditor.JXHEditor', array(
 				    'model' => $model,
 				    'attribute' => 'product_content',

@@ -5,6 +5,7 @@ class ProductController extends AdminController {
 		return array (
 		'getCity'=>array(
 			'class'=>'CGetCityAction',
+			'emptySelect'=>'选择城市',
 		),
 		'getChildrenTerm'=>array(
 			'class'=>'CGetChildrenTermsAction',
@@ -18,44 +19,42 @@ class ProductController extends AdminController {
 	}
 	private function _manageProduct($isSpecial=0)
 	{
-		
-		if(Yii::app()->request->isPostRequest || isset($_GET['Product']))
-		{
-			Yii::app()->admin->setState('productQueryForm',$_REQUEST['Product']);
-		}
-		else {
-			$_REQUEST['Product']=Yii::app()->admin->getState('productQueryForm');
-		}
+		CQueryRequestHelper::registerLastQueryForm(array('parentCategory','Product'));
+		$parentCategory=(int)@$_REQUEST['parentCategory'];
 		$model=new Product();
-		$productTypeId=@$_REQUEST['Product']['product_type_id'];
-		$model->product_type_id=$productTypeId;
-		$productStatus=@$_REQUEST['Product']['product_status'];
-		$model->product_status=$productStatus;
-		$productEnterpriseName=@$_REQUEST['Product']['product_user_id'];
-		$model->product_user_id=$productEnterpriseName;
-		$productName=@$_REQUEST['Product']['product_name'];
-		$model->product_name=$productName;
+		$model->product_type_id=(int)@$_REQUEST['Product']['product_type_id'];
+		$model->product_status=(int)@$_REQUEST['Product']['product_status'];
+		$model->product_user_id=@$_REQUEST['Product']['product_user_id'];
+		$model->product_name=@$_REQUEST['Product']['product_name'];
 		$productCriteria=new CDbCriteria();
 		$productCriteria->order='find_in_set(product_status,\'33,1,2\'),product_join_date desc';
 		$productCriteria->select='product_id,product_name,product_quanity,product_city_id,product_join_date';
 		$productCriteria->addCondition('product_special='.$isSpecial);
-		if($productTypeId)
+		if($parentCategory)
 		{
-			$productCriteria->addCondition('product_type_id=:product_type_id');
-			$productCriteria->params[':product_type_id']=$productTypeId;
+			if($model->product_type_id)
+			{
+				$productCriteria->addCondition('product_type_id=:product_type_id');
+				$productCriteria->params[':product_type_id']=$model->product_type_id;
+			}
+			else {
+				$allTypes=Term::getTermsByGroupId(14,false,$parentCategory,'',false);
+				$productCriteria->addInCondition('product_type_id', array_keys($allTypes));
+			}
+			
 		}
-		if($productStatus)
+		if($model->product_status)
 		{
 			$productCriteria->addCondition('product_status=:product_status');
-			$productCriteria->params[':product_status']=$productStatus;
+			$productCriteria->params[':product_status']=$model->product_status;
 		}
-		if($productEnterpriseName)
+		if($model->product_user_id)
 		{
-			$productCriteria->addSearchCondition('enterprise.ent_name',$productEnterpriseName,true);
+			$productCriteria->addSearchCondition('enterprise.ent_name',$model->product_user_id,true);
 		}
-		if($productName)
+		if($model->product_name)
 		{
-			$productCriteria->compare('product_name',$productName,true);
+			$productCriteria->compare('product_name',$model->product_name,true);
 		}
 		$productCriteria->with=array(
 		'user.enterprise'=>array('select'=>'ent_name'),
@@ -72,6 +71,7 @@ class ProductController extends AdminController {
 								'Product[product_status]'=>$model->product_status,
 								'Product[product_user_id]'=>$model->product_user_id,
 								'Product[product_name]'=>$model->product_name,
+								'parentCategory'=>$parentCategory,
 		),
 		),
 		));
@@ -86,16 +86,11 @@ class ProductController extends AdminController {
 				$supply->supply_city_id='未指定';
 			}
 		}
-		$productType=Term::getTermsByGroupId(14);
+		
 		$productStatus=Term::getTermsByGroupId(1);
 		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
-		$this->render('manageProduct',array('dataProvider'=>$dataProvider,
-		'isSpecial'=>$isSpecial,
-		'model'=>$model,
-		'productType'=>$productType,
-		'productStatus'=>$productStatus,
-		'rePosition'=>$rePosition,
-		));
+		$data=compact('parentCategory','isSpecial','dataProvider','productStatus','rePosition','model');
+		$this->render('manageProduct',$data);
 	}
 	function _actionChangeSupplyStatus($redirectAction)
 	{
@@ -249,42 +244,40 @@ class ProductController extends AdminController {
 	}
 	private function _manageSupply($type=18)
 	{
-		if(Yii::app()->request->isPostRequest || isset($_GET['Supply']))
-		{
-			Yii::app()->admin->setState('supplyQueryForm',$_REQUEST['Supply']);
-		}
-		else {
-			$_REQUEST['Supply']=Yii::app()->admin->getState('supplyQueryForm');
-		}
+		CQueryRequestHelper::registerLastQueryForm(array('Supply','parentCategory'));
+		$parentCategory=(int)@$_REQUEST['parentCategory'];
 		$model=new Supply();
-		$supplyCategoryId=@$_REQUEST['Supply']['supply_category_id'];
-		$model->supply_category_id=$supplyCategoryId;
-		$supplyStatus=@$_REQUEST['Supply']['supply_status'];
-		$model->supply_status=$supplyStatus;
-		$supplyEnterpriseName=@$_REQUEST['Supply']['supply_user_id'];
-		$model->supply_user_id=$supplyEnterpriseName;
-		$supplyName=@$_REQUEST['Supply']['supply_name'];
-		$model->supply_name=$supplyName;
+		$model->supply_category_id=(int)@$_REQUEST['Supply']['supply_category_id'];
+		$model->supply_status=(int)@$_REQUEST['Supply']['supply_status'];
+		$model->supply_user_id=@$_REQUEST['Supply']['supply_user_id'];
+		$model->supply_name=@$_REQUEST['Supply']['supply_name'];
 		$supplyCriteria=new CDbCriteria();
 		$supplyCriteria->select='supply_id,supply_name,supply_city_id,supply_join_date';
 		$supplyCriteria->addCondition('supply_type='.$type);
-		if($supplyCategoryId)
+		if($parentCategory)
 		{
-			$supplyCriteria->addCondition('supply_category_id=:supply_category_id');
-			$supplyCriteria->params[':supply_category_id']=$supplyCategoryId;
+			if($model->supply_category_id)
+			{
+				$supplyCriteria->addCondition('supply_category_id=:supply_category_id');
+				$supplyCriteria->params[':supply_category_id']=$model->supply_category_id;
+			}
+			else {
+				$allTypes=Term::getTermsByGroupId(14,false,$parentCategory,'',false);
+				$supplyCriteria->addInCondition('supply_category_id', array_keys($allTypes));
+			}
 		}
-		if($supplyStatus)
+		if($model->supply_status)
 		{
 			$supplyCriteria->addCondition('supply_status=:supply_status');
-			$supplyCriteria->params[':supply_status']=$supplyStatus;
+			$supplyCriteria->params[':supply_status']=$model->supply_status;
 		}
-		if($supplyEnterpriseName)
+		if($model->supply_user_id)
 		{
-			$supplyCriteria->addSearchCondition('enterprise.ent_name',$supplyEnterpriseName,true);
+			$supplyCriteria->addSearchCondition('enterprise.ent_name',$model->supply_user_id,true);
 		}
-		if($supplyName)
+		if($model->supply_name)
 		{
-			$supplyCriteria->compare('supply_name',$supplyName,true);
+			$supplyCriteria->compare('supply_name',$model->supply_name,true);
 		}
 		$supplyCriteria->with=array(
 		'user.enterprise'=>array('select'=>'ent_name'),
@@ -301,6 +294,7 @@ class ProductController extends AdminController {
 								'Supply[supply_status]'=>$model->supply_status,
 								'Supply[supply_user_id]'=>$model->supply_user_id,
 								'Supply[supply_name]'=>$model->supply_name,
+								'parentCategory'=>$parentCategory,
 		),
 		),
 		));
@@ -318,13 +312,8 @@ class ProductController extends AdminController {
 		$supplyCategory=Term::getTermsByGroupId(14);
 		$supplyStatus=Term::getTermsByGroupId(1);
 		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
-		$this->render('manageSupply',array(
-		'dataProvider'=>$dataProvider,
-		'supplyStatus'=>$supplyStatus,
-		'supplyCategory'=>$supplyCategory,
-		'isSupply'=>$type==18?true:false,
-		'rePosition'=>$rePosition,
-		'model'=>$model));
+		$data=compact('parentCategory','dataProvider','supplyStatus','supplyCategory','isSupply','rePosition','model');
+		$this->render('manageSupply',$data);
 	}
 	private function _getCityLayer($cityId,$sep='>>',$noCityText='未指明')
 	{
@@ -385,13 +374,7 @@ class ProductController extends AdminController {
 	}
 	public function actionManageEnterprise()
 	{
-		if(Yii::app()->request->isPostRequest || isset($_GET['Enterprise']))
-		{
-			Yii::app()->admin->setState('enterpriseQueryForm',$_REQUEST['Enterprise']);
-		}
-		else {
-			$_REQUEST['Enterprise']=Yii::app()->admin->getState('enterpriseQueryForm');
-		}
+		CQueryRequestHelper::registerLastQueryForm(array('Enterprise'));
 		$model=new Enterprise();
 		$entCriteria=new CDbCriteria();
 		$entType=@$_REQUEST['Enterprise']['ent_type'];

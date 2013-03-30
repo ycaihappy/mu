@@ -4,7 +4,19 @@ $this->breadcrumbs=array(
 	'地区管理',
 );
 ?>
-<div><?php echo CHtml::button('添加地区',array('class'=>'btn-blue','onclick'=>'window.location.href="'.Yii::app()->controller->createUrl("updateCity").'"'))?></div>
+<?php 
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'addCity',
+			'caption'=>'添加地区',
+		'value'=>'asd',
+		'cssFile'=>'jquery.ui.css',
+		'onclick'=>'js:function(){
+		    window.location.href="'.Yii::app()->controller->createUrl("updateCity").'";
+		}',
+		)
+);
+?>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',
 	'enableClientValidation'=>true,

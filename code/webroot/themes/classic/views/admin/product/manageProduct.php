@@ -19,7 +19,13 @@ $productChangeStatusAction=$isSpecial?'changeSpecialStatus':'changeProductStatus
 <div style="float:right;">
 <div>
 <label>类型：</label>
-<?php echo $form->dropDownList($model,'product_type_id',$productType);?>
+<?php $this->widget('CCategoryLinkageWidget',array(
+	'parentCategory'=>$parentCategory,
+	'model'=>$model,
+	'attribute'=>'product_type_id',
+	'form'=>$form,
+	'ajaxRoute'=>'product/getChildrenTerm'
+));?>
 <label>状态：</label>
 <?php echo $form->dropDownList($model,'product_status',$productStatus);?>
 <label>发布企业：</label>

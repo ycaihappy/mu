@@ -18,7 +18,13 @@ $supplyChangeStatusAction=$isSupply?'changeSupplyStatus':'changeBuyStatus';
 <div style="float:right;">
 <div>
 <label>类型：</label>
-<?php echo $form->dropDownList($model,'supply_category_id',$supplyCategory);?>
+<?php $this->widget('CCategoryLinkageWidget',array(
+	'parentCategory'=>$parentCategory,
+	'model'=>$model,
+	'attribute'=>'supply_category_id',
+	'form'=>$form,
+	'ajaxRoute'=>'product/getChildrenTerm'
+));?>
 <label>状态：</label>
 <?php echo $form->dropDownList($model,'supply_status',$supplyStatus);?>
 <label>发布企业：</label>

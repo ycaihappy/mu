@@ -68,7 +68,7 @@ class City extends CActiveRecord
         }
         return $returnCity;
     }
-	public static function getAllCity($cityId=false)
+	public static function getAllCity($cityId=false,$needEmpty=false,$emptyText='选择地区')
 	{
 		if(!self::$cityCache)
 		{
@@ -94,6 +94,10 @@ class City extends CActiveRecord
 		else
 		{
 			$returnCity=array();
+			if($needEmpty)
+			{
+				$returnCity[0]=$emptyText;
+			}
 			foreach (self::$cityCache as $city) {
 				if($city->city_parent==$cityId)
 				{

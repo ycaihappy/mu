@@ -25,14 +25,27 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">品类：</td>
-		<td><?php echo $form->dropDownList($model,'sum_product_type',$allCategory,array('class'=>'cmp-input')); ?>	
-		<?php echo $form->error($model,'sum_product_type'); ?></td>
+		<td>
+		<?php $this->widget('CCategoryLinkageWidget',array(
+	'model'=>$model,
+	'attribute'=>'sum_product_type',
+	'form'=>$form,
+	'ajaxRoute'=>'product/getChildrenTerm',
+	'displayError'=>true,
+));?></td>
 </tr>
 <tr>
 <tr>
 <td class="label">地区：</td>
-		<td><?php echo $form->dropDownList($model,'sum_product_zone',$allCity,array('class'=>'cmp-input')); ?>
-		<?php echo $form->error($model,'art_status'); ?></td>
+		<td>
+		<?php $this->widget('CCityLinkageWidget',array(
+	'model'=>$model,
+	'attribute'=>'sum_product_zone',
+	'form'=>$form,
+	'ajaxRoute'=>'product/getCity',
+	'displayError'=>true,
+));?>
+</td>
 </tr>
 <tr>
 <tr>

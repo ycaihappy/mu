@@ -49,7 +49,8 @@ class PriceSummary extends CActiveRecord
 			array('sum_product_type', 'required','message'=>'所属类型必须填写'),
 			array('sum_price', 'required','message'=>'价格必须填写'),
 			array('sum_price', 'numerical','message'=>'价格必须是数字'),
-			array('sum_id, sum_unit, sum_price, sum_year, sum_month, sum_day, sum_product_type, sum_product_zone, sum_add_date', 'safe'),
+			array('sum_product_zone', 'required','message'=>'地区必须填写'),
+			array('sum_id,sum_alias, sum_unit, sum_price, sum_year, sum_month, sum_day, sum_product_type, sum_product_zone, sum_add_date', 'safe'),
 		);
 	}
 
@@ -67,6 +68,12 @@ class PriceSummary extends CActiveRecord
 		);
 	}
 
+	public function beforeSave()
+	{
+		$this->sum_alias_date=implode('-',array($this->sum_year,str_pad($this->sum_month,2,'0',STR_PAD_LEFT),str_pad($this->sum_day,2,'0',STR_PAD_LEFT)));
+		
+		return parent::beforeSave();
+	}
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

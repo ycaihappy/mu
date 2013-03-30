@@ -558,6 +558,7 @@ padding: 0 20px;
 .m-table-list .cmp-btn{margin-right:5px;}
 .table-list{border-left:1px solid #cfcfcf;border-top:1px solid #cfcfcf;}
 .table-list th,.table-list td{padding:6px;border-right:1px solid #cfcfcf;border-bottom:1px solid #cfcfcf;text-align:center;}
+.table-list td{text-align:left;}
 .table-list .even{background:#f5fafe}
 .table-list td.td02{text-align:left;}
 .m-table-list .btn-group{text-align:left;padding:5px;}

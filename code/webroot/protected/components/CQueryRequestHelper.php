@@ -5,7 +5,7 @@ class CQueryRequestHelper  {
 	{
 		$prefix=str_replace('/','-',Yii::app()->controller->getRoute());
 		
-		if(Yii::app()->request->isPostRequest || $_GET[$modelName])
+		if(Yii::app()->request->isPostRequest || @$_GET[$modelName])
 		{
 			if($regieteredParams && is_array($regieteredParams))
 			{

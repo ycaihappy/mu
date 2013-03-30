@@ -7,8 +7,11 @@ $.extend(MU.mods,{
 			if ($(this).next().is('ul')){
 				e.preventDefault();
 				$(this).next().slideToggle('fast');
+				return;
 			}
-			//$(this).addClass('on').siblings().removeClass('on');
+			$(this).closest('div').find('li').removeClass('on');
+			$(this).parent().addClass('on');
+			//$(this).parent().addClass('on').siblings().removeClass('on');
 		});
 		
 		

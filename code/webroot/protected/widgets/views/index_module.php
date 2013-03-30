@@ -1,4 +1,5 @@
-				<div class="mod-news ui-m-border">
+                <?php   if($this->beginCache('indexModule')){ ?>
+                <div class="mod-news ui-m-border">
 					<div class="ui-purple-hd">
 						<h6><?php echo $title?></h6>
 						<a href="<?php echo $more?>" class="more">更多&gt;&gt;</a>
@@ -23,3 +24,4 @@
 					</div>
 			
 				</div>
+<?php $this->endCache(); } ?>

@@ -30,7 +30,7 @@ class EnterpriseController extends Controller  {
 		
 		$allUserType=UserGroup::getUserGroup();
 		
-		$allBusModel=Term::getTermsByGroupId(4,false,null,'',false);
+		$allBusModel=Term::getTermsByGroupId(5,false,null,'',false);
 		
 		if($entCity)
 		{
@@ -42,7 +42,7 @@ class EnterpriseController extends Controller  {
 		}
 		if($businessModel)
 		{
-			$entCriteria->compare('ent_business_model', $value);
+			$entCriteria->compare('ent_business_model', '='.$businessModel);
 			
 			$selectParams['bus_model']=array('name'=>$allBusModel[$businessModel]);
 		}

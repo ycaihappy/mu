@@ -467,12 +467,12 @@ filter:progid:DXImageTransform.Microsoft.Gradient(enabled=bEnabled,startColorStr
 .m-rcm-list{margin-bottom:10px;}
 .m-rcm-list dt{background:#f3f3f3;line-height:30px;font-size:14px;}
 .m-rcm-list dl{border-bottom:0;}
-.m-rcm-list dl.last{border:1px solid #ccc}
 .m-rcm-list dd{padding:10px;line-height:20px;}
 .m-rcm-list li {
   background: url("imgs/v2/ico_dotted.png") no-repeat scroll left center transparent;
   line-height: 25px;
-
+  height:25px;
+  overflow:hidden;
   padding-left: 10px;
   position: relative;
 }

@@ -1054,7 +1054,7 @@ padding: 0 20px;
 .m-hq-dq p .dqd a {  color: red;  font-weight: bold;  text-decoration: none;}
 .m-hq-dq p a, .m-hq-dq p span {  display: inline-block;  height: 25px;  line-height: 25px;  overflow: hidden;  text-align: center;  text-decoration: none;  width: 59px;}
 
-.m-hq-news {background: none repeat scroll 0 0 #fff;  float: left;   padding-top: 5px;  position: relative;  width: 345px;  margin-right:10px;}
+.m-hq-news {background: none repeat scroll 0 0 #fff;  float: left;   position: relative;  width: 345px;  margin-right:10px;}
 .m-hq-news h1 {background: url("imgs/news_bg.png") no-repeat scroll left top transparent;  height: 34px;  text-align: left;}
 .m-hq-news h1 a {background: url("imgs/zjgd_bg.png") no-repeat scroll 0 0 transparent;  display: inline-block;  height: 34px;  line-height: 28px;  text-align: center;  width: 77px;  font-weight:bold;  font-size:14px;}
 .m-hq-news h1 a.on {background: url("imgs/gsyb_bg.png") no-repeat scroll 0 0 transparent;  color: #FFFFFF;}

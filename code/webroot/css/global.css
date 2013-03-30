@@ -1368,7 +1368,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .service-menu li.on{border:1px solid #06437c;background:url(imgs/menu_bg_44.gif) repeat-x}
 .service-menu li.on a{color:#dd6a0f}
 .service-menu li .arrow{display:none;position:absolute;width:11px;height:19px;background:url(imgs/service_arrow.gif) no-repeat; top:7px;right:-11px}
-.service-menu li.on .arrow{display:block;}
+.service-menu li.on .arrow{display:none;}
 .m-service-detail .cont{margin-top:10px}
 .m-service-detail .m-article-detail h1{font-size:18px;margin-top:20px}
 .m-service-detail .m-article-detail .line{margin-bottom:0}

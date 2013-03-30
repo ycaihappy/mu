@@ -742,7 +742,7 @@ $.extend(MU.mods,{
 			//$.getAsset('script',['js/highcharts.js'],function(){
 			var year = self.find('select[name=year]').val(),month = self.find('select[name=month]').val(),to_year = self.find('select[name=to_year]').val(),to_month = self.find('select[name=to_month]').val();
 				var start = new Date(year,month),end = new Date(to_year,to_month);
-				if (start >= end ){
+				if (start > end ){
 					alert('起始年月必须小于截止年月');
 				}else{
 					loadChart(self.find('form').serializeArray());

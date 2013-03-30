@@ -82,7 +82,7 @@ a:active{text-decoration:underline;}
 .m-breadcrumb i{background:url(imgs/ico-crumb-arr.png) no-repeat;width:11px;height:10px;display:inline-block;margin:0px 10px;}
 .m-breadcrumb p{padding-bottom:10px;border-bottom:1px solid #ccc;}
 
-.btn-a,.btn-b{width:65px;height:28px;display:inline-block;text-align:center;line-height:28px;border:0;cursor:pointer;margin-right:10px;font-size:12px;}
+.btn-a,.btn-b{width:65px;height:28px;display:inline-block;text-align:center;line-height:28px\9;border:0;cursor:pointer;margin-right:10px;font-size:12px;vertical-align:middle;padding:0}
 .btn-a,.btn-a:hover{background:url(imgs/blue.png) no-repeat;color:#fff}
 .btn-b,.btn-b:hover{background:url(imgs/gery.png) no-repeat;color:#000}
 

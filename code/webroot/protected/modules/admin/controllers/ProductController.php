@@ -19,7 +19,7 @@ class ProductController extends AdminController {
 	}
 	private function _manageProduct($isSpecial=0)
 	{
-		CQueryRequestHelper::registerLastQueryForm(array('parentCategory','Product'));
+		CQueryRequestHelper::registerLastQueryForm(array('parentCategory','Product'),'Product');
 		$parentCategory=(int)@$_REQUEST['parentCategory'];
 		$model=new Product();
 		$model->product_type_id=(int)@$_REQUEST['Product']['product_type_id'];
@@ -244,7 +244,7 @@ class ProductController extends AdminController {
 	}
 	private function _manageSupply($type=18)
 	{
-		CQueryRequestHelper::registerLastQueryForm(array('Supply','parentCategory'));
+		CQueryRequestHelper::registerLastQueryForm(array('Supply','parentCategory'),'Supply');
 		$parentCategory=(int)@$_REQUEST['parentCategory'];
 		$model=new Supply();
 		$model->supply_category_id=(int)@$_REQUEST['Supply']['supply_category_id'];
@@ -374,7 +374,7 @@ class ProductController extends AdminController {
 	}
 	public function actionManageEnterprise()
 	{
-		CQueryRequestHelper::registerLastQueryForm(array('Enterprise'));
+		CQueryRequestHelper::registerLastQueryForm(array('Enterprise'),'Enterprise');
 		$model=new Enterprise();
 		$entCriteria=new CDbCriteria();
 		$entType=@$_REQUEST['Enterprise']['ent_type'];

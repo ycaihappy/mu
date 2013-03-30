@@ -472,7 +472,7 @@ class ArticleController extends AdminController {
 	}
 	public function actionManagePriceSummary()
 	{
-		CQueryRequestHelper::registerLastQueryForm(array('PriceSummary','parentCategory','parentCity'));
+		CQueryRequestHelper::registerLastQueryForm(array('PriceSummary','parentCategory','parentCity'),'PriceSummary');
 		$model=new PriceSummary();
 		
 		//start time

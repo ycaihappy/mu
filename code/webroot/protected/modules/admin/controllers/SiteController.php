@@ -104,7 +104,7 @@ class SiteController extends AdminController {
 	}
 	public function actionManageCity() {
 		
-		CQueryRequestHelper::registerLastQueryForm(array('City'));
+		CQueryRequestHelper::registerLastQueryForm(array('City'),'Enterprise');
 		
 		$model = new City ();
 		if (isset ( $_REQUEST ['City'] )) {

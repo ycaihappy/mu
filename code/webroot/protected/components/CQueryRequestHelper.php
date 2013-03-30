@@ -1,7 +1,7 @@
 <?php
 class CQueryRequestHelper  {
 
-	public static function registerLastQueryForm(array $regieteredParams=array())
+	public static function registerLastQueryForm(array $regieteredParams=array(),$modelName)
 	{
 		$prefix=str_replace('/','-',Yii::app()->controller->getRoute());
 		

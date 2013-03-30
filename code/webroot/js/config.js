@@ -300,6 +300,7 @@ MU.Tool.ImgScroller.prototype = {
 				return;
 			}
 		}else{
+			this.duration = 3000;
 			var h = _el.find('li').length * (_el.find('li:first').height());
 			_el.find('ul').css({'position':'absolute','height': w + 'px'});
 			if(h <= _el.height()){
@@ -333,11 +334,14 @@ MU.Tool.ImgScroller.prototype = {
 				box.css('left','0px');
 			}
 		}else{
-			box.css('top',(top-=3) + 'px');
-			if(Math.abs(top) > box.find('li:first').height()){
+			//box.css('top',(top-=3) + 'px');
+			box.animate({top: -box.children(':first').height()},1000,'easeOutExpo',function(){
+				if(Math.abs(top) < box.find('li:first').height()){
 				box.find('li:first').insertAfter(box.find('li:last'));
 				box.css('top','0px');
 			}
+			});
+			
 		}
 	}
 }

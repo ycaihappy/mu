@@ -1,4 +1,5 @@
-		<div class="m-large-tab ui-m-tab ui-m-border" id="J_New_Tab_List">
+<?php if($this->beginCache('indexSupply')){ ?>
+        <div class="m-large-tab ui-m-tab ui-m-border" id="J_New_Tab_List">
 			<div class="hd">
 				<div class="tab">
 					<span class="on"><a href="<?php echo $this->getController()->createUrl('/supply/index')?>">最新供求</a></span>
@@ -31,3 +32,4 @@
 			</div>
 			<div class="clearfix"></div>
 		</div>
+<?php $this->endCache(); } ?>

@@ -558,6 +558,7 @@ padding: 0 20px;
 .m-table-list .cmp-btn{margin-right:5px;}
 .table-list{border-left:1px solid #cfcfcf;border-top:1px solid #cfcfcf;}
 .table-list th,.table-list td{padding:6px;border-right:1px solid #cfcfcf;border-bottom:1px solid #cfcfcf;text-align:center;}
+.table-list td{text-align:left;}
 .table-list .even{background:#f5fafe}
 .table-list td.td02{text-align:left;}
 .m-table-list .btn-group{text-align:left;padding:5px;}
@@ -1810,6 +1811,9 @@ ul.yiiPager .selected a{color:#fff!important}
   margin-right: 5px;
   padding: 0 4px 4px;
 }
+.m-filter dd a.on {
+	font-size:12px;color:#018ce7;font-weight:bold
+}
 .m-filter .tag-list {
   margin-left: 80px;
   margin-top: 5px;
@@ -1863,3 +1867,4 @@ ul.yiiPager .selected a{color:#fff!important}
 .m-ep-list .btn-qjly{width:89px;height:28px;background-position:-37px -8px;margin:0 5px}
 .m-ep-list .btn-lxsj{width:87px;height:38px;background-position:-134px 2px}
 .m-ep-list .ft{padding:10px;}
+

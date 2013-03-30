@@ -14,18 +14,23 @@ class EnterpriseController extends Controller  {
 		
 		$entCriteria=new CDbCriteria();
 		
-		$entCriteria->compare('user.user_type', '<>0');
+		$entCriteria->select=array('ent_name','left(ent_introduce,150) as ent_introduce','ent_business_scope','ent_location','ent_logo');
 		
-		$entCriteria->with=array('user'=>array('select'=>'user_name','condition'=>'user_type<>0 '.($userType?"and user_type={$userType}":'')),
+		$entCriteria->compare('ent_status', '=1');
+		
+		$entCriteria->with=array('user'=>array('select'=>'user_name',
+		'condition'=>'user_type<>0 and user_status=1 '.($userType?"and user_type={$userType}":'')),
 			'user.type'=>array('select'=>'group_logo'),
+		'business'=>array('select'=>'term_name')
 		);
+		
 		$selectParams=array();
 		
 		$allProvince=City::getMuRelCity();
 		
 		$allUserType=UserGroup::getUserGroup();
 		
-		$allBusModel=Term::getTermsByGroupId($groupId);
+		$allBusModel=Term::getTermsByGroupId(4,false,null,'',false);
 		
 		if($entCity)
 		{
@@ -50,7 +55,7 @@ class EnterpriseController extends Controller  {
 		
 		$page=new CPagination($count);
 		
-		$page->pageSize=25;
+		$page->pageSize=10;
 		
 		$page->pageVar='page';
 		
@@ -58,11 +63,19 @@ class EnterpriseController extends Controller  {
 		
 		$enterprises=Enterprise::model()->findAll($entCriteria);
 		
+		if($enterprises)
+		{
+			foreach ($enterprises as &$enterprise)
+			{
+				$enterprise->ent_introduce=CStringHelper::truncate_utf8_string(strip_tags($enterprise->ent_introduce), 100);
+			}
+		}
 		
+		$adv=CCacheHelper::getAdvertisement(130);//左侧中部
 		
-		$data=compact('page','enterprises','userType','businessModel','entCity','allProvince','allUserType','allBusModel');
+		$data=compact('adv','page','enterprises','selectParams','userType','businessModel','entCity','allProvince','allUserType','allBusModel');
 		
-		$this->render('enterpriseList',$data);
+		$this->render('index',$data);
 	}
 }
 

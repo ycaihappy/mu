@@ -24,7 +24,6 @@
     	</div>
     
     </div>
-    <?php $this->endCache();?>
 </div>
 
 <?php $this->widget("CommonFooterWidget");?>

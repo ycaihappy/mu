@@ -135,6 +135,15 @@
            </p>
            
             </div>
+            
+            <div class="nav-con <?php echo $controller=='enterprise'?'on':'' ?>">
+           <strong><a href="<?php echo $this->getController()->createUrl('/enterprise/index')?>">钼企业</a><i class="sp"></i>
+			<b></b></strong>
+           <p>
+          <em></em>
+          </p>
+           
+            </div>
            
 
         </div>

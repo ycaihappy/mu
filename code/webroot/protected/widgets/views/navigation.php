@@ -141,6 +141,19 @@
 			<b></b></strong>
            <p>
           <em></em>
+          <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('bus_model'=>6))?>">采矿型钼企</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('bus_model'=>7))?>">贸易型钼企</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('bus_model'=>120))?>">加工型钼企</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('bus_model'=>143))?>">生产型钼企</a><em>|</em>
+           
+           <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('ent_city'=>16))?>">河南钼企</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('ent_city'=>27))?>">陕西钼企</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('ent_city'=>3))?>">河北钼企</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('ent_city'=>5))?>">内蒙古钼企</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('ent_city'=>6))?>">辽宁钼企</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('ent_city'=>7))?>">吉林钼企</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('ent_city'=>15))?>">山东钼企</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('ent_city'=>14))?>">江西钼企</a>
           </p>
            
             </div>

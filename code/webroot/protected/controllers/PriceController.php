@@ -40,7 +40,16 @@ class PriceController extends BasicAccessController
 
         $category = Term::model()->getTermsListByGroupId(14);
 
-        $data = array('city_mu'=>$city_mu,'category'=>$category);
+        $current_year = date('Y');
+        for($i=$current_year-2;$i<=$current_year;$i++)
+        {
+            $year[$i] = $i;
+        }
+        for($j=1;$j<13;$j++)
+        {
+            $month[$j] = $j;
+        }
+        $data = array('city_mu'=>$city_mu,'category'=>$category,'year'=>$year, 'month'=>$month);
         $this->render('query',$data);
     }
 
@@ -77,7 +86,7 @@ class PriceController extends BasicAccessController
             $day_sql = '';
             if ( $_REQUEST['month'] == $_REQUEST['to_month'] )
             {
-                if ($_REQUEST['month'] == date('n')-1 )
+                if ($_REQUEST['month'] == date('n') )
                     $month_day = date('d');
                 else
                     $month_day = date("t",strtotime($_REQUEST['year'].$_REQUEST['month']));
@@ -114,7 +123,7 @@ class PriceController extends BasicAccessController
             else
             {
                 $select_month = array();
-                for($j=$_REQUEST['month']; $j< $_REQUEST['to_month']+1; $j++)
+                for($j=$_REQUEST['month']; $j<= $_REQUEST['to_month']; $j++)
                 {
                     $select_month[] = $j+1;
                     $select_month_name[] = $j;
@@ -135,10 +144,10 @@ class PriceController extends BasicAccessController
                 $select_year[] = $m;
                 if ($m == $_REQUEST['year'])
                 {
-                    for($i=$_REQUEST['month']; $i< 12; $i++)
+                    for($i=$_REQUEST['month']; $i<= 12; $i++)
                     {
-                        $select_month[] = $i+1;
-                        $select_month_name[] = $m."-".($i+1);
+                        $select_month[] = $i;
+                        $select_month_name[] = $m."-".($i);
                     }
                     $sub_sql = "(sum_year =".$m." and sum_month in(".implode(',',$select_month).") and sum_product_zone in (".implode(',',$select_city).") ) or ";
                 }

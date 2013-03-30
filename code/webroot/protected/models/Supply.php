@@ -60,6 +60,7 @@ class Supply extends CActiveRecord
 			array('supply_phone', 'CPhoneValidator','message'=>'电话号码格式不正确！'),
 			array('supply_name', 'required','message'=>'名称必须填写！'),
 			array('supply_mu_content', 'required','message'=>'品阶不能为空！'),
+			array('supply_status', 'required','message'=>'请选择状态！'),
 			array('supply_price', 'numerical', 'message'=>'价格必须为数字！'),
 			array('supply_image_src,supply_name', 'length', 'max'=>218),
 			array('supply_valid_date, supply_join_date', 'safe'),

@@ -11,7 +11,8 @@ class CQueryRequestHelper  {
 			{
 				foreach ($regieteredParams as $param)
 				{
-					Yii::app()->admin->setState($prefix.'_'.$param,$_REQUEST[$param]);
+					if(isset($_REQUEST[$param]))
+					 	Yii::app()->admin->setState($prefix.'_'.$param,$_REQUEST[$param]);
 				}
 			}
 		}

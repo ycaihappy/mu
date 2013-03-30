@@ -66,7 +66,7 @@ $supplyChangeStatusAction=$isSupply?'changeSupplyStatus':'changeBuyStatus';
        
        array(
         	'name'=>'状态',
-        	'value'=>'$data->status->term_name',
+        	'value'=>'$data->status?$data->status->term_name:"未指定"',
        		'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
         array(

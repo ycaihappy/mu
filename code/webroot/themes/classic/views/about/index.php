@@ -1,5 +1,6 @@
 <table border="0" class="contactStyle">
-  <tbody><tr>
+  <tbody>
+  <tr>
     <td width="410" rowspan="2"><img width="410" height="400" src="images/mapBJ.gif"></td>
     <td width="280"><h3><?php echo $this->siteConfig->companyName?> </h3>
   <p>地址：<?php echo $this->siteConfig->location?></p> 
@@ -19,7 +20,7 @@
       <p><?php echo $this->siteConfig->qq?></p>
       <h3>MSN:</h3>
       <p><?php echo $this->siteConfig->siteMsgNum?></p>
-     
-      </td>
+    </td>
   </tr>
-  </tbody></table>
+  </tbody>
+</table>

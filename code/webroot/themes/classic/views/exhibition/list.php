@@ -8,8 +8,11 @@
 <div class="layout-area">
 <div class="grid-690">
 	<!--module list-->
-	<div class="m-news-list">
-                <h2 id="h2_item"><span></span><?php echo $categoryName?></h2>
+	<div class="m-news-list ui-m-tab ui-m-border">
+				<div class="hd">
+					<span class="on"><?php echo $categoryName?></span>
+				</div>
+               
                 <ul>
                     <?php 
                     	if($exhibitions):

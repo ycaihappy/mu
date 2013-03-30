@@ -48,14 +48,14 @@
                 <?php $this->widget('IndexModuleWidget',array('type'=>6));?>
             </div>
  </div>
-	<div class="layout-area">
+	<div class="layout-area grid-960">
 	
 		<div class="m-bt-ad">
 		<?php if($adv1):?>
 			<a href="<?php echo $adv1[0]->ad_link?>" class="first"><img src="<?php echo '/images/advertisement/'.$adv1[0]->ad_media_src?>" width="440" height="60" /></a>
 		<?php endif;?>
 		<?php if($adv2):?>
-			<a href="<?php echo $adv2[0]->ad_link?>"><img src="<?php echo '/images/advertisement/'.$adv2[0]->ad_media_src?>" width="490" height="59" /></a>
+			<a href="<?php echo $adv2[0]->ad_link?>" style="float:right"><img src="<?php echo '/images/advertisement/'.$adv2[0]->ad_media_src?>" width="490" height="59" /></a>
 		<?php endif;?>
 		</div>		
 		

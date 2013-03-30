@@ -11,7 +11,7 @@
                     起始年月
                 </td>
                 <td>
-                <select name="year"><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option></select>年<?php echo CHtml::dropDownList('month',date('n'),array(1,2,3,4,5,6,7,8,9,10,11,12));?>月
+                <?php echo CHtml::dropDownList('year',date('Y'),$year);?>年<?php echo CHtml::dropDownList('month',date('n'),$month);?>月
                 </td>
             </tr>
             <tr>
@@ -19,7 +19,7 @@
                     截止年月
                 </td>
                 <td>
-                   <select name="to_year"><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option></select>年<?php echo CHtml::dropDownList('to_month',date('n'),array(1,2,3,4,5,6,7,8,9,10,11,12));?>月
+                   <?php echo CHtml::dropDownList('to_year',date('Y'),$year);?>年<?php echo CHtml::dropDownList('to_month',date('n'),$month);?>月
                 </td>
             </tr>
             <!--<tr>

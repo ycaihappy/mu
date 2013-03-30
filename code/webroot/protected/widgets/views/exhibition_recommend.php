@@ -1,8 +1,9 @@
 
-        <div class="m-rcm-list">
-			
-			<dl class="last">
-            <dt><strong><?php echo $title;?></strong></dt>
+        <div class="m-rcm-list ui-m-tab ui-m-border">
+			<div class="hd">
+				<span class="on"><?php echo $title;?></span>
+			</div>
+			<dl class="last">           
 			  <dd>				
 				<ul>
 			<?php

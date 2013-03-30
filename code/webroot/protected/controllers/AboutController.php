@@ -14,7 +14,6 @@ class AboutController extends Controller {
 	public function actionContact()
 	{
 		$this->siteConfig->siteMetaTitle='联系方式';
-		$this->siteConfig->csHotline2='<p>'.implode('<p></p>',array_diff(array($this->siteConfig->csHotline2,$this->siteConfig->csHotline3,$this->siteConfig->csHotline4),array(''))).'</p>';
 		$this->render('index');
 	}
 	public function actionAgrement()

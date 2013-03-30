@@ -17,7 +17,7 @@ class IndexModuleWidget extends CWidget
 				$this->title='钼展会';
 				$artCriteria->join='inner join mu_recommend b on t.art_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=23 and b.recommend_position=116';
 				$this->route='/exhibition/view';
-				$this->more=$this->getController()->createUrl('/exhibition/index');
+				$this->more=$this->getController()->createUrl('/exhibition/list',array('subcategory_id'=>100));
 				break;
 			case 2:
 				$this->title='钼新闻';

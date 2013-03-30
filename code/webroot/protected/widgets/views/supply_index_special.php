@@ -20,7 +20,7 @@
 			
 	        <li <?php echo $i == count($topSpecial) ? 'class="last"' : '';?>>
 	        	<span class="tj01">
-	        		<a target="_blank" href="<?php echo $special->product_id?>"><?php echo $special->product_name?></a>
+	        		<a target="_blank" href="<?php echo $special->product_id?>"><?php echo $special->product_name;?></a>
 	        	</span>
 				<span class="tj02"><?php echo $special->product_mu_content?></span>
 	        	<span class="tj03"><?php echo $special->product_quanity.$special->unit->term_name?></span>

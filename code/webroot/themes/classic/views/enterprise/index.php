@@ -1,8 +1,11 @@
 	<div class="layout-area">
-			
 		<div class="m-ad">
-			<a href=""><img src="images/ad_960x60.jpg" /></a>
-		</div>
+			<?php if($adv):?>
+			<a target="_blank" href="<?php echo $adv[0]->ad_link?>">
+				<img width="960" height="60" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>">
+			</a>
+			<?php endif;?>
+        </div>	
 				
 	</div>
 	<div class="layout-area gird-960">
@@ -35,7 +38,7 @@
 						<?php if ($allBusModel):
 						$i=0;
 						foreach ($allBusModel as $key=>$name):
-							$class=@$selectParams['bus_model']==$key?'class="on"':'';
+							$class=@$businessModel==$key?'class="on"':'';
 							$entTypeUrl=CStringHelper::getExculedUrl(array('bus_model','page'),'index').'&bus_model='.$key;
 							if($i>7):
 						?>
@@ -66,7 +69,7 @@
 						<?php if ($allProvince):
 						$i=0;
 						foreach ($allProvince as $key=>$name):
-							$class=@$selectParams['ent_city']==$key?'class="on"':'';
+							$class=@$entCity==$key?'class="on"':'';
 							$entProvinceUrl=CStringHelper::getExculedUrl(array('ent_city','page'),'index').'&ent_city='.$key;
 							if($i>7):
 						?>
@@ -97,7 +100,7 @@
 						<?php if ($allUserType):
 						$i=0;
 						foreach ($allUserType as $key=>$name):
-							$class=@$selectParams['user_type']==$key?'class="on"':'';
+							$class=@$userType==$key?'class="on"':'';
 							$userTypeUrl=CStringHelper::getExculedUrl(array('user_type','page'),'index').'&user_type='.$key;
 							if($i>7):
 						?>

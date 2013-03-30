@@ -71,7 +71,9 @@ class EnterpriseController extends Controller  {
 			}
 		}
 		
-		$data=compact('page','enterprises','selectParams','userType','businessModel','entCity','allProvince','allUserType','allBusModel');
+		$adv=CCacheHelper::getAdvertisement(130);//左侧中部
+		
+		$data=compact('adv','page','enterprises','selectParams','userType','businessModel','entCity','allProvince','allUserType','allBusModel');
 		
 		$this->render('index',$data);
 	}

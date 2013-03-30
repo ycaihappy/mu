@@ -1,2 +1,13 @@
-<?php ${"G\x4cOB\x41L\x53"}["r\x69b\x62\x67\x78"]="\x79\x69\x69";$wnpdsmmxrxi="\x79\x69\x69";${$wnpdsmmxrxi}=dirname(__FILE__)."/../\x66r\x61\x6dew\x6f\x72\x6b/\x79\x69i.\x70h\x70";$yxzbumnp="c\x6f\x6e\x66\x69g";${"\x47\x4c\x4f\x42\x41\x4c\x53"}["r\x77g\x79\x6b\x62ng\x75\x73"]="c\x6fnf\x69\x67";${$yxzbumnp}=dirname(__FILE__)."/pr\x6f\x74ect\x65\x64/co\x6ef\x69g/m\x61in.\x70\x68p";define("\x59I\x49_D\x45\x42UG",true);defined("YII\x5f\x44\x45\x42U\x47")or define("\x59II_\x44\x45\x42\x55G",true);defined("YII\x5fT\x52A\x43\x45_LE\x56EL")or define("YI\x49\x5fTR\x41CE\x5f\x4c\x45\x56\x45L",3);require_once(${${"\x47\x4c\x4fB\x41LS"}["\x72\x69b\x62g\x78"]});Yii::createWebApplication(${${"\x47LO\x42A\x4cS"}["rw\x67\x79kb\x6eg\x75\x73"]})->run();
-?>
+<?php
+
+// change the following paths if necessary
+$yii=dirname(__FILE__).'/../framework/yii.php';
+$config=dirname(__FILE__).'/protected/config/main.php';
+define('YII_DEBUG',true);
+// remove the following lines when in production mode
+defined('YII_DEBUG') or define('YII_DEBUG',true);
+// specify how many levels of call stack should be shown in each log message
+defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
+
+require_once($yii);
+Yii::createWebApplication($config)->run();

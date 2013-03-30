@@ -1,4 +1,4 @@
-                <?php   if($this->beginCache('indexModule')){ ?>
+                <?php   if($this->beginCache('indexModule'.$title)){ ?>
                 <div class="mod-news ui-m-border">
 					<div class="ui-purple-hd">
 						<h6><?php echo $title?></h6>

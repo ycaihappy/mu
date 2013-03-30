@@ -1,7 +1,7 @@
 		<div class="m-category ui-m-tab ui-m-border">
 				<div class="hd">
 				
-					<span class="on"><a href="<?php echo $this->getController()->createUrl('/product/index/')?>">钼分类</a></span>
+					<span class="on"><a href="<?php echo $this->getController()->createUrl('/product/index/')?>">产品分类</a></span>
 
 				</div>
 				<div class="bd">
@@ -11,7 +11,7 @@
 					<dl>
 						<strong><a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key))?>"><?php echo $category['title']?></a>:</strong>
 						<?php foreach ($category['sub'] as $subCategory):?>
-						<a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key,'smallType'=>$subCategory->term_id))?>"><?php echo $subCategory->term_name?></a>
+						<a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key,'smallType'=>$subCategory->term_id))?>"><?php echo $subCategory->term_name?></a>| 
 						<?php endforeach;?>
 					</dl>
 					<?php endforeach;

@@ -1551,7 +1551,13 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-category .bd{padding:10px;padding-bottom:0}
 .m-category dt{font-weight:bold;margin-bottom:3px;}
 .m-category dd{float:left;margin-right:20px;}
-.m-category dl{margin-bottom:10px;overflow:hidden;}
+.m-category dl {
+  background: url("imgs/dot_repeatbg.gif") repeat-x scroll left bottom transparent;
+  display: block;
+  margin-bottom: 5px;
+  overflow: hidden;
+  padding-bottom: 7px;
+}
 .m-category dl a{line-height:20px;margin-right:5px;}
 .m-category dl strong{font-weight:bold}
 

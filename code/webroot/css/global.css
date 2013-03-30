@@ -1608,6 +1608,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .mod-news .pic p{margin-top:10px;}
 .mod-news .list{float:left;width:180px;}
 .mod-news .list li{line-height:20px;}
+.mod-news .ui-purple-hd h6{background:url(imgs/ico-hd-13x10.gif) no-repeat left center;padding-left:17px}
 
 .m-bt-ad a{float:left;display:inline}
 .m-bt-ad .first{margin-right:25px;}

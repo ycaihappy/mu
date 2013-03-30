@@ -868,7 +868,7 @@ padding: 0 20px;
 
 
 /*m-supply-news*/
-.m-supply-news .hd span{float:left;display:inline-block;padding:0 10px;text-align:center;background:#206f96;height: 30px; line-height:30px; position: relative;z-index: 1;}
+.m-supply-news .hd span{float:left;display:inline-block;text-align:center;background:#206f96;height: 30px; line-height:30px; position: relative;z-index: 1;}
 .m-supply-news .hd span i{position:absolute;left:45%;bottom:-4px;width:7px;height:4px;background:url(imgs/blue_d_aw.gif) no-repeat;font-size:0;display:block;}
 .m-supply-news .hd span a{font-weight:bold;color:#fff;font-size:14px;}
 .m-supply-news .hd{margin-bottom:5px;}

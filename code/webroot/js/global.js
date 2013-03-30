@@ -417,7 +417,10 @@ $.extend(MU.mods,{
 	},
 	JCertAdd : function (){
 		var self = $(this);
-		$(".image-preview").uploadPreview({ width: 200, height: 200, imgDiv: ".thumb", imgType: ["bmp", "gif", "png", "jpg"] });
+		self.find(".image-preview").each(function(){
+			var o = $(this);
+			o.uploadPreview({ width: 200, height: 200, imgDiv: o.parent().find('.thumb'), imgType: ["bmp", "gif", "png", "jpg"] });
+		});
 
 	},
 	JSupplyList : function () {

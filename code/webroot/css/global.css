@@ -1279,15 +1279,15 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-map .hd{background:#3E91E1;height:5px;}
 .m-map .bd{}
 .m-map .tab2 {
-  background: none repeat scroll 0 0 #DEECFA;
-  border: 1px solid #ADC3DA;
-  height: 30px;
+  background:url("imgs/v2/tab_blue_bg.png") no-repeat scroll 0 0 transparent ;
+  height: 32px;
   margin: 10px;
   text-align: center;
-  width: 86px;
+  width: 88px
+
 }
 .m-map .tab2font {
-  color: #002353;
+  color: #fff;
   font-size: 14px;
   font-weight: 900;
   line-height: 30px;

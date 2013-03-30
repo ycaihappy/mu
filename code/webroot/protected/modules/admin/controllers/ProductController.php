@@ -309,8 +309,8 @@ class ProductController extends AdminController {
 				$supply->supply_city_id='未指定';
 			}
 		}
-		$supplyCategory=Term::getTermsByGroupId(14);
 		$supplyStatus=Term::getTermsByGroupId(1);
+		$isSupply=$type==18?true:false;
 		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
 		$data=compact('parentCategory','dataProvider','supplyStatus','supplyCategory','isSupply','rePosition','model');
 		$this->render('manageSupply',$data);

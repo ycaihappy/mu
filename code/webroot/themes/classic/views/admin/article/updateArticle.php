@@ -127,7 +127,7 @@ endif;?>
 <?php 
 Yii::app()->getClientScript()->registerScriptFile('/js/jquery.uploadPreview.js');
 $previewScript=<<<PREVIEW
-$("#Article_art_img").uploadPreview({ width:400, height: 280, imgDiv: "#imgDiv", imgType: ["bmp", "gif", "png", "jpg"] });
+$("#Article_art_img").uploadPreview({ width:400, height: 280, imgDiv: "#imgDiv", imgType: ["gif", "png", "jpg"] });
 PREVIEW;
 Yii::app()->getClientScript()->registerScript('Article#uploadPreview',$previewScript);
 ?>

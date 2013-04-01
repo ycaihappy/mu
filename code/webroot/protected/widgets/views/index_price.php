@@ -1,4 +1,4 @@
-<?php   if($this->beginCache('indexPrice')){ ?>
+<?php  # if($this->beginCache('indexPrice')){ ?>
     <div class="m-data-center ui-m-tab ui-m-border" id="J_Data_Center">
 		<div class="hd">				
 			<span class="on"><a href="<?php $this->getController()->createUrl('/price/index')?>">行情中心</a></span>
@@ -73,4 +73,4 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-<?php $this->endCache(); } ?>
+<?php #$this->endCache(); } ?>

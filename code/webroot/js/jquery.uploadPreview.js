@@ -30,7 +30,7 @@
 				
 				self.autoScaling = function () {
 					
-					if ($.browser.version == "7.0" || $.browser.version == "8.0")
+					if ($.browser.msie)
 						imgDiv.get(0).filters.item("DXImageTransform.Microsoft.AlphaImageLoader").sizingMethod = "image";
 					var img_width = imgDiv.width();
 					var img_height = imgDiv.height();
@@ -39,7 +39,7 @@
 						
 						var rate = (opts.width / img_width < opts.height / img_height) ? opts.width / img_width : opts.height / img_height;
 						if (rate <= 1) {
-							if ($.browser.version == "7.0" || $.browser.version == "8.0")
+							if ($.browser.msie)
 								imgDiv.get(0).filters.item("DXImageTransform.Microsoft.AlphaImageLoader").sizingMethod = "scale";
 							imgDiv.css({
 								width : img_width * rate,

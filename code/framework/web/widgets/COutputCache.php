@@ -134,11 +134,11 @@ class COutputCache extends CFilterWidget
 	 */
 	public $dependency;
 
-	private $_key;
-	private $_cache;
-	private $_contentCached;
-	private $_content;
-	private $_actions;
+	protected  $_key;
+	protected $_cache;
+	protected $_contentCached;
+	protected $_content;
+	protected $_actions;
 
 	/**
 	 * Performs filtering before the action is executed.

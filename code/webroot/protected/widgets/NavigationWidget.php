@@ -1,11 +1,11 @@
 <?php
-class NavigationWidget extends CWidget
+class NavigationWidget extends CCacheWidget
 {
-    public function init()
+    public function initWidget()
     {
     }
 
-    public function run()
+    public function runWidget()
     {
     	$controller=$this->getController()->getId();
         $this->render('navigation',array('controller'=>$controller));

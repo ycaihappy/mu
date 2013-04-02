@@ -19,7 +19,7 @@ class ProductController extends AdminController {
 	}
 	private function _manageProduct($isSpecial=0)
 	{
-		CQueryRequestHelper::registerLastQueryForm(array('parentCategory','Product'),'Product');
+		//CQueryRequestHelper::registerLastQueryForm(array('parentCategory','Product'),'Product');
 		$parentCategory=(int)@$_REQUEST['parentCategory'];
 		$model=new Product();
 		$model->product_type_id=(int)@$_REQUEST['Product']['product_type_id'];
@@ -30,7 +30,21 @@ class ProductController extends AdminController {
 		$productCriteria->order='find_in_set(product_status,\'33,1,2\'),product_join_date desc';
 		$productCriteria->select='product_id,product_name,product_quanity,product_city_id,product_join_date';
 		$productCriteria->addCondition('product_special='.$isSpecial);
-		if($parentCategory)
+		if($model->product_type_id)
+		{
+			$productCriteria->addCondition('product_type_id=:product_type_id');
+			$productCriteria->params[':product_type_id']=$model->product_type_id;
+		}
+		else {
+			if($parentCategory)
+			{
+				$allTypes=Term::getTermsByGroupId(14,false,$parentCategory,'',false);
+				$productCriteria->addInCondition('product_type_id', array_keys($allTypes));
+			}
+			
+		}
+		
+		/*if($parentCategory)
 		{
 			if($model->product_type_id)
 			{
@@ -42,7 +56,8 @@ class ProductController extends AdminController {
 				$productCriteria->addInCondition('product_type_id', array_keys($allTypes));
 			}
 			
-		}
+		}*/
+		
 		if($model->product_status)
 		{
 			$productCriteria->addCondition('product_status=:product_status');
@@ -254,7 +269,19 @@ class ProductController extends AdminController {
 		$supplyCriteria=new CDbCriteria();
 		$supplyCriteria->select='supply_id,supply_name,supply_city_id,supply_join_date';
 		$supplyCriteria->addCondition('supply_type='.$type);
-		if($parentCategory)
+		if($model->supply_category_id)
+		{
+			$supplyCriteria->addCondition('supply_category_id=:supply_category_id');
+			$supplyCriteria->params[':supply_category_id']=$model->supply_category_id;
+		}
+		else {
+			if($parentCategory)
+			{
+				$allTypes=Term::getTermsByGroupId(14,false,$parentCategory,'',false);
+				$supplyCriteria->addInCondition('supply_category_id', array_keys($allTypes));
+			}
+		}
+		/*if($parentCategory)
 		{
 			if($model->supply_category_id)
 			{
@@ -265,7 +292,7 @@ class ProductController extends AdminController {
 				$allTypes=Term::getTermsByGroupId(14,false,$parentCategory,'',false);
 				$supplyCriteria->addInCondition('supply_category_id', array_keys($allTypes));
 			}
-		}
+		}*/
 		if($model->supply_status)
 		{
 			$supplyCriteria->addCondition('supply_status=:supply_status');

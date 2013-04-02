@@ -32,7 +32,110 @@ case 2:
 		
 break;
 case 4:
-		  $this->widget('zii.widgets.CMenu',array(
+	$html=<<<tree
+<ul>
+	<li>
+		<a href="{$this->getController()->createUrl('product/manageProduct')}" target="mainFrame">现货管理</a>
+		<ul>
+tree;
+foreach ($productMenuType as $key=>$type)
+{
+$url=$this->getController()->createUrl('product/manageProduct',array('parentCategory'=>$key));
+$html.=<<<tree
+			<li><a href="{$url}" target="mainFrame">{$type['name']}</a>
+			<ul>
+tree;
+	foreach ($type['subTypes'] as $key=>$subType){
+		$url=$this->getController()->createUrl('product/manageProduct',array('Product[product_type_id]'=>$key));
+$html.=<<<tree
+				<li><a href="{$url}" target="mainFrame">{$subType}</a></li>
+tree;
+	}
+$html.=<<<tree
+			</ul>
+			</li>
+tree;
+}
+$html.=<<<tree
+		</ul>
+	</li>
+	<li><a href="{$this->getController()->createUrl('product/manageSpecial')}" target="mainFrame">特价管理</a>
+	<ul>
+tree;
+foreach ($productMenuType as $key=>$type)
+{
+$url=$this->getController()->createUrl('product/manageSpecial',array('parentCategory'=>$key));
+$html.=<<<tree
+			<li><a href="{$url}" target="mainFrame">{$type['name']}</a>
+			<ul>
+tree;
+	foreach ($type['subTypes'] as $key=>$subType){
+		$url=$this->getController()->createUrl('product/manageSpecial',array('Product[product_type_id]'=>$key));
+$html.=<<<tree
+				<li><a href="{$url}" target="mainFrame">{$subType}</a></li>
+tree;
+	}
+$html.=<<<tree
+			</ul>
+			</li>
+tree;
+}
+$html.=<<<tree
+		</ul>
+	</li>
+	<li><a href="{$this->getController()->createUrl('product/manageSupply')}" target="mainFrame">供应管理</a>
+		<ul>
+tree;
+foreach ($productMenuType as $key=>$type)
+{
+$url=$this->getController()->createUrl('product/manageSupply',array('parentCategory'=>$key));
+$html.=<<<tree
+			<li><a href="{$url}" target="mainFrame">{$type['name']}</a>
+			<ul>
+tree;
+	foreach ($type['subTypes'] as $key=>$subType){
+		$url=$this->getController()->createUrl('product/manageSupply',array('Supply[supply_category_id]'=>$key));
+$html.=<<<tree
+				<li><a href="{$url}" target="mainFrame">{$subType}</a></li>
+tree;
+	}
+$html.=<<<tree
+			</ul>
+			</li>
+tree;
+}
+$html.=<<<tree
+		</ul>
+	</li>
+	<li><a href="{$this->getController()->createUrl('product/manageBuy')}" target="mainFrame">求购管理</a>
+			<ul>
+tree;
+foreach ($productMenuType as $key=>$type)
+{
+$url=$this->getController()->createUrl('product/manageBuy',array('parentCategory'=>$key));
+$html.=<<<tree
+			<li><a href="{$url}" target="mainFrame">{$type['name']}</a>
+			<ul>
+tree;
+	foreach ($type['subTypes'] as $key=>$subType){
+		$url=$this->getController()->createUrl('product/manageBuy',array('Supply[supply_category_id]'=>$key));
+$html.=<<<tree
+				<li><a href="{$url}" target="mainFrame">{$subType}</a></li>
+tree;
+	}
+$html.=<<<tree
+			</ul>
+			</li>
+tree;
+}
+$html.=<<<tree
+		</ul>
+	</li>
+	<li><a href="{$this->getController()->createUrl('product/manageEnterprise')}" target="mainFrame">企业库管理</a></li>
+</ul>
+tree;
+echo $html;
+		  /*$this->widget('zii.widgets.CMenu',array(
 			'activeCssClass'=>'on',
 			'items'=>array(
 				array('label'=>'现货管理', 'url'=>array('product/manageProduct'),'linkOptions'=>array('target'=>'mainFrame'),'active'=>true),
@@ -42,7 +145,7 @@ case 4:
 				array('label'=>'企业库管理', 'url'=>array('product/manageEnterprise'),'linkOptions'=>array('target'=>'mainFrame')),
 			
 				),
-		)); 
+		));*/
 break;
 case 5:
 $html=<<<tree
@@ -67,42 +170,6 @@ $html.=<<<tree
 tree;
 echo $html;
 
-	/*$this->widget('system.web.widgets.CTreeView',array(
-	 	'animated' => 'normal',
-		'htmlOptions'=>array('class'=>'treeview-gray'),
-		'data'=>array(
-			array(
-				'text'=>'文章管理',
-			 	'expanded' => false,
-				'children'=>array(
-					array('text'=>'<a target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageNews',array('Article[art_category_id]'=>17)).'" >新闻管理</a>'),
-					array('text'=>'<a  target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageNews',array('Article[art_category_id]'=>16)).'" >行情管理</a>'),
-					array('text'=>'<a  target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageNews',array('Article[art_category_id]'=>20)).'" >百科管理</a>'),
-					array('text'=>'<a  target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageNews',array('Article[art_category_id]'=>98)).'" >展会管理</a>'),
-					array('text'=>'<a  target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageNews',array('Article[art_category_id]'=>103)).'" >服务管理</a>'),
-				),
-			),
-			array(
-				'hasChildren'=>false,
-				'text'=>'<a target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/manageImageLibary').'">图库管理</a>',
-			),
-			array(
-				'hasChildren'=>false,
-				'text'=>'<a target="mainFrame" href="'.$this->getController()->createUrl('/admin/article/managePriceSummary').'">行情走势数据</a>',
-				'children'=>array(),
-			),
-			
-		),
-	));
- /*$this->widget('zii.widgets.CMenu',array(
-			'activeCssClass'=>'on',
-			'items'=>array(
-				array('label'=>'文章管理', 'url'=>array('article/manageNews'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
-				//array('label'=>'行情管理', 'url'=>array('article/managePrice'),'linkOptions'=>array('target'=>'mainFrame')),
-				array('label'=>'图库管理', 'url'=>array('article/manageImageLibary'),'linkOptions'=>array('target'=>'mainFrame')),
-				array('label'=>'行情走势数据', 'url'=>array('article/managePriceSummary'),'linkOptions'=>array('target'=>'mainFrame')),
-				),
-		)); */
 		break;
 case 6:
  $this->widget('zii.widgets.CMenu',array(

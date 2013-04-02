@@ -4,12 +4,14 @@ $this->breadcrumbs=array(
 	$isSpecial?'特价管理':'现货管理',
 );
 $productChangeStatusAction=$isSpecial?'changeSpecialStatus':'changeProductStatus';
+$queryFormAction=$isSpecial?'manageSpecial':'manageProduct';
 ?>
 <div class='changeSuccess'><?php echo Yii::app()->admin->getFlash('changeStatus');?></div>
 <div class='changeError'><?php echo Yii::app()->admin->getFlash('changeStatusError');?></div>
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',
+	'action'=>$this->createUrl($queryFormAction),
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,

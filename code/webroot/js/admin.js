@@ -5,7 +5,7 @@ $.extend(MU.mods,{
 	
 		self.find('li a').click(function(e){
 			if ($(this).next().is('ul')){
-				e.preventDefault();
+				//e.preventDefault();
 				$(this).next().slideToggle('fast');
 				return;
 			}

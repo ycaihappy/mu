@@ -61,6 +61,9 @@ a:active{text-decoration:underline;}
 .m-left-panel li{line-height:30px;position:relative;}
 .m-left-panel li a:hover{color:#fff;background:url(imgs/menu-ico-h.png) no-repeat 90% center #54a4ff}
 .m-left-panel li ul li a{padding-left:45px;background-position:30px center;}
+.m-left-panel li ul{display:none}
+.m-left-panel li ul li ul{display:none}
+.m-left-panel li ul li ul li a{padding-left:60px;background-position:45px center;}
 .m-left-panel li.on a{background:#0078ff;color:#fff}
 
 .m-left-panel .treeview li{height:auto;line-height:14px}

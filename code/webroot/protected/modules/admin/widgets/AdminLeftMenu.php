@@ -8,7 +8,19 @@ class AdminLeftMenu extends CWidget {
 	}
 	public function run(){
 		$articleType=Term::getTermsByGroupId(10,true,null,'',false);
-		$data=compact('articleType');
+		$productType=Term::getTermsByGroupId(14,true,null,'',false);
+		if($productType)
+		{
+			$productMenuType=array();
+			foreach ($productType as $key=>$type)
+			{
+				$tempType=array();
+				$tempType['name']=$type;
+				$tempType['subTypes']=Term::getTermsByGroupId(14,false,$key,'',false);
+				$productMenuType[$key]=$tempType;
+			}
+		}
+		$data=compact('articleType','productMenuType');
 		$this->render('adminLeftMenu',$data);
 	}
 

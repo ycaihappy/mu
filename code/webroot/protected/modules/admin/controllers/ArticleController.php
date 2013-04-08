@@ -221,7 +221,7 @@ class ArticleController extends AdminController {
 		else {
 			Yii::app()->admin->setFlash('changeStatusError','更新异常');
 		}
-		$this->redirect(array($redirectAction,'page'=>Yii::app()->request->getParam('page',1)));
+		$this->redirect(array('manageNews'));
 	}
 	public function actionManageImageLibary()
 	{

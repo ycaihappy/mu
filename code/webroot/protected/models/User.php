@@ -118,6 +118,14 @@ class User extends CActiveRecord
 	{
 		return $sex==1?'先生':'女士';
 	}
+	public function beforeSave()
+	{
+		if($this->isNewRecord)
+		{
+			$this->user_join_date=date('Y-m-d H:i:s');
+		}
+		return parent::beforeSave();
+	}
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

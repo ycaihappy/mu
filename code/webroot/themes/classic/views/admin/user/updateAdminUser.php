@@ -49,11 +49,11 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'user_mobile_no'); ?>
 		</td>
 </tr>
-<tr>
+<!--<tr>
 <td class="label">地点：</td>
-		<td><?php echo $form->dropDownList($model,'user_city_id',$allCity); ?>
-		<?php echo $form->error($model,'user_city_id'); ?></td>
-</tr>
+		<td><?php //echo $form->dropDownList($model,'user_city_id',$allCity); ?>
+		<?php //echo $form->error($model,'user_city_id'); ?></td>
+</tr>  -->
 <tr>
 <td class="label">创建时间：</td>
 		<td>

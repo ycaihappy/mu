@@ -583,7 +583,7 @@ class UserController extends AdminController
 		$userCriteria->select='user_id,user_name,user_first_name,user_nickname,user_email,user_join_date,user_last_login_date';
 		$userCriteria->with=array('enterprise'=>array('select'=>'ent_name'),
 		'status'=>array('select'=>'term_name'),
-		'role'=>array('select'=>'name'),
+		'role'=>array('select'=>'zh_name'),
 		'type'=>array('select'=>'group_name,group_logo'),
 		);
 		$userCriteria->order='user_id desc';
@@ -593,8 +593,9 @@ class UserController extends AdminController
 		}
 		else {
 			$userCriteria->addCondition('user_type=:user_type');
+			$userCriteria->params[':user_type']=$userType;
 		}
-		$userCriteria->params[':user_type']=$userType;
+		
 		if($model->user_status)
 		{
 			$userCriteria->compare('user_status', '='.$model->user_status);
@@ -620,7 +621,7 @@ class UserController extends AdminController
 					$roles=array();
 					foreach ($user->role as $role)
 					{
-						$roles[]=$role->name;
+						$roles[]=$role->zh_name;
 					}
 					$user->user_type=implode('， ', $roles);
 				}

@@ -2,12 +2,12 @@
 
 
 
-class DataBackController extends AdminController {
+class DataBackController extends Controller {
 
 	private $config;
 	private $mr;
 
-	public function __construct(){//初始化相关属性
+	/*public function __construct(){//初始化相关属性
 		Yii::import('application.extensions.mysql_back', TRUE);//导入Mysql备份类库
 		$connect_str = parse_url(Yii::app()->db->connectionString);
 		$re_str = explode('=', implode('=', explode(';', $connect_str['path'])));//取得数据库IP,数据库名
@@ -26,9 +26,7 @@ class DataBackController extends AdminController {
 		$this->mr = new mysql_back($this->config);
 	}
 
-	/**
-	 * @显示已备份的数据列表
-	 */
+	
 	public function actionShow_data(){
 		$path = $this->config['path'];
 		$fileArr = $this->MyScandir($path);
@@ -52,9 +50,7 @@ class DataBackController extends AdminController {
 		$this->render('/site/data_back',array('data'=>$list));
 	}
 	 
-	/**
-	 * @备份数据库
-	 */
+	
 	public function actionBackup(){
 		$this->mr->setDBName($this->config['dbname']);
 		if($this->mr->backup()){
@@ -64,9 +60,7 @@ class DataBackController extends AdminController {
 		}
 	}
 
-	/**
-	 * @删除数据备份
-	 */
+	
 	public function actionDelete_back(){
 		if(unlink($this->config['path'] . $_GET['file'])){
 			messages::show_msg($this->createUrl('databack/show_data'), '删除备份成功！!');
@@ -75,16 +69,12 @@ class DataBackController extends AdminController {
 		}
 	}
 
-	/**
-	 * @下载备份文件
-	 */
+	
 	public function actionDownloadbak(){
 		$this->download($this->config['path'] . $_GET['file']);
 	}
 
-	/**
-	 * @还原数据库
-	 */
+	
 	public function actionrecover(){
 		$this->mr->setDBName($this->config['dbname']);
 		if($this->mr->recover($_GET['file'])){
@@ -94,9 +84,7 @@ class DataBackController extends AdminController {
 		}
 	}
 
-	/**
-	 * @获取目录下文件数组
-	 */
+	
 	public function MyScandir($FilePath='./',$Order=0){
 		$FilePath = opendir($FilePath);
 		while($filename = readdir($FilePath)) {
@@ -106,9 +94,7 @@ class DataBackController extends AdminController {
 		return $fileArr;
 	}
 
-	/**
-	 * @公共下载方法
-	 */
+	
 	public function download($filename){
 		ob_end_clean();
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -117,7 +103,7 @@ class DataBackController extends AdminController {
 		header('Content-Length: '.filesize($filename));
 		header('Content-Disposition: attachment; filename='.basename($filename));
 		readfile($filename);
-	}
+	}*/
 
 }
 

@@ -1,7 +1,7 @@
 <?php  # if($this->beginCache('indexPrice')){ ?>
     <div class="m-data-center ui-m-tab ui-m-border" id="J_Data_Center">
 		<div class="hd">				
-			<span class="on"><a href="<?php Yii::app()->controller->createUrl('/price/chart')?>">行情中心</a></span>
+			<span class="on"><a href="<?php echo Yii::app()->controller->createUrl('/price/chart')?>">行情中心</a></span>
 		</div>
 		<div class="bd">
 			<div class="chart-area">

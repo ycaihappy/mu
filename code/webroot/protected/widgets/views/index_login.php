@@ -1,7 +1,7 @@
 		
 		<div class="m-qk-login" id="J_QkLogin">
 		<?php if(Yii::app()->user->isGuest):?>
-			<div class="bd">
+			<!--<div class="bd">
 				<form name="qklogin" action="<?php echo $this->getController()->createUrl('/uehome/user/ajaxLogin')?>">
 				<ul>
 					<li><label>用户名：</label><div class="fields"><input type="text" name="UserLoginForm[username]" /></div></li>
@@ -10,7 +10,7 @@
 					
 				</ul>
 				</form>
-			</div>
+			</div>-->
 			<?php endif;?>
 <?php if (Yii::app()->user->getID()):?>
 			<div class="bd logined">

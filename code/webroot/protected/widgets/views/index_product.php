@@ -24,6 +24,9 @@
 					                ),'style'=>'width:120px'
                 				))?>
                 				<?php echo CHtml::dropDownList('smallType', 0, array(),array('empty'=>'全部','style'=>'width:120px'))?>
+								
+							</div>
+							<div>
 								<span>存货地</span><?php echo CHtml::dropDownList('province', 0, $allProvince)?>
 								<span>品阶</span><input name="muContent" type="text" style="width:129px"/>
 							</div>
@@ -34,7 +37,7 @@
 							</div>
 							
 						</form>
-						<table cellspacing="0" cellpadding="0" width="100%">
+						<!--<table cellspacing="0" cellpadding="0" width="100%">
 						<tr>
 							<?php
 							if($layerCategory):
@@ -61,7 +64,33 @@
 								endif;
 								?>
 							</ul>
-						</div>
+						</div>-->
+					</div></div>
+						<div class="ft">
+						<div class="scroll" id="J_ImgScroller_3" data-type="vertical">
+						<ul>
+						
+						<li>
+                                <dt>钼铁钼棒回收钼片钼块回收钼渣回收上海钼丝废钼回收，品类：钼铁 ， 品质：49，联系人：李先生，电话：18666666，提货地：辽宁省</dt>
+                                <dd><a href="/index.php?r=supply/view&amp;supply_id=70">镇江市金广铁合金有限公司(钼贸易型企业)</a> 发表于 2013/03/07</dd>
+						</li>
+						<li>
+                                <dt>钼铁钼棒回收钼片钼块回收钼渣回收上海钼丝废钼回收，品类：钼铁 ， 品质：49，联系人：李先生，电话：18666666，提货地：辽宁省</dt>
+                                <dd><a href="/index.php?r=supply/view&amp;supply_id=70">镇江市金广铁合金有限公司(钼贸易型企业)</a> 发表于 2013/03/07</dd>
+						</li>
+						<li>
+                                <dt>钼铁钼棒回收钼片钼块回收钼渣回收上海钼丝废钼回收，品类：钼铁 ， 品质：49，联系人：李先生，电话：18666666，提货地：辽宁省</dt>
+                                <dd><a href="/index.php?r=supply/view&amp;supply_id=70">镇江市金广铁合金有限公司(钼贸易型企业)</a> 发表于 2013/03/07</dd>
+						</li>
+						<li>
+                                <dt>钼铁钼棒回收钼片钼块回收钼渣回收上海钼丝废钼回收，品类：钼铁 ， 品质：49，联系人：李先生，电话：18666666，提货地：辽宁省</dt>
+                                <dd><a href="/index.php?r=supply/view&amp;supply_id=70">镇江市金广铁合金有限公司(钼贸易型企业)</a> 发表于 2013/03/07</dd>
+						</li>
+                	            	
+                	            		
+                	    
+                </dl></div>
+						
 					</div>
-			</div>
+			
 <?php $this->endCache(); } ?>

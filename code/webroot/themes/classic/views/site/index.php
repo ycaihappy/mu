@@ -14,13 +14,51 @@
 <div class="layout main">
 
     <div class="layout-area">
-        <?php $this->widget('IndexNewsWidget');?>
+       
         <?php $this->widget('IndexAdsWidget');?>
-        <?php $this->widget('IndexLoginWidget');?>
+		
+		<div class="price-area index-price">
+				<div class="ui-purple-hd  ui-m-tab4 ui-m-border">
+						<span class="on">稀土资源</span><span>黄金</span>
+						
+				</div>
+				<div class="bd">
+					<ul>
+					<table width="100%" cellspacing="0" cellpadding="0">
+						<tbody><tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
+												<tr><td>钨矿</td><td>120000</td><td> ↑ 20</td><td>浙江有色</td></tr>
+												<tr><td>钨矿</td><td>120000</td><td> ↑ 12</td><td>浙江有色</td></tr>
+												<tr><td>钨矿</td><td>120000</td><td> - </td><td>浙江有色</td></tr>
+												<tr><td>钨矿</td><td>120000</td><td> ↑ 20</td><td>浙江有色</td></tr>
+												<tr><td>钨矿</td><td>5221</td><td> ↑ 44</td><td>浙江有色</td></tr>
+												<tr><td>钨矿</td><td>120000</td><td> - </td><td>浙江有色</td></tr>
+												<tr><td>钨矿</td><td>120000</td><td> ↑ 20</td><td>浙江有色</td></tr>
+											
+											</tbody></table>
+					</ul>
+					<ul class="hide" style="display: none;">
+					<table width="100%" cellspacing="0" cellpadding="0">
+						<tbody><tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
+												<tr><td>黄金</td><td>300000</td><td> ↑ 23</td><td>浙江有色</td></tr>
+												<tr><td>白银</td><td>2000</td><td> ↑ 23</td><td>浙江有色</td></tr>
+												<tr><td>白金</td><td>400000</td><td> ↑ 21</td><td>浙江有色</td></tr>
+												<tr><td>铜</td><td>1765</td><td> - </td><td>浙江有色</td></tr>
+												<tr><td>黄金</td><td>300000</td><td> ↑ 23</td><td>浙江有色</td></tr>
+												<tr><td>黄金</td><td>300000</td><td> ↑ 23</td><td>浙江有色</td></tr>
+												<tr><td>铜1</td><td>1765</td><td> - </td><td>浙江有色</td></tr>
+												
+											</tbody></table>
+					</ul>
+				</div>
+			</div>
+		
+		
+        <?php $this->widget('IndexNewsWidget');?>
 
         <div class="clearfix"></div>
     </div>
     <div class="layout-area">
+	 <?php $this->widget('IndexLoginWidget');?>
 	 <div class="m-b2c ui-m-tab ui-m-border" id="J_Data_Center_2">
             <?php $this->widget('IndexProductWidget');?>
  

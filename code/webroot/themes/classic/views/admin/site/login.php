@@ -47,6 +47,14 @@
                               </span></label>
                           
                           </div>
+                          <?php if(CCaptcha::checkRequirements()): ?>
+                          <div><label><span class="wz">验证码:</span>   
+                          <?php echo $form->textField($model,'verifyCode',array('style'=>'width:70px')); ?>
+						<?php $this->widget('CCaptcha',array('showRefreshButton'=>false,'clickableImage'=>true,'imageOptions'=>array('alt'=>'点击换图','title'=>'点击换图','style'=>'cursor:pointer;vertical-align:middle'))); ?>
+                		<?php echo $form->error($model,'verifyCode'); ?>
+                		</label>
+                		</div>
+                          <?php endif;?>
                             
                       
                         </div>

@@ -232,7 +232,6 @@ class CCaptchaAction extends CAction
 	protected function renderImage($code)
 	{
 		$image = imagecreatetruecolor($this->width,$this->height);
-
 		$backColor = imagecolorallocate($image,
 				(int)($this->backColor % 0x1000000 / 0x10000),
 				(int)($this->backColor % 0x10000 / 0x100),
@@ -266,8 +265,8 @@ class CCaptchaAction extends CAction
 			$box = imagettftext($image,$fontSize,$angle,$x,$y,$foreColor,$this->fontFile,$letter);
 			$x = $box[2] + $this->offset;
 		}
-
 		imagecolordeallocate($image,$foreColor);
+		ob_clean();
 		header('Pragma: public');
 		header('Expires: 0');
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');

@@ -31,6 +31,7 @@ class AdminModule extends CWebModule
 		),
 		), false);
 		
+		
 		//$this->generatorPaths[]='admin.generators';
 		//$this->controllerMap=$this->findGenerators();
 	}
@@ -45,7 +46,9 @@ class AdminModule extends CWebModule
                         'site/error',
 			);
 			if(Yii::app()->admin->isGuest && !in_array($route,$publicPages))
-			Yii::app()->admin->loginRequired();
+			{
+				Yii::app()->admin->loginRequired();
+			}
 			else
 			return true;
 		}

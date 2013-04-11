@@ -40,7 +40,7 @@ return array(
 		),
 		'admin'=>array(
 				'alwaysAllowedPath'=>'application.components',
-				'alwaysAllowed'=>array('admin-SiteLogin','admin-SiteIndex'),
+				'alwaysAllowed'=>array('admin-SiteLogin','admin-SiteIndex','admin-SiteCaptcha'),
 				'debug'=>false,
 				'notAuthorizedView'=>'/site/unauthorized',
 		),

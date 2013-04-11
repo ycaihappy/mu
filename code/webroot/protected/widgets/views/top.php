@@ -1,6 +1,6 @@
 <div class="m-top">
 	<div class="layout">
-	<p class="user-info">
+	<div class="user-info">
 	<?php if(Yii::app()->user->isGuest):?>
        <!-- <a href="<?php echo Yii::app()->controller->createUrl('uehome/user/login');?>">请登陆</a>-->
 	
@@ -9,20 +9,20 @@
 				<ul>
 					<li><label>用户名：</label><div class="fields"><input type="text" name="UserLoginForm[username]" /></div></li>
 					<li><label>密码：</label><div class="fields"><input type="password" name="UserLoginForm[password]"  /></div></li>
-					<li><div class="btn"><a href="<?php echo $this->getController()->createUrl('/uehome/user/findPwd')?>" class="forget">找回密码?</a> <button type="button" class="btn-red">登 录</button></div></li>
+					<li><div class="btn"> <button type="button" class="btn-red">登 录</button> <a href="<?php echo $this->getController()->createUrl('/uehome/user/findPwd')?>" class="forget">找回密码?</a> | <a href="<?php echo Yii::app()->controller->createUrl('uehome/user/register');?>">免费注册</a></div></li>
 					
 				</ul>
 				</form>
 			</div>
-			<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/register');?>">免费注册 </a>
+			
 			
 			
 		
 	<?php else:?>
 		您好，<?php echo Yii::app()->user->getName()?> ！ <a href="<?php echo Yii::app()->controller->createUrl('uehome/user/logout');?>">[退出]</a>
 	<?php endif;?>
-	</p>
-	<p class="site-tool">
+	</div>
+	<div class="site-tool">
 		<a href="<?php echo Yii::app()->controller->createUrl('uehome/user/index');?>">会员中心</a>
 		<!--<span>|</span>
 		<a href="">找回密码</a> -->
@@ -32,7 +32,7 @@
 		<a href="<?php echo Yii::app()->controller->createUrl('about/contact');?>">联系我们</a>
 		<span>|</span>
 		<a href="#" onclick="addfavorite();">收藏本站</a>
-	</p>
+	</div>
 	</div>
 </div>
 <script>

@@ -15,7 +15,7 @@
 			<div class="stat-area">
 				<div class="list">
 					<div class="ui-purple-hd">
-						<h6>原料行情</h6>
+						<h6>最新报价</h6>
 						<a href="<?php echo Yii::app()->controller->createUrl('price/index');?>" class="more">更多&gt;&gt;</a>
 					</div>
 					<ul>

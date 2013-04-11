@@ -135,7 +135,9 @@ endif;
 	<tr><td colspan="3" align="right"><button class="btn-a save">保存</button></td></tr>
 	</table>
 	</div>
-	
+	<br/>
+	<br/>
+	<br/>
 <?php 
 $cs=Yii::app()->getClientScript();
 $cs->registerCoreScript('jquery.ui');

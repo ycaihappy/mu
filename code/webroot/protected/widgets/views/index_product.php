@@ -14,7 +14,7 @@
 						
 						<form method='post' action="<?php echo $this->getController()->createUrl('/product/index') ?>">
 							<div>
-								<span>选择品种</span>
+								<span>品种</span>
 								<?php /*echo CHtml::dropDownList('bigType', $selectedType, $allBigType,array(
 									'ajax'=>array(
 					                    'type'=>'GET',

@@ -32,6 +32,12 @@ class PriceController extends BasicAccessController
 		$data=compact('adv','adv1');
 		$this->render('index',$data);
 	}
+	
+	public function actionSpecial() {
+		$data = array();
+		$this->render('special',$data);
+	}
+	
     public function actionQuery()
     {
         $creteria=new CDbCriteria();

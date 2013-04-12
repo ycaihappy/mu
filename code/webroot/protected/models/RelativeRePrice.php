@@ -77,7 +77,7 @@ class RelativeRePrice extends CActiveRecord
 			),
 		);
 	}
-	public function recentlyRePrice($reType=134,$limit=12)
+	public function recentlyRePrice($reType=134,$limit=7)
 	{
 		$recentlyCriteria=new CDbCriteria();
 		$recentlyCriteria->addCondition('re_type=:reType');

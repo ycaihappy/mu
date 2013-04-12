@@ -1,8 +1,8 @@
 <?php   if($this->beginCache('indexNews')){ ?>       
         <div class="m-new-hx" id="J_New_Tab_List">
 			<div class="hd">
-				<span class="on"><a href="">行业新闻</a></span>
-				<span class=""><a href="">国内新闻</a></span>
+				<span class="on"><a href="">行情分析</a></span>
+				<!--<span class=""><a href="">国内新闻</a></span>-->
 				<div class="clearfix"></div>
 			</div>
 			<div class="bd">

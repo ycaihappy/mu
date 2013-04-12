@@ -42,17 +42,17 @@
 						<!--<table cellspacing="0" cellpadding="0" width="100%">
 						<tr>
 							<?php
-							if($layerCategory):
+							/*if($layerCategory):
 									$count=count($layerCategory);
 									
-									for($i=1;$i<=$count;$i++):
+									for($i=1;$i<=$count;$i++):*/
 							?>
-							<td><a href="<?php echo $this->getController()->createUrl('/product/index',array('bigType'=>$layerCategory[$i-1]->term_parent_id,'smallType'=>$layerCategory[$i-1]->term_id))?>"><?php echo $layerCategory[$i-1]->term_name?></a></td>
-								<?php if($i%6==0&&$i<$count):?>
+							<td><a href="<?php //echo $this->getController()->createUrl('/product/index',array('bigType'=>$layerCategory[$i-1]->term_parent_id,'smallType'=>$layerCategory[$i-1]->term_id))?>"><?php echo $layerCategory[$i-1]->term_name?></a></td>
+								<?php // if($i%6==0&&$i<$count):?>
 								</tr><tr>
-								<?php endif;?>
-							<?php endfor;
-							endif;?>
+								<?php //endif;?>
+							<?php //endfor;
+							//endif;?>
 						</tr>		
 						</table>
 						<div class="ui-gallery" id="J_ImgScroller" data-type="horizontal">

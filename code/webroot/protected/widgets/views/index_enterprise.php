@@ -1,6 +1,6 @@
 		<div class="cg-area ui-m-tab ui-m-border">
 						<div class="hd">
-								<span class="on">推荐企业</span>
+								<span class="on">入市企业</span>
 						</div>
 						<div class="ulist" id="J_ImgScroller_1" data-type="vertical">
 							<ul>

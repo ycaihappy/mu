@@ -52,14 +52,14 @@ else
 			<?php if($adv):?>
 		<a target="_blank" href="<?php echo $adv[0]->ad_link?>">
 		
-		<img width="210" height="120" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
+		<img width="210" height="105" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
 		<?php endif;?>
 		</div>
 			<div class="ad">
 			<?php if($adv):?>
 		<a target="_blank" href="<?php echo $adv[0]->ad_link?>">
 		
-		<img width="210" height="120" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
+		<img width="210" height="105" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
 		<?php endif;?>
 		
 		</div>

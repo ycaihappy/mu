@@ -25,7 +25,7 @@
 		<?php if($adv):?>
 		<a target="_blank" href="<?php echo $adv[0]->ad_link?>" class="cmp-ad">
 		
-		<img width="288" height="135" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
+		<img width="288" height="115" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
 		<?php endif;?>
 		
 		</div>

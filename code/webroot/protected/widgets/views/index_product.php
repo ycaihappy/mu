@@ -15,23 +15,24 @@
 						<form method='post' action="<?php echo $this->getController()->createUrl('/product/index') ?>">
 							<div>
 								<span>选择品种</span>
-								<?php echo CHtml::dropDownList('bigType', $selectedType, $allBigType,array(
+								<?php /*echo CHtml::dropDownList('bigType', $selectedType, $allBigType,array(
 									'ajax'=>array(
 					                    'type'=>'GET',
 					                    'url'=>$this->getController()->createUrl('/site/getChildrenTerms'),
 					                    'update'=>'#smallType',
 					                    'data'=>array('group_id'=>"14",'parent_id'=>'js:this.value')
 					                ),'style'=>'width:120px'
-                				))?>
-                				<?php echo CHtml::dropDownList('smallType', 0, $smallTypies,array('empty'=>'全部','style'=>'width:120px'))?>
-								
-							</div>
-							<div>
+                				))*/?>
+                				<?php echo CHtml::dropDownList('smallType', $selectedType, $typies,array('empty'=>'全部','style'=>'width:120px'))?>
 								<span>存  货  地</span><?php echo CHtml::dropDownList('province', 0, $allProvince)?>
 								<button style="float:right" type="submit" class="ui-m-btn btn-purple-medium">搜索</button>
-								<!--<span>品阶</span><input name="muContent" type="text" style="width:129px"/>  -->
 							</div>
 							<!--<div>
+								<span>存  货  地</span><?php // echo CHtml::dropDownList('province', 0, $allProvince)?>
+								<button style="float:right" type="submit" class="ui-m-btn btn-purple-medium">搜索</button>
+								<span>品阶</span><input name="muContent" type="text" style="width:129px"/> 
+							</div>
+							<div>
 								<span>生产厂家</span>
 								<input name="enterprise" type="text" style="width:237px" />
 								<button style="float:right" type="submit" class="ui-m-btn btn-purple-medium">搜索</button>

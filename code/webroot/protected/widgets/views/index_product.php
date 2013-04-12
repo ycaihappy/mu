@@ -23,7 +23,7 @@
 					                    'data'=>array('group_id'=>"14",'parent_id'=>'js:this.value')
 					                ),'style'=>'width:120px'
                 				))?>
-                				<?php echo CHtml::dropDownList('smallType', 0, array(),array('empty'=>'全部','style'=>'width:120px'))?>
+                				<?php echo CHtml::dropDownList('smallType', 0, $smallTypies,array('empty'=>'全部','style'=>'width:120px'))?>
 								
 							</div>
 							<div>

@@ -46,6 +46,7 @@ class IndexProductWidget extends CWidget
     		}
     	}
     	$selectedType=28;//默认选择钼初级
+    	$smallTypies=Term::getTermsByGroupId(14,false,$selectedType,'',false);
     	//产品推荐
     	$recProductCriteria=new CDbCriteria();
     	$recProductCriteria->select='product_id,product_name,product_image_src,product_mu_content,product_quanity,product_join_date';
@@ -54,6 +55,6 @@ class IndexProductWidget extends CWidget
     	$recProductCriteria->order='product_id desc';
     	$recProductCriteria->limit=20;
     	$recProducts=Product::model()->findAll($recProductCriteria);
-        $this->render('index_product',array('selectedType'=>$selectedType,'recProducts'=>$recProducts,'layerCategory'=>$layerCategory,'allProvince'=>$allProvince,'allBigType'=>$allBigType,'type'=>$this->type, 'data'=>$this->newlist,'proTypes'=>$this->proTypes,'ent'=>$advEnt));
+        $this->render('index_product',array('smallTypies'=>$smallTypies,'selectedType'=>$selectedType,'recProducts'=>$recProducts,'layerCategory'=>$layerCategory,'allProvince'=>$allProvince,'allBigType'=>$allBigType,'type'=>$this->type, 'data'=>$this->newlist,'proTypes'=>$this->proTypes,'ent'=>$advEnt));
 	}
 }

@@ -47,7 +47,9 @@
 									
 									for($i=1;$i<=$count;$i++):*/
 							?>
+
 							<td><a href="<?php //echo $this->getController()->createUrl('/product/index',array('bigType'=>$layerCategory[$i-1]->term_parent_id,'smallType'=>$layerCategory[$i-1]->term_id))?>"><?php //echo $layerCategory[$i-1]->term_name?></a></td>
+
 								<?php // if($i%6==0&&$i<$count):?>
 								</tr><tr>
 								<?php //endif;?>

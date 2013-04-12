@@ -220,6 +220,15 @@ padding-right: 1px;
 .m-index-ad1 .pic{position:relative;height: 225px;overflow: hidden;width: 300px;}
 .m-index-ad1 .pic img{width:300px;height:225px}
 
+
+
+.m-special-ad{width:450px;float:left;margin-right:8px;position:relative;display:inline}
+.m-special-ad .pic{position:relative;height: 225px;overflow: hidden;width: 450px;}
+.m-special-ad .pic img{width:450px;height:225px}
+
+.special-index{margin-right:10px;}
+
+
 .m-supply-ad{width:290px;float:left;margin-right:20px;display:inline}
 .m-supply-ad .pic{position:relative;height: 287px;overflow: hidden;width: 290px;}
 

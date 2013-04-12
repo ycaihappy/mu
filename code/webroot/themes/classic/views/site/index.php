@@ -19,7 +19,7 @@
 		
 		<div class="price-area index-price">
 				<div class="ui-purple-hd  ui-m-tab4 ui-m-border">
-						<span class="on">稀土资源</span><span>黄金</span>
+						<span class="on">市场价格</span><span>现货价格</span>
 						
 				</div>
 				<div class="bd">

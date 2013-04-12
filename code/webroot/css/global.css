@@ -1613,7 +1613,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-b2c{width:435px;float:left;display:inline;margin-right:10px}
 .m-b2c .bd{padding:5px;_padding-right:0px;}
 .m-b2c .ft{padding:5px}
-.m-b2c .scroll{height:325px;overflow:hidden;position:relative;}
+.m-b2c .scroll{height:260px;overflow:hidden;position:relative;}
 .m-b2c .scroll dt {
   font-size: 12px;
   line-height: 20px;

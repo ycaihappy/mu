@@ -1,18 +1,20 @@
 <?php
+$re_type=@$_REQUEST['RelativeRePrice']['re_type']?@$_REQUEST['RelativeRePrice']['re_type']:134;
 $this->breadcrumbs=array(
 	'系统'=>array('manageMessageTemplate'),
-	'钼相关稀土价格',
+	"{$allReTypes[$re_type]}价格",
 );
 ?>
 <?php 
+
 $this->widget('zii.widgets.jui.CJuiButton',
 		array(
 			'name'=>'addRelativeRePrice',
-				'caption'=>'添加相关稀土价格',
+				'caption'=>"添加{$allReTypes[$re_type]}价格",
 			'value'=>'asd',
 			'cssFile'=>'jquery.ui.css',
 			'onclick'=>'js:function(){
-			    location.href="'.Yii::app()->controller->createUrl("updateRelativeRePrice").'";
+			    location.href="'.Yii::app()->controller->createUrl("updateRelativeRePrice",array('RelativeRePrice[re_type]'=>$re_type)).'";
 			}',
 			)
 	);

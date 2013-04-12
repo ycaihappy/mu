@@ -1,0 +1,53 @@
+<?php
+
+
+
+class IndexRelativeRePriceWidget extends CWidget  {
+
+
+	public function run()
+	{
+	$rePrice=RelativeRePrice::model()->recentlyRePrice(148)->findAll();
+        if($rePrice)
+        {
+        	foreach ($rePrice as &$price)
+        	{
+        		switch ($price->re_fallup)
+        		{
+        			case 94:
+        				$price->re_fallup=' ↑ '.$price->re_margin;
+        				break;
+        			case 95:
+        				$price->re_fallup=' ↑ '.$price->re_margin;
+        				break;
+        			case 96:
+        				$price->re_fallup=' - ';
+        				break;
+        		}
+        	}
+        }
+    	$otherPrice=RelativeRePrice::model()->recentlyRePrice(149)->findAll();
+        if($otherPrice)
+        {
+        	foreach ($otherPrice as &$price)
+        	{
+        		switch ($price->re_fallup)
+        		{
+        			case 94:
+        				$price->re_fallup=' ↑ '.$price->re_margin;
+        				break;
+        			case 95:
+        				$price->re_fallup=' ↑ '.$price->re_margin;
+        				break;
+        			case 96:
+        				$price->re_fallup=' - ';
+        				break;
+        		}
+        	}
+        }
+        $this->render('index_relative_re_price',array('otherPrice'=>$otherPrice,'rePrice'=>$rePrice));
+	}
+}
+
+
+?>

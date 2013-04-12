@@ -98,6 +98,8 @@ class SystemController extends AdminController {
 			if($reId=@$_GET['re_id'])
 			{
 				$model=$model->findByPk($reId);
+			}elseif(isset($_GET['RelativeRePrice']['re_type'])){
+				$model->re_type=$_GET['RelativeRePrice']['re_type'];
 			}
 		}
 		$allStatus=Term::getTermsByGroupId(1);

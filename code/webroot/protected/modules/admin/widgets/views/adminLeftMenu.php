@@ -181,12 +181,24 @@ case 6:
 		)); 
 		break;
 case 7:
- $this->widget('zii.widgets.CMenu',array(
-			'activeCssClass'=>'on',
-			'items'=>array(
-				array('label'=>'邮件模板管理', 'url'=>array('system/manageMessageTemplate'),'linkOptions'=>array('target'=>'mainFrame',),'active'=>true),
-				array('label'=>'钼相关稀土价格', 'url'=>array('system/manageRelativeRePrice'),'linkOptions'=>array('target'=>'mainFrame',)),
-				),
-		)); 
+	$html=<<<tree
+<ul>
+<li><a href="{$this->getController()->createUrl('system/manageMessageTemplate')}" target="mainFrame">邮件模板管理</a></li>
+	<li>
+		<a href="{$this->getController()->createUrl('system/manageRelativeRePrice',array('RelativeRePrice[re_type]'=>134))}" target="mainFrame">钼相关价格</a>
+		<ul>
+tree;
+foreach ($relativeReType as $key=>$name)
+{
+$url=$this->getController()->createUrl('system/manageRelativeRePrice',array('RelativeRePrice[re_type]'=>$key));
+$html.=<<<tree
+			<li><a href="{$url}" target="mainFrame">{$name}</a></li>
+tree;
+}
+$html.=<<<tree
+		</ul>
+	</li>
+tree;
+echo $html;
 		endswitch;?>
 </div>

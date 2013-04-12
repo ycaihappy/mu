@@ -8,6 +8,7 @@ class AdminLeftMenu extends CWidget {
 	}
 	public function run(){
 		$articleType=Term::getTermsByGroupId(10,true,null,'',false);
+		$relativeReType=Term::getTermsByGroupId(20,true,null,'',false);
 		$productType=Term::getTermsByGroupId(14,true,null,'',false);
 		if($productType)
 		{
@@ -20,7 +21,7 @@ class AdminLeftMenu extends CWidget {
 				$productMenuType[$key]=$tempType;
 			}
 		}
-		$data=compact('articleType','productMenuType');
+		$data=compact('articleType','productMenuType','relativeReType');
 		$this->render('adminLeftMenu',$data);
 	}
 

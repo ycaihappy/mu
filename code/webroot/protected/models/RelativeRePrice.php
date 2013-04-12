@@ -72,16 +72,19 @@ class RelativeRePrice extends CActiveRecord
 	{
 		return  array(
 			'recentlyRePrice'=>array(
-				'condition'=>'re_status=1 and re_type=134',
-				'limit'=>12,
-				'order'=>'re_added_time desc',
-			),
-			'recentlyOtherPrice'=>array(
-				'condition'=>'re_status=1 and re_type=135',
-				'limit'=>12,
-				'order'=>'re_added_time desc',
+				'condition'=>'re_status=1',
+				'order'=>'re_id desc',
 			),
 		);
+	}
+	public function recentlyRePrice($reType=134,$limit=12)
+	{
+		$recentlyCriteria=new CDbCriteria();
+		$recentlyCriteria->addCondition('re_type=:reType');
+		$recentlyCriteria->params[':reType']=$reType;
+		$recentlyCriteria->limit=$limit;
+		$this->getDbCriteria()->mergeWith($recentlyCriteria);
+		return $this;
 	}
 
 	/**

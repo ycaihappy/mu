@@ -15,7 +15,7 @@
 						<form method='post' action="<?php echo $this->getController()->createUrl('/product/index') ?>">
 							<div>
 								<span>选择品种</span>
-								<?php echo CHtml::dropDownList('bigType', 0, $allBigType,array(
+								<?php echo CHtml::dropDownList('bigType', $selectedType, $allBigType,array(
 									'ajax'=>array(
 					                    'type'=>'GET',
 					                    'url'=>$this->getController()->createUrl('/site/getChildrenTerms'),
@@ -73,8 +73,8 @@
 						<ul>
 						<?php foreach ($recProducts as $product):?>
 						<li>
-                                <dt><?php echo $product->product_name;?>，品类：<?php echo $product->type?$product->type->term_name:'未指定'?> ， 品质：<?php echo $product->product_mu_content;?>，联系人：<?php echo $product->user?$product->user->user_first_name:'未指定'?>，电话：<?php echo $product->user?$product->user->user_mobile_no:'未指定' ?>，提货地：<?php echo $product->city?$product->city->city_name:'未指定'?></dt>
-                                <dd><a href="<?php echo Yii::app()->controller->createUrl('/storeFront/default/index',array('username'=>$product->user->user_name))?>"><?php echo $product->user?$product->user->enterprise->ent_name:'未指定'?></a> 发表于 <?php echo date('Y/m/d',strtotime($product->product_join_date))?></dd>
+                                <dt><?php echo $product->product_name;?>，品类：<?php echo $product->type?$product->type->term_name:'未指定'?> ， 品质：<?php echo $product->product_mu_content;?>，数量：<?php echo $product->product_quanity.($product->unit?$product->unit->term_name:'吨')?>，联系人：<?php echo $product->user?$product->user->user_first_name:'未指定'?>，电话：<?php echo $product->user?$product->user->user_mobile_no:'未指定' ?>，提货地：<?php echo $product->city?$product->city->city_name:'未指定'?></dt>
+                                <dd><a href="<?php echo Yii::app()->controller->createUrl('/product/view',array('product_id'=>$product->product_id))?>"><?php echo $product->user?$product->user->enterprise->ent_name:'未指定'?></a> 发表于 <?php echo date('Y/m/d',strtotime($product->product_join_date))?></dd>
 						</li>
 						<?php endforeach;?>   	
                 	    </ul>

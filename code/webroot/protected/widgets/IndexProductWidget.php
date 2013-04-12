@@ -45,15 +45,15 @@ class IndexProductWidget extends CWidget
     			$layerCategory=$temp;
     		}
     	}
+    	$selectedType=28;//默认选择钼初级
     	//产品推荐
     	$recProductCriteria=new CDbCriteria();
-    	$recProductCriteria->select='product_id,product_name,product_image_src,product_join_date,product_mu_content';
-    	$recProductCriteria->with=array('user'=>array('select'=>'user_name,user_first_name,user_mobile_no'),'type'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name'),'user.enterprise'=>array('ent_name'));
-    	$recProductCriteria->join='inner join mu_recommend b on t.product_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=22 and b.recommend_position=117';
+    	$recProductCriteria->select='product_id,product_name,product_image_src,product_mu_content,product_quanity,product_join_date';
+    	$recProductCriteria->with=array('unit'=>array('select'=>'term_name'),'user'=>array('select'=>'user_name,user_first_name,user_mobile_no'),'type'=>array('select'=>'term_name','condition'=>'type.term_parent_id='.$selectedType),'city'=>array('select'=>'city_name'));
     	$recProductCriteria->condition='product_status=1';
-    	$recProductCriteria->order='product_id';
+    	$recProductCriteria->order='product_id desc';
     	$recProductCriteria->limit=20;
     	$recProducts=Product::model()->findAll($recProductCriteria);
-        $this->render('index_product',array('recProducts'=>$recProducts,'layerCategory'=>$layerCategory,'allProvince'=>$allProvince,'allBigType'=>$allBigType,'type'=>$this->type, 'data'=>$this->newlist,'proTypes'=>$this->proTypes,'ent'=>$advEnt));
+        $this->render('index_product',array('selectedType'=>$selectedType,'recProducts'=>$recProducts,'layerCategory'=>$layerCategory,'allProvince'=>$allProvince,'allBigType'=>$allBigType,'type'=>$this->type, 'data'=>$this->newlist,'proTypes'=>$this->proTypes,'ent'=>$advEnt));
 	}
 }

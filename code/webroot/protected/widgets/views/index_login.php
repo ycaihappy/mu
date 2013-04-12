@@ -47,11 +47,21 @@ else
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>仓单质押</a>
 
 			</div>
+			<div class="hd">
 			<div class="ad">
 			<?php if($adv):?>
 		<a target="_blank" href="<?php echo $adv[0]->ad_link?>">
 		
-		<img width="215" style="margin-top:12px" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
+		<img width="210" height="120" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
 		<?php endif;?>
+		</div>
+			<div class="ad">
+			<?php if($adv):?>
+		<a target="_blank" href="<?php echo $adv[0]->ad_link?>">
+		
+		<img width="210" height="120" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
+		<?php endif;?>
+		
+		</div>
 		</div>
 		</div>

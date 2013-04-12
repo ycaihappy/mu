@@ -1483,7 +1483,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
   margin-top: 5px;
   padding-left: 12px;
 }
-
+.cmp-ad{display:block;}
 .ui-m-border{border:1px solid #dedee0}
 .m-new-hx{width:255px;float:left;margin-right:10px;display:inline}
 .m-new-hx .bd{border:1px solid #dedee0;padding:10px;}
@@ -1506,6 +1506,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-qk-login .btn-red{margin-right:10px;}
 .m-qk-login .ft{border-top:1px solid #fafafa;padding:10px 0 0 10px;overflow:hidden;}
 .m-qk-login .ft .btn-purple{margin-bottom:7px;margin-right:10px;float:left;position:relative;display:inline;overflow:hidden;}
+.m-qk-login .hd .ad{text-align:center;margin-top:13px}
 .m-qk-login .logined{padding-top:0;}
 .m-qk-login .logined li{width:50%;float:left;}
 .m-qk-login .logined li i{margin:0 5px;margin-left:10px;display:inline-block;width:24px;height:22px;vertical-align:middle;background-repeat:no-repeat;background-position:left center;}

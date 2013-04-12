@@ -43,6 +43,8 @@ else
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>655))?>" class="btn-purple"><i class="ico-4"></i>物流配送</a>
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>656))?>" class="btn-purple"><i class="ico-1"></i>金融抵押</a>
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>657))?>" class="btn-purple"><i class="ico-3"></i>产品质检</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>653))?>" class="btn-purple"><i class="ico-4"></i>动产质押</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>仓单质押</a>
 
 			</div>
 		</div>

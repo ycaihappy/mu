@@ -27,14 +27,15 @@
 								
 							</div>
 							<div>
-								<span>存货地</span><?php echo CHtml::dropDownList('province', 0, $allProvince)?>
-								<span>品阶</span><input name="muContent" type="text" style="width:129px"/>
+								<span>存  货  地</span><?php echo CHtml::dropDownList('province', 0, $allProvince)?>
+								<button style="float:right" type="submit" class="ui-m-btn btn-purple-medium">搜索</button>
+								<!--<span>品阶</span><input name="muContent" type="text" style="width:129px"/>  -->
 							</div>
-							<div>
+							<!--<div>
 								<span>生产厂家</span>
 								<input name="enterprise" type="text" style="width:237px" />
 								<button style="float:right" type="submit" class="ui-m-btn btn-purple-medium">搜索</button>
-							</div>
+							</div>-->
 							
 						</form>
 						<!--<table cellspacing="0" cellpadding="0" width="100%">
@@ -67,29 +68,18 @@
 						</div>-->
 					</div></div>
 						<div class="ft">
+						<?php if($recProducts):?>
 						<div class="scroll" id="J_ImgScroller_3" data-type="vertical">
 						<ul>
-						
+						<?php foreach ($recProducts as $product):?>
 						<li>
-                                <dt>钼铁钼棒回收钼片钼块回收钼渣回收上海钼丝废钼回收，品类：钼铁 ， 品质：49，联系人：李先生，电话：18666666，提货地：辽宁省</dt>
-                                <dd><a href="/index.php?r=supply/view&amp;supply_id=70">镇江市金广铁合金有限公司(钼贸易型企业)</a> 发表于 2013/03/07</dd>
+                                <dt><?php echo $product->product_name;?>，品类：<?php echo $product->type?$product->type->term_name:'未指定'?> ， 品质：<?php echo $product->product_mu_content;?>，联系人：<?php echo $product->user?$product->user->user_first_name:'未指定'?>，电话：<?php echo $product->user?$product->user->user_mobile_no:'未指定' ?>，提货地：<?php echo $product->city?$product->city->city_name:'未指定'?></dt>
+                                <dd><a href="<?php echo Yii::app()->controller->createUrl('/storeFront/default/index',array('username'=>$product->user->user_name))?>"><?php echo $product->user?$product->user->enterprise->ent_name:'未指定'?></a> 发表于 <?php echo date('Y/m/d',strtotime($product->product_join_date))?></dd>
 						</li>
-						<li>
-                                <dt>钼铁钼棒回收钼片钼块回收钼渣回收上海钼丝废钼回收，品类：钼铁 ， 品质：49，联系人：李先生，电话：18666666，提货地：辽宁省</dt>
-                                <dd><a href="/index.php?r=supply/view&amp;supply_id=70">镇江市金广铁合金有限公司(钼贸易型企业)</a> 发表于 2013/03/07</dd>
-						</li>
-						<li>
-                                <dt>钼铁钼棒回收钼片钼块回收钼渣回收上海钼丝废钼回收，品类：钼铁 ， 品质：49，联系人：李先生，电话：18666666，提货地：辽宁省</dt>
-                                <dd><a href="/index.php?r=supply/view&amp;supply_id=70">镇江市金广铁合金有限公司(钼贸易型企业)</a> 发表于 2013/03/07</dd>
-						</li>
-						<li>
-                                <dt>钼铁钼棒回收钼片钼块回收钼渣回收上海钼丝废钼回收，品类：钼铁 ， 品质：49，联系人：李先生，电话：18666666，提货地：辽宁省</dt>
-                                <dd><a href="/index.php?r=supply/view&amp;supply_id=70">镇江市金广铁合金有限公司(钼贸易型企业)</a> 发表于 2013/03/07</dd>
-						</li>
-                	            	
-                	            		
-                	    
-                </dl></div>
+						<?php endforeach;?>   	
+                	    </ul>
+                	   </div>
+                <?php endif;?>
 						
 					</div>
 			

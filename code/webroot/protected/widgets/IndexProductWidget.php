@@ -47,7 +47,8 @@ class IndexProductWidget extends CWidget
     	}
     	//产品推荐
     	$recProductCriteria=new CDbCriteria();
-    	$recProductCriteria->select='product_id,product_name,product_image_src';
+    	$recProductCriteria->select='product_id,product_name,product_image_src,product_join_date,product_mu_content';
+    	$recProductCriteria->with=array('user'=>array('select'=>'user_name,user_first_name,user_mobile_no'),'type'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name'),'user.enterprise'=>array('ent_name'));
     	$recProductCriteria->join='inner join mu_recommend b on t.product_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=22 and b.recommend_position=117';
     	$recProductCriteria->condition='product_status=1';
     	$recProductCriteria->order='product_id';

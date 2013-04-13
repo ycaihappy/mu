@@ -77,6 +77,7 @@ class IndexModuleWidget extends CWidget
 	}
 	public function run()
 	{
+        if (empty($this->one)) return;
 		$this->render('index_module',array('data'=>$this->data,'one'=>$this->one,'title'=>$this->title,'more'=>$this->more));
 	}
 }

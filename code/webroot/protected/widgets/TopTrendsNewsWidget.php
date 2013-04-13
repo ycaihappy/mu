@@ -21,10 +21,11 @@ class TopTrendsNewsWidget extends CWidget {
 					$trendsOne->art_source=$this->getController()->createUrl('/news/view',array('art_id'=>$trendsOne->art_id));
 					unset($news);
 				}
-			}
+            }
+            $data=compact('trendsNews','trendsOne');
+            $this->render('top_trends_news',$data);
 		}
-		$data=compact('trendsNews','trendsOne');
-		$this->render('top_trends_news',$data);
+
 	}
 }
 

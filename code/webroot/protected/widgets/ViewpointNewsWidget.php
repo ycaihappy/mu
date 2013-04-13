@@ -15,12 +15,12 @@ class ViewpointNewsWidget extends CWidget {
 				$news->art_source=$this->getController()->createUrl('/news/view',array('art_id'=>$news->art_id));
 				$news->art_content=CStringHelper::truncate_utf8_string($news->art_content,180);
 			}
+            $viewpointOne=array_shift($viewpoint);
+            $data=compact('viewpoint','viewpointOne');
+            $this->render('viewpoint_news',$data);
 		}
-		$viewpointOne=array_shift($viewpoint);
-		$data=compact('viewpoint','viewpointOne');
-		$this->render('viewpoint_news',$data);
-	}
 
+	}
 }
 
 

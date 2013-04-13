@@ -7,14 +7,20 @@
 			</div>
 			<div class="bd">
 				<ul class="on">
-		<?php for($index=0;$index<8;$index++):?>
+<?php for($index=0;$index<8;$index++):
+if (isset($data[$index]))
+{
+?>
                             <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" target="_blank"><?php echo $data[$index]['art_title'] ?></a></li>
-					<?php endfor;?>			
+                    <?php } endfor;?>			
 				</ul>
 				<ul>
-        <?php for($index=0;$index<8;$index++):?>
+<?php for($index=0;$index<8;$index++):
+if (isset($mu_news[$index]))
+{
+        ?>
                             <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$mu_news[$index]['art_id']));?>" target="_blank"><?php echo $mu_news[$index]['art_title'] ?></a></li>
-                    <?php endfor;?>			
+                    <?php }endfor;?>			
 				</ul>
 			</div>
 		</div>

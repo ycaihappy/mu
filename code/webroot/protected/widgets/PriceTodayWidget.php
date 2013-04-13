@@ -32,6 +32,7 @@ class PriceTodayWidget extends CWidget
         $city  = City::getCityList();
         $category = Term::model()->getTermsListByGroupId(14);
 
-        $this->render('price_today',array('data'=>$this->today_price,'area'=>$this->area,'category'=>$category,'city'=>$city));
+        if ( !empty($this->area) && !empty($this->today_price))
+            $this->render('price_today',array('data'=>$this->today_price,'area'=>$this->area,'category'=>$category,'city'=>$city));
     }
 }

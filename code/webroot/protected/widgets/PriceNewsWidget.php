@@ -11,6 +11,7 @@ class PriceNewsWidget extends CWidget
 
     public function run()
     {
-        $this->render('price_news',array('data'=>$this->top_news,'mu_news'=>$this->top_mu_news));
+        if ( !empty($this->top_news) && !empty($this->top_mu_news) )
+            $this->render('price_news',array('data'=>$this->top_news,'mu_news'=>$this->top_mu_news));
     }
 }

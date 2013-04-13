@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2013-04-13 22:16:37
+Date: 2013-04-13 23:19:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -527,7 +527,6 @@ CREATE TABLE `mu_file` (
 -- ----------------------------
 -- Records of mu_file
 -- ----------------------------
-INSERT INTO mu_file VALUES ('3', 'asdfasdfsd', '69', 'fasdfasdf', 'uploads/4d26f7fb63c6328e4c69b422d8c1a56f.jpg', '1', '2013-03-07 22:59:51');
 
 -- ----------------------------
 -- Table structure for `mu_find_passwd`
@@ -643,10 +642,6 @@ CREATE TABLE `mu_message` (
 -- ----------------------------
 -- Records of mu_message
 -- ----------------------------
-INSERT INTO mu_message VALUES ('1', '3', '0', '3', 'ssdfasdf', 'asfasdfasdf', null, null);
-INSERT INTO mu_message VALUES ('2', '3', '企业名称:asdfasdf<br>联系人:asdfasdfasdf <br>发件人:xiaofuqian@live.cn<br>电话号码:023-4336763<br>', '0', 'asdf', 'asdfasdfasdfasdf', null, null);
-INSERT INTO mu_message VALUES ('3', '3', null, '101', '测试站内信', '测试站内信测试站内信测试站内信测试站内信测试站内信测试站内信测试站内信测试站内信测试站内信测试站内信测试站内信测试站内信', null, '2013-03-16 21:45:14');
-INSERT INTO mu_message VALUES ('4', '3', null, '101', '测试站内信', '测试站内信测试站内信测试站内信测试站内信', null, '2013-03-16 21:45:33');
 
 -- ----------------------------
 -- Table structure for `mu_message_template`
@@ -798,7 +793,7 @@ CREATE TABLE `mu_relative_re_price` (
   `re_added_time` datetime DEFAULT NULL COMMENT '添加时间',
   `re_updated_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`re_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COMMENT='相关稀土矿价格表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='相关稀土矿价格表';
 
 -- ----------------------------
 -- Records of mu_relative_re_price
@@ -1109,21 +1104,6 @@ CREATE TABLE `mu_sms_code` (
 -- ----------------------------
 -- Records of mu_sms_code
 -- ----------------------------
-INSERT INTO mu_sms_code VALUES ('1', '15015088124', '123456', '1', '2013-03-08 22:37:32');
-INSERT INTO mu_sms_code VALUES ('2', '13640654432', '123456', '1', '2013-03-08 23:04:25');
-INSERT INTO mu_sms_code VALUES ('3', '15015088124', '123456', '1', '2013-03-17 21:09:36');
-INSERT INTO mu_sms_code VALUES ('4', '15015088124', '123456', '1', '2013-03-17 21:16:18');
-INSERT INTO mu_sms_code VALUES ('5', '15015088124', '123456', '1', '2013-03-17 21:50:06');
-INSERT INTO mu_sms_code VALUES ('6', '13803799005', '123456', '1', '2013-03-17 21:58:18');
-INSERT INTO mu_sms_code VALUES ('7', '13700792898', '123456', '1', '2013-03-17 22:05:12');
-INSERT INTO mu_sms_code VALUES ('8', '13838832500', '123456', '1', '2013-03-17 22:10:21');
-INSERT INTO mu_sms_code VALUES ('9', '13837967256', '123456', '1', '2013-03-17 22:16:08');
-INSERT INTO mu_sms_code VALUES ('10', '13604299999', '123456', '1', '2013-03-17 22:23:10');
-INSERT INTO mu_sms_code VALUES ('11', '13332188282', '123456', '1', '2013-03-17 22:32:19');
-INSERT INTO mu_sms_code VALUES ('12', '13803888338', '123456', '1', '2013-03-17 22:38:40');
-INSERT INTO mu_sms_code VALUES ('13', '13592090678', '123456', '1', '2013-03-17 22:46:46');
-INSERT INTO mu_sms_code VALUES ('14', '13305110692', '123456', '1', '2013-03-19 23:16:06');
-INSERT INTO mu_sms_code VALUES ('15', '13910599929', '123456', '1', '2013-03-19 23:32:59');
 
 -- ----------------------------
 -- Table structure for `mu_store_front_setting`
@@ -1567,20 +1547,6 @@ CREATE TABLE `mu_user_article` (
 -- ----------------------------
 -- Records of mu_user_article
 -- ----------------------------
-INSERT INTO mu_user_article VALUES ('1', '3', '测试标题1', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '<p>&#12288;&#12288;中新社北京2月25日电 (张蔚然 常胜)中国外交部发言人华春莹25日对日本首相安倍晋三近日涉钓鱼岛言论作出反驳，称其逻辑荒谬，“不管日方如何狡辩，都掩盖不了其非法侵占中国领土的事实”。</p>\r\n\r\n<div id=\"hzh_div\" class=\"otherContent_01\" style=\"width: 200px; height: 300px; margin: 10px 20px 10px 0px; float: left; display: none; overflow: hidden; clear: both; padding: 4px; border: 1px solid rgb(205, 205, 205);\"><iframe scrolling=\"no\" width=\"200\" height=\"300\" frameborder=\"0\" id=\"ifm_hzh_div\" src=\"http://d4.sina.com.cn/sina/ae/2009/guonei_leftbutton.html\"></iframe></div><p>&#12288;&#12288;有记者提问，日本首相安倍晋三22日在美国“战略与国际问题研究中心”发表演讲称，历史和国际法均可证明“尖阁列岛”是日本领土，事实上，在1895到1971年间，没有一个国家对此提出质疑。中方对此有何评论？</p>\r\n\r\n<p>&#12288;&#12288;“上述言论的逻辑是荒谬的。就像一个人偷了别人的东西，在口袋里捂了一段时间，就能改变其偷窃并非法占据他人财产的实质吗？”华春莹反问道。</p>\r\n\r\n<p>&#12288;&#12288;她指出，不管日方如何狡辩，都掩盖不了其非法侵占中国领土的事实。</p>\r\n\r\n<p>&#12288;&#12288;华春莹表示，钓鱼岛是中国的固有领土，从15世纪到1895年的近500年间，没有任何国家挑战中国对钓鱼岛的主权。二战结束后，日本未按《开罗宣言》和《波茨坦公告》有关规定，履行作为战败国应尽的国际义务，将其窃取的钓鱼岛归还中国。日本迄今对钓鱼岛采取的一切行动都基于对中国领土的非法窃取和侵占，都是非法和无效的。</p>\r\n\r\n<p>&#12288;&#12288;“我们敦促日方端正态度，正视历史和现实，为妥善处理钓鱼岛问题、改善中日关系作出切实努力。”华春莹说。(完)</p>\r\n\r\n<p align=\"right\">(原标题：中方驳安倍涉钓言论：“偷”不能改变非法占据实质)</p><div style=\"font-size: 0px; height: 0px; clear: both;\"></div>\r\n<!-- publish_helper_end -->', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('2', '3', '测试标题2', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('3', '3', '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('4', '3', '测试标题3', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('5', '3', '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('6', '3', '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('7', '3', '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('8', '3', '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('9', '3', '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('10', '3', '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('11', '3', '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('12', '3', '测试标题', '', '', '测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试新闻内容测试\r\n', '1', '测试新闻内容测试新闻内容测', '2013-02-25 11:51:08', '2013-02-25 11:51:10');
-INSERT INTO mu_user_article VALUES ('13', '3', 'asdfasdfa', '', '', '', '0', '<p>\r\n	sdfasdfasdfasdfasdasdfasdfasdfasdfasdfasdfasd</p>\r\n', null, null);
-INSERT INTO mu_user_article VALUES ('14', '1', 'asdfasdfasd', '', '', '', '0', '<p>\r\n	asfafasdfasdfasdfasdfasdfadsf</p>\r\n', null, null);
 
 -- ----------------------------
 -- Table structure for `mu_user_certificate`

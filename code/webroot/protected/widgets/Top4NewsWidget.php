@@ -22,12 +22,15 @@ class Top4NewsWidget extends CWidget {
 		$artCriteria->condition='art_status=1';
 		$artCriteria->limit=1;
 		$headNews=Article::model()->find($artCriteria);
-		$headNews->art_title=CStringHelper::truncate_utf8_string($headNews->art_title, 20);
-		$headNews->art_source=$this->getController()->createUrl('/news/view',array('art_id'=>$headNews->art_id));
-		$headNews->art_content=CStringHelper::truncate_utf8_string(strip_tags($headNews->art_content), 85);
-		$topOne=array_shift($top4News);
-		$data=compact('top4News','topOne','headNews');
-		$this->render('top_4_news',$data);
+        if ( !empty($headNews) )
+        {
+            $headNews->art_title=CStringHelper::truncate_utf8_string($headNews->art_title, 20);
+            $headNews->art_source=$this->getController()->createUrl('/news/view',array('art_id'=>$headNews->art_id));
+            $headNews->art_content=CStringHelper::truncate_utf8_string(strip_tags($headNews->art_content), 85);
+            $topOne=array_shift($top4News);
+            $data=compact('top4News','topOne','headNews');
+            $this->render('top_4_news',$data);
+        }
 	}
 }
 

@@ -1,4 +1,4 @@
-<?php if($this->beginCache('indexSupply')){ ?>
+<?php #if($this->beginCache('indexSupply')){ ?>
         <div class="m-large-tab ui-m-tab ui-m-border" id="J_New_Tab_List">
 			<div class="hd">
 				<div class="tab">
@@ -17,19 +17,23 @@
 				<ul class="on">
                 <?php for($index=0;$index<20;$index++):
                     $class = ($index == 0) ? 'class="b"' : '';
+                    if (isset($data02[$index]))
+                    {
                 ?>
                     <li <?php echo $class;?>><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data02[$index]['supply_id']));?>"><?php echo $data02[$index]['supply_name'];?></a><em><?php echo date("m-d",strtotime($data02[$index]['supply_join_date']));?></em></li>
-	            <?php endfor;?>			   
+	            <?php }endfor;?>			   
 				</ul>
 				<ul >
                 <?php for($index=0;$index<20;$index++):
                     $class = ($index == 0) ? 'class="b"' : '';
+                    if ( isset($data01[$index]))
+                    {
                 ?>
                     <li <?php echo $class;?>><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$data01[$index]['supply_id']));?>"><?php echo $data01[$index]['supply_name'];?></a><em><?php echo date("m-d",strtotime($data01[$index]['supply_join_date']));?></em></li>
-	            <?php endfor;?>			   
+	            <?php }endfor;?>			   
 				</ul>
 				
 			</div>
 			<div class="clearfix"></div>
 		</div>
-<?php $this->endCache(); } ?>
+<?php #$this->endCache(); } ?>

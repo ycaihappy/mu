@@ -39,8 +39,15 @@
 						<a class="ad"><img src="images/73x62_2.gif" width="73" height="62" /></a>
 						<p>
 							<i></i>
+<?php
+                    if ( isset($mu_product[1]))
+                    {
+?>
                             <a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$mu_product[1]->art_id));?> "><?php echo $mu_product[1]->art_title;?></a>
                             <span><?php echo $mu_product[1]->art_tags;?></span>
+<?php
+                    }
+?>
 						</p>
 					</div>
 					

@@ -22,7 +22,7 @@
 	<div class="hd"></div>
 	<div class="bd">
 	<!--<div class="ui-m-crumb">
-		<p>你当前位置：<a href="<?php echo $this->createUrl('/service/index')?>">钼服务</a><em>&gt;</em><span><?php echo $service['art_title'];?></span></p>
+        <p>你当前位置：<a href="<?php echo $this->createUrl('/service/index')?>">钼服务</a><em>&gt;</em><span><?php echo isset($service['art_title']) ? $service['art_title'] : '';?></span></p>
 	</div>-->
 	<div class="cont">
 	<div class="grid-254">
@@ -33,6 +33,8 @@
 			<ul>
 			<?php 
 			$class1=$class2=$class3=$class4=$class5=$class6=$class7='';
+            if ( isset($service['art_id']) )
+            {
 			switch ($service['art_id'])
 			{
 				case 651:
@@ -56,7 +58,8 @@
 				case 657:
 					$class7='on';
 					break;
-			}
+            }
+            }
 			?>
 				<li class="<?php echo $class1?>"><a href="<?php echo $this->createUrl('/service/view',array('art_id'=>651))?>">仓储金融服务</a><i class="arrow"></i></li>
 				<li class="<?php echo $class2?>"><a href="<?php echo $this->createUrl('/service/view',array('art_id'=>652))?>">仓单质押(现货通)</a><i class="arrow"></i></li>

@@ -9,6 +9,9 @@ class ThemeSupplyWidget extends CWidget
         $criteria->limit = 20;
 
         $supply_category_list =Supply::model()->findAll($criteria);
-        $this->render('theme_supply',array('data'=>$supply_category_list));
+        $supply_type= Term::model()->getTermsByGroupId(11);
+        $city  = City::getAllCity();
+        $category = Term::model()->getTermsByGroupId(14);
+        $this->render('theme_supply',array('data'=>$supply_category_list,'supply_type'=>$supply_type,'category'=>$category,'city'=>$city));
     }
 }

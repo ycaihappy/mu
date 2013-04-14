@@ -29,7 +29,8 @@ class ServiceController extends Controller {
 		if($artId)
 		{
 			$service=$service->findByPk($artId);
-			$this->siteConfig->siteMetaTitle=$service->art_title;
+            if ( !empty($service) )
+                $this->siteConfig->siteMetaTitle=$service->art_title;
 		}
 		else
 		{

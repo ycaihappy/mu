@@ -750,8 +750,47 @@ $.extend(MU.mods,{
 			//});
 		});
 		
+	},
+	JSpecialChart : function () {
+		var self = $(this);
+		$.getAsset('script',['js/highcharts.js'],function(){
+			MU.mods.loadChart(self.find('.pic'),self.data('api'),{a:1});
+		});
 		
-		
+	},
+	loadChart : function (o,api,data) {
+		var d = $.extend({type:89,year:2013,month:1,to_year:2013,to_month:4},data);
+		$.post(api,d,function (re) {
+				o.highcharts({
+					chart: {
+						type: 'spline'
+					},
+					title: {
+						text: re.text
+					},
+					xAxis: {
+						categories: re.xAxis
+					},
+					yAxis: {
+						title: {
+							text: re.yAxis
+						}
+					},
+					tooltip: {
+						formatter: function () {
+							return '' +  this.series.name + ': ' + this.y + '';
+						}
+					},
+					credits: {
+						enabled: false
+					},
+					series: re.series,
+					exporting: {
+						enabled: false
+					}
+				});
+
+			},'json');
 	},
 	JPrdDetail : function () {
 		var self = $(this);

@@ -23,24 +23,30 @@ class ServiceController extends Controller {
 	}
 	public function actionView()
     {
+        $data = array();
         $this->layout = "//layouts/ajax_main";
         $artId=(int)Yii::app()->request->getParam('art_id');
         $service=new Article();
 		if($artId)
 		{
 			$service=$service->findByPk($artId);
-			$this->siteConfig->siteMetaTitle=$service->art_title;
+            if ( !empty($service) )
+                $this->siteConfig->siteMetaTitle=$service->art_title;
 		}
 		else
 		{
 			$this->redirect(array('/service/index'));
-		}
-		$this->siteConfig->siteMetaTitle=$service->art_title;
-        $this->siteConfig->siteMetaKeyword=$service->art_tags;
-        $this->siteConfig->siteMetaDescription=$service->art_summary;
+        }
+        if ( !empty($service) )
+        {
+            $this->siteConfig->siteMetaTitle=$service->art_title;
+            $this->siteConfig->siteMetaKeyword=$service->art_tags;
+            $this->siteConfig->siteMetaDescription=$service->art_summary;
+
+        }
         $adv1=CCacheHelper::getAdvertisement(139);
-		$data=compact('service','adv1');
-		$this->render('view',$data);
+        $data=compact('service','adv1');
+        $this->render('view',$data);
 	}
 }
 

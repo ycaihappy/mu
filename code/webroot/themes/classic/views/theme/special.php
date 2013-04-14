@@ -62,58 +62,13 @@
        <?php $this->widget('ThemeSupplyWidget');?>
 </div>
 <div class="grid-260">
-		
 		<div class="m-news-focus">
-        <!--module start-->
-<div class="ui-m-tab ui-m-border">
-                <div class="hd"><span class="on"><a href="#">国内标准</a></span></div>
-                 
-				<div class="bd">
-				<h3 class="bigsize"><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1067">钼钨氧化矿选矿工艺</a></h3><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1067">
-				</a><ul class="mod-list main-list"><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1067">
-																</a><li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1067"></a><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1069">钼铁的牌号及其用途</a></li>
-																		<li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1081">钼及其化合物的物理化学性质</a></li>
-																		<li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1082">金堆城钼业公司选矿工艺现状分析</a></li>
-																		<li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1090">关于钼的一般常识</a></li>
-																		<li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1093">磨矿介质对钼精矿碳含量影响研究</a></li>
-																		<li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1094">钼及其化合物的物理化学性质</a></li>
-																		<li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1095">钼及其化合物的物理化学性质</a></li>
-												</ul>
-				 </div>
-         </div>
-		 	<!--module start-->
-		<div class="m-gc-ad">
-				<a href="www.mushw.com" target="_blank">
-		
-		<img width="260" height="85" src="/images/advertisement/advertisement_0_1363879124_8791.png"></a>
-				</div>
-		<!--module end-->
-		 <div class="ui-m-tab ui-m-border">
-			   <div class="hd"><span class="on"><a href="#">国际标准</a></span></div>
-               
-                <div class="bd">
-                     <h3 class="bigsize"><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1063">金堆城钼业公司选矿工艺现状分析</a></h3>
-                     <ul class="mod-list main-list">
-   			                            <li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1065">钼及其化合物的物理化学性质</a></li>
-					                            <li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1066">金堆城钼业公司选矿工艺现状分析</a></li>
-					                            <li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1071">钼钨氧化矿选矿工艺</a></li>
-					                            <li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1074">钼铁的冶炼</a></li>
-					                            <li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1076">钼及其化合物的物理化学性质</a></li>
-					                            <li><a target="_blank" href="/index.php?r=knowledge/view&amp;art_id=1080">钼铁的冶炼</a></li>
-					                          
-								
-                     </ul>
-                    
-                </div>
+            <?php $this->widget('ThemeChinaWidget');?>
+	    	<div class="m-gc-ad">
+				<a href="www.mushw.com" target="_blank"><img width="260" height="85" src="/images/advertisement/advertisement_0_1363879124_8791.png"></a>
+			</div>
+            <?php $this->widget('ThemeWorldWidget');?>
         </div>
 </div>
-
-		<!--module end-->
-	
-		
-		<!--module start-->
-      
-		<!--module end-->
-        </div>
 
 </div>

@@ -45,7 +45,7 @@
 	</div>
 	<!--module end-->
 	<!--module start-->
-	<div id="J_SpecialChart" class="m-special-ad" data-api="/index.php?r=price/index">
+	<div id="J_SpecialChart" class="m-special-ad" data-api="/index.php?r=price/chart">
 			<div class="pic"></div>
 		</div>
 	<!--module end-->

@@ -145,6 +145,34 @@ $this->widget('zii.widgets.jui.CJuiButton',
 		}',
 		)
 );
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'delete',
+			'caption'=>'删除'.$alertTitle.'信息',
+		'value'=>'asd',
+		'onclick'=>'js:function(){
+		var selectedProducts=$("#yw0 .select-on-check:checked");
+			if(selectedProducts.size()<1)
+			{
+				alert("请选择要设为无效的'.$alertTitle.'信息！");
+			}
+			else
+			{
+				var url="'.Yii::app()->controller->createUrl('changeEnterpriseStatus',array('toStatus'=>147)).'";
+				$("#enterpriseForm").ajaxSubmit(
+					{
+						url:url,
+						success:function(msg){
+							alert(msg);
+							$.fn.yiiGridView.update("yw0");
+						},
+					}
+				);
+			}
+			return false;
+		}',
+		)
+);
 echo '   '.CHtml::dropDownList('info_pos', 0, $rePosition);
 $this->widget('zii.widgets.jui.CJuiButton',
 	array(

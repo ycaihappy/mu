@@ -24,7 +24,7 @@ $this->breadcrumbs=array(
 		</td>
 </tr>
 
-
+<tr>
 <td class="label">企业名称：</td>
 		<td><?php echo $form->textField($model,'ent_name',array('class'=>'cmp-input')); ?>
 		<?php echo $form->error($model,'ent_name'); ?></td>

@@ -49,70 +49,7 @@ if($adminUser)
 	$list=$adminUser?'adminUserList':'userList';
 	$this->renderPartial($list,array('dataProvider'=>$dataProvider));
 ?>
-<DIV>
-<input type="hidden" name="page" value="<?php echo Yii::app()->request->getParam('page',1);?>"/>
-<?php 
-if(!$adminUser):
-	$alertTitle='用户';
-	$this->widget('zii.widgets.jui.CJuiButton',
-		array(
-			'name'=>'pass',
-				'caption'=>'通过审核',
-			'value'=>'asd',
-			'onclick'=>'js:function(){
-				var selectedProducts=$("#J_RoleList .select-on-check:checked");
-				if(selectedProducts.size()<1)
-				{
-					alert("请选择要通过审核的'.$alertTitle.'信息！");
-				}
-				else
-				{
-					var url="'.Yii::app()->controller->createUrl('changeUserStatus',array('toStatus'=>1)).'";
-					$("#useForm").ajaxSubmit(
-						{
-							url:url,
-							success:function(msg){
-								alert(msg);
-								$.fn.yiiGridView.update("J_RoleList");
-							},
-						}
-					);
-				}
-				return false;
-			}',
-			)
-	);
-	$this->widget('zii.widgets.jui.CJuiButton',
-		array(
-			'name'=>'refuse',
-				'caption'=>'拒绝通过',
-			'value'=>'asd',
-			'onclick'=>'js:function(){
-			var selectedProducts=$("#J_RoleList .select-on-check:checked");
-				if(selectedProducts.size()<1)
-				{
-					alert("请选择要拒绝通过审核的'.$alertTitle.'信息！");
-				}
-				else
-				{
-					var url="'.Yii::app()->controller->createUrl('changeUserStatus',array('toStatus'=>2)).'";
-					$("#useForm").ajaxSubmit(
-						{
-							url:url,
-							success:function(msg){
-								alert(msg);
-								$.fn.yiiGridView.update("J_RoleList");
-							},
-						}
-					);
-				}
-				return false;
-			}',
-			)
-	);
-endif;
-?>
-</DIV>
+
 </form>
 <!--m-table-list-->
 	<div class="m-role-op hide" id="J_RoleOperate" data-post-api="<?php echo Yii::app()->controller->createUrl("assign");?>">

@@ -13,22 +13,24 @@ $this->breadcrumbs=array(
 		'validateOnSubmit'=>true,
 	),
 )); ?>
+<?php echo $form->hiddenField($model,'product_user_id');?>
+<?php echo $form->hiddenField($model,'product_special');?>
 <table border="0" cellpadding="0" cellspacing="0" class="table-field">
-
+<?php if($model->product_id):?>
 <tr>
+
 <td class="label">会员名：</td>
 		<td>
 			<input type=text disabled="disabled" class='cmp-input' value="<?php echo $model->user->user_name;?>"/>		
-        <?php echo $form->hiddenField($model,'product_user_id');?>
-        <?php echo $form->hiddenField($model,'product_special');?>
-		<?php if($model->product_id): echo $form->hiddenField($model,'product_id');endif;?>
+        
+		<?php  echo $form->hiddenField($model,'product_id');?>
 		</td>
 </tr>
-
 <tr>
 <td class="label">企业名：</td>
 		<td><input type=text disabled="disabled" class='cmp-input' value="<?php echo $model->user->enterprise->ent_name;?>"/></td>
 </tr>
+<?php endif;?>
 <tr>
 <td class="label">品类：</td>
 		<td>

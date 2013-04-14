@@ -51,3 +51,94 @@
     ),
 ));
 ?>
+<DIV>
+<input type="hidden" name="page" value="<?php echo Yii::app()->request->getParam('page',1);?>"/>
+<?php 
+$alertTitle='管理员帐号';
+	$this->widget('zii.widgets.jui.CJuiButton',
+		array(
+			'name'=>'pass',
+				'caption'=>'启用'.$alertTitle,
+			'value'=>'asd',
+			'onclick'=>'js:function(){
+				var selectedProducts=$("#J_RoleList .select-on-check:checked");
+				if(selectedProducts.size()<1)
+				{
+					alert("请选择要通过启用的'.$alertTitle.'信息！");
+				}
+				else
+				{
+					var url="'.Yii::app()->controller->createUrl('changeUserStatus',array('toStatus'=>1)).'";
+					$("#useForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("J_RoleList");
+							},
+						}
+					);
+				}
+				return false;
+			}',
+			)
+	);
+	$this->widget('zii.widgets.jui.CJuiButton',
+		array(
+			'name'=>'refuse',
+				'caption'=>'撤销'.$alertTitle,
+			'value'=>'asd',
+			'onclick'=>'js:function(){
+			var selectedProducts=$("#J_RoleList .select-on-check:checked");
+				if(selectedProducts.size()<1)
+				{
+					alert("请选择要拒绝通过审核的'.$alertTitle.'信息！");
+				}
+				else
+				{
+					var url="'.Yii::app()->controller->createUrl('changeUserStatus',array('toStatus'=>2)).'";
+					$("#useForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("J_RoleList");
+							},
+						}
+					);
+				}
+				return false;
+			}',
+			)
+	);
+$this->widget('zii.widgets.jui.CJuiButton',
+		array(
+			'name'=>'delete',
+				'caption'=>'删除管理员',
+			'value'=>'asd',
+			'onclick'=>'js:function(){
+			var selectedProducts=$("#J_RoleList .select-on-check:checked");
+				if(selectedProducts.size()<1)
+				{
+					alert("请选择要删除的管理员信息！");
+				}
+				else
+				{
+					var url="'.Yii::app()->controller->createUrl('changeUserStatus',array('toStatus'=>147)).'";
+					$("#useForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("J_RoleList");
+							},
+						}
+					);
+				}
+				return false;
+			}',
+			)
+	);
+
+?>
+</DIV>

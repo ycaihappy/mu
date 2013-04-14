@@ -1,4 +1,5 @@
 <?php
+$userId=@$_REQUEST['Product']['product_user_id']?@$_REQUEST['Product']['product_user_id']:0;
 $this->breadcrumbs=array(
 	'信息管理'=>array('manageProduct'),
 	$isSpecial?'特价管理':'现货管理',
@@ -8,7 +9,24 @@ $queryFormAction=$isSpecial?'manageSpecial':'manageProduct';
 ?>
 <div class='changeSuccess'><?php echo Yii::app()->admin->getFlash('changeStatus');?></div>
 <div class='changeError'><?php echo Yii::app()->admin->getFlash('changeStatusError');?></div>
-
+<div >
+<?php 
+if($userId)
+{
+	$this->widget('zii.widgets.jui.CJuiButton',
+		array(
+			'name'=>'add',
+				'caption'=>'添加现货',
+			'value'=>'asd',
+			'cssFile'=>'jquery.ui.css',
+			'onclick'=>'js:function(){
+			    location.href="'.Yii::app()->controller->createUrl('updateProduct',array('user_id'=>$userId)).'";
+			}',
+			)
+	);
+}
+?>
+</div>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',
 	'action'=>$this->createUrl($queryFormAction),
@@ -27,11 +45,15 @@ $queryFormAction=$isSpecial?'manageSpecial':'manageProduct';
 	'attribute'=>'product_type_id',
 	'form'=>$form,
 	'ajaxRoute'=>'product/getChildrenTerm'
-));?>
+));
+if($userId)echo $form->hiddenField($model,'product_user_id');
+?>
 <label>状态：</label>
 <?php echo $form->dropDownList($model,'product_status',$productStatus);?>
+<?php if(!$userId):?>
 <label>发布企业：</label>
-<?php echo $form->textField($model,'product_user_id',array('class'=>'cmp-input'));?>
+<?php echo $form->textField($model,'product_keyword',array('class'=>'cmp-input'));?>
+<?php endif;?>
 <label>现货标题：</label>
 <?php echo $form->textField($model,'product_name',array('class'=>'cmp-input'));?>
 <?php echo CHtml::submitButton('搜索'); ?>

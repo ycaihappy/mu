@@ -19,13 +19,14 @@ class ProductController extends AdminController {
 	}
 	private function _manageProduct($isSpecial=0)
 	{
-		//CQueryRequestHelper::registerLastQueryForm(array('parentCategory','Product'),'Product');
+		CQueryRequestHelper::registerLastQueryForm(array('parentCategory','Product'),'Product');
 		$parentCategory=(int)@$_REQUEST['parentCategory'];
 		$model=new Product();
 		$model->product_type_id=(int)@$_REQUEST['Product']['product_type_id'];
 		$model->product_status=(int)@$_REQUEST['Product']['product_status'];
-		$model->product_user_id=@$_REQUEST['Product']['product_user_id'];
+		$model->product_user_id=(int)@$_REQUEST['Product']['product_user_id'];
 		$model->product_name=@$_REQUEST['Product']['product_name'];
+		$model->product_keyword=@$_REQUEST['Product']['product_keyword'];
 		$productCriteria=new CDbCriteria();
 		$productCriteria->order='find_in_set(product_status,\'33,1,2\'),product_join_date desc';
 		$productCriteria->select='product_id,product_name,product_quanity,product_city_id,product_join_date';
@@ -41,31 +42,21 @@ class ProductController extends AdminController {
 				$allTypes=Term::getTermsByGroupId(14,false,$parentCategory,'',false);
 				$productCriteria->addInCondition('product_type_id', array_keys($allTypes));
 			}
-			
+
 		}
-		
-		/*if($parentCategory)
-		{
-			if($model->product_type_id)
-			{
-				$productCriteria->addCondition('product_type_id=:product_type_id');
-				$productCriteria->params[':product_type_id']=$model->product_type_id;
-			}
-			else {
-				$allTypes=Term::getTermsByGroupId(14,false,$parentCategory,'',false);
-				$productCriteria->addInCondition('product_type_id', array_keys($allTypes));
-			}
-			
-		}*/
-		
+
 		if($model->product_status)
 		{
 			$productCriteria->addCondition('product_status=:product_status');
 			$productCriteria->params[':product_status']=$model->product_status;
 		}
+		if($model->product_keyword)
+		{
+			$productCriteria->addSearchCondition('enterprise.ent_name',$model->product_keyword,true);
+		}
 		if($model->product_user_id)
 		{
-			$productCriteria->addSearchCondition('enterprise.ent_name',$model->product_user_id,true);
+			$productCriteria->compare('product_user_id','='.$model->product_user_id);
 		}
 		if($model->product_name)
 		{
@@ -86,6 +77,7 @@ class ProductController extends AdminController {
 								'Product[product_status]'=>$model->product_status,
 								'Product[product_user_id]'=>$model->product_user_id,
 								'Product[product_name]'=>$model->product_name,
+								'Product[product_keyword]'=>$model->product_keyword,
 								'parentCategory'=>$parentCategory,
 		),
 		),
@@ -101,7 +93,7 @@ class ProductController extends AdminController {
 				$supply->supply_city_id='未指定';
 			}
 		}
-		
+
 		$productStatus=Term::getTermsByGroupId(1);
 		$rePosition=Term::getTermsByGroupId(13,false,null,'推荐位置');
 		$data=compact('parentCategory','isSpecial','dataProvider','productStatus','rePosition','model');
@@ -155,20 +147,24 @@ class ProductController extends AdminController {
 	}
 	public function actionUpdateProduct()
 	{
-		$model=new Product();
+		$productModel=new Product();
 		if (isset($_POST['Product'])) {//add or update to database
-			$model->attributes=$_POST['Product'];
-			if($model->product_id)$model->setIsNewRecord(false);
-			if($model->save())
+			$productModel->attributes=$_POST['Product'];
+			if($productModel->product_id)$model->setIsNewRecord(false);
+			if($productModel->save())
 			{
 				//redirect to manage page
-				$action=$model->product_special?'manageSpecial':'manageProduct';
+				$action=$productModel->product_special?'manageSpecial':'manageProduct';
 				$this->redirect(array($action));
 			}
 		}
 		if($productId=@$_REQUEST['product_id']){
 			$productModel=Product::model()->with(array('user.enterprise'=>array('select'=>'ent_name'),'user'=>array('select'=>'user_name')))->findByPk($productId);
-				
+
+		}
+		if($user_id=(int)Yii::app()->request->getParam('user_id',0))
+		{
+			$productModel->product_user_id=$user_id;
 		}
 		$parentProductTypes= Term::getTermsByGroupId(14,true);
 		$parentType=0;
@@ -282,17 +278,17 @@ class ProductController extends AdminController {
 			}
 		}
 		/*if($parentCategory)
-		{
+		 {
 			if($model->supply_category_id)
 			{
-				$supplyCriteria->addCondition('supply_category_id=:supply_category_id');
-				$supplyCriteria->params[':supply_category_id']=$model->supply_category_id;
+			$supplyCriteria->addCondition('supply_category_id=:supply_category_id');
+			$supplyCriteria->params[':supply_category_id']=$model->supply_category_id;
 			}
 			else {
-				$allTypes=Term::getTermsByGroupId(14,false,$parentCategory,'',false);
-				$supplyCriteria->addInCondition('supply_category_id', array_keys($allTypes));
+			$allTypes=Term::getTermsByGroupId(14,false,$parentCategory,'',false);
+			$supplyCriteria->addInCondition('supply_category_id', array_keys($allTypes));
 			}
-		}*/
+			}*/
 		if($model->supply_status)
 		{
 			$supplyCriteria->addCondition('supply_status=:supply_status');
@@ -362,7 +358,7 @@ class ProductController extends AdminController {
 				$action=$model->supply_type==18?'manageSupply':'manageBuy';
 				$this->redirect(array($action));
 			}
-				
+
 		}
 		if($supplyId=@$_REQUEST['supply_id']){
 			$supplyModel=Supply::model()->with(array('user.enterprise'=>array('select'=>'ent_name'),'user'=>array('select'=>'user_name')))->findByPk($supplyId);
@@ -427,7 +423,7 @@ class ProductController extends AdminController {
 			$entCriteria->addSearchCondition('ent_name', $entName,true,'AND',true);
 		}
 		$entCriteria->select='ent_name,ent_create_time,ent_city';
-		$entCriteria->order='find_in_set(ent_status,\'33,1,2\'),ent_create_time desc';
+		$entCriteria->order='find_in_set(ent_status,\'33,1,2\'),ent_id desc';
 		$entCriteria->with=array(
 		'user'=>array('select'=>'user_id,user_name'),
 		'business'=>array('select'=>'term_name'),
@@ -435,6 +431,7 @@ class ProductController extends AdminController {
 		'type'=>array('select'=>'term_name'),
 		'city'=>array('select'=>'city_name')
 		);
+		$entCriteria->condition='ent_status<>147';
 		$dataProvider=new CActiveDataProvider('Enterprise',array(
 			'criteria'=>$entCriteria,
 			'pagination'=>array(
@@ -521,36 +518,38 @@ class ProductController extends AdminController {
 	}
 	public function actionChangeEnterpriseStatus()
 	{
-		$toStatus=@$_REQUEST['toStatus'];
-		$entIds=@$_REQUEST['ent_id'];
-		if(!$entIds && in_array($toStatus,array(1,2)))
+		if(Yii::app()->request->isAjaxRequest)
 		{
-			if(Yii::app()->request->isAjaxRequest)
+			$toStatus=@$_REQUEST['toStatus'];
+			$entIds=@$_REQUEST['ent_id'];
+			if(in_array(45,$entIds))
+			{
+				echo '为保证系统处于可用状态，该用户无法删除，请谅解！';
+				exit;
+			}
+			if(!$entIds && in_array($toStatus,array(1,2,33,147)))
 			{
 				echo '请求参数不正确！';
 				exit;
-			}
-			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的企业信息，以及改变的状态');
-			$this->redirect(array($redirectPage));
 
+			}
+			$updateStatusCriteria=new CDbCriteria();
+			$updateStatusCriteria->addInCondition('ent_id', $entIds);
+			$checkedBy=Yii::app()->admin->getName();
+			$updateRows=Enterprise::model()->updateAll(array('ent_status'=>$toStatus,'ent_check_by'=>$checkedBy),$updateStatusCriteria);
+			if(Yii::app()->request->isAjaxRequest)
+			{
+				if($toStatus==147)
+				{
+					echo $updateRows>0?'删除成功！':'删除失败！';
+				}
+				else{
+					echo $updateRows>0?'更新成功！':'更新失败！';
+				}
+				exit;
+			}
 		}
-		$updateStatusCriteria=new CDbCriteria();
-		$updateStatusCriteria->addInCondition('ent_id', $entIds);
-		$checkedBy=Yii::app()->admin->getName();
-		$updateRows=Enterprise::model()->updateAll(array('ent_status'=>$toStatus,'ent_check_by'=>$checkedBy),$updateStatusCriteria);
-		if(Yii::app()->request->isAjaxRequest)
-		{
-			echo $updateRows>0?'更新成功！':'更新失败！';
-			exit;
-		}
-		if($updateRows>0)
-		{
-			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
-		}
-		else {
-			Yii::app()->admin->setFlash('changeStatusError','更新异常');
-		}
-		$this->redirect(array('manageEnterprise','page'=>Yii::app()->request->getParam('page',1)));
+
 	}
 	public function actionUpdateEnterprise()
 	{

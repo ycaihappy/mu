@@ -32,8 +32,36 @@ case 2:
 		
 break;
 case 4:
-	$html=<<<tree
+		$html=<<<tree
 <ul>
+	<li>
+		<a href="{$this->getController()->createUrl('product/manageProduct',array('Product[product_user_id]'=>3))}" target="mainFrame">钼市网现货录入</a>
+		<ul>
+tree;
+foreach ($productMenuType as $key=>$type)
+{
+$url=$this->getController()->createUrl('product/manageProduct',array('parentCategory'=>$key,'Product[product_user_id]'=>3));
+$html.=<<<tree
+			<li><a href="{$url}" target="mainFrame">{$type['name']}</a>
+			<ul>
+tree;
+	foreach ($type['subTypes'] as $key=>$subType){
+		$url=$this->getController()->createUrl('product/manageProduct',array('Product[product_type_id]'=>$key,'Product[product_user_id]'=>3));
+$html.=<<<tree
+				<li><a href="{$url}" target="mainFrame">{$subType}</a></li>
+tree;
+	}
+$html.=<<<tree
+			</ul>
+			</li>
+tree;
+}
+$html.=<<<tree
+			</ul>
+			</li>
+tree;
+	$html.=<<<tree
+
 	<li>
 		<a href="{$this->getController()->createUrl('product/manageProduct')}" target="mainFrame">现货管理</a>
 		<ul>

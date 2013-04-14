@@ -586,7 +586,8 @@ class UserController extends AdminController
 		'role'=>array('select'=>'zh_name'),
 		'type'=>array('select'=>'group_name,group_logo'),
 		);
-		$userCriteria->order='user_id desc';
+		$userCriteria->condition='user_status<>147';
+		$userCriteria->order='find_in_set(user_status,\'33,1,2\'),user_id desc';
 		if($userType==1)
 		{
 			$userCriteria->addCondition('user_type<>0');
@@ -595,7 +596,7 @@ class UserController extends AdminController
 			$userCriteria->addCondition('user_type=:user_type');
 			$userCriteria->params[':user_type']=$userType;
 		}
-		
+
 		if($model->user_status)
 		{
 			$userCriteria->compare('user_status', '='.$model->user_status);
@@ -641,7 +642,7 @@ class UserController extends AdminController
 		{
 			$model->attributes=$_POST['User'];
 			if($model->user_id)$model->setIsNewRecord(false);
-				
+
 			if($model->save())
 			{
 				$this->redirect(array('manageUser'));
@@ -676,7 +677,7 @@ class UserController extends AdminController
 	private function _loadCurrentUser($model,$userId)
 	{
 		if($userId)
-			$model=$model->with(array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name')))->findByPK($userId);
+		$model=$model->with(array('enterprise'=>array('select'=>'ent_name'),'status'=>array('select'=>'term_name'),'role'=>array('select'=>'name')))->findByPK($userId);
 		if($model)
 		{
 			$allProvince=City::getProvice();
@@ -1066,36 +1067,36 @@ class UserController extends AdminController
 	}
 	public function actionChangeUserStatus()
 	{
-		$toStatus=@$_REQUEST['toStatus'];
-		$userId=@$_REQUEST['user_id'];
-		if(!$userId && in_array($toStatus,array(1,2)))
+		if(Yii::app()->request->isAjaxRequest)
 		{
-			if(Yii::app()->request->isAjaxRequest)
+			$toStatus=@$_REQUEST['toStatus'];
+			$userId=@$_REQUEST['user_id'];
+			if(in_array(1,$userId)||in_array(3,$userId))
 			{
+				echo '为保证系统处于可用状态，该用户无法删除，请谅解！';
+				exit;
+			}
+			if(!$userId && in_array($toStatus,array(1,2,33,147)))
+			{
+					
 				echo '请求参数不正确！';
 				exit;
 			}
-			Yii::app()->admin->setFlash('changeStatusError','请选择要更新状态的用户信息，以及改变的状态');
-			$this->redirect(array('manageUser'));
+			$updateStatusCriteria=new CDbCriteria();
+			$updateStatusCriteria->addInCondition('user_id', $userId);
+			$updateRows=User::model()->updateAll(array('user_status'=>$toStatus),$updateStatusCriteria);
 
-		}
-		$updateStatusCriteria=new CDbCriteria();
-		$updateStatusCriteria->addInCondition('user_id', $userId);
-		$updateRows=User::model()->updateAll(array('user_status'=>$toStatus),$updateStatusCriteria);
-		if(Yii::app()->request->isAjaxRequest)
-		{
-			echo $updateRows>0?'更新成功！':'更新失败！';
+			if($toStatus==147)
+			{
+				echo $updateRows>0?'删除成功！':'删除失败！';
+			}
+			else{
+				echo $updateRows>0?'更新成功！':'更新失败！';
+			}
 			exit;
-		}
-		if($updateRows>0)
-		{
-			Yii::app()->admin->setFlash('changeStatus','更新状态成功！');
-		}
-		else {
-			Yii::app()->admin->setFlash('changeStatusError','更新异常');
-		}
-		$this->redirect(array('manageUser','page'=>Yii::app()->request->getParam('page',1)));
 
+
+		}
 	}
 	public function actionManageUserGroup()
 	{
@@ -1119,7 +1120,7 @@ class UserController extends AdminController
 			$model->group_logo=CUploadedFile::getInstance($model,'group_logo');
 			if($model->group_logo)
 			{
-				
+
 				$newimg = 'ug_'.time().'_'.rand(1, 9999).'.'.$model->group_logo->extensionName;
 				//根据时间戳重命名文件名,extensionName是获取文件的扩展名
 				$uploadedImg='images/mushw/'.$newimg;
@@ -1130,19 +1131,19 @@ class UserController extends AdminController
 				$image->resize(16,16);
 				$thumbLogo='images/mushw/thumb/'.$newimg;
 				$image->save($thumbLogo);
-				
+
 				/*$model->art_img->saveAs($uploadedImg);
-				$im = null;
-				$imagetype = strtolower($model->group_logo->getExtensionName());
-				if($imagetype == 'gif')
-				$im = imagecreatefromgif($uploadedImg);
-				else if ($imagetype == 'jpg')
-				$im = imagecreatefromjpeg($uploadedImg);
-				else if ($imagetype == 'png')
-				$im = imagecreatefrompng($uploadedImg);*/
+				 $im = null;
+				 $imagetype = strtolower($model->group_logo->getExtensionName());
+				 if($imagetype == 'gif')
+				 $im = imagecreatefromgif($uploadedImg);
+				 else if ($imagetype == 'jpg')
+				 $im = imagecreatefromjpeg($uploadedImg);
+				 else if ($imagetype == 'png')
+				 $im = imagecreatefrompng($uploadedImg);*/
 				/*CThumb::resizeImage (
-				$im,400, 280,
-				'images/article/thumb/'.$newimg, $model->art_img->getExtensionName() );*/
+				 $im,400, 280,
+				 'images/article/thumb/'.$newimg, $model->art_img->getExtensionName() );*/
 				$model->group_logo = $newimg;
 			}
 			else {

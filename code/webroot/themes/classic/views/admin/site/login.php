@@ -62,7 +62,7 @@
                         <input style="border:none;" name="signIn" type="image" src="/css/imgs/admin/button.jpg">
                         </div>
                         <div class="bwz">
-                        Powered by <a target="_blank" href="http://www.xxx.com">xxx.com</a> © 2007-2013
+                        Powered by <a target="_blank" href="<?php echo Yii::app()->request->getHostInfo()?>">钼市网</a> © 2007-2013
                         </div>     
                                </td>
                                   </tr>

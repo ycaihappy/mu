@@ -157,7 +157,11 @@
           </p>
            
             </div>
-           
+            <div class="nav-con <?php echo $controller=='special'?'on':'' ?>">
+           <strong><a href="<?php echo $this->getController()->createUrl('/price/special')?>">专题</a>
+			<b></b></strong>
+			
+            </div>
 
         </div>
     </div>

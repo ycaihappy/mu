@@ -35,12 +35,15 @@ class ServiceController extends Controller {
 		{
 			$this->redirect(array('/service/index'));
 		}
-		$this->siteConfig->siteMetaTitle=$service->art_title;
-        $this->siteConfig->siteMetaKeyword=$service->art_tags;
-        $this->siteConfig->siteMetaDescription=$service->art_summary;
-        $adv1=CCacheHelper::getAdvertisement(139);
-		$data=compact('service','adv1');
-		$this->render('view',$data);
+        if ( !empty($service) )
+        {
+            $this->siteConfig->siteMetaTitle=$service->art_title;
+            $this->siteConfig->siteMetaKeyword=$service->art_tags;
+            $this->siteConfig->siteMetaDescription=$service->art_summary;
+            $adv1=CCacheHelper::getAdvertisement(139);
+            $data=compact('service','adv1');
+            $this->render('view',$data);
+        }
 	}
 }
 

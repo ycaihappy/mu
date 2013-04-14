@@ -45,14 +45,8 @@
 	</div>
 	<!--module end-->
 	<!--module start-->
-	<div id="J_IndexAd" class="m-special-ad">
-			<div class="pic" style="position: relative;">
-			<a href="www.mushuw.com" style="top: 0px; left: 0px; position: absolute; display: none;"><img src="/images/advertisement/advertisement_0_1363535239_6084.png"></a>
-		    <a href="www.mushuw.com" style="top: 0px; left: 0px; position: absolute; display: none;"><img src="/images/advertisement/advertisement_0_1363535279_6124.png"></a>
-			<a href="www.mushuw.com" style="top: 0px; left: 0px; position: absolute; display: block;"><img src="/images/advertisement/advertisement_0_1363535279_6124.png"></a>
-	        <a href="www.mushuw.com" style="top: 0px; left: 0px; position: absolute; display: none;"><img src="/images/advertisement/advertisement_0_1363535279_6124.png"></a>
-			</div>
-			<div class="btns" style="left: 0px;"><a href="javascript:;" class="">01</a><a href="javascript:;" class="">11</a><a href="javascript:;" class="on">21</a><a href="javascript:;">31</a></div>
+	<div id="J_SpecialChart" class="m-special-ad" data-api="/index.php?r=price/index">
+			<div class="pic"></div>
 		</div>
 	<!--module end-->
 </div>

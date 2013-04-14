@@ -2,7 +2,7 @@
 			
 	<div class="hd">
 		<span class="on">
-			<a href="">供应信息</a>
+			<a href="">供求信息</a>
 		</span>
 	</div>
    	 

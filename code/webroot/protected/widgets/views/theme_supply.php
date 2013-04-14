@@ -21,167 +21,27 @@
              		<div class="supply-scroll" id="J_ImgScroller_1" data-type="vertical">
 					
 					<ul>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
-						<li>
-							<span class="col-1"><font style="color:red;">供应</font></span>
-							<span class="col-2"><a href="/index.php?r=supply/view&amp;supply_id=200" target="_blank">钼终极&gt;&gt;钼铁</a></span>
-							<span class="col-3">49</span>
-							<span class="col-4">426/吨</span>
-							<span class="col-5">河北省</span>
-							<span class="col-6">2013-03-07</span>
-						</li>
+<?php
+if ( !empty($data) )
+{
+    foreach ($data as $supply_one)
+    {
+?>
+	<li>
+        <span class="col-1"><font style="color:red;"><?php echo $supply_type[$supply_one->supply_type];?></font></span>
+        <span class="col-2"><a href="<?php echo Yii::app()->controller->createUrl('supply/view',array('supply_id'=>$supply_one->supply_id));?>" target="_blank"><?php echo $category[$supply_one['supply_category_id']];?></a></span>
+        <span class="col-3"><?php echo $supply_one->supply_mu_content;?></span>
+        <span class="col-4"><?php echo $supply_one->supply_price;?>/吨</span>
+        <span class="col-5"><?php echo $city[$supply_one->supply_city_id];?></span>
+        <span class="col-6"><?php echo date("Y-m-d",strtotime($supply_one->supply_join_date));?></span>
+	</li>
+<?php
+    }
+}
+?>
 					</ul>
-					
 					</div>
 					</td>
 					</tr>
-					
-	        					   
-                
-
         </tbody></table>
-	  
 </div>

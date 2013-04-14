@@ -157,10 +157,27 @@
           </p>
            
             </div>
-            <div class="nav-con <?php echo $controller=='special'?'on':'' ?>">
-           <strong><a href="<?php echo $this->getController()->createUrl('/price/special')?>">专题</a>
+            <div class="nav-con <?php echo $controller=='theme'?'on':'' ?>">
+           <strong><a href="<?php echo $this->getController()->createUrl('/theme/special',array('type'=>57))?>">专题</a>
 			<b></b></strong>
-			
+	           <p>
+          <em></em>
+           <a href="<?php echo $this->getController()->createUrl('/theme/special',array('type'=>31))?>">钼精矿</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>656))?>">质检服务</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>66))?>">钼用途</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>65))?>">钼生产工艺</a><em>|</em>
+           <!-- <a href="<?php //echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>63))?>">钼国际标准</a><em>|</em> -->
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>64))?>">钼国内标准</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/product/list',array('type'=>1))?>">钼特价</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>67))?>">钼产品</a>
+          <a href="<?php echo $this->getController()->createUrl('/price/query',array('type'=>31))?>">钼走势图</a><em>|</em>
+            <a href="<?php echo $this->getController()->createUrl('/product/index')?>">钼现货</a><em>|</em>
+            <a href="<?php echo $this->getController()->createUrl('/supply/list',array('type'=>1))?>">钼供应</a><em>|</em>
+            <a href="<?php echo $this->getController()->createUrl('/product/list',array('type'=>1))?>">钼特价</a><em>|</em>
+            <a href="<?php echo $this->getController()->createUrl('/supply/list',array('type'=>2))?>">钼求购</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>68))?>">钼化工</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>655))?>">配送服务</a><em>|</em>
+          </p>		
             </div>
 
         </div>

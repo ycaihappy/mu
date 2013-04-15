@@ -83,7 +83,7 @@ return array(
 		
 		/*'urlManager'=>array(
 			'urlFormat'=>'path',
-            'urlSuffix'=>'.html',
+            //'urlSuffix'=>'.html',
             'showScriptName'=>false,
 			'rules'=>array(
 				'exhibition/view/<art_id:\d+>'=>'exhibition/view',

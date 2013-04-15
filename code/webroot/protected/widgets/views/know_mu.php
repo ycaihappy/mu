@@ -34,7 +34,7 @@
                     if ( isset($mu_product[0]))
                     {
 ?>
-                            <a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$mu_product[1]->art_id));?>"><?php echo $mu_product[0]->art_title;?></a>
+                            <a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$mu_product[0]->art_id));?>"><?php echo $mu_product[0]->art_title;?></a>
                             <span><?php echo $mu_product[0]->art_tags;?></span>
 <?php
                     }

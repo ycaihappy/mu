@@ -42,11 +42,11 @@ class RelativeRePrice extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('re_name', 'required'),
+			array('re_name', 'required','message'=>'名称不能留空'),
 			array('re_id,re_fallup, re_margin, re_status', 'numerical', 'integerOnly'=>true),
 			array('re_name', 'length', 'max'=>50),
 			array('re_market', 'length', 'max'=>128),
-			array('re_price', 'length', 'max'=>10),
+			array('re_price', 'length', 'max'=>128),
 			array('re_type', 'required', 'message'=>'选择价格类型！'),
 			array('re_added_time, re_updated_time', 'safe'),
 			// The following rule is used by search().
@@ -82,6 +82,7 @@ class RelativeRePrice extends CActiveRecord
 		$recentlyCriteria=new CDbCriteria();
 		$recentlyCriteria->addCondition('re_type=:reType');
 		$recentlyCriteria->params[':reType']=$reType;
+		$recentlyCriteria->order='re_id desc';
 		$recentlyCriteria->limit=$limit;
 		$this->getDbCriteria()->mergeWith($recentlyCriteria);
 		return $this;

@@ -33,7 +33,7 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">价格*：</td>
-		<td><?php echo $form->numberField($model,'re_price'); ?>元
+		<td><?php echo $form->textField($model,'re_price'); ?>元
 		<?php echo $form->error($model,'re_price'); ?></td>
 </tr>
 <tr>

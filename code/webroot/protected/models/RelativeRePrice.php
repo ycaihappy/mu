@@ -41,18 +41,31 @@ class RelativeRePrice extends CActiveRecord
 	{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
-		return array(
-			array('re_name', 'required','message'=>'名称不能留空'),
-			array('re_id,re_fallup, re_margin, re_status', 'numerical', 'integerOnly'=>true),
+		$rules=array(
+			array('re_id,re_name_type,re_fallup, re_margin, re_status', 'numerical', 'integerOnly'=>true),
 			array('re_name', 'length', 'max'=>50),
 			array('re_market', 'length', 'max'=>128),
 			array('re_price', 'length', 'max'=>128),
 			array('re_type', 'required', 'message'=>'选择价格类型！'),
+			array('re_fallup', 'required', 'message'=>'选择涨跌情况！'),
 			array('re_added_time, re_updated_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('re_id, re_name, re_fallup, re_margin, re_market, re_price, re_status, re_added_time, re_updated_time', 'safe', 'on'=>'search'),
+			array('re_id, re_name, re_fallup, re_margin, re_market, re_price, re_status, re_added_time, re_updated_time', 'safe'),
 		);
+		
+		if(in_array($this->re_type,self::getProductType()))
+		{
+			$rules=array_merge($rules,array(array('re_name_type', 'required','message'=>'名称不能留空a')));
+		}
+		else {
+			$rules=array_merge($rules,array(array('re_name', 'required','message'=>'名称不能留空b')));
+		}
+		return $rules;
+	}
+	public static function getProductType()
+	{
+		return array(148,149);
 	}
 
 	/**
@@ -66,6 +79,7 @@ class RelativeRePrice extends CActiveRecord
 			'fallup'=>array(self::BELONGS_TO,'Term','re_fallup'),
 			'status'=>array(self::BELONGS_TO,'Term','re_status'),
 			'type'=>array(self::BELONGS_TO,'Term','re_type'),
+			'nameType'=>array(self::BELONGS_TO,'Term','re_name_type'),
 		);
 	}
 	public function scopes()
@@ -81,6 +95,7 @@ class RelativeRePrice extends CActiveRecord
 	{
 		$recentlyCriteria=new CDbCriteria();
 		$recentlyCriteria->addCondition('re_type=:reType');
+		$recentlyCriteria->with=array('nameType'=>array('select'=>'term_name'));
 		$recentlyCriteria->params[':reType']=$reType;
 		$recentlyCriteria->order='re_id desc';
 		$recentlyCriteria->limit=$limit;

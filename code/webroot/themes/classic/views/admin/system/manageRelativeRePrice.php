@@ -39,6 +39,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 </div>
 <br style='float:clear;'/>
 <?php $this->endWidget(); ?>
+<form id="relativRePriceForm" action='' method='post'>
 <?php 
 
 	$this->widget('zii.widgets.grid.CGridView', array(
@@ -55,7 +56,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
         ),
         array(
         	'name'=>'稀土品名',
-        	'value'=>'$data->re_name',
+        	'value'=>'in_array($data->re_type,array(148,149))?($data->nameType?$data->nameType->term_name:"未指定"):$data->re_name',
         ),  // display the 'name' attribute of the 'category' relation
         array(
         	'name'=>'价格',
@@ -94,6 +95,43 @@ $this->widget('zii.widgets.jui.CJuiButton',
         	),
     ),
 ));
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'delete',
+			'caption'=>'删除价格信息',
+		'value'=>'asd',
+		'onclick'=>'js:function(){
+		var selectedProducts=$("#yw0 .select-on-check:checked");
+			if(selectedProducts.size()<1)
+			{
+				alert("请选择要删除的价格信息！");
+			}
+			else
+			{
+				if(confirm("确定删除选中的价格信息"))
+				{
+					var url="'.Yii::app()->controller->createUrl('deleteRelativeRePrice').'";
+					$("#relativRePriceForm").ajaxSubmit(
+						{
+							url:url,
+							success:function(msg){
+								alert(msg);
+								$.fn.yiiGridView.update("yw0");
+							},
+						}
+					);
+				}
+			}
+			return false;
+		}',)
+);
 ?>
-<br>
-<br>
+</form>
+<br/>
+<br/>
+<br/>
+<br/>
+<?php 
+$cs = Yii::app()->getClientScript();
+$cs->registerScriptFile('/js/jquery.form.js');
+?>

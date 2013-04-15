@@ -17,9 +17,18 @@ $this->breadcrumbs=array(
 
 <tr>
 <td class="label">品名*：</td>
-		<td><?php echo $form->textField($model,'re_name',array('class'=>'cmp-input')); ?>
-		<?php if($model->re_id): echo $form->hiddenField($model,'re_id');endif;?>
-		<?php echo $form->error($model,'re_name'); ?></td>
+		<td>
+	<?php if(!in_array($model->re_type,RelativeRePrice::getProductType())):?>	
+	<?php echo $form->textField($model,'re_name',array('class'=>'cmp-input')); ?>
+	<?php echo $form->error($model,'re_name'); ?>
+	<?php else:?>
+	
+	<?php echo $form->dropDownList($model,'re_name_type',$allNameTypies,array('class'=>'cmp-input')); ?>
+	<?php echo $form->error($model,'re_name_type'); ?>
+	<?php echo $form->error($model,'re_name'); ?>
+	<?php endif;?>
+	<?php if($model->re_id): echo $form->hiddenField($model,'re_id');endif;?>
+		</td>
 </tr>
 <tr>
 <td class="label">资源类型：</td>

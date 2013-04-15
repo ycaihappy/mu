@@ -81,7 +81,7 @@ return array(
 //     	),
 		// uncomment the following to enable URLs in path-format
 		
-		/*'urlManager'=>array(
+		'urlManager'=>array(
 			'urlFormat'=>'path',
             //'urlSuffix'=>'.html',
             'showScriptName'=>false,
@@ -91,6 +91,7 @@ return array(
 				'about/<_a:\w+>'=>'about/<_a>',
 				'<_a:\w+>'=>'site/<_a>',
 				'news/view/<art_id:\d+>'=>'news/view',
+				'service/view/<art_id:\d+>'=>'service/view',
 				'news/list/<subcategory_id:\d+>'=>'news/list',
 				'supply/view/<supply_id:\d+>'=>'supply/view',
 				'supply/list/<type:\d+>'=>'supply/list',
@@ -102,7 +103,7 @@ return array(
 				'http://uehome.mushw.com/<_a:\w+>'=>'uehome/user/<_a>',
 				'http://<username:\w+>.mushw.com/<_a:\w+>'=>'storeFront/default/<_a>'
 			),
-		),*/
+		),
 		
             /*
 		'db'=>array(

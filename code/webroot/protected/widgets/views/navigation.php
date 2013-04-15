@@ -169,7 +169,7 @@
            <!-- <a href="<?php //echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>63))?>">钼国际标准</a><em>|</em> -->
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>64))?>">钼国内标准</a><em>|</em>
            <a href="<?php echo $this->getController()->createUrl('/product/list',array('type'=>1))?>">钼特价</a><em>|</em>
-           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>67))?>">钼产品</a>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>67))?>">钼产品</a><em>|</em>
           <a href="<?php echo $this->getController()->createUrl('/price/query',array('type'=>31))?>">钼走势图</a><em>|</em>
             <a href="<?php echo $this->getController()->createUrl('/product/index')?>">钼现货</a><em>|</em>
             <a href="<?php echo $this->getController()->createUrl('/supply/list',array('type'=>1))?>">钼供应</a><em>|</em>

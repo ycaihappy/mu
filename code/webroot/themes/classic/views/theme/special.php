@@ -4,7 +4,7 @@
        <?php $this->widget('ThemeMarketWidget');?>
 	<!--module end-->
 	<!--module start-->
-	<div id="J_SpecialChart" class="m-special-ad" data-api="/index.php?r=price/chart">
+	<div id="J_SpecialChart" class="m-special-ad" data-api="<?php echo Yii::app()->controller->createUrl('price/chart',array('type'=>$_GET['type'],'year'=>date("Y"),'to_year'=>date("Y"),'month'=>date("n"),'to_month'=>date("n"),'day'=>date("d")));?>">
 			<div class="pic"></div>
 		</div>
 	<!--module end-->

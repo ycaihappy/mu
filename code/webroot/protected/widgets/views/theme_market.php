@@ -6,6 +6,8 @@
 		
 			<ul>
 			<table cellspacing="0" cellpadding="0" width="100%">
+            <tbody>
+            <tr><th>品种</th><th>价格</th><th>涨跌</th><th>市场</th><th>日期</th></tr>
 	                    <?php if($data):
 								foreach ($data as $price):
 						?>

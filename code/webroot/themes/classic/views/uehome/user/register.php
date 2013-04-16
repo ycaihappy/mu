@@ -36,7 +36,7 @@
 			<div class="hd clearfix">
 				<div class="flow">
 					<ul>
-						<li class="step-1">验证账户信息<i class="reg-ok"></i></li>
+						<li class="step-1 on">安全检测<!--验证账户信息--><i class="reg-ok"></i></li>
 						<li class="step-2 on">填写用户信息<i class="reg-ok"></i></li>
 						<li class="step-3">注册成功<i class="reg-ok"></i></li>
 					</ul>

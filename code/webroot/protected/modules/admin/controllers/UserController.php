@@ -1071,14 +1071,13 @@ class UserController extends AdminController
 		{
 			$toStatus=@$_REQUEST['toStatus'];
 			$userId=@$_REQUEST['user_id'];
-			if(in_array(1,$userId)||in_array(3,$userId))
+			if($toStatus==147 && (in_array(1,$userId)||in_array(3,$userId)))
 			{
 				echo '为保证系统处于可用状态，该用户无法删除，请谅解！';
 				exit;
 			}
 			if(!$userId && in_array($toStatus,array(1,2,33,147)))
 			{
-					
 				echo '请求参数不正确！';
 				exit;
 			}

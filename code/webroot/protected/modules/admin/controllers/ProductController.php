@@ -522,7 +522,7 @@ class ProductController extends AdminController {
 		{
 			$toStatus=@$_REQUEST['toStatus'];
 			$entIds=@$_REQUEST['ent_id'];
-			if(in_array(45,$entIds))
+			if($toStatus==147 && in_array(45,$entIds))
 			{
 				echo '为保证系统处于可用状态，该用户无法删除，请谅解！';
 				exit;

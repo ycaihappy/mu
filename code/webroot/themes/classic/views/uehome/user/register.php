@@ -45,7 +45,7 @@
 				
 			</div>
 			<div class="bd">
-				<div class="steps step-1">
+				<!--<div class="steps step-1">
 					<form>
 					<table width="100%">
 						<tr>
@@ -64,11 +64,10 @@
 					</table>
 					</form>
 					
-				</div>
-				<div class="steps step-2 hide">
+				</div>-->
+				<div class="steps step-2">
 					<form>
 					<input type="hidden" name="user_type" value="1" />
-					<input type="hidden" name="mobile_number" value="" />
 					<table width="100%">
 						<!--<tr>
 							<td align="right"><label>用户类别：</label></td>
@@ -111,6 +110,10 @@
 							<td align="right"><label>职务：</label></td>
 							<td><div class="field"><?php echo CHtml::dropDownList('job_title',0,$role,array());?></td>
 						</tr>
+						<tr>
+							<td align="right"><label>手机号：</label></td>
+							<td><div class="field"><input type="text" name="mobile_number" validate="require|请输入手机号 len[11]|手机号必须为11位 num|手机号必须为数字" /></div></td>
+						</tr>					
 						<tr>
 							<td align="right" class="label">城市：</td>
 							<td><?php echo CHtml::dropDownList('user_province_id',0,$allProvince,array(

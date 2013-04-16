@@ -30,14 +30,14 @@
 	<div class="layout-area">
 	
 	
-	<div class="m-register" id="J_Register" data-step="1">
+	<div class="m-register" id="J_Register" data-step="2">
 		
 		<div class="reg-box">
 			<div class="hd clearfix">
 				<div class="flow">
 					<ul>
-						<li class="step-1 on">验证账户信息<i class="reg-ok"></i></li>
-						<li class="step-2">填写用户信息<i class="reg-ok"></i></li>
+						<li class="step-1">验证账户信息<i class="reg-ok"></i></li>
+						<li class="step-2 on">填写用户信息<i class="reg-ok"></i></li>
 						<li class="step-3">注册成功<i class="reg-ok"></i></li>
 					</ul>
 				</div>
@@ -137,7 +137,7 @@
 						</tr>
 						<tr>
 							<td></td>
-							<td><div class="reg-btns"><button tabindex="5" class="btn-reg prev">上一步</button> <button tabindex="5" class="btn-reg save" data-api="index.php?r=uehome/user/registeruser">同意条款并注册</button>
+							<td><div class="reg-btns"><!--<button tabindex="5" class="btn-reg prev">上一步</button>--> <button tabindex="5" class="btn-reg save" data-api="index.php?r=uehome/user/registeruser">同意条款并注册</button>
 							<p><a>《钼市网服务条款》</a></p>
 							</div></td>
 						</tr>

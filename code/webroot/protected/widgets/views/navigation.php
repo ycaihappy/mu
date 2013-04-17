@@ -93,30 +93,9 @@
            
 
             </div>
-            <div class="nav-con <?php echo $controller=='knowledge'?'on':'' ?>">
 
-           <strong><a href="<?php echo $this->getController()->createUrl('/knowledge/index')?>">钼百科</a><i class="sp"></i>
-			<b></b></strong><p>
-           <em></em><a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>66))?>">钼用途</a><em>|</em>
-           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>65))?>">钼生产工艺</a><em>|</em>
-           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>63))?>">钼国际标准</a><em>|</em>
-           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>64))?>">钼国内标准</a><em>|</em>
-           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>67))?>">钼产品</a><em>|</em>
-           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>68))?>">钼化工</a><em>|</em>
-            <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>40))?>">本网视点</a><em>|</em>
-            <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>42))?>">行业动态</a><em>|</em>
-            <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>41))?>">钼市热点</a><em>|</em>
-            <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>43))?>">钼财经</a><em>|</em>
-            <!--  <a href="<?php //echo $this->getController()->createUrl('/price/list',array('subcategory_id'=>36))?>">国内行情</a><em>|</em>
-            <a href="<?php //echo $this->getController()->createUrl('/price/list',array('subcategory_id'=>37))?>">国际行情</a><em>|</em>-->
-            <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>">仓单质押(现货通)</a><em>|</em>
-            <a href="<?php echo $this->getController()->createUrl('/product/list',array('type'=>1))?>">钼特价</a><em>|</em>
-            <a href="<?php echo $this->getController()->createUrl('/price/list',array('subcategory_id'=>101))?>">原料行情</a>
-            </p>
-           
-            </div>
             <div class="nav-con <?php echo $controller=='service'?'on':'' ?>">
-           <strong><a href="<?php echo $this->getController()->createUrl('/service/index')?>">钼服务</a><i class="sp"></i>
+           <strong><a href="<?php echo $this->getController()->createUrl('/service/index')?>">交易服务</a><i class="sp"></i>
 			<b></b></strong>
            <p>
           <em></em> <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>651))?>">仓储金融</a><em>|</em>
@@ -137,7 +116,7 @@
             </div>
             
             <div class="nav-con <?php echo $controller=='enterprise'?'on':'' ?>">
-           <strong><a href="<?php echo $this->getController()->createUrl('/enterprise/index')?>">钼企业</a><i class="sp"></i>
+           <strong><a href="<?php echo $this->getController()->createUrl('/enterprise/index')?>">入市企业</a><i class="sp"></i>
 			<b></b></strong>
            <p>
           <em></em>
@@ -155,10 +134,10 @@
            <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('ent_city'=>15))?>">山东钼企</a><em>|</em>
            <a href="<?php echo $this->getController()->createUrl('/enterprise/index',array('ent_city'=>14))?>">江西钼企</a>
           </p>
-           
             </div>
+
             <div class="nav-con <?php echo $controller=='theme'?'on':'' ?>">
-           <strong><a href="<?php echo $this->getController()->createUrl('/theme/special',array('type'=>57))?>">专题</a>
+           <strong><a href="<?php echo $this->getController()->createUrl('/theme/special',array('type'=>57))?>">钼品专题</a>
 			<b></b></strong>
 	           <p>
           <em></em>
@@ -169,7 +148,7 @@
            <!-- <a href="<?php //echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>63))?>">钼国际标准</a><em>|</em> -->
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>64))?>">钼国内标准</a><em>|</em>
            <a href="<?php echo $this->getController()->createUrl('/product/list',array('type'=>1))?>">钼特价</a><em>|</em>
-           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>67))?>">钼产品</a>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>67))?>">钼产品</a><em>|</em>
           <a href="<?php echo $this->getController()->createUrl('/price/query',array('type'=>31))?>">钼走势图</a><em>|</em>
             <a href="<?php echo $this->getController()->createUrl('/product/index')?>">钼现货</a><em>|</em>
             <a href="<?php echo $this->getController()->createUrl('/supply/list',array('type'=>1))?>">钼供应</a><em>|</em>
@@ -178,6 +157,27 @@
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>68))?>">钼化工</a><em>|</em>
            <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>655))?>">配送服务</a><em>|</em>
           </p>		
+            </div>
+
+            <div class="nav-con <?php echo $controller=='knowledge'?'on':'' ?>">
+           <strong><a href="<?php echo $this->getController()->createUrl('/knowledge/index')?>">钼业百科</a><i class="sp"></i>
+			<b></b></strong><p>
+           <em></em><a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>66))?>">钼用途</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>65))?>">钼生产工艺</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>63))?>">钼国际标准</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>64))?>">钼国内标准</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>67))?>">钼产品</a><em>|</em>
+           <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>68))?>">钼化工</a><em>|</em>
+            <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>40))?>">本网视点</a><em>|</em>
+            <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>42))?>">行业动态</a><em>|</em>
+            <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>41))?>">钼市热点</a><em>|</em>
+            <a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>43))?>">钼财经</a><em>|</em>
+            <!--  <a href="<?php //echo $this->getController()->createUrl('/price/list',array('subcategory_id'=>36))?>">国内行情</a><em>|</em>
+            <a href="<?php //echo $this->getController()->createUrl('/price/list',array('subcategory_id'=>37))?>">国际行情</a><em>|</em>-->
+            <a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>">仓单质押(现货通)</a><em>|</em>
+            <a href="<?php echo $this->getController()->createUrl('/product/list',array('type'=>1))?>">钼特价</a><em>|</em>
+            <a href="<?php echo $this->getController()->createUrl('/price/list',array('subcategory_id'=>101))?>">原料行情</a>
+            </p>
             </div>
 
         </div>

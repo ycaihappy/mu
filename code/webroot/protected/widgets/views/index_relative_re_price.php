@@ -6,7 +6,7 @@
 				<div class="bd">
 					<ul>
 					<table width="100%" cellspacing="0" cellpadding="0">
-						<tbody><tr><th>品种</th><th>价格</th><th>涨跌</th><th>市场</th><th>日期</th></tr>
+						<tbody><tr><th>品种</th><th>价格</th><th>涨跌</th><th>地区</th><th>日期</th></tr>
                         <?php if($rePrice):
 								foreach ($rePrice as $price):
 						?>
@@ -18,7 +18,7 @@
 					</ul>
 					<ul class="hide" style="display: none;">
 					<table width="100%" cellspacing="0" cellpadding="0">
-						<tbody><tr><th>品种</th><th>价格</th><th>涨跌</th><th>市场</th><th>日期</th></tr>
+						<tbody><tr><th>品种</th><th>价格</th><th>涨跌</th><th>地区</th><th>日期</th></tr>
 						<?php if($otherPrice):
 								foreach ($otherPrice as $price):
 						?>

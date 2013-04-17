@@ -1,0 +1,2 @@
+ALTER TABLE `mu_relative_re_price`  ADD COLUMN `re_name_type` INT(4) NULL DEFAULT '0' COMMENT '只有选择的是现货类型时才启用' AFTER `re_id`;
+ALTER TABLE `mu_relative_re_price`  CHANGE COLUMN `re_name` `re_name` VARCHAR(50) NULL DEFAULT '' AFTER `re_type`;

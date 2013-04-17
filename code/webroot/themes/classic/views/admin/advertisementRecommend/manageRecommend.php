@@ -48,17 +48,17 @@ $this->breadcrumbs=array(
         ),  // display the 'name' attribute of the 'category' relation
         array(
         	'name'=>'所属模块',
-        	'value'=>'$data->module->term_name',
+        	'value'=>'$data->module?$data->module->term_name:"未指定"',
         ),   // display the 'content' attribute as purified HTML
         array(
         	'name'=>'信息类型',
-        	'value'=>'$data->infoType->term_name',
+        	'value'=>'$data->infoType?$data->infoType->term_name:"未指定"',
         	'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
      
        array(
         	'name'=>'状态',
-        	'value'=>'$data->status->term_name',
+        	'value'=>'$data->status?$data->status->term_name:"未指定"',
        		'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
       

@@ -3,20 +3,30 @@ class ThemeProductWidget extends CWidget
 {
     public function run()
     {
-        $unit_type= Term::model()->getTermsListByGroupId(2);
 
         $creteria=new CDbCriteria();
-        $creteria->condition="city_mu=1 and city_level=2";
-        $creteria->limit =3;
-        $city_three=City::model()->findAll($creteria);
-        foreach ($city_three as $city_one)
+        $creteria->condition="re_type=148 and re_name_type='".$_GET['type']."' ";
+        $creteria->limit = 7;
+        $rePrice=RelativeRePrice::model()->findAll($creteria);
+        if($rePrice)
         {
-            $select_city[$city_one->city_name] = $city_one->city_id;
+            foreach ($rePrice as &$price)
+            {
+                switch ($price->re_fallup)
+                {
+                case 94:
+                    $price->re_fallup=' ↑ '.$price->re_margin;
+                    break;
+                case 95:
+                    $price->re_fallup=' ↑ '.$price->re_margin;
+                    break;
+                case 96:
+                    $price->re_fallup=' - ';
+                    break;
+                }
+            }
         }
-        $connection = Yii::app()->db;
-        $sql = 'select sum_unit,sum_product_type,sum_product_zone,sum_price from mu_price_summary where sum_product_zone in ('.implode(',',$select_city).' and sum_product_type='.$_GET['type'].')
-            group by sum_product_type,sum_product_zone';
-        $day_price = $connection->createCommand($sql)->queryAll();
-        $this->render('theme_product',array('data'=>$day_price));
+
+        $this->render('theme_product',array('data'=>$rePrice));
     }
 }

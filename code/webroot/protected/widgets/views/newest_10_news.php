@@ -1,5 +1,5 @@
 <div class="hd ui-tab-3">
-	<span class="on"><a href="">最新新闻</a></span>	
+	<span class="on"><a href="">期货</a></span>	
 </div>
 <div class="bd">
 	<ul class="current">

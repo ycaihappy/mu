@@ -17,9 +17,21 @@ $this->breadcrumbs=array(
 
 <tr>
 <td class="label">品名*：</td>
-		<td><?php echo $form->textField($model,'re_name',array('class'=>'cmp-input')); ?>
-		<?php if($model->re_id): echo $form->hiddenField($model,'re_id');endif;?>
-		<?php echo $form->error($model,'re_name'); ?></td>
+		<td>
+	<?php
+	$showNameType=in_array($model->re_type,RelativeRePrice::getProductType())?true:false;
+	?>	
+	<div id="name" style="display:<?php echo $showNameType?'none':'block'?>">
+	<?php echo $form->textField($model,'re_name',array('class'=>'cmp-input')); ?>
+	<?php echo $form->error($model,'re_name'); ?>
+	</div>
+	<div id="nameType" style="display:<?php echo $showNameType?'block':'none'?>">
+	<?php echo $form->dropDownList($model,'re_name_type',$allNameTypies,array('class'=>'cmp-input')); ?>
+	<?php echo $form->error($model,'re_name_type'); ?>
+	<?php echo $form->error($model,'re_name'); ?>
+	</div>
+	<?php if($model->re_id): echo $form->hiddenField($model,'re_id');endif;?>
+		</td>
 </tr>
 <tr>
 <td class="label">资源类型：</td>
@@ -52,3 +64,23 @@ $this->breadcrumbs=array(
 </table>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+<?php 
+$showTypies=json_encode(RelativeRePrice::getProductType());
+$showHidden=<<<JSSCRIPT
+$("#RelativeRePrice_re_type").change(function(){
+	var showTypies={$showTypies};
+	var value=parseInt($(this).val());
+	if($.inArray(value,showTypies)>=0)
+	{
+		$("#name").css('display','none');
+		$("#nameType").css('display','block');
+	}
+	else
+	{
+		$("#name").css('display','block');
+		$("#nameType").css('display','none');
+	}
+});
+JSSCRIPT;
+Yii::app()->clientScript->registerScript('Relative#displayNameTypeOrNot',$showHidden);
+?>

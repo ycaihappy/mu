@@ -41,6 +41,7 @@ class SystemController extends AdminController {
 	}
 	public function actionManageRelativeRePrice()
 	{
+		CQueryRequestHelper::registerLastQueryForm(array('RelativeRePrice'),'RelativeRePrice');
 		$model=new RelativeRePrice();
 		if(isset($_REQUEST['RelativeRePrice']))
 		{
@@ -50,7 +51,10 @@ class SystemController extends AdminController {
 		$model->re_type=(int)@$_REQUEST['RelativeRePrice']['re_type'];
 		$model->re_name=@$_REQUEST['RelativeRePrice']['re_name'];
 		$reCriteria=new CDbCriteria();
-		$reCriteria->with=array('status'=>array('select'=>'term_name'),'type'=>array('select'=>'term_name'),'fallup'=>array('select'=>'term_name'));
+		$reCriteria->with=array('status'=>array('select'=>'term_name'),
+		'type'=>array('select'=>'term_name'),
+		'nameType'=>array('select'=>'term_name'),
+		'fallup'=>array('select'=>'term_name'));
 		$reCriteria->order='re_added_time desc';
 		if($model->re_status)
 		{
@@ -87,8 +91,10 @@ class SystemController extends AdminController {
 		$model=new RelativeRePrice();
 		if(isset($_POST['RelativeRePrice']))
 		{
+			$model->re_type=$_POST['RelativeRePrice']['re_type'];
 			$model->attributes=$_POST['RelativeRePrice'];
 			if($model->re_id) $model->setIsNewRecord(false);
+			
 			if($model->save())
 			{
 				$this->redirect(array('manageRelativeRePrice'));
@@ -103,12 +109,39 @@ class SystemController extends AdminController {
 			}
 		}
 		$allStatus=Term::getTermsByGroupId(1);
+		$allNameTypies=Term::getMuCategoryByGroup();
 		$allFallUp=Term::getTermsByGroupId(19);
 		$allReTypes=Term::getTermsByGroupId(20);
-		$data=compact('allStatus','model','allFallUp','allReTypes');
+		$data=compact('allStatus','model','allFallUp','allReTypes','allNameTypies');
 		$this->render('updateRelativeRePrice',$data);
 	}
+	public function actionDeleteRelativeRePrice()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			$reId=@$_REQUEST['re_id'];
+			if(!$reId )
+			{
+				
+				echo '请选择要删除的价格信息';
+				exit;
+				
+			}
+			$deleteCriteria=new CDbCriteria();
+			$deleteCriteria->addInCondition('re_id', $reId);
+			$deleteeRows=RelativeRePrice::model()->deleteAll($deleteCriteria);
+			if($deleteeRows>0)
+			{
+				echo '删除成功！';
+			}
+			else {
+				echo '删除失败！';
+			}
+			exit;
+		}
+	}
 }
+
 
 
 ?>

@@ -36,7 +36,7 @@
             <?php endif;?></td>
 			<td>
 			<?php if($user->user_status==1 && $user->user_open_template && $user->user_template && $enterprise->ent_status==1): ?>
-            	<a target="_blank" href="<?php echo $this->createUrl('/storeFront/default/index',array('username'=>$user->user_name))?>"><?php echo Yii::app()->request->getHostInfo().$this->createUrl('/storeFront/default/index',array('username'=>$user->user_name))?></a>
+            	<a target="_blank" href="<?php echo $this->createUrl('/storeFront/default/index',array('username'=>$user->user_name))?>"><?php echo $this->createUrl('/storeFront/default/index',array('username'=>$user->user_name))?></a>
             	<?php else:?>
             	<a target="_blank" href="<?php echo $enterprise->ent_website;?>"><?php echo $enterprise->ent_website;?></a>
             <?php endif;?>

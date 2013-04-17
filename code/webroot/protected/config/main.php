@@ -57,6 +57,7 @@ return array(
 		),
 		'session'=>array(
 			'class'=>'CHttpSession',
+			'savePath'=>'sessions',
 			'cookieParams' => array(
 	         'domain' => '.mushw.com',
 	      ),

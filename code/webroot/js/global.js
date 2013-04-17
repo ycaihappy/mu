@@ -263,6 +263,11 @@ $.extend(MU.mods,{
 			var index = $(this).parent().find('a').index($(this));
 			self.find('.fp-con ul').eq(index).show().siblings().hide();
 		});
+		
+
+		$.getAsset('script',['js/highcharts.js'],function(){
+			MU.mods.loadChart(self.find('.chart-info'),self.find('.chart').data('api'),{a:1});
+		});
 
 	},
 	JShopSetting : function () {

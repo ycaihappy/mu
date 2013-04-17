@@ -45,7 +45,7 @@ if (isset($data02[$index])){
 			</div>
 <div class="price-area">
 				<div class="ui-purple-hd  ui-m-tab4 ui-m-border">
-						<span class="on">稀土资源</span><span>黄金</span>
+						<span class="on">稀土资源</span><span>贵金属品</span><span>上海期货</span><span>外汇牌价</span>
 						
 				</div>
 				<div class="bd">
@@ -54,6 +54,30 @@ if (isset($data02[$index])){
 						<tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
 						<?php if($rePrice):
 								foreach ($rePrice as $price):
+						?>
+						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td></tr>
+						<?php endforeach;
+							endif;
+						?>
+					</table>
+					</ul>
+					<ul class="hide">
+					<table cellspacing="0" cellpadding="0" width="100%">
+						<tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
+						<?php if($otherPrice):
+								foreach ($otherPrice as $price):
+						?>
+						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td></tr>
+						<?php endforeach;
+							endif;
+						?>
+					</table>
+					</ul>
+					<ul class="hide">
+					<table cellspacing="0" cellpadding="0" width="100%">
+						<tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
+						<?php if($otherPrice):
+								foreach ($otherPrice as $price):
 						?>
 						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td></tr>
 						<?php endforeach;

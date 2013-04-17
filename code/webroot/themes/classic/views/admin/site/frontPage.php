@@ -10,19 +10,19 @@ $this->breadcrumbs=array(
 <dl>
 	<dt>待处理信息</dt>
 	<dd>
-		<div class="item"><label>待审核会员</label><a href="<?php echo $this->createUrl('user/manageUser',array('user_status'=>33))?>" ><span><?php echo $userCount?></span></a></div>
-		<div class="item"><label>待审核企业</label><a href="<?php echo $this->createUrl('product/manageEnterprise',array('Enterprise[ent_status]'=>33))?>" ><span><?php echo $entCount?></span></a></div>
+		<div class="item"><label>待审核会员</label><span><?php echo $userCount?></span>条  <a href="<?php echo $this->createUrl('user/manageUser',array('user_status'=>33))?>" >[查看]</a></div>
+		<div class="item"><label>待审核企业</label><span><?php echo $entCount?></span>条  <a href="<?php echo $this->createUrl('product/manageEnterprise',array('Enterprise[ent_status]'=>33))?>" >[查看]</a></div>
 	</dd>
 	<dd>
-		<div class="item"><label>待审核特价产品</label><a href="<?php echo $this->createUrl('product/manageSpecial',array('Product[product_status]'=>33))?>" ><span><?php echo $specialCount?></span></a></div>
-		<div class="item"><label>待审核现货产品</label><a href="<?php echo $this->createUrl('product/manageProduct',array('Product[product_status]'=>33))?>" ><span><?php echo $productCount?></span></a></div>
+		<div class="item"><label>待审核特价产品</label><span><?php echo $specialCount?></span>条  <a href="<?php echo $this->createUrl('product/manageSpecial',array('Product[product_status]'=>33))?>" >[查看]</a></div>
+		<div class="item"><label>待审核现货产品</label><span><?php echo $productCount?></span>条  <a href="<?php echo $this->createUrl('product/manageProduct',array('Product[product_status]'=>33))?>" >[查看]</a></div>
 	</dd>
 	<dd>
-		<div class="item"><label>待审核供应信息</label><a href="<?php echo $this->createUrl('product/manageSupply',array('Supply[supply_status]'=>33))?>" ><span><?php echo $supplyCount?></span></a></div>
-		<div class="item"><label>待审核求购信息</label><a href="<?php echo $this->createUrl('product/manageBuy',array('Supply[supply_status]'=>33))?>" ><span><?php echo $buyCount?></span></a></div>
+		<div class="item"><label>待审核供应信息</label><span><?php echo $supplyCount?></span>条 <a href="<?php echo $this->createUrl('product/manageSupply',array('Supply[supply_status]'=>33))?>" >[查看]</a></div>
+		<div class="item"><label>待审核求购信息</label><span><?php echo $buyCount?></span>条  <a href="<?php echo $this->createUrl('product/manageBuy',array('Supply[supply_status]'=>33))?>" >[查看]</a></div>
 	</dd>
 	<dd>
-		<div class="item"><label>待审核友情链接</label><a href="<?php echo $this->createUrl('user/manageFLink',array('FriendLink[flink_status]'=>33))?>" ><span><?php echo $flinkCount?></span></a></div>
+		<div class="item"><label>待审核友情链接</label><span><?php echo $flinkCount?></span>条  <a href="<?php echo $this->createUrl('user/manageFLink',array('FriendLink[flink_status]'=>33))?>" >[查看]</a></div>
 	</dd>
 </dl>
 <dl>

@@ -1,5 +1,5 @@
 <div class="hd ui-tab-3">
-	<span class="on"><a target="_blank" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>42))?>">行业动态</a></span>
+	<span class="on"><a target="_blank" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>42))?>">钼业动态</a></span>
 	<a target="_blank" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>42))?>" class="more">更多</a>
 </div>
 <div class="bd">

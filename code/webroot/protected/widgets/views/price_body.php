@@ -27,6 +27,13 @@ $hq_sub_name = '';
                         </ul>
                     </div>
                     <div class="fp">
+					<?php
+						if ($class == 2) :
+					?>
+					<div class="chart" data-api="/index.php?r=price/chart&type=57&year=2013&to_year=2013&month=4&to_month=4&day=17">
+						<div class="chart-info"></div>
+					</div>
+					<?php else:?>
                         <h2>
                             <a class="" href="">每日分析</a><a href="" class="on">每周评述</a><!--<a href="">价格汇总</a>--></h2>
                         <div class="fp-con">
@@ -40,8 +47,9 @@ $hq_sub_name = '';
                            		<?php for($index=0;$index<count($data02)-1;$index++):?>
         <li><span><?php echo date("m-d",strtotime($data02[$index]['art_post_date']));?></span><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data02[$index]['art_id']));?>" title="<?php echo $data[$index]['art_title'] ?>" target="_blank"><?php echo $data02[$index]['art_title']; ?></a></li>
 			<?php endfor;?>			
-                            </ul>
+                            </ul>							
                         </div>
+						<?php endif;?>
                     </div>
            </div>
       <div class="clearfix"></div>

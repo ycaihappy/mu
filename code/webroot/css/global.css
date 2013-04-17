@@ -1103,6 +1103,7 @@ padding: 0 20px;
 .m-hq-box {  border: 1px solid #DEDEDE;  margin-bottom: 5px;}
 .m-hq-box h1 {  background: url("imgs/hq_bg.png") no-repeat scroll 0 0 transparent;  border-bottom: 1px solid #DADADA;  height: 27px;  line-height: 27px;  text-align: left;}
 .m-hq-box .hq-con {  height: 195px;}
+.m-hq-box .chart-info{height:190px;width:330px}
 .m-hq-box .fb {  color: #DADADA;  font-size: 12px;  font-weight: normal;  padding-left: 15px;}
 .m-hq-box .fb a {  font-size: 12px;  font-weight: normal;}
 .m-hq-box .hq-con ul li a {  display: inline-block;  height: 23px;  overflow: hidden;  width: 285px;}

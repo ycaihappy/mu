@@ -137,7 +137,7 @@
             </div>
 
             <div class="nav-con <?php echo $controller=='theme'?'on':'' ?>">
-           <strong><a href="<?php echo $this->getController()->createUrl('/theme/special',array('type'=>57))?>">钼品专题</a>
+           <strong><a href="<?php echo $this->getController()->createUrl('/theme/special',array('type'=>57))?>">钼品专题</a><i class="sp"></i>
 			<b></b></strong>
 	           <p>
           <em></em>
@@ -160,7 +160,7 @@
             </div>
 
             <div class="nav-con <?php echo $controller=='knowledge'?'on':'' ?>">
-           <strong><a href="<?php echo $this->getController()->createUrl('/knowledge/index')?>">钼业百科</a><i class="sp"></i>
+           <strong><a href="<?php echo $this->getController()->createUrl('/knowledge/index')?>">钼业百科</a>
 			<b></b></strong><p>
            <em></em><a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>66))?>">钼用途</a><em>|</em>
            <a href="<?php echo $this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>65))?>">钼生产工艺</a><em>|</em>

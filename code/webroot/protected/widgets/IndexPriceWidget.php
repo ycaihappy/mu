@@ -46,6 +46,44 @@ class IndexPriceWidget extends CWidget
         		}
         	}
         }
-        $this->render('index_price',array('otherPrice'=>$otherPrice,'rePrice'=>$rePrice,'data01'=>$price01, 'data02'=>$price02,'city'=>$city,'category'=>$category));
+    	$SHPrice=RelativeRePrice::model()->recentlyRePrice(152)->findAll();
+        if($SHPrice)
+        {
+        	foreach ($SHPrice as &$price)
+        	{
+        		switch ($price->re_fallup)
+        		{
+        			case 94:
+        				$price->re_fallup=' ↑ '.$price->re_margin;
+        				break;
+        			case 95:
+        				$price->re_fallup=' ↑ '.$price->re_margin;
+        				break;
+        			case 96:
+        				$price->re_fallup=' - ';
+        				break;
+        		}
+        	}
+        }
+    	$WHPrice=RelativeRePrice::model()->recentlyRePrice(153)->findAll();
+        if($WHPrice)
+        {
+        	foreach ($WHPrice as &$price)
+        	{
+        		switch ($price->re_fallup)
+        		{
+        			case 94:
+        				$price->re_fallup=' ↑ '.$price->re_margin;
+        				break;
+        			case 95:
+        				$price->re_fallup=' ↑ '.$price->re_margin;
+        				break;
+        			case 96:
+        				$price->re_fallup=' - ';
+        				break;
+        		}
+        	}
+        }
+        $this->render('index_price',array('WHPrice'=>$WHPrice,'SHPrice'=>$SHPrice,'otherPrice'=>$otherPrice,'rePrice'=>$rePrice,'data01'=>$price01, 'data02'=>$price02,'city'=>$city,'category'=>$category));
     }
 }

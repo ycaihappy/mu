@@ -43,7 +43,7 @@ if (isset($data02[$index])){
 					<div class="clearfix"></div>
 				</div>
 			</div>
-<div class="price-area">
+<div class="price-area four-hd">
 				<div class="ui-purple-hd  ui-m-tab4 ui-m-border">
 						<span class="on">稀土资源</span><span>贵金属品</span><span>上海期货</span><span>外汇牌价</span>
 						

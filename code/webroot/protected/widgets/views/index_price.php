@@ -76,8 +76,8 @@ if (isset($data02[$index])){
 					<ul class="hide">
 					<table cellspacing="0" cellpadding="0" width="100%">
 						<tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
-						<?php if($otherPrice):
-								foreach ($otherPrice as $price):
+						<?php if($SHPrice):
+								foreach ($SHPrice as $price):
 						?>
 						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td></tr>
 						<?php endforeach;
@@ -88,8 +88,8 @@ if (isset($data02[$index])){
 					<ul class="hide">
 					<table cellspacing="0" cellpadding="0" width="100%">
 						<tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
-						<?php if($otherPrice):
-								foreach ($otherPrice as $price):
+						<?php if($WHPrice):
+								foreach ($WHPrice as $price):
 						?>
 						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td></tr>
 						<?php endforeach;

@@ -46,6 +46,7 @@ class RelativeRePrice extends CActiveRecord
 			array('re_name', 'length', 'max'=>50),
 			array('re_market', 'length', 'max'=>128),
 			array('re_price', 'length', 'max'=>128),
+			array('re_max_price', 'length', 'max'=>128),
 			array('re_type', 'required', 'message'=>'选择价格类型！'),
 			array('re_fallup', 'required', 'message'=>'选择涨跌情况！'),
 			array('re_added_time, re_updated_time', 'safe'),
@@ -115,6 +116,7 @@ class RelativeRePrice extends CActiveRecord
 			're_margin' => '幅度',
 			're_market' => '所属市场',
 			're_price' => '价格',
+			're_max_price' => '最高价格',
 			're_status' => 'Re Status',
 			're_added_time' => 'Re Added Time',
 			're_updated_time' => 'Re Updated Time',
@@ -150,6 +152,7 @@ class RelativeRePrice extends CActiveRecord
 		$criteria->compare('re_margin',$this->re_margin);
 		$criteria->compare('re_market',$this->re_market,true);
 		$criteria->compare('re_price',$this->re_price,true);
+		$criteria->compare('re_max_price',$this->re_max_price,true);
 		$criteria->compare('re_status',$this->re_status);
 		$criteria->compare('re_added_time',$this->re_added_time,true);
 		$criteria->compare('re_updated_time',$this->re_updated_time,true);

@@ -764,7 +764,7 @@ $.extend(MU.mods,{
 		
 	},
 	loadChart : function (o,api,data) {
-		var d = $.extend({type:89,year:2013,month:1,to_year:2013,to_month:4},data);
+		var d = $.extend({},data);
 		$.post(api,d,function (re) {
 				o.highcharts({
 					chart: {

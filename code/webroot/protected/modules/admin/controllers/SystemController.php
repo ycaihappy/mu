@@ -140,6 +140,51 @@ class SystemController extends AdminController {
 			exit;
 		}
 	}
+	public function xxactionBulkMail()
+	{
+		$model=new BulkMailForm();
+		if(Yii::app()->request->isPostRequest)
+		{
+			if(isset($_REQUEST['BulkMailForm']))
+			{
+				$model->attributes=$_REQUEST['BulkMailForm'];
+				if($model->validate())
+				{
+					$criterial=new CDbCriteria();
+					$criterial->select='user_email,user_mobile_no';
+					if($model->province)
+					{
+						$model->province=array_map('intVal',$model->province);
+						if(!in_array(0,$model->province))
+							$criterial->addInCondition('user_province_id', $model->province);
+					}
+					if($model->userGroup)
+					{
+						$model->userGroup=array_map('intVal',$model->userGroup);
+						if(!in_array(0,$model->userGroup))
+							$criterial->addInCondition('user_type', $model->userGroup);
+					}
+					$users=User::model()->findAll($criterial);
+					if($users)
+					{
+						if($model->sendType==2)//短信方式发送
+						{
+							
+						}
+						else {//邮件方式发送
+							
+						}
+					}
+				}
+			}
+		}
+		$allSendType=array('1'=>'邮件方式','2'=>'短信方式');
+		$allProvince=City::getProvice();
+		$allBusModel=Term::getTermsByGroupId(5);
+		$allUserGroup=UserGroup::getUserGroup();
+		$data=compact('allProvince','allBusModel','allUserGroup');
+		$this->render('bulkMail',$data);
+	}
 }
 
 

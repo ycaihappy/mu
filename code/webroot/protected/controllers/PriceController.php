@@ -76,7 +76,8 @@ class PriceController extends BasicAccessController
         else
         {
             $creteria=new CDbCriteria();
-            $creteria->condition="city_mu=1 and city_level=2";
+            $creteria->condition="city_mu=1 and city_level=2 and city_id in(16,5,6)";
+            $creteria->order='find_in_set(city_id,"16,5,6")';
             $creteria->limit =3;
             $city_three=City::model()->findAll($creteria);
             foreach ($city_three as $city_one)

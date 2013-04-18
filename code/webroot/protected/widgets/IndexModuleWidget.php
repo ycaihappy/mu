@@ -14,13 +14,13 @@ class IndexModuleWidget extends CWidget
 		$this->more='/news/list';
 		switch ($this->type){
 			case 1:
-				$this->title='钼展会';
+				$this->title='钼业展会';
 				$artCriteria->join='inner join mu_recommend b on t.art_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=23 and b.recommend_position=116';
 				$this->route='/exhibition/view';
 				$this->more=$this->getController()->createUrl('/exhibition/list',array('subcategory_id'=>100));
 				break;
 			case 2:
-				$this->title='钼新闻';
+				$this->title='钼业新闻';
 				$artCriteria->join='inner join mu_recommend b on t.art_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=23 and b.recommend_position=113';
 				$this->route='/news/view';
 				$this->more=$this->getController()->createUrl('/news/index');
@@ -32,19 +32,19 @@ class IndexModuleWidget extends CWidget
 				$this->more=$this->getController()->createUrl('/price/index');
 				break;
 			case 4:
-				$this->title='钼工艺';
+				$this->title='生产工艺';
 				$artCriteria->join='inner join mu_recommend b on t.art_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=23 and b.recommend_position=112';
 				$this->route='/knowledge/view';
 				$this->more=$this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>65));
 				break;
 			case 5:
-				$this->title='钼百科';
+				$this->title='钼业百科';
 				$artCriteria->join='inner join mu_recommend b on t.art_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=23 and b.recommend_position=114';
 				$this->route='/knowledge/view';
 				$this->more=$this->getController()->createUrl('/knowledge/index');
 				break;
 			case 6:
-				$this->title='钼标准';
+				$this->title='钼业标准';
 				$artCriteria->join='inner join mu_recommend b on t.art_id=b.recommend_object_id and b.recommend_status=1 and b.recommend_type=23 and b.recommend_position=115';
 				$this->route='/knowledge/view';
 				$this->more=$this->getController()->createUrl('/knowledge/list',array('subcategory_id'=>64));

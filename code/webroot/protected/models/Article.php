@@ -234,6 +234,11 @@ class Article extends CActiveRecord
             	'offset'=>5,
                 'limit'=>9
             ),
+            'topFuturesNews'=>array(//新闻首页--最新新闻10
+                'condition'=>'art_category_id=17 and art_status=1 and art_subcategory_id=154',
+                'order'=>'art_id desc',
+                'limit'=>9
+            ),
             'internalExhibitions'=>array(//展会列表也--国内展会
             	'select'=>'art_id,art_title',
                 'condition'=>'art_category_id=98 and art_subcategory_id=99 and art_status=1',

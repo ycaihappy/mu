@@ -266,7 +266,7 @@ $.extend(MU.mods,{
 		
 
 		$.getAsset('script',['js/highcharts.js'],function(){
-			MU.mods.loadChart(self.find('.chart-info'),self.find('.chart').data('api'),{a:1});
+			MU.mods.loadChart(self.find('.chart-info'),self.find('.chart').data('api'),{type:'spline'});
 		});
 
 	},
@@ -518,7 +518,7 @@ $.extend(MU.mods,{
 			});
 		}
 		$.getAsset('script',['js/highcharts.js'],function(){
-			 loadChart({cid:1});
+			 MU.mods.loadChart($('#chart'),api,{data:{cid : 1}});
 		});
 	},
 	JXhSlist : function (){
@@ -581,77 +581,10 @@ $.extend(MU.mods,{
 	},
 	JDataCenter : function () {
 		var self = $(this),api = $('#chart1').data('api'),api2 = $('#chart2').data('api');
-		$('#chart1,#chart2').css({width:301,height:185});
-		var loadChart = function (params) {
-			var p = $.param (params);
-			api = api.indexOf('?') == -1 ? api + '?' + p : api + '&' + p;
-			$.getJSON(api,function (re) {
-				var chart = new Highcharts.Chart({
-                chart: {
-                    renderTo: 'chart1',
-                    type: 'line'
-                },
-                title: {
-                    text: re.text
-                },
-                xAxis: {
-                    categories: re.xAxis
-                },
-                yAxis: {
-                    title: {
-                        text: re.yAxis
-                    }
-                },
-                tooltip: {
-                    formatter: function () {
-                        return '' +  this.series.name + ': ' + this.y + '';
-                    }
-                },
-                credits: {
-                    enabled: false
-                },
-                series: re.series,
-                exporting: {
-                    enabled: false
-                }
-            });
-
-			});
-			$.getJSON(api2,function (re) {
-				var chart = new Highcharts.Chart({
-                chart: {
-                    renderTo: 'chart2',
-                    type: 'line'
-                },
-                title: {
-                    text: re.text
-                },
-                xAxis: {
-                    categories: re.xAxis
-                },
-                yAxis: {
-                    title: {
-                        text: re.yAxis
-                    }
-                },
-                tooltip: {
-                    formatter: function () {
-                        return '' +  this.series.name + ': ' + this.y + '';
-                    }
-                },
-                credits: {
-                    enabled: false
-                },
-                series: re.series,
-                exporting: {
-                    enabled: false
-                }
-            });
-
-			});
-		}
+		$('#chart1,#chart2').css({width:301,height:185});		
 		$.getAsset('script',['js/highcharts.js'],function(){
-			 loadChart({cid:1});
+			MU.mods.loadChart($('#chart1'),api,{data:{cid : 1}});
+			MU.mods.loadChart($('#chart2'),api2,{data:{cid : 1}});
 		});
 	},
 	JImgScroller : function () {
@@ -759,16 +692,16 @@ $.extend(MU.mods,{
 	JSpecialChart : function () {
 		var self = $(this);
 		$.getAsset('script',['js/highcharts.js'],function(){
-			MU.mods.loadChart(self.find('.pic'),self.data('api'),{a:1});
+			MU.mods.loadChart(self.find('.pic'),self.data('api'),{type : 'spline'});
 		});
 		
 	},
-	loadChart : function (o,api,data) {
-		var d = $.extend({type:89,year:2013,month:1,to_year:2013,to_month:4},data);
-		$.post(api,d,function (re) {
+	loadChart : function (o,api,options) {
+		var opts = $.extend({type : 'line', data : {}},options);
+		$.post(api,opts.data,function (re) {
 				o.highcharts({
 					chart: {
-						type: 'spline'
+						type: opts.type
 					},
 					title: {
 						text: re.text

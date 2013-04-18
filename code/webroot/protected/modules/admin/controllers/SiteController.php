@@ -166,6 +166,7 @@ class SiteController extends AdminController{
 			if (isset ( $_POST ['Term'] )) {
 				$model = new Term ();
 				$model->attributes = $_POST ['Term'];
+				$model->term_create_time = date("Y-m-d H:i:s");
 				if ($model->term_id)
 					$model->setIsNewRecord ( false );
 				if ($model->save ()) {

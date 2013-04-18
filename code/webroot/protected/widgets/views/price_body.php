@@ -2,7 +2,7 @@
 $class = ($type == 1) ? '1' : '2';
 $data  = ($type == 1) ? $data01: $data02;
 
-$hq_name = ($type == 1) ? '原料行情' : '价格汇总';
+$hq_name = ($type == 1) ? '钼市行情' : '价格汇总';
 
 ?>
 <div class="m-hq-box ui-m-tab ui-m-border" id="J_Hq_Box_<?php echo $class;?>">

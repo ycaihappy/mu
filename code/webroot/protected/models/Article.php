@@ -144,6 +144,16 @@ class Article extends CActiveRecord
                 'order'=>'art_post_date desc',
                 'limit'=>8
             ),
+            'PriceDayList'=>array(
+                'condition'=>'art_subcategory_id=154 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>8
+            ),
+            'PriceWeekList'=>array(
+                'condition'=>'art_subcategory_id=155 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>8
+            ),
             'PriceSummaryList'=>array(
                 'condition'=>'art_subcategory_id=59 and art_status=1',
                 'order'=>'art_post_date desc',

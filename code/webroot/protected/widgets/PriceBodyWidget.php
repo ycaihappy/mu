@@ -7,6 +7,8 @@ class PriceBodyWidget extends CWidget
     {
     	$price01 = Article::model()->PriceMaterialList()->findAll();
     	$price02 = Article::model()->PriceSummaryList()->findAll();
-        $this->render('price_body',array('type'=>$this->type,'data01'=>$price01,'data02'=>$price02));
+    	$price03 = Article::model()->PriceDayList()->findAll();
+    	$price04 = Article::model()->PriceWeekList()->findAll();
+        $this->render('price_body',array('type'=>$this->type,'data01'=>$price01,'data02'=>$price02,'data03'=>$price03,'data04'=>$price04));
     }
 }

@@ -10,9 +10,14 @@
 				?>
 					<dl>
 						<strong><a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key))?>"><?php echo $category['title']?></a>:</strong>
-						<?php foreach ($category['sub'] as $subCategory):?>
+<?php foreach ($category['sub'] as $subCategory):
+if (in_array($subCategory->term_id,array(31,57,72,78)))
+{
+                        ?>
+						<a href="<?php echo $this->getController()->createUrl('/theme/special/',array('type'=>$subCategory->term_id))?>"><?php echo $subCategory->term_name?></a>| 
+<?php }else{?>
 						<a href="<?php echo $this->getController()->createUrl('/product/index/',array('bigType'=>$key,'smallType'=>$subCategory->term_id))?>"><?php echo $subCategory->term_name?></a>| 
-						<?php endforeach;?>
+						<?php }endforeach;?>
 					</dl>
 					<?php endforeach;
 					endif;

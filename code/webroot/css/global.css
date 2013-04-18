@@ -190,7 +190,7 @@ padding-right: 1px;
 .m-nav .bd p a:hover{background:#f3f3f3;}
 .m-nav .bd p em{margin:0 4px;}
 .m-nav .nav-con{float:left;line-height:40px;}
-.m-nav .nav-con strong{display:inline-block;color:#fff;position:relative;padding:0 35px;}
+.m-nav .nav-con strong{display:inline-block;color:#fff;position:relative;padding:0 30px}
 .m-nav strong a{color:#fff;font-weight:bold;font-size:14px;}
 .m-nav .sp{position:absolute;width:4px;height:33px;right:0px;background:url(imgs/v2/nav_split.png) no-repeat;display:inline-block;top:3px;}
 .m-nav b{
@@ -1103,6 +1103,7 @@ padding: 0 20px;
 .m-hq-box {  border: 1px solid #DEDEDE;  margin-bottom: 5px;}
 .m-hq-box h1 {  background: url("imgs/hq_bg.png") no-repeat scroll 0 0 transparent;  border-bottom: 1px solid #DADADA;  height: 27px;  line-height: 27px;  text-align: left;}
 .m-hq-box .hq-con {  height: 195px;}
+.m-hq-box .chart-info{height:190px;width:330px}
 .m-hq-box .fb {  color: #DADADA;  font-size: 12px;  font-weight: normal;  padding-left: 15px;}
 .m-hq-box .fb a {  font-size: 12px;  font-weight: normal;}
 .m-hq-box .hq-con ul li a {  display: inline-block;  height: 23px;  overflow: hidden;  width: 285px;}
@@ -1609,7 +1610,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .price-area th{background:#f7f7f9;padding:5px;text-align:center;font-weight:bold;border-right:1px solid #DEDEE0;border-bottom:1px solid #DEDEE0;}
 .price-area td{padding:5px;text-align:center;border-right:1px solid #DEDEE0;border-bottom:1px solid #DEDEE0;}
 .price-area table{border-left:1px solid #DEDEE0;border-bottom:1px solid #DEDEE0;}
-
+.four-hd .ui-purple-hd span{width:70px}
 
 .special-index{margin-right:10px;width:270px}
 .supply-scroll{height:500px;overflow:hidden;position:relative}

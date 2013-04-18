@@ -785,8 +785,8 @@ class UserController extends Controller {
     	$this->layout = '//layouts/ajax_main';
 		$model = new UserLoginForm ();
 		$result=array('status'=>0,'msg'=>'');
-    	if (isset ( $_POST ['UserLoginForm'] )) {
-			$model->attributes = $_POST ['UserLoginForm'];
+    	if (isset ( $_REQUEST ['UserLoginForm'] )) {
+			$model->attributes = $_REQUEST ['UserLoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if ($model->validate () && $model->login ())
 			{
@@ -800,7 +800,13 @@ class UserController extends Controller {
 		else {
 			$result['msg']='非法请求！';
 		}
-		echo json_encode($result);
+		$resultJson=json_encode($result);
+		$callBack=Yii::app()->request->getParam('callback','');
+		if($callBack)
+		{
+			$resultJson=$callBack.'('.$resultJson.')';
+		}
+		echo $resultJson;
 		Yii::app ()->end ();
     }
 	public function actionLogin() {

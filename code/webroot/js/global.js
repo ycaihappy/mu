@@ -20,18 +20,6 @@ $.extend(MU.mods,{
 	},
 	JSearchForm : function () {
 		var self = $(this);
-		/*if($('#q').val() !=""){
-			$(this).parent().addClass('search-status-focus');
-		}
-		$('#q').focusin(function(){
-			$(this).parent().addClass('search-status-focus');
-		}).focusout(function(){
-			if ($(this).val() == "") {
-				$(this).parent().removeClass('search-status-focus');
-			}
-		}).keydown(function(){
-			$(this).parent().addClass('search-status-focus');
-		});*/
 		
 		self.find('input[name=type]').val(self.find('.switchable-nav li.selected').data('type'));
 		
@@ -39,15 +27,7 @@ $.extend(MU.mods,{
 			$(this).addClass('selected').siblings().removeClass('selected');
 			self.find('input[name=type]').val($(this).data('type'));
 		});
-	},
-	JNewTabList : function () {
-		var self = $(this);
-		/*self.find('.hd span').mouseover(function(){
-			$(this).addClass('on').siblings().removeClass('on');
-			var index = $(this).parent().find('span').index($(this));
-			$(this).closest('.hd').siblings('.bd').find('ul').eq(index).show().siblings().hide();
-		});*/
-	},
+	},	
 	JQkLogin : function () {
 		var self = $(this),form = self.find('form');
 		
@@ -250,11 +230,6 @@ $.extend(MU.mods,{
 			});
 		});
 		
-		
-	},
-	JHqNews : function (){
-		var self = $(this);
-		
 	},
 	JHqBox : function(){
 		var self = $(this);
@@ -263,7 +238,6 @@ $.extend(MU.mods,{
 			var index = $(this).parent().find('a').index($(this));
 			self.find('.fp-con ul').eq(index).show().siblings().hide();
 		});
-		
 
 		$.getAsset('script',['js/highcharts.js'],function(){
 			MU.mods.loadChart(self.find('.chart-info'),self.find('.chart').data('api'),{type:'spline'});
@@ -482,41 +456,6 @@ $.extend(MU.mods,{
 	JQuot : function () {
 		var self = $(this),api = $('#chart').data('api');
 		$('#chart').css({width:250,height:150});
-		var loadChart = function (params) {
-			var p = $.param (params);
-			api = api.indexOf('?') == -1 ? api + '?' + p : api + '&' + p;
-			$.getJSON(api,function (re) {
-				var chart = new Highcharts.Chart({
-                chart: {
-                    renderTo: 'chart',
-                    type: 'line'
-                },
-                title: {
-                    text: re.text
-                },
-                xAxis: {
-                    categories: re.xAxis
-                },
-                yAxis: {
-                    title: {
-                        text: re.yAxis
-                    }
-                },
-                tooltip: {
-                    formatter: function () {
-                        return '' +  this.series.name + ': ' + this.y + '';
-                    }
-                },
-                credits: {
-                    enabled: false
-                },
-                series: re.series,
-                exporting: {
-                    enabled: false
-                }
-            });
-			});
-		}
 		$.getAsset('script',['js/highcharts.js'],function(){
 			 MU.mods.loadChart($('#chart'),api,{data:{cid : 1}});
 		});
@@ -633,59 +572,21 @@ $.extend(MU.mods,{
 		});
 	},
 	JChartMap : function () {
-		var self = $(this),api = self.data('api');
-		self.find('form').attr('autocomplete','off');
+		var self = $(this),api = self.data('api'),form = self.find('form');
+		form.attr('autocomplete','off');
 		$('#container').css({width:710,height:500});
-		var loadChart = function (params) {	
-			$.post(api,params,function (re) {
-
-				var chart = new Highcharts.Chart({
-					chart: {
-						renderTo: 'container',
-						type: 'line'
-					},
-					title: {
-						text: re.text
-					},
-					xAxis: {
-						categories: re.xAxis
-					},
-					yAxis: {
-						title: {
-							text: re.yAxis
-						}
-					},
-					tooltip: {
-						formatter: function () {
-							return '' +  this.series.name + ': ' + this.y + '';
-						}
-					},
-					credits: {
-						enabled: false
-					},
-					series: re.series,
-					exporting: {
-						enabled: false
-					}
-				});
-
-			},'json');
-			
-		}
 		$.getAsset('script',['js/highcharts.js'],function(){
-			loadChart(self.find('form').serializeArray());	
+			MU.mods.loadChart($('#container'),api,{data:form.serializeArray()});
 		});
 		self.find('.datepicker').datepicker({dateFormat : 'yy-mm-dd'});
-		self.find('.btn-red').on('click',function(){
-			//$.getAsset('script',['js/highcharts.js'],function(){
+		self.find('.btn-red').on('click',function(){			
 			var year = self.find('select[name=year]').val(),month = self.find('select[name=month]').val(),to_year = self.find('select[name=to_year]').val(),to_month = self.find('select[name=to_month]').val();
 				var start = new Date(year,month),end = new Date(to_year,to_month);
 				if (start > end ){
 					alert('起始年月必须小于截止年月');
 				}else{
-					loadChart(self.find('form').serializeArray());
-				}
-			//});
+					MU.mods.loadChart($('#container'),api,{data:form.serializeArray()});
+				}			
 		});
 		
 	},

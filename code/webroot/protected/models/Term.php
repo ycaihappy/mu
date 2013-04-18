@@ -151,11 +151,18 @@ class Term extends CActiveRecord
 				if($parent)
 				{
 					$returnCategories[$muCategories1[$parent]['term_name']][$category->term_id]=$muCategories1[$category->term_id]['term_name'];
-					
 				}
 			}
 		}
 		return $returnCategories;
+	}
+	public function beforeSave()
+	{
+		if($this->isNewRecord)
+		{
+			$this->term_create_time=date('Y-m-d H:i:s');
+		}
+		return parent::beforeSave();
 	}
 
 	/**

@@ -5,11 +5,11 @@
         </div>
 	<div class="bd">
 	<!--<h3 class="bigsize">
-	<a href="<?php echo $businessOne->art_source?>"><?php echo $businessOne->art_title?></a>
+	<a href="<?php //echo $businessOne->art_source?>"><?php //echo $businessOne->art_title?></a>
 	</h3>-->
 	<ul class="mod-list main-list">
 		<?php 
-		if ($businessNews):
+		if (@$businessNews):
 		 foreach ($businessNews as $news):?>
 		 <li><a target="_blank" href="<?php echo $news->art_source?>"><?php echo $news->art_title?></a></li>
 		<?php endforeach;

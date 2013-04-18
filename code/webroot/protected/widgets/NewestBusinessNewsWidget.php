@@ -7,6 +7,7 @@ class NewestBusinessNewsWidget extends CWidget {
 
 	public function run(){
 		$businessNews=Article::model()->topBusinessNews()->findAll();
+		$data=array();
 		if($businessNews)
 		{
 			foreach ($businessNews as &$news)
@@ -21,7 +22,7 @@ class NewestBusinessNewsWidget extends CWidget {
             $businessOne->art_source=$this->getController()->createUrl('/news/view',array('art_id'=>$businessOne->art_id));
             $data=compact('businessNews','businessOne');
         }
-        $this->render('newest_business_news',$data);
+       $this->render('newest_business_news',$data);
 
 	}
 }

@@ -7,6 +7,7 @@ class TopTrendsNewsWidget extends CWidget {
 	public function run(){
 		$trendsNews=Article::model()->topTrendsNews()->findAll();
 		$trendsOne=null;
+		$data=array();
 		if($trendsNews)
 		{
 			foreach ($trendsNews as &$news)
@@ -23,9 +24,8 @@ class TopTrendsNewsWidget extends CWidget {
 				}
             }
             $data=compact('trendsNews','trendsOne');
-           
 		}
-		 $this->render('top_trends_news',$data);
+		$this->render('top_trends_news',$data);
 
 	}
 }

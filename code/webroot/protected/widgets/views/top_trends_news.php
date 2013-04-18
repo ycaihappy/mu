@@ -4,6 +4,7 @@
 </div>
 <div class="bd">
 	<div class="n2top">
+		<?php if(@$trendsOne):?>
          <a href="<?php echo $this->getController()->createUrl('/news/view',array('art_id'=>$trendsOne->art_id))?>">
          	<img src="<?php echo $trendsOne->art_img?>">
          </a>
@@ -11,10 +12,11 @@
          	<a target="_blank" href="<?php echo $trendsOne->art_source?>"><?php echo $trendsOne->art_title?></a>
          </h4>
          <p><?php echo $trendsOne->art_content;?></p>
+         <?php endif;?>
 	</div>
     <ul class="m2_ul">
 <?php 
-	if ($trendsNews):
+	if (@$trendsNews):
         $i=0;
     foreach ($trendsNews as $news):
         if ( $i > 9) continue;

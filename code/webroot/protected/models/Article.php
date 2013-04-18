@@ -235,7 +235,7 @@ class Article extends CActiveRecord
                 'limit'=>9
             ),
             'topFuturesNews'=>array(//新闻首页--最新新闻10
-                'condition'=>'art_category_id=17 and art_status=1 and art_subcategory_id=154',
+                'condition'=>'art_category_id=17 and art_status=1 and art_subcategory_id=156',
                 'order'=>'art_id desc',
                 'limit'=>9
             ),

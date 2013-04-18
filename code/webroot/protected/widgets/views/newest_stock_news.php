@@ -7,11 +7,11 @@
 
 <!-- <div class="mod-list main-list news-date-list">
    <h3 class="bigsize">
-		<a href="<?php echo $stockOne->art_source?>"><?php echo $stockOne->art_title?></a>
+		<a href="<?php //echo $stockOne->art_source?>"><?php //echo $stockOne->art_title?></a>
 	</h3>-->
 	<ul class="mod-list main-list">
 		<?php 
-		if ($stockNews):
+		if (@$stockNews):
 		 foreach ($stockNews as $news):?>
 		 <li><a target="_blank" href="<?php echo $news->art_source?>"><?php echo $news->art_title?></a></li>
 		<?php endforeach;

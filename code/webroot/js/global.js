@@ -53,13 +53,13 @@ $.extend(MU.mods,{
 		
 		self.find('.btn-red').on('click',function(e){
 			
-			$.post(form.attr('action'),form.serializeArray(),function(re){
+			$.get(form.attr('action'),form.serializeArray(),function(re){
 				if(re.status == 1){
 					location.reload();
 				}else{
 					alert(re.msg);
 				}
-			},'json');
+			},'jsonp');
 		});
 	},
 	JNav : function(){

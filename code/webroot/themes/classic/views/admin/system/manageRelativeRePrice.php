@@ -59,8 +59,12 @@ $this->widget('zii.widgets.jui.CJuiButton',
         	'value'=>'in_array($data->re_type,array(148,149))?($data->nameType?$data->nameType->term_name:"未指定"):$data->re_name',
         ),  // display the 'name' attribute of the 'category' relation
         array(
-        	'name'=>'价格',
+        	'name'=>'最低价',
         	'value'=>'$data->re_price',
+        ),
+        array(
+        	'name'=>'最高价',
+        	'value'=>'$data->re_max_price',
         ),
         array(
         	'name'=>'涨，跌',

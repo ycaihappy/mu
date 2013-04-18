@@ -1,5 +1,5 @@
 		
-		<div class="m-qk-login" id="J_QkLogin">
+		<div class="m-qk-login">
 		<?php if(Yii::app()->user->isGuest):?>
 			<!--<div class="bd">
 				<form name="qklogin" action="<?php echo $this->getController()->createUrl('/uehome/user/ajaxLogin')?>">

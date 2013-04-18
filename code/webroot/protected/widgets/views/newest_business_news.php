@@ -1,4 +1,4 @@
- <div class="ui-m-tab ui-m-border">
+<div class="ui-m-tab ui-m-border">
 		<div class="hd ui-tab-3">
 				<span class="on"><a href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>43))?>">财经</a></span>
                   <a class="more" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>43))?>">更多</a>

@@ -81,13 +81,15 @@
 	
 		
 		<div class="mod">
-  <?php $this->widget('NewestBusinessNewsWidget')?>
+	
+  			<?php 
+  			$this->widget('NewestBusinessNewsWidget')?>
                </div>
 			   <div class="mod">
                <?php $this->widget('NewestStockNewsWidget');?>
             </div>
 		
-		</div>
+		
 		
 		
 		<!--module-->

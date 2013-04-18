@@ -20,8 +20,8 @@ class NewestBusinessNewsWidget extends CWidget {
             $businessOne->art_content=CStringHelper::truncate_utf8_string(strip_tags($businessOne->art_content), 54);
             $businessOne->art_source=$this->getController()->createUrl('/news/view',array('art_id'=>$businessOne->art_id));
             $data=compact('businessNews','businessOne');
-            $this->render('newest_business_news',$data);
         }
+        $this->render('newest_business_news',$data);
 
 	}
 }

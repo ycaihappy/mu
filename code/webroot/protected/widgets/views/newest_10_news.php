@@ -1,5 +1,7 @@
+ <div class="ui-m-tab ui-m-border">
 <div class="hd ui-tab-3">
 	<span class="on"><a href="">期货</a></span>	
+	<a class="more" href="<?php echo $this->getController()->createUrl('/news/list',array('subcategory_id'=>154))?>">更多</a>
 </div>
 <div class="bd">
 	<ul class="current">
@@ -13,4 +15,5 @@
 	?> 
 	</ul>
 				
+</div>
 </div>

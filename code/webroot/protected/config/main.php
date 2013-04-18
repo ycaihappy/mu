@@ -57,10 +57,10 @@ return array(
 		),
 		'session'=>array(
 			'class'=>'CHttpSession',
-			'savePath'=>'sessions',
+			/*'savePath'=>'sessions',
 			'cookieParams' => array(
 	         'domain' => '.mushw.com',
-	      ),
+	      ),*/
 			
 		),
 //		'user'=>array(

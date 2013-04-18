@@ -20,9 +20,9 @@ class TopHotSpotNewsWidget extends CWidget {
             $hotspotOne->art_content=CStringHelper::truncate_utf8_string(strip_tags($hotspotOne->art_content), 54);
             $hotspotOne->art_source=$this->getController()->createUrl('/news/view',array('art_id'=>$hotspotOne->art_id));
             $data=compact('hotspot','hotspotOne');
-            $this->render('top_hotspot_news',$data);
+            
         }
-
+		$this->render('top_hotspot_news',$data);
 	}
 
 }

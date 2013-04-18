@@ -9,7 +9,7 @@
 				<ul>
 					<li><label>用户名：</label><div class="fields"><input type="text" name="UserLoginForm[username]" /></div></li>
 					<li><label>密码：</label><div class="fields"><input type="password" name="UserLoginForm[password]"  /></div></li>
-					<li><div class="btn"> <button type="button" class="btn-red">登 录</button> <a href="<?php echo $this->getController()->createUrl('/uehome/user/findPwd')?>" class="forget">找回密码?</a> | <a href="<?php echo Yii::app()->controller->createUrl('uehome/user/register');?>">免费注册</a></div></li>
+					<li><div class="btn"> <button type="submit" class="btn-red">登 录</button> <a href="<?php echo $this->getController()->createUrl('/uehome/user/findPwd')?>" class="forget">找回密码?</a> | <a href="<?php echo Yii::app()->controller->createUrl('uehome/user/register');?>">免费注册</a></div></li>
 					
 				</ul>
 				</form>

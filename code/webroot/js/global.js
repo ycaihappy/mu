@@ -51,8 +51,8 @@ $.extend(MU.mods,{
 	JQkLogin : function () {
 		var self = $(this),form = self.find('form');
 		
-		self.find('.btn-red').on('click',function(e){
-			
+		form.on('submit',function(e){
+			e.preventDefault();
 			$.get(form.attr('action'),form.serializeArray(),function(re){
 				if(re.status == 1){
 					location.reload();

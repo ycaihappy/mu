@@ -17,15 +17,15 @@ $this->breadcrumbs=array(
 <tr>
 <td class="label">过滤会员：</td>
 		<td>
-		<?php echo $form->dropDownList($model,'province',$allProvince,array('class'=>'cmp-input','multiple'=>true)); ?>
-		<?php echo $form->dropDownList($model,'entBusinessModel',$allBusModel,array('class'=>'cmp-input','multiple'=>true)); ?>
-		<?php echo $form->dropDownList($model,'userGroup',$allUserGroup,array('class'=>'cmp-input','multiple'=>true)); ?>
+		<?php echo $form->dropDownList($model,'province',$allProvince,array('class'=>'cmp-input','multiple'=>true,'style'=>'height:200px;')); ?>
+		<?php //echo $form->dropDownList($model,'entBusinessModel',$allBusModel,array('class'=>'cmp-input','multiple'=>true)); ?>
+		<?php echo $form->dropDownList($model,'userGroup',$allUserGroup,array('class'=>'cmp-input','multiple'=>true,'style'=>'height:200px;','empty'=>'全部会员')); ?>
 		</td>
 </tr>
 
 <tr>
 <td class="label">发送方式：</td>
-		<td><?php echo $form->textField($model,'sendType',array('class'=>'cmp-input')); ?>
+		<td><?php echo $form->radioButtonList($model,'sendType',$allSendType,array('separator'=>'&nbsp;')); ?>
 		<?php echo $form->error($model,'sendType'); ?>
 </tr>
 <tr>

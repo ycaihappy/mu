@@ -140,7 +140,7 @@ class SystemController extends AdminController {
 			exit;
 		}
 	}
-	public function xxactionBulkMail()
+	public function actionBulkMail()
 	{
 		$model=new BulkMailForm();
 		if(Yii::app()->request->isPostRequest)
@@ -169,20 +169,35 @@ class SystemController extends AdminController {
 					{
 						if($model->sendType==2)//短信方式发送
 						{
+							$toMobile=array();
+							foreach ($users as $user)
+							{
+								$toMobile[]=$user->user_mobile_no;
+							}
 							
 						}
 						else {//邮件方式发送
-							
+							$toEmail=array();
+							foreach ($users as $user)
+							{
+								$toEmail[]=$user->user_email;
+							}
+							$emailSetting=new SiteEmailSetting();
+							$emailSetting->LoadData();
+							CMessageHelper::sendEmail($emailSetting->sendorEmail,$model->mailSubject
+							,$toEmail,$model->mailSubject);
 						}
 					}
 				}
+				$model=new BulkMailForm();
 			}
 		}
 		$allSendType=array('1'=>'邮件方式','2'=>'短信方式');
-		$allProvince=City::getProvice();
+		$allProvince=City::getProvice('全部地区');
 		$allBusModel=Term::getTermsByGroupId(5);
+		$model->sendType=1;
 		$allUserGroup=UserGroup::getUserGroup();
-		$data=compact('allProvince','allBusModel','allUserGroup');
+		$data=compact('allProvince','allBusModel','allUserGroup','model','allSendType');
 		$this->render('bulkMail',$data);
 	}
 }

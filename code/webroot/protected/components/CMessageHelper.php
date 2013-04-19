@@ -48,13 +48,13 @@ class CMessageHelper  {
 	}
 	public static function sendRegisterMobileVerifyCode($mobileNo,$verifyCode)
 	{
-		$smsSetting= new SiteEmailSetting ();
+		$smsSetting= new SMSSetting ();
 		$smsSetting = $smsSetting->LoadData ();
 		$template=$smsSetting->registeTemplate;
 		$uid=$smsSetting->uid;
 		$pwd=$smsSetting->pwd;
 		$smsContent=self::setTemplateVarValue(array($verifyCode),true,$template);
-		$result=self::sendSms($mobileNo, $smsContent[0], $uid, $pwd);
+		$result=self::sendSms($mobileNo, $smsContent[0]);
 		return $result;
 	}
 	public static function sendFindPasswordEmail($toEmail,$newPwd)
@@ -68,7 +68,18 @@ class CMessageHelper  {
 	{
 		$message = new YiiMailMessage;
 	    $message->From = $fromEmail;    // 送信人  
-	    $message->addTo($toEmail);               // 收信人  
+	    if($toEmail && is_array($toEmail))
+	    {
+	    	if(count($toEmail)>50)
+	    	{
+	    		$restEmail=array_splice($toEmail,50);
+	    		self::sendEmail($fromEmail, $subject, $restEmail, $body);
+	    	}
+	    	$message->setTo($toEmail); 
+	    }
+	    else {
+	    	$message->addTo($toEmail);               // 收信人  
+	    }
 	    $message->setSubject($subject);  
 	    $message->message->setBody(  
 	        $body, // 传递到模板文件中的参数  
@@ -78,11 +89,11 @@ class CMessageHelper  {
 	      
 	    $result['status']=1;
 	    if(Yii::app()->mail->send($message)){  
-	        $result['message']='测试邮件发送成功！';
+	        $result['message']='邮件发送成功！';
 	    } 
 	    else {
 	    	$result['status']=0;
-	    	$result['message']='测试邮件发送失败！请检查邮件配置是否正确';
+	    	$result['message']='邮件发送失败！请检查邮件配置是否正确';
 	    }
 	    return $result;
 	}
@@ -90,8 +101,21 @@ class CMessageHelper  {
 	{
 		
 	}
-	public static function sendSms($mobno,$content,$uid,$pwd)
+	public static function sendSms($mobno,$content)
 	{
+		$smsSetting= new SMSSetting ();
+		$smsSetting = $smsSetting->LoadData ();
+		$uid=$smsSetting->uid;
+		$pwd=$smsSetting->pwd;
+		if($mobno && is_array($mobno))
+		{
+			if(count($mobno)>50)
+	    	{
+	    		$restMobile=array_splice($mobno,50);
+	    		self::sendSms($restMobile, $content);
+	    	}
+			$mobno=implode(',',$mobno);
+		}
 		$client = new SoapClient("http://service2.winic.org:8003/Service.asmx?WSDL");
 		$param = array('uid' => $smsSetting->uid,'pwd' => $smsSetting->pwd,'tos' => $mobno,'msg' => $content,'otime'=>'');
 		$result = $client->__soapCall('SendMessages',array('parameters' => $param));

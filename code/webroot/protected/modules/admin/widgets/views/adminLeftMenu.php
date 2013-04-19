@@ -226,7 +226,7 @@ case 7:
 	$html=<<<tree
 <ul>
 <li><a href="{$this->getController()->createUrl('system/manageMessageTemplate')}" target="mainFrame">邮件模板管理</a></li>
-
+<li><a href="{$this->getController()->createUrl('system/bulkMail')}" target="mainFrame">邮件群发</a></li>
 tree;
 echo $html;
 		endswitch;?>

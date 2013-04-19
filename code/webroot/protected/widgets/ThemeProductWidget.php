@@ -7,6 +7,8 @@ class ThemeProductWidget extends CWidget
 
         $creteria=new CDbCriteria();
         $creteria->condition="re_type=148 and re_name_type='".$_GET['type']."' and re_status=1 ";
+        $creteria->order = "re_id desc";
+        $creteria->limit = 7;
         $rePrice=RelativeRePrice::model()->findAll($creteria);
         if($rePrice)
         {

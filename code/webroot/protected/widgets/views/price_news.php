@@ -7,7 +7,9 @@
                 <ul class="ck-news" style="display: block;">
                     <div class="con">
                         <label id="GsybList">
+<?php if (isset($data[0])) { ?>
                         <h2><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[0]['art_id']));?>"><?php echo substr($data[0]['art_title'],0,60);?></a></h2><span class="article2"><?php echo substr($data[0]['art_content'],0,120)."...";?></span>
+<?php } ?>
                         </label>
                         <ul id="indexGsrbInfo">
 			<?php for($index=1;$index<count($data)-1;$index++):?>

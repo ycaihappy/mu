@@ -3,8 +3,11 @@ class ThemeMarketWidget extends CWidget
 {
     public function run()
     {
+    	$typies=Term::getTermsListByGroupId(14);
+
         $creteria=new CDbCriteria();
         $creteria->condition="re_type=149 and re_name_type='".$_GET['type']."' ";
+        $creteria->order = "re_id desc";
         $creteria->limit = 7;
         $rePrice=RelativeRePrice::model()->findAll($creteria);
         if($rePrice)
@@ -23,6 +26,7 @@ class ThemeMarketWidget extends CWidget
                     $price->re_fallup=' - ';
                     break;
                 }
+                $price->re_name = $typies[$price->re_name_type];
             }
         }
         $this->render('theme_market',array('data'=>$rePrice));

@@ -119,6 +119,11 @@ class Article extends CActiveRecord
                 'order'=>'art_post_date desc',
                 'limit'=>5
             ),
+           'PriceNewestPriceList'=>array(
+                'condition'=>'art_subcategory_id=58 and art_status=1',
+                'order'=>'art_post_date desc',
+                'limit'=>8
+            ),
             'PriceMarketList'=>array(
                 'condition'=>'art_subcategory_id=60 and art_status=1',
                 'order'=>'art_post_date desc',

@@ -229,7 +229,7 @@ class Article extends CActiveRecord
             ),
             'topBusinessNews'=>array(//新闻首页--财经
             	'select'=>'art_id,art_title',
-                'condition'=>'art_category_id=17 and art_subcategory_id=44 and art_status=1',
+                'condition'=>'art_category_id=17 and art_subcategory_id=43 and art_status=1',
                 'order'=>'art_post_date desc',
                 'limit'=>10
             ),

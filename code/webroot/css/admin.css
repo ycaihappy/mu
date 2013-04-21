@@ -173,4 +173,6 @@ img{border:0px;}
 .wz{width:60px; display:block; float:left; height:27px; line-height:27px;}
 .bgbg .button{margin-top:20px; margin-left:270px;}
 
+td.button-column a {margin:5px}
+
 .bgbg .bwz{	font:Arial, Helvetica, sans-serif;	font-size:14px; color:#333333;margin-top:50px; margin-left:105px;}

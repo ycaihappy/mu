@@ -53,6 +53,7 @@ class IndexModuleWidget extends CWidget
 		$artCriteria->condition='art_status=1';
 		$artCriteria->limit=8;
 		$this->data=Article::model()->findAll($artCriteria);
+		
 		if($this->data)
 		{
 			$index=-1;
@@ -73,11 +74,10 @@ class IndexModuleWidget extends CWidget
 			if($index>=0)
 			   unset($this->data[$index]);
 		}
-		
 	}
 	public function run()
 	{
-        if (empty($this->one)) return;
+        //if (empty($this->one)) return;
 		$this->render('index_module',array('data'=>$this->data,'one'=>$this->one,'title'=>$this->title,'more'=>$this->more));
 	}
 }

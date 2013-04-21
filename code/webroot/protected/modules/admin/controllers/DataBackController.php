@@ -2,13 +2,12 @@
 
 
 
-class DataBackController extends Controller {
+class DataBackController extends AdminController {
 
 	private $config;
 	private $mr;
-
-	/*public function __construct(){//初始化相关属性
-		Yii::import('application.extensions.mysql_back', TRUE);//导入Mysql备份类库
+	public function init()
+	{
 		$connect_str = parse_url(Yii::app()->db->connectionString);
 		$re_str = explode('=', implode('=', explode(';', $connect_str['path'])));//取得数据库IP,数据库名
 		$this->config = array( //设置参数
@@ -19,7 +18,7 @@ class DataBackController extends Controller {
            'userPassword' => Yii::app()->db->password,
            'dbprefix' => Yii::app()->db->tablePrefix,
            'charset' => Yii::app()->db->charset,
-           'path' => './protected/data/backup/',    //定义备份文件的路径
+           'path' => 'data/backup/',    //定义备份文件的路径
            'isCompress' => 1,             //是否开启gzip压缩{0为不开启1为开启}
            'isDownload' => 0               //压缩完成后是否自动下载{0为不自动1为自动}
 		);
@@ -27,7 +26,7 @@ class DataBackController extends Controller {
 	}
 
 	
-	public function actionShow_data(){
+	public function actionShowData(){
 		$path = $this->config['path'];
 		$fileArr = $this->MyScandir($path);
 		$list = array();
@@ -41,51 +40,65 @@ class DataBackController extends Controller {
 				number_format($fileSize/1024,2).' MB';
 				//构建列表数组
 				$list[]=array(
+					'id'=>$key,
                    'name' => $value,
                    'time' => $fileTime,
                    'size' => $fileSize
 				);
+				
 			}
 		}
-		$this->render('/site/data_back',array('data'=>$list));
+		 $dataProvider=new CArrayDataProvider($list, array(
+               
+                'pagination'=>array(
+                    'pageSize'=>10,
+                ),
+            ));
+		$this->render('showData',array('dataProvider'=>$dataProvider));
 	}
 	 
 	
 	public function actionBackup(){
-		$this->mr->setDBName($this->config['dbname']);
-		if($this->mr->backup()){
-			messages::show_msg($this->createUrl('databack/show_data'), '数据库备份成功！!');
-		}else{
-			messages::show_msg($this->createUrl('databack/show_data'), '数据库备份失败！!');
+		if(Yii::app()->request->isAjaxRequest){
+			$this->mr->setDBName($this->config['dbname']);
+			if($this->mr->backup()){
+				echo '数据库备份成功！';
+			}else{
+				echo '数据库备份失败！';
+			}
 		}
 	}
 
 	
 	public function actionDelete_back(){
-		if(unlink($this->config['path'] . $_GET['file'])){
-			messages::show_msg($this->createUrl('databack/show_data'), '删除备份成功！!');
-		}else{
-			messages::show_msg($this->createUrl('databack/show_data'), '删除备份失败！!');
+		if(Yii::app()->request->isAjaxRequest){
+			if(unlink($this->config['path'] . basename($_GET['file']))){
+				echo '删除备份成功！';
+			}else{
+				echo '删除备份失败！';
+			}
 		}
 	}
-
 	
 	public function actionDownloadbak(){
-		$this->download($this->config['path'] . $_GET['file']);
+		$this->download($this->config['path'] . basename($_GET['file']));
 	}
 
 	
 	public function actionrecover(){
-		$this->mr->setDBName($this->config['dbname']);
-		if($this->mr->recover($_GET['file'])){
-			messages::show_msg($this->createUrl('databack/show_data'), '数据还原成功！!');
-		}else{
-			messages::show_msg($this->createUrl('databack/show_data'), '数据还原失败！!');
+		if(Yii::app()->request->isAjaxRequest){
+			$this->mr->setDBName($this->config['dbname']);
+			if($this->mr->recover(basename($_GET['file']))){
+				echo '数据还原成功！';
+			}else{
+				echo '数据还原失败！';
+			}
 		}
 	}
 
 	
 	public function MyScandir($FilePath='./',$Order=0){
+		
 		$FilePath = opendir($FilePath);
 		while($filename = readdir($FilePath)) {
 			$fileArr[] = $filename;
@@ -103,7 +116,7 @@ class DataBackController extends Controller {
 		header('Content-Length: '.filesize($filename));
 		header('Content-Disposition: attachment; filename='.basename($filename));
 		readfile($filename);
-	}*/
+	}
 
 }
 

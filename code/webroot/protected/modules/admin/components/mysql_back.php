@@ -172,7 +172,8 @@ class mysql_back {
      * [url=u.php?uid=168369]@access[/url]   private
     */
     private function getTables($dbname){
-        $rs = mysql_list_tables($dbname);
+    	$rs=mysql_query('SHOW TABLES FROM '.$dbname);
+        //$rs = mysql_list_tables($dbname);
         $rows = mysql_num_rows($rs);
         for ($i=0; $i<$rows; $i++) {
                 $tables[] = mysql_tablename($rs, $i);
@@ -190,6 +191,7 @@ class mysql_back {
     private function chunkArrayByByte($array, $byte = 5120) {
         $i=0;
         $sum=0;
+        $return=array();
         foreach ($array as $v) {
             $sum += strlen($v);
             if ($sum < $byte) {
@@ -238,7 +240,12 @@ class mysql_back {
                             while ($tableDateRow = mysql_fetch_row($tableDateRs)) {
                                     //组合INSERT的VALUE
                                     foreach ($tableDateRow as &$v) {
-                                            $v = "'" . addslashes($v) . "'"; //别忘了转义.
+                                    		if($v===NULL)
+                                    		{
+                                    			$v = "NULL";
+                                    		}
+                                    		else
+                                            	$v = "'" . addslashes($v) . "'"; //别忘了转义.
                                     }
                                     $valuesArr[] = '(' . implode(',', $tableDateRow) . ')';
                             }

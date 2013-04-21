@@ -1826,7 +1826,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .lxxx .kf{width:103px;height:170px;float:left;margin-right:5px;}
 .lxxx .bd ul{width:137px;float:left;margin-top:20px}
 .aleft{float:left}
-ul.yiiPager .selected a{color:#fff!important}
+ul.yiiPager .selected a{color:#fff!important;background:#1467c0;}
 .m-form .radio{
 	width:30px;
 	float:left;

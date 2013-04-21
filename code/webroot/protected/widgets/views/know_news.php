@@ -1,5 +1,4 @@
 		<div class="m-suppy-topnews">
-<?php if ( isset($data04[0]) ) {?>
 			<div class="topnews">
 
             <h4><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data04[0]['art_id']));?>"><?php echo $data04[0]['art_title'];?></a></h4>
@@ -7,7 +6,6 @@
 
     
 			</div>
-<?php }?>
 			<div class="ui-m-tab ui-m-border">
 			<div class="hd">
 				<span class="on">钼专题</span>

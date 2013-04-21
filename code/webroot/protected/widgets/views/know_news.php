@@ -16,6 +16,7 @@
 				<div class="list">
 					<ul>       
 	<?php for($index=0;$index<count($data01);$index++):
+    if ( !isset($data01[$index]) ) continue;
 						?>
                             <li><a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data01[$index]['art_id']));?>" target="_blank"><?php echo $data01[$index]['art_title']; ?></a></li>
 					<?php endfor;?>			
@@ -27,6 +28,7 @@
 				<div class="list">
 					<ul>       
 	<?php for($index=0;$index<count($data02);$index++):
+    if ( !isset($data02[$index]) ) continue;
 						?>
                             <li><a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data02[$index]['art_id']));?>" target="_blank"><?php echo $data02[$index]['art_title']; ?></a></li>
 					<?php endfor;?>			
@@ -38,6 +40,7 @@
 				<div class="list">
 					<ul>       
 	<?php for($index=0;$index<count($data03);$index++):
+    if ( !isset($data03[$index]) ) continue;
 						?>
                             <li><a href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data03[$index]['art_id']));?>" target="_blank"><?php echo $data03[$index]['art_title']; ?></a></li>
 					<?php endfor;?>			

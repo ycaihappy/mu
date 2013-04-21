@@ -30,7 +30,7 @@ if (in_array($subCategory->term_id,array(31,57,72,78)))
 		
 		<div class="ft">
 		
-		<?php if($adv):?>
+		<?php if(@$adv):?>
 		<a target="_blank" href="<?php echo $adv[0]->ad_link?>" class="cmp-ad">
 		
 		<img width="288" height="115" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>

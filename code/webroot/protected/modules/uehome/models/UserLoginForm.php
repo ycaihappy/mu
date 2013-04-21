@@ -32,7 +32,7 @@ class UserLoginForm extends CFormModel
 			array('password', 'authenticate'),
 			
 		);
-		if(!Yii::app()->request->isAjaxRequest)
+		if(Yii::app()->request->isPostRequest)
 		{
 			$rules=array_merge($rules,array(array('verifyCode', 'captcha','message'=>'验证码输入不正确', 'allowEmpty'=>!extension_loaded('gd'))
 			,array('verifyCode', 'required','message'=>'验证码不能为空')));

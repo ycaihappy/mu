@@ -57,10 +57,10 @@ return array(
 		),
 		'session'=>array(
 			'class'=>'CHttpSession',
-			/*'savePath'=>'sessions',
+			//'savePath'=>'sessions',
 			'cookieParams' => array(
 	         'domain' => '.mushw.com',
-	      ),*/
+	      ),
 			
 		),
 //		'user'=>array(
@@ -83,14 +83,15 @@ return array(
 		// uncomment the following to enable URLs in path-format
 		
 		'urlManager'=>array(
-			'urlFormat'=>'get',
+			'urlFormat'=>'path',
             'urlSuffix'=>'.html',
             'showScriptName'=>false,
 			'rules'=>array(
 				'exhibition/view/<art_id:\d+>'=>'exhibition/view',
 				'exhibition/list/<subcategory_id:\d+>'=>'exhibition/list',
 				'about/<_a:\w+>'=>'about/<_a>',
-				'<_a:\w+>'=>'site/<_a>',
+				'http://www.mushw.com/<_a:\w+>'=>'/site/<_a>',
+				'<_c:\w+>/index'=>'<_c>/index',
 				'news/view/<art_id:\d+>'=>'news/view',
 				'service/view/<art_id:\d+>'=>'service/view',
 				'news/list/<subcategory_id:\d+>'=>'news/list',
@@ -99,7 +100,9 @@ return array(
 				'product/view/<product_id:\d+>'=>'product/view',
 				'product/list/<type:\d+>'=>'product/list',
 				'price/list/<subcategory_id:\d+>'=>'price/list',
+				'price/chart/<type:\d+>'=>'price/chart',
 				'knowledge/list/<subcategory_id:\d+>'=>'knowledge/list',
+				'knowledge/view/<art_id:\d+>'=>'knowledge/view',
 				'theme/special/<type:\d+>'=>'theme/special',
     			'price/query/<type:\d+>'=>'price/query',
 				'http://admin.mushw.com/<_c:\w+>/<_a:\w+>'=>'admin/<_c>/<_a>',

@@ -216,7 +216,7 @@ class Article extends CActiveRecord
                 'limit'=>6
             ),
             'topTrendsNews'=>array(//新闻首页--行业动态
-            	'select'=>'art_id,art_title,art_img',
+            	'select'=>'art_id,art_title,art_img,art_content',
                 'condition'=>'art_category_id=17 and art_subcategory_id=42 and art_status=1',
                 'order'=>'art_post_date desc',
                 'limit'=>11

@@ -57,9 +57,9 @@ return array(
 		),
 		'session'=>array(
 			'class'=>'CHttpSession',
-			//'savePath'=>'sessions',
+			'savePath'=>'sessions',
 			'cookieParams' => array(
-	         'domain' => '.mushw.com',
+	         'domain' => '.mushw.com:81',
 	      ),
 			
 		),
@@ -90,7 +90,7 @@ return array(
 				'exhibition/view/<art_id:\d+>'=>'exhibition/view',
 				'exhibition/list/<subcategory_id:\d+>'=>'exhibition/list',
 				'about/<_a:\w+>'=>'about/<_a>',
-				'http://www.mushw.com/<_a:\w+>'=>'/site/<_a>',
+				'http://www.mushw.com:81/<_a:\w+>'=>'/site/<_a>',
 				'<_c:\w+>/index'=>'<_c>/index',
 				'news/view/<art_id:\d+>'=>'news/view',
 				'service/view/<art_id:\d+>'=>'service/view',
@@ -105,9 +105,9 @@ return array(
 				'knowledge/view/<art_id:\d+>'=>'knowledge/view',
 				'theme/special/<type:\d+>'=>'theme/special',
     			'price/query/<type:\d+>'=>'price/query',
-				'http://admin.mushw.com/<_c:\w+>/<_a:\w+>'=>'admin/<_c>/<_a>',
-				'http://uehome.mushw.com/<_a:\w+>'=>'uehome/user/<_a>',
-				'http://<username:\w+>.mushw.com/<_a:\w+>'=>'storeFront/default/<_a>'
+				'http://admin.mushw.com:81/<_c:\w+>/<_a:\w+>'=>'admin/<_c>/<_a>',
+				'http://uehome.mushw.com:81/<_a:\w+>'=>'uehome/user/<_a>',
+				'http://<username:\w+>.mushw.com:81/<_a:\w+>'=>'storeFront/default/<_a>'
 			),
 		),
 		

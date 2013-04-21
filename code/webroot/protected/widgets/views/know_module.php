@@ -49,7 +49,7 @@
          </div>
 		 
 		 <div class="mod ui-m-tab ui-m-border ui-m-last">
-			<div class="hd"><span class="on"><a href="#">钼应用</a></span></div>
+			<div class="hd"><span class="on"><a href="#">钼化工</a></span></div>
               
                 <div class="bd">
 <?php if ( isset($data04[0]) ){?>
@@ -66,7 +66,7 @@
          </div>
 		 
 		 <div class="mod ui-m-tab ui-m-border ui-m-last">
-			<div class="hd"><span class="on"><a href="#">钼化工</a></span></div>
+			<div class="hd"><span class="on"><a href="#">生产工艺</a></span></div>
               
                 <div class="bd">
                      <h3 class="bigsize"><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data05[0]['art_id']));?>" target="_blank"><?php echo $data05[0]['art_title'] ?></a></h3>
@@ -81,7 +81,7 @@
          </div>
 		 
 		 <div class="mod ui-m-tab ui-m-border ui-m-last">
-			<div class="hd"><span class="on"><a href="#">生成工艺</a></span></div>
+			<div class="hd"><span class="on"><a href="#">钼产品</a></span></div>
               
                 <div class="bd">
                      <h3 class="bigsize"><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data06[0]['art_id']));?>" target="_blank"><?php echo $data06[0]['art_title'] ?></a></h3>

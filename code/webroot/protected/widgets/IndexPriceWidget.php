@@ -4,7 +4,7 @@ class IndexPriceWidget extends CWidget
 
     public function run()
     {
-    	$price01 = Article::model()->PriceMaterialList()->findAll();
+    	$price01 = Article::model()->PriceNewestPriceList()->findAll();
     	$price02 = Article::model()->PriceSummaryList()->findAll();
         $city  = City::getCityList();
         $category = Term::model()->getTermsListByGroupId(14);

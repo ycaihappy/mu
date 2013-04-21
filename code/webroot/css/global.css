@@ -124,7 +124,7 @@ width: 960px;
 .m-top{height:33px;background:url(imgs/v2/top_nav_bg.png) repeat-x;text-align:right;line-height:33px;}
 .m-top a{font-size:12px;}
 .m-top p{display:inline;}
-.m-top .user-info{float:left;}
+.m-top .user-info{float:left;width:640px}
 .m-top .user-info a{color:#31659f;margin-right:5px}
 .m-top span{padding:0 5px}
 .user-info .bd li{float:left;}

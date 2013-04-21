@@ -124,7 +124,7 @@ width: 960px;
 .m-top{height:33px;background:url(imgs/v2/top_nav_bg.png) repeat-x;text-align:right;line-height:33px;}
 .m-top a{font-size:12px;}
 .m-top p{display:inline;}
-.m-top .user-info{float:left;}
+.m-top .user-info{float:left;width:640px}
 .m-top .user-info a{color:#31659f;margin-right:5px}
 .m-top span{padding:0 5px}
 .user-info .bd li{float:left;}
@@ -222,9 +222,9 @@ padding-right: 1px;
 
 
 
-.m-special-ad{width:400px;float:left;margin-right:8px;position:relative;display:inline}
-.m-special-ad .pic{position:relative;height: 225px;overflow: hidden;width: 400px;}
-.m-special-ad .pic img{width:400px;height:225px}
+.m-special-ad{width:280px;float:left;margin-right:8px;position:relative;display:inline}
+.m-special-ad .pic{position:relative;height: 200px;overflow: hidden;width: 280px;}
+.m-special-ad .pic img{width:280px;height:200px}
 
 
 
@@ -1612,7 +1612,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .price-area table{border-left:1px solid #DEDEE0;border-bottom:1px solid #DEDEE0;}
 .four-hd .ui-purple-hd span{width:70px}
 
-.special-index{margin-right:10px;width:270px}
+.special-index{margin-right:10px;width:330px}
 .supply-scroll{height:500px;overflow:hidden;position:relative}
 .supply-scroll li{line-height:32px;height:32px}
 .supply-scroll li span{display:inline-block;float:left;text-align:center;border-right:1px solid #f3f3f3;border-bottom:1px solid #f3f3f3}
@@ -1826,7 +1826,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .lxxx .kf{width:103px;height:170px;float:left;margin-right:5px;}
 .lxxx .bd ul{width:137px;float:left;margin-top:20px}
 .aleft{float:left}
-ul.yiiPager .selected a{color:#fff!important}
+ul.yiiPager .selected a{color:#fff!important;background:#1467c0;}
 .m-form .radio{
 	width:30px;
 	float:left;

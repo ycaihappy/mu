@@ -1,17 +1,11 @@
 <?php
 class PriceNewsWidget extends CWidget
 {
-    public $top_news;
-    public $top_mu_news;
-    public function init()
-    {
-    	$this->top_news = Article::model()->PriceMarketList()->findAll();
-    	$this->top_mu_news = Article::model()->PriceAnalyList()->findAll();
-    }
-
     public function run()
     {
-        if ( !empty($this->top_news) && !empty($this->top_mu_news) )
-            $this->render('price_news',array('data'=>$this->top_news,'mu_news'=>$this->top_mu_news));
+        $top_news = $top_mu_news = array();
+    	$top_news = Article::model()->PriceMarketList()->findAll();
+        $top_mu_news = Article::model()->PriceAnalyList()->findAll();
+        $this->render('price_news',array('data'=>$top_news,'mu_news'=>$top_mu_news));
     }
 }

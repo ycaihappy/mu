@@ -259,7 +259,7 @@ class Article extends CActiveRecord
             'service'=>array(//目前展示的7项服务
             	'select'=>'art_id,art_title,art_summary,art_subcategory_id',
                 'condition'=>'art_category_id=103  and art_status=1',
-                'limit'=>7
+                'limit'=>10
             ),
             
         );

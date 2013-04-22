@@ -12,9 +12,12 @@
 				</form>
 			</div>-->
 			<?php endif;?>
+			<div class="hd">
+				<span>服务导航</span>
+			</div>
 <?php if (Yii::app()->user->getID()):?>
 			<div class="bd logined">
-				<h4><img src="images/welcome.jpg" /></h4>
+				
 				<ul>
                     <li><i class="link-msg"></i><a href="<?php echo $this->getController()->createUrl('/uehome/user/message');?>">站内短信</a></li>
 <?php if (Yii::app()->user->getUserStatus() == 1)
@@ -51,7 +54,7 @@ else
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>预付款定货</a>
 
 			</div>
-			<div class="hd">
+			
 			<div class="ad">
 			<?php if(@$adv):?>
 		<a target="_blank" href="<?php echo $adv[0]->ad_link?>">
@@ -60,5 +63,5 @@ else
 		<?php endif;?>
 		</div>
 
-		</div>
+		
 		</div>

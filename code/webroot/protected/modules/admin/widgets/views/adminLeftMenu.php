@@ -227,6 +227,8 @@ case 7:
 <ul>
 <li><a href="{$this->getController()->createUrl('system/manageMessageTemplate')}" target="mainFrame">邮件模板管理</a></li>
 <li><a href="{$this->getController()->createUrl('system/bulkMail')}" target="mainFrame">邮件群发</a></li>
+<li><a href="{$this->getController()->createUrl('dataBack/showData')}" target="mainFrame">数据库备份管理</a></li>
+
 tree;
 echo $html;
 		endswitch;?>

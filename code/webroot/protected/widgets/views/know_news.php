@@ -2,7 +2,7 @@
 			<div class="topnews">
 
             <h4><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('knowledge/view',array('art_id'=>$data04[0]['art_id']));?>"><?php echo $data04[0]['art_title'];?></a></h4>
-            <p>[导读]<?php echo substr($data04[0]['art_content'],0,250)."...";?></p>
+            <p>[导读]<?php echo strip_tags(substr($data04[0]['art_content'],0,250))."...";?></p>
 
     
 			</div>

@@ -71,18 +71,7 @@
 						</div>-->
 					</div></div>
 						<div class="ft">
-						<?php if($recProducts):?>
-						<div class="scroll" id="J_ImgScroller_3" data-type="vertical">
-						<ul>
-						<?php foreach ($recProducts as $product):?>
-						<li>
-                                <dt><?php echo $product->product_name;?>，品类：<?php echo $product->type?$product->type->term_name:'未指定'?> ， 品质：<?php echo $product->product_mu_content;?>，数量：<?php echo $product->product_quanity.($product->unit?$product->unit->term_name:'吨')?>，联系人：<?php echo $product->user?$product->user->user_first_name:'未指定'?>，电话：<?php echo $product->user?$product->user->user_mobile_no:'未指定' ?>，提货地：<?php echo $product->city?$product->city->city_name:'未指定'?></dt>
-                                <dd><a href="<?php echo Yii::app()->controller->createUrl('/product/view',array('product_id'=>$product->product_id))?>"><?php echo $product->user?$product->user->enterprise->ent_name:'未指定'?></a> 发表于 <?php echo date('Y/m/d',strtotime($product->product_join_date))?></dd>
-						</li>
-						<?php endforeach;?>   	
-                	    </ul>
-                	   </div>
-                <?php endif;?>
+						
 				
 				<!--start-->
 				<table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:0" class="left_table">    
@@ -90,62 +79,28 @@
                     <tbody><tr>
                       <th>公司名</th>
                       <th>品名</th>
-                      <th>材质</th>
-                      <th>规格</th>
+                      <th>品质</th>
                       <th>价格</th>
                       <th>数量</th>
-					  <th>产地</th>
+					  <th>提货地</th>
                     </tr>
 					<tr>
 					<td style="padding:0" colspan="7">
              		<div data-type="vertical" id="J_ImgScroller_1" class="index-prd-scroll">
 					
 					<ul style="position: absolute;width:100%">
+					<?php if(@$recProducts):?>
+					<?php foreach ($recProducts as $product):?>
 					<li>
-						<span class="col-1">深圳金制品有限公司</span>
-						<span class="col-2">太钢不锈</span>
-						<span class="col-3">不锈钢平板</span>
-						<span class="col-4">1.2*4343</span>
-						<span class="col-5">￥19.00</span>
-						<span class="col-6">1000</span>
-						<span class="col-7">深圳</span>
+						<span class="col-1"><a href="<?php echo Yii::app()->controller->createUrl('/product/view',array('product_id'=>$product->product_id))?>"><?php echo $product->user?$product->user->enterprise->ent_name:'未指定'?></a></span>
+						<span class="col-2"><?php echo $product->type?$product->type->term_name:'未指定'?></span>
+						<span class="col-3"><?php echo $product->product_mu_content;?></span>
+						<span class="col-4"><?php echo number_format($product->product_price,2);?></span>
+						<span class="col-5"><?php echo $product->product_quanity.($product->unit?$product->unit->term_name:'吨')?></span>
+						<span class="col-6"><?php echo $product->city?$product->city->city_name:'未指定'?></span>
 					</li>
-					<li>
-						<span class="col-1">深圳金制品有限公司</span>
-						<span class="col-2">太钢不锈</span>
-						<span class="col-3">不锈钢平板</span>
-						<span class="col-4">1.2*4343</span>
-						<span class="col-5">￥19.00</span>
-						<span class="col-6">1000</span>
-						<span class="col-7">深圳</span>
-					</li>
-					<li>
-						<span class="col-1">深圳金制品有限公司</span>
-						<span class="col-2">太钢不锈</span>
-						<span class="col-3">不锈钢平板</span>
-						<span class="col-4">1.2*4343</span>
-						<span class="col-5">￥19.00</span>
-						<span class="col-6">1000</span>
-						<span class="col-7">深圳</span>
-					</li>
-					<li>
-						<span class="col-1">深圳金制品有限公司</span>
-						<span class="col-2">太钢不锈</span>
-						<span class="col-3">不锈钢平板</span>
-						<span class="col-4">1.2*4343</span>
-						<span class="col-5">￥19.00</span>
-						<span class="col-6">1000</span>
-						<span class="col-7">深圳</span>
-					</li>
-					<li>
-						<span class="col-1">深圳金制品有限公司</span>
-						<span class="col-2">太钢不锈</span>
-						<span class="col-3">不锈钢平板</span>
-						<span class="col-4">1.2*4343</span>
-						<span class="col-5">￥19.00</span>
-						<span class="col-6">1000</span>
-						<span class="col-7">深圳</span>
-					</li>
+					<?php endforeach;?>
+					<?php endif;?>
 					</ul>
 					</div>
 					</td>

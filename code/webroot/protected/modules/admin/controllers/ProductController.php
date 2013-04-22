@@ -150,7 +150,7 @@ class ProductController extends AdminController {
 		$productModel=new Product();
 		if (isset($_POST['Product'])) {//add or update to database
 			$productModel->attributes=$_POST['Product'];
-			if($productModel->product_id)$model->setIsNewRecord(false);
+			if($productModel->product_id)$productModel->setIsNewRecord(false);
 			if($productModel->save())
 			{
 				//redirect to manage page

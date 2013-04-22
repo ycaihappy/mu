@@ -78,6 +78,9 @@ float:left;
 position: relative;
 padding:0 15px;
 }
+.hottag{margin-top:5px;}
+.hottag label{font-weight:bolx}
+.hottag a{margin-right:5px;color:blue;}
 .m-search{width:510px;float:left;}
 .search-box{background:#e9e9eb;border-radius:3px;height:40px;line-height:40px;}
 .search-box form{display:inline-block;}

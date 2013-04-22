@@ -22,5 +22,8 @@
 			  <button type="submit" class="btn-search">搜 索</button>			 
 			 </form>
 		 </div>
+		 <div class="hottag">
+			<label>热门关键字：</label><a>钼钢</a><a>钼钢</a><a>钼钢</a><a>钼钢</a>
+		 </div>
 	</div>
 	<div class="clearfix"></div>

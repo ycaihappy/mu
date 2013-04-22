@@ -38,7 +38,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 <?php echo $form->textField($model,'ad_user_id',array('class'=>'cmp-input'));?>
 <label>标题：</label>
 <?php echo $form->textField($model,'ad_title',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

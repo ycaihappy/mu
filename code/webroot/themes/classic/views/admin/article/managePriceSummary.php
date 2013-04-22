@@ -57,7 +57,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 	'form'=>$form,
 	'ajaxRoute'=>'product/getCity'
 ));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

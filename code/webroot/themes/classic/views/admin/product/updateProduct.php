@@ -114,7 +114,8 @@ $this->breadcrumbs=array(
         <?php echo $form->error($model,'product_check_by'); ?></td>
 </tr>
 <tr>
-<td align='right' colspan=2><?php echo CHtml::submitButton('保存',array('class'=>'btn-a')); ?></td>
+<td></td>
+<td><?php echo CHtml::submitButton('保存',array('class'=>'btn-a')); ?></td>
 </tr>
 </table>
 <?php $this->endWidget(); ?>

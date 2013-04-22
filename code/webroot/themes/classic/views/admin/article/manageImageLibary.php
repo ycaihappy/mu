@@ -48,7 +48,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 <?php echo $form->dropDownList($model,'image_status',$imageStatus);?>
 <label>图片标题：</label>
 <?php echo $form->textField($model,'image_title',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

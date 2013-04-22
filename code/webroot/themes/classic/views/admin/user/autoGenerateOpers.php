@@ -44,7 +44,7 @@ echo SHtml::ajaxSubmitButton(
     'success'=>'function(html){
     	$.fn.yiiGridView.update("J_RoleList");
     }',
-    ), array('name'=>'createOpers'));
+    ), array('name'=>'createOpers','class'=>'btn-a'));
     
 ?>
 </div>

@@ -22,7 +22,7 @@ $this->breadcrumbs=array(
 <?php echo $form->dropDownList($model,'recommend_status',$reStatus);?>
 <label>信息标题：</label>
 <?php echo $form->textField($model,'recommend_id',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

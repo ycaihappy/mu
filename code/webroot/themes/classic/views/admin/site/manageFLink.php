@@ -32,8 +32,8 @@ $this->widget('zii.widgets.jui.CJuiButton',
 <label>状态：</label>
 <?php echo $form->dropDownList($model,'flink_status',$flinkStatus);?>
 <label>链接名称：</label>
-<?php echo $form->textField($model,'flink_name',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo $form->textField($model,'flink_name',array('class'=>'cmp-input'));?>&nbsp;
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

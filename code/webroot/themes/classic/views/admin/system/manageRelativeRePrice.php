@@ -34,7 +34,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 <?php echo $form->dropDownList($model,'re_status',$allReStatus);?>
 <label>品名：</label>
 <?php echo $form->textField($model,'re_name',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

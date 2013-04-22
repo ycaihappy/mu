@@ -55,8 +55,8 @@ if($userId)echo $form->hiddenField($model,'product_user_id');
 <?php echo $form->textField($model,'product_keyword',array('class'=>'cmp-input'));?>
 <?php endif;?>
 <label>现货标题：</label>
-<?php echo $form->textField($model,'product_name',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo $form->textField($model,'product_name',array('class'=>'cmp-input'));?>&nbsp;
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

@@ -31,7 +31,8 @@ $this->breadcrumbs=array(
 		</td>
 </tr>
 <tr>
-<td align='right' colspan=2>
+<td></td>
+<td>
 <?php 
 
 $this->widget('zii.widgets.jui.CJuiButton',

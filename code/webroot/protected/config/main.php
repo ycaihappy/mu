@@ -57,10 +57,10 @@ return array(
 		),
 		'session'=>array(
 			'class'=>'CHttpSession',
-			//'savePath'=>'sessions',
+			/*'savePath'=>'sessions',
 			'cookieParams' => array(
 	         'domain' => '.mushw.com',
-	      ),
+	      ),*/
 			
 		),
 //		'user'=>array(
@@ -83,7 +83,7 @@ return array(
 		// uncomment the following to enable URLs in path-format
 		
 		'urlManager'=>array(
-			'urlFormat'=>'path',
+			'urlFormat'=>'get',
             'urlSuffix'=>'.html',
             'showScriptName'=>false,
 			'rules'=>array(
@@ -135,7 +135,7 @@ return array(
 		        'itemChildTable'=>'mu_right_itemchildren',
 		    ),
 		'db'=>array(
-			'connectionString' => 'mysql:host=127.0.0.1;dbname=mu',
+			'connectionString' => 'mysql:host=127.0.0.1;dbname=mu_product',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',

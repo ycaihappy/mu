@@ -89,10 +89,15 @@
 								});
 								imgDiv.get(0).filters.item("DXImageTransform.Microsoft.AlphaImageLoader").sizingMethod = "image";
 								try {
+									
 									imgDiv.get(0).filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = this.value;
 								} catch (e) {
-									alert("无效的图片文件！");
-									return;
+									var file_upl = imgDiv.siblings('input[type=file]');
+									file_upl.select();
+									var realpath = document.selection.createRange().text;				
+									imgDiv.get(0).filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = realpath;
+									//alert("无效的图片文件！");
+									//return;
 								}
 								setTimeout(function () {
 									self.autoScaling();

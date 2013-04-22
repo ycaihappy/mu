@@ -24,7 +24,7 @@
                         <h2><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$mu_news[0]['art_id']));?>"><?php echo substr($mu_news[0]['art_title'],0,60);?></a></h2><span class="article2"><?php echo substr($mu_news[0]['art_content'],0,120)."...";?></span>
                         </div>
                         <ul id="indexZjgdInfo">
-   			<?php for($index=1;$index<count($mu_news)-1;$index++):?>
+   			<?php for($index=1;$index<count($mu_news);$index++):?>
         <li><span><?php echo date("m-d",strtotime($mu_news[$index]['art_post_date']));?></span>  <a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$mu_news[$index]['art_id']));?>" title="<?php echo $mu_news[$index]['art_title'] ?>" target="_blank"><?php echo $mu_news[$index]['art_title']; ?></a><em></em></li>
 			<?php endfor;?>			
                         </ul>

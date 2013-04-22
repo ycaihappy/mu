@@ -40,6 +40,11 @@ endif;?>
 		<?php echo $form->error($model,'art_tags'); ?></td>
 </tr>
 <tr>
+<td class="label">来源：</td>
+		<td><?php echo $form->textField($model,'art_source',array('class'=>'cmp-input')); ?>	
+		<?php echo $form->error($model,'art_source'); ?></td>
+</tr>
+<tr>
 <td class="label">简介：</td>
 		<td><?php echo $form->textArea($model,'art_summary',array('style'=>'width:352px;height:71px')); ?>	
 		<?php echo $form->error($model,'art_summary'); ?></td>
@@ -116,7 +121,8 @@ endif;?>
         <?php echo $form->error($model,'art_check_by'); ?></td>
 </tr>
 <tr>
-<td align='right' colspan=2><?php echo CHtml::submitButton('保存',array('class'=>'btn-a')); ?></td>
+<td></td>
+<td ><?php echo CHtml::submitButton('保存',array('class'=>'btn-a')); ?></td>
 
 </tr>
 </table>

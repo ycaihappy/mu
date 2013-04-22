@@ -6,13 +6,15 @@
 					</div>
 					<div class="bd">
 						<div class="pic">
+						<?php if(@$one):?>
 							<a href="<?php echo $one->art_id?>"><img src="<?php echo $one->art_img?>" width="101" height="72" /></a>
 							<p><a href="<?php echo $one->art_id?>"><?php echo $one->art_title?></a></p>
+						<?php endif;?>
 						</div>
 						<div class="list">
 							<ul>	
 							<?php
-							if($data):
+							if(@$data):
 									foreach ($data as $art):
 							?>						
 							<li><a href="<?php echo $art->art_id?>"><?php echo $art->art_title?></a></li>

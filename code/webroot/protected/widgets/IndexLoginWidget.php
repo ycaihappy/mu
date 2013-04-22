@@ -4,7 +4,8 @@ class IndexLoginWidget extends CWidget
 
     public function run()
     {
-    	$adv=CCacheHelper::getAdvertisement(144);
+    	$adv=CCacheHelper::getAdvertisement(157);
+    	$adv2=CCacheHelper::getAdvertisement(158);
         if ( Yii::app()->user->getID())
         {
         $user = User::model()->findbyPk(Yii::app()->user->getID());
@@ -14,7 +15,7 @@ class IndexLoginWidget extends CWidget
         else
         {
             
-        $this->render('index_login',array('adv'=>$adv));
+        $this->render('index_login',array('adv'=>$adv,'adv2'=>$adv2));
         }
     }
 }

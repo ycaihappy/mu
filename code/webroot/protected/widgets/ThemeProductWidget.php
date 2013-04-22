@@ -3,9 +3,11 @@ class ThemeProductWidget extends CWidget
 {
     public function run()
     {
+    	$typies=Term::getTermsListByGroupId(14);
 
         $creteria=new CDbCriteria();
-        $creteria->condition="re_type=148 and re_name_type='".$_GET['type']."' ";
+        $creteria->condition="re_type=148 and re_name_type='".$_GET['type']."' and re_status=1 ";
+        $creteria->order = "re_id desc";
         $creteria->limit = 7;
         $rePrice=RelativeRePrice::model()->findAll($creteria);
         if($rePrice)
@@ -24,8 +26,10 @@ class ThemeProductWidget extends CWidget
                     $price->re_fallup=' - ';
                     break;
                 }
+                $price->re_name = $typies[$price->re_name_type];
             }
         }
+
 
         $this->render('theme_product',array('data'=>$rePrice));
     }

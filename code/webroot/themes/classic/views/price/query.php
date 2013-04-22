@@ -84,7 +84,7 @@ foreach ($city_mu as $city)
 </div>
 <?php 
 $cs=Yii::app()->getClientScript();
-$cs->registerCssFile('css/ui-lightness/jquery-ui-1.10.1.custom.min.css');
+$cs->registerCssFile('/css/ui-lightness/jquery-ui-1.10.1.custom.min.css');
 Yii::app()->getClientScript()->registerCoreScript('jquery');
 Yii::app()->getClientScript()->registerCoreScript('jquery.ui');
 

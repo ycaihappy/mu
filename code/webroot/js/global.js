@@ -18,6 +18,15 @@ $.extend(MU.mods,{
 		$(this).find('img').lazyload({ effect: "fadeIn", threshold: 200, failurelimit: 20 });
 		
 	},
+	getBaseUrl:function()
+	{
+		var host=window.location.protocol+"//"+window.location.host;
+		if(window.location.port!='')
+			{
+			host+=':'+window.location.port;
+			}
+		return host;
+	},
 	JSearchForm : function () {
 		var self = $(this);
 		
@@ -238,8 +247,7 @@ $.extend(MU.mods,{
 			var index = $(this).parent().find('a').index($(this));
 			self.find('.fp-con ul').eq(index).show().siblings().hide();
 		});
-
-		$.getAsset('script',['js/highcharts.js'],function(){
+		$.getAsset('script',[MU.mods.getBaseUrl()+'/js/highcharts.js'],function(){
 			MU.mods.loadChart(self.find('.chart-info'),self.find('.chart').data('api'),{type:'spline'});
 		});
 
@@ -456,7 +464,7 @@ $.extend(MU.mods,{
 	JQuot : function () {
 		var self = $(this),api = $('#chart').data('api');
 		$('#chart').css({width:250,height:150});
-		$.getAsset('script',['js/highcharts.js'],function(){
+		$.getAsset('script',[MU.mods.getBaseUrl()+'/js/highcharts.js'],function(){
 			 MU.mods.loadChart($('#chart'),api,{data:{cid : 1}});
 		});
 	},
@@ -521,7 +529,7 @@ $.extend(MU.mods,{
 	JDataCenter : function () {
 		var self = $(this),api = $('#chart1').data('api'),api2 = $('#chart2').data('api');
 		$('#chart1,#chart2').css({width:301,height:185});		
-		$.getAsset('script',['js/highcharts.js'],function(){
+		$.getAsset('script',[MU.mods.getBaseUrl()+'/js/highcharts.js'],function(){
 			MU.mods.loadChart($('#chart1'),api,{data:{cid : 1}});
 			MU.mods.loadChart($('#chart2'),api2,{data:{cid : 1}});
 		});
@@ -575,7 +583,7 @@ $.extend(MU.mods,{
 		var self = $(this),api = self.data('api'),form = self.find('form');
 		form.attr('autocomplete','off');
 		$('#container').css({width:710,height:500});
-		$.getAsset('script',['js/highcharts.js'],function(){
+		$.getAsset('script',[MU.mods.getBaseUrl()+'/js/highcharts.js'],function(){
 			MU.mods.loadChart($('#container'),api,{data:form.serializeArray()});
 		});
 		self.find('.datepicker').datepicker({dateFormat : 'yy-mm-dd'});
@@ -592,7 +600,7 @@ $.extend(MU.mods,{
 	},
 	JSpecialChart : function () {
 		var self = $(this);
-		$.getAsset('script',['js/highcharts.js'],function(){
+		$.getAsset('script',[MU.mods.getBaseUrl()+'/js/highcharts.js'],function(){
 			MU.mods.loadChart(self.find('.pic'),self.data('api'),{type : 'spline'});
 		});
 		

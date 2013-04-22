@@ -24,8 +24,9 @@ class TopTrendsNewsWidget extends CWidget {
 				}
             }
             $data=compact('trendsNews','trendsOne');
-		}
 		$this->render('top_trends_news',$data);
+		}
+
 
 	}
 }

@@ -49,19 +49,21 @@ else
 			</div>
 			<div class="hd">
 			<div class="ad">
-			<?php if($adv):?>
+			<?php if(@$adv):?>
 		<a target="_blank" href="<?php echo $adv[0]->ad_link?>">
 		
 		<img width="210" height="105" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
 		<?php endif;?>
 		</div>
+<?php if (Yii::app()->user->isGuest) {?>
 			<div class="ad">
-			<?php if($adv):?>
-		<a target="_blank" href="<?php echo $adv[0]->ad_link?>">
+			<?php if(@$adv2):?>
+		<a target="_blank" href="<?php echo $adv2[0]->ad_link?>">
 		
-		<img width="210" height="105" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
+		<img width="210" height="105" src="<?php echo '/images/advertisement/'.$adv2[0]->ad_media_src?>"></a>
 		<?php endif;?>
-		
+
 		</div>
+<?php } ?>	
 		</div>
 		</div>

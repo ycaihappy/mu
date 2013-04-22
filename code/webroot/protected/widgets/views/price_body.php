@@ -36,14 +36,14 @@ $hq_name = ($type == 1) ? '钼市行情' : '价格汇总';
                             <a class="" href="">每日分析</a><a href="" class="on">每周评述</a><!--<a href="">价格汇总</a>--></h2>
                         <div class="fp-con">
                             <ul style="display: none;">
-                           		<?php for($index=0;$index<count($data02)-1;$index++):?>
-        <li><span><?php echo date("m-d",strtotime($data02[$index]['art_post_date']));?></span><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data02[$index]['art_id']));?>" title="<?php echo $data02[$index]['art_title'] ?>" target="_blank"><?php echo $data02[$index]['art_title']; ?></a></li>
+                           		<?php for($index=0;$index<count($data03);$index++):?>
+        <li><span><?php echo date("m-d",strtotime($data03[$index]['art_post_date']));?></span><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data03[$index]['art_id']));?>" title="<?php echo $data03[$index]['art_title'] ?>" target="_blank"><?php echo $data03[$index]['art_title']; ?></a></li>
 			<?php endfor;?>			
 
                             </ul>
                             <ul style="">
-                           		<?php for($index=0;$index<count($data02)-1;$index++):?>
-        <li><span><?php echo date("m-d",strtotime($data02[$index]['art_post_date']));?></span><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data02[$index]['art_id']));?>" title="<?php echo $data[$index]['art_title'] ?>" target="_blank"><?php echo $data02[$index]['art_title']; ?></a></li>
+                           		<?php for($index=0;$index<count($data04);$index++):?>
+        <li><span><?php echo date("m-d",strtotime($data04[$index]['art_post_date']));?></span><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data04[$index]['art_id']));?>" title="<?php echo $data04[$index]['art_title'] ?>" target="_blank"><?php echo $data04[$index]['art_title']; ?></a></li>
 			<?php endfor;?>			
                             </ul>							
                         </div>

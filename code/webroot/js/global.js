@@ -25,7 +25,7 @@ $.extend(MU.mods,{
 			{
 			host+=':'+window.location.port;
 			}
-		return host;
+		return '';
 	},
 	JSearchForm : function () {
 		var self = $(this);

@@ -37,14 +37,18 @@ else
 <?php endif;?>
 			<div class="ft">
 				<div class="line"></div>
-				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>651))?>" class="btn-purple"><i class="ico-2"></i>仓储现货</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>651))?>" class="btn-purple"><i class="ico-2"></i>货物仓储</a>
 				<!--<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>653))?>" class="btn-purple">动产质押</a>
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple">仓单质押</a>-->
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>655))?>" class="btn-purple"><i class="ico-4"></i>物流配送</a>
-				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>656))?>" class="btn-purple"><i class="ico-1"></i>金融抵押</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>656))?>" class="btn-purple"><i class="ico-1"></i>现货交易</a>
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>657))?>" class="btn-purple"><i class="ico-3"></i>产品质检</a>
-				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>653))?>" class="btn-purple"><i class="ico-4"></i>动产质押</a>
-				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>仓单质押</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>653))?>" class="btn-purple"><i class="ico-4"></i>质押贷款</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>质押借款</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>结算方法</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>业务流程</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>远程监控</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>预付款定货</a>
 
 			</div>
 			<div class="hd">

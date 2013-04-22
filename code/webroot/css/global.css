@@ -1088,7 +1088,7 @@ padding: 0 20px;
 .m-hq-news .con {padding-top: 5px;  text-align: left;}
 .m-hq-news .con h2 {color: red;  font-size: 16px;  text-align: center;}
 .m-hq-news .con h2 a {color: red;font-weight:bold}
-.m-hq-news .con span.article2 {  color: #A0A0A0;  display: block;  height: 40px;  line-height: 21px;  margin-bottom: 5px;  overflow: hidden;  text-indent: 2em;margin-left:5px}
+.m-hq-news .con span.article2 {  color: #A0A0A0;  display: block;  height: 40px;  line-height: 21px;  margin-bottom: 5px; text-indent: 2em;margin-left:5px}
 .m-hq-news .con ul{padding:5px}
 .m-hq-news .con ul li {  background:url("imgs/v2/ico_dotted.png") no-repeat scroll left center transparent;  height: 24px;  line-height: 24px; overflow:hidden; text-indent: 10px;}
 .ck-news li span{color:#A0A0A0;margin-left:5px;float:right}

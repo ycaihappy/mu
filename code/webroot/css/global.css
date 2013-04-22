@@ -114,11 +114,14 @@ color: #000;
 
 	font-size:14px;
 }
-
+.tel-box{float:right;width:206px;background:url(imgs/telphone.gif) no-repeat 0 5px;height:68px;margin-top:20px}
+.tel-box .tel{margin-left:30px}
+.tel-box .tel strong{font-weight:bold;font-size:16px;}
+.tel-box .chat{margin-left:40px;margin-top:10px}
 .m-logo {
 float: left;
 height: 70px;
-width: 256px;
+width: 240px;
 }
 
 .search-status-focus s{display:none;}

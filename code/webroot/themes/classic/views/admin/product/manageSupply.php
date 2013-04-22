@@ -31,7 +31,7 @@ $supplyChangeStatusAction=$isSupply?'changeSupplyStatus':'changeBuyStatus';
 <?php echo $form->textField($model,'supply_user_id',array('class'=>'cmp-input'));?>
 <label>标题：</label>
 <?php echo $form->textField($model,'supply_name',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

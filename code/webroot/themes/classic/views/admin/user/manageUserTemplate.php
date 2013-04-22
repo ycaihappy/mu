@@ -37,7 +37,7 @@ $this->breadcrumbs=array(
 <?php echo $form->dropDownList($model,'temp_status',$templateStatus,array('empty'=>'所有状态'));?>
 <label>模板名称：</label>
 <?php echo $form->textField($model,'temp_name',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

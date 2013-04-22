@@ -32,7 +32,8 @@ $.extend(MU.mods,{
 		
 		self.find('input[name=type]').val(self.find('.switchable-nav li.selected').data('type'));
 		
-		self.find('.switchable-nav li').click(function () {
+		self.find('.switchable-nav li').click(function (e) {
+			e.preventDefault();
 			$(this).addClass('selected').siblings().removeClass('selected');
 			self.find('input[name=type]').val($(this).data('type'));
 		});

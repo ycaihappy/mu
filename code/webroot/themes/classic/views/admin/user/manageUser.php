@@ -38,7 +38,7 @@ if($adminUser)
 <?php echo $form->dropDownList($model,'user_status',$userStatus);?>
 <label>用户名：</label>
 <?php echo $form->textField($model,'user_name',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

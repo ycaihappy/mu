@@ -1,7 +1,7 @@
 <div class="clearfix"></div>
 <div class="m-supply-news ui-m-tab ui-m-border">
 	<div class="hd">
-		<span class="on"><a href="">钼用途</a></span>
+		<span class="on"><a href="">钼的用途</a></span>
 	</div>
 	<div class="bd">
 		<ul>

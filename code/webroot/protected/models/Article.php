@@ -95,7 +95,7 @@ class Article extends CActiveRecord
                 'limit'=>8
             ),
             'knowledgeChinaList'=>array(
-                'condition'=>'art_subcategory_id=64 and art_status=1',
+                'condition'=>'(art_subcategory_id=64 or art_subcategory_id=63) and art_status=1',
                 'order'=>'art_post_date desc',
                 'limit'=>8
             ),

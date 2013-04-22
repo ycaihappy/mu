@@ -74,7 +74,7 @@ a:active{text-decoration:underline;}
 
 
 .m-form td{padding:5px;}
-.m-form .label{width:140px;text-align:right;font-size:14px;}
+.m-form .label{width:140px;text-align:right;font-size:14px;background:#f3f3f3}
 .m-form input{border:1px solid #ccc;padding:4px;}
 .cmp-input{border:1px solid #ccc;width:155px}
 .w245{width:245px}
@@ -180,7 +180,7 @@ ul.yiiPager .hidden a,ul.yiiPager{font-size:12px}
 .btn-a,.btn-a:hover{background:url(imgs/blue.png) no-repeat;color:#fff}
 .btn-b,.btn-b:hover{background:url(imgs/gery.png) no-repeat;color:#000}*/
 
-.m-form .btn-a,.m-form .btn-b {
+.m-form .btn-a,.m-form .btn-b,.btn-a,.btn-b {
   background: url("images/ui-bg_glass_75_e6e6e6_1x400.png") repeat-x scroll 50% 50% #E6E6E6;
   border: 1px solid #D3D3D3;
   color: #555555;
@@ -190,7 +190,7 @@ ul.yiiPager .hidden a,ul.yiiPager{font-size:12px}
   cursor:pointer;
   
 }
-.m-form .btn-a:hover,.m-form .btn-b:hover{
+.m-form .btn-a:hover,.m-form .btn-b:hover,.btn-a:hover,.btn-b:hover{
 	color:#212121;
 	border:1px solid #999;
 }

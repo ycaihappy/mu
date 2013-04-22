@@ -12,9 +12,12 @@
 				</form>
 			</div>-->
 			<?php endif;?>
+			<div class="hd">
+				<span>服务导航</span>
+			</div>
 <?php if (Yii::app()->user->getID()):?>
 			<div class="bd logined">
-				<h4><img src="images/welcome.jpg" /></h4>
+				
 				<ul>
                     <li><i class="link-msg"></i><a href="<?php echo $this->getController()->createUrl('/uehome/user/message');?>">站内短信</a></li>
 <?php if (Yii::app()->user->getUserStatus() == 1)
@@ -37,17 +40,21 @@ else
 <?php endif;?>
 			<div class="ft">
 				<div class="line"></div>
-				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>651))?>" class="btn-purple"><i class="ico-2"></i>仓储现货</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>651))?>" class="btn-purple"><i class="ico-2"></i>货物仓储</a>
 				<!--<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>653))?>" class="btn-purple">动产质押</a>
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple">仓单质押</a>-->
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>655))?>" class="btn-purple"><i class="ico-4"></i>物流配送</a>
-				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>656))?>" class="btn-purple"><i class="ico-1"></i>金融抵押</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>656))?>" class="btn-purple"><i class="ico-1"></i>现货交易</a>
 				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>657))?>" class="btn-purple"><i class="ico-3"></i>产品质检</a>
-				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>653))?>" class="btn-purple"><i class="ico-4"></i>动产质押</a>
-				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>仓单质押</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>653))?>" class="btn-purple"><i class="ico-4"></i>质押贷款</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>质押借款</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>结算方法</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>业务流程</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>远程监控</a>
+				<a href="<?php echo $this->getController()->createUrl('/service/view',array('art_id'=>652))?>" class="btn-purple"><i class="ico-1"></i>预付款定货</a>
 
 			</div>
-			<div class="hd">
+			
 			<div class="ad">
 			<?php if(@$adv):?>
 		<a target="_blank" href="<?php echo $adv[0]->ad_link?>">
@@ -55,15 +62,6 @@ else
 		<img width="210" height="105" src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>"></a>
 		<?php endif;?>
 		</div>
-<?php if (Yii::app()->user->isGuest) {?>
-			<div class="ad">
-			<?php if(@$adv2):?>
-		<a target="_blank" href="<?php echo $adv2[0]->ad_link?>">
-		
-		<img width="210" height="105" src="<?php echo '/images/advertisement/'.$adv2[0]->ad_media_src?>"></a>
-		<?php endif;?>
 
-		</div>
-<?php } ?>	
-		</div>
+		
 		</div>

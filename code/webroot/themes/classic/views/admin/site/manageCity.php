@@ -30,7 +30,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 <?php echo $form->dropDownList($model,'city_parent',$allCity);?>
 <label>地区名称：</label>
 <?php echo $form->textField($model,'city_name',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

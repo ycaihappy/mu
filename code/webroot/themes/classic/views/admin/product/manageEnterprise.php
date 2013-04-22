@@ -24,7 +24,7 @@ $this->breadcrumbs=array(
 <?php echo $form->dropDownList($model,'ent_status',$entStatus);?>
 <label>企业名称：</label>
 <?php echo $form->textField($model,'ent_name',array('class'=>'cmp-input'));?>
-<?php echo CHtml::submitButton('搜索'); ?>
+<?php echo CHtml::submitButton('搜索',array('class'=>'btn-a')); ?>
 </div>
 </div>
 <br style='float:clear;'/>

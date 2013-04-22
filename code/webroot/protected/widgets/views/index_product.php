@@ -83,6 +83,75 @@
                 	    </ul>
                 	   </div>
                 <?php endif;?>
+				
+				<!--start-->
+				<table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:0" class="left_table">    
+            
+                    <tbody><tr>
+                      <th>公司名</th>
+                      <th>品名</th>
+                      <th>材质</th>
+                      <th>规格</th>
+                      <th>价格</th>
+                      <th>数量</th>
+					  <th>产地</th>
+                    </tr>
+					<tr>
+					<td style="padding:0" colspan="7">
+             		<div data-type="vertical" id="J_ImgScroller_1" class="index-prd-scroll">
+					
+					<ul style="position: absolute;width:100%">
+					<li>
+						<span class="col-1">深圳金制品有限公司</span>
+						<span class="col-2">太钢不锈</span>
+						<span class="col-3">不锈钢平板</span>
+						<span class="col-4">1.2*4343</span>
+						<span class="col-5">￥19.00</span>
+						<span class="col-6">1000</span>
+						<span class="col-7">深圳</span>
+					</li>
+					<li>
+						<span class="col-1">深圳金制品有限公司</span>
+						<span class="col-2">太钢不锈</span>
+						<span class="col-3">不锈钢平板</span>
+						<span class="col-4">1.2*4343</span>
+						<span class="col-5">￥19.00</span>
+						<span class="col-6">1000</span>
+						<span class="col-7">深圳</span>
+					</li>
+					<li>
+						<span class="col-1">深圳金制品有限公司</span>
+						<span class="col-2">太钢不锈</span>
+						<span class="col-3">不锈钢平板</span>
+						<span class="col-4">1.2*4343</span>
+						<span class="col-5">￥19.00</span>
+						<span class="col-6">1000</span>
+						<span class="col-7">深圳</span>
+					</li>
+					<li>
+						<span class="col-1">深圳金制品有限公司</span>
+						<span class="col-2">太钢不锈</span>
+						<span class="col-3">不锈钢平板</span>
+						<span class="col-4">1.2*4343</span>
+						<span class="col-5">￥19.00</span>
+						<span class="col-6">1000</span>
+						<span class="col-7">深圳</span>
+					</li>
+					<li>
+						<span class="col-1">深圳金制品有限公司</span>
+						<span class="col-2">太钢不锈</span>
+						<span class="col-3">不锈钢平板</span>
+						<span class="col-4">1.2*4343</span>
+						<span class="col-5">￥19.00</span>
+						<span class="col-6">1000</span>
+						<span class="col-7">深圳</span>
+					</li>
+					</ul>
+					</div>
+					</td>
+					</tr>
+        </tbody></table>
+				<!--end-->
 						
 					</div>
 			

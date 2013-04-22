@@ -36,6 +36,16 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'siteMetaDescription'); ?></td>
 </tr>
 <tr>
+<td class="label">热门搜索关键词：</td>
+		<td><?php echo $form->textArea($model,'hotSearchKeywords',array('class'=>'cmp-input', 'wrap'=>"wrap",'style'=>'width:305px;height:50px','placeholder'=>'关键词1|关键词2')); ?>
+		<div>
+		<?php echo CHtml::textField('baidusearch','',array('class'=>'cmp-input','placeholder'=>'进行百度关键字搜索')); ?>
+		<?php echo CHtml::button('加入关键词',array('class'=>'btn-a')); ?>
+		<em style="display:block;margin:5px;">关键字用英文格式的|(竖线)分隔符，可通过后面的输入框从百度搜索热门关键词，点击"加入关键词"进行追加，最大长度为255个字符</em>
+		</div>
+		<?php echo $form->error($model,'hotSearchKeywords'); ?></td>
+</tr>
+<tr>
 <td class="label">Logo地址：</td>
 		<td><?php echo $form->textField($model,'siteLogo'); ?>
 		<?php echo $form->error($model,'siteLogo'); ?></td>

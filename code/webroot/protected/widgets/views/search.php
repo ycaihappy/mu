@@ -22,9 +22,14 @@
 			  <button type="submit" class="btn-search">搜 索</button>			 
 			 </form>
 		 </div>
+		 <?php if(@$hotKeyWods):?>
 		 <div class="hottag">
-			<label>热门关键字：</label><a>钼钢</a><a>钼钢</a><a>钼钢</a><a>钼钢</a>
+			<label>热门关键字：</label>
+			<?php foreach ($hotKeyWods as $word):?>
+			<a href="<?php echo Yii::app()->controller->createUrl('/product/index',array('keyword'=>$word))?>"><?php echo $word?></a>
+			<?php endforeach;?>
 		 </div>
+		 <?php endif;?>
 	</div>
 	<div class="tel-box">
 		<div class="tel"><em>咨询电话：</em><strong>400-25263550</strong></div>

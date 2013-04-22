@@ -82,7 +82,7 @@ return array(
 //     	),
 		// uncomment the following to enable URLs in path-format
 		
-		'urlManager'=>array(
+		/*'urlManager'=>array(
 			'urlFormat'=>'get',
             'urlSuffix'=>'.html',
             'showScriptName'=>false,
@@ -109,7 +109,7 @@ return array(
 				'http://uehome.mushw.com/<_a:\w+>'=>'uehome/user/<_a>',
 				'http://<username:\w+>.mushw.com/<_a:\w+>'=>'storeFront/default/<_a>'
 			),
-		),
+		),*/
 		
             /*
 		'db'=>array(
@@ -135,7 +135,7 @@ return array(
 		        'itemChildTable'=>'mu_right_itemchildren',
 		    ),
 		'db'=>array(
-			'connectionString' => 'mysql:host=127.0.0.1;dbname=mu_product',
+			'connectionString' => 'mysql:host=127.0.0.1;dbname=mu',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',

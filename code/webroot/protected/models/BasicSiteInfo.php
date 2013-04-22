@@ -24,6 +24,7 @@ class BasicSiteInfo extends CJsonModel {
 	public $csEmail;
 	public $siteDescription;
 	public $updateTime;
+	public $hotSearchKeywords;
 	protected $dataPath='data/siteInfo.json';
 
 	public function rules()
@@ -35,12 +36,12 @@ class BasicSiteInfo extends CJsonModel {
 			array('location','length','max'=>255),
 			array('siteMetaDescription','length','max'=>255),
 			array('zipcode','length','max'=>10),
+			array('hotSearchKeywords','length','max'=>255,'message'=>'不能超过255个字符'),
 			array('siteMetaTitle','length','max'=>255),
 			array('siteMsgNum,csEmail','email','message'=>'邮箱格式不正确'),
 			array('qq','numerical','message'=>'输入了除数字意外的字符'),
 			array('csEmail','email','message'=>'邮箱格式不正确'),
 			array('siteUrl','url','message'=>'链接地址不正确：形如：http://www.mushw.com'),
-			
 			array('csHotline1,csHotline2,csHotline3,csHotline4,advisoryHotline,fax,sellHotline','CPhoneValidator'),
 			array('updateTime','safe'),
 		);

@@ -75,14 +75,23 @@ if (isset($data02[$index])){
 					</ul>
 					<ul class="hide">
 						<div class="tabcontent ui-m-border">
+						<div class="item">
 						<h5> 行情</h5>
 						<a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_all.html" target="_blank"> <b>汇总行情</b></a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_cu.html" target="_blank">铜</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_al.html" target="_blank">铝</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_zn.html" target="_blank">锌</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_au.html" target="_blank">黄金</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_fu.html" target="_blank">燃油料</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_ru.html" target="_blank">天然橡胶</a>
+						</div>
+						<div class="item">
 						<h5> 日统计数据</h5>
 						<a href="sfe.php?l=http://www.shfe.com.cn/statements/hq_kx.html" target="_blank">交易快讯</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/hq_pm.html" target="_blank"> 交易排行</a>
+						</div>
+						<div class="item">
 						<h5> 周统计数据</h5>
 						<a href="sfe.php?l=http://www.shfe.com.cn/statements/hq_week.html" target="_blank"> 每周行情</a>
+						</div>
+						<div class="item">
 						<h5> 月统计数据</h5>
-						<a href="sfe.php?l=http://www.shfe.com.cn/statements/hq_month.html" target="_blank"> 每月行情</a> </div>
+						<a href="sfe.php?l=http://www.shfe.com.cn/statements/hq_month.html" target="_blank"> 每月行情</a>
+						</div>
+						</div>
 					</ul>
 					<ul class="hide">
 					<table cellspacing="0" cellpadding="0" width="100%" class="small">

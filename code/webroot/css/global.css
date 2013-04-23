@@ -1636,6 +1636,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
   line-height: 30px;
 
 }
+.tabcontent .item{margin-bottom:15px}
 
 .special-index{margin-right:10px;width:330px}
 .supply-scroll{height:500px;overflow:hidden;position:relative}

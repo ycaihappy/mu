@@ -140,3 +140,6 @@ $this->breadcrumbs=array(
 <br /><br />
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+<?php 
+$cs=Yii::app()->getClientScript();
+$cs->registerCoreScript('jquery.ui');

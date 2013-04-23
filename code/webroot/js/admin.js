@@ -109,5 +109,16 @@ $.extend(MU.mods,{
 			},'json');
 			
 		});
+	},
+	JBasicSiteInfo : function() {
+		var self = $(this);
+		self.find('.baidu-sug').on('click',function(){
+			$.get('http://suggestion.baidu.com/su',{'wd':$('#baidusearch').val(),'cb':'MU.mods.baiduSugCb'},function(){
+				
+			},'jsonp');
+		});
+	},
+	baiduSugCb : function(re){
+		$('#BasicSiteInfo_hotSearchKeywords').val(re.s);
 	}
 });

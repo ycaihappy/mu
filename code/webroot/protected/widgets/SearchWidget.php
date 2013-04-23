@@ -7,6 +7,16 @@ class SearchWidget extends CWidget
 
     public function run()
     {
-        $this->render('search',array('name'=>'lizhli'));
+    	$keywods=$this->getController()->siteConfig->hotSearchKeywords;
+    	$data=array();
+    	if($keywods)
+    	{
+	    	$hotKeyWods=explode('|',$keywods );
+	    	if($hotKeyWods)
+	    	{
+	    		$data=compact('hotKeyWods');
+	    	}
+    	}
+        $this->render('search',$data);
     }
 }

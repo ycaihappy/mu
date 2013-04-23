@@ -49,6 +49,10 @@ class Product extends CActiveRecord
 		{
 			$this->product_water_content=0;
 		}
+		if($this->isNewRecord)
+		{
+			$this->product_join_date=date('Y-m-d H:i:s');
+		}
 		return parent::beforeSave();
 	}
 
@@ -61,9 +65,10 @@ class Product extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('product_id,product_user_id,product_quanity, product_type_id, product_status,product_unit,product_city_id, product_special', 'numerical', 'integerOnly'=>true),
-			array('product_name', 'length', 'max'=>128),
+			array('product_name,product_keyword', 'length', 'max'=>128),
 			array('product_unit', 'required', 'message'=>'请选择单位！'),
-			array('product_quanity', 'numerical', 'message'=>'请填写数量！'),
+			array('product_quanity', 'numerical', 'message'=>'数量必须为数字！'),
+			array('product_quanity', 'required', 'message'=>'请填写数量！'),
 			array('product_city_id', 'required', 'message'=>'请选择地区！'),
 			array('product_name', 'required','message'=>'名称不能为空'),
 			array('product_price', 'numerical', 'message'=>'价格必须为数字'),
@@ -108,6 +113,7 @@ class Product extends CActiveRecord
             'topProduct'=>array('condition'=>'product_special=1','order'=>'product_join_date desc','limit'=>8),
 		);
 	}
+	
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

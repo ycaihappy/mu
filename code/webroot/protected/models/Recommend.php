@@ -61,6 +61,19 @@ class Recommend extends CActiveRecord
 			'status'=>array(self::BELONGS_TO,'Term','recommend_status'),
 		);
 	}
+	public function beforeSave()
+	{
+		if($this->isNewRecord)
+		{
+			$existsModel=Recommend::model()->find('recommend_object_id=:objectId and recommend_position=:position and recommend_type=:type',
+			array(':objectId'=>$this->recommend_object_id,':position'=>$this->recommend_position,':type'=>$this->recommend_type));
+			if($existsModel)
+			{
+				return false;
+			}
+		}
+		return parent::beforeSave();
+	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)

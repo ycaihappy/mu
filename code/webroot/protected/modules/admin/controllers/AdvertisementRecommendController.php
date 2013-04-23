@@ -226,7 +226,10 @@ class AdvertisementRecommendController extends AdminController {
 					}
 				}
 				if(!$error)
-				$resultMsg='推荐成功！';
+					$resultMsg='推荐成功！';
+				else {
+					$resultMsg='部分数据重复推荐！';
+				}
 			}
 			echo $resultMsg;
 		}

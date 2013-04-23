@@ -25,6 +25,7 @@ class BasicSiteInfo extends CJsonModel {
 	public $siteDescription;
 	public $updateTime;
 	public $hotSearchKeywords;
+	public $convertCollectionUrl;
 	protected $dataPath='data/siteInfo.json';
 
 	public function rules()
@@ -41,6 +42,7 @@ class BasicSiteInfo extends CJsonModel {
 			array('siteMsgNum,csEmail','email','message'=>'邮箱格式不正确'),
 			array('qq','numerical','message'=>'输入了除数字意外的字符'),
 			array('csEmail','email','message'=>'邮箱格式不正确'),
+			array('convertCollectionUrl','url','message'=>'链接地址不正确：形如：http://forex.money.hexun.com/rest1/RMBQuotePrice/RMBQuotePrice.aspx'),
 			array('siteUrl','url','message'=>'链接地址不正确：形如：http://www.mushw.com'),
 			array('csHotline1,csHotline2,csHotline3,csHotline4,advisoryHotline,fax,sellHotline','CPhoneValidator'),
 			array('updateTime','safe'),

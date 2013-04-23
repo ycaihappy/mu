@@ -205,7 +205,9 @@ $html.=<<<tree
 			<li><a href="{$url}" target="mainFrame">{$name}</a></li>
 tree;
 }
+$url=$this->getController()->createUrl('system/manageConvert');
 $html.=<<<tree
+		<li><a href="{$url}" target="mainFrame">外汇牌价录入</a></li>
 		</ul>
 	</li>
 </ul>

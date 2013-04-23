@@ -162,12 +162,13 @@ class ProductController extends AdminController {
 			$productModel=Product::model()->with(array('user.enterprise'=>array('select'=>'ent_name'),'user'=>array('select'=>'user_name')))->findByPk($productId);
 
 		}
+		$parentType=0;
 		if($user_id=(int)Yii::app()->request->getParam('user_id',0))
 		{
 			$productModel->product_user_id=$user_id;
 		}
 		$parentProductTypes= Term::getTermsByGroupId(14,true);
-		$parentType=0;
+		
 		$productSmallTypes=array();
 		if($productModel->product_type_id)
 		{

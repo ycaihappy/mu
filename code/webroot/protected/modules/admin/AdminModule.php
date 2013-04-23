@@ -19,8 +19,11 @@ class AdminModule extends CWebModule
 		'admin.widgets.*',
 		));
 		Yii::app()->setComponents(array(
+					'htmlParser' => array(
+				            'class' => 'application.extensions.htmlDom.CHtmlDomParser',
+				        ),
 					'curl' => array(
-				            'class' => 'ext.Curl',
+				            'class' => 'application.extensions.Curl',
 				        ),
                    'errorHandler'=>array(
                            'class'=>'CErrorHandler',

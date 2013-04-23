@@ -96,12 +96,16 @@ if (isset($data02[$index])){
 					<ul class="hide">
 					<table cellspacing="0" cellpadding="0" width="100%" class="small">
 						<tr><th>币种</th><th>交易单位</th><th>中间价</th><th>现钞买入价</th><th>卖出价</th></tr>
-						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
-						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
-						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
-						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
-						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
-						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
+						<?php if(@$WHPrice):?>
+						<?php foreach ($WHPrice as $price):?>
+						<tr><td><?php echo $price->co_name?></td>
+						<td><?php echo $price->co_unit?></td>
+						<td><?php echo $price->co_cur_price?></td>
+						<td><?php echo $price->co_cur_cash_buy_price?></td>
+						<td><?php echo $price->co_sell_price?></td>
+						</tr>
+						<?php endforeach;?>
+						<?php endif;?>
 					</table>
 					
 					</ul>

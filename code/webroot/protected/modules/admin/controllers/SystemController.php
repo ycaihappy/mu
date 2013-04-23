@@ -13,9 +13,9 @@ class SystemController extends AdminController {
 		$dataProvider=new CActiveDataProvider('MessageTemplate',array(
 			'criteria'=>$templateCriteria,
 			'pagination'=>array('pageSize'=>10,'pageVar'=>'page'
-		)));
-		$data=compact('dataProvider');
-		$this->render('manageMessageTemplate',$data);
+			)));
+			$data=compact('dataProvider');
+			$this->render('manageMessageTemplate',$data);
 	}
 	public function actionSaveMessageTemplate()
 	{
@@ -71,15 +71,15 @@ class SystemController extends AdminController {
 		$dataProvider=new CActiveDataProvider('RelativeRePrice',array(
 			'criteria'=>$reCriteria,
 			'pagination'=>
-				array(
+		array(
 					'pageSize'=>10,
 					'pageVar'=>'page',
 					'params'=>array(
 						'RelativeRePrice[re_status]'=>$model->re_status,
 						'RelativeRePrice[re_name]'=>$model->re_name,	
 						'RelativeRePrice[re_type]'=>$model->re_type,
-					),
-					
+		),
+			
 		)));
 		$allReStatus=Term::getTermsByGroupId(1);
 		$allReTypes=Term::getTermsByGroupId(20);
@@ -94,7 +94,7 @@ class SystemController extends AdminController {
 			$model->re_type=$_POST['RelativeRePrice']['re_type'];
 			$model->attributes=$_POST['RelativeRePrice'];
 			if($model->re_id) $model->setIsNewRecord(false);
-			
+
 			if($model->save())
 			{
 				$this->redirect(array('manageRelativeRePrice'));
@@ -122,10 +122,10 @@ class SystemController extends AdminController {
 			$reId=@$_REQUEST['re_id'];
 			if(!$reId )
 			{
-				
+
 				echo '请选择要删除的价格信息';
 				exit;
-				
+
 			}
 			$deleteCriteria=new CDbCriteria();
 			$deleteCriteria->addInCondition('re_id', $reId);
@@ -156,13 +156,13 @@ class SystemController extends AdminController {
 					{
 						$model->province=array_map('intVal',$model->province);
 						if(!in_array(0,$model->province))
-							$criterial->addInCondition('user_province_id', $model->province);
+						$criterial->addInCondition('user_province_id', $model->province);
 					}
 					if($model->userGroup)
 					{
 						$model->userGroup=array_map('intVal',$model->userGroup);
 						if(!in_array(0,$model->userGroup))
-							$criterial->addInCondition('user_type', $model->userGroup);
+						$criterial->addInCondition('user_type', $model->userGroup);
 					}
 					$users=User::model()->findAll($criterial);
 					if($users)
@@ -174,7 +174,7 @@ class SystemController extends AdminController {
 							{
 								$toMobile[]=$user->user_mobile_no;
 							}
-							
+
 						}
 						else {//邮件方式发送
 							$toEmail=array();
@@ -199,6 +199,130 @@ class SystemController extends AdminController {
 		$allUserGroup=UserGroup::getUserGroup();
 		$data=compact('allProvince','allBusModel','allUserGroup','model','allSendType');
 		$this->render('bulkMail',$data);
+	}
+	public function actionManageConvert()
+	{
+		$dataProvider=new CActiveDataProvider('Convert',array(
+			'pagination'=>
+		array(
+					'pageSize'=>10,
+					'pageVar'=>'page',
+			
+		)));
+		$data=compact('dataProvider');
+		$this->render('manageConvert',$data);
+	}
+	public function actionCollectConvert()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			$siteInfo=new BasicSiteInfo();
+			$siteInfo=$siteInfo->LoadData();
+			$collectionUrl=$siteInfo->convertCollectionUrl;
+			$urlValidator=new CUrlValidator;
+			if($urlValidator->validateValue($collectionUrl))
+			{
+				$html=Yii::app()->htmlParser->file_get_html($collectionUrl);
+				if($html)
+				{
+					$trs=$html->find('div#tab tr');
+					if($trs && is_array($trs))
+					{
+						unset($trs[0]);
+						if(count($trs)>1)
+						{
+							Convert::model()->deleteAll();
+						}
+						foreach ($trs as $tr)
+						{
+							$convert=new Convert();
+							$tds=$tr->find('td');
+							if($tds)
+							{
+								foreach ($tds as $key=>$td)
+								{
+									switch ($key)
+									{
+										case 0:
+											$convert->co_name=mb_convert_encoding($td->innertext(), 'utf-8','gb2312');
+											break;
+										case 1:
+											$convert->co_unit=$td->innertext();
+											break;
+										case 2:
+											$convert->co_cur_price=$td->innertext();
+											break;
+										case 3:
+											$convert->co_sell_price=$td->innertext();
+											break;
+										case 4:
+											$convert->co_cur_rate_buy_price=$td->innertext();
+											break;
+										case 5:
+											$convert->co_cur_cash_buy_price=$td->innertext();
+											break;
+									}
+								}
+								$convert->save();
+							}
+						}
+						echo '采集成功';
+					}
+					echo Convert::model()->count()>0?'采集成功！':'采集失败！';
+					Yii::app ()->end ();
+				}
+			}
+			else {
+				echo '采集地址设置不合法！请进入 网站设置>>网站基本信息设置 中正确设置';
+			}
+		}
+		else
+		{
+			echo '非法请求！';
+		}
+
+	}
+	public function actionDeleteConvert()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			$coId=@$_REQUEST['co_id'];
+			if(!$coId )
+			{
+				echo '请选择要删除的外汇牌价信息';
+				exit;
+			}
+			$deleteCriteria=new CDbCriteria();
+			$deleteCriteria->addInCondition('co_id', $coId);
+			$deleteeRows=Convert::model()->deleteAll($deleteCriteria);
+			if($deleteeRows>0)
+			{
+				echo '删除成功！';
+			}
+			else {
+				echo '删除失败！';
+			}
+			exit;
+		}
+	}
+	public function actionUpdateConvert()
+	{
+		$model=new Convert();
+		if(isset($_POST['Convert']))
+		{
+			$model->attributes=$_POST['Convert'];
+			if($model->co_id) $model->setIsNewRecord(false);
+			if($model->save())
+			{
+				$this->redirect(array('manageConvert'));
+			}
+		}
+		if($coId=@$_GET['co_id'])
+		{
+			$model=$model->findByPk($coId);
+		}
+		$data=compact('model');
+		$this->render('updateConvert',$data);
 	}
 }
 

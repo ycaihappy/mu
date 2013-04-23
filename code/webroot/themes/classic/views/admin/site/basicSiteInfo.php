@@ -130,7 +130,11 @@ $this->breadcrumbs=array(
 		<td><?php echo $form->textField($model,'csEmail'); ?>
 		<?php echo $form->error($model,'csEmail'); ?></td>
 </tr>
-
+<tr>
+<td class="label">外汇牌价采集地址：</td>
+		<td><?php echo $form->textField($model,'convertCollectionUrl',array('style'=>'width:300px')); ?>
+		<?php echo $form->error($model,'convertCollectionUrl'); ?></td>
+</tr>
 
 <tr>
 <td></td>

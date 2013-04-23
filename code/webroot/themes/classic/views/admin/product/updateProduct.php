@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 	'添加/修改',
 );
 ?>
-<div class="m-form">
+<div class="m-form" id="J_UpdateProduct" data-select-img-api="/index.php?r=uehome/user/getImagesFromLibary">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'product-form',
 	'enableClientValidation'=>true,
@@ -109,7 +109,7 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'product_status'); ?></td>
 </tr>
 <tr>
-		<td class="label">信息附图：</td><td><img src="<?php echo $model->product_image_src?'/images/commonProductsImages/thumb/'.$model->product_image_src:'/images/thumb.gif'?>" class="thumb" id="image_thumb"><button type="button" class="btn-a">选择图片</button>
+		<td class="label">信息附图：</td><td><img src="<?php echo $model->product_image_src?'/images/commonProductsImages/thumb/'.$model->product_image_src:'/images/thumb.gif'?>" class="thumb" id="image_thumb"><button type="button" class="btn-a btn-select">选择图片</button>
 			<input type="hidden" name="Product[product_image_src]" value="<?php echo $model->product_image_src?>" id="image_src"/></td>
 </tr>
 <tr>
@@ -136,4 +136,6 @@ $("#Product_product_type_id").change(function(){
 	$("#water_content_tr").css("display",hasWater);
 });
 ');
-?>
+
+$cs=Yii::app()->getClientScript();
+$cs->registerCoreScript('jquery.ui');

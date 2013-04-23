@@ -194,3 +194,24 @@ ul.yiiPager .hidden a,ul.yiiPager{font-size:12px}
 	color:#212121;
 	border:1px solid #999;
 }
+
+.ui-dialog-content .page a ,.ui-dialog-content ul.yiiPager a:link {
+  background: none repeat scroll 0 0 #F8F8F8;
+  border: 1px solid #D8E8F4;
+  color: #003964;
+  display: block;
+  font-size:12px;
+  float: left;
+  margin-right: 7px;
+  padding: 0 9px;
+}
+.ui-dialog-content .page a:hover,.ui-dialog-content .page .page_cur ,.ui-dialog-content ul.yiiPager a:hover{
+  background: none repeat scroll 0 0 #1467C0;
+  border: 1px solid #1467C0;
+  color: #FFFFFF;
+}
+.ui-dialog-content .page ,.ui-dialog-content ul.yiiPager li{
+  height: 25px;
+  line-height: 22px;
+  margin: 10px auto;
+}

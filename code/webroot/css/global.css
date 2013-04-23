@@ -1950,8 +1950,8 @@ ul.yiiPager .selected a{color:#fff!important;background:#1467c0;}
 .m-ep-list .ft{padding:10px;}
 .index-prd-scroll{height:155px;overflow:hidden;position:relative;}
 .index-prd-scroll ul{width:100%}
-.index-prd-scroll li{height:35px;line-height:35px;border-bottom:1px solid #f3f3f3;}
-.index-prd-scroll li span{text-overflow:ellipsis;text-align:center;display:inline-block;float:left;padding:0 3px;height:35px;overflow:hidden}
+.index-prd-scroll li{height:32px;line-height:32px;border-bottom:1px solid #f3f3f3;}
+.index-prd-scroll li span{text-overflow:ellipsis;text-align:center;display:inline-block;float:left;padding:0 3px;height:32px;overflow:hidden}
 .index-prd-scroll .col-1{width:90px;}
 .index-prd-scroll .col-2{color:#C22526;width:55px}
 .index-prd-scroll .col-3{width:50px;}

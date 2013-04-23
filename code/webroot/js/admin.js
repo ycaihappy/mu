@@ -112,13 +112,43 @@ $.extend(MU.mods,{
 	},
 	JBasicSiteInfo : function() {
 		var self = $(this);
-		self.find('.baidu-sug').on('click',function(){
-			$.get('http://suggestion.baidu.com/su',{'wd':$('#baidusearch').val(),'cb':'MU.mods.baiduSugCb'},function(){
-				
-			},'jsonp');
+		$( "#baidusearch" ).autocomplete({
+		  minLength: 1,
+		  source : function(request, response){
+			 $.ajax({
+				url: 'http://suggestion.baidu.com/su',
+				dataType: 'jsonp',
+				jsonp: 'cb',
+				data:{'wd':$('#baidusearch').val()},
+				success: function(re) {
+					var arr = re.s;
+					response($.map(arr, function(item) {
+									return {
+										label : item
+									}
+					}))
+				}
+			})
+		  },
+		  focus: function( event, ui ) {
+			$( "#baidusearch" ).val( ui.item.label );
+
+			return false;
+		  },
+		  select: function( event, ui ) {
+			$("#baidusearch").val( ui.item.label );
+			return false;
+		  }
 		});
-	},
-	baiduSugCb : function(re){
-		$('#BasicSiteInfo_hotSearchKeywords').val(re.s);
+		
+		self.find('.baidu-sug').on('click',function(){		
+			var kw = $('#BasicSiteInfo_hotSearchKeywords'),bs = $.trim($("#baidusearch").val());
+			var ckw = kw.val().split('|');
+			if($.inArray(bs,ckw) == -1 && bs != '' ){
+				kw.val(kw.val() + '|' + bs);
+			}
+			
+		});
 	}
+
 });

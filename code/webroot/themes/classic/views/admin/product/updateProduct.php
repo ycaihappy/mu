@@ -132,7 +132,7 @@ $this->breadcrumbs=array(
 Yii::app()->clientScript->registerScript('Product#displayWaterConent','
 $("#Product_product_type_id").change(function(){
 	var category_id=$(this).val();
-	var hasWater=category_id==31?"block":"none";
+	var hasWater=category_id==31?"":"none";
 	$("#water_content_tr").css("display",hasWater);
 });
 ');

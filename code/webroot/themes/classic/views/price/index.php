@@ -34,11 +34,11 @@
 	<!--module 2-->
 	</div>
 	<div class="hq-col-r">
-     <?php $this->widget("PriceBodyWidget", array('type'=>1));?>
+     <?php #$this->widget("PriceBodyWidget", array('type'=>1));?>
 
 	<div class="m-banner">
 			<img src="<?php echo '/images/advertisement/'.$adv[0]->ad_media_src?>" width="700" height="80" />
-		</div>
+	</div>
      <?php $this->widget("PriceBodyWidget", array('type'=>2));?>
 	
      <?php $this->widget("PriceEnterpriseWidget");?>

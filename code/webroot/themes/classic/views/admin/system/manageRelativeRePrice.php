@@ -28,7 +28,7 @@ $this->widget('zii.widgets.jui.CJuiButton',
 )); ?>
 <div style="float:right;">
 <div>
-<label>状态：</label>
+<label>类别：</label>
 <?php echo $form->dropDownList($model,'re_type',$allReTypes);?>
 <label>状态：</label>
 <?php echo $form->dropDownList($model,'re_status',$allReStatus);?>

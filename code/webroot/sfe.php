@@ -19,8 +19,8 @@ $url = isset($_GET['l']) ? $_GET['l'] : '';
 
 if($url == '') exit;
 
-echo iconv('gb2312','utf-8',file_get_contents($url));
-
+//echo iconv('gb2312','utf-8',file_get_contents($url));
+echo '<iframe src="'.$url.'" width="100%" height="1000"></iframe>'
 
 
 ?>

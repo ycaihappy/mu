@@ -1,6 +1,6 @@
 CREATE TABLE `mu_convert` (
 	`co_id` INT(10) NOT NULL AUTO_INCREMENT,
-	`co_name` VARCHAR(50) NULL DEFAULT 'ÃÀÔª',
+	`co_name` VARCHAR(50) NULL DEFAULT 'USD',
 	`co_unit` FLOAT NULL DEFAULT '0.00',
 	`co_cur_price` FLOAT NULL DEFAULT '0.00',
 	`co_sell_price` FLOAT NULL DEFAULT '0.00',

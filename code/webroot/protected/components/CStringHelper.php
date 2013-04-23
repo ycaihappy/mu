@@ -40,18 +40,14 @@ class CStringHelper extends CController
 			{
 				$excludedParams=(array)$excludedParams;
 			}
+			$excludedParams=array_merge((array)$excludedParams,array($_REQUEST['r']));
 			$includeParam=$_REQUEST;
 			foreach ($excludedParams as $exc)
 			{
 				unset($includeParam[$exc]);
 			}
-			if($includeParam)
-			{
-				 
-				$paramString='&'.http_build_query($includeParam);
-			}
 		}
-		return Yii::app()->getController()->createUrl($route).$paramString;
+		return Yii::app()->getController()->createUrl($route,$includeParam).$paramString;
 		 
 	}
 	public static function generatePassword( $length = 6 ) {

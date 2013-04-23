@@ -75,7 +75,7 @@ $this->breadcrumbs=array(
 </tr>
 <tr>
 <td class="label">数量：</td>
-		<td><?php echo $form->textField($model,'product_quanity',array('class'=>'cmp-input')); ?>元/<?php echo $form->dropDownList($model,'product_unit',$unit); ?>
+		<td><?php echo $form->textField($model,'product_quanity',array('class'=>'cmp-input')); ?><?php echo $form->dropDownList($model,'product_unit',$unit); ?>
 		<?php echo $form->error($model,'product_quanity'); ?><?php echo $form->error($model,'product_unit'); ?></td>
 </tr>
 <tr>

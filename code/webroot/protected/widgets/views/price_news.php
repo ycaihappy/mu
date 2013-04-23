@@ -1,6 +1,6 @@
 		<div class="m-hq-news ui-m-tab ui-m-border" id="J_Hq_news">
                 <div class="hd">
-				<span class="on"><a  href="#">市场评论</a></span><span><a  href="#">预测分析</a></span>
+				<span class="on"><a  href="#">每日分析</a></span><span><a  href="#">每周评述</a></span>
  
 				</div>
 				<div class="bd">
@@ -21,7 +21,9 @@
                 <ul style="display: none;" class="ck-news">
                     <div class="con">
                         <div id="ZjgdList">
+<?php if ( isset($mu_news[0])) { ?>
                         <h2><a target="_blank" href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$mu_news[0]['art_id']));?>"><?php echo substr($mu_news[0]['art_title'],0,60);?></a></h2><span class="article2"><?php echo substr($mu_news[0]['art_content'],0,120)."...";?></span>
+<?php } ?>
                         </div>
                         <ul id="indexZjgdInfo">
    			<?php for($index=1;$index<count($mu_news);$index++):?>

@@ -74,28 +74,27 @@ if (isset($data02[$index])){
 					</table>
 					</ul>
 					<ul class="hide">
-					<table cellspacing="0" cellpadding="0" width="100%">
-						<tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
-						<?php if($SHPrice):
-								foreach ($SHPrice as $price):
-						?>
-						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td></tr>
-						<?php endforeach;
-							endif;
-						?>
-					</table>
+						<div class="tabcontent ui-m-border">
+						<h5> 行情</h5>
+						<a href="sfe.aspx?l=http://www.shfe.com.cn/statements/delaymarket_all.html" target="_blank"> <b>汇总行情</b></a> | <a href="sfe.aspx?l=http://www.shfe.com.cn/statements/delaymarket_cu.html" target="_blank">铜</a> | <a href="sfe.aspx?l=http://www.shfe.com.cn/statements/delaymarket_al.html" target="_blank">铝</a> | <a href="sfe.aspx?l=http://www.shfe.com.cn/statements/delaymarket_zn.html" target="_blank">锌</a> | <a href="sfe.aspx?l=http://www.shfe.com.cn/statements/delaymarket_au.html" target="_blank">黄金</a> | <a href="sfe.aspx?l=http://www.shfe.com.cn/statements/delaymarket_fu.html" target="_blank">燃油料</a> | <a href="sfe.aspx?l=http://www.shfe.com.cn/statements/delaymarket_ru.html" target="_blank">天然橡胶</a>
+						<h5> 日统计数据</h5>
+						<a href="sfe.aspx?l=http://www.shfe.com.cn/statements/hq_kx.html" target="_blank">交易快讯</a> | <a href="sfe.aspx?l=http://www.shfe.com.cn/statements/hq_pm.html" target="_blank"> 交易排行</a>
+						<h5> 周统计数据</h5>
+						<a href="sfe.aspx?l=http://www.shfe.com.cn/statements/hq_week.html" target="_blank"> 每周行情</a>
+						<h5> 月统计数据</h5>
+						<a href="sfe.aspx?l=http://www.shfe.com.cn/statements/hq_month.html" target="_blank"> 每月行情</a> </div>
 					</ul>
 					<ul class="hide">
-					<table cellspacing="0" cellpadding="0" width="100%">
-						<tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
-						<?php if($WHPrice):
-								foreach ($WHPrice as $price):
-						?>
-						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td></tr>
-						<?php endforeach;
-							endif;
-						?>
+					<table cellspacing="0" cellpadding="0" width="100%" class="small">
+						<tr><th>币种</th><th>交易单位</th><th>中间价</th><th>现钞买入价</th><th>卖出价</th></tr>
+						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
+						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
+						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
+						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
+						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
+						<tr><td>美元(USD)</td><td>100</td><td>617.5</td><td>554</td><td>444</td></tr>
 					</table>
+					
 					</ul>
 				</div>
 			</div>

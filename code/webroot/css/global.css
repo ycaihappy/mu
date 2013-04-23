@@ -80,7 +80,7 @@ padding:0 15px;
 }
 .hottag{margin-top:5px;}
 .hottag label{font-weight:bolx}
-.hottag a{margin-right:5px;color:blue;}
+.hottag a{margin-right:3px;color:blue;}
 .m-search{width:510px;float:left;}
 .search-box{background:#e9e9eb;border-radius:3px;height:40px;line-height:40px;}
 .search-box form{display:inline-block;}
@@ -1625,7 +1625,17 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .price-area th{background:#f7f7f9;padding:5px;text-align:center;font-weight:bold;border-right:1px solid #DEDEE0;border-bottom:1px solid #DEDEE0;}
 .price-area td{padding:5px;text-align:center;border-right:1px solid #DEDEE0;border-bottom:1px solid #DEDEE0;}
 .price-area table{border-left:1px solid #DEDEE0;border-bottom:1px solid #DEDEE0;}
+.price-area .small th{padding:5px 3px}
 .four-hd .ui-purple-hd span{width:70px}
+
+.tabcontent{padding:10px}
+.tabcontent h5 {
+  font-size: 14px;
+  height: 30px;
+  font-weight:bold;
+  line-height: 30px;
+  margin-top: 10px;
+}
 
 .special-index{margin-right:10px;width:330px}
 .supply-scroll{height:500px;overflow:hidden;position:relative}
@@ -1948,10 +1958,10 @@ ul.yiiPager .selected a{color:#fff!important;background:#1467c0;}
 .m-ep-list .btn-qjly{width:89px;height:28px;background-position:-37px -8px;margin:0 5px}
 .m-ep-list .btn-lxsj{width:87px;height:38px;background-position:-134px 2px}
 .m-ep-list .ft{padding:10px;}
-.index-prd-scroll{height:100px;overflow:hidden;position:relative;}
+.index-prd-scroll{height:155px;overflow:hidden;position:relative;}
 .index-prd-scroll ul{width:100%}
-.index-prd-scroll li{height:35px;line-height:35px;border-bottom:1px solid #f3f3f3;}
-.index-prd-scroll li span{text-overflow:ellipsis;text-align:center;display:inline-block;float:left;padding:0 3px;height:35px;overflow:hidden}
+.index-prd-scroll li{height:32px;line-height:32px;border-bottom:1px solid #f3f3f3;}
+.index-prd-scroll li span{text-overflow:ellipsis;text-align:center;display:inline-block;float:left;padding:0 3px;height:32px;overflow:hidden}
 .index-prd-scroll .col-1{width:90px;}
 .index-prd-scroll .col-2{color:#C22526;width:55px}
 .index-prd-scroll .col-3{width:50px;}

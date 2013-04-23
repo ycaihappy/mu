@@ -77,11 +77,11 @@
 				<table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:0" class="left_table">    
             
                     <tbody><tr>
-                      <th>公司名</th>
-                      <th>品名</th>
-                      <th>吨度</th>
-                      <th>水分</th>
-                      <th>价格</th>
+                      <th width="95">公司名</th>
+                      <th width="60">品名</th>
+                      <th width="60">吨度</th>
+                      <th width="60">水分</th>
+                      <th width="70">价格</th>
                       <th>数量</th>
 					  <th>提货地</th>
                     </tr>

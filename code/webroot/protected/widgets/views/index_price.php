@@ -77,7 +77,7 @@ if (isset($data02[$index])){
 						<div class="tabcontent ui-m-border">
 						<div class="item">
 						<h5> 行情</h5>
-						<a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_all.html" target="_blank"> <b>汇总行情</b></a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_cu.html" target="_blank">铜</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_al.html" target="_blank">铝</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_zn.html" target="_blank">锌</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_au.html" target="_blank">黄金</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_fu.html" target="_blank">燃油料</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_ru.html" target="_blank">天然橡胶</a>
+						<a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_all.html" target="_blank"> <b>汇总行情</b></a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_cu.html" target="_blank">铜</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_al.html" target="_blank">铝</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_zn.html" target="_blank">锌</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_au.html" target="_blank">黄金</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_fu.html" target="_blank">燃油料</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/delaymarket_ru.html" target="_blank">天然橡胶</a> | <a href="sfe.php?l=http://www.shfe.com.cn/statements/hq_ag.html" target="_blank">白银</a>
 						</div>
 						<div class="item">
 						<h5> 日统计数据</h5>

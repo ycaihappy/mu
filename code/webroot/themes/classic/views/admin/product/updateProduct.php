@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 	'添加/修改',
 );
 ?>
-<div class="m-form" id="J_UpdateProduct" data-select-img-api="/index.php?r=uehome/user/getImagesFromLibary">
+<div class="m-form" id="J_UpdateProduct" data-select-img-api="<?php echo $this->createUrl('getImagesFromLibary'); ?>">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'product-form',
 	'enableClientValidation'=>true,

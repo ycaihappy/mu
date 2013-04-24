@@ -11,6 +11,9 @@ class ProductController extends AdminController {
 			'class'=>'CGetChildrenTermsAction',
 			'emptySelect'=>'选择品类',
 		),
+		'getImagesFromLibary'=>array(
+			'class'=>'CGetImageFromLibary'
+		)
 		);
 	}
 	public function actionManageProduct()

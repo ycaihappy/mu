@@ -1,6 +1,5 @@
 /* This file is created by MySQLReback 2013-04-24 11:39:21 */
  /* 创建数据库 `mu_product` */
- DROP DATABASE IF EXISTS `mu_product`;/* MySQLReback Separation */ CREATE DATABASE `mu_product` /*!40100 DEFAULT CHARACTER SET latin1 */;/* MySQLReback Separation */
  /* 创建表结构 `mu_advertisement`  */
  DROP TABLE IF EXISTS `mu_advertisement`;/* MySQLReback Separation */ CREATE TABLE `mu_advertisement` (
   `ad_id` int(11) NOT NULL AUTO_INCREMENT,

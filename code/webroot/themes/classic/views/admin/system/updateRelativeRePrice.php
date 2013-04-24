@@ -59,6 +59,24 @@ $this->breadcrumbs=array(
 		</td>
 </tr>
 <tr>
+<td class="label">时间：</td>
+		<td><?php 
+		$this->widget('zii.widgets.jui.CJuiDatePicker', array(
+			    'model'=>$model,
+				'attribute'=>'re_added_time',
+			    'options'=>array(
+			        'showAnim'=>'fold',
+			    ),
+			    'language'=>'zh',
+			    'htmlOptions'=>array(
+			    	'class'=>'cmp-input',
+			    ),
+			)
+		);?>
+		</td>
+</tr>
+
+<tr>
 <td></td>
 <td><?php echo CHtml::submitButton('保存',array('class'=>'btn-a')); ?></td>
 </tr>

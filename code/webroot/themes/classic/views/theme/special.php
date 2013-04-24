@@ -37,3 +37,23 @@
 </div>
 
 </div>
+<div class="layout-area">
+<div class="hq-col-l">
+	
+		<!--module 1-->
+        <?php $this->widget("PriceWorldWidget");?>
+		<!--module 1-->	
+		</div>
+		<div class="hq-col-l">
+	
+		<!--module 1-->
+        <?php $this->widget("PriceWorldWidget");?>
+		<!--module 1-->	
+		</div>
+		<div class="hq-col-l">
+	
+		<!--module 1-->
+        <?php $this->widget("PriceWorldWidget");?>
+		<!--module 1-->	
+		</div>
+</div>

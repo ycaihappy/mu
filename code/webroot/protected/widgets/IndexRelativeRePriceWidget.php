@@ -53,7 +53,6 @@ class IndexRelativeRePriceWidget extends CWidget  {
         {
         	foreach ($thirdPrice as &$price)
         	{
-        		$price->re_name=$price->nameType?$price->nameType->term_name:'未指定';
         		switch ($price->re_fallup)
         		{
         			case 94:

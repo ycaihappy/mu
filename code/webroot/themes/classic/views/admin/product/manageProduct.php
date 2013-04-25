@@ -26,6 +26,71 @@ if($userId)
 	);
 }
 ?>
+<?php 
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'fullImportProductSolr',
+			'caption'=>'全索引更新',
+		'value'=>'asd',
+		'cssFile'=>'jquery.ui.css',
+		'onclick'=>'js:function(){
+		if(confirm("确认更新索引")){
+		    $.ajax(
+				{
+					url:"'.Yii::app()->controller->createUrl("product/fullImportProductSolr").'",
+        			type:"get",
+        			beforeSend:function(){
+        						$("#collectConvert").val("更新中.请等待...");
+        					},
+        			success:function(msg){
+        				alert(msg);
+        				$.fn.yiiGridView.update("yw0");
+        			},
+        			error:function(){
+        				alert("请求发送失败!");
+        			},
+        			complete:function(){
+        						$("#collectConvert").val("重新全索引更新");
+        					}
+				}
+				);}
+		}',
+		)
+);
+?>
+<?php 
+$this->widget('zii.widgets.jui.CJuiButton',
+	array(
+		'name'=>'deltaImportProductSolr',
+			'caption'=>'增量索引更新',
+		'value'=>'asd',
+		'cssFile'=>'jquery.ui.css',
+		'onclick'=>'js:function(){
+		
+		if(confirm("确认更新索引")){
+		    $.ajax(
+				{
+					url:"'.Yii::app()->controller->createUrl("product/deltaImportProductSolr").'",
+        			type:"get",
+        			beforeSend:function(){
+        						$("#collectConvert").val("更新中.请等待...");
+        					},
+        			success:function(msg){
+        				alert(msg);
+        				$.fn.yiiGridView.update("yw0");
+        			},
+        			error:function(){
+        				alert("请求发送失败!");
+        			},
+        			complete:function(){
+        						$("#collectConvert").val("重新增量更新");
+        					}
+				}
+				);}
+		}',
+		)
+);
+?>
 </div>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'search-form',

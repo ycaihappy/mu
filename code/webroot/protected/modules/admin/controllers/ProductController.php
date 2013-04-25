@@ -596,5 +596,34 @@ class ProductController extends AdminController {
 			'pos'=>$pos,
 		));
 	}
+	public function actionFullImportProductSolr()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			$importUrl='http://'.Yii::app()->searcher->host.(isset(Yii::app()->searcher->port)?':'.Yii::app()->searcher->port:'').'/'.trim(Yii::app()->searcher->indexPath,'/').'/dataimport?command=full-import';
+			$output=Yii::app()->curl->get($importUrl);
+			echo $output;
+		}
+		else {
+			echo '非法请求，执行失败！';
+		}
+		Yii::app()->end();
+	}
+	public function actionDeltaImportProductSolr()
+	{
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			$importUrl='http://'.Yii::app()->searcher->host.(isset(Yii::app()->searcher->port)?':'.Yii::app()->searcher->port:'').'/'.trim(Yii::app()->searcher->indexPath,'/').'/dataimport?command=delta-import';
+			CURLOPT_RETURNTRANSFER => true,
+CURLOPT_USERPWD	=> $username . ":" . $password,   // authentication
+CURLOPT_HTTPHEADER => array('Content-type: application/json') ,
+			$output=Yii::app()->curl->setOption(CURLOPT_RETURNTRANSFER,true)->get($importUrl);
+			echo $output;
+		}
+		else {
+			echo '非法请求，执行失败！';
+		}
+		Yii::app()->end();
+	}
 }
 ?>

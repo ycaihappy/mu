@@ -1,6 +1,6 @@
 <div class="ui-m-tab ui-m-border">
 		<div class="hd ui-tab-3">
-            <span class="on"><a href="http://news.163.com/rank/">新闻排行榜</a></span>
+            <span class="on">新闻排行榜</span>
             
         </div>
         <div class="bd">

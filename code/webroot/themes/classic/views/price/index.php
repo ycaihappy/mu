@@ -2,7 +2,7 @@
 	<div class="hq-col-l">
 	
 		<!--module 1-->
-        <?php $this->widget("PriceWorldWidget");?>
+         <?php  $this->widget("PriceChinaWidget",array('type'=>1));?>
 		<!--module 1-->	
 		</div>
 		
@@ -22,7 +22,8 @@
 	<!--module 1-->
      <?php #$this->widget("PriceAreaWidget");?>
 	<!--module 1-->
-     <?php  $this->widget("PriceChinaWidget",array('type'=>1));?>
+    
+     <?php $this->widget("PriceWorldWidget");?>
 	  <?php  $this->widget("PriceChinaWidget",array('type'=>2));?>
 	   <?php  #$this->widget("PriceChinaWidget",array('type'=>3));?>
 	

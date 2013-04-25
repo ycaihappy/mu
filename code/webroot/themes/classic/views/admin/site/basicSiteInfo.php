@@ -106,19 +106,19 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'sellHotline'); ?></td>
 </tr>
 <tr>
-<td class="label">咨询热线：</td>
+<td class="label">(搜索框旁)咨询热线：</td>
 		<td><?php echo $form->textField($model,'advisoryHotline'); ?>
 		<?php echo $form->error($model,'advisoryHotline'); ?></td>
+</tr>
+<tr>
+<td class="label">(搜索框旁)咨询QQ：</td>
+		<td><?php echo $form->textField($model,'qq'); ?>
+		<?php echo $form->error($model,'qq'); ?></td>
 </tr>
 <tr>
 <td class="label">传真：</td>
 		<td><?php echo $form->textField($model,'fax'); ?>
 		<?php echo $form->error($model,'fax'); ?></td>
-</tr>
-<tr>
-<td class="label">网站客服QQ：</td>
-		<td><?php echo $form->textField($model,'qq'); ?>
-		<?php echo $form->error($model,'qq'); ?></td>
 </tr>
 <tr>
 <td class="label">网站客服MSN：</td>

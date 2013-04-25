@@ -169,7 +169,7 @@ return array(
             'class'=>'CSolrComponent',
             'host'=>'61.163.6.93',
             'port'=>8080,
-            'indexPath'=>'/solr/core1/'
+            'indexPath'=>'/solr_product/core1/'
         ),
         'image'=>array(
         	'class'=>'application.extensions.image.CImageComponent',

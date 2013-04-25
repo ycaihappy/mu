@@ -1,32 +1,30 @@
 	<?php 
-	$this->breadcrumbs=array(
-	'首页'=>array('/site/index'),
-	'行情中心'=>array('index'),
-	$categoryName,
-	);
+#	$this->breadcrumbs=array(
+#	'首页'=>array('/site/index'),
+#	'行情中心'=>array('index'),
+#	$categoryName,
+#	);
 	?>
 <div class="layout-area">
 <div class="grid-690">
 	<!--module list-->
 	<div class="m-summary-list ui-m-tab ui-m-border">
-			<div class="hd">
-				 <span class="on"><?php echo $categoryName?></span>
-			</div>
+
           <div class="bd">
                 <table width="100%" cellpadding="0" border="0">
 					<tr>
-						<th>发布日期</th><th>星期</th><th>栾川(元/吨)</th><th>栾川(元/吨)</th><th>栾川(元/吨)</th>
+						<th>发布日期</th><th>星期</th><th>市场价格</th><th>现货价格</th><th>国际价格</th>
 					</tr>
                     <?php 
-                    	if($newses):
-                    		foreach ($newses as $news):
+                    	if($summary):
+                    		foreach ($summary as $d_key=>$sum_one):
                     ?>
                             <tr>
-                            	<td><?php echo date('m月d日',strtotime($news->art_post_date))?></td>
-                                <td><a target="_blank" href="<?php echo $news->art_source?>"><?php echo $news->art_title?></a></td>
-								<td>12121</td>
-								<td>12121</td>
-								<td>12121</td>
+                                <td><?php echo date("Y-m-d",strtotime($d_key));?></td>
+                                <td><?php echo "周".date("N", strtotime($d_key));?></td>
+                                <td><?php echo isset($sum_one[148]) ? $sum_one[148] : "-";?></td>
+                                <td><?php echo isset($sum_one[149]) ? $sum_one[149] : "-";?></td>
+                                <td><?php echo isset($sum_one[163]) ? $sum_one[163] : "-";?></td>
                             </tr>
                    <?php endforeach;
                    endif;?>     
@@ -35,21 +33,7 @@
                 </table>
 			</div>	
             </div>
-			<div class="page" id="fenye">
-				<?php
-					$this->widget('CLinkPager',array(
-								'header'=>'',
-								'firstPageLabel'=>'首页',
-								'lastPageLabel'=>'末页',
-								'prevPageLabel'=>'上一页',
-								'nextPageLabel'=>'下一页',
-								'pages'=>$pager,
-								'maxButtonCount'=>13,
-								)
-					
-					);
-				?>
-			</div>
+
 	<!--module list-->
 	</div>
 	<div class="grid-250">

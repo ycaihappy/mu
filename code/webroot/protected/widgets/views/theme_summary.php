@@ -10,7 +10,7 @@
                         <?php if($rePrice):
 								foreach ($rePrice as $price):
 						?>
-						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td><td><?php echo date('Y-m-d',strtotime($price->re_added_time))?></td></tr>
+						<tr><td><a href="<?php echo $this->getController()->createUrl('price/summary',array('subcategory_id'=>$price->re_name_type));?>"><?php echo $price->re_name?></a></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td><td><?php echo date('Y-m-d',strtotime($price->re_added_time))?></td></tr>
 						<?php endforeach;
 							endif;
 						?>
@@ -22,7 +22,7 @@
 						<?php if($otherPrice):
 								foreach ($otherPrice as $price):
 						?>
-						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td><td><?php echo date('Y-m-d',strtotime($price->re_added_time))?></td></tr>
+						<tr><td><a href="<?php echo $this->getController()->createUrl('price/summary',array('subcategory_id'=>$price->re_name_type));?>"><?php echo $price->re_name?></a></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td><td><?php echo date('Y-m-d',strtotime($price->re_added_time))?></td></tr>
 						<?php endforeach;
 							endif;
 						?>
@@ -34,7 +34,7 @@
 						<?php if($thirdPrice):
 								foreach ($thirdPrice as $price):
 						?>
-						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td><td><?php echo date('Y-m-d',strtotime($price->re_added_time))?></td></tr>
+						<tr><td><a href="<?php echo $this->getController()->createUrl('price/summary',array('subcategory_id'=>$price->re_name_type));?>"><?php echo $price->re_name?></a></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td><td><?php echo date('Y-m-d',strtotime($price->re_added_time))?></td></tr>
 						<?php endforeach;
 							endif;
 						?>

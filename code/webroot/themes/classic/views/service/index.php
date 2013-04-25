@@ -2,7 +2,7 @@
 		<div class="service-hd ui-m-border">
 			<span></span>
 		</div>
-		<div class="servicesListTable ui-m-border">
+		<div class="servicesListTable ui-m-border" id="J_ServiceList">
 <?php if ( isset($subCatService[105]) && isset($subCatService[106]) && isset($subCatService[104])
 && isset($subCatService[107]) && isset($subCatService[108]) && isset($subCatService[109]) )
 {

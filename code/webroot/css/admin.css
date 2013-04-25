@@ -188,8 +188,12 @@ ul.yiiPager .hidden a,ul.yiiPager{font-size:12px}
   padding:0.4em 1em;
   border-radius:4px;
   cursor:pointer;
+  margin-left:5px;
   
 }
+#search-form input[type='text']{border: 1px solid #ccc;padding: 4px;}
+#search-form label{margin-left:5px}
+.grid-view .summary{margin:5px}
 .m-form .btn-a:hover,.m-form .btn-b:hover,.btn-a:hover,.btn-b:hover{
 	color:#212121;
 	border:1px solid #999;
@@ -215,3 +219,8 @@ ul.yiiPager .hidden a,ul.yiiPager{font-size:12px}
   line-height: 22px;
   margin: 10px auto;
 }
+.breadcrumbs{background:#f3f3f3;padding:5px;}
+.breadcrumbs a{color:#666}
+.breadcrumbs a:hover{color:#f27b04}
+
+.m-form input[type='text'],.m-form input[type='password'],.m-form input[type='email'],.m-form input[type='number']{width:250px;}

@@ -67,7 +67,7 @@ class RelativeRePrice extends CActiveRecord
 	}
 	public static function getProductType()
 	{
-		return array(148,149);
+		return array(148,149,163);
 	}
 
 	/**

@@ -218,3 +218,5 @@ ul.yiiPager .hidden a,ul.yiiPager{font-size:12px}
 .breadcrumbs{background:#f3f3f3;padding:5px;}
 .breadcrumbs a{color:#666}
 .breadcrumbs a:hover{color:#f27b04}
+
+.m-form input[type='text']{width:250px;}

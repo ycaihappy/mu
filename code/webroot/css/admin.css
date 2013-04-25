@@ -219,4 +219,4 @@ ul.yiiPager .hidden a,ul.yiiPager{font-size:12px}
 .breadcrumbs a{color:#666}
 .breadcrumbs a:hover{color:#f27b04}
 
-.m-form input[type='text']{width:250px;}
+.m-form input[type='text'],.m-form input[type='password'],.m-form input[type='email'],.m-form input[type='number']{width:250px;}

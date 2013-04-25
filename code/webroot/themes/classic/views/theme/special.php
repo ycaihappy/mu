@@ -7,7 +7,7 @@
 		<!--module 1-->	
 		</div>
 		<!--module start-->
-       <?php $this->widget('ThemeProductWidget');?>
+       <?php $this->widget('ThemeSummaryWidget');?>
        <?php //$this->widget('ThemeMarketWidget');?>
 	<!--module end-->
 	<!--module start-->

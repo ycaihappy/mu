@@ -216,3 +216,5 @@ ul.yiiPager .hidden a,ul.yiiPager{font-size:12px}
   margin: 10px auto;
 }
 .breadcrumbs{background:#f3f3f3;padding:5px;}
+.breadcrumbs a{color:#666}
+.breadcrumbs a:hover{color:#f27b04}

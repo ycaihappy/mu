@@ -1512,6 +1512,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-new-hx .bd{border:1px solid #dedee0;padding:10px;}
 .m-new-hx .bd li{line-height:25px;background:url(imgs/v2/orange_arrow.png) no-repeat left center;padding-left:10px;}
 .m-new-hx .bd li a{color:#333;}
+.m-new-hx .bd li em{float:right;color:#ccc}
 .m-new-hx .hd span{background:url(imgs/v2/tab_bg.png) no-repeat;width:102px;height:26px;line-height:26px;float:left;margin-right:10px;text-align:center;font-weight:bold;color:#303030}
 .m-new-hx .hd span.on{background:url(imgs/v2/tab_on.png);}
 .m-new-hx .hd span.on a{color:#fff;}

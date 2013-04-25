@@ -37,6 +37,37 @@ class PriceController extends BasicAccessController
 		$data = array();
 		$this->render('special',$data);
 	}
+	public function actionSummary() {
+		$newsCategoryId=(int)@$_REQUEST['subcategory_id'];
+		if($newsCategoryId)
+		{
+			$newsCriteria=new CDbCriteria();
+			$newsCriteria->select='art_id,art_title,art_post_date';
+			$newsCriteria->condition='art_status=1 and art_category_id=16 and art_subcategory_id='.$newsCategoryId;
+			$newsCriteria->order='art_post_date desc';
+			$count = Article::model()->count($newsCriteria);//
+			$pager = new CPagination($count);
+			$pager -> pageSize = 25; 
+			$pager->applyLimit($newsCriteria);
+			$newses=Article::model()->findAll($newsCriteria);
+			if($newses)
+			{
+				foreach ($newses as &$news)
+				{//用其他字段封装链接
+					$news->art_title=CStringHelper::truncate_utf8_string($news->art_title, 20);
+					$news->art_source=$this->createUrl('/news/view',array('art_id'=>$news->art_id));
+				}
+			}
+			$allTerm=CCacheHelper::getAllTerm();
+			$categoryName=$allTerm[$newsCategoryId]->term_name;
+			$data=compact('newses','pager','categoryName');
+			$this->siteConfig->siteMetaTitle=$categoryName;
+		}
+		else {
+			$this->redirect(array('index'));
+		}
+		$this->render('summary',$data);
+	}
 	
     public function actionQuery()
     {

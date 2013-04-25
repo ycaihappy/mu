@@ -1,5 +1,5 @@
 		 <div class="ui-m-tab ui-m-border">
-<div class="hd"><span class="on"><a href="#"><?php echo $title;?>新闻</a></span></div>
+<div class="hd"><span class="on"><a href="#"><?php echo $title;?>价格汇总</a></span></div>
                
                 <div class="bd">
                      <ul class="mod-list main-list">

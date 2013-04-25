@@ -614,10 +614,7 @@ class ProductController extends AdminController {
 		if(Yii::app()->request->isAjaxRequest)
 		{
 			$importUrl='http://'.Yii::app()->searcher->host.(isset(Yii::app()->searcher->port)?':'.Yii::app()->searcher->port:'').'/'.trim(Yii::app()->searcher->indexPath,'/').'/dataimport?command=delta-import';
-			CURLOPT_RETURNTRANSFER => true,
-CURLOPT_USERPWD	=> $username . ":" . $password,   // authentication
-CURLOPT_HTTPHEADER => array('Content-type: application/json') ,
-			$output=Yii::app()->curl->setOption(CURLOPT_RETURNTRANSFER,true)->get($importUrl);
+			$output=Yii::app()->curl->setOptions(array(CURLOPT_RETURNTRANSFER=>true,CURLOPT_HTTPHEADER=>'Content-type: application/json'))->get($importUrl);
 			echo $output;
 		}
 		else {

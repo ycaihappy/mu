@@ -3,7 +3,7 @@
 			<?php if($adv):
 						foreach($adv as $ad):
 				?>
-				<a href="<?php echo $ad->ad_link?>"><img src="<?php echo '/images/advertisement/'.$ad->ad_media_src?>" /></a>
+				<a href="<?php echo $ad->ad_link?>"><img width="290px" height="287px" src="<?php echo '/images/advertisement/'.$ad->ad_media_src?>" /></a>
 				<?php 
 						endforeach;
 						endif;

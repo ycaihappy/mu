@@ -48,7 +48,7 @@
 				</tr>
 				<tr>
 					<td>地址:<?php echo $city[$product_detail['product_city_id']];?></td>
-					<td><?php echo $product_detail['product_keyword'];?></td>
+					<td>关键字:<?php echo $product_detail['product_keyword'];?></td>
 				</tr>
 			</table>
 		</div>

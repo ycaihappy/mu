@@ -24,7 +24,10 @@
 	
 	<div class="layout-area">
 		<div class="m-banner">
-			<img src="<?php echo '/images/advertisement/'.$adv1[0]->ad_media_src?>" width="960" height="100" />
+		<?php if(@$adv1):?>
+			<a href="<?php echo $adv1[0]->ad_link?>" ><img src="<?php echo '/images/advertisement/'.$adv1[0]->ad_media_src?>" width="960" height="100" />
+			</a>
+		<?php endif;?>
 		</div>
 		
         <?php $this->widget('KnowModuleWidget');?>

@@ -16,12 +16,13 @@
 						<th>发布日期</th><th>星期</th><th>市场价格</th><th>现货价格</th><th>国际价格</th>
 					</tr>
                     <?php 
+    $week = array('星期一','星期二','星期三','星期四','星期五','星期六','星期日');
                     	if($summary):
                     		foreach ($summary as $d_key=>$sum_one):
                     ?>
                             <tr>
                                 <td><?php echo date("Y-m-d",strtotime($d_key));?></td>
-                                <td><?php echo "周".date("N", strtotime($d_key));?></td>
+                                <td><?php echo $week[date("N", strtotime($d_key))];?></td>
                                 <td><?php echo isset($sum_one[148]) ? $sum_one[148] : "-";?></td>
                                 <td><?php echo isset($sum_one[149]) ? $sum_one[149] : "-";?></td>
                                 <td><?php echo isset($sum_one[163]) ? $sum_one[163] : "-";?></td>

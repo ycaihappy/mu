@@ -26,8 +26,10 @@
 					
 				</div>
 				<div class="ft">
-					<div class="item">						
-						<a class="ad"><img src="images/73x62_1.gif" width="73" height="62" /></a>
+					<div class="item">	
+					<?php if($adv1):?>	
+					<a class="ad" href="<?php echo $adv1[0]->ad_link?>"><img width="73" height="62" src="<?php echo '/images/advertisement/'.$adv1[0]->ad_media_src?>" /></a>				
+					<?php endif;?>
 						<p>
 							<i></i>
 <?php
@@ -42,8 +44,9 @@
 						</p>
 					</div>
 					<div class="item">
-						
-						<a class="ad"><img src="images/73x62_2.gif" width="73" height="62" /></a>
+						<?php if($adv2):?>
+						<a class="ad" href="<?php echo $adv2[0]->ad_link?>"><img width="73" height="62" src="<?php echo '/images/advertisement/'.$adv2[0]->ad_media_src?>" /></a>				
+						<?php endif;?>
 						<p>
 							<i></i>
 <?php

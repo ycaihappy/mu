@@ -47,7 +47,7 @@ class Advertisement extends CActiveRecord
 		return array(
 			array('ad_id, ad_user_id, ad_type, ad_no, ad_status, ad_click_num', 'numerical', 'integerOnly'=>true),
 			array('ad_link', 'length', 'max'=>256),
-			array('ad_link', 'url', 'message'=>'链接地址格式不正确'),
+			array('ad_link', 'url', 'message'=>'链接地址格式不正确,应如：http://www.mushw.com'),
 			array('ad_title', 'length', 'max'=>128),
 			array('ad_title', 'required', 'message'=>'必须填写广告标题'),
 			array('ad_price', 'length', 'max'=>12),

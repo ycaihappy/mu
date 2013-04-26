@@ -52,6 +52,7 @@ class Advertisement extends CActiveRecord
 			array('ad_title', 'required', 'message'=>'必须填写广告标题'),
 			array('ad_price', 'length', 'max'=>12),
 			array('ad_price', 'numerical', 'message'=>'价格必须为数字'),
+			array('ad_image_size', 'length', 'max'=>50),
 			array('ad_media_src', 'length', 'max'=>128),
 			array('ad_media_src', 'required', 'message'=>'必须选择广告媒体文件'),
 			array('ad_start_date, ad_end_date, ad_create_time', 'safe'),

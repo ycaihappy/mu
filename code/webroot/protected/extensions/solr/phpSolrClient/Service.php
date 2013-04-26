@@ -325,7 +325,7 @@ class Apache_Solr_Service
 			// use the default timeout pulled from default_socket_timeout otherwise
 			stream_context_set_option($this->_getContext, 'http', 'timeout', $this->_defaultTimeout);
 		}
-
+		$http_response_header=null;
 		//$http_response_header is set by file_get_contents
 		$response = new Apache_Solr_Response(@file_get_contents($url, false, $this->_getContext), $http_response_header, $this->_createDocuments, $this->_collapseSingleValueArrays);
 
@@ -376,7 +376,7 @@ class Apache_Solr_Service
 
 			stream_context_set_option($this->_postContext, 'http', 'timeout', $timeout);
 		}
-
+		$http_response_header=null;
 		//$http_response_header is set by file_get_contents
 		$response = new Apache_Solr_Response(@file_get_contents($url, false, $this->_postContext), $http_response_header, $this->_createDocuments, $this->_collapseSingleValueArrays);
 

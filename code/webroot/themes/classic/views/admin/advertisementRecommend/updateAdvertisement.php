@@ -55,6 +55,11 @@ endif;?>
 		<?php echo $form->error($model,'ad_type'); ?></td>
 </tr>
 <tr>
+<td class="label">尺寸：</td>
+		<td><?php echo $form->textField($model,'ad_image_size'); ?>
+		<?php echo $form->error($model,'ad_image_size'); ?></td>
+</tr>
+<tr>
 <td class="label">状态：</td>
 		<td><?php echo $form->dropDownList($model,'ad_status',$adStatus); ?>
 		<?php echo $form->error($model,'ad_status'); ?></td>

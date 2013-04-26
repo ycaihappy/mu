@@ -76,6 +76,11 @@ $this->widget('zii.widgets.jui.CJuiButton',
         	'value'=>'$data->type?$data->type->term_name:"未指定"',
        		'htmlOptions'=>array('align'=>'center'),
         ),   // display the 'content' attribute as purified HTML
+        array(
+        	'name'=>'尺寸',
+        	'value'=>'$data->ad_image_size',
+        	'htmlOptions'=>array('align'=>'center'),
+        ),   // display the 'content' attribute as purified HTML
        array(
         	'name'=>'状态',
         	'value'=>'$data->status?$data->status->term_name:"未指定"',

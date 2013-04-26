@@ -278,4 +278,22 @@ class PriceController extends BasicAccessController
 		}
 		$this->render('list',$data);
 	}
+
+    public function filters() {
+
+        return array (
+
+            array (
+
+                'COutputCache + list',
+
+                'duration' => 3600,
+
+                'varyByParam' => array('subcategory_id'),
+                )
+
+            );
+
+    }
+
 }

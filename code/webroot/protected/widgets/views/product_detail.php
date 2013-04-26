@@ -10,11 +10,11 @@
         <div class="fr">
         <h1><?php echo $product_detail['product_name'];?></h1>
             
-        <p>产品价格：<span class="orange"><?php echo $product_detail['product_price'];?></span></p>
+        <p>产品价格：<span class="orange"><?php echo $product_detail['product_price']."元";?></span></p>
         <p>数量：<span><?php echo $product_detail['product_quanity'];?></span><?php echo $product_detail->unit->term_name?></p>
           <p>有效期：<span></span><?php echo ($product_detail['product_status'] == 1) ? "有效" : "无效";?></p>
             <p>
-            所&nbsp;在&nbsp;地：<?php echo $product_detail['product_location'];?></p>
+            钼货交割地：<?php echo $product_detail['product_location'];?></p>
             <p>
             添加日期：<span><?php echo date("Y-m-d H:i:s",strtotime($product_detail['product_join_date']));?></span></p>
  
@@ -44,10 +44,10 @@
 		<div class="proInfo">
 			<table width="97%">
 				<tr>
-					<td>品位:<?php echo $product_detail['product_mu_content'];?></td><td>含水量:<?php echo $product_detail['product_water_content'];?></td>
+					<td>吨度:<?php echo $product_detail['product_mu_content'];?></td><td>含水量:<?php echo $product_detail['product_water_content'];?></td>
 				</tr>
 				<tr>
-					<td>仓库:<?php echo $city[$product_detail['product_city_id']];?></td>
+					<td>地址:<?php echo $city[$product_detail['product_city_id']];?></td>
 					<td><?php echo $product_detail['product_keyword'];?></td>
 				</tr>
 			</table>

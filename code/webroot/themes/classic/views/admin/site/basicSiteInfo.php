@@ -22,22 +22,22 @@ $this->breadcrumbs=array(
 
 <tr>
 <td class="label">meta标题：</td>
-		<td><?php echo $form->textField($model,'siteMetaTitle',array('class'=>'cmp-input','style'=>'width:300px')); ?><em>前14个字符搜索引擎索引权重最大</em>
+		<td><?php echo $form->textField($model,'siteMetaTitle',array('class'=>'cmp-input','style'=>'width:400px')); ?> <em>前14个字符搜索引擎索引权重最大</em>
 		<?php echo $form->error($model,'siteMetaTitle'); ?>
 </tr>
 <tr>
 <td class="label">meta关键词：</td>
-		<td><?php echo $form->textField($model,'siteMetaKeyword',array('class'=>'cmp-input','style'=>'width:300px')); ?><em>关键字用英文格式的分隔符，如：_ , | 等，极限长度为255个字符</em>
+		<td><?php echo $form->textField($model,'siteMetaKeyword',array('class'=>'cmp-input','style'=>'width:400px')); ?> <em>关键字用英文格式的分隔符，如：_ , | 等，极限长度为255个字符</em>
 		<?php echo $form->error($model,'siteMetaKeyword'); ?></td>
 </tr>
 <tr>
 <td class="label">meta描述：</td>
-		<td><?php echo $form->textArea($model,'siteMetaDescription',array('class'=>'cmp-input', 'wrap'=>"wrap",'style'=>'width:305px;height:50px')); ?>
+		<td><?php echo $form->textArea($model,'siteMetaDescription',array('class'=>'cmp-input', 'wrap'=>"wrap",'style'=>'width:405px;height:50px')); ?>
 		<?php echo $form->error($model,'siteMetaDescription'); ?></td>
 </tr>
 <tr>
 <td class="label">热门搜索关键词：</td>
-		<td><?php echo $form->textArea($model,'hotSearchKeywords',array('class'=>'cmp-input', 'wrap'=>"wrap",'style'=>'width:305px;height:50px','placeholder'=>'关键词1|关键词2')); ?>
+		<td><?php echo $form->textArea($model,'hotSearchKeywords',array('class'=>'cmp-input', 'wrap'=>"wrap",'style'=>'width:405px;height:50px','placeholder'=>'关键词1|关键词2')); ?>
 		<div>
 		<?php echo CHtml::textField('baidusearch','',array('class'=>'cmp-input','placeholder'=>'进行百度关键字搜索')); ?>
 		<?php echo CHtml::button('加入关键词',array('class'=>'btn-a baidu-sug')); ?>
@@ -106,19 +106,19 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'sellHotline'); ?></td>
 </tr>
 <tr>
-<td class="label">咨询热线：</td>
+<td class="label">(搜索框旁)咨询热线：</td>
 		<td><?php echo $form->textField($model,'advisoryHotline'); ?>
 		<?php echo $form->error($model,'advisoryHotline'); ?></td>
+</tr>
+<tr>
+<td class="label">(搜索框旁)咨询QQ：</td>
+		<td><?php echo $form->textField($model,'qq'); ?>
+		<?php echo $form->error($model,'qq'); ?></td>
 </tr>
 <tr>
 <td class="label">传真：</td>
 		<td><?php echo $form->textField($model,'fax'); ?>
 		<?php echo $form->error($model,'fax'); ?></td>
-</tr>
-<tr>
-<td class="label">网站客服QQ：</td>
-		<td><?php echo $form->textField($model,'qq'); ?>
-		<?php echo $form->error($model,'qq'); ?></td>
 </tr>
 <tr>
 <td class="label">网站客服MSN：</td>

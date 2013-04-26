@@ -668,5 +668,11 @@ $.extend(MU.mods,{
 				});
 			}
 		});
+	},
+	JServiceList : function () {
+		var self = $(this);
+		self.find('h4').on('click',function(){
+			$(this).next().slideToggle();
+		});
 	}
 });

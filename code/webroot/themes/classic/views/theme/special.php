@@ -3,11 +3,11 @@
 	<div class="hq-col-l">
 	
 		<!--module 1-->
-        <?php $this->widget("PriceWorldWidget");?>
+        <?php $this->widget("ThemeNewsWidget");?>
 		<!--module 1-->	
 		</div>
 		<!--module start-->
-       <?php $this->widget('ThemeProductWidget');?>
+       <?php $this->widget('ThemeSummaryWidget');?>
        <?php //$this->widget('ThemeMarketWidget');?>
 	<!--module end-->
 	<!--module start-->
@@ -24,17 +24,17 @@
 <div class="hq-col-l">
 	
 		<!--module 1-->
-        <?php $this->widget("PriceWorldWidget");?>
+        <?php $this->widget("ThemeSupplyWidget",array('type'=>1));?>
 		<!--module 1-->	
 		</div>
  <div class="m-b2c ui-m-tab ui-m-border" id="J_Data_Center_2">
-            <?php $this->widget('IndexProductWidget');?>
+            <?php $this->widget('ThemeProductWidget');?>
  
     </div>
 <div class="hq-col-l" style="width:205px">
 	
 		<!--module 1-->
-        <?php $this->widget("PriceWorldWidget");?>
+        <?php $this->widget("ThemeSupplyWidget",array('type'=>2));?>
 		<!--module 1-->	
 		</div>
 
@@ -43,19 +43,19 @@
 <div class="hq-col-l" style="width:315px">
 	
 		<!--module 1-->
-        <?php $this->widget("PriceWorldWidget");?>
+        <?php $this->widget("ThemeKnowledgeWidget");?>
 		<!--module 1-->	
 		</div>
 		<div class="hq-col-l" style="width:310px">
 	
 		<!--module 1-->
-        <?php $this->widget("PriceWorldWidget");?>
+        <?php $this->widget("ThemeChinaWidget");?>
 		<!--module 1-->	
 		</div>
 		<div class="hq-col-l" style="width:315px">
 	
 		<!--module 1-->
-        <?php $this->widget("PriceWorldWidget");?>
+        <?php $this->widget("ThemeWorldWidget");?>
 		<!--module 1-->	
 		</div>
 </div>

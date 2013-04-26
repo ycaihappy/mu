@@ -1400,7 +1400,23 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .service-hd  span{position:absolute;width:150px;height:46px;background:url(imgs/service_tab.gif) no-repeat;left:0;top:0;display:inline-block;}
 .servicesListTable tr{background:url(imgs/bt_repeatbg.gif) repeat-x left bottom;}
 .servicesListTable td{padding:15px 10px;}
-.servicesListTable h4{color:#0b3977;font-size:14px;margin-bottom:10px}
+.servicesListTable h4 {
+  background: url("imgs/main_content_bg.jpg") no-repeat scroll -1px 0 transparent;
+  color: #CC0000;
+  font-weight: bold;
+  height: 33px;
+  margin: 0;
+  vertical-align: middle;
+}
+.servicesListTable h4 a{
+  float: left;
+  font-size: 14px;
+  margin-left: 45px;
+  margin-top: 8px;
+  vertical-align: baseline;
+}
+.servicesListTable {margin-top:20px}
+.servicesListTable li p{padding:10px;color:#333}
 .service-menu{margin-bottom:10px}
 .service-menu li{height:30px;line-height:30px;text-align:center;position:relative;border-bottom:1px dotted #ccc;}
 .service-menu li.last{border-bottom:0}
@@ -1512,6 +1528,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-new-hx .bd{border:1px solid #dedee0;padding:10px;}
 .m-new-hx .bd li{line-height:25px;background:url(imgs/v2/orange_arrow.png) no-repeat left center;padding-left:10px;}
 .m-new-hx .bd li a{color:#333;}
+.m-new-hx .bd li em{float:right;color:#ccc}
 .m-new-hx .hd span{background:url(imgs/v2/tab_bg.png) no-repeat;width:102px;height:26px;line-height:26px;float:left;margin-right:10px;text-align:center;font-weight:bold;color:#303030}
 .m-new-hx .hd span.on{background:url(imgs/v2/tab_on.png);}
 .m-new-hx .hd span.on a{color:#fff;}
@@ -1970,3 +1987,7 @@ ul.yiiPager .selected a{color:#fff!important;background:#1467c0;}
 .index-prd-scroll .col-5{width:55px;color:#C22526;}
 .index-prd-scroll .col-6{width:55px;}
 .index-prd-scroll .col-7{width:57px;}
+
+.m-summary-list table th{background:#f3f3f3;font-weight:bold;text-align:center;padding:5px;text-align:center;}
+.m-summary-list table td{border-right:1px solid #ccc;border-top:1px solid #ccc;padding:4px;text-align:center;}
+.m-summary-list table{margin-right:-1px;}

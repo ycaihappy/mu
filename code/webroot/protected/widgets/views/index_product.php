@@ -1,6 +1,6 @@
  <?php   if($this->beginCache('indexProduct')){ ?>           
             <div class="hd">			
-				<span class="on"><a href="">现货中心</a></span>
+				<span class="on"><a href="<?php echo $this->getController()->createUrl('/product/index')?>">现货中心</a></span>
 				<p class="links">
 						<a class="ui-m-btn btn-purple-medium" href="<?php echo $this->getController()->createUrl('/uehome/user/supply')?>">发布供应</a>
 						<a class="ui-m-btn btn-purple-medium" href="<?php echo $this->getController()->createUrl('/uehome/user/supply')?>">发布求购</a>

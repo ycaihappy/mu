@@ -37,6 +37,24 @@ class PriceController extends BasicAccessController
 		$data = array();
 		$this->render('special',$data);
 	}
+	public function actionSummary() {
+		$newsCategoryId=(int)@$_REQUEST['subcategory_id'];
+        $sql = 'select re_type,re_added_time, re_market, re_price from mu_relative_re_price where re_type in(148,149,163)
+            and re_name_type='.$newsCategoryId.' group by re_added_time';
+
+        $connection = Yii::app()->db;
+        $data = $connection->createCommand($sql)->queryAll();
+        if ( !empty($data) )
+        {
+            foreach ( $data as $data_one)
+            {
+                $date_key = date("Ymd", strtotime($data_one['re_added_time']));
+                $sum[$date_key][$data_one['re_type']] = $data_one['re_price']."(".$data_one['re_market'].")";
+            }
+        }
+
+		$this->render('summary',array('summary'=>$sum));
+	}
 	
     public function actionQuery()
     {

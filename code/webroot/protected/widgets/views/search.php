@@ -32,7 +32,7 @@
 		 <?php endif;?>
 	</div>
 	<div class="tel-box">
-		<div class="tel"><em>咨询电话：</em><strong>400-25263550</strong></div>
-		<div class="chat"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123458745&site=qq&menu=yes" class="qq"><img border="0" src="http://wpa.qq.com/pa?p=2:123458745:41" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></div>
+		<div class="tel"><em>咨询电话：</em><strong><?php echo $this->getController()->siteConfig->advisoryHotline ?></strong></div>
+		<div class="chat"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $this->getController()->siteConfig->qq ?>&site=qq&menu=yes" class="qq"><img border="0" src="http://wpa.qq.com/pa?p=2:<?php echo $this->getController()->siteConfig->qq ?>:41" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></div>
 	</div>
 	<div class="clearfix"></div>

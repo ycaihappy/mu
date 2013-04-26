@@ -1,36 +1,22 @@
 <?php
 class ThemeProductWidget extends CWidget
 {
-    public function run()
+	public $type;
+	public $newlist=array();
+	public $proTypes=array();
+
+	public function run()
     {
-    	$typies=Term::getTermsListByGroupId(14);
-
-        $creteria=new CDbCriteria();
-        $creteria->condition="re_type=148 and re_name_type='".$_GET['type']."' and re_status=1 ";
-        $creteria->order = "re_id desc";
-        $creteria->limit = 7;
-        $rePrice=RelativeRePrice::model()->findAll($creteria);
-        if($rePrice)
-        {
-            foreach ($rePrice as &$price)
-            {
-                switch ($price->re_fallup)
-                {
-                case 94:
-                    $price->re_fallup=' ↑ '.$price->re_margin;
-                    break;
-                case 95:
-                    $price->re_fallup=' ↑ '.$price->re_margin;
-                    break;
-                case 96:
-                    $price->re_fallup=' - ';
-                    break;
-                }
-                $price->re_name = $typies[$price->re_name_type];
-            }
-        }
-
-
-        $this->render('theme_product',array('data'=>$rePrice));
-    }
+    	$caetories=CCacheHelper::getMuCategory();
+    	$selectedType=Yii::app()->request->getParam('type',31);//默认选择钼初级
+    	//产品推荐
+    	$recProductCriteria=new CDbCriteria();
+    	$recProductCriteria->select='product_id,product_name,product_image_src,product_mu_content,product_quanity,product_price,product_water_content';
+    	$recProductCriteria->with=array('unit'=>array('select'=>'term_name'),'user'=>array('select'=>'user_name,user_first_name,user_mobile_no'),'type'=>array('select'=>'term_name'),'city'=>array('select'=>'city_name'));
+    	$recProductCriteria->condition='product_status=1 and product_type_id='.$selectedType;
+    	$recProductCriteria->order='product_id desc';
+    	$recProductCriteria->limit=20;
+    	$recProducts=Product::model()->findAll($recProductCriteria);
+        $this->render('theme_product',array('selectedType'=>$selectedType,'recProducts'=>$recProducts, 'data'=>$this->newlist,'proTypes'=>$this->proTypes,'title'=>isset($caetories[$selectedType])?$caetories[$selectedType]->term_name:''));
+	}
 }

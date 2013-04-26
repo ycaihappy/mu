@@ -22,7 +22,7 @@
                     ?>
                             <tr>
                                 <td><?php echo date("Y-m-d",strtotime($d_key));?></td>
-                                <td><?php echo $week[(int)date("N", strtotime($d_key))];?></td>
+                                <td><?php echo $week[(int)date("N", strtotime($d_key))-1];?></td>
                                 <td><?php echo isset($sum_one[148]) ? $sum_one[148] : "-";?></td>
                                 <td><?php echo isset($sum_one[149]) ? $sum_one[149] : "-";?></td>
                                 <td><?php echo isset($sum_one[163]) ? $sum_one[163] : "-";?></td>

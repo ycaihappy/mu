@@ -144,6 +144,10 @@ class Supply extends CActiveRecord
 		{
 			$this->supply_water_content=0;
 		}
+		if($this->isNewRecord)
+		{
+			$this->supply_join_date=date('Y-m-d H:i:s');
+		}
 		return parent::beforeSave();
 	}
 

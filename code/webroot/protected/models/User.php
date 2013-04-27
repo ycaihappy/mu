@@ -101,7 +101,7 @@ class User extends CActiveRecord
 			'user_sex' => 'User Sex',
 			'user_nickname' => 'User Nickname',
 			'user_type' => 'User Type',
-			'user_mobile_no' => 'User Mobile No',
+			'user_mobile_no' => '手机号码',
 			'user_first_name' => 'User First Name',
 			'user_last_name' => 'User Last Name',
 			'user_status' => 'User Status',

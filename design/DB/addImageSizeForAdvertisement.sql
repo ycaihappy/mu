@@ -1,1 +1,1 @@
-ALTER TABLE `mu_advertisement`  ADD COLUMN `ad_image_size` VARCHAR(50) NOT NULL COMMENT '媒体在页面显示的尺寸' AFTER `ad_type`;
+﻿ALTER TABLE `mu_advertisement`  ADD COLUMN `ad_image_size` VARCHAR(50) NULL COMMENT '媒体在页面显示的尺寸' AFTER `ad_type`;

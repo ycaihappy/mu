@@ -51,9 +51,9 @@ class SupplyForm extends CFormModel
 	public function draft()
 	{
         $addsql = "insert into mu_supply(supply_image_src,supply_city_id,supply_mu_content,supply_water_content,supply_name, supply_user_id,supply_type,supply_keyword,
-            supply_category_id,supply_content,supply_address,supply_status,supply_phone,supply_unit,supply_price,supply_valid_date)
+            supply_category_id,supply_content,supply_address,supply_status,supply_phone,supply_unit,supply_price,supply_valid_date,supply_join_date)
             values(:image,:supply_city,:muContent,:waterContent,:supply_name,:supply_user_id,:supply_type,:supply_keyword,:supply_category_id,
-            :supply_content,:supply_address,:supply_status,:supply_phone,:supply_unit,:supply_price,:supply_valid_date)";
+            :supply_content,:supply_address,:supply_status,:supply_phone,:supply_unit,:supply_price,:supply_valid_date,:supply_join_date)";
 
         $commd = Yii::app()->db->createCommand($addsql);
 
@@ -73,6 +73,7 @@ class SupplyForm extends CFormModel
         $commd->bindValue(":supply_status", 33);
         $commd->bindValue(":supply_unit",$this->unit);
         $commd->bindValue(":supply_valid_date", $this->effective_time);
+        $commd->bindValue(":supply_join_date", date('Y-m-d H:i:s'));
         $commd->execute();
 	}
 

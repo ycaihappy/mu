@@ -1,4 +1,4 @@
- <?php   if($this->beginCache('indexProduct')){ ?>           
+ <?php   #if($this->beginCache('indexProduct')){ ?>           
             <div class="hd">			
 				<span class="on"><a href="<?php echo $this->getController()->createUrl('/product/index')?>">现货中心</a></span>
 				<p class="links">
@@ -112,4 +112,4 @@
 						
 					</div>
 			
-<?php $this->endCache(); } ?>
+<?php #$this->endCache(); } ?>

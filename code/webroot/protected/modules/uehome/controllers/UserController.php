@@ -358,19 +358,20 @@ class UserController extends Controller {
         $u_model->user_join_date = date("Y-m-d");
         $u_flag = $u_model->save();
 
-        $e_model = new Enterprise();
-        $e_model->ent_user_id=$u_model->primaryKey;
-        $e_model->ent_name   = $_REQUEST['company_name'];
-        $e_model->ent_type   = $_REQUEST['company_type'];
-        $e_model->ent_location = $_REQUEST['address'];
-        $e_model->ent_chief= $_REQUEST['nickname'];
-        $e_model->ent_create_time = date("Y-m-d H:i:s");
-        $e_model->ent_city  = $_REQUEST['user_city_id'];
-        $e_model->ent_status = 33;
-        $e_flag = $e_model->save();
-
-        if ( !empty($u_flag) && !empty($e_flag) )
+        if ( !empty($u_flag) )
+        {
+            $e_model = new Enterprise();
+            $e_model->ent_user_id=$u_model->primaryKey;
+            $e_model->ent_name   = $_REQUEST['company_name'];
+            $e_model->ent_type   = $_REQUEST['company_type'];
+            $e_model->ent_location = $_REQUEST['address'];
+            $e_model->ent_chief= $_REQUEST['nickname'];
+            $e_model->ent_create_time = date("Y-m-d H:i:s");
+            $e_model->ent_city  = $_REQUEST['user_city_id'];
+            $e_model->ent_status = 33;
+            $e_flag = $e_model->save();
             echo json_encode(array('status'=>1,'data'=>array()));
+        }
         else
             echo json_encode(array('status'=>0,'data'=>array()));
     }

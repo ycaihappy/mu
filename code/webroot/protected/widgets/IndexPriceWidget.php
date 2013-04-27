@@ -8,7 +8,7 @@ class IndexPriceWidget extends CWidget
     	$price02 = Article::model()->PriceWorldList()->findAll();
         $city  = City::getCityList();
         $category = Term::model()->getTermsListByGroupId(14);
-        $rePrice=RelativeRePrice::model()->recentlyRePrice(134)->findAll();
+        $rePrice=RelativeRePrice::model()->recentlyRePrice(134,12)->findAll();
         if($rePrice)
         {
         	foreach ($rePrice as &$price)
@@ -27,7 +27,7 @@ class IndexPriceWidget extends CWidget
         		}
         	}
         }
-    	$otherPrice=RelativeRePrice::model()->recentlyRePrice(135)->findAll();
+    	$otherPrice=RelativeRePrice::model()->recentlyRePrice(135,12)->findAll();
         if($otherPrice)
         {
         	foreach ($otherPrice as &$price)

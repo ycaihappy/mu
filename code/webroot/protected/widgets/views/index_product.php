@@ -77,7 +77,7 @@
 				<table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:0" class="left_table">    
             
                     <tbody><tr>
-                      <th width="95">公司名</th>
+                      <th width="150">公司名</th>
                       <th width="60">品名</th>
                       <!--<th width="60">吨度</th>
                       <th width="60">水分</th>-->

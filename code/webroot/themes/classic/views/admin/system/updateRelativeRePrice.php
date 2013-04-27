@@ -49,6 +49,11 @@ $this->breadcrumbs=array(
 		<?php echo $form->error($model,'re_price'); ?></td>
 </tr>
 <tr>
+<td class="label">规格：</td>
+		<td><?php echo $form->textField($model,'re_specification'); ?>
+		<?php echo $form->error($model,'re_specification'); ?></td>
+</tr>
+<tr>
 <td class="label">涨跌幅度：</td>
 		<td><?php echo $form->dropDownList($model,'re_fallup',$allFallUp); ?> <?php echo $form->numberField($model,'re_margin',array('class'=>'cmp-input')); ?>
 		</td>

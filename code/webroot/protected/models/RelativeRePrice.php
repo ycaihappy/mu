@@ -50,6 +50,8 @@ class RelativeRePrice extends CActiveRecord
 			array('re_type', 'required', 'message'=>'选择价格类型！'),
 			array('re_fallup', 'required', 'message'=>'选择涨跌情况！'),
 			array('re_added_time', 'required', 'message'=>'选择数据时间！'),
+			
+			array('re_specification', 'length', 'max'=>50),
 			array('re_added_time, re_updated_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

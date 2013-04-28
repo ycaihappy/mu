@@ -1596,7 +1596,7 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .m-large-tab .bd li a{float:left;}
 .m-large-tab .bd ul{display:none;}
 .m-large-tab .bd ul.on{display:block;}
-.m-large-tab .bd li em{color:#ccc;float:right;}
+.m-large-tab .bd li em{color:#666;float:right;}
 
 .ui-purple-hd{position:relative;;background:url(imgs/v2/title_purple_bg.png) repeat-x;height:26px;line-height:26px;padding-left:10px;}
 .ui-purple-hd h6{font-weight:bold;color:#333;display:inline;float:left;}

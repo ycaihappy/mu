@@ -15,13 +15,14 @@
 				<table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:0" class="left_table theme">    
             
                     <tbody><tr>
-                      <th width="200">公司名</th>
+                      <th width="150">公司名</th>
                       <th width="60">品名</th>
                      <!-- <th width="60">吨度</th>
                       <th width="60">水分</th>-->
                       <th width="70">价格</th>
                       <th>数量</th>
-					  <th>提货地</th>
+					  <th width="60">提货地</th>
+					   <th>日期</th>
                     </tr>
 					<tr>
 					<td style="padding:0" colspan="7">
@@ -38,6 +39,7 @@
 						<span class="col-5"><?php echo number_format($product->product_price,2);?></span>
 						<span class="col-6"><?php echo $product->product_quanity.($product->unit?$product->unit->term_name:'吨')?></span>
 						<span class="col-7"><?php echo $product->city?$product->city->city_name:'未指定'?></span>
+						<span class="col-8">砝码</span>
 					</li>
 					<?php endforeach;?>
 					<?php endif;?>

@@ -62,6 +62,7 @@ if (isset($data02[$index])){
 					</table>
 					</ul>
 					<ul class="hide">
+					<h6><a href="">2012-12-12</a></h6>
 					<table cellspacing="0" cellpadding="0" width="100%">
 						<tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
 						<?php if($otherPrice):
@@ -94,6 +95,7 @@ if (isset($data02[$index])){
 						</div>
 					</ul>
 					<ul class="hide">
+					<h6><a href="">2012-12-12</a></h6>
 					<table cellspacing="0" cellpadding="0" width="100%" class="small">
 						<tr><th>币种</th><th>交易单位</th><th>中间价</th><th>现钞买入价</th><th>卖出价</th></tr>
 						<?php if(@$WHPrice):?>

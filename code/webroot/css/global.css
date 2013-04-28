@@ -1644,6 +1644,8 @@ div.errorMessage{color:red;font-weight:bold;font-size:14px;}
 .price-area table{border-left:1px solid #DEDEE0;border-bottom:1px solid #DEDEE0;}
 .price-area .small th{padding:5px 3px}
 .four-hd .ui-purple-hd span{width:70px}
+.price-area h6{text-align:center;line-height:20px;border:1px solid #DEDEE0;}
+.price-area h6 a{}
 
 .tabcontent{padding:10px}
 .tabcontent h5 {

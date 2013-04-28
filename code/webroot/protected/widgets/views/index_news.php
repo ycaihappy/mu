@@ -11,7 +11,7 @@
 if (isset($data[$index]))
 {
 ?>
-    <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" target="_blank"><?php echo $data[$index]['art_title'] ?></a><em><?php echo date("m-d",strtotime($data[$index]['art_post_date']));?></em></li>
+    <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$data[$index]['art_id']));?>" target="_blank"><?php echo CStringHelper::truncate_utf8_string($data[$index]['art_title'],14) ?></a><em><?php echo date("m-d",strtotime($data[$index]['art_post_date']));?></em></li>
                     <?php } endfor;?>			
 				</ul>
 				<ul>
@@ -19,7 +19,7 @@ if (isset($data[$index]))
 if (isset($mu_news[$index]))
 {
         ?>
-                            <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$mu_news[$index]['art_id']));?>" target="_blank"><?php echo $mu_news[$index]['art_title'] ?></a><em><?php echo date("m-d",strtotime($mu_news[$index]['art_post_date']));?></em></li>
+                            <li><a href="<?php echo Yii::app()->controller->createUrl('news/view',array('art_id'=>$mu_news[$index]['art_id']));?>" target="_blank"><?php echo CStringHelper::truncate_utf8_string($mu_news[$index]['art_title'],14) ?></a><em><?php echo date("m-d",strtotime($mu_news[$index]['art_post_date']));?></em></li>
                     <?php }endfor;?>			
 				</ul>
 			</div>

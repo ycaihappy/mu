@@ -49,7 +49,8 @@ class PriceController extends BasicAccessController
             foreach ( $data as $data_one)
             {
                 $date_key = date("Ymd", strtotime($data_one['re_added_time']));
-                $sum[$date_key][$data_one['re_type']] = $data_one['re_price']."(".$data_one['re_market'].")";
+                $sum[$date_key][$data_one['re_type']][] = $data_one['re_price'];
+                $sum[$date_key][$data_one['re_type']][] = $data_one['re_market'];
             }
         }
 

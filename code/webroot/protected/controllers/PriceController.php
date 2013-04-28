@@ -57,7 +57,7 @@ class PriceController extends BasicAccessController
         $allTerm=CCacheHelper::getAllTerm();
         $categoryName=$allTerm[$newsCategoryId]->term_name;
 
-		$this->render('summary',array('summary'=>$sum,'category'=>$categoryName));
+		$this->render('summary',array('summary'=>$sum,'categoryName'=>$categoryName));
 	}
 	
     public function actionQuery()

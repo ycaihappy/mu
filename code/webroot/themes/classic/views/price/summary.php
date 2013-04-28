@@ -9,7 +9,9 @@
 <div class="grid-690">
 	<!--module list-->
 	<div class="m-summary-list ui-m-tab ui-m-border">
-
+		<div class="hd">
+				 <span class="on"><?php echo $categoryName?></span>
+			</div>
           <div class="bd">
                 <table width="100%" cellpadding="0" border="0">
 					<tr>

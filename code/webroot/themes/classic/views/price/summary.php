@@ -1,9 +1,9 @@
 	<?php 
-#	$this->breadcrumbs=array(
-#	'首页'=>array('/site/index'),
-#	'行情中心'=>array('index'),
-#	$categoryName,
-#	);
+	$this->breadcrumbs=array(
+	'首页'=>array('/site/index'),
+	'行情中心'=>array('index'),
+	$categoryName,
+	);
 	?>
 <div class="layout-area">
 <div class="grid-690">

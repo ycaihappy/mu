@@ -62,13 +62,13 @@ if (isset($data02[$index])){
 					</table>
 					</ul>
 					<ul class="hide">
-					<h6><a href="">2012-12-12</a></h6>
+                    <h6><a href="#"><?php echo date("Y-m-d");?></a></h6>
 					<table cellspacing="0" cellpadding="0" width="100%">
-						<tr><th>品种</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
+						<tr><th>品种</th><th>规格</th><th>价格</th><th>日涨跌</th><th>市场</th></tr>
 						<?php if($otherPrice):
 								foreach ($otherPrice as $price):
 						?>
-						<tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td></tr>
+                        <tr><td><?php echo $price->re_name?></td><td><?php echo $price->re_specification;?></td><td><?php echo $price->re_price?></td><td><?php echo $price->re_fallup?></td><td><?php echo $price->re_market?></td></tr>
 						<?php endforeach;
 							endif;
 						?>
@@ -95,7 +95,7 @@ if (isset($data02[$index])){
 						</div>
 					</ul>
 					<ul class="hide">
-					<h6><a href="">2012-12-12</a></h6>
+                    <h6><a href="#"><?php echo date("Y-m-d");?></a></h6>
 					<table cellspacing="0" cellpadding="0" width="100%" class="small">
 						<tr><th>币种</th><th>交易单位</th><th>中间价</th><th>现钞买入价</th><th>卖出价</th></tr>
 						<?php if(@$WHPrice):?>

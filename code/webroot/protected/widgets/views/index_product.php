@@ -101,7 +101,7 @@
 						<span class="col-5"><?php echo number_format($product->product_price,2);?></span>
 						<span class="col-6"><?php echo $product->product_quanity.($product->unit?$product->unit->term_name:'吨')?></span>
 						<span class="col-7"><?php echo $product->city?$product->city->city_name:'未指定'?></span>
-						<span class="col-8">8月6日</span>
+                        <span class="col-8"><?php echo date("m-d",strtotime($product->product_join_date));?></span>
 					</li>
 					<?php endforeach;?>
 					<?php endif;?>

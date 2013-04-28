@@ -54,7 +54,10 @@ class PriceController extends BasicAccessController
             }
         }
 
-		$this->render('summary',array('summary'=>$sum));
+        $allTerm=CCacheHelper::getAllTerm();
+        $categoryName=$allTerm[$newsCategoryId]->term_name;
+
+		$this->render('summary',array('summary'=>$sum,'category'=>$categoryName));
 	}
 	
     public function actionQuery()
